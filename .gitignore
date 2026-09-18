@@ -1,7 +1,10 @@
 __pycache__/
-*.py[cod]
+*.py[co]
+!fbx_sdk_dist/**/*.pyd
 *$py.class
 .vscode/
 .idea/
 *.swp
 *.bak
+Maya_FBX_Material_Ingest_Tool_v*/
+Maya_FBX_Asset_Diff_and_Sync_Tool_v*/
