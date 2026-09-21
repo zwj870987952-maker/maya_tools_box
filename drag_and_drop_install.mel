@@ -26,11 +26,11 @@ global proc fbxDiffToolExecuteInstall(string $filePath) {
     $pyCmd += "root = r'" + $rootDir + "'\n";
     $pyCmd += "if root not in sys.path:\n";
     $pyCmd += "    sys.path.insert(0, root)\n";
-    $pyCmd += "import compare_and_sync_fbx_assets as diff_tool\n";
+    $pyCmd += "import maya_toolkit\n";
     $pyCmd += "import importlib\n";
-    $pyCmd += "importlib.reload(diff_tool)\n";
-    $pyCmd += "diff_tool.install_shelf_button(root)\n";
-    $pyCmd += "diff_tool.show_ui()\n";
+    $pyCmd += "importlib.reload(maya_toolkit)\n";
+    $pyCmd += "maya_toolkit.install_shelf_button(root)\n";
+    $pyCmd += "maya_toolkit.show_ui()\n";
 
     python($pyCmd);
 }

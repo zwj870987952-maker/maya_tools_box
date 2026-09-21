@@ -5,7 +5,13 @@ Maya Toolkit - 统一规范的 Maya 生产力工具箱与自动化/大模型调�
 from __future__ import absolute_import, division, print_function
 
 __version__ = "2.0.0"
-__author__ = "Maya Tools Box Team"
+import os
+import sys
+
+_root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+_compat_dir = os.path.join(_root_dir, "compat")
+if os.path.isdir(_compat_dir) and _compat_dir not in sys.path:
+    sys.path.insert(0, _compat_dir)
 
 # 导出核心层与框架层公共 API
 from .core import (
@@ -35,6 +41,10 @@ from .framework import (
 
 # 导入 tools 自动完成所有工具的注册
 from . import tools
+
+# 导出统一启动面板 UI
+from .ui import show_launcher, install_shelf_button
+show_ui = show_launcher
 
 __all__ = [
     "UndoChunkContext",

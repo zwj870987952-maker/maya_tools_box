@@ -45,38 +45,31 @@ print("预检结果:", dry_res.to_dict())
 openai_tools = maya_toolkit.export_tool_schemas(format_type="openai")
 ```
 
-更多大模型调用与各工具详细入参定义，请参考：[LLM_TOOLS_CHEATSHEET.md](file:///d:/Users/zhongweijie/Documents/GitHub/maya_tools_box/LLM_TOOLS_CHEATSHEET.md)  
-开发者扩展新工具规范，请参考：[TOOL_DEVELOPMENT_SPECIFICATION.md](file:///d:/Users/zhongweijie/Documents/GitHub/maya_tools_box/TOOL_DEVELOPMENT_SPECIFICATION.md)
+更多大模型调用与各工具详细入参定义，请参考：[llm_tools_cheatsheet.md](file:///d:/Users/zhongweijie/Documents/GitHub/maya_tools_box/docs/llm_tools_cheatsheet.md)  
+开发者扩展新工具规范，请参考：[tool_development_specification.md](file:///d:/Users/zhongweijie/Documents/GitHub/maya_tools_box/docs/tool_development_specification.md)
 
 ---
 
-## 🌟 跨机器安装方法 (任选一种)
-
-本工具为**绿色便携免配置设计**，内置了专为 Maya 编译的官方 FBX SDK 库及沙箱后备引擎，将本工具解压到任何电脑的任意文件夹（如桌面、D盘工具库等）后即可运行：
+## 🌟 跨机器安装与启动方法 (任选一种)
 
 ### 🚀 方法一：视口一键拖拽安装 (最推荐，3秒搞定)
 1. 打开 Autodesk Maya（支持 Maya 2017 ~ 2026+）。
 2. 在 Windows 文件管理器中，将本文件夹中的 **`drag_and_drop_install.mel`** 直接鼠标拖拽到 Maya 的 **3D 视口中心**。
-3. Maya 会弹出安装成功提示，并在您当前的工具架（Shelf）上自动生成专有图标按钮：
-   - 按钮图标：材质球 + 醒目金色 `DIFF` 标牌。
-   - 随点随用，重启 Maya 依然保留！
+3. Maya 会弹出安装成功提示，并在您当前的工具架（Shelf）上自动生成专有图标按钮，并自动弹出统一工具箱主面板！
 
 ---
 
 ### 💻 方法二：脚本编辑器一键启动 (临时使用或集成流水线)
-打开 Maya **脚本编辑器 (Script Editor)** -> 切换到 **Python** 标签页，粘贴并运行以下代码（请将路径换为当前工具所在文件夹）：
+打开 Maya **脚本编辑器 (Script Editor)** -> 切换到 **Python** 标签页，运行以下两行代码即可打开统一控制台：
 
 ```python
 import sys
-
-# 替换为您存放工具的具体文件夹路径
 tool_dir = r"D:/path/to/maya_tools_box"
-
 if tool_dir not in sys.path:
     sys.path.insert(0, tool_dir)
 
-import import_fbx_materials_to_matching_objects as diff_tool
-diff_tool.show_ui()
+import maya_toolkit
+maya_toolkit.show_ui()
 ```
 
 ---
