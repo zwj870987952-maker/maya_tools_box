@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "nodes": [
+    {
+      "id": "node_names_1",
+      "type": "maya.nodes.node_names",
+      "title": "节点名称",
+      "position": [-520.0, -140.0],
+      "parameters": {
+        "names": ["pCube1", "pSphere1", "pCube2"]
+      }
+    },
+    {
+      "id": "node_names_2",
+      "type": "maya.nodes.node_names",
+      "title": "节点名称",
+      "position": [-520.0, 60.0],
+      "parameters": {
+        "names": ["pCube2", "pCone1"]
+      }
+    },
+    {
+      "id": "merge_1",
+      "type": "transform.node_list.merge",
+      "title": "合并节点列表",
+      "position": [-260.0, -40.0],
+      "parameters": {}
+    },
+    {
+      "id": "unique_1",
+      "type": "transform.node_list.unique",
+      "title": "去重节点列表",
+      "position": [-30.0, -40.0],
+      "parameters": {}
+    },
+    {
+      "id": "sort_by_name_1",
+      "type": "transform.node_list.sort_by_name",
+      "title": "按名称排序节点",
+      "position": [200.0, -40.0],
+      "parameters": {
+        "name_scope": "short",
+        "case_sensitive": false,
+        "descending": false
+      }
+    },
+    {
+      "id": "text_1",
+      "type": "constant.text",
+      "title": "文本",
+      "position": [200.0, -220.0],
+      "parameters": {
+        "value": "Cube"
+      }
+    },
+    {
+      "id": "filter_by_name_1",
+      "type": "transform.node_list.filter_by_name",
+      "title": "按名称过滤节点",
+      "position": [440.0, -60.0],
+      "parameters": {
+        "match_mode": "contains",
+        "case_sensitive": false
+      }
+    },
+    {
+      "id": "print_result_1",
+      "type": "debug.print_result",
+      "title": "打印结果",
+      "position": [700.0, -140.0],
+      "parameters": {
+        "label": "匹配节点"
+      }
+    },
+    {
+      "id": "print_result_2",
+      "type": "debug.print_result",
+      "title": "打印结果",
+      "position": [700.0, 20.0],
+      "parameters": {
+        "label": "未匹配节点"
+      }
+    }
+  ],
+  "connections": [
+    {
+      "source_node": "node_names_1",
+      "source_port": "nodes",
+      "target_node": "merge_1",
+      "target_port": "nodes_a"
+    },
+    {
+      "source_node": "node_names_2",
+      "source_port": "nodes",
+      "target_node": "merge_1",
+      "target_port": "nodes_b"
+    },
+    {
+      "source_node": "merge_1",
+      "source_port": "nodes",
+      "target_node": "unique_1",
+      "target_port": "nodes"
+    },
+    {
+      "source_node": "unique_1",
+      "source_port": "nodes",
+      "target_node": "sort_by_name_1",
+      "target_port": "nodes"
+    },
+    {
+      "source_node": "sort_by_name_1",
+      "source_port": "nodes",
+      "target_node": "filter_by_name_1",
+      "target_port": "nodes"
+    },
+    {
+      "source_node": "text_1",
+      "source_port": "value",
+      "target_node": "filter_by_name_1",
+      "target_port": "pattern"
+    },
+    {
+      "source_node": "filter_by_name_1",
+      "source_port": "matched_nodes",
+      "target_node": "print_result_1",
+      "target_port": "input"
+    },
+    {
+      "source_node": "filter_by_name_1",
+      "source_port": "unmatched_nodes",
+      "target_node": "print_result_2",
+      "target_port": "input"
+    }
+  ]
+}
