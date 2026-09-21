@@ -1,9 +1,52 @@
-# Maya 外部 FBX 资产深度比对与差异同步工具 (跨机器便携完整版)
+# Maya 生产力工具箱 (Maya Tools Box v2.0)
 
-> **核心设计理念**：
-> 1. **全维度资产深度比对**：纯内存直读外部 FBX 资产，比对网格几何拓扑（顶点数、多边形面数、三角化面数、UV 集）、材质球与分面指派、空间位姿（位移、旋转、缩放）。
-> 2. **差异精准同步与修复**：支持选择性“一键同步材质与分面”、“一键对齐空间位姿”、“视口高亮定位”及“导出 Markdown 审核报告”。
-> 3. **零场景污染**：“比对阶段绝不导入模型，同步阶段只改属性”——杜绝冗余几何体、骨骼、灯光或相机进入 Maya 视口与大纲。
+> **工业级 Maya 生产力工具集 & 大模型 (LLM / Agent) 脚本调用统一框架**
+> - **统一规范架构**：公共基础库 (`maya_toolkit.core`) + 框架协议 (`maya_toolkit.framework`) + 业务工具层 (`maya_toolkit.tools`)。
+> - **大模型直接调取**：支持标准 JSON Schema / OpenAI Function Calling / MCP Tools 导出，大模型可通过单行 `execute_tool(tool_id, args)` 调度任何工具。
+> - **安全预检与事务保障**：所有工具支持 `dry_run` 预检模式（零场景污染），正式执行严格受控于 Maya 原生单层 Undo Chunk（`Ctrl+Z` 一键撤销）。
+> - **100% 保持向后兼容**：保留原有根目录脚本入口与 Shelf 视口一键拖拽安装，平滑升级无缝使用。
+
+---
+
+## 🧰 内置六大生产力工具一览
+
+| 工具 ID (`tool_id`) | 工具名称 | 分类 | 核心功能简介 |
+| :--- | :--- | :--- | :--- |
+| **`compare_and_sync_fbx`** | FBX外部资产深度比对与同步 | Pipeline | 纯内存读取外部FBX，全维度比对拓扑/材质/位姿并选择性精准同步 |
+| **`assign_materials_by_rows`** | 双列表按行一对一材质指定 | Modeling | 严格按行号传递材质，支持分面多材质与拓扑不一致安全降级 |
+| **`copy_overlapping_weights`** | 复制重叠位置顶点蒙皮权重 | Rigging | OpenMaya 2.0 空间哈希检索，毫秒级快速传递重叠点蒙皮权重 |
+| **`export_sets_to_fbx`** | 选择集批量导出 FBX 工具 | Pipeline | 自动读取用户选择集 (objectSet)，批量导出为独立FBX文件 |
+| **`fix_rotation_winding`** | 欧拉旋转360度跳变修正工具 | Animation | 识别并消除 ±360°/±720° 异常阶跃导致的自转暴走，切线无损保护 |
+| **`clean_namespaces`** | 场景命名空间清理工具 | Pipeline | 本地命名空间安全合并至根目录，引用节点平滑迁移消除命名空间 |
+
+---
+
+## 🤖 大模型 (LLM / Agent) 与自动化流水线调用
+
+通过统一派发器，大模型可以精准执行任务或进行预检：
+
+```python
+import sys
+tool_root = r"D:/Users/zhongweijie/Documents/GitHub/maya_tools_box"
+if tool_root not in sys.path:
+    sys.path.insert(0, tool_root)
+
+import maya_toolkit
+
+# 1. 预检模式 (Dry-Run: 仅做校验，绝不修改场景)
+dry_res = maya_toolkit.execute_tool(
+    "clean_namespaces",
+    {"nodes": ["char:body"]},
+    dry_run=True
+)
+print("预检结果:", dry_res.to_dict())
+
+# 2. 导出所有工具的 OpenAI Function Calling / MCP Tools 定义规范
+openai_tools = maya_toolkit.export_tool_schemas(format_type="openai")
+```
+
+更多大模型调用与各工具详细入参定义，请参考：[LLM_TOOLS_CHEATSHEET.md](file:///d:/Users/zhongweijie/Documents/GitHub/maya_tools_box/LLM_TOOLS_CHEATSHEET.md)  
+开发者扩展新工具规范，请参考：[TOOL_DEVELOPMENT_SPECIFICATION.md](file:///d:/Users/zhongweijie/Documents/GitHub/maya_tools_box/TOOL_DEVELOPMENT_SPECIFICATION.md)
 
 ---
 

@@ -298,4 +298,5 @@ def remove_namespace_from_scene():
         cmds.undoInfo(closeChunk=True)
 
 
-remove_namespace_from_scene()
+if __name__ == "__main__":
+    remove_namespace_from_scene()
