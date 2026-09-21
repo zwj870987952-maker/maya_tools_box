@@ -269,4 +269,7 @@ class WeightsCopyTool(BaseMayaTool):
 
     def show_ui(self, parent=None):
         import copy_overlapping_weights
-        return copy_overlapping_weights.show_ui(parent=parent)
+        try:
+            return copy_overlapping_weights.show_ui(parent=parent)
+        except TypeError:
+            return copy_overlapping_weights.show_ui()

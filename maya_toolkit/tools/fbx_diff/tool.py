@@ -184,4 +184,7 @@ class FBXDiffSyncTool(BaseMayaTool):
 
     def show_ui(self, parent=None):
         import compare_and_sync_fbx_assets as diff_mod
-        return diff_mod.show_ui(parent=parent)
+        try:
+            return diff_mod.show_ui(parent=parent)
+        except TypeError:
+            return diff_mod.show_ui()

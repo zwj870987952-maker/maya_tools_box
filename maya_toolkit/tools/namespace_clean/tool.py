@@ -264,3 +264,7 @@ class NamespaceCleanTool(BaseMayaTool):
             },
             warnings=errors
         )
+
+    def show_ui(self, parent=None):
+        from .ui import show_ui as launch_clean_ui
+        return launch_clean_ui(parent=parent)

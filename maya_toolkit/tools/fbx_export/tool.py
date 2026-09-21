@@ -236,4 +236,7 @@ class FBXExportTool(BaseMayaTool):
 
     def show_ui(self, parent=None):
         import export_sets_to_fbx
-        return export_sets_to_fbx.show_ui(parent=parent)
+        try:
+            return export_sets_to_fbx.show_ui(parent=parent)
+        except TypeError:
+            return export_sets_to_fbx.show_ui()

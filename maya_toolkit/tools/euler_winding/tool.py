@@ -115,7 +115,8 @@ class EulerWindingTool(BaseMayaTool):
         return ToolResult.ok(message=msg, data=stats)
 
     def show_ui(self, parent=None):
-        from ...core.ui_base import get_maya_main_window
-        # 兼容调用原 UI
         import fix_rotation_winding
-        return fix_rotation_winding.show_ui(parent=parent or get_maya_main_window())
+        try:
+            return fix_rotation_winding.show_ui(parent=parent)
+        except TypeError:
+            return fix_rotation_winding.show_ui()
