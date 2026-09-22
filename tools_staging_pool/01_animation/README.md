@@ -18,6 +18,9 @@
 | 10 | **关键帧阶梯递减偏移工具 (Stagger/Offset)** | [stagger_offset](stagger_offset/批量减选关键帧偏移.py) | 制作重叠动作 (Overlapping Action) 与依次延迟动画的必备工具。自动对选中控制器链逐级减选并向后平移关键帧。 | P2 - 进阶扩展 |
 | 11 | **世界空间坐标锁定 (lockToWorld)** | [lock_to_world](lock_to_world/jop_lockToWorld.py) | 一键将骨骼或控制器在指定时间段内“钉死”在世界坐标中（经典防滑步、手部固定抓握对齐工具）。 | P2 - 进阶扩展 |
 | 12 | **Maya动画重定向工具 (Animation Retarget)** | [animation_retarget](animation_retarget/动画重定向.py) | 跨骨骼/控制器的动画批量转移工具。支持通道映射自定义、配置保存/加载、右键批量重定向。 | P2 - 进阶扩展 |
+| 13 | **动画层关键帧区间书签生成器** | [anim_layer_keyframe_bookmark](anim_layer_keyframe_bookmark/anim_layer_keyframe_bookmark.py) | 提取所选物体在当前动画层级上的关键帧，在相邻关键帧之间自动创建相邻色彩互斥的时间滑块书签 (Bookmarks)。 | P2 - 进阶扩展 |
+| 14 | **动画层逐关键帧命令执行器 (AnimLayer Key Runner)** | [anim_layer_key_runner](anim_layer_key_runner/anim_layer_key_runner.py) | 智能检索选中物体在指定动画层上的关键帧，逐帧跳转并批量触发 MEL/Python 命令（如 asAutoSwitchFKIK 自动切换匹配）。 | P1 - 核心高频 |
+| 15 | **动画层书签关键帧修剪器 (Bookmark Trimmer)** | [anim_layer_bookmark_trimmer](anim_layer_bookmark_trimmer/anim_layer_bookmark_trimmer.py) | 根据时间滑块书签起止端点，仅保留选定动画层在书签起始与结束处的关键帧，修剪清理所有中间非端点帧。支持原子撤销与预检。 | P1 - 核心高频 |
 
 ## 整合至 `maya_toolkit` 的规范要求
 当您挑选本目录中的工具进行正式重构时，请遵循以下规范：

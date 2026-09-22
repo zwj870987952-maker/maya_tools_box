@@ -1,0 +1,134 @@
+// =========================================================================
+// 动画层逐关键帧批量命令执行器 (Anim Layer Keyframe Command Runner) - MEL 版本
+// =========================================================================
+// 功能说明：
+//   智能检索当前选中的物体在指定动画层（或当前在动画层面板中高亮的层）上的所有关键帧，
+//   并在每个关键帧处自动跳转时间轴并触发指定的 MEL 命令。
+// 
+// 典型用法：
+//   - Advanced Skeleton: 在动画层的所有关键帧处批量执行 asAutoSwitchFKIK 实现无缝匹配
+//   - 姿态烘焙/对齐: 仅针对动画层关键帧逐帧对齐
+// =========================================================================
+
+global proc animLayerKeyRunnerExecute(string $commandToRun, string $specifiedLayer, int $onlyInPlayback) {
+    string $selectedObjects[] = `ls -selection`;
+
+    if (size($selectedObjects) == 0) {
+        error "请先选中需要处理的控制器或物体！";
+        return;
+    }
+
+    // 1. 获取目标动画层
+    string $targetLayer = "";
+
+    if ($specifiedLayer != "") {
+        if (`objExists $specifiedLayer` && `nodeType $specifiedLayer` == "animLayer") {
+            $targetLayer = $specifiedLayer;
+        } else {
+            error ("指定的动画层不存在: " + $specifiedLayer);
+            return;
+        }
+    } else {
+        // 从动画层编辑器界面 (AnimLayerTabanimLayerEditor) 中获取当前高亮选中的层
+        if (`treeView -exists "AnimLayerTabanimLayerEditor"`) {
+            string $uiSelected[] = `treeView -query -selectItem "AnimLayerTabanimLayerEditor"`;
+            if (size($uiSelected) > 0 && `objExists $uiSelected[0]`) {
+                $targetLayer = $uiSelected[0];
+            }
+        }
+        
+        // 如果面板未打开或未选中，查询所有标记为 selected 的 animLayer
+        if ($targetLayer == "") {
+            string $allLayers[] = `ls -type "animLayer"`;
+            for ($l in $allLayers) {
+                if (`animLayer -query -selected $l`) {
+                    $targetLayer = $l;
+                    break;
+                }
+            }
+        }
+    }
+
+    if ($targetLayer == "") {
+        error "未检测到当前选中的动画层！请在【动画层编辑器】中点击选中一个动画层，或者在参数中指定层名。";
+        return;
+    }
+
+    print("// ===================================================\n");
+    print("// 目标动画层: [" + $targetLayer + "]\n");
+
+    // 2. 获取选中物体在该动画层上的所有动画曲线
+    string $layerCurves[];
+    for ($obj in $selectedObjects) {
+        string $animPlugs[] = `listAnimatable $obj`;
+        for ($plug in $animPlugs) {
+            string $curves[] = `animLayer -query -findCurveForPlug $plug $targetLayer`;
+            for ($c in $curves) {
+                if ($c != "") {
+                    $layerCurves[size($layerCurves)] = $c;
+                }
+            }
+        }
+    }
+
+    $layerCurves = stringArrayRemoveDuplicates($layerCurves);
+
+    if (size($layerCurves) == 0) {
+        warning ("选中的物体在动画层 [" + $targetLayer + "] 上没有检测到任何动画数据！\n");
+        return;
+    }
+
+    // 3. 获取关键帧时间
+    float $allKeys[];
+    if ($onlyInPlayback) {
+        float $minTime = `playbackOptions -q -minTime`;
+        float $maxTime = `playbackOptions -q -maxTime`;
+        $allKeys = `keyframe -query -timeChange -time ($minTime + ":" + $maxTime) $layerCurves`;
+    } else {
+        $allKeys = `keyframe -query -timeChange $layerCurves`;
+    }
+
+    if (size($allKeys) == 0) {
+        warning ("选中的物体在动画层 [" + $targetLayer + "] 的指定范围内没有任何关键帧！\n");
+        return;
+    }
+
+    // 4. 排序与去重
+    float $sortedKeys[] = sort($allKeys);
+    float $uniqueKeys[];
+    $uniqueKeys[0] = $sortedKeys[0];
+    int $uniqueCount = 1;
+
+    for ($i = 1; $i < size($sortedKeys); $i++) {
+        if (abs($sortedKeys[$i] - $sortedKeys[$i - 1]) > 0.001) {
+            $uniqueKeys[$uniqueCount] = $sortedKeys[$i];
+            $uniqueCount++;
+        }
+    }
+
+    print("// 共检测到 " + $uniqueCount + " 个关键帧，开始执行...\n");
+    print("// 执行命令: " + $commandToRun + "\n");
+    print("// ===================================================\n");
+
+    // 5. 开启撤销块并逐帧执行
+    undoInfo -openChunk;
+    for ($i = 0; $i < $uniqueCount; $i++) {
+        float $frame = $uniqueKeys[$i];
+        currentTime -edit $frame;
+        select -r $selectedObjects;
+        eval($commandToRun);
+    }
+    undoInfo -closeChunk;
+
+    print("完成！已在动画层 [" + $targetLayer + "] 的 " + $uniqueCount + " 个关键帧上处理完毕。\n");
+}
+
+// -------------------------------------------------------------------------
+// 快捷调用入口（默认以 asAutoSwitchFKIK 在当前层、播放范围内执行）
+// -------------------------------------------------------------------------
+global proc animLayerKeyRunnerQuick() {
+    animLayerKeyRunnerExecute("asAutoSwitchFKIK", "", 1);
+}
+
+// 脚本直接加载时自动执行快捷调用
+animLayerKeyRunnerQuick();

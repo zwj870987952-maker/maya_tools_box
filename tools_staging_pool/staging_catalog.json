@@ -84,6 +84,27 @@
     "desc": "跨骨骼/控制器的动画批量转移工具。支持通道映射自定义、配置保存/加载、右键批量重定向。"
   },
   {
+    "category": "01_animation",
+    "folder": "01_animation/anim_layer_keyframe_bookmark",
+    "name": "动画层关键帧区间书签生成器",
+    "entry": "anim_layer_keyframe_bookmark.py",
+    "desc": "提取所选物体在当前动画层级上的关键帧，在相邻关键帧之间自动创建相邻色彩互斥的时间滑块书签 (Bookmarks)。"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/anim_layer_key_runner",
+    "name": "动画层逐关键帧命令执行器 (AnimLayer Key Runner)",
+    "entry": "anim_layer_key_runner.py",
+    "desc": "智能检索选中物体在指定动画层（或当前激活层）上的专属关键帧，逐帧跳转并批量触发 MEL 或 Python 命令（如 asAutoSwitchFKIK 自动切换匹配、打关键帧等）。"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/anim_layer_bookmark_trimmer",
+    "name": "动画层书签关键帧修剪器 (Bookmark Trimmer)",
+    "entry": "anim_layer_bookmark_trimmer.py",
+    "desc": "根据时间滑块书签起止端点，仅保留选定动画层在书签起始与结束处的关键帧，修剪清理所有中间非端点帧。支持原子撤销与预检。"
+  },
+  {
     "category": "02_rigging_hierarchy",
     "folder": "02_rigging_hierarchy/relationship_tools_v19",
     "name": "高级层级与空间切换工具 (Relationship Tools v19)",
