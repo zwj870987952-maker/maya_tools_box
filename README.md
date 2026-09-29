@@ -149,10 +149,14 @@ maya_tools_box/
 │   └── ui/                           # 统一启动面板与界面逻辑
 │
 ├── compat/                           # 旧脚本入口的兼容转发层
-├── tools_staging_pool/               # 待整理与实验工具储备池 (8大分类、54项工具)
-│   ├── 01_animation/                 # 动画类待整理脚本
-│   ├── 02_rigging/                   # 绑定类待整理脚本
-│   ├── 03_transforms_modeling/       # 变换与建模类待整理脚本
+├── tools_staging_pool/               # 待整理开源工具储备池 (8大分类、109项开源工具，明文代码完全可见)
+│   ├── 01_animation/                 # 动画类开源脚本 (49项)
+│   ├── 02_rigging_hierarchy/         # 绑定与层级类开源脚本 (14项)
+│   ├── 03_transforms_modeling/       # 变换与建模类开源脚本 (15项)
+│   └── ...
+├── tools_closed_source_pool/         # 闭源与二进制插件工具池 (18项已编译/商业闭源插件)
+│   ├── 01_animation/                 # 动画类编译/混淆工具
+│   ├── 02_rigging_hierarchy/         # 绑定类 C++ 动态插件 (.mll)
 │   └── ...
 │
 ├── tests/                            # 自动化单元测试集

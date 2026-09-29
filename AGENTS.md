@@ -55,7 +55,7 @@ flowchart LR
 - `maya_toolkit/framework/`：基础协议与调度层（`BaseMayaTool`、`ToolResult`、`ToolRegistry`、`executor`）。
 - `maya_toolkit/tools/`：正式生产工具层（已转正的标准化工具）。
 - `maya_toolkit/ui/`：统一启动器主界面（`maya_toolkit.show_ui()`）。
-- `tools_staging_pool/`：自有旧脚本与新原型的待整理库（当前目录说明列有 8 大分类、54 项储备工具）。
+- `tools_staging_pool/`：自有旧脚本与新原型的待整理库（当前收纳 8 大分类、109 项开源待整理工具，另有独立闭源工具池 18 项）。
 
 ---
 
