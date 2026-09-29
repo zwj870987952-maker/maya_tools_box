@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<HIKRetargeter dest="GordoHP">
+    <MappedRetargeter body="Head" className="DefaultRetargeter" destRig="Head_CC" destSkel="Head_JJ" id="15" matrixSource="HeadGX" name="CustomRigDefaultMappingNode21" type="R"/>
+    <MappedRetargeter body="RightHand" className="DefaultRetargeter" destRig="R_Wrist_FK_CC" destSkel="R_Palm" id="14" matrixSource="RightHandGX" name="CustomRigDefaultMappingNode20" offsetX="-7.02698272903e-08" offsetY="-2.16775765693e-06" offsetZ="-4.83194817491e-08" type="T"/>
+    <MappedRetargeter body="Neck" className="DefaultRetargeter" destRig="Neck_CC" destSkel="Neck_JJ" id="20" matrixSource="NeckGX" name="CustomRigDefaultMappingNode23" type="R"/>
+    <MappedRetargeter body="Head" className="DefaultRetargeter" destRig="Head_CC" destSkel="Head_JJ" id="15" matrixSource="HeadGX" name="CustomRigDefaultMappingNode22" type="T"/>
+    <MappedRetargeter body="Hips" className="DefaultRetargeter" destRig="COG_CC" destSkel="Spine_1" id="1" matrixSource="HipsGX" name="CustomRigDefaultMappingNode2" type="T"/>
+    <MappedRetargeter body="LeftFoot" className="DefaultRetargeter" destRig="L_Leg_IK_CC" destSkel="L_Ankle_JJ" id="4" matrixSource="LeftFootGX" name="CustomRigDefaultMappingNode3" offsetX="68.5491027832" offsetY="-90.0" type="R"/>
+    <MappedRetargeter body="Hips" className="DefaultRetargeter" destRig="COG_CC" destSkel="Spine_1" id="1" matrixSource="HipsGX" name="CustomRigDefaultMappingNode1" type="R"/>
+    <MappedRetargeter body="RightFoot" className="DefaultRetargeter" destRig="R_Leg_IK_CC" destSkel="R_Ankle_JJ" id="7" matrixSource="RightFootGX" name="CustomRigDefaultMappingNode6" offsetX="-2.77883782651e-09" offsetY="2.54197080052e-10" offsetZ="2.4333610682e-09" type="T"/>
+    <MappedRetargeter body="Spine2" className="DefaultRetargeter" destRig="Spine_End_CC" destSkel="Spine_4" id="1000" matrixSource="Spine2GX" name="CustomRigDefaultMappingNode7" type="R"/>
+    <MappedRetargeter body="LeftFoot" className="DefaultRetargeter" destRig="L_Leg_IK_CC" destSkel="L_Ankle_JJ" id="4" matrixSource="LeftFootGX" name="CustomRigDefaultMappingNode4" offsetX="5.55111512313e-17" offsetY="2.54196885763e-10" offsetZ="2.4333610682e-09" type="T"/>
+    <MappedRetargeter body="RightFoot" className="DefaultRetargeter" destRig="R_Leg_IK_CC" destSkel="R_Ankle_JJ" id="7" matrixSource="RightFootGX" name="CustomRigDefaultMappingNode5" offsetY="90.0" offsetZ="90.0" type="R"/>
+    <MappedRetargeter body="Spine2" className="DefaultRetargeter" destRig="Spine_End_CC" destSkel="Spine_4" id="1000" matrixSource="Spine2GX" name="CustomRigDefaultMappingNode8" offsetX="-4.83176397258e-24" offsetY="0.283653497696" offsetZ="3.83208631494e-10" type="T"/>
+    <MappedRetargeter body="LeftShoulder" className="DefaultRetargeter" destRig="L_Clavicule_CC" destSkel="L_arm_1" id="18" matrixSource="LeftShoulderGX" name="CustomRigDefaultMappingNode9" type="R"/>
+    <MappedRetargeter body="LeftArm" className="DefaultRetargeter" destRig="L_Shoulder_FK_CC" destSkel="L_arm_2_Twist_0" id="9" matrixSource="LeftArmGX" name="CustomRigDefaultMappingNode10" type="R"/>
+    <MappedRetargeter body="LeftForeArm" className="DefaultRetargeter" destRig="L_Elbow_FK_CC" destSkel="L_arm_3_Twist_0" id="10" matrixSource="LeftForeArmGX" name="CustomRigDefaultMappingNode11" type="R"/>
+    <MappedRetargeter body="LeftForeArm" className="DefaultRetargeter" destRig="L_Elbow_FK_CC" destSkel="L_arm_3_Twist_0" id="10" matrixSource="LeftForeArmGX" name="CustomRigDefaultMappingNode12" offsetX="1.11022302463e-16" offsetY="-2.22044604925e-16" offsetZ="2.77555756156e-17" type="T"/>
+    <MappedRetargeter body="LeftHand" className="DefaultRetargeter" destRig="L_Wrist_FK_CC" destSkel="L_Palm" id="11" matrixSource="LeftHandGX" name="CustomRigDefaultMappingNode13" offsetX="-180.0" offsetY="-6.32237529755" offsetZ="-21.4735507965" type="R"/>
+    <MappedRetargeter body="LeftHand" className="DefaultRetargeter" destRig="L_Wrist_FK_CC" destSkel="L_Palm" id="11" matrixSource="LeftHandGX" name="CustomRigDefaultMappingNode14" offsetX="-4.89394622605e-08" offsetY="-2.19903633081e-08" offsetZ="1.09291270478e-10" type="T"/>
+    <MappedRetargeter body="RightShoulder" className="DefaultRetargeter" destRig="R_Clavicule_CC" destSkel="R_arm_1" id="19" matrixSource="RightShoulderGX" name="CustomRigDefaultMappingNode15" offsetX="180.0" type="R"/>
+    <MappedRetargeter body="RightArm" className="DefaultRetargeter" destRig="R_Shoulder_FK_CC" destSkel="R_arm_2_Twist_0" id="12" matrixSource="RightArmGX" name="CustomRigDefaultMappingNode16" offsetX="180.0" type="R"/>
+    <MappedRetargeter body="RightForeArm" className="DefaultRetargeter" destRig="R_Elbow_FK_CC" destSkel="R_arm_3_Twist_0" id="13" matrixSource="RightForeArmGX" name="CustomRigDefaultMappingNode17" offsetX="180.0" type="R"/>
+    <MappedRetargeter body="RightForeArm" className="DefaultRetargeter" destRig="R_Elbow_FK_CC" destSkel="R_arm_3_Twist_0" id="13" matrixSource="RightForeArmGX" name="CustomRigDefaultMappingNode18" offsetX="2.22044604925e-16" offsetY="-4.4408920985e-16" offsetZ="4.16333634234e-17" type="T"/>
+    <MappedRetargeter body="RightHand" className="DefaultRetargeter" destRig="R_Wrist_FK_CC" destSkel="R_Palm" id="14" matrixSource="RightHandGX" name="CustomRigDefaultMappingNode19" offsetX="180.0" offsetZ="180.0" type="R"/>
+</HIKRetargeter>

@@ -1,0 +1,21 @@
+As of Maya 2022, there is now the option to install Maya with Python 3 or the
+legacy Python 2.7 version. Which version you have installed is determined
+during the Maya installation itself. If you are unsure of which version you
+have installed, follow the steps outlined below.
+
+
+To determine which Python version you have installed for Maya:
+1. Open Maya.
+2. In the Script Editor copy and paste:
+
+from __future__ import print_function
+import sys
+print('/'*10, '\n')
+if sys.version_info.major == 3:
+    print('Python version is: \tpython 3')
+else:
+    print('Python version is: \tpython 2.7')
+print('', '/'*10, sep='\n')
+
+
+3. Run the script and the result will tell you which version of Python you are on.

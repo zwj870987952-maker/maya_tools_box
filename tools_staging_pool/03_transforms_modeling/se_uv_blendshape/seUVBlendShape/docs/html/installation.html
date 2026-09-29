@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation &mdash; seUVBlendShape 3.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MEL Command Reference" href="melCommand.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> seUVBlendShape
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+               3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#easy-install-script">Easy Install Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manual-install">Manual Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uninstall-script">Uninstall Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manual-uninstall">Manual Uninstall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upgrading-from-trial-version">Upgrading From Trial Version</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="melCommand.html">MEL Command Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonReference.html">Python Module Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nodeReference.html">Node Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples and Demo Videos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">seUVBlendShape</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>Installing the plugin and tools is very simple and uses Maya’s module feature
+to keep everything separate from your existing tools and paths. More information
+can be found in the <a class="reference external" href="http://help.autodesk.com/view/MAYAUL/2015/ENU/?guid=__files_GUID_130A3F57_2A5D_4E56_B066_6B86F68EEA22_htm">Maya’s documentation</a>.</p>
+<p>Do not confuse this with a Python module. This is a specific setup that Maya
+uses to add locations for loading external plugins and scripts in the form of a
+module description file. This file is called <em>seUVBlendShape.mod</em> in the root
+folder of the download. You do not need to edit or copy this file as the install
+scripts explained below will do all the work required for a quick and painless
+install.</p>
+<p>You can also watch the <a class="reference internal" href="examples.html#examples-install-uninstall"><span class="std std-ref">install/uninstall demo video</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before you begin, move the root seUVBlendShape folder to a location where you want
+to keep it for use. This does <strong>NOT</strong> have to be in any special directory or Maya path.
+If you happen to move this folder after you install, you will need to uninstall
+first and then run the installation script again.</p>
+<p>Do not move or rename any files or folders inside the download. Doing so will break
+the loading and importing of these tools.</p>
+</div>
+<div class="section" id="easy-install-script">
+<h2>Easy Install Script<a class="headerlink" href="#easy-install-script" title="Permalink to this headline">¶</a></h2>
+<p>In the root of the seUVBlendShape download folder there is a MEL script called
+<em>seUVBlendShape_install.mel</em>. This script will automatically install the
+module description file and load the shelf. To run this script:</p>
+<ol class="arabic simple">
+<li><p>Launch an interactive Maya session</p></li>
+<li><p>Source the <code class="docutils literal notranslate"><span class="pre">seUVBlendShape_install.mel</span></code> script that is located in the root directory
+of the download by one of the following ways:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>Calling the <a class="reference external" href="http://help.autodesk.com/cloudhelp/2015/ENU/Maya-Tech-Docs/Commands/source.html">source MEL command</a> with the full path to this script <strong>OR</strong></p></li>
+<li><p>In the script editor, source the script through the File-&gt;Source Script menu <strong>OR</strong></p></li>
+<li><p>Drag and drop the script into the viewport. <em>(if supported)</em></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On Windows, if you are not able to drag and drop the script, make sure you are
+<strong>NOT</strong> running Maya as administrator. If so, launch Maya normally which
+should allow you to drag and drop the script into the viewport.</p>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>A prompt will appear asking which folder to save the module description
+file into. This is a special folder that Maya searches to load modules.
+Normally this is <em>[your home directory]/maya[version]/modules</em> but it can be any
+path set with the <em>MAYA_MODULE_PATH</em> environment variable. You must
+have write permissions to this directory.</p></li>
+<li><p>The script will save the module description file into that directory,
+load the module, then add the shelf. That’s it! You are ready to go!</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to install in a non-interactive Maya session, open and read
+the information inside the <em>seUVBlendShape_install.mel</em> file for instructions.</p>
+</div>
+</div>
+<div class="section" id="manual-install">
+<h2>Manual Install<a class="headerlink" href="#manual-install" title="Permalink to this headline">¶</a></h2>
+<p>If you prefer to manually install the module without the use of the install
+script, you can do so by:</p>
+<ol class="arabic simple">
+<li><p>Copy the <code class="docutils literal notranslate"><span class="pre">seUVBlendShape.mod</span></code> file to one of Maya’s module search paths.</p></li>
+<li><p>Open the file in a text editor and replace the <code class="docutils literal notranslate"><span class="pre">%modulePath%</span></code> string with the
+location of the root seUVBlendShape module directory. Then save the file. See Maya’s
+module documentation from above for more information.</p></li>
+<li><p>Launch Maya and load the shelf located in the <code class="docutils literal notranslate"><span class="pre">shelves</span></code> folder inside
+the module.</p></li>
+</ol>
+<p>If you do not see seUVBlendShape in the plug-in manager or the seUVBlendShape
+Python module does not import, check the paths in the module description
+file and you followed the rules mentioned in Maya’s documentation.</p>
+</div>
+<div class="section" id="uninstall-script">
+<h2>Uninstall Script<a class="headerlink" href="#uninstall-script" title="Permalink to this headline">¶</a></h2>
+<p>One of the nice things about using Maya’s module feature is the easy removal
+if you need to uninstall. After uninstalling, the next time Maya is restarted,
+the seUVBlendShape plug-in and scripts will no longer be availabe.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This will <strong>NOT</strong> delete the plug-in or scripts from the file system. Only the
+shelf and the <em>seUVBlendShape.mod</em> file inside your module directory where
+it was installed will be removed. You can reinstall by repeating the install
+process again.</p>
+</div>
+<ol class="arabic simple">
+<li><p>Source the <code class="docutils literal notranslate"><span class="pre">seUVBlendShape_uninstall.mel</span></code> script in one of the same ways
+as the installation script above.</p></li>
+<li><p>A confirmation box will appear to make sure you want to continue. After this,
+the module description file will be deleted and shelf removed. You must have
+write permission on the module file to be able to delete it.</p></li>
+<li><p>That is it! The module may still be loaded into Maya, but it will no longer
+be there the next time you restart Maya.</p></li>
+</ol>
+</div>
+<div class="section" id="manual-uninstall">
+<h2>Manual Uninstall<a class="headerlink" href="#manual-uninstall" title="Permalink to this headline">¶</a></h2>
+<p>Uninstalling the module manually is easy as well:</p>
+<ol class="arabic simple">
+<li><p>Delete the seUVBlendShape shelf.</p></li>
+<li><p>Delete the <em>seUVBlendShape.mod</em> file from the module directory selected
+during installation.</p></li>
+</ol>
+</div>
+<div class="section" id="upgrading-from-trial-version">
+<h2>Upgrading From Trial Version<a class="headerlink" href="#upgrading-from-trial-version" title="Permalink to this headline">¶</a></h2>
+<p>Upgrading from the trial version to the full version is simple. Any scenes
+that were saved with the trial version will work with the full version. Also
+any tools or scripts should be unaffected.</p>
+<ol class="arabic simple">
+<li><p>Close all Maya sessions first.</p></li>
+<li><p>Go to the directory where the root seUVBlendShape directory exists.</p></li>
+<li><p>Delete the trial seUVBlendShape directory.</p></li>
+<li><p>Extract or move the full version of seUVBlendShape from the download in the same directory
+as the trial version. Make sure it is named the same as the trial version.</p></li>
+<li><p>Relaunch Maya and make sure the tools and plugin load.</p></li>
+</ol>
+<p>If for some reason there is a problem, you can first uninstall and then reinstall
+from the steps above.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="melCommand.html" class="btn btn-neutral float-right" title="MEL Command Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Scott Englert
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+/*
+seUVBlendShape Shelf
+--------------------
+
+Created by: Scott Englert
+Date: 5/27/2015
+*/
+
+global proc shelf_seUVBlendShape () {
+    // use the module path to get find the icons directory
+    string $modulePath;
+    string $loadedModules[] = `moduleInfo -listModules`;
+    if (stringArrayFind("seUVBlendShape", 0, $loadedModules) == -1)
+        warning("Unable to get module path for seUVBlendShape! Shelf may not work properly!");
+    else
+        $modulePath = dirname(`getModulePath -mn "seUVBlendShape"`);
+
+    shelfButton
+        -enableCommandRepeat 1
+        -enable 1
+        -width 35
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Open seUVBlendShape Editor" 
+        -enableBackground 0
+        -image ($modulePath + "/icons/seUVBlendShape_icon.png")
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "import seUVBlendShape;seUVBlendShape.launchEditor()\n" 
+        -sourceType "python" 
+        -commandRepeatable 0
+        -flat 1
+    ;
+} 

@@ -1,0 +1,158 @@
+/*
+seUVBlendShape Install Script
+-----------------------------
+
+This script is for easily installing the seUVBlendShape module. This
+is not the same thing as a Python module. See the Maya docs for more information:
+http://help.autodesk.com/view/MAYAUL/2015/ENU/?guid=__files_GUID_130A3F57_2A5D_4E56_B066_6B86F68EEA22_htm
+
+To use:
+
+    * Launch an interactive Maya session.
+    * Source this MEL script using the "source [path to this file]" command. Do
+      NOT copy and paste the script into the script editor! OR in the script
+      editor menu go to File->Source Script and choose this file, OR drag and
+      drop this script into the viewport (if possible).
+    * Choose the Maya module path where you want to write the seUVBlendShape.mod
+      file. You must have write permissions to this directory. It's recommended
+      to choose your [home directory]/[maya version]/modules but it is not required.
+    * Click "Install". The module file will be written, then loaded, and shelf will
+      be added. That's it!
+
+If you want to install in a non-interactive Maya session or through another script
+without a UI:
+
+    * Source this script using the "source [path to this file]" MEL command.
+    * Call "seUVBlendShape_install_module" with the full path to the directory to
+      write the module file. This must be a path that Maya will search for
+      loading modules and it must be writable.
+    * That's it! The shelf will be added and module will be loaded.
+
+Depending where you install the module file, you may need to run this script in each
+version of Maya or modify the seUVBlendShape.mod file as needed. If an error occurs
+during installation, check script editor for details.
+
+To uninstall, use the seUVBlendShape_uninstall.mel script.
+*/
+
+global proc seUVBlendShape_install() {
+
+    if (`about -b`) {
+        error("You must call the seUVBlendShape_install_module proc to install from batch mode.");
+        return;
+    }
+
+    if (`window -ex "seUVBlendShape_install_WIN"`)
+        deleteUI -window "seUVBlendShape_install_WIN";
+
+    string $mayaModulesEnv = `getenv "MAYA_MODULE_PATH"`;
+    string $mayaModulePaths[];
+    if (`about -windows`)
+        $mayaModulePaths = stringToStringArray($mayaModulesEnv, ";");
+
+    else if (`about -linux` || `about -mac`)
+        $mayaModulePaths = stringToStringArray($mayaModulesEnv, ":");
+
+    // check the size, if it's empty then we don't know where to install
+    if (! size($mayaModulePaths))
+        error("No paths Maya module paths defined. Unable to install!");
+
+    // prompt where to save the modules file to
+    string $window = `window -title "Module Path Selection" "seUVBlendShape_install_WIN"`;
+    columnLayout -adj true -co "both" 5 -rs 5;
+    text -al "left" -label ("Select the module path where to install the seUVBlendShape module file.\n"+
+                            "You must have write permissions to this directory.");
+    optionMenu "seUVBlendShape_module_path_OM";
+    for ($mod in $mayaModulePaths)
+        menuItem -label $mod;
+
+    rowLayout -nc 2 -cw2 150 150;
+    button -label "Install" -c "seUVBlendShape_callback" -w 100 -h 30 -bgc .5 .7 .5;
+    button -label "Cancel" -c "deleteUI -window seUVBlendShape_install_WIN" -w 100 -h 30 -bgc .6 .3 .3;
+
+    showWindow $window;
+}
+
+global proc seUVBlendShape_callback() {
+    // callback proc when the user clicks "Install" from the window
+    if (! `window -ex "seUVBlendShape_install_WIN"`) {
+        warning("No install window open. Unable to proceed...");
+        return;
+    }
+
+    string $moduleInstallPath = `optionMenu -q -v "seUVBlendShape_module_path_OM"`;
+    deleteUI -window "seUVBlendShape_install_WIN";
+
+    int $status = seUVBlendShape_install_module($moduleInstallPath);
+    if ($status)
+        confirmDialog -title "Install Failed"
+        -message "seUVBlendShape did not install. See script editor for details."
+        -button "Ok";
+    else
+        confirmDialog -title "Install Successful"
+        -message "seUVBlendShape Module Installed!"
+        -button "Ok";
+}
+
+global proc int seUVBlendShape_install_module(string $moduleInstallPath) {
+    print ("\nInstalling seUVBlendShape module to: " + $moduleInstallPath + "\n");
+
+    // first check if for some reason the module is already installed
+    string $loadedModules[] = `moduleInfo -listModules`;
+    if (stringArrayFind("seUVBlendShape", 0, $loadedModules) != -1) {
+        warning("The seUVBlendShape module appears to be already installed. Nothing more to do...");
+        return -1;
+    }
+
+    // make sure the module install path exists
+    if (! `filetest -d $moduleInstallPath`)
+        error("Module install directory does not exist: " + $moduleInstallPath);
+
+    string $whereIs = `whatIs seUVBlendShape_install`;
+    if (! startsWith($whereIs, "Mel procedure found in:"))
+        error("Script was not sourced properly. Unable to determine module location.");
+
+    string $scriptPath = `substitute "Mel procedure found in: " $whereIs ""`;
+    string $modulePath = dirname($scriptPath);
+    string $moduleDescFile = ($modulePath + "/seUVBlendShape.mod");
+
+    // check the path to make sure we can read the module description file
+    if (! `filetest -r $moduleDescFile`)
+        error("Unable to read seUVBlendShape module description file: " + $moduleDescFile);
+
+    // open module file and replace the module path
+    string $moduleData = freadAllText($moduleDescFile);
+    $moduleData = substituteAllString($moduleData, "%modulePath%", $modulePath);
+
+    print ("Writing seUVBlendShape module file:\n");
+    string $installModuleFile = ($moduleInstallPath + "/seUVBlendShape.mod");
+    int $result = fwriteAllText($installModuleFile, $moduleData);
+    if ($result)
+        error("Error writing module file to install path: " + $installModuleFile);
+
+    print "Attempting to load seUVBlendShape module...\n";
+    loadModule -allModules;
+    // check that the module loaded
+    $loadedModules = `moduleInfo -listModules`;
+    if (stringArrayFind("seUVBlendShape", 0, $loadedModules) == -1)
+        error("Module failed to load. Check module description file and try restarting Maya.");
+
+    // load the shelf
+    if (! `shelfLayout -exists "seUVBlendShape"`) {
+        print "Loading seUVBlendShape shelf...\n";
+        loadNewShelf(($modulePath + "/shelves/shelf_seUVBlendShape.mel"));
+    } else {
+        warning("seUVBlendShape shelf already exists, skipping shelf install...");
+    }
+
+    // temporary to add script folder to python path
+    python("import sys;sys.path.append(r'" + $modulePath + "/scripts')");
+
+    print "Install successful! Enjoy!\n";
+
+    return 0;
+}
+
+// run the install when sourced only in interactive Maya
+if (! `about -b`)
+    seUVBlendShape_install;

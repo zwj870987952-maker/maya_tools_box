@@ -1,0 +1,436 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Node Reference &mdash; seUVBlendShape 3.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples and Demo Videos" href="examples.html" />
+    <link rel="prev" title="Python Module Reference" href="pythonReference.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> seUVBlendShape
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+               3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="melCommand.html">MEL Command Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonReference.html">Python Module Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Node Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#attributes">Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#paintable-attributes">Paintable Attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples and Demo Videos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">seUVBlendShape</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Node Reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="node-reference">
+<h1>Node Reference<a class="headerlink" href="#node-reference" title="Permalink to this headline">¶</a></h1>
+<p>This page contains details about the seUVBlendShape deformer node. This deformer
+was modeled after Maya’s blendShape deformer node for familiarity but not entirely
+as the seUVBlendShape deformer does not currently support in-between targets or
+weight normalization between targets.</p>
+<p>Currently only polygon meshes are supported with this deformer. Also, since
+this deformer has cached bind data, it does not support incoming history on
+the base and target geometry that affects UV’s or vertex orders.</p>
+<div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">envelope,</span> <span class="pre">env</span> <span class="pre">-</span> <span class="pre">[float]</span> <span class="pre">-</span> <span class="pre">keyable,</span> <span class="pre">connectable</span></code></dt>
+<dd><p>Overall influence of deformation applied to the mesh, ranging for 0 to 1.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">keepOffset</span> <span class="pre">,</span> <span class="pre">ko</span> <span class="pre">-</span> <span class="pre">[float]</span> <span class="pre">-</span> <span class="pre">keyable,</span> <span class="pre">connectable</span></code></dt>
+<dd><p>Blends how much of the base geometry is kept at it’s original shape as
+opposed to the shape of the targets. If keepOffset is on (1.0), then
+any shape changes from when the target was added or rebound to it’s
+current shape will bet applied additively on top of the base mesh. Otherwise
+if keepOffset is off (0.0), the base will match the shape of the target.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">threadCount,</span> <span class="pre">tc</span> <span class="pre">-</span> <span class="pre">[integer]</span></code></dt>
+<dd><p>Controls how many threads will be used for computing the deformation. The
+default is the max number of logical cpu’s on your machine. To disable
+multithreading, set this attribute to 1. Performance will vary depending
+on how many vertices are being deformed.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">origin,</span> <span class="pre">or</span> <span class="pre">-</span> <span class="pre">[enum]</span></code></dt>
+<dd><p>Options are either “world” or “local” for determining which space the
+deformation will take place in. When using local space (default), only
+the positions and changes on the vertices are used. In world space, the
+absolute position from the world origin to the vertices are used.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The target mesh must be connected to the deformer for world space to
+work properly.</p>
+</div>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">allowGPU,</span> <span class="pre">agpu</span> <span class="pre">-</span> <span class="pre">[boolean]</span></code></dt>
+<dd><p><strong>Maya 2016 and above only</strong> This will allow the deformer to use the GPU override feature
+if enabled. This does not guarantee that the deformer will be running on the GPU,
+but only allow it to if possible. There are other factors that determine if
+a deformer can use the GPU override feature. See Maya’s documentation for more
+information. Default is True, allow the deformer to run GPU if possible.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In Maya before extension 2, you will need to toggle the GPU override feature
+in the Maya preference off/on after changing this attribute. Maya extension 2
+has added better support for dynamically changing the GPU support without
+having to turn if off and on again.</p>
+</div>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">weight,</span> <span class="pre">wt</span> <span class="pre">-</span> <span class="pre">[float]</span> <span class="pre">-</span> <span class="pre">array,</span> <span class="pre">keyable,</span> <span class="pre">connectable</span></code></dt>
+<dd><p>Controls the amount of influence the target will affect the base mesh. Setting
+this to 1.0 will turn the target completely on. However you can set this to
+any value to scale the delta differently. Each weight index is aliased with
+a target name when the target is added to make it easier to identify.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">deltaWeightsList,</span> <span class="pre">dwl</span> <span class="pre">-</span> <span class="pre">compound,</span> <span class="pre">array</span></code></dt>
+<dd><p>The delta weights list for a specific input geometry index. Only 1 input mesh
+is currently supported on this deformer.</p>
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">deltaWeights,</span> <span class="pre">dw</span> <span class="pre">-</span> <span class="pre">[float]</span> <span class="pre">-</span> <span class="pre">array,</span> <span class="pre">paintable</span></code></dt>
+<dd><p>Per vertex weights for scaling the delta of all target’s bind positions to
+the current positions. Commonly used with the <code class="docutils literal notranslate"><span class="pre">keepOffset</span></code> on and
+to reduce the movement when the target changes shape.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">inputTarget,</span> <span class="pre">it-</span> <span class="pre">compound,</span> <span class="pre">array</span></code></dt>
+<dd><p>The input targets for a specific input geometry index. Only 1 input mesh is
+currently supported on this deformer.</p>
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">inputTargetGroup,</span> <span class="pre">itg</span> <span class="pre">-</span> <span class="pre">compound,</span> <span class="pre">array</span></code></dt>
+<dd><p>Compound data per target. The index on the <code class="docutils literal notranslate"><span class="pre">weight</span></code> attribute
+will correspond to the index in this array.</p>
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">inputGeomTarget,</span> <span class="pre">igt</span> <span class="pre">-</span> <span class="pre">[mesh]</span> <span class="pre">-</span> <span class="pre">connectable</span></code></dt>
+<dd><p>The polygon mesh to use as the target.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">targetUVSet,</span> <span class="pre">tuvs</span> <span class="pre">-</span> <span class="pre">[string]</span></code></dt>
+<dd><p>The UV set used on the target mesh. You should not change this
+directly on the node, you must use the <a class="reference internal" href="melCommand.html"><span class="doc">MEL command</span></a>
+or <code class="xref py py-func docutils literal notranslate"><span class="pre">changeUVSet</span> <span class="pre">Python</span> <span class="pre">function</span></code>
+to change the UV set and rebind.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">baseUVSet,</span> <span class="pre">buvs</span> <span class="pre">-</span> <span class="pre">[string]</span></code></dt>
+<dd><p>The UV set used on the base mesh. (only used during binding) See notes
+mentioned in the <code class="docutils literal notranslate"><span class="pre">targetUVSet</span></code> attribute on changing this
+value.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">targetDeltaScale,</span> <span class="pre">tds</span> <span class="pre">-</span> <span class="pre">[float3]</span> <span class="pre">-</span> <span class="pre">keyable,</span> <span class="pre">connectable</span></code></dt>
+<dd><p>Individual X,Y,Z scale of the target delta. This gives you more control
+over the direction of the changes from the target’s bind shape to its
+current shape. For example you can mirror the delta by setting the
+X scale to -1. This is used in combination with the paintable per vertex
+<code class="docutils literal notranslate"><span class="pre">deltaWeights</span></code> attribute.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">bindMatrix,</span> <span class="pre">bm</span> <span class="pre">-</span> <span class="pre">[matrix]</span></code></dt>
+<dd><p>The world matrix of the target mesh at the time it was bound. This is
+used when the <code class="docutils literal notranslate"><span class="pre">origin</span></code> attribute is set to “world”.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">targetWeights,</span> <span class="pre">tw</span> <span class="pre">-</span> <span class="pre">[float]</span> <span class="pre">-</span> <span class="pre">array</span></code></dt>
+<dd><p>Per vertex weights to control the overall influence of this target. Due
+to the limitation in Maya, this attribute is not directly paintable. A
+specific attribute is used instead. See the <code class="docutils literal notranslate"><span class="pre">paintTargetWeights</span></code>
+attribute for information.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">boundVertexIds,</span> <span class="pre">bvi</span> <span class="pre">-</span> <span class="pre">[integer</span> <span class="pre">array]</span></code></dt>
+<dd><p>Array of base geometry vertex ids that are bound to this target.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">boundFaceIds,</span> <span class="pre">bvi</span> <span class="pre">-</span> <span class="pre">[integer</span> <span class="pre">array]</span></code></dt>
+<dd><p>Array of target face ids that each base vertex is bound on. Deprecated.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">boundUPoints,</span> <span class="pre">bup</span> <span class="pre">-</span> <span class="pre">[float</span> <span class="pre">array]</span></code></dt>
+<dd><p>Array of base geometry bound U points. Deprecated.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">boundVPoints,</span> <span class="pre">bvp</span> <span class="pre">-</span> <span class="pre">[float</span> <span class="pre">array]</span></code></dt>
+<dd><p>Array of base geometry bound V points. Deprecated.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">targetBindPoint,</span> <span class="pre">tbp</span> <span class="pre">-</span> <span class="pre">[point</span> <span class="pre">array]</span></code></dt>
+<dd><p>Array of bind points for the base geometry relative to the target.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">paintTargetWeights,</span> <span class="pre">pwt</span> <span class="pre">-</span> <span class="pre">[float]</span> <span class="pre">-</span> <span class="pre">array,</span> <span class="pre">paintable</span></code></dt>
+<dd><p>The paintable attribute for target weights. The target that is painted
+on is dependent on the value set on the <code class="docutils literal notranslate"><span class="pre">paintTargetIndex</span></code>
+attribute.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="sig-name descname"><span class="pre">paintTargetIndex,</span> <span class="pre">pti</span> <span class="pre">-</span> <span class="pre">[integer]</span></code></dt>
+<dd><p>The target index used when painting target weights through the
+<code class="docutils literal notranslate"><span class="pre">paintTargetWeights</span></code> attribute. This must be set
+before painting weights.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="paintable-attributes">
+<span id="nodereference-paintable-attributes"></span><h2>Paintable Attributes<a class="headerlink" href="#paintable-attributes" title="Permalink to this headline">¶</a></h2>
+<p>As described above, there are 3 attributes on the deformer for per vertex
+painting. The first is the common deformer weights which is used to paint the
+overall affect of the deformer. This is the <code class="docutils literal notranslate"><span class="pre">weights</span></code> attribute.</p>
+<p>The next paintable attribute is target weights which has a similar affect
+as the <code class="docutils literal notranslate"><span class="pre">weights</span></code> attribute but per target. This is indirectly
+paintable on the <code class="docutils literal notranslate"><span class="pre">paintTargetWeight</span></code> attribute.</p>
+<p>Lastly is the delta weights. Which scales the affect of how much of delta
+between the target shape at binding to it’s current shape. This affects
+all targets when you paint on the <code class="docutils literal notranslate"><span class="pre">deltaWeights</span></code> attribute.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above paintable attributes are not normalized between 0 and 1. They
+can be painted whatever float value you like. By default all weights
+are at a value of 1.0.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="examples.html" class="btn btn-neutral float-right" title="Examples and Demo Videos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pythonReference.html" class="btn btn-neutral" title="Python Module Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Scott Englert
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+/* 
+#----------------------------------------------------------------------
+#    This file is part of "Ghosting For Animation",
+#    check LICENSE for detail.
+#
+#    Author:      Parinya Gavinlertwatthana
+#    Contact:     saint.parinya@gmail.com
+#    Homepage:    http://saintparinya.wix.com/portfolio
+#----------------------------------------------------------------------
+*/
+
+
+// Get scripts location
+global string $gShelfTopLevel;
+string $currentShelf = `tabLayout -query -selectTab $gShelfTopLevel`;
+setParent $currentShelf;
+
+
+// Create naming and command
+string $scriptLocation = `scriptLocation`;
+string $scriptName = "Ghosting";
+string $command = "import sys\nghostingPath = '" + $scriptLocation + "scripts'\nsystemPath = sys.path\nif ghostingPath in systemPath:\n    systemPath.remove(ghostingPath)\nsys.path.insert(0, ghostingPath)\nimport ghosting_scripts.ui.mainWindow as mainWindow\nmainWindow.MainWindow()";
+
+
+// Install button to current shelf
+string $icon = $scriptLocation + "icons/ghosting_icons/ghostingIcon.png";
+shelfButton
+    -command $command
+    -annotation $scriptName
+    -label $scriptName
+    -image $icon
+    -style "iconOnly"
+    -sourceType "python";
+
+
+// Print naming
+print ("// "+$scriptName+" For Animation has been added to current shelf.\n");
+
+
+// Helper functions for locating script's location
+global proc scriptLocator (){}
+global proc string scriptLocation ()
+{
+    string $whatIs=`whatIs scriptLocator`;
+    string $fullPath=`substring $whatIs 25 999`;
+    string $buffer[];
+    int $numTok=`tokenize $fullPath "/" $buffer`;
+    int $numLetters=size($fullPath);
+    int $numLettersLastFolder=size($buffer[$numTok-1]);
+    string $scriptLocation=`substring $fullPath 1 ($numLetters-$numLettersLastFolder)`;
+    return $scriptLocation;
+}

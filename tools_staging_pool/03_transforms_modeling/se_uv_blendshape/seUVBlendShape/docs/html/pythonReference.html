@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Python Module Reference &mdash; seUVBlendShape 3.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Node Reference" href="nodeReference.html" />
+    <link rel="prev" title="MEL Command Reference" href="melCommand.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> seUVBlendShape
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+               3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="melCommand.html">MEL Command Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python Module Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nodeReference.html">Node Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples and Demo Videos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">seUVBlendShape</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Python Module Reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-seUVBlendShape">
+<span id="python-module-reference"></span><h1>Python Module Reference<a class="headerlink" href="#module-seUVBlendShape" title="Permalink to this headline">¶</a></h1>
+<p>This Python module contains useful tools to work with the seUVBlendShape
+deformer plugin. The plugin already an associated built in
+<a class="reference internal" href="melCommand.html"><span class="doc">MEL command</span></a> which this module uses.</p>
+<p>Not only does this module provide functions you can use in your own tools, but
+it also comes with a user interface. <em>(See ui module)</em> This can be opened by
+calling the <a class="reference internal" href="#seUVBlendShape.launchEditor" title="seUVBlendShape.launchEditor"><code class="xref py py-func docutils literal notranslate"><span class="pre">launchEditor()</span></code></a> function.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seUVBlendShape</span>
+<span class="n">seUVBlendShape</span><span class="o">.</span><span class="n">launchEditor</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Upon importing this module, an attempt to load the plug-in will be peformed.
+No special Python libary requirements are needed. Maya provides all
+neccessary modules.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Undo operations are limited to only creating a new deformer node. It is not currently
+supported to undo any editing (adding, removing, rebinding, etc) operations.</p>
+</div>
+<dl class="py function">
+<dt id="seUVBlendShape.launchEditor">
+<code class="sig-prename descclassname"><span class="pre">seUVBlendShape.</span></code><code class="sig-name descname"><span class="pre">launchEditor</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#seUVBlendShape.launchEditor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launch the seUVBlendShape editor. Only available if called from an
+interactive Maya session.</p>
+</dd></dl>
+
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">maya</span> <span class="kn">import</span> <span class="n">cmds</span>
+
+<span class="c1"># import the seUVBlendShape Python Module</span>
+<span class="kn">import</span> <span class="nn">seUVBlendShape</span>
+
+<span class="c1"># create a base and two target poly spheres</span>
+<span class="n">baseMesh</span> <span class="o">=</span> <span class="n">cmds</span><span class="o">.</span><span class="n">polySphere</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="s1">&#39;base&#39;</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="bp">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">targetAMesh</span> <span class="o">=</span> <span class="n">cmds</span><span class="o">.</span><span class="n">polySphere</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="s1">&#39;targetA&#39;</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="bp">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">targetBMesh</span> <span class="o">=</span> <span class="n">cmds</span><span class="o">.</span><span class="n">polySphere</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="s1">&#39;targetB&#39;</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="bp">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># create a new deformer with both targetA/B driving the base mesh</span>
+<span class="c1"># using the first UV sets found.</span>
+<span class="n">deformer</span> <span class="o">=</span> <span class="n">seUVBlendShape</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">baseMesh</span><span class="p">,</span> <span class="p">[</span><span class="n">targetAMesh</span><span class="p">,</span> <span class="n">targetBMesh</span><span class="p">])</span>
+
+<span class="c1"># add a new target to the deformer</span>
+<span class="n">targetCMesh</span> <span class="o">=</span> <span class="n">cmds</span><span class="o">.</span><span class="n">polySphere</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="s1">&#39;targetC&#39;</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="bp">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">seUVBlendShape</span><span class="o">.</span><span class="n">addTarget</span><span class="p">(</span><span class="n">deformer</span><span class="p">,</span> <span class="n">targetCMesh</span><span class="p">)</span>
+
+<span class="c1"># remove target B from the deformer</span>
+<span class="n">seUVBlendShape</span><span class="o">.</span><span class="n">removeTarget</span><span class="p">(</span><span class="n">deformer</span><span class="p">,</span> <span class="n">targetBMesh</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nodeReference.html" class="btn btn-neutral float-right" title="Node Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="melCommand.html" class="btn btn-neutral" title="MEL Command Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Scott Englert
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1347 @@
+# Copyright 2024 Philippe Ratté
+import maya.cmds as mc
+import time
+import math
+import maya.api.OpenMaya as om
+import re
+pyside_version = "2"
+try:
+    # Maya <= 2025
+    from PySide6 import QtWidgets as qt_w
+    from PySide6 import QtCore as qt_c
+    from PySide6 import QtGui as qt_g
+    from shiboken6 import wrapInstance
+
+    pyside_version = "6"
+except ImportError:
+    # Maya > 2025
+    from PySide2 import QtWidgets as qt_w
+    from PySide2 import QtCore as qt_c
+    from PySide2 import QtGui as qt_g
+    from shiboken2 import wrapInstance
+
+    pyside_version = "2"
+
+import overlap_data_package as over_d_p
+
+
+def check_scale(driven_matrix):
+    scale_matrix = om.MMatrix(driven_matrix)
+    scale_matrix = om.MTransformationMatrix(scale_matrix)
+    scales = scale_matrix.scale(om.MSpace.kObject)
+
+    return scales
+
+
+def inverse_matrix(driven_matrix):
+    i_m = om.MMatrix(driven_matrix)
+    return i_m.inverse()
+
+
+def inverse_mmatrix(driven_matrix):
+    return driven_matrix.inverse()
+
+
+def parent_matrices_a_in_b(matrix_a, matrix_b):
+    matrix_a = om.MMatrix(matrix_a)
+    matrix_b = om.MMatrix(matrix_b)
+    result = om.MMatrix()
+    result.setToProduct(matrix_a, matrix_b)
+    return result
+
+
+def parent_m_matrices_a_in_b(matrix_a, matrix_b):
+    matrix_a = om.MMatrix(matrix_a)
+    matrix_b = om.MMatrix(matrix_b)
+    result = om.MMatrix()
+    result.setToProduct(matrix_a, matrix_b)
+    return result
+
+
+def get_os_translation(m_matrix_a):
+    t_m = om.MTransformationMatrix(m_matrix_a)
+    result = t_m.translation(om.MSpace.kObject)
+    return result
+
+
+def calculate_distance(vector_a, vector_b):
+    vector_c = [vector_a[0] - vector_b[0], vector_a[1] - vector_b[1], vector_a[2] - vector_b[2]]
+    result = math.sqrt((vector_c[0] ** 2) + (vector_c[1] ** 2) + (vector_c[2] ** 2))
+    return result
+
+def get_distance_between_object():
+    sel = mc.ls(sl=True)
+    if len(sel) > 1:
+        target_a_mat = mc.getAttr("{}.worldMatrix[0]".format(sel[0]))
+        target_b_mat = mc.getAttr("{}.worldMatrix[0]".format(sel[1]))
+        vector_a = target_a_mat[12:15]
+        vector_b = target_b_mat[12:15]
+        dist = calculate_distance(vector_a,vector_b)
+
+        return round(dist,3)
+    else:
+        return 1
+def offset_matrix_in_os(matrix_a, vector_a):
+    matrix_a = om.MMatrix(matrix_a)
+    vector_a = om.MVector(vector_a)
+    t_m = om.MTransformationMatrix(matrix_a)
+    t_m.translateBy(vector_a, om.MSpace.kObject)
+    result = t_m.asMatrix()
+    return result
+
+
+def fix_inverse_matrix(inv_matrix, r_matrix, differences):
+    inv_matrix = om.MMatrix(inv_matrix)
+    r_matrix = om.MMatrix(r_matrix)
+    offsets = om.MVector(differences)
+
+    i_t_m = om.MTransformationMatrix(inv_matrix)
+    i_t_m.translateBy(offsets, om.MSpace.kObject)
+
+    r_t_m = om.MTransformationMatrix(r_matrix)
+    rots = r_t_m.rotation()
+    i_t_m.rotateBy(rots, om.MSpace.kObject)
+
+    result = i_t_m.asMatrix()
+    return result
+
+
+def get_selection():
+    sel = mc.ls(sl=True)
+    return sel
+
+
+def get_matrices(selection, frame_range, main_axis, up_axis, parent_validator, parent, distance_value,wind_check,
+                 wind_paths,ignore_translation,overlap_dict):
+    start = frame_range[0] - 1
+    end = frame_range[1]
+    timerange = end - start +1
+    parent_matrices = []
+    parent_inverse_matrices = []
+    target_matrices = []
+    up_matrices = []
+    # cycle check
+    cycle_check = overlap_dict["cycle"]
+    # wind
+    wind_path = []
+    inverse_wind_path = []
+    if wind_check:
+        wind_path,inverse_wind_path = wind_paths
+
+
+
+    o_mult = 1 * distance_value
+    offsets_dict = {"x-": [-1 * o_mult, 0, 0], "x+": [1 * o_mult, 0, 0],
+                    "y-": [0, -1 * o_mult, 0], "y+": [0, 1 * o_mult, 0],
+                    "z-": [0, 0, -1 * o_mult], "z+": [0, 0, 1 * o_mult],
+                    }
+
+    scale_check_mat = mc.getAttr("{}.worldMatrix".format(selection), t=start)
+    scales = check_scale(scale_check_mat)
+    offset_scale = [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+    negative_scale_validator = False
+    if scales[0] < 0:
+        offset_scale[0] = -1
+        negative_scale_validator = True
+    if scales[1] < 0:
+        offset_scale[5] = -1
+        negative_scale_validator = True
+    if scales[2] < 0:
+        offset_scale[10] = -1
+        negative_scale_validator = True
+
+    remove_offset_scale = [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+    if parent_validator:
+        scale_check_mat = mc.getAttr("{}.worldMatrix".format(parent), t=start)
+        scales = check_scale(scale_check_mat)
+        negative_scale_validator = False
+        if scales[0] < 0:
+            remove_offset_scale[0] = -1
+            negative_scale_validator = True
+        if scales[1] < 0:
+            remove_offset_scale[5] = -1
+            negative_scale_validator = True
+        if scales[2] < 0:
+            remove_offset_scale[10] = -1
+            negative_scale_validator = True
+
+    main_offset = offsets_dict[main_axis]
+
+    up_offset = offsets_dict[up_axis]
+    default_matrix = [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+    for frame in range(int(timerange)):
+        true_frame = False
+        if frame == 0:
+            if cycle_check:
+                frame = int(timerange - 2)
+                true_frame = True
+
+
+        if parent_validator:
+            start_remove_matrix = mc.getAttr("{}.worldMatrix".format(parent), t=start)
+
+            remove_inverse_matrix = mc.getAttr("{}.worldInverseMatrix".format(parent), t=start + frame)
+            remove_matrix = mc.getAttr("{}.worldMatrix".format(parent), t=start + frame)
+            parent_matrix = mc.getAttr("{}.parentMatrix".format(selection), t=frame + start)
+
+            difference_a = matrix_substract_vector_to_translation(remove_matrix, start_remove_matrix)
+
+
+            remove_matrix = parent_matrices_a_in_b(remove_matrix, remove_offset_scale)
+
+            parent_inverse_matrix = mc.getAttr("{}.parentInverseMatrix".format(selection), t=frame + start)
+            if negative_scale_validator:
+                parent_inverse_matrix = inverse_matrix(parent_matrix)
+
+            parent_matrix = parent_matrices_a_in_b(parent_matrix, remove_inverse_matrix)
+
+            parent_inverse_matrix_result = fix_inverse_matrix(parent_inverse_matrix, remove_matrix, difference_a)
+
+            if wind_check:
+                start_wind = wind_path[0]
+
+                wind_inverse_matrix = inverse_wind_path[frame]
+                wind = wind_path[frame]
+                if true_frame:
+                    wind_inverse_matrix = inverse_wind_path[0]
+                    wind = wind_path[0]
+                difference_wind = matrix_substract_vector_to_translation(wind, start_wind)
+
+                parent_inverse_matrix_result = fix_inverse_matrix(parent_inverse_matrix, wind, difference_wind)
+                parent_matrix = parent_matrices_a_in_b(parent_matrix, wind_inverse_matrix)
+
+
+            if ignore_translation:
+                pass
+            else:
+                world_matrix = mc.getAttr("{}.worldMatrix".format(selection), t=frame + start)
+                difference_dist = matrix_substract_vector_to_translation(world_matrix,parent_matrix)
+                parent_matrix = offset_matrix_in_os(parent_matrix, difference_dist)
+            parent_inverse_matrices.append(parent_inverse_matrix_result)
+
+            target_matrix = parent_matrices_a_in_b(parent_matrix, offset_scale)
+            
+            target_matrix = offset_matrix_in_os(target_matrix, main_offset)
+            target_matrices.append(target_matrix)
+
+            up_matrix = parent_matrices_a_in_b(parent_matrix, offset_scale)
+
+            up_matrix = offset_matrix_in_os(up_matrix, up_offset)
+            up_matrices.append(up_matrix)
+
+            parent_matrix = parent_matrices_a_in_b(parent_matrix, offset_scale)
+            parent_matrices.append(parent_matrix)
+
+        else:
+            parent_matrix = mc.getAttr("{}.parentMatrix".format(selection), t=frame + start)
+
+            parent_inverse_matrix = mc.getAttr("{}.parentInverseMatrix".format(selection), t=frame + start)
+
+            if wind_check:
+
+
+                wind_inverse_matrix = inverse_wind_path[frame]
+
+                if true_frame:
+                    wind_inverse_matrix = inverse_wind_path[0]
+
+                parent_matrix = parent_matrices_a_in_b(parent_matrix, wind_inverse_matrix)
+
+            if ignore_translation:
+                pass
+            else:
+                world_matrix = mc.getAttr("{}.worldMatrix".format(selection), t=frame + start)
+                difference_dist = matrix_substract_vector_to_translation(world_matrix,parent_matrix)
+                parent_matrix = offset_matrix_in_os(parent_matrix, difference_dist)
+            target_matrix = offset_matrix_in_os(parent_matrix, main_offset)
+
+
+            target_matrix = parent_matrices_a_in_b(target_matrix, offset_scale)
+
+
+
+            target_matrices.append(target_matrix)
+
+            up_matrix = parent_matrices_a_in_b(parent_matrix, offset_scale)
+            up_matrix = offset_matrix_in_os(up_matrix, up_offset)
+
+            up_matrices.append(up_matrix)
+
+            parent_matrix = parent_matrices_a_in_b(parent_matrix, offset_scale)
+            parent_matrices.append(parent_matrix)
+
+            if negative_scale_validator:
+                parent_inverse_matrix = inverse_matrix(parent_matrix)
+
+            parent_inverse_matrices.append(parent_inverse_matrix)
+
+    matrices_dict = {"world_matrices": parent_matrices, "parent_inverse_matrices": parent_inverse_matrices,
+                     "target_matrices": target_matrices, "up_matrices": up_matrices
+
+                     }
+    return matrices_dict
+
+class overlap_worker(qt_c.QObject):
+    progress_signal = qt_c.Signal(int)
+
+    def overlap(self,overlap_dict):
+        start_time = time.time()
+        mc.undoInfo(openChunk=True)
+
+        selections = overlap_dict["selections"]
+
+        start, end = overlap_dict["frame_range"]
+        start = start
+        time_range = end - start + 1
+        main_axis = overlap_dict["main_axis"]
+        up_axis = overlap_dict["up_axis"]
+        stiffness = overlap_dict["stiffness"]
+        strength = overlap_dict["strength"]
+        parent_validator = overlap_dict["parent_validator"]
+        distance_validator = overlap_dict["distance_validator"]
+        default_distance = 1
+        if distance_validator:
+            default_distance = float(overlap_dict["distance"])
+        axes_validator = overlap_dict["axes"]
+        axes_id_validator = []
+        for axis in axes_validator:
+            if axis == "x":
+                axes_id_validator.append(0)
+            elif axis == "y":
+                axes_id_validator.append(1)
+            elif axis == "z":
+                axes_id_validator.append(2)
+
+        overshoot_validator = overlap_dict["overshoot_check"]
+
+        ignore_translation = overlap_dict["r_overlap_ignore_t_check"]
+        current_parent = ""
+        if parent_validator:
+            current_parent = overlap_dict["parent_object"]
+
+
+        wind_check = overlap_dict["wind_check"]
+        wind_paths = []
+        if wind_check:
+            wind_strength = overlap_dict["wind_strength"]
+            wind_path, inverse_wind_path = create_wind_path(time_range+1, start, wind_strength)
+            wind_paths = [wind_path,inverse_wind_path]
+
+        axis_val = {"x+": "0", "y+": "1", "z+": "2", "x-": "3", "y-": "4", "z-": "5"}
+
+        anim_type = overlap_dict["animation_type"]
+        # calculate the distance
+        distances = []
+        if overlap_dict["distance_only"]:
+            for selection_id, selection in enumerate(selections):
+                distances.append([])
+                for target_id, target in enumerate(selection):
+                    distances[selection_id].append(default_distance)
+
+        else:
+            for selection_id, selection in enumerate(selections):
+                distances.append([])
+                for target_id, target in enumerate(selection):
+                    if len(selection) <= 1:
+                        childs = mc.listRelatives(target,f=True)
+                        # look for the distance in its children
+                        child_target = childs[0]
+                        try:
+                            if mc.nodeType(childs[0]) != "transform":
+                                child_target = childs[1]
+                            vector_a = mc.getAttr("{}.worldMatrix".format(selection[target_id]), t=start)[12:15]
+                            vector_b = mc.getAttr("{}.worldMatrix".format(child_target), t=start)[12:15]
+                            dist = calculate_distance(vector_a, vector_b)
+                            dist = round(dist,4)
+
+                            # if the first child distance is 0
+                            if dist == 0:
+                                try:
+                                    childs_2 = mc.listRelatives(child_target, f=True)
+                                    child_2_target = childs_2[0]
+                                    if mc.nodeType(childs_2[0]) != "transform":
+                                        child_2_target = childs_2[1]
+                                    vector_a = mc.getAttr("{}.worldMatrix".format(selection[target_id]), t=start)[12:15]
+                                    vector_b = mc.getAttr("{}.worldMatrix".format(child_2_target), t=start)[12:15]
+                                    dist = calculate_distance(vector_a, vector_b)
+                                    dist = round(dist, 4)
+
+                                    if dist == 0:
+                                        distances[selection_id].append(default_distance)
+                                    else:
+                                        distances[selection_id].append(dist)
+                                except:
+                                    # no child no parent
+                                    distances[selection_id].append(default_distance)
+
+                            else:
+                                distances[selection_id].append(dist)
+                        # look for the distance between target and its parent
+                        except:
+                            distances[selection_id].append(default_distance)
+
+                    else:
+                        if target_id != len(selection) - 1:
+
+                            vector_a = mc.getAttr("{}.worldMatrix".format(selection[target_id]), t=start)[12:15]
+                            vector_b = mc.getAttr("{}.worldMatrix".format(selection[target_id + 1]), t=start)[12:15]
+                            dist = calculate_distance(vector_a, vector_b)
+                            dist = round(dist, 4)
+                            distances[selection_id].append(dist)
+
+                        elif target_id == len(selection) - 1:
+                            vector_a = mc.getAttr("{}.worldMatrix".format(selection[target_id]), t=start)[12:15]
+                            vector_b = mc.getAttr("{}.worldMatrix".format(selection[target_id - 1]), t=start)[12:15]
+                            dist = calculate_distance(vector_a, vector_b)
+                            dist = round(dist, 4)
+                            distances[selection_id].append(dist)
+
+        # check each control rotate order
+        rotate_orders = []
+        for selection_id, selection in enumerate(selections):
+            rotate_orders.append([])
+            for target in selection:
+                rotate_order = mc.getAttr("{}.rotateOrder".format(target))
+                rotate_orders[selection_id].append(rotate_order)
+        # check for additive rotations
+        offset_rotations = []
+        if anim_type == "additive":
+            for selection_id, selection in enumerate(selections):
+                offset_rotations.append([])
+                for target_id, target in enumerate(selection):
+                    offset_rotations[selection_id].append([])
+                    for frame in range(int(time_range)):
+                        x_val = mc.getAttr("{}.rx".format(selection[target_id]), t=start + frame)
+                        y_val = mc.getAttr("{}.ry".format(selection[target_id]), t=start + frame)
+                        z_val = mc.getAttr("{}.rz".format(selection[target_id]), t=start + frame)
+                        offset_rotations[selection_id][target_id].append([x_val, y_val, z_val])
+        else:
+            for selection_id, selection in enumerate(selections):
+                offset_rotations.append([])
+                for target_id, target in enumerate(selection):
+                    offset_rotations[selection_id].append([])
+                    for frame in range(int(time_range)):
+                        offset_rotations[selection_id][target_id].append([0, 0, 0])
+
+
+        current_target_id = 0
+        for selection_id, selection in enumerate(selections):
+            if anim_type == "additive":
+                pass
+            elif anim_type == "replacer":
+                if "x" in axes_validator:
+                    mc.cutKey(selection, time=(start+1, end), attribute="rx")
+                if "y" in axes_validator:
+                    mc.cutKey(selection, time=(start+1, end), attribute="ry")
+                if "z" in axes_validator:
+                    mc.cutKey(selection, time=(start+1, end), attribute="rz")
+            else:
+                if "x" in axes_validator:
+                    mc.cutKey(selection, attribute="rx")
+                if "y" in axes_validator:
+                    mc.cutKey(selection, attribute="ry")
+                if "z" in axes_validator:
+                    mc.cutKey(selection, attribute="rz")
+
+            for target_id, target in enumerate(selection):
+                stiffness_val = stiffness[selection_id][target_id]
+                distance_val = distances[selection_id][target_id]
+
+
+
+                matrices_dict = get_matrices(target, overlap_dict["frame_range"], main_axis, up_axis,
+                                             parent_validator, current_parent, distance_val,wind_check,wind_paths,ignore_translation,overlap_dict)
+
+
+                rotations = []
+                for frame in range(int(time_range)):
+
+                    rots = aim_with_matrices(matrices_dict["world_matrices"][frame+1],
+                                             matrices_dict["target_matrices"][frame],
+                                             matrices_dict["up_matrices"][frame+1],
+                                             matrices_dict["parent_inverse_matrices"][frame+1],
+                                             "{}{}".format(axis_val[main_axis], axis_val[up_axis]),
+                                             rotate_orders[selection_id][target_id])
+
+
+
+                    rotations.append([(rots[0] * stiffness_val) + offset_rotations[selection_id][target_id][frame][0],
+                            (rots[1] * stiffness_val) + offset_rotations[selection_id][target_id][frame][1],
+                            (rots[2] * stiffness_val) + offset_rotations[selection_id][target_id][frame][2]])
+                # setting the keys
+                for frame in range(int(time_range)):
+                    for axis_id in range(len(axes_validator)):
+                        mc.setKeyframe(target, v=rotations[frame][axes_id_validator[axis_id]],
+                                       at="r{}".format(axes_validator[axis_id]), t=start + frame)
+
+                if strength < 1  and strength > 0:
+                    apply_strenght([target], strength, "r", axes_validator, start, end)
+
+                # overshoot
+
+                if overshoot_validator:
+                    if overlap_dict["overshoot_first_validator"]:
+                        if target_id == 0:
+                            overshoot(target, int(time_range), start, axes_validator, "r", overlap_dict)
+                    else:
+                        overshoot(target, int(time_range), start, axes_validator, "r", overlap_dict)
+                current_target_id = current_target_id +1
+                self.progress_signal.emit(current_target_id)
+
+
+
+
+
+
+
+
+
+        if strength >=1 or strength < 0:
+            apply_strenght(selections,strength,"r",axes_validator,start,end)
+
+        mc.undoInfo(closeChunk=True)
+
+        end_time = time.time()
+        total_time = round((end_time - start_time), 3)
+        print("executed rotation overlap in {} seconds".format(total_time))
+        return total_time
+
+
+
+
+
+def apply_strenght(selections,strength,attribute,axes,start,end):
+    if strength == 1:
+        return
+    for axis in axes:
+        for selection in selections:
+            mc.scaleKey(selection, vs=strength, at="{}{}".format(attribute,axis), t=(start,end))
+
+
+
+class overlap_translation_worker(qt_c.QObject):
+    progress_signal = qt_c.Signal(int)
+    def overlap_translation(self,overlap_dict):
+        start_time = time.time()
+        mc.undoInfo(openChunk=True)
+
+        selections = overlap_dict["selections"]
+        start, end = overlap_dict["frame_range"]
+        time_range = end - start + 1
+        stiffness = overlap_dict["stiffness"]
+        translation_strength = overlap_dict["translation_strength"]
+        strength = overlap_dict["strength"]
+        parent_validator = overlap_dict["parent_validator"]
+        axes_validator = overlap_dict["axes"]
+        anim_type = overlap_dict["animation_type"]
+
+        overshoot_validator = overlap_dict["overshoot_check"]
+
+
+        wind_check = overlap_dict["wind_check"]
+        wind_paths = []
+        if wind_check:
+            absolute_wind_check = overlap_dict["wind_absolute_translation"]
+            wind_strength = overlap_dict["wind_strength"]
+            wind_strength = wind_strength * -1
+            wind_path, inverse_wind_path = create_translation_wind_path(time_range, start, wind_strength,absolute_wind_check)
+            wind_paths = [wind_path, inverse_wind_path]
+
+        offset_translation = []
+        if anim_type == "additive":
+            for selection_id, selection in enumerate(selections):
+                offset_translation.append([])
+                for target_id, target in enumerate(selection):
+                    offset_translation[selection_id].append([])
+                    for frame in range(int(time_range)):
+                        x_val = mc.getAttr("{}.tx".format(selection[target_id]), t=start + frame)
+                        y_val = mc.getAttr("{}.ty".format(selection[target_id]), t=start + frame)
+                        z_val = mc.getAttr("{}.tz".format(selection[target_id]), t=start + frame)
+                        offset_translation[selection_id][target_id].append([x_val, y_val, z_val])
+        else:
+            for selection_id, selection in enumerate(selections):
+                offset_translation.append([])
+                for target_id, target in enumerate(selection):
+                    offset_translation[selection_id].append([])
+                    for frame in range(int(time_range)):
+                        offset_translation[selection_id][target_id].append([0, 0, 0])
+        current_target_id = 0
+        for selection_id, selection in enumerate(selections):
+            if anim_type == "add":
+                pass
+            elif anim_type == "replacer":
+                if "x" in axes_validator:
+                    mc.cutKey(selection, time=(start, end), attribute="tx")
+                if "y" in axes_validator:
+                    mc.cutKey(selection, time=(start, end), attribute="ty")
+                if "z" in axes_validator:
+                    mc.cutKey(selection, time=(start, end), attribute="tz")
+            else:
+                if "x" in axes_validator:
+                    mc.cutKey(selection, attribute="tx")
+                if "y" in axes_validator:
+                    mc.cutKey(selection, attribute="ty")
+                if "z" in axes_validator:
+                    mc.cutKey(selection, attribute="tz")
+            for target_id, target in enumerate(selection):
+
+                mc.move(0, 0, 0, target, os=True, a=True)
+                stiffness_val = stiffness[selection_id][target_id]
+
+
+                matrices = []
+                if parent_validator:
+                    current_parent = overlap_dict["parent_object"]
+                    matrices = get_translation_matrices(target, translation_strength, int(time_range), start,
+                                                        True, current_parent, wind_check, wind_paths,overlap_dict)
+                else:
+                    matrices = get_translation_matrices(target, translation_strength, int(time_range), start,
+                                                        False, "", wind_check, wind_paths,overlap_dict)
+
+                for frame in range(int(time_range)):
+                    x_val = offset_translation[selection_id][target_id][frame][0]
+                    y_val = offset_translation[selection_id][target_id][frame][1]
+                    z_val = offset_translation[selection_id][target_id][frame][2]
+
+                    translations = matrices[frame]
+
+
+                    if "x" in axes_validator:
+                        mc.setKeyframe(target, v=translations[0] * stiffness_val + x_val, at="tx", t=start + frame)
+                    if "y" in axes_validator:
+                        mc.setKeyframe(target, v=translations[1] * stiffness_val + y_val, at="ty", t=start + frame)
+                    if "z" in axes_validator:
+                        mc.setKeyframe(target, v=translations[2] * stiffness_val + z_val, at="tz", t=start + frame)
+                if strength < 1 and strength > 0:
+                    apply_strenght([target], strength, "t", axes_validator, start, end)
+
+                current_target_id = current_target_id + 1
+                self.progress_signal.emit(current_target_id)
+
+
+
+
+        if overshoot_validator:
+            for selection_id, selection in enumerate(selections):
+                if overlap_dict["overshoot_first_validator"] ==True:
+                    overshoot(selection[0], int(time_range), start, axes_validator, "t", overlap_dict)
+                else:
+                    for target_id, target in enumerate(selection):
+
+                        overshoot(target, int(time_range), start, axes_validator, "t", overlap_dict)
+
+        if strength >=1 or strength<0:
+            apply_strenght(selections,strength,"t",axes_validator,start,end)
+        mc.undoInfo(closeChunk=True)
+        end_time = time.time()
+        total_time = round((end_time - start_time), 3)
+        print("executed translation overlap in {} seconds".format(total_time))
+        return total_time
+
+
+def get_translation_matrices(selection, strength, frame_range, start, parent_validator, parent,wind_check,wind_paths,overlap_dict):
+    result = []
+    targets_matrices = []
+    parent_matrices = []
+    # cycle check
+    cycle_check = overlap_dict["cycle"]
+    # wind section
+    wind_path = []
+    inverse_wind_path = []
+    if wind_check:
+        wind_path, inverse_wind_path = wind_paths
+
+    scale_check_mat = mc.getAttr("{}.worldMatrix".format(selection), t=start)
+    scales = check_scale(scale_check_mat)
+    # check for negative scale in the control
+    offset_scale = [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+    negative_scale_validator = False
+    if scales[0] < 0:
+        offset_scale[0] = -1
+        negative_scale_validator = True
+    if scales[1] < 0:
+        offset_scale[5] = -1
+        negative_scale_validator = True
+    if scales[2] < 0:
+        offset_scale[10] = -1
+        negative_scale_validator = True
+
+
+    # do the same for the remove
+
+    remove_offset_scale = [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+    if parent_validator:
+        scale_check_mat = mc.getAttr("{}.worldMatrix".format(parent), t=start)
+        scales = check_scale(scale_check_mat)
+        negative_scale_validator = False
+        if scales[0] < 0:
+            remove_offset_scale[0] = -1
+            negative_scale_validator = True
+        if scales[1] < 0:
+            remove_offset_scale[5] = -1
+            negative_scale_validator = True
+        if scales[2] < 0:
+            remove_offset_scale[10] = -1
+            negative_scale_validator = True
+    default_matrix = [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+    for frame in range(frame_range):
+        if frame == 0:
+            if cycle_check:
+                frame = int(frame_range - 1)
+        current_frame = start + frame
+
+        target = mc.getAttr("{}.parentMatrix".format(selection), t=current_frame - strength)
+        parent_inverse_matrix = mc.getAttr("{}.parentInverseMatrix".format(selection), t=current_frame)
+
+        if parent_validator:
+
+            remove_matrix = mc.getAttr("{}.worldMatrix".format(parent), t=current_frame)
+            remove_inverse_matrix = mc.getAttr("{}.worldInverseMatrix".format(parent), t=current_frame - strength)
+            start_remove_matrix = mc.getAttr("{}.worldMatrix".format(parent), t=start)
+
+            difference_a = matrix_substract_vector_to_translation(remove_matrix, start_remove_matrix)
+            difference_b = matrix_substract_vector_to_translation(default_matrix, remove_matrix)
+            difference_c = [
+                difference_a[0] - difference_b[0],
+                difference_a[1] - difference_b[1],
+                difference_a[2] - difference_b[2]
+
+            ]
+
+            target = parent_matrices_a_in_b(target, remove_inverse_matrix)
+            remove_matrix = parent_matrices_a_in_b(remove_matrix, remove_offset_scale)
+
+            parent_inverse_matrix_result = fix_inverse_matrix(parent_inverse_matrix, remove_matrix, difference_c)
+
+            if wind_check:
+                wind_inverse_matrix = inverse_wind_path[frame]
+                target = parent_matrices_a_in_b(target, wind_inverse_matrix)
+
+            targets_matrices.append(target)
+            parent_matrices.append(parent_inverse_matrix_result)
+        else:
+
+
+            parent_inverse_matrix = parent_matrices_a_in_b(parent_inverse_matrix, offset_scale)
+            if wind_check:
+                wind_inverse_matrix = inverse_wind_path[frame]
+                wind_matrix = wind_path[frame]
+                target = parent_matrices_a_in_b(target, wind_inverse_matrix)
+
+            targets_matrices.append(target)
+            parent_matrices.append(parent_inverse_matrix)
+
+    for frame in range(frame_range):
+        t_m = parent_m_matrices_a_in_b(targets_matrices[frame], parent_matrices[frame])
+        translations = get_os_translation(t_m)
+        result.append(translations)
+
+    return result
+
+def matrix_substract_vector_to_translation(matrix_a, matrix_b):
+    result = [0, 0, 0]
+
+    result[0] = matrix_a[12] - matrix_b[12]
+    result[1] = matrix_a[13] - matrix_b[13]
+    result[2] = matrix_a[14] - matrix_b[14]
+
+    return result
+
+def cross_product(vector_a, vector_b):
+    x = vector_a[1] * vector_b[2] - vector_a[2] * vector_b[1]
+    y = vector_a[2] * vector_b[0] - vector_a[0] * vector_b[2]
+    z = vector_a[0] * vector_b[1] - vector_a[1] * vector_b[0]
+
+    result = [x, y, z]
+
+    return result
+
+def aim_with_matrices(driven_m, target_m, up_m, parent_i_m, aim_axis, rotate_order):
+    driven_t = [driven_m[12], driven_m[13], driven_m[14]]
+    target_t = [target_m[12], target_m[13], target_m[14]]
+    up_t = [up_m[12], up_m[13], up_m[14]]
+    parent_i_m = om.MMatrix(parent_i_m)
+    orient_m = over_d_p.matrixOmDict[aim_axis]
+    rotate_order = rotate_order + 1
+
+    target_t[0] = target_t[0] - driven_t[0]
+    target_t[1] = target_t[1] - driven_t[1]
+    target_t[2] = target_t[2] - driven_t[2]
+
+    up_t[0] = up_t[0] - driven_t[0]
+    up_t[1] = up_t[1] - driven_t[1]
+    up_t[2] = up_t[2] - driven_t[2]
+
+    target_value = math.sqrt((target_t[0] ** 2) + (target_t[1] ** 2) + (target_t[2] ** 2))
+    up_value = math.sqrt((target_t[0] ** 2) + (target_t[1] ** 2) + (target_t[2] ** 2))
+    target_t_n = [0,0,0]
+    if target_value == 0:
+        target_t_n = [target_t[0] * target_value, target_t[1] * target_value, target_t[2] * target_value]
+    else:
+        target_t_n = [target_t[0] / target_value, target_t[1] / target_value, target_t[2] / target_value]
+
+    up_t_n = [0,0,0]
+    if up_value == 0:
+        up_t_n = [up_t[0] * up_value, up_t[1] * up_value, up_t[2] * up_value]
+    else:
+        up_t_n = [up_t[0] / up_value, up_t[1] / up_value, up_t[2] / up_value]
+
+    z_vector = cross_product(target_t_n, up_t_n)
+    y_vector = cross_product(z_vector, target_t_n)
+
+    result_m = om.MMatrix([target_t_n[0], target_t_n[1], target_t_n[2], 0,
+                           y_vector[0], y_vector[1], y_vector[2], 0,
+                           z_vector[0], z_vector[1], z_vector[2], 0,
+                           0, 0, 0, 1])
+
+    temp_m = om.MMatrix()
+    temp_m.setToProduct(orient_m, result_m)
+    temp_m.setToProduct(temp_m, parent_i_m)
+
+    transformation_m = om.MTransformationMatrix(temp_m)
+    transformation_m.reorderRotation(rotate_order)
+
+    eulers = transformation_m.rotation()
+    r_x = om.MAngle(eulers[0]).asDegrees()
+    r_y = om.MAngle(eulers[1]).asDegrees()
+    r_z = om.MAngle(eulers[2]).asDegrees()
+    r_x = round(r_x,4)
+    r_y = round(r_y,4)
+    r_z = round(r_z,4)
+    rots = [r_x, r_y, r_z]
+    return rots
+# logic section
+
+def order_selection(order):
+    selection = mc.ls(sl=True)
+    if order == "selection":
+        return [selection]
+    elif order == "name":
+        selection.sort(key=keys_for_sorting)
+        return [selection]
+    elif order == "split by name":
+        return order_split_by_name(selection)
+
+def string_to_int(text_string):
+    return int(text_string) if text_string.isdigit() else text_string
+def keys_for_sorting(text_strings):
+    return [string_to_int(x) for x in re.split(r"(\d+)",text_strings)]
+
+def order_split_by_name(selection):
+    splits = []
+    name_dict = {}
+    for obj in selection:
+        name = obj.split(":")[-1]
+        ns = obj
+        ns = ns.replace(name,"")
+        true_name = "{}{}".format(ns, split_at_number(name))
+
+        if true_name not in name_dict:
+            name_dict[true_name] = []
+
+        name_dict[true_name].append(obj)
+    # order the true names
+    names_ordered = []
+    for true_name in name_dict:
+        names_ordered.append(true_name)
+
+    names_ordered.sort(key=keys_for_sorting)
+
+    for true_name in names_ordered:
+        sorted_split_names = name_dict[true_name]
+        sorted_split_names.sort(key=keys_for_sorting)
+        splits.append(sorted_split_names)
+
+    return splits
+
+def split_at_number(name):
+    match = re.search(r'\d', name)
+    if match:
+        return name.split(match.group(),1)[0]
+    else:
+        return name
+
+# wind section
+def create_wind_control():
+    curve_points = [(0.0, 2.7469241746612543, 0.0), (-1.1102230246251565e-16, 1.8862991452607303, 1.8862991452607303), (0.0, 0.0, 2.746924174661254), (-1.1102230246251565e-16, -1.8862991452607303, 1.8862991452607303), (0.0, -2.7469241746612543, 0.0), (1.1102230246251565e-16, -1.8862991452607303, -1.8862991452607303), (0.0, 0.0, -2.746924174661254), (1.1102230246251565e-16, 1.8862991452607303, -1.8862991452607303), (0.0, 2.7469241746612543, 0.0), (0.0, 0.0, 0.0),(0.0, -2.7469241746612543, 0.0), (0.0, 0.0, 0.0),(0.0,0.0,  -2.7469241746612543), (0.0, 0.0, 0.0),(0.0,0.0,  2.7469241746612543), (0.0, 0.0, 0.0), (3.0, 0.0, 0.0), (0.0, 0.0, 0.0),(0.0, 0.0, 1.0), (3.0, 0.0, 0.0),(0.0, 0.0, 1.0),(0.0, 0.0, -1.0), (3.0, 0.0, 0),(0.0, 0.0, -1.0),(0.0, 0.0, 0),(0.0, 1.0, 0.0),(3.0, 0.0, 0),(0.0, 1.0, 0.0),(0.0, -1.0, 0.0),(3.0, 0.0, 0)]
+    curve_name = "overslapper_wind_control_"
+    winds = mc.ls("*.overslapper_tag")
+    winds_number = 0
+    for wind in winds:
+        tag = mc.getAttr(wind)
+        if tag == "wind":
+            winds_number = winds_number + 1
+    winds_number = winds_number + 1
+    wind_curve = mc.curve(degree=1,p=curve_points,n="{}{}".format(curve_name,winds_number))
+
+    shape = mc.listRelatives(wind_curve)[0]
+
+
+    mc.addAttr(wind_curve,ln="_________________",at="enum",en="_____________")
+    mc.setAttr("{}._________________".format(wind_curve), cb=True, e=True)
+    mc.addAttr(wind_curve, ln="wind", at="bool",k=True)
+    mc.setAttr("{}.wind".format(wind_curve), cb=True, e=True)
+    mc.setAttr("{}.visibility".format(wind_curve), cb=True, e=True)
+    mc.setAttr("{}.wind".format(wind_curve),1)
+
+
+    mc.addAttr(wind_curve, ln="wind_strength", at="float",k=True)
+    mc.setAttr("{}.wind_strength".format(wind_curve),10)
+
+    mc.addAttr(wind_curve, ln="overslapper_tag", dt="string",k=True)
+    mc.setAttr("{}.overslapper_tag".format(wind_curve),"wind",type="string")
+
+    mc.connectAttr("{}.wind".format(wind_curve), "{}.overrideEnabled".format(shape), f=True)
+    mc.setAttr("{}.overrideColor".format(shape),14)
+
+    mc.connectAttr("{}.wind_strength".format(wind_curve), "{}.controlPoints[16].xValue".format(shape),f=True)
+    mc.connectAttr("{}.wind_strength".format(wind_curve), "{}.controlPoints[19].xValue".format(shape),f=True)
+    mc.connectAttr("{}.wind_strength".format(wind_curve), "{}.controlPoints[22].xValue".format(shape),f=True)
+    mc.connectAttr("{}.wind_strength".format(wind_curve), "{}.controlPoints[26].xValue".format(shape),f=True)
+    mc.connectAttr("{}.wind_strength".format(wind_curve), "{}.controlPoints[29].xValue".format(shape),f=True)
+    return wind_curve
+
+def create_wind_path(frame_range,start,strength):
+
+
+    overslapper_tags = mc.ls("*.overslapper_tag")
+    overslapper_tags_ns = mc.ls("*:*.overslapper_tag")
+    overslapper_tags_double_ns = mc.ls("*:*:*.overslapper_tag")
+    overslapper_tags.extend(overslapper_tags_ns)
+    overslapper_tags.extend(overslapper_tags_double_ns)
+    winds = []
+    for tags in overslapper_tags:
+        tag = mc.getAttr(tags)
+        if tag == "wind":
+            wind = tags.split(".")[0]
+            wind_check = mc.getAttr("{}.wind".format(wind))
+            if wind_check:
+                winds.append(wind)
+    wind_path = []
+    wind_vectors = []
+    # old version where wind was added to an absolute path
+    """
+    for wind_id, wind in enumerate(winds):
+        current_wind_vectors = []
+        for frame in range(int(frame_range)):
+            current_frame = frame + start
+            world_matrix = mc.getAttr("{}.worldMatrix[0]".format(wind), t=current_frame)
+            current_strenght = mc.getAttr("{}.wind_strength".format(wind), t=current_frame)
+            if current_strenght == 0:
+                pass
+            else:
+                current_strenght = current_strenght/10
+            current_strenght = current_strenght * strength
+            target_matrix = offset_matrix_in_os(world_matrix,[current_strenght,0,0])
+            travel_vector = travel_vector_from_matrices(world_matrix,target_matrix)
+
+            if frame == 0:
+                current_wind_vectors.append(travel_vector)
+            else:
+                previous_vector = current_wind_vectors[frame-1]
+                new_vector = [previous_vector[0] + travel_vector[0],
+                              previous_vector[1] + travel_vector[1],
+                              previous_vector[2] + travel_vector[2],]
+                current_wind_vectors.append(new_vector)
+        for wind_vector_id, wind_vector in enumerate(current_wind_vectors):
+            if wind_id == 0:
+                wind_vectors.append(wind_vector)
+
+            else:
+
+                current_vector = wind_vector
+
+                previous_vector = wind_vectors[wind_vector_id]
+
+                new_vector = [previous_vector[0] + current_vector[0],
+                              previous_vector[1] + current_vector[1],
+                              previous_vector[2] + current_vector[2], ]
+                wind_vectors[wind_vector_id] = new_vector
+    """
+    # fixed version where wind is just the current wind
+    for wind_id, wind in enumerate(winds):
+        current_wind_vectors = []
+        for frame in range(int(frame_range)):
+            current_frame = frame + start -1
+            world_matrix = mc.getAttr("{}.worldMatrix[0]".format(wind), t=current_frame)
+            current_strenght = mc.getAttr("{}.wind_strength".format(wind), t=current_frame)
+            if current_strenght == 0:
+                pass
+            else:
+                current_strenght = current_strenght / 10
+            current_strenght = current_strenght * strength
+
+            target_matrix = offset_matrix_in_os(world_matrix, [current_strenght, 0, 0])
+            travel_vector = travel_vector_from_matrices(world_matrix, target_matrix)
+
+            if frame == 0:
+                current_wind_vectors.append(travel_vector)
+            else:
+                previous_vector = current_wind_vectors[frame - 1]
+                new_vector = [previous_vector[0] + travel_vector[0],
+                              previous_vector[1] + travel_vector[1],
+                              previous_vector[2] + travel_vector[2], ]
+                current_wind_vectors.append(new_vector)
+
+        # add multiples winds together
+        for wind_vector_id, wind_vector in enumerate(current_wind_vectors):
+            if wind_id == 0:
+                wind_vectors.append(wind_vector)
+
+
+            else:
+
+                current_vector = wind_vector
+
+                previous_vector = wind_vectors[wind_vector_id]
+
+                new_vector = [previous_vector[0] + current_vector[0],
+                              previous_vector[1] + current_vector[1],
+                              previous_vector[2] + current_vector[2], ]
+                wind_vectors[wind_vector_id] = new_vector
+
+
+
+
+    for wind_vector in wind_vectors:
+        current_matrix = [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0,
+                    wind_vector[0], wind_vector[1], wind_vector[2], 1.0]
+        wind_path.append(current_matrix)
+
+    inverse_path = []
+    for wind in wind_path:
+        inverse_path_temp = wind
+        inverse_path_temp[12] = inverse_path_temp[12]*-1
+        inverse_path_temp[13] = inverse_path_temp[13]*-1
+        inverse_path_temp[14] = inverse_path_temp[14]*-1
+        inverse_path.append(inverse_path_temp)
+
+    return [wind_path, inverse_path]
+
+def create_translation_wind_path(frame_range,start,strength,absolute_check):
+
+
+
+    overslapper_tags = mc.ls("*.overslapper_tag")
+    overslapper_tags_ns = mc.ls("*:*.overslapper_tag")
+    overslapper_tags_double_ns = mc.ls("*:*:*.overslapper_tag")
+    overslapper_tags.extend(overslapper_tags_ns)
+    overslapper_tags.extend(overslapper_tags_double_ns)
+    winds = []
+    for tags in overslapper_tags:
+        tag = mc.getAttr(tags)
+        if tag == "wind":
+            wind = tags.split(".")[0]
+            wind_check = mc.getAttr("{}.wind".format(wind))
+            if wind_check:
+                winds.append(wind)
+    wind_path = []
+    wind_vectors = []
+    if absolute_check:
+        for wind_id, wind in enumerate(winds):
+            current_wind_vectors = []
+            for frame in range(int(frame_range)):
+                current_frame = frame + start
+                world_matrix = mc.getAttr("{}.worldMatrix[0]".format(wind), t=current_frame)
+                current_strenght = mc.getAttr("{}.wind_strength".format(wind), t=current_frame)
+                if current_strenght == 0:
+                    pass
+                else:
+                    current_strenght = current_strenght/10
+                current_strenght = current_strenght * strength
+                target_matrix = offset_matrix_in_os(world_matrix,[current_strenght,0,0])
+                travel_vector = travel_vector_from_matrices(world_matrix,target_matrix)
+
+                if frame == 0:
+                    current_wind_vectors.append(travel_vector)
+                else:
+                    previous_vector = current_wind_vectors[frame-1]
+                    new_vector = [previous_vector[0] + travel_vector[0],
+                                  previous_vector[1] + travel_vector[1],
+                                  previous_vector[2] + travel_vector[2],]
+                    current_wind_vectors.append(new_vector)
+            for wind_vector_id, wind_vector in enumerate(current_wind_vectors):
+                if wind_id == 0:
+                    wind_vectors.append(wind_vector)
+
+                else:
+
+                    current_vector = wind_vector
+
+                    previous_vector = wind_vectors[wind_vector_id]
+
+                    new_vector = [previous_vector[0] + current_vector[0],
+                                  previous_vector[1] + current_vector[1],
+                                  previous_vector[2] + current_vector[2], ]
+                    wind_vectors[wind_vector_id] = new_vector
+
+        for wind_vector in wind_vectors:
+            current_matrix = [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0,
+                        wind_vector[0], wind_vector[1], wind_vector[2], 1.0]
+            wind_path.append(current_matrix)
+    else:
+        for wind_id, wind in enumerate(winds):
+            current_wind_vectors = []
+            for frame in range(int(frame_range)):
+                current_frame = frame + start
+                world_matrix = mc.getAttr("{}.worldMatrix[0]".format(wind), t=current_frame)
+                current_strenght = mc.getAttr("{}.wind_strength".format(wind), t=current_frame)
+                if current_strenght == 0:
+                    pass
+                else:
+                    current_strenght = current_strenght / 10
+                current_strenght = current_strenght * strength
+                target_matrix = offset_matrix_in_os(world_matrix, [current_strenght, 0, 0])
+                travel_vector = travel_vector_from_matrices(world_matrix, target_matrix)
+
+
+                current_wind_vectors.append(travel_vector)
+
+            for wind_vector_id, wind_vector in enumerate(current_wind_vectors):
+                if wind_id == 0:
+                    wind_vectors.append(wind_vector)
+
+                else:
+
+                    current_vector = wind_vector
+
+                    previous_vector = wind_vectors[wind_vector_id]
+
+                    new_vector = [previous_vector[0] + current_vector[0],
+                                  previous_vector[1] + current_vector[1],
+                                  previous_vector[2] + current_vector[2], ]
+                    wind_vectors[wind_vector_id] = new_vector
+
+        for wind_vector in wind_vectors:
+            current_matrix = [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0,
+                              wind_vector[0], wind_vector[1], wind_vector[2], 1.0]
+            wind_path.append(current_matrix)
+
+    inverse_path = []
+    for wind in wind_path:
+        inverse_path_temp = wind
+        inverse_path_temp[12] = inverse_path_temp[12]*-1
+        inverse_path_temp[13] = inverse_path_temp[13]*-1
+        inverse_path_temp[14] = inverse_path_temp[14]*-1
+        inverse_path.append(inverse_path_temp)
+
+    return [wind_path, inverse_path]
+def travel_vector_from_matrices(matrix_a,matrix_b):
+    travel_vector = [matrix_b[12]-matrix_a[12],matrix_b[13]-matrix_a[13],matrix_b[14]-matrix_a[14]]
+    return travel_vector
+
+def travel_matrix_ws(matrix_a,vector_a):
+    matrix_b = [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0,
+                     0.0, 0.0, 0.0, 1.0]
+    matrix_b[12] = matrix_a[12] + vector_a[0]
+    matrix_b[13] = matrix_a[13] + vector_a[1]
+    matrix_b[14] = matrix_a[14] + vector_a[2]
+
+    return matrix_b
+
+# overshoot section
+def overshoot(target,frame_range,start_frame,axes,attribute,overlap_dict):
+
+
+    overshoot_strength = overlap_dict["overshoot_strength"]
+
+    overshoot_frequency = overlap_dict["overshoot_frequency"]
+
+    overshoot_between_validator = overlap_dict["overshoot_between_validator"]
+    overshoot_end_validator = overlap_dict["overshoot_end_validator"]
+
+
+
+    # query the zones
+    zones = []
+    for axis_id, axis in enumerate(axes):
+        axis_dict = {}
+        axis_dict["stable_zone"] = []
+        axis_dict["unstable_zone"] = []
+        zones.append(axis_dict)
+        zone_id = 0
+
+
+        for frame in range(frame_range):
+            cur_frame = start_frame + frame
+            # establish a new stability zone
+            previous_val =round( mc.getAttr("{}.{}{}".format(target, attribute,  axis), t=cur_frame), 6)
+            val =round( mc.getAttr("{}.{}{}".format(target, attribute, axis), t=cur_frame + 1), 6)
+            next_val =round( mc.getAttr("{}.{}{}".format(target, attribute, axis), t=cur_frame + 2), 6)
+            if str(zone_id) not in zones[axis_id]:
+                zones[axis_id]["{}".format(zone_id)] = {}
+                zones[axis_id]["{}".format(zone_id)]["start"] = cur_frame
+                zones[axis_id]["{}".format(zone_id)]["end"] = cur_frame
+                if next_val == val:
+                    # in a stable zone
+                    axis_dict["stable_zone"].append(zone_id)
+                    zones[axis_id]["{}".format(zone_id)]["stable_val"] = val
+                if next_val != val:
+                    # in an unstable zone
+                    axis_dict["unstable_zone"].append(zone_id)
+                    zones[axis_id]["{}".format(zone_id)]["peak_frame"] = cur_frame
+                    zones[axis_id]["{}".format(zone_id)]["peak_val"] = val
+            else:
+
+                if previous_val == val and next_val == val:
+                    # in a stable zone
+                    if frame == frame_range - 1:
+                        zones[axis_id]["{}".format(zone_id)]["end"] = cur_frame + 1
+
+                    zones[axis_id]["{}".format(zone_id)]["peak_frame"] = cur_frame + 1
+
+                    pass
+                if previous_val != val and next_val != val:
+                    # in an unstable zone
+                    # find a final peak value
+                    previous_val_2 = previous_val * previous_val
+                    val_2 = val * val
+                    next_val_2 = next_val * next_val
+                    if val_2 > previous_val_2 and val_2 > next_val_2:
+                        zones[axis_id]["{}".format(zone_id)]["peak_frame"] = cur_frame
+                        zones[axis_id]["{}".format(zone_id)]["peak_val"] = mc.getAttr("{}.{}{}".format(target, attribute, axis), t=cur_frame )
+
+                    pass
+                    # entering a stable zone
+
+
+
+                if previous_val != val and next_val == val:
+                    zones[axis_id]["{}".format(zone_id)]["end"] = cur_frame
+                    zone_id = zone_id + 1
+                    pass
+                if previous_val == val and next_val != val:
+                    # entering an unstable zone
+                    zones[axis_id]["{}".format(zone_id)]["peak_frame"] = cur_frame
+                    zones[axis_id]["{}".format(zone_id)]["peak_val"] = val
+                    zones[axis_id]["{}".format(zone_id)]["end"] = cur_frame
+                    zone_id = zone_id + 1
+
+                    pass
+                if previous_val * previous_val < val * val and next_val * next_val < val * val:
+                    zone_id = zone_id + 1
+            if frame == frame_range - 1:
+                if zone_id in zones[axis_id]:
+                    zones[axis_id]["{}".format(zone_id)]["end"] = cur_frame
+        if zones[axis_id]["stable_zone"] != []:
+            if str(zones[axis_id]["stable_zone"][-1]) not in zones[axis_id]:
+                zones[axis_id]["stable_zone"].remove(zones[axis_id]["stable_zone"][-1])
+
+    for axis_id, axis in enumerate(axes):
+
+        for stable_zone_id in zones[axis_id]["stable_zone"]:
+            # if there was an unstable zone before
+
+            if overshoot_end_validator and not overshoot_between_validator:
+                try:
+                    if stable_zone_id < zones[axis_id]["unstable_zone"][-1]:
+                        continue
+                except IndexError:
+                        pass
+                try:
+                    if stable_zone_id < zones[axis_id]["stable_zone"][-1]:
+                        continue
+                except IndexError:
+                    pass
+            elif overshoot_between_validator and not overshoot_end_validator:
+                try:
+                    if stable_zone_id == zones[axis_id]["stable_zone"][-1]:
+                        continue
+                except IndexError:
+                    pass
+
+            # good logic for inner
+            if stable_zone_id != 0:
+                end = zones[axis_id][str(stable_zone_id)]["end"]
+                start = zones[axis_id][str(stable_zone_id)]["start"]
+
+                peak_value = zones[axis_id][str(stable_zone_id - 1)]["peak_val"]
+
+
+                peak_frame = zones[axis_id][str(stable_zone_id - 1)]["peak_frame"]
+                stable_val = zones[axis_id][str(stable_zone_id)]["stable_val"]
+                overshoot_frame_distance = start - peak_frame
+
+
+
+                current_frame_range = end - start
+
+                strength_mult = overshoot_strength
+                # end overshoot
+                if stable_zone_id == zones[axis_id]["stable_zone"][-1]:
+                    peaks_number = overshoot_frequency
+                    if peaks_number > 0:
+                        multiplier = 1 / (peaks_number +1)
+
+
+                        swap = 0
+
+                        mc.cutKey(target, time=(start , end), attribute="{}{}".format(attribute,axis))
+                        current_frame = 0
+
+                        for x in range(peaks_number +1):
+
+
+                            if x == 0:
+                                current_frame = int(start + overshoot_frame_distance)
+                            else:
+                                current_frame_distance = overshoot_frame_distance/(x+1)
+                                current_frame = int(current_frame + (x+1)*current_frame_distance)
+
+                            if x != peaks_number:
+                                if swap == 0:
+                                    mult = (1 - ((x+1) * multiplier))
+
+                                    key_val = stable_val - ((peak_value * mult) * strength_mult)
+                                    mc.setKeyframe(target, v=key_val, at="{}{}".format(attribute,axis),
+                                                   t=current_frame)
+                                    swap = 1
+                                elif swap == 1:
+                                    mult = (1 - ((x+1) * multiplier))
+                                    key_val = stable_val - ((peak_value * mult) * strength_mult) * -1
+                                    mc.setKeyframe(target, v=key_val, at="{}{}".format(attribute,axis),
+                                                   t=current_frame)
+                                    swap = 0
+                            else:
+                                mc.setKeyframe(target, v=stable_val, at="{}{}".format(attribute, axis),
+                                               t=current_frame)
+
+                        mc.setKeyframe(target, v=stable_val, at="{}{}".format(attribute, axis),
+                                       t=end + start_frame)
+                # in between overshoots
+                else:
+                    peaks_number = int(current_frame_range / overshoot_frame_distance)
+                    if peaks_number > 0:
+                        multiplier = 1 / (peaks_number +1)
+
+                        swap = 0
+
+                        mc.cutKey(target, time=(start , end), attribute="{}{}".format(attribute,axis))
+                        current_frame = 0
+                        for x in range(peaks_number):
+
+                            if x == 0:
+                                current_frame = int(start + overshoot_frame_distance)
+                            else:
+                                current_frame_distance = overshoot_frame_distance / (x + 1)
+                                current_frame = int(current_frame + (x + 1) * current_frame_distance)
+
+                            if x != peaks_number:
+                                if swap == 0:
+                                    mult = (1 - ((x) * multiplier))
+                                    key_val = stable_val - ((peak_value * mult))
+                                    mc.setKeyframe(target, v=key_val, at="{}{}".format(attribute,axis),
+                                                   t=current_frame)
+                                    swap = 1
+                                elif swap == 1:
+                                    mult = (1 - ((x) * multiplier))
+                                    key_val = stable_val + ((peak_value * mult))
+                                    mc.setKeyframe(target, v=key_val, at="{}{}".format(attribute,axis),
+                                                   t=current_frame)
+                                    swap = 0
+                            else:
+                                mc.setKeyframe(target, v=stable_val, at="{}{}".format(attribute, axis),
+                                               t=current_frame)
+
+
+

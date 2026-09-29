@@ -1,0 +1,21 @@
+global proc current_script_path (){}
+global proc string get_current_script_path()
+{
+    string $script_file_path = `whatIs current_script_path`;
+    string $temp_list[];
+    int $num=`tokenize $script_file_path " " $temp_list`;
+    string $script_path =(`dirname $temp_list[$num-1]`);
+    return $script_path;
+}
+string $command = "import sys\n";
+$command += "if not '";
+$command += get_current_script_path();
+$command += "' in sys.path:\n";
+$command += "    sys.path.insert(0, '";
+$command += get_current_script_path();
+$command += "')\n";
+$command += "from importlib import *\n";
+$command += "import create_shelf_button\n";
+$command += "reload(create_shelf_button)\n";
+$command += "create_shelf_button.main()\n";
+python($command);

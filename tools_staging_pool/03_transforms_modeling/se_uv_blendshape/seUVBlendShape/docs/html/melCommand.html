@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MEL Command Reference &mdash; seUVBlendShape 3.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Python Module Reference" href="pythonReference.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> seUVBlendShape
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+               3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MEL Command Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#command-flags">Command flags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pythonReference.html">Python Module Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nodeReference.html">Node Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples and Demo Videos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">seUVBlendShape</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>MEL Command Reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mel-command-reference">
+<h1>MEL Command Reference<a class="headerlink" href="#mel-command-reference" title="Permalink to this headline">¶</a></h1>
+<p>The plugin comes with a MEL command that is used to create and edit the seUVBlendShape deformer.
+This command is immediately available after loading the seUVBlendShape plugin in Maya.</p>
+<p>Also included is a <a class="reference internal" href="pythonReference.html"><span class="doc">Python module</span></a> that provides more tools and higher
+level features that extend this MEL command.</p>
+<p>The command name for the plugin is the same as the deformer name, <code class="docutils literal notranslate"><span class="pre">seUVBlendShape</span></code>. Calling
+the command with no flags or arguments will use the current selection to create a new deformer
+with the last mesh selected being the base geometry, receiving the deformation.</p>
+<p>This MEL command can also be called using Python in the same style as Maya’s builtin commands.
+For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">maya</span> <span class="k">import</span> <span class="n">cmds</span>
+<span class="n">cmds</span><span class="o">.</span><span class="n">seUVBlendShape</span><span class="p">(</span><span class="s1">&#39;targetA&#39;</span><span class="p">,</span> <span class="s1">&#39;baseMesh&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;myDeformer&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>However it is best to use the included Python module instead of using this method.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Undo operations are limited to only creating a new deformer node. It is not currently
+supported to undo any editing (adding, removing, rebinding, etc) operations.</p>
+</div>
+<div class="section" id="command-flags">
+<h2>Command flags<a class="headerlink" href="#command-flags" title="Permalink to this headline">¶</a></h2>
+<dl class="std option">
+<dt id="cmdoption-seUVBlendShape-edit">
+<span id="cmdoption-seuvblendshape-edit"></span><span id="cmdoption-seUVBlendShape-e"></span><span id="cmdoption-seuvblendshape-e"></span><code class="sig-name descname"><span class="pre">-edit</span></code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">-e</span></code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-seUVBlendShape-edit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the command in edit mode. This is used to let the command know you want to edit the
+deformer based on the other flags provided. You must select or pass the name of the
+seUVBlendShape deformer as the last argument.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-seUVBlendShape-query">
+<span id="cmdoption-seuvblendshape-query"></span><span id="cmdoption-seUVBlendShape-q"></span><span id="cmdoption-seuvblendshape-q"></span><code class="sig-name descname"><span class="pre">-query</span></code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">-q</span></code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-seUVBlendShape-query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the command in query mode. This is used to let the command know you want to request
+based on the other flags provided. You must select or pass the name of the seUVBlendShape
+deformer as the last argument.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-seUVBlendShape-name">
+<span id="cmdoption-seuvblendshape-name"></span><span id="cmdoption-seUVBlendShape-n"></span><span id="cmdoption-seuvblendshape-n"></span><code class="sig-name descname"><span class="pre">-name</span></code><code class="sig-prename descclassname"> <span class="pre">&lt;string&gt;</span></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">-n</span></code><code class="sig-prename descclassname"> <span class="pre">&lt;string&gt;</span></code><a class="headerlink" href="#cmdoption-seUVBlendShape-name" title="Permalink to this definition">¶</a></dt>
+<dd><p>When creating a deformer, it will set the name to the one provided. Not available
+in edit or query modes.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-seUVBlendShape-addTarget">
+<span id="cmdoption-seuvblendshape-addtarget"></span><span id="cmdoption-seUVBlendShape-add"></span><span id="cmdoption-seuvblendshape-add"></span><code class="sig-name descname"><span class="pre">-addTarget</span></code><code class="sig-prename descclassname"> <span class="pre">&lt;string&gt;</span></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">-add</span></code><code class="sig-prename descclassname"> <span class="pre">&lt;string&gt;</span></code><a class="headerlink" href="#cmdoption-seUVBlendShape-addTarget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the given mesh as a new target on an existing seUVBlendShape deformer. Only available
+with <a class="reference internal" href="#cmdoption-seUVBlendShape-edit"><code class="xref std std-option docutils literal notranslate"><span class="pre">-edit</span></code></a> flag.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-seUVBlendShape-removeTarget">
+<span id="cmdoption-seuvblendshape-removetarget"></span><span id="cmdoption-seUVBlendShape-rm"></span><span id="cmdoption-seuvblendshape-rm"></span><code class="sig-name descname"><span class="pre">-removeTarget</span></code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">-rm</span></code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-seUVBlendShape-removeTarget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a target from the deformer. This flag is used in combination with the <a class="reference internal" href="#cmdoption-seUVBlendShape-index"><code class="xref std std-option docutils literal notranslate"><span class="pre">-index</span></code></a> flag.
+Only available with <a class="reference internal" href="#cmdoption-seUVBlendShape-edit"><code class="xref std std-option docutils literal notranslate"><span class="pre">-edit</span></code></a> flag.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-seUVBlendShape-index">
+<span id="cmdoption-seuvblendshape-index"></span><span id="cmdoption-seUVBlendShape-i"></span><span id="cmdoption-seuvblendshape-i"></span><code class="sig-name descname"><span class="pre">-index</span></code><code class="sig-prename descclassname"> <span class="pre">&lt;int&gt;</span></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">-i</span></code><code class="sig-prename descclassname"> <span class="pre">&lt;int&gt;</span></code><a class="headerlink" href="#cmdoption-seUVBlendShape-index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used in combination with <a class="reference internal" href="#cmdoption-seUVBlendShape-edit"><code class="xref std std-option docutils literal notranslate"><span class="pre">-edit</span></code></a> and <a class="reference internal" href="#cmdoption-seUVBlendShape-query"><code class="xref std std-option docutils literal notranslate"><span class="pre">-query</span></code></a> flags for specific targets.
+The index is the weight plug array index on the deformer.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-seUVBlendShape-rebind">
+<span id="cmdoption-seuvblendshape-rebind"></span><span id="cmdoption-seUVBlendShape-rb"></span><span id="cmdoption-seuvblendshape-rb"></span><code class="sig-name descname"><span class="pre">-rebind</span></code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">-rb</span></code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-seUVBlendShape-rebind" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is used to rebind a target on the deformer. If the <a class="reference internal" href="#cmdoption-seUVBlendShape-index"><code class="xref std std-option docutils literal notranslate"><span class="pre">-index</span></code></a> flag is provided, it will
+only rebind that target index. If no index flag is used, all targets will be rebound.
+Only available with <a class="reference internal" href="#cmdoption-seUVBlendShape-edit"><code class="xref std std-option docutils literal notranslate"><span class="pre">-edit</span></code></a> flag.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-seUVBlendShape-keepOffset">
+<span id="cmdoption-seuvblendshape-keepoffset"></span><span id="cmdoption-seUVBlendShape-ko"></span><span id="cmdoption-seuvblendshape-ko"></span><code class="sig-name descname"><span class="pre">-keepOffset</span></code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">-ko</span></code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-seUVBlendShape-keepOffset" title="Permalink to this definition">¶</a></dt>
+<dd><p>When creating a new deformer, set the keepOffset attribute to 1.0. Though you can
+set this yourself on the deformer at any time, this is just a convenience. Not available
+in edit or query modes.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-seUVBlendShape-tolerance">
+<span id="cmdoption-seuvblendshape-tolerance"></span><span id="cmdoption-seUVBlendShape-tol"></span><span id="cmdoption-seuvblendshape-tol"></span><code class="sig-name descname"><span class="pre">-tolerance</span></code><code class="sig-prename descclassname"> <span class="pre">&lt;float&gt;</span></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">-tol</span></code><code class="sig-prename descclassname"> <span class="pre">&lt;float&gt;</span></code><a class="headerlink" href="#cmdoption-seUVBlendShape-tolerance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the search distance in UV space used during binding base UVs that are outside
+the borders of the target UVs. Setting the tolerance to zero will result only in
+base UVs being on the border or inside a target UV face being bound. Default is 0.01.
+Only available when creating a new deformer, rebinding, or adding a new target.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-seUVBlendShape-baseUVSet">
+<span id="cmdoption-seuvblendshape-baseuvset"></span><span id="cmdoption-seUVBlendShape-bs"></span><span id="cmdoption-seuvblendshape-bs"></span><code class="sig-name descname"><span class="pre">-baseUVSet</span></code><code class="sig-prename descclassname"> <span class="pre">&lt;string&gt;</span></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">-bs</span></code><code class="sig-prename descclassname"> <span class="pre">&lt;string&gt;</span></code><a class="headerlink" href="#cmdoption-seUVBlendShape-baseUVSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the UV set to use on the base mesh for binding to the target UV set.
+If this flag is not provided, the first set found on the base mesh is used. If used
+in combination with the <a class="reference internal" href="#cmdoption-seUVBlendShape-index"><code class="xref std std-option docutils literal notranslate"><span class="pre">-index</span></code></a> and <a class="reference internal" href="#cmdoption-seUVBlendShape-query"><code class="xref std std-option docutils literal notranslate"><span class="pre">-query</span></code></a> flag, returns the
+name of the UV set.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-seUVBlendShape-targetUVSet">
+<span id="cmdoption-seuvblendshape-targetuvset"></span><span id="cmdoption-seUVBlendShape-ts"></span><span id="cmdoption-seuvblendshape-ts"></span><code class="sig-name descname"><span class="pre">-targetUVSet</span></code><code class="sig-prename descclassname"> <span class="pre">&lt;string&gt;</span></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">-ts</span></code><code class="sig-prename descclassname"> <span class="pre">&lt;string&gt;</span></code><a class="headerlink" href="#cmdoption-seUVBlendShape-targetUVSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the target UV set to use for binding the base UV set. It is also used
+during deformation. If this flag is not provided, the first set found on the
+target mesh is used. If used in combination with the <a class="reference internal" href="#cmdoption-seUVBlendShape-index"><code class="xref std std-option docutils literal notranslate"><span class="pre">-index</span></code></a> and
+<a class="reference internal" href="#cmdoption-seUVBlendShape-query"><code class="xref std std-option docutils literal notranslate"><span class="pre">-query</span></code></a> flag, returns the name of the UV set.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-seUVBlendShape-boundVertices">
+<span id="cmdoption-seuvblendshape-boundvertices"></span><span id="cmdoption-seUVBlendShape-bv"></span><span id="cmdoption-seuvblendshape-bv"></span><code class="sig-name descname"><span class="pre">-boundVertices</span></code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">-bv</span></code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-seUVBlendShape-boundVertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of vertices on the base mesh that is bound by the deformer. You
+must use this in combination with the <a class="reference internal" href="#cmdoption-seUVBlendShape-index"><code class="xref std std-option docutils literal notranslate"><span class="pre">-index</span></code></a> flag since each target may have
+different vertices bound to it. Only available with <a class="reference internal" href="#cmdoption-seUVBlendShape-query"><code class="xref std std-option docutils literal notranslate"><span class="pre">-query</span></code></a> flag.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-seUVBlendShape-targetCount">
+<span id="cmdoption-seuvblendshape-targetcount"></span><span id="cmdoption-seUVBlendShape-tc"></span><span id="cmdoption-seuvblendshape-tc"></span><code class="sig-name descname"><span class="pre">-targetCount</span></code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">-tc</span></code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-seUVBlendShape-targetCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of targets on the deformer. Only available with
+<a class="reference internal" href="#cmdoption-seUVBlendShape-query"><code class="xref std std-option docutils literal notranslate"><span class="pre">-query</span></code></a> flag.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-seUVBlendShape-targetIndexes">
+<span id="cmdoption-seuvblendshape-targetindexes"></span><span id="cmdoption-seUVBlendShape-ti"></span><span id="cmdoption-seuvblendshape-ti"></span><code class="sig-name descname"><span class="pre">-targetIndexes</span></code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">-ti</span></code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-seUVBlendShape-targetIndexes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of integers of the target indexes on the deformer. Only available
+with <a class="reference internal" href="#cmdoption-seUVBlendShape-query"><code class="xref std std-option docutils literal notranslate"><span class="pre">-query</span></code></a> flag.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// create a seUVBlendShape deformer using selection. The last item is the base mesh.
+select targetMesh;
+select -add baseMesh;
+seUVBlendShape;
+// Result: seUVBlendShape1
+
+// create a seUVBlendShape with a specific name and UV sets
+seUVBlendShape -n &quot;myUVBlend&quot; -tuvs &quot;commonUV&quot; -buvs &quot;commonUV&quot; &quot;targetMesh&quot; &quot;baseMesh&quot;;
+// Result: myUVBlend
+
+// add a new target
+seUVBlendShape -e -addTarget &quot;secondTargetMesh&quot; &quot;myUVBlend&quot;;
+
+// get the number of targets
+seUVBlendShape -q -targetCount &quot;myUVBlend&quot;;
+# Result: 2
+
+// get the target indexes
+seUVBlendShape -q -targetIndexes &quot;myUVBlend&quot;;
+# Result: {0,1}
+
+// remove the first target (index 0)
+seUVBlendShape -e -removeTarget -index 0 &quot;myUVBlend&quot;;
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pythonReference.html" class="btn btn-neutral float-right" title="Python Module Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Scott Englert
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

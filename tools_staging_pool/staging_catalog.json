@@ -1,94 +1,17 @@
 [
   {
     "category": "01_animation",
-    "folder": "01_animation/mov_playblast_v11",
-    "name": "MOV拍屏输出工具 (Playblast MOV Tool v11)",
-    "entry": "mov拍屏v11.py",
-    "desc": "专业 Playblast 拍屏工具。集成 HUD 镜头遮罩、时间码/帧率显示、摄像机焦距信息、自定义分辨率与 MOV/MP4 格式导出压缩。"
+    "folder": "01_animation/anim_filters",
+    "name": "动画曲线过滤器套件 (animFilters)",
+    "entry": "animFilters.mel",
+    "desc": "欧拉角跳变与动画曲线噪点平滑过滤"
   },
   {
     "category": "01_animation",
-    "folder": "01_animation/ik_fk_switch",
-    "name": "IK/FK无缝双向切换与烘焙工具",
-    "entry": "mog_ikFkSwitch.py",
-    "desc": "角色 IK 与 FK 控制器双向无缝匹配吸附。支持当前帧单帧吸附，以及时间轴选定区间的全自动动画烘焙切换。"
-  },
-  {
-    "category": "01_animation",
-    "folder": "01_animation/pose_matcher",
-    "name": "双角色/骨骼姿态匹配器 (PoseMatcher)",
-    "entry": "PoseMatcher.py",
-    "desc": "基于四元数与空间向量运算。支持不同命名空间/不同绑定的双角色之间姿态智能镜像与快速吸附。"
-  },
-  {
-    "category": "01_animation",
-    "folder": "01_animation/copy_animation",
-    "name": "复制动画与曲线修复工具",
-    "entry": "复制动画_修复优化版.py",
-    "desc": "批量复制与重映射动画曲线，内置断裂曲线修复算法，支持同名控制器/骨骼曲线通道一键批量传递。"
-  },
-  {
-    "category": "01_animation",
-    "folder": "01_animation/root_motion_bake",
-    "name": "Root动画生成与质心约束烘焙",
-    "entry": "root动画生成.py",
-    "desc": "自动计算角色质心位移轨迹并生成 Root 根骨骼动画，创建独立动画层并烘焙相对位移与旋转。"
-  },
-  {
-    "category": "01_animation",
-    "folder": "01_animation/back2origin_v05_gaiv3",
-    "name": "动画位移回归原点 (Back2Origin 最新增强版)",
-    "entry": "Back2Origin_v05_gaiv3.py",
-    "desc": "自动识别场景中角色控制器，支持将脱离原点的移动平移回世界原点，新增反向操作与命名空间切换。"
-  },
-  {
-    "category": "01_animation",
-    "folder": "01_animation/timeline_enhanced",
-    "name": "增强型时间轴控制面板",
-    "entry": "maya_timeline_tool_enhanced.py",
-    "desc": "增强的时间轴交互面板，支持时间范围快速缩放/重映射、播放倍速实时调整、帧范围填充与关键帧区间标记。"
-  },
-  {
-    "category": "01_animation",
-    "folder": "01_animation/gimbal_lock_fix",
-    "name": "万向节死锁修复器 (Gimbal Fixer)",
-    "entry": "maya_animation_gimbal_fix.py",
-    "desc": "自动检测旋转动画曲线中的欧拉角跳变与万向节死锁现象，通过 Euler Filter 与四元数插值平滑修复异常翻滚。"
-  },
-  {
-    "category": "01_animation",
-    "folder": "01_animation/velocity_calculator",
-    "name": "时间轴运动速度计算器",
-    "entry": "maya_velocity_calculator.py",
-    "desc": "计算选中物体在当前时间轴区间的空间直线位移与平均运动速度（支持自动换算帧率到单位/秒）。"
-  },
-  {
-    "category": "01_animation",
-    "folder": "01_animation/stagger_offset",
-    "name": "关键帧阶梯递减偏移工具 (Stagger/Offset)",
-    "entry": "批量减选关键帧偏移.py",
-    "desc": "制作重叠动作 (Overlapping Action) 与依次延迟动画的必备工具。自动对选中控制器链逐级减选并向后平移关键帧。"
-  },
-  {
-    "category": "01_animation",
-    "folder": "01_animation/lock_to_world",
-    "name": "世界空间坐标锁定 (lockToWorld)",
-    "entry": "jop_lockToWorld.py",
-    "desc": "一键将骨骼或控制器在指定时间段内“钉死”在世界坐标中（经典防滑步、手部固定抓握对齐工具）。"
-  },
-  {
-    "category": "01_animation",
-    "folder": "01_animation/animation_retarget",
-    "name": "Maya动画重定向工具 (Animation Retarget)",
-    "entry": "动画重定向.py",
-    "desc": "跨骨骼/控制器的动画批量转移工具。支持通道映射自定义、配置保存/加载、右键批量重定向。"
-  },
-  {
-    "category": "01_animation",
-    "folder": "01_animation/anim_layer_keyframe_bookmark",
-    "name": "动画层关键帧区间书签生成器",
-    "entry": "anim_layer_keyframe_bookmark.py",
-    "desc": "提取所选物体在当前动画层级上的关键帧，在相邻关键帧之间自动创建相邻色彩互斥的时间滑块书签 (Bookmarks)。"
+    "folder": "01_animation/anim_layer_bookmark_trimmer",
+    "name": "动画层书签关键帧修剪器 (Bookmark Trimmer)",
+    "entry": "anim_layer_bookmark_trimmer.py",
+    "desc": "根据时间滑块书签起止端点，仅保留选定动画层在书签起始与结束处的关键帧，修剪清理所有中间非端点帧。支持原子撤销与预检。"
   },
   {
     "category": "01_animation",
@@ -99,17 +22,409 @@
   },
   {
     "category": "01_animation",
-    "folder": "01_animation/anim_layer_bookmark_trimmer",
-    "name": "动画层书签关键帧修剪器 (Bookmark Trimmer)",
-    "entry": "anim_layer_bookmark_trimmer.py",
-    "desc": "根据时间滑块书签起止端点，仅保留选定动画层在书签起始与结束处的关键帧，修剪清理所有中间非端点帧。支持原子撤销与预检。"
+    "folder": "01_animation/anim_layer_keyframe_bookmark",
+    "name": "动画层关键帧区间书签生成器",
+    "entry": "anim_layer_keyframe_bookmark.py",
+    "desc": "提取所选物体在当前动画层级上的关键帧，在相邻关键帧之间自动创建相邻色彩互斥的时间滑块书签 (Bookmarks)。"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/anim_layer_v4_0",
+    "name": "动画层综合控制面板 v4.0",
+    "entry": "anim_layer.mel",
+    "desc": "动画层批量关键帧与显示管理增强面板"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/anim_mirror_helper_v1_1",
+    "name": "角色动画镜像助手 v1.1 (Studio版)",
+    "entry": "Anim_Mirror_Helper.py",
+    "desc": "角色姿态与控制器动画快速镜像"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/anim_polish_premium_v1_23",
+    "name": "AnimPolish PREMIUM 角色动画修帧曲线抛光神器 v1.23",
+    "entry": "AnimPolish.py",
+    "desc": "提取 v1.23 最新付费版，淘汰根目录的 v1.19 Basic 旧版，附带说明文档"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/animation_retarget",
+    "name": "Maya动画重定向工具 (Animation Retarget)",
+    "entry": "动画重定向.py",
+    "desc": "跨骨骼/控制器的动画批量转移工具。支持通道映射自定义、配置保存/加载、右键批量重定向。"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/animirror_v2_0",
+    "name": "AniMirror 动画镜像工具 v2.0",
+    "entry": "AniMirror.py",
+    "desc": "独立 Qt 界面动画姿态与序列帧镜像工具"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/atrack_trajectory",
+    "name": "ATrack 空间运动轨迹跟踪器",
+    "entry": "ATrack/aTrack.pyc",
+    "desc": "实时计算骨骼与控制器的三维运动轨迹线与弧度分析"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/back2origin_v05_gaiv3",
+    "name": "动画位移回归原点 (Back2Origin 最新增强版)",
+    "entry": "Back2Origin_v05_gaiv3.py",
+    "desc": "自动识别场景中角色控制器，支持将脱离原点的移动平移回世界原点，新增反向操作与命名空间切换。"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/bh_aim_tools_v1_1",
+    "name": "Aim 朝向与视线注视对齐工具 v1.1",
+    "entry": "bh_aimTools.py",
+    "desc": "Brian Horgan 开发的眼部注视与空间朝向辅助工具"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/bh_local_nudge",
+    "name": "局部微调位移旋转工具 (bh_localNudge)",
+    "entry": "bh_localNudge.py",
+    "desc": "在局部/屏幕/父级坐标系下微调动画控制器位移与旋转"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/bh_speedlines",
+    "name": "动漫二次元动画速度线生成器",
+    "entry": "bh_speedLines.mel",
+    "desc": "生成跟随角色动态的视效速度线与冲击波特效网格"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/bh_wave_it",
+    "name": "跟随重叠动画生成器 (bh_waveIt)",
+    "entry": "bh_waveIt/bh_waveIt.mel",
+    "desc": "排除演示视频，保留 mel 脚本与图标，为链条、尾巴快速添加基于数学正弦波的波浪跟随"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/brs_loc_transfer",
+    "name": "Locator 定位器空间位移传递 (BRSLocTransfer 离线版)",
+    "entry": "BRSLocTransfer.py",
+    "desc": "无需外网连接，通过中间 Locator 烘焙并转移角色空间位移旋转"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/brs_smooth_mocap",
+    "name": "动捕数据平滑降噪过滤器 (BRSSmoothMocap)",
+    "entry": "BRSSmoothMocap.py",
+    "desc": "针对动作捕捉抖动关键帧的智能平滑插值降噪器"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/cg_shake_py3",
+    "name": "CgShake 电影级摄像机真实手持抖动模拟 (Python3版)",
+    "entry": "CgShake_py3/cgshake.py",
+    "desc": "解压最新的 CgShake_py3.rar，淘汰旧版 Python 2 压缩包，内置手持、爆炸、呼吸等丰富抖动预设"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/copy_animation",
+    "name": "复制动画与曲线修复工具",
+    "entry": "复制动画_修复优化版.py",
+    "desc": "批量复制与重映射动画曲线，内置断裂曲线修复算法，支持同名控制器/骨骼曲线通道一键批量传递。"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/directional_cycle_tool_v1_1",
+    "name": "多方向位移循环动画工具 v1.1",
+    "entry": "DirectionalCycleTool/main.py",
+    "desc": "解压 DirectionalCycleTool_v1_1.rar，智能循环平铺走跑跳动画位移"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/dof_control_v1_0",
+    "name": "dofControl 摄像机景深聚焦交互控制工具 v1.0",
+    "entry": "dofControl.py",
+    "desc": "在视口中以 Locator 快速驱动摄像机焦点与景深模糊范围"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/eblabs_screenspace",
+    "name": "EB Labs 视口屏幕空间操控套件 (ScreenSpace)",
+    "entry": "ScreenSpace.py",
+    "desc": "直接在摄像机平面屏幕坐标系下锁定并拖拽控制器"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/eblabs_whiskey",
+    "name": "EB Labs Whiskey 动画姿态与时间轴快照",
+    "entry": "Whiskey.py",
+    "desc": "EB Labs 出品的高效姿态捕获与动画对比套件"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/fd_multi_space",
+    "name": "多空间无缝切换与吸附工具 (FD Multi-Space)",
+    "entry": "FD_MULTI-SPACE.py",
+    "desc": "支持角色控制器世界/局部/任意道具层级空间实时无缝切换吸附"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/ghosting_master_v2_03",
+    "name": "视口洋葱皮残影大师 v2.03 (Ghosting Master)",
+    "entry": "ghosting_master.mel",
+    "desc": "视口实时显示前后帧残影网格与轨迹姿态，排查动画节奏"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/gimbal_lock_fix",
+    "name": "万向节死锁修复器 (Gimbal Fixer)",
+    "entry": "maya_animation_gimbal_fix.py",
+    "desc": "自动检测旋转动画曲线中的欧拉角跳变与万向节死锁现象，通过 Euler Filter 与四元数插值平滑修复异常翻滚。"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/iconic_camera_rig",
+    "name": "电影级标准摄像机装配模板库 (Iconic Camera Rig)",
+    "entry": "Arnold_Shoulder_Camera_Rig.ma",
+    "desc": "包含肩扛、五点定位等影视级摄像机装配 .ma 与贴图预设"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/ik_fk_switch",
+    "name": "IK/FK无缝双向切换与烘焙工具 (Pro 3.0 增强升级版)",
+    "entry": "mog_ikFkSwitchPro.py",
+    "desc": "升级池中现有老版本 mog_ikFkSwitch.py 至 Pro 3.0 架构"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/jop_retarget_anim_v09",
+    "name": "JOP 角色动画批量重定向套件 v0.9",
+    "entry": "jop_retargetAnim/jop_retargetAnim.py",
+    "desc": "完整工程套件，含拖拽安装、通道重映射与图形化映射 UI"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/keyframe_overlap_v2_0",
+    "name": "关键帧物理重叠与次级动作解算器 v2.0",
+    "entry": "KFOverlap/KeyframeOverlap.py",
+    "desc": "一键为骨骼链/毛发飘带生成基于物理摆动的重叠动作"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/kf_animrig_ikfk",
+    "name": "kfAnimRig IK/FK 极速匹配切换",
+    "entry": "kfAnimRig_IKFK.mel",
+    "desc": "独立的轻量级 MEL 角色 IK/FK 切换与吸附面板，排除视频"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/lock_to_world",
+    "name": "世界空间坐标锁定 (lockToWorld)",
+    "entry": "jop_lockToWorld.py",
+    "desc": "一键将骨骼或控制器在指定时间段内“钉死”在世界坐标中（经典防滑步、手部固定抓握对齐工具）。"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/maya_keyframe_reduction",
+    "name": "Maya 关键帧智能精简工具 (Keyframe Reduction)",
+    "entry": "scripts/keyframeReduction.py",
+    "desc": "开源关键帧容差精简算法，批量去除动捕和烘焙冗余帧"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/maya_timeline_marker",
+    "name": "时间滑块颜色书签与事件标记插件 (Timeline Marker)",
+    "entry": "scripts/timelineMarker/ui.py",
+    "desc": "完整开源工程，在时间轴上创建彩色便签、区域标记与热键跳转"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/mov_playblast_v11",
+    "name": "MOV拍屏输出工具 (Playblast MOV Tool v11)",
+    "entry": "mov拍屏v11.py",
+    "desc": "专业 Playblast 拍屏工具。集成 HUD 镜头遮罩、时间码/帧率显示、摄像机焦距信息、自定义分辨率与 MOV/MP4 格式导出压缩。"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/noodle_v1_3",
+    "name": "Noodle 次级重叠惯性动力学解算器 v1.3",
+    "entry": "noodle/install.py",
+    "desc": "解压 noodle_v1.3.zip，排除视频，保留 python 核心算法与测试资产"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/overslapper_v1_03",
+    "name": "OverSlapper 弹性重叠与惯性延迟工具 v1.03",
+    "entry": "overslapper.py",
+    "desc": "在动画曲线上快速应用弹簧、惯性与阶梯延迟效果"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/physics_tools",
+    "name": "Maya 动画物理动力学辅助工具箱",
+    "entry": "PhysicsTools.mel",
+    "desc": "布娃娃/重力/次级惯性动力学物理模拟解算，过滤29个教学视频"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/pose_matcher",
+    "name": "双角色/骨骼姿态匹配器 (PoseMatcher)",
+    "entry": "PoseMatcher.py",
+    "desc": "基于四元数与空间向量运算。支持不同命名空间/不同绑定的双角色之间姿态智能镜像与快速吸附。"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/pose_transfer_remote",
+    "name": "远距离/任意空间相对姿态还原器 (PoseTransfer)",
+    "entry": "PoseTransfer.py",
+    "desc": "提取并规范化 Python 源码为 PoseTransfer.py，跨世界位置精准复制还原角色局部相对 Pose"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/retime_tools",
+    "name": "RetimeTools 时间节奏与关键帧重配工具",
+    "entry": "RetimeTools.py",
+    "desc": "解压汉化版与原版，支持以滑块自由伸缩整体动作节奏"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/root_motion_bake",
+    "name": "Root动画生成与质心约束烘焙",
+    "entry": "root动画生成.py",
+    "desc": "自动计算角色质心位移轨迹并生成 Root 根骨骼动画，创建独立动画层并烘焙相对位移与旋转。"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/schnapps_v1_2",
+    "name": "Schnapps 角色动作捕捉重对齐工具 v1.2",
+    "entry": "schnapps/install.py",
+    "desc": "解压 schnapps_v1.2.zip，排除视频，保留核心代码与说明"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/shape_animation_tool",
+    "name": "形状动画形态微调工具 (Shape Animation)",
+    "entry": "ShapeAnimationTool.py",
+    "desc": "排除视频，保留原版与汉化版完整代码与手册"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/shift_animation_v3_2",
+    "name": "关键帧平移与波浪式偏移工具 v3.2",
+    "entry": "Shift_animation.mel",
+    "desc": "批量阶梯式平移关键帧，制作波浪跟随动画"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/speedline_creator_v1_5",
+    "name": "动漫速度线生成器 v1.5 (SpeedLine Creator)",
+    "entry": "SpeedLine_Creator.pyc",
+    "desc": "排除视频，保留 .ma 模板与核心代码"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/spring_magic_v3_5a",
+    "name": "经典物理弹簧骨骼计算器 v3.5a (SpringMagic)",
+    "entry": "springmagic.py",
+    "desc": "经典弹簧骨骼动力学插件，为头发、飘带、尾巴自动生成逼真摆动"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/stagger_gui",
+    "name": "Stagger 关键帧阶梯偏移图形化面板 (GUI版)",
+    "entry": "ui.py",
+    "desc": "相比池中单脚本命令行版，增加独立 SVG 图标与 Qt 面板，清理 macOS 垃圾后入池"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/stagger_offset",
+    "name": "关键帧阶梯递减偏移工具 (Stagger/Offset)",
+    "entry": "批量减选关键帧偏移.py",
+    "desc": "制作重叠动作 (Overlapping Action) 与依次延迟动画的必备工具。自动对选中控制器链逐级减选并向后平移关键帧。"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/sword_anim_polishing_tool_v4",
+    "name": "武器与刀剑轨迹修帧抛光神器 v4",
+    "entry": "Sword_Anim_Polishing_Tool_v4.mel",
+    "desc": "排除视频，保留 mel 脚本与位图组件，精准平滑武器剑尖运动轨迹"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/tb_anim_tools",
+    "name": "Tom Bailey 动画效率工具箱 (tbAnimTools)",
+    "entry": "tbAnimToolsInstaller.py",
+    "desc": "解压 HelpImages，包含时间轴平滑拖拽、前后关键帧快速跳转等功能"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/timeline_enhanced",
+    "name": "增强型时间轴控制面板",
+    "entry": "maya_timeline_tool_enhanced.py",
+    "desc": "增强的时间轴交互面板，支持时间范围快速缩放/重映射、播放倍速实时调整、帧范围填充与关键帧区间标记。"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/transparent_graph_editor",
+    "name": "透明曲线编辑器 (Transparent Graph Editor)",
+    "entry": "transparentGE.py",
+    "desc": "让 Maya 动画曲线图编辑器半透明悬浮于视口上方"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/tweener_v1_0_2",
+    "name": "Tweener 快速过渡帧/中间帧滑块 v1.0.2",
+    "entry": "tweener.py",
+    "desc": "Justin Barrett 开发的经典 Breakdown 中间帧百分比混合滑块"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/velocity_calculator",
+    "name": "时间轴运动速度计算器",
+    "entry": "maya_velocity_calculator.py",
+    "desc": "计算选中物体在当前时间轴区间的空间直线位移与平均运动速度（支持自动换算帧率到单位/秒）。"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/w_retarget_tool",
+    "name": "W Retarget Tool 动画快速重定向脚本",
+    "entry": "WretargetTool.py",
+    "desc": "单文件规范化为目录打包，轻量级双骨骼/物体动画烘焙重定向"
   },
   {
     "category": "02_rigging_hierarchy",
-    "folder": "02_rigging_hierarchy/relationship_tools_v19",
-    "name": "高级层级与空间切换工具 (Relationship Tools v19)",
-    "entry": "Relationship Tools_v19.py",
-    "desc": "历经 19 次迭代的核心层级/约束工具。支持父子/世界空间切换、约束烘焙、层级安全断开与重连、主从关系维护。"
+    "folder": "02_rigging_hierarchy/advanced_skeleton_v5_74",
+    "name": "AdvancedSkeleton 高级人体与生物自动装配系统 v5.74",
+    "entry": "AdvancedSkeleton5.mel",
+    "desc": "业内顶级角色自动装配插件，淘汰旧版 5.55，保留 5.74 最新版完整结构"
+  },
+  {
+    "category": "02_rigging_hierarchy",
+    "folder": "02_rigging_hierarchy/base_overrig_v9_0",
+    "name": "OverRig 角色二级动力学绑定装配系统 v9.0",
+    "entry": "base_OverRig_scripts_V9_0/base_OverRig_scripts.mel",
+    "desc": "完整用户手册、图标与骨骼模板，高级副级动力学约束系统"
+  },
+  {
+    "category": "02_rigging_hierarchy",
+    "folder": "02_rigging_hierarchy/batch_skin_bind",
+    "name": "按顺序批量蒙皮/绑定与代理生成",
+    "entry": "批量绑骨头.py",
+    "desc": "按选择顺序将成组模型与骨骼链自动执行标准蒙皮绑定，支持快速骨骼碰撞代理生成。"
+  },
+  {
+    "category": "02_rigging_hierarchy",
+    "folder": "02_rigging_hierarchy/bb_tools",
+    "name": "bb_Tools 绑定与控制器综合工具集",
+    "entry": "bb_ctrlTool.mel",
+    "desc": "包含属性批量控制、毛囊生成、控制器造型库与蒙皮权重清单"
+  },
+  {
+    "category": "02_rigging_hierarchy",
+    "folder": "02_rigging_hierarchy/constraint_manager_v1_3",
+    "name": "约束节点批量管理与状态烘焙面板 v1.3",
+    "entry": "ConstraintManager_1_3/constraintManager.pyc",
+    "desc": "清晰罗列场景所有约束，支持一键烘焙位移并安全断开约束连接"
   },
   {
     "category": "02_rigging_hierarchy",
@@ -120,10 +435,38 @@
   },
   {
     "category": "02_rigging_hierarchy",
-    "folder": "02_rigging_hierarchy/skin_weight_transfer",
-    "name": "骨骼蒙皮权重转移工具",
-    "entry": "骨骼权重转移.py",
-    "desc": "提取源骨骼链的 SkinCluster 蒙皮权重，按骨骼命名或就近空间拓扑快速转移至新骨骼链。"
+    "folder": "02_rigging_hierarchy/hierarchy_analyzer",
+    "name": "DAG节点层级关系分析器",
+    "entry": "maya_hierarchy_analysis.py",
+    "desc": "深度分析场景选中节点的完整父子继承链、DAG 绝对路径及依赖节点关系，结构化输出层级树。"
+  },
+  {
+    "category": "02_rigging_hierarchy",
+    "folder": "02_rigging_hierarchy/joint_optimal_pro_v4_1",
+    "name": "骨骼朝向与轴向优化神器 (Joint Optimal Pro v4.1)",
+    "entry": "Joint_Optimal_Pro.mel",
+    "desc": "专业纠正骨骼旋转轴 (Rotate Axis) 与关节定向 (Joint Orient)，带完整 PDF 说明"
+  },
+  {
+    "category": "02_rigging_hierarchy",
+    "folder": "02_rigging_hierarchy/rdm_tools_v2",
+    "name": "RdM Tools 自动化角色绑定与装配套件 v2 (中文版)",
+    "entry": "RdMToolsV2/__init__.py",
+    "desc": "解压中文版源码与 UI，过滤教程视频，全自动手臂、腿部、头部装配与蒙皮工具"
+  },
+  {
+    "category": "02_rigging_hierarchy",
+    "folder": "02_rigging_hierarchy/relationship_tools_v19",
+    "name": "高级层级与空间切换工具 (Relationship Tools v19)",
+    "entry": "Relationship Tools_v19.py",
+    "desc": "历经 19 次迭代的核心层级/约束工具。支持父子/世界空间切换、约束烘焙、层级安全断开与重连、主从关系维护。"
+  },
+  {
+    "category": "02_rigging_hierarchy",
+    "folder": "02_rigging_hierarchy/reparent_pro_v1_5_1",
+    "name": "reParent Pro 高级层级重构与父子切换器 v1.5.1",
+    "entry": "reParent_Pro_v1.5.1.mel",
+    "desc": "无损维持当前位移旋转情况下动态重构 DAG 父子从属关系"
   },
   {
     "category": "02_rigging_hierarchy",
@@ -141,66 +484,87 @@
   },
   {
     "category": "02_rigging_hierarchy",
-    "folder": "02_rigging_hierarchy/hierarchy_analyzer",
-    "name": "DAG节点层级关系分析器",
-    "entry": "maya_hierarchy_analysis.py",
-    "desc": "深度分析场景选中节点的完整父子继承链、DAG 绝对路径及依赖节点关系，结构化输出层级树。"
+    "folder": "02_rigging_hierarchy/skin_info_and_super_connect",
+    "name": "SkinInfo v1.92 权重导入导出与 SuperConnect 约束管理器",
+    "entry": "skinInfo_V1.92.mel",
+    "desc": "淘汰旧版 1.7/1.8/1.91，打包最新的 skinInfo_V1.92 与 Super_Connect 约束链接器"
   },
   {
     "category": "02_rigging_hierarchy",
-    "folder": "02_rigging_hierarchy/batch_skin_bind",
-    "name": "按顺序批量蒙皮/绑定与代理生成",
-    "entry": "批量绑骨头.py",
-    "desc": "按选择顺序将成组模型与骨骼链自动执行标准蒙皮绑定，支持快速骨骼碰撞代理生成。"
+    "folder": "02_rigging_hierarchy/skin_magic",
+    "name": "SkinMagic 蒙皮权重平滑与魔法笔刷",
+    "entry": "SkinMagic.py",
+    "desc": "图形化蒙皮权重调节器，快速分配、镜像与就近吸附顶点权重"
+  },
+  {
+    "category": "02_rigging_hierarchy",
+    "folder": "02_rigging_hierarchy/skin_weight_transfer",
+    "name": "骨骼蒙皮权重转移工具",
+    "entry": "骨骼权重转移.py",
+    "desc": "提取源骨骼链的 SkinCluster 蒙皮权重，按骨骼命名或就近空间拓扑快速转移至新骨骼链。"
+  },
+  {
+    "category": "02_rigging_hierarchy",
+    "folder": "02_rigging_hierarchy/ssdr_pointcache_to_skin",
+    "name": "SSDR 点缓存一键转骨骼蒙皮权重插件",
+    "entry": "SSDR_local_sp/main.py",
+    "desc": "解压 SSDR_local_sp.rar，通过平滑表皮变形分解算法将 ABC 点缓存自动转换为骨骼与 SkinCluster"
+  },
+  {
+    "category": "02_rigging_hierarchy",
+    "folder": "02_rigging_hierarchy/th_rig_tools",
+    "name": "TH RigTools 角色绑定与骨骼工具箱 (免费版)",
+    "entry": "ThRigTools.py",
+    "desc": "提供一键创建标准控制器、对称骨骼镜像与次级联动"
+  },
+  {
+    "category": "02_rigging_hierarchy",
+    "folder": "02_rigging_hierarchy/toolchefs_camera_lattice_softik",
+    "name": "ToolChefs 摄像机晶格变形与柔体 IK 解算器",
+    "entry": "tcCameraLattice.py",
+    "desc": "解压 tool chefs.zip，包含 tcCameraLattice 与 tcSoftIkSolver 插件与 Python 封装"
+  },
+  {
+    "category": "02_rigging_hierarchy",
+    "folder": "02_rigging_hierarchy/weight_sculpt",
+    "name": "WeightSculpt 蒙皮权重雕刻笔刷插件",
+    "entry": "weightSculpt.py",
+    "desc": "支持多版本 Maya 原生 C++ 插件 (mll/bundle/so)，像雕刻一样直观刷权重"
   },
   {
     "category": "03_transforms_modeling",
-    "folder": "03_transforms_modeling/world_transform_v4",
-    "name": "世界坐标复制粘贴与对齐 (v4 最新增强版)",
-    "entry": "复制粘贴世界坐标v4.py",
-    "desc": "提取选中物体的全局世界矩阵（Translate、Rotate），支持识别通道、识别父子关系与迭代误差判定校准。"
+    "folder": "03_transforms_modeling/camera_f_fix",
+    "name": "按 F 键视角错乱修复",
+    "entry": "按f相机出错解决.mel",
+    "desc": "修复 Maya 视口按 F 键聚焦时摄像机飞出视界、平移矩阵溢出或裁剪面错乱的常见 Bug。"
   },
   {
     "category": "03_transforms_modeling",
-    "folder": "03_transforms_modeling/rotation_aligner",
-    "name": "多功能旋转与角度对齐工具",
-    "entry": "旋转对齐工具.py",
-    "desc": "综合对齐面板。整合了角度实时显示、欧拉旋转对齐、骨骼轴向对齐，可计算空间夹角并将选区旋转轴快速校准至目标。"
+    "folder": "03_transforms_modeling/cvwrap_weightdriver",
+    "name": "cvWrap 拓扑包裹与 weightDriver RBF 权重驱动修形套件",
+    "entry": "scripts/cvwrap/bindui.py",
+    "desc": "整合 cvwrap 与 weightDriver 高性能修形变形算法与 mgear animbits 模块"
   },
   {
     "category": "03_transforms_modeling",
-    "folder": "03_transforms_modeling/quaternion_tool",
-    "name": "四元数旋转插值与转换 (Quaternion Tool)",
-    "entry": "QuaternionTool_Maya.py",
-    "desc": "提供欧拉角与四元数双向转换、球面线性插值 (SLERP)、绕任意轴向量旋转计算，解决旋转插值翻折问题。"
+    "folder": "03_transforms_modeling/eblabs_world_space_tools",
+    "name": "EB Labs 世界空间坐标对齐与矩阵传递 (WorldSpaceTools)",
+    "entry": "WorldSpaceTools.py",
+    "desc": "在任意复合层级和空间下无缝传递世界坐标矩阵"
   },
   {
     "category": "03_transforms_modeling",
-    "folder": "03_transforms_modeling/mirror_tool",
-    "name": "物体对称镜像工具 (Mirror Tool)",
-    "entry": "mirror_tool.py",
-    "desc": "根据左右命名规则（如 _L 与 _R），按世界或局部反射平面（XY/YZ/XZ）将位置、旋转与缩放批量镜像到对称侧。"
+    "folder": "03_transforms_modeling/exoside_quad_remesher",
+    "name": "Exoside QuadRemesher 四边形自动重拓扑 v1.0.1",
+    "entry": "QuadRemesher.py",
+    "desc": "顶尖四边形网格自动拓扑计算核心与 Maya 交互面板"
   },
   {
     "category": "03_transforms_modeling",
-    "folder": "03_transforms_modeling/reset_pivot",
-    "name": "轴心点与几何中心重置工具",
-    "entry": "maya_reset_pivot.py",
-    "desc": "一键将物体 Pivot 轴心重置到 Bounding Box 边界框中心、几何中心或世界原点，并清空轴向旋转。"
-  },
-  {
-    "category": "03_transforms_modeling",
-    "folder": "03_transforms_modeling/unlock_freeze",
-    "name": "一键解锁通道并冻结变换",
-    "entry": "unlock_and_freeze_transforms.py",
-    "desc": "批量递归遍历选中节点及其子级，一键解锁所有被锁定/隐藏的位移、旋转、缩放通道并安全执行冻结变换。"
-  },
-  {
-    "category": "03_transforms_modeling",
-    "folder": "03_transforms_modeling/isolate_selected",
-    "name": "独立选区孤立显示 (Isolate Selected Only)",
-    "entry": "isolate_selected_only.py",
-    "desc": "仅在当前活跃视口中孤立显示选中的物体本体，排查和屏蔽所有子层级与下挂物体，便于精细化编辑。"
+    "folder": "03_transforms_modeling/fcm_hider",
+    "name": "FCM 视口层级元素快速隐藏/隔离器",
+    "entry": "FCM_Hider.mel",
+    "desc": "一键快速切换骨骼、曲线、多边形等视口组件的可见性"
   },
   {
     "category": "03_transforms_modeling",
@@ -211,6 +575,69 @@
   },
   {
     "category": "03_transforms_modeling",
+    "folder": "03_transforms_modeling/isolate_selected",
+    "name": "独立选区孤立显示 (Isolate Selected Only)",
+    "entry": "isolate_selected_only.py",
+    "desc": "仅在当前活跃视口中孤立显示选中的物体本体，排查和屏蔽所有子层级与下挂物体，便于精细化编辑。"
+  },
+  {
+    "category": "03_transforms_modeling",
+    "folder": "03_transforms_modeling/mirror_tool",
+    "name": "物体对称镜像工具 (Mirror Tool)",
+    "entry": "mirror_tool.py",
+    "desc": "根据左右命名规则（如 _L 与 _R），按世界或局部反射平面（XY/YZ/XZ）将位置、旋转与缩放批量镜像到对称侧。"
+  },
+  {
+    "category": "03_transforms_modeling",
+    "folder": "03_transforms_modeling/no_highlight_v2",
+    "name": "视口选中白边高亮切换器 v2",
+    "entry": "NoHigh_Light_v2.py",
+    "desc": "单文件规范化入池，快速关闭视口物体选中高亮白边以观察真实光影"
+  },
+  {
+    "category": "03_transforms_modeling",
+    "folder": "03_transforms_modeling/quaternion_tool",
+    "name": "四元数旋转插值与转换 (Quaternion Tool)",
+    "entry": "QuaternionTool_Maya.py",
+    "desc": "提供欧拉角与四元数双向转换、球面线性插值 (SLERP)、绕任意轴向量旋转计算，解决旋转插值翻折问题。"
+  },
+  {
+    "category": "03_transforms_modeling",
+    "folder": "03_transforms_modeling/reset_pivot",
+    "name": "轴心点与几何中心重置工具",
+    "entry": "maya_reset_pivot.py",
+    "desc": "一键将物体 Pivot 轴心重置到 Bounding Box 边界框中心、几何中心或世界原点，并清空轴向旋转。"
+  },
+  {
+    "category": "03_transforms_modeling",
+    "folder": "03_transforms_modeling/rotation_aligner",
+    "name": "多功能旋转与角度对齐工具",
+    "entry": "旋转对齐工具.py",
+    "desc": "综合对齐面板。整合了角度实时显示、欧拉旋转对齐、骨骼轴向对齐，可计算空间夹角并将选区旋转轴快速校准至目标。"
+  },
+  {
+    "category": "03_transforms_modeling",
+    "folder": "03_transforms_modeling/se_uv_blendshape",
+    "name": "seUVBlendShape 基于 UV 拓扑的形态混合插件",
+    "entry": "seUVBlendShape.py",
+    "desc": "突破点序限制，基于 UV 贴图坐标传递形态与生成 BlendShape"
+  },
+  {
+    "category": "03_transforms_modeling",
+    "folder": "03_transforms_modeling/smart_mesh",
+    "name": "SmartMesh 智能多边形网格操作工具",
+    "entry": "mel_SmartMesh.mel",
+    "desc": "快速合并、清理、法线统一与重合面检测脚本"
+  },
+  {
+    "category": "03_transforms_modeling",
+    "folder": "03_transforms_modeling/unlock_freeze",
+    "name": "一键解锁通道并冻结变换",
+    "entry": "unlock_and_freeze_transforms.py",
+    "desc": "批量递归遍历选中节点及其子级，一键解锁所有被锁定/隐藏的位移、旋转、缩放通道并安全执行冻结变换。"
+  },
+  {
+    "category": "03_transforms_modeling",
     "folder": "03_transforms_modeling/uv_set_renamer",
     "name": "UV集批量重命名规范化",
     "entry": "UV集改名工具.py",
@@ -218,17 +645,10 @@
   },
   {
     "category": "03_transforms_modeling",
-    "folder": "03_transforms_modeling/camera_f_fix",
-    "name": "按 F 键视角错乱修复",
-    "entry": "按f相机出错解决.mel",
-    "desc": "修复 Maya 视口按 F 键聚焦时摄像机飞出视界、平移矩阵溢出或裁剪面错乱的常见 Bug。"
-  },
-  {
-    "category": "04_pipeline_io",
-    "folder": "04_pipeline_io/fbx_batch_exporter_v7",
-    "name": "FBX 批量导出综合套件 v7",
-    "entry": "fbx_export_CHS_v7.py",
-    "desc": "工业级 FBX 批量导出面板。支持按选择集批量输出、自动内嵌烘焙与重采样、一键取消骨骼分段比例补偿、时间轴区间自适应，并支持将导出预设保存为 JSON。"
+    "folder": "03_transforms_modeling/world_transform_v4",
+    "name": "世界坐标复制粘贴与对齐 (v4 最新增强版)",
+    "entry": "复制粘贴世界坐标v4.py",
+    "desc": "提取选中物体的全局世界矩阵（Translate、Rotate），支持识别通道、识别父子关系与迭代误差判定校准。"
   },
   {
     "category": "04_pipeline_io",
@@ -236,6 +656,13 @@
     "name": "Alembic (ABC) 批量导出套件",
     "entry": "ABC导出_v3.py",
     "desc": "支持按选择集（Selection Sets）批量导出 Alembic ABC 几何体缓存，内置自动建立材质分配信息与输出目录整理。"
+  },
+  {
+    "category": "04_pipeline_io",
+    "folder": "04_pipeline_io/asset_it_v1_2",
+    "name": "AssetIt 个人与团队资产库管理器 v1.2.0 最新版",
+    "entry": "AssetIt/AssetIt_Launcher.py",
+    "desc": "淘汰旧版 1.0.1，解压 1.2.0 完整工程，排除教程视频，保留预设模型库、图标与核心代码"
   },
   {
     "category": "04_pipeline_io",
@@ -260,6 +687,20 @@
   },
   {
     "category": "04_pipeline_io",
+    "folder": "04_pipeline_io/fbx_batch_exporter_v7",
+    "name": "FBX 批量导出综合套件 v7",
+    "entry": "fbx_export_CHS_v7.py",
+    "desc": "工业级 FBX 批量导出面板。支持按选择集批量输出、自动内嵌烘焙与重采样、一键取消骨骼分段比例补偿、时间轴区间自适应，并支持将导出预设保存为 JSON。"
+  },
+  {
+    "category": "04_pipeline_io",
+    "folder": "04_pipeline_io/per_frame_bs_fbx",
+    "name": "模型逐帧转 BlendShape 导出 FBX",
+    "entry": "模型逐帧转bs导出fbx_v1.1.py",
+    "desc": "将变形动画模型逐帧生成 BlendShape 目标体，自动构建 BS 权重动画并导出 FBX，用于游戏引擎特种网格特效。"
+  },
+  {
+    "category": "04_pipeline_io",
     "folder": "04_pipeline_io/replace_references",
     "name": "引用文件路径批量重定向与替换",
     "entry": "reference替换EN封装版.py",
@@ -273,25 +714,18 @@
     "desc": "面向特定载具资产的层级规范校验与自动 FBX 导出，自动规范化 Root 层级与材质引用规范。"
   },
   {
-    "category": "04_pipeline_io",
-    "folder": "04_pipeline_io/per_frame_bs_fbx",
-    "name": "模型逐帧转 BlendShape 导出 FBX",
-    "entry": "模型逐帧转bs导出fbx_v1.1.py",
-    "desc": "将变形动画模型逐帧生成 BlendShape 目标体，自动构建 BS 权重动画并导出 FBX，用于游戏引擎特种网格特效。"
-  },
-  {
-    "category": "05_ue_pipeline",
-    "folder": "05_ue_pipeline/ue_source_finder",
-    "name": "UE 资产源文件迁移与反向查找",
-    "entry": "UE源文件迁移.py",
-    "desc": "结合 UE 资产管理，根据 Unreal 资产引用逆向反查 DCC（Maya/FBX）源文件路径，支持跨工程资产映射与迁移。"
-  },
-  {
     "category": "05_ue_pipeline",
     "folder": "05_ue_pipeline/ue_bone_exporter",
     "name": "UE 骨骼树清单导出 (Python + C++插件)",
     "entry": "ExportBoneList.py",
     "desc": "包含运行于 UE5 编辑器 Python 环境的导出脚本，以及原生 UE5 C++ 插件 (BoneListGenerator_UPlugin)，批量将 Skeletal Mesh 骨骼拓扑结构导出为文本。"
+  },
+  {
+    "category": "05_ue_pipeline",
+    "folder": "05_ue_pipeline/ue_context_menu",
+    "name": "UE5 编辑器右键源路径打印菜单",
+    "entry": "print_source_paths_menu.py",
+    "desc": "UE5 编辑器右键资产菜单扩展，点击即可在日志中输出源 DCC 文件的物理路径。"
   },
   {
     "category": "05_ue_pipeline",
@@ -309,17 +743,10 @@
   },
   {
     "category": "05_ue_pipeline",
-    "folder": "05_ue_pipeline/ue_context_menu",
-    "name": "UE5 编辑器右键源路径打印菜单",
-    "entry": "print_source_paths_menu.py",
-    "desc": "UE5 编辑器右键资产菜单扩展，点击即可在日志中输出源 DCC 文件的物理路径。"
-  },
-  {
-    "category": "06_diagnostics_security",
-    "folder": "06_diagnostics_security/scene_virus_cleaner",
-    "name": "Maya 场景病毒专杀与免疫疫苗",
-    "entry": "文件病毒清理魔改版.py",
-    "desc": "专门查杀与清除 Maya 常见恶意脚本蠕虫病毒（如 vaccine.py, fuckVirus, breed_gene），清除恶意 scriptJob 与节点，防止工程交叉感染。"
+    "folder": "05_ue_pipeline/ue_source_finder",
+    "name": "UE 资产源文件迁移与反向查找",
+    "entry": "UE源文件迁移.py",
+    "desc": "结合 UE 资产管理，根据 Unreal 资产引用逆向反查 DCC（Maya/FBX）源文件路径，支持跨工程资产映射与迁移。"
   },
   {
     "category": "06_diagnostics_security",
@@ -330,31 +757,17 @@
   },
   {
     "category": "06_diagnostics_security",
+    "folder": "06_diagnostics_security/scene_virus_cleaner",
+    "name": "Maya 场景病毒专杀与免疫疫苗",
+    "entry": "文件病毒清理魔改版.py",
+    "desc": "专门查杀与清除 Maya 常见恶意脚本蠕虫病毒（如 vaccine.py, fuckVirus, breed_gene），清除恶意 scriptJob 与节点，防止工程交叉感染。"
+  },
+  {
+    "category": "06_diagnostics_security",
     "folder": "06_diagnostics_security/undo_checkpoint",
     "name": "场景快照记录点与撤销恢复系统 (Undo Checkpoint)",
     "entry": "maya_undo_checkpoint.py",
     "desc": "突破 Maya 原生撤销限制。可随时为场景创建快照存档点（Checkpoint），一键快速恢复或清空，带专用工具架按钮。"
-  },
-  {
-    "category": "07_subsystems_suites",
-    "folder": "07_subsystems_suites/maya_blueprint_toolbox",
-    "name": "Maya 节点式蓝图自动化工具箱 (Blueprint Toolbox 完整工程)",
-    "entry": "main.py",
-    "desc": "基于 Qt 的可视化节点连线画布与执行引擎。支持像虚幻蓝图一样连线驱动 Maya 操作，内置动画、属性、约束等通用 API 包装。"
-  },
-  {
-    "category": "07_subsystems_suites",
-    "folder": "07_subsystems_suites/getools_overlappy",
-    "name": "GETOOLS 动力学与次级动作套件 (含 Overlappy / CenterOfMass)",
-    "entry": "GeneralWindow.py",
-    "desc": "包含两大神器：1. Overlappy 一键自动生成物理次级重叠惯性动作；2. CenterOfMass 角色实时重心质心解算。"
-  },
-  {
-    "category": "07_subsystems_suites",
-    "folder": "07_subsystems_suites/the_key_machine",
-    "name": "TheKeyMachine 动画师综合套件 (完整汉化增强版)",
-    "entry": "core/toolbar.py",
-    "desc": "关键帧微调工具：包含曲线平滑、切线权重批量调整、反向动画、自定义曲线图编辑器与一键汉化补丁。"
   },
   {
     "category": "07_subsystems_suites",
@@ -365,10 +778,38 @@
   },
   {
     "category": "07_subsystems_suites",
-    "folder": "07_subsystems_suites/studiolibrary_patch",
-    "name": "Studio Library 世界空间扩展增强包 (PlusPatch)",
-    "entry": "studiolibrary_wanimation/__init__.py",
-    "desc": "在原生 Studio Library 基础上增加了世界坐标动画抓取与跨角色粘贴 (WAnimation)、世界坐标姿态对齐 (WPose) 与中文汉化。"
+    "folder": "07_subsystems_suites/getools_overlappy",
+    "name": "GETOOLS 动力学与次级动作套件 (含 Overlappy / CenterOfMass)",
+    "entry": "GeneralWindow.py",
+    "desc": "包含两大神器：1. Overlappy 一键自动生成物理次级重叠惯性动作；2. CenterOfMass 角色实时重心质心解算。"
+  },
+  {
+    "category": "07_subsystems_suites",
+    "folder": "07_subsystems_suites/gosavvy_toolset_v1_3_7",
+    "name": "GoSavvy 动画与绑定综合生产套件 v1.3.7",
+    "entry": "gosavvyToolset.py",
+    "desc": "包含 C++ 节点插件、Python 控制面板、完整用户文档"
+  },
+  {
+    "category": "07_subsystems_suites",
+    "folder": "07_subsystems_suites/malcolm341_mega_pack",
+    "name": "Malcolm341 Maya 高级实用脚本合集 (MegaPack 2023)",
+    "entry": "install.mel",
+    "desc": "汇集了大量影视游戏一线制作加速脚本与架上工具"
+  },
+  {
+    "category": "07_subsystems_suites",
+    "folder": "07_subsystems_suites/maya_blueprint_toolbox",
+    "name": "Maya 节点式蓝图自动化工具箱 (Blueprint Toolbox 完整工程)",
+    "entry": "main.py",
+    "desc": "基于 Qt 的可视化节点连线画布与执行引擎。支持像虚幻蓝图一样连线驱动 Maya 操作，内置动画、属性、约束等通用 API 包装。"
+  },
+  {
+    "category": "07_subsystems_suites",
+    "folder": "07_subsystems_suites/mgtools_v3_3",
+    "name": "MGTools 动画师生产力综合工作台 v3.3",
+    "entry": "MGTools_Loader.mel",
+    "desc": "集成了关键帧微调、HUD标记、选择集、视口控制与拍屏的经典套件"
   },
   {
     "category": "07_subsystems_suites",
@@ -376,6 +817,48 @@
     "name": "Maya 视口智能拖拽与对话框拦截助手",
     "entry": "main.py",
     "desc": "视口拖拽与文件对话框拦截：将图片序列拖入视口自动生成摄像机与 ImagePlane；拖入 FBX/MA 自动弹窗提示导入/引用规则。"
+  },
+  {
+    "category": "07_subsystems_suites",
+    "folder": "07_subsystems_suites/studiolibrary_patch",
+    "name": "Studio Library 世界空间扩展增强包 (PlusPatch)",
+    "entry": "studiolibrary_wanimation/__init__.py",
+    "desc": "在原生 Studio Library 基础上增加了世界坐标动画抓取与跨角色粘贴 (WAnimation)、世界坐标姿态对齐 (WPose) 与中文汉化。"
+  },
+  {
+    "category": "07_subsystems_suites",
+    "folder": "07_subsystems_suites/the_key_machine",
+    "name": "TheKeyMachine 动画师综合套件 (完整汉化增强版)",
+    "entry": "core/toolbar.py",
+    "desc": "关键帧微调工具：包含曲线平滑、切线权重批量调整、反向动画、自定义曲线图编辑器与一键汉化补丁。"
+  },
+  {
+    "category": "08_utilities_system",
+    "folder": "08_utilities_system/floating_toolbar",
+    "name": "吸附式悬浮快捷工具栏",
+    "entry": "floating_toolbar.py",
+    "desc": "基于 PySide2 的悬浮工具条，可自动吸附在 Maya 视口边缘，支持拖拽 Shelf 命令或自定义按钮生成轻量操作浮窗。"
+  },
+  {
+    "category": "08_utilities_system",
+    "folder": "08_utilities_system/ks_node_outliner_v2_2",
+    "name": "KS NodeOutliner 节点分类大纲增强管理器 v2.2.0",
+    "entry": "ks_nodeOutliner/ksNodeOutliner.py",
+    "desc": "解压 KS_NodeOutliner-2.2.0.zip，按节点类型过滤与大纲容器聚合展示"
+  },
+  {
+    "category": "08_utilities_system",
+    "folder": "08_utilities_system/ks_save_timer_v1_3_0",
+    "name": "KS SaveTimer 智能工程自动保存与版本递增 (原版+汉化版)",
+    "entry": "KS_SaveTimer.py",
+    "desc": "包含原版与汉化版完整代码与手册，定期提醒与多重备份"
+  },
+  {
+    "category": "08_utilities_system",
+    "folder": "08_utilities_system/maya_package_manager",
+    "name": "Maya 模块与插件包可视化管理器 (MayaPackageManager)",
+    "entry": "MayaPackageManager.py",
+    "desc": "管理、启用、禁用场景中的外部 mod 与 python 包"
   },
   {
     "category": "08_utilities_system",
@@ -386,16 +869,23 @@
   },
   {
     "category": "08_utilities_system",
+    "folder": "08_utilities_system/maya_tabs_v1_3a",
+    "name": "Maya-Tabs 视口多工程标签页切换扩展 v1.3a",
+    "entry": "plug-ins/Maya-Tabs.py",
+    "desc": "解压 Maya-Tabs_v1.3a.zip，在视口顶部呈现类似浏览器标签的多场景快速切换条"
+  },
+  {
+    "category": "08_utilities_system",
+    "folder": "08_utilities_system/perform_file_drop_action",
+    "name": "Maya 视口智能文件拖拽重载扩展",
+    "entry": "performFileDropAction.mel",
+    "desc": "重载 performFileDropAction.mel，支持拖拽自动识别格式与智能弹窗处理"
+  },
+  {
+    "category": "08_utilities_system",
     "folder": "08_utilities_system/shelf_manager",
     "name": "Maya 跨版本工具架管理器 (2018-2026)",
     "entry": "shelf_manager.py",
     "desc": "集中管理 Maya 2018~2026 各版本的 Shelf 工具架配置，区分中英文路径，支持跨版本复制、同步与备份。"
-  },
-  {
-    "category": "08_utilities_system",
-    "folder": "08_utilities_system/floating_toolbar",
-    "name": "吸附式悬浮快捷工具栏",
-    "entry": "floating_toolbar.py",
-    "desc": "基于 PySide2 的悬浮工具条，可自动吸附在 Maya 视口边缘，支持拖拽 Shelf 命令或自定义按钮生成轻量操作浮窗。"
   }
 ]

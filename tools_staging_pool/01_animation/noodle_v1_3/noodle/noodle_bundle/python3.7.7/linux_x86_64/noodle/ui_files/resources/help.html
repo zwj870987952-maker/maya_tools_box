@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="help.css">
+    <title>Noodle Help</title>
+</head>
+<body>
+    <div class="bookend">
+        <h3>Table of Contents</h3>
+
+        <div class="table_contents">
+            <ol>
+                <li><a href="#What_is_Noodle_0">What is Noodle?</a></li>
+                <li><a href="#Getting_started_16">Getting Started</a></li>
+                <li><a href="#Advanced_Options_26">Advanced Options</a>
+                    <ul>
+                        <li><a href="#Frame_Range_28">Frame Range</a></li>
+                        <li><a href="#Aim_Vector_33">Aim Vector</a></li>
+                        <li><a href="#End_Control_Aim_Distance_36">End Control Aim Distance</a></li>
+                    </ul>
+                </li>
+                <li><a href="#Settings_39">Settings</a>
+                    <ul>
+                        <li><a href="#Current_Setup_43">Current Setup</a></li>
+                        <li><a href="#Use_Physics_46">Use Physics</a></li>
+                        <li><a href="#Time_Offset_49">Time Offset</a></li>
+                        <li><a href="#Overall_Stiffness_53">Overall Stiffness</a></li>
+                        <li><a href="#Base_Stiffness_56">Base Stiffness</a></li>
+                        <li><a href="#Smoothness_60">Smoothness</a></li>
+                        <li><a href="#Damp_63">Damp</a></li>
+                    </ul>
+                </li>
+                <li><a href="#Tips_66">Tips</a></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="start_heading">
+        <h1><a id="What_is_Noodle_0"></a>What is Noodle?</h1>
+    </div>
+
+    <div class="content">
+        <p><strong>Noodle</strong> is a tool that aims to automatically create overlapping animation for you.<br>The goal of Noodle is to work in as many situations as possible, with the least amount of work from the user.</p>
+        <p>While there are many tools out there that may do something similar, Noodle aims to be as <strong>simple</strong> as possible, whilst still being robust and dependable. Noodle is also actively being developed and will continue to get better with each version.</p>
+        <h3><a id="How_Noodle_works_7"></a>How Noodle works</h3>
+        <p>Noodle works by baking the existing animation of your controls to a series of proxy controls and offsetting the timing of those controls, whilst also hooking a physics system to them.</p>
+        <h3><a id="Known_Limitations_10"></a>Known Limitations</h3>
+        <p>There are still many limitations to Noodle, which we will try address in future versions, here are some of the known limitations:</p>
+        <ul>
+            <li>Only works on FK chains (a series FK controls, E.G. a tail, FK arm controls, etc.).</li>
+            <li>Currently still rotational, no translational overlap.</li>
+            <li>It does not work on FK chains where rotation on controls rotates multiple joints by the same value (I.E. Squirrel rig from Animation Mentor).</li>
+        </ul>
+    </div>
+
+    <div class="main_heading">
+        <h1><a id="Getting_started_16"></a>Getting started</h1>
+    </div>
+
+    <div class="content">
+        <p><em>Noodle requires playback set to</em> <code>Play Every Frame</code> <em>for the physics component to work</em></p>
+        <ol>
+            <li>Launch Noodle.</li>
+            <li>Select rig controls (The order matters, unless using the <strong>Hierarchy</strong> option, in which case you only need the <strong>base</strong> control selected).</li>
+            <li>Load Controls.</li>
+            <li>Hit the <code>Overlap Setup</code> button to create an overlap setup.</li>
+            <li>Adjust the sliders in the <strong>Settings</strong> tab to achieve the desired result.</li>
+            <li>When you have the desired result, in the <strong>Bake</strong> tab, hit the <code>Bake Setup</code> button.</li>
+        </ol>
+    </div>
+
+    <div class="main_heading">
+        <h1><a id="Advanced_Options_26"></a>Advanced Options</h1>
+    </div>
+
+    <div class="content">
+        <h4><a id="Frame_Range_28"></a>Frame Range</h4>
+        <p>The frame range in which Noodle will operate within. By default, Noodle will use the frame range of the timeline when the tool is launched.</p>
+        <ul>
+            <li>Pressing the <code>Frame Range</code> button will reset the frame range to the timeline frame range.</li>
+            <li>You can manually input a frame range if desired.</li>
+        </ul>
+
+        <h4><a id="Aim_Vector_33"></a>Aim Vector</h4>
+        <p>The local axis in which the FK chain points down. By default, Noodle will try to automatically determine the aim vector, this option is for the user to manually override in the event Noodle cannot determine it.</p>
+
+        <h4><a id="End_Control_Aim_Distance_36"></a>End Control Aim Distance</h4>
+        <p>This option allows you to adjust the distance of the imaginary endpoint control that influences the rotation of the last control in the FK chain. A lower value will mean the end control rotations will be more sensitive, whereas a higher value will mean less it will be less sensitive. By default, Noodle will use the average distance between each control in the FK chain to determine this value.</p>
+    </div>
+
+    <div class="main_heading">
+        <h1><a id="Settings_39"></a>Settings</h1>
+    </div>
+
+    <div class="content">
+        <p>The settings tab has been organized so that the most important settings are at the top, and the least important are at the bottom. Users should work from top to bottom wherever possible.</p>
+
+        <h4><a id="Current_Setup_43"></a>Current Setup</h4>
+        <p>This dropdown box allows you to switch the current setup to any other existing Noodle setup. The <strong>current setup</strong> is the one that the settings sliders will affect.</p>
+
+        <h4><a id="Use_Physics_46"></a>Use Physics</h4>
+        <p>This toggles the current setup to either use or not use physics. If <code>Use Physics</code> is disabled, then the only settings slider available for adjusting the result is the <code>Time Offset</code> slider.</p>
+
+        <h4><a id="Time_Offset_49"></a>Time Offset</h4>
+        <p><code>Time Offset</code> will delay each subsequent control’s animation in order to achieve overlapping animation. A <code>Time Offset</code> value of <strong>1</strong> will mean a <strong>1 frame</strong> delay between each subsequent control. E.G. <strong>tail01_ctrl’s</strong> delay is <strong>0 frames</strong>, <strong>tail02_ctrl’s</strong> delay is <strong>1 frame</strong>, <strong>tail03_ctrl’s</strong> delay is <strong>2 frames</strong>, etc.<br>The more controls in the FK chain the lower this value tends to be. Common values range from <code>0.5</code> to <code>1.5</code>.</p>
+
+        <h4><a id="Overall_Stiffness_53"></a>Overall Stiffness</h4>
+        <p>This setting will adjust the entire FK chain’s stiffness. A value of <code>1</code> will mean the FK chain is not influenced by the physics system (essentially the same as turning <code>Use Physics</code> off), any overlap contribution will be from <code>Time Offset</code>. Optimal values are between <code>0.4</code> to <code>0.7</code>.</p>
+
+        <h4><a id="Base_Stiffness_56"></a>Base Stiffness</h4>
+        <p>This setting will adjust the “base” control’s stiffness, the base control is the first control in the FK chain. This stiffness will gradually diminish down the FK chain. A value of <code>1</code> will mean the base control is completely stiff, whilst the next control will be slightly less stiff, and the one after that will be even less stiff, … and the end control won’t be affected by this value at all.<br>
+            <code>Base Stiffness</code> and <code>Overall Stiffness</code> are additive with one another, so if <code>Overall Stiffness</code> was <strong>1</strong>, then <code>Base Stiffness</code> will have no effect. Optimal values are between <code>0.1</code> to <code>0.6</code></p>
+
+        <h4><a id="Smoothness_60"></a>Smoothness</h4>
+        <p>This setting will control how smooth/soft the physics system behaves. A lower value will give a more snappy physics reaction, whereas a higher value will give a smoother/softer reaction. Optional values are between <code>1.5</code> to <code>3.0</code>.</p>
+
+        <h4><a id="Damp_63"></a>Damp</h4>
+        <p>This setting will adjust how much damping there is in the physics system. Damping can help control wild fluctuations and artifacts in the results. <code>Damp</code> is very sensitive so values should be really small. Optimal values range between <code>0</code> to <code>0.05</code>.</p>
+    </div>
+
+    <div class="main_heading">
+        <h1><a id="Tips_66"></a>Tips</h1>
+    </div>
+    <div class="content">
+        <p>Below are some tips and best practices when using Noodle.</p>
+        <ul>
+            <li>Disable cached playback whilst there are still “live” setups (before you bake them down).</li>
+            <li>Set playback speed to <code>Play Every Frame</code>.</li>
+            <li>Avoid dragging the time slider, just playback instead. You can drag the time slider forwards, but you will have to drag it to every frame without skipping any frames; skipping frames can cause issues with the physics system.</li>
+            <li>Sometimes the physics system needs a refresh, simply go back to the starting frame to reset the physics system.</li>
+            <li>If you are not using physics, none of the above applies.</li>
+        </ul>
+    </div>
+    <div class="bookend">
+        <p id="footnote">For more information on Noodle, more tools, and other cool stuff, visit <a href="http://www.decogged.com">www.decogged.com</a> or contact us at <a href="mailto:hello@decogged.com">hello@decogged.com</a></p>
+    </div>
+
+</body>
+</html>

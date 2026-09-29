@@ -9,6 +9,7 @@ category: "04_pipeline_io"
 ## 待整理工具
 
 - [[knowledge/_generated/待整理/04_pipeline_io--abc_batch_exporter|Alembic (ABC) 批量导出套件]]
+- [[knowledge/_generated/待整理/04_pipeline_io--asset_it_v1_2|AssetIt 个人与团队资产库管理器 v1.2.0 最新版]]
 - [[knowledge/_generated/待整理/04_pipeline_io--batch_importer_v3|文件批量导入加强版 v3]]
 - [[knowledge/_generated/待整理/04_pipeline_io--batch_processor_v3|工程文件批量自动化处理框架 v3]]
 - [[knowledge/_generated/待整理/04_pipeline_io--clean_invalid_paths|无效与中文引用路径清理器]]

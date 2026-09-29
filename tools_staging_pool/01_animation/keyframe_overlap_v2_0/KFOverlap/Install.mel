@@ -1,0 +1,27 @@
+/*--------------------------------------------
+KEYFRAME OVERLAP INSTALL
+DRAG AND DROP ON MAYA VIEWPORT
+AND THEN SHELF WILL BE CREATE
+--------------------------------------------*/
+python("\n\
+from maya import cmds\n\
+import os,sys,base64\n\
+if sys.version[0] == '3':\n\
+    import urllib.request as uLib\n\
+else:\n\
+    import urllib as uLib\n\
+\n\
+url = base64.b64decode('aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2J1cmFzYXRlL0JSU0xvY0RlbGF5L21hc3Rlci9zZXJ2aWNlL3NldHVwX3YyLnB5').decode()\n\
+hasInternet = bool\n\
+try:\n\
+    loadURL = uLib.urlopen(url).read()\n\
+    hasInternet = True\n\
+except :\n\
+    hasInternet = False\n\
+\n\
+if hasInternet :\n\
+    exec (loadURL)\n\
+else :\n\
+    print ('')\n\
+    cmds.confirmDialog(title='INSTALL', message='Installation Failed.\\nPlease ensure the internet is connected.', button=['OK'])\n\
+");

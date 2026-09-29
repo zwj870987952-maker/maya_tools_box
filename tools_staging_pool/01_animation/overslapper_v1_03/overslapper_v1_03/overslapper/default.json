@@ -1,0 +1,54 @@
+{
+    "overlap_type": 0,
+    "base_overlap": {
+        "time_type": 0,
+        "start_time": "start",
+        "end_time": "end",
+        "main_axis": 0,
+        "up_axis": 0,
+        "strength": "1.0",
+        "stifness": "0.5"
+    },
+    "order_key_type": {
+        "order": 0,
+        "key_type": 0
+    },
+    "complex_stiffness": {
+        "option": false,
+        "curve": [
+            "1,0,3",
+            "0,1,3"
+        ]
+    },
+    "anim_layers": {
+        "bake_selected": false,
+        "bake_new": false,
+        "additive": true,
+        "override": false
+    },
+    "overshoot": {
+        "option": false,
+        "first": false,
+        "between": true,
+        "end": true,
+        "strength": "1.0",
+        "frequency": "3"
+    },
+    "wind": {
+        "option": false,
+        "absolute": false
+    },
+    "bonus": {
+        "axis_option": false,
+        "x_axis": true,
+        "y_axis": true,
+        "z_axis": true,
+        "remove_option": false,
+        "parent": "select a parent ",
+        "ignore": true,
+        "distance_option": false,
+        "distance_only": false,
+        "distance": "1",
+        "cycle": false
+    }
+}

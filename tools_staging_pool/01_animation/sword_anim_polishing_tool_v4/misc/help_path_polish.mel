@@ -1,0 +1,21 @@
+*********************************************************************************************************************************************************
+							This set of scripts is for polishing weapon animations
+							It is especially relevant for game animators.
+*********************************************************************************************************************************************************
+									Arc Polish
+*********************************************************************************************************************************************************
+	what is he doing?
+
+				launches the selected object along a smoothed curve with the ability to control its shape and acceleration along it
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	how it work
+
+				bake the selected object trajectory on curve path. 
+				If "show source" ON - an additional curve will be created that shows the original path
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	usage
+				specify the number of Knots controls
+				select TimeRange or Keys. Movement selected object will be transferred to the smooth curve
+				button 1 - select source object
+				button 2 - select object on curve (to correct on curve speed and acceleration)
+				button 3 - select all arc polish system (usually for deleting after baking)

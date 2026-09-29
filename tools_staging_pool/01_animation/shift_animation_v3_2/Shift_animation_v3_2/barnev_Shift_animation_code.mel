@@ -1,0 +1,3268 @@
+// Shift_animation tool
+// Author: Pavel Barnev pavel_barnev2000@mail.ru
+// Installation:
+// Quick Installation:
+    // unzip the file into a directory of choice
+    // Start Maya.
+    // Drag file:
+	// drag_and_drop_THIS_FILE_on_maya_window_for_install_Shift_animation_tool.mel
+	// into a MAYA window. The script icon will appear on Custom tab on the Shelf Editor
+// This tool is for:
+	// Most effective - working with motion capture
+	// Correction of moving animation without feet sliding
+	// Shifting animation without feet sliding
+	// Recalculating the animation from a different pose
+	// Rotating the animation without feet sliding
+// How it works.
+	// The tool looks for a selected animation layer
+	// Determines which objects are in the layer
+	// Determines how the objects moved with the layer and how they moved without it
+	// Based on this data, calculates the shift
+	// It works via acceleration analysis algorithm
+	// In other words, the movement of objects is calculated in a way, that extra shifting in the layer would happen in areas where the object is moving in source animation
+// Using the tool:
+	// Start the tool
+	// Select feet, main control and pelvis (depends on a task, can be different objects)
+	// Move them to a separate animation layer (the tool will work with objects on this layer)
+	// Shift the object within the new layer the way you need
+	// Select the layer
+	// Press "MATCH from animLayer"
+	// The tool will recalculate the shift to the same animation layer
+// Extra information.
+	// The more footsteps in the animation and the longer the animation, the better and smoother the result will be
+	// If you need to both shift and rotate the animation, it's better to do it in 2 passes. Shift in the first pass, rotate in the second one
+	// If you need to shift an animation with hands (e.g. running on all fours or jumping over obstacles using a hand) then add the hand to the initial animation layer
+	// You can do multiple shifts, the tool will analyze the distances between the keys and will calculate the shift
+	// Careful! Curve tangents are irrelevant, only keys values matter. The shift between them is calculated linearly
+// SHIFTING_animation_menue()
+global proc SHIFTING_animation_menue()
+{
+	float $white[]={0.98,0.98,0.98};
+	float $red[]={0.98,0.75,0.75};
+	float $red_light[]={0.95,0.88,0.88};
+	float $green[]={0.85,0.98,0.85};
+	float $green_light[]={0.9,0.95,0.9};
+	float $blue[]={0.78,0.78,0.98};
+	float $blue_light[]={0.9,0.9,0.95};
+    if(`window -q -ex "SHIFTING_animation"`)deleteUI("SHIFTING_animation");
+    window  -bgc $white[0] $white[1] $white[2]
+			-minimizeButton false
+			-maximizeButton false
+			-titleBar true
+			-menuBar true
+			-title "SHIFTING v.3_2" "SHIFTING_animation";
+    window -e -w 200 - h 80 "SHIFTING_animation";
+		columnLayout -adj 1"cceu1";
+			button  -h 60
+					-p "cceu1"
+					-bgc $green[0] $green[1] $green[2]
+					-label "MATCH from animLayer"
+					-ann " - calculate animation shift in selected layer"
+					-c " SHIFT3_2_d3d5060e35d6738adc9ec43bc95dfe74; SHIFT3_2_692e2fda85cadfdf0f28e93323f58c08(); SHIFT3_2_36e868f70d3bc857bf7c0d874db1cf86(1); SHIFT3_2_f4b1a2b52ab1771321003f86cde63160; SHIFT3_2_e322163f473d9ee1fb5be6b3f746dab1()";
+			button  -h 25
+					-p "cceu1"
+					-bgc $blue[0] $blue[1] $blue[2]
+					-label "extract to separate animLayer"
+					-ann " extract selected to separate animLayer"
+					-c "SHIFT3_2_21b7c17e232d97d5c941030f7d497200(`ls-sl`)";
+frameLayout
+	-p "cceu1"
+	-bgc $red_light[0] $red_light[1] $red_light[2]
+	-ebg true -bv false
+	-cl 1 -cll true
+	-l "path from layer"
+	-la "top"
+	-mw 0
+	-mh 0
+	-cc "catchQuiet(`window -e -h 100 SHIFTING_animation`)"
+	eu1;
+			button  -h 60
+					-p "eu1"
+					-bgc $green[0] $green[1] $green[2]
+					-label "AUTOPATH from animLayer"
+					-ann " - calculate animation by path in selected layer. Main control must be moving. Good work with rootmotion animation only "
+					-c " SHIFT3_2_692e2fda85cadfdf0f28e93323f58c08; SHIFT3_2_8327291d23e32e708ec222974d35f87a(`intField -q -v CV_byAnim`,`textField -q -tx curve_calculate`,`checkBox -q -v flat_vert`,0); SHIFT3_2_d0162d537d4e82bff3de890c7c1b848d(`intField -q -v framesEasing`, 0,`checkBox -q -v vert_independ`); SHIFT3_2_f4b1a2b52ab1771321003f86cde63160;";
+       rowLayout
+			-p "eu1"
+			-nc 8 -adj 4
+			RW_lay_name;
+							textField
+								-ekf 0
+								-font  "obliqueLabelFont"
+								-pht "autodetection"
+								-bgc $blue_light[0] $blue_light[1] $blue_light[2]
+								-ann "set name object for curve calculatin within the scene or selected frameRange. Set nothing for AUTO mode"
+								 "curve_calculate";
+							button -l "<<"
+									-ann "create a curve from object animation within the scene or selected frameRange. Set nothing for AUTO mode"
+									-c "$curve_name =`ls-fl-sl`;textField -edit -tx $curve_name[0] curve_calculate;" "set_curve_name";
+							text -ann "set object name for curve calculating or nothing for AUTO mode" -l " curve object";
+							text "";
+			rowLayout
+			-p "eu1"
+			-nc 8 -adj 4
+					RW_lay;
+					intField
+							-w 50
+							-v 5
+							-bgc $blue_light[0] $blue_light[1] $blue_light[2]
+							-ann "CV by anim range"
+							-ekf 0
+							-min 1
+							-s 1 "CV_byAnim";
+					text
+							-ann "CV by anim range"
+							-l "<CV   ";
+					checkBox -l "flat"
+							-ann "create curve with flat vertical translate"
+							-v true "flat_vert";
+					text
+							-l "";
+					text
+							-ann "in how many frames the bending will be softened if it was applied to part of the animation. If Easing=0 then the last few CVs should be left unchanged when not using rootMotion."
+							-l "easing>";
+					intField
+							-w 20
+							-bgc $blue_light[0] $blue_light[1] $blue_light[2]
+							-ekf 0
+							-v 10
+							-ann "in how many frames the bending will be softened if it was applied to part of the animation"
+							-min 0
+							-s 1 "framesEasing";
+			rowLayout
+			-p "eu1"
+			-nc 2 -adj 4
+					RW_lay_ind;
+					checkBox -l "vertical independent"
+							-ann "create curve with flat vertical translate"
+							-v true "vert_independ";
+	   frameLayout
+			-p "eu1"
+			-bgc $red_light[0] $red_light[1] $red_light[2]
+			-ebg true -bv false
+			-cl 1 -cll true
+			-l "manual path"
+			-la "top"
+			-mw 0
+			-mh 0
+			-cc "catchQuiet(`window -e -h 150 SHIFTING_animation`)"
+			SHifting_by_path;
+		columnLayout -bgc $red_light[0] $red_light[1] $red_light[2] -adj 1 -p "SHifting_by_path" "eu2";
+		separator -st "none" -bgc $red_light[0] $red_light[1] $red_light[2] -h 10 -p "eu2";
+			button  -h 40
+					-bgc $red[0] $red[1] $red[2]
+					-label "create path curve"
+					-ann "create path curve from layer"
+					-c " SHIFT3_2_692e2fda85cadfdf0f28e93323f58c08; SHIFT3_2_8327291d23e32e708ec222974d35f87a(`intField -q -v CV_byAnim`,`textField -q -tx curve_calculate`,`checkBox -q -v flat_vert`,0); SHIFT3_2_f4b1a2b52ab1771321003f86cde63160;";
+			rowLayout -p "eu2" -nc 8 -adj 2
+					-bgc $red_light[0] $red_light[1] $red_light[2]
+					RW_layINTR;
+					columnLayout -bgc $blue_light[0] $blue_light[1] $blue_light[2] -adj 1 -p "RW_layINTR" clmn_unlock;
+							button
+									-h 20
+									-p "clmn_unlock"
+									-w 40
+									-label "lock_len"
+									-ann "lock the lenght of the curve"
+									-c "SHIFT3_2_c0333f01c0305441f7e870d2e8681fb9" "lock_len";
+							separator -st "none" -bgc $red_light[0] $red_light[1] $red_light[2] -h 1 ;
+							button -h 20
+									-p "clmn_unlock"
+									-l "unlock_len"
+									-ann "unlocks the length of the curve"
+									-c "UnlockCurveLength" "unlock_len";
+					button	-p "RW_layINTR" -l "project" -h 40
+							-ann "projecting to another curve. Select curve and another curve"
+							-c "SHIFT3_2_9ae282fb1fe972d565d0cedb2f703421()";
+					columnLayout -bgc $blue_light[0] $blue_light[1] $blue_light[2] -adj 1 -p "RW_layINTR" clmn_curve_ctrl;
+							button
+									-h 20
+									-p "clmn_curve_ctrl"
+									-w 40
+									-label "curve control"
+									-ann "curve control through objects in each CV"
+									-c "SHIFT3_2_2948842313131fcddb41ac6ad1efd38c;";
+							separator -st "none" -bgc $red_light[0] $red_light[1] $red_light[2] -h 1 ;
+							rowLayout  -p "clmn_curve_ctrl" -nc 2 Curve_CTRL;
+											button -h 20
+													-l "arrange"
+													-ann "rearrange curve control"
+													-c "SHIFT3_2_dfd04e9fc8891230ecf4649c050058d5;" "reparent";
+											button -h 20
+													-p "Curve_CTRL"
+													-l "delete"
+													-ann "delete the system while maintaining the shape of the curve"
+													-c "SHIFT3_2_4ec8ec2e22058b36b7f19c5b04a2deed" ;
+			button 	-h 40
+					-p "eu2"
+					-bgc $green[0] $green[1] $green[2]
+					-w 20
+					-label "apply"
+					-ann "calculate from curve and animLayer"
+					-c " SHIFT3_2_692e2fda85cadfdf0f28e93323f58c08;catch(SHIFT3_2_d0162d537d4e82bff3de890c7c1b848d(`intField -q -v framesEasing`, 0,`checkBox -q -v vert_independ`)); SHIFT3_2_f4b1a2b52ab1771321003f86cde63160;";
+			separator -st "none" -bgc $red_light[0] $red_light[1] $red_light[2] -h 10 -p "eu2";
+frameLayout
+		-p "eu1"
+		-bgc $green_light[0] $green_light[1] $green_light[2]
+		-ebg true
+		-cl 1 -cll 1
+		-l "utililies"
+		-la "top"
+		-mw 0
+		-mh 0
+		-cc "catchQuiet(`window -e -h 150 SHIFTING_animation`)"
+		SHifting_instuments_frame;
+		columnLayout
+			-adj 1 -rowSpacing 0 -p "SHifting_instuments_frame" SHifting_instuments;
+			frameLayout
+					-p "SHifting_instuments"
+					-bgc $white[0] $white[1] $white[2]
+					-ebg 1 -bv false
+					-cl 1 -cll 1
+					-l "rootmotion"
+					-la "top"
+					-mw 3
+					-mh 0
+					-cc "catchQuiet(`window -e -h 150 SHIFTING_animation`)"
+					SHifting_rootmotion_fr;
+						columnLayout
+			-adj 1 -p "SHifting_rootmotion_fr" SHifting_rootmotion;
+				rowLayout
+				-nc 3;
+				textField  -ekf 0
+						-font  "obliqueLabelFont"
+						-pht "insert Main"
+						-bgc $blue_light[0] $blue_light[1] $blue_light[2]
+						-ann "set name object for curve calculatin within the scene or selected frameRange. Set nothing for AUTO mode"
+						 "rootField";
+				button -l "<<"
+						-c "$curve_name =`ls-fl-sl`;textField -edit -tx $curve_name[0] rootField;";
+				text -l " insert root";
+				rowLayout -p "SHifting_rootmotion" -nc 3;
+				textField  -ekf 0
+						-font  "obliqueLabelFont"
+						-pht "insert Pelvis"
+						-bgc $blue_light[0] $blue_light[1] $blue_light[2]
+						-ann "set name object for curve calculatin within the scene or selected frameRange. Set nothing for AUTO mode"
+						pelvisField;
+				button -l "<<"
+						-c "$curve_name =`ls-fl-sl`;textField -edit -tx $curve_name[0] pelvisField;";;
+				text -l " insert movable"
+						- ann "insert the name of the moving object. (pelvis or stationary object to fix the root) ";
+				columnLayout -p "SHifting_rootmotion" -adj true;
+				rowLayout -p "SHifting_rootmotion" -nc 3 -adj 2;
+				checkBox -l "rotate"
+						-ann "rootmotion rotation"
+						-v 0 "rotate_mode";
+				text "";
+				checkBox -l "flat"
+						-ann "flat from first root position"
+						-v 1 "flat_mode";
+				button -l "calculate rootmotion"
+						-bgc $blue_light[0] $blue_light[1] $blue_light[2]
+						-p "SHifting_rootmotion"
+						-ann "place in animLayer all rig controls, the movement of which must be preserved (usually Legs, Knee, Pelvis), insert Main control, insert Pelvis control"
+						-c "SHIFT3_2_692e2fda85cadfdf0f28e93323f58c08; catch(SHIFT3_2_f86532f512c57532bf69080729fb7c0c(`textField -q -tx rootField`, `textField -q -tx pelvisField`, `checkBox -q -v rotate_mode`, `checkBox -q -v flat_mode`)); SHIFT3_2_f4b1a2b52ab1771321003f86cde63160;";
+				separator -st "none"
+				-h 10
+				-p "SHifting_rootmotion";
+		frameLayout
+			-p "SHifting_instuments"
+			-bgc $white[0] $white[1] $white[2]
+			-ebg 1 -bv false
+			-cl 1 -cll 1
+			-l "circle walk"
+			-la "top"
+			-mw 3
+			-mh 3
+			-cc "catchQuiet(`window -e -h 150 SHIFTING_animation`)"
+			SHifting_circular_fr;
+			columnLayout
+			-rowSpacing 2
+			-adj 1 -p "SHifting_circular_fr" SHifting_circular;
+			          rowLayout
+							-p "SHifting_circular"
+							-nc 8 -adj 4
+							RW_circle;
+											textField
+												-ekf 0
+												-font  "obliqueLabelFont"
+												-pht "autodetection"
+												-bgc $blue_light[0] $blue_light[1] $blue_light[2]
+												-ann "set name object for curve calculatin within the scene or selected frameRange. Set nothing for AUTO mode"
+												 "curve_calculate_circle";
+											button -l "<<"
+													-ann "create a curve from object animation within the scene or selected frameRange. Set nothing for AUTO mode"
+													-c "$curve_name =`ls-fl-sl`;textField -edit -tx $curve_name[0] curve_calculate_circle;";
+											text -ann "set object name for curve calculating or nothing for AUTO mode" -l " curve object";
+											text "";
+							button -l "create bend curve"
+									-bgc $blue_light[0] $blue_light[1] $blue_light[2]
+									-p "SHifting_circular"
+									-ann "place in animLayer all rig controls, the movement of which must be preserved (usually Legs, Knee, Pelvis), insert Main control, insert Pelvis control"
+									-c "SHIFT3_2_692e2fda85cadfdf0f28e93323f58c08; SHIFT3_2_8327291d23e32e708ec222974d35f87a(1,`textField -q -tx curve_calculate_circle`,1,1); SHIFT3_2_f4b1a2b52ab1771321003f86cde63160; SHIFT3_2_762f049a0ffb16260649a1d60212ee9f()";
+							button -l "calculate circle walk"
+									-bgc $blue_light[0] $blue_light[1] $blue_light[2]
+									-p "SHifting_circular"
+									-ann "place in animLayer all rig controls, the movement of which must be preserved (usually Legs, Knee, Pelvis), insert Main control, insert Pelvis control"
+									-c " SHIFT3_2_692e2fda85cadfdf0f28e93323f58c08;catch(SHIFT3_2_d0162d537d4e82bff3de890c7c1b848d(0, 0,0)); SHIFT3_2_f4b1a2b52ab1771321003f86cde63160";
+								separator -st "none"
+									-h 10
+									-p "SHifting_circular";
+			   button 	-h 25
+				-p "SHifting_instuments"
+				-bgc $blue[0] $blue[1] $blue[2]
+				-w 20
+				-label "Euler filter"
+				-ann " - normalized Euler filter on selected objects"
+				-c "SHIFT3_2_09f1edc0a69a4931b08e1bcc40e94a55 ";
+	   rowLayout  -p "cceu1" -numberOfColumns 2 -adj 2 "ggg";
+			button      -h 25
+						-p "ggg"
+						-bgc 0.9 0.9 0.9
+						-w 20
+						-label "VP"
+						-ann " - In case something goes wrong and the viewport doesn't respond "
+						-c " SHIFT3_2_f4b1a2b52ab1771321003f86cde63160 ;";
+columnLayout -p "ggg" -adj 1   "podpis";
+				text    -h 16
+						-p  "podpis"
+						-al "right"
+						-ww false
+						-fn smallObliqueLabelFont
+						-l " (c) Pavel Barnev";
+				text    -h 16
+						-p  "podpis"
+						-al "right"
+						-ww false
+						-fn obliqueLabelFont
+						-l "    pavel_barnev2000@mail.ru";
+    showWindow "SHIFTING_animation";
+}
+global proc SHIFT3_2_8327291d23e32e708ec222974d35f87a(int $points_on_animrange, string $curve_calcul_object, int $flat, int $circle_mod)
+{
+    global string $AUTOPATH_error;
+	$AUTOPATH_error="";
+    global string $AUTOPATH_second_curve;
+    global string $AUTOPATH_base_curve;
+    global string $AUTOPATH_base_objects[];
+	global float  $AUTOPATH_framernge[];
+	global string $AUTOPATH_curr_selected_layers[];
+	global int $AUTOPATH_circle_mod;
+	global int $AUTOPATH_curve_obj_in_layer;
+	global string $AUTOPATH_circle_fake_curve;
+	global float $AUTOPATH_circle_position[];
+	$AUTOPATH_circle_mod=$circle_mod;
+	$AUTOPATH_base_objects={};
+	$AUTOPATH_circle_fake_curve="";
+    $AUTOPATH_curr_selected_layers = getSelectedAnimLayer("AnimLayerTab");
+	if($AUTOPATH_curr_selected_layers[0]==""||$AUTOPATH_curr_selected_layers[0]=="BaseAnimation"||size($AUTOPATH_curr_selected_layers)>1)
+	{
+		print "*****************************************************************\n";
+		print "ERROR:    no animation layer found!!!!!! Select animation layer!!!\n";
+		print "*****************************************************************\n";
+		$AUTOPATH_error="error";
+		return;
+	}
+	layerEditorSelectObjectAnimLayer($AUTOPATH_curr_selected_layers);
+	string $obj_in_layer[],$tmp_obj[];
+	$obj_in_layer=`ls-fl-sl`;
+	if ($curve_calcul_object=="")
+	{
+		$tmp_obj=SHIFT3_2_ab8c8018d47d542b750e72df0fa0b3ee();
+		$obj_in_layer=$tmp_obj;
+		$curve_calcul_object=$tmp_obj[0];
+	}
+  $AUTOPATH_curve_obj_in_layer = stringArrayContains($curve_calcul_object, $obj_in_layer);
+	if($AUTOPATH_curve_obj_in_layer)
+	{
+		stringArrayInsertAtIndex(0, $obj_in_layer, $curve_calcul_object);
+		$obj_in_layer=`ls -fl $obj_in_layer`;
+		$obj_in_layer=stringArrayRemoveDuplicates($obj_in_layer);
+		$obj_in_layer=`ls -fl $obj_in_layer`;
+	}
+	select -cl;
+	print "***************************\n";
+	print "***************************\n";
+	print "create curve from  ";
+	print $curve_calcul_object;
+	print "\n***************************\n";
+	print "***************************\n";
+	$AUTOPATH_base_objects=$obj_in_layer;
+    $AUTOPATH_framernge= SHIFT3_2_cb2b62a77c624e5fccb988d5e684b2e9($AUTOPATH_curr_selected_layers[0]);
+	if($AUTOPATH_framernge[1]-$AUTOPATH_framernge[0]==0)
+		{
+			$AUTOPATH_framernge[0]=`playbackOptions -q -ast`;
+			$AUTOPATH_framernge[1]=`playbackOptions -q -aet`;
+		}
+	$AUTOPATH_framernge[1]=$AUTOPATH_framernge[1]+1;
+    float $frame_step=($AUTOPATH_framernge[1]-$AUTOPATH_framernge[0]-1)/$points_on_animrange;
+    select $curve_calcul_object;
+    string $tmp_cuv[],$fake_curve[];
+	if(!$circle_mod)
+	{
+		$AUTOPATH_second_curve=SHIFT3_2_ea9ab7919e5a9de4f76ea8a166ea2117($frame_step,$AUTOPATH_framernge,0,$flat,1);
+		SHIFT3_2_c0333f01c0305441f7e870d2e8681fb9;
+		select $curve_calcul_object;
+		animLayer -edit -mute 1 $AUTOPATH_curr_selected_layers[0];
+		$AUTOPATH_base_curve=SHIFT3_2_ea9ab7919e5a9de4f76ea8a166ea2117($frame_step,$AUTOPATH_framernge,0,$flat,1);
+		SHIFT3_2_c0333f01c0305441f7e870d2e8681fb9;
+	}
+	float $CVpos[], $cuve_len;
+	if($circle_mod)
+	{
+		$AUTOPATH_second_curve=SHIFT3_2_ea9ab7919e5a9de4f76ea8a166ea2117(1,$AUTOPATH_framernge,0,1,0);
+		$CVpos=SHIFT3_2_44d7389cf1da23b6064a4bcbaf8f4f7b($AUTOPATH_second_curve, 0);
+		$cuve_len=SHIFT3_2_9cf10c253bb06da91bcfe3836a7e5f36({$CVpos[0],$CVpos[1],$CVpos[2]},{$CVpos[3],$CVpos[4],$CVpos[5]});
+		$fake_curve=`duplicate $AUTOPATH_second_curve`;
+		$AUTOPATH_circle_fake_curve=$fake_curve[0];
+		select  $AUTOPATH_second_curve;
+		SHIFT3_2_4c2952dd9f486573856c8eb6a0dc46ac(0);
+		$AUTOPATH_circle_position={$CVpos[0],$CVpos[1],$CVpos[2]};
+		scale -r 2 2 2  $AUTOPATH_second_curve;
+		move -r -os -wd 0 ($cuve_len/2) 0 $AUTOPATH_second_curve;
+		$tmp_cuv=`duplicate $AUTOPATH_second_curve`;
+		$AUTOPATH_base_curve=$tmp_cuv[0];
+		animLayer -edit -mute 0 $AUTOPATH_curr_selected_layers[0];
+	}
+    SHIFT3_2_4c2952dd9f486573856c8eb6a0dc46ac(0);
+    parent $AUTOPATH_base_curve  $AUTOPATH_second_curve;
+	if($circle_mod)
+		parent $fake_curve[0] $AUTOPATH_second_curve;
+    animLayer -edit -mute 0 $AUTOPATH_curr_selected_layers[0];
+    select $AUTOPATH_second_curve;
+}
+global proc SHIFT3_2_762f049a0ffb16260649a1d60212ee9f()
+{
+    global string $AUTOPATH_second_curve;
+    global string $AUTOPATH_base_curve;
+    global float $AUTOPATH_circle_position[];
+    global string $AUTOPATH_bend_control;
+	global string $AUTOPATH_circle_fake_curve;
+	parent -w $AUTOPATH_base_curve;
+	SHIFT3_2_4c2952dd9f486573856c8eb6a0dc46ac(0);
+	select $AUTOPATH_second_curve;
+	string $bend_control[]=SHIFT3_2_54d92f8424c4459e6d996d9fd93902f0();
+	rotate -a 0 0 0 $bend_control;
+    move -a $AUTOPATH_circle_position[0] $AUTOPATH_circle_position[1] $AUTOPATH_circle_position[2] $bend_control[0];
+    $bend_control[0]=`rename $bend_control[0] "Bend_Control"`;
+    SHIFT3_2_cc20e95399a3b6da44eb78e45451d764(13);
+    SHIFT3_2_6de8028af587b467034457b4d6349f89(1.5);
+    $AUTOPATH_bend_control=$bend_control[0];
+    SHIFT3_2_e654812187805dfb8c3722d661c85115();
+    makeIdentity -apply true -t 1 -r 1 -s 1 -n 0 -pn 1 $AUTOPATH_second_curve $AUTOPATH_base_curve;
+    makeIdentity -apply false -t 1 -r 1 -s 1 -n 0 -pn 1 $AUTOPATH_second_curve $AUTOPATH_base_curve;
+	SHIFT3_2_44d7389cf1da23b6064a4bcbaf8f4f7b($AUTOPATH_circle_fake_curve, 0);
+    select $AUTOPATH_second_curve;
+	Bend;
+    string $bend_h[]=`ls-sl`;
+	string $destination_bend;
+	if (`objectType $bend_h[1]`=="deformBend")
+	{
+		$destination_bend=`connectionInfo -sourceFromDestination ($bend_h[1] + ".highBound")`;
+		$bend_h[1]=`match "^[^\.]*" $destination_bend`;
+	}
+	print "******bend*************\n";
+	print $bend_h;
+    setAttr ($bend_h[1] + ".highBound") 2;
+    setAttr ($bend_h[1] + ".lowBound") -2;
+    setAttr ($bend_h[0] + ".visibility") 0;
+    SHIFT3_2_5e8af8371c687e5c50d7ded5040ffe13({ $AUTOPATH_circle_fake_curve}, {$bend_h[0]});
+    move -a $AUTOPATH_circle_position[0] $AUTOPATH_circle_position[1] $AUTOPATH_circle_position[2] $bend_h[0];
+    select $bend_control[0];
+    if (`upAxis -q -axis`=="z")
+    {
+        SHIFT3_2_38212629cf9ce2087192134a449b78d6(1, 1,1, 1, 1,0, 1, 1,1, 1);
+        connectAttr -f ($bend_control[0] + ".rotateZ") ($bend_h[1] + ".curvature");
+    }
+    else
+    {
+        SHIFT3_2_38212629cf9ce2087192134a449b78d6(1, 1,1, 1, 0,1, 1, 1,1, 1);
+        connectAttr -f ($bend_control[0] + ".rotateY") ($bend_h[1] + ".curvature");
+    }
+    parent  $AUTOPATH_base_curve $AUTOPATH_second_curve;
+	parent -w $AUTOPATH_circle_fake_curve;
+    select $bend_control;
+}
+global proc SHIFT3_2_d0162d537d4e82bff3de890c7c1b848d(float $easing_frame, int $both_alorithm, int $vertical)
+{
+	global string $AUTOPATH_error;
+	global string $AUTOPATH_second_curve;
+	global string $AUTOPATH_base_curve;
+	global string $AUTOPATH_base_objects[];
+	global float  $AUTOPATH_framernge[];
+	global string $AUTOPATH_curr_selected_layers[];
+	global string $WBend_sets_name[];
+	global string $WBend_curve_control[];
+	global string $AUTOPATH_bend_control;
+	global int $AUTOPATH_circle_mod;
+	global string $AUTOPATH_circle_fake_curve;
+	global int $AUTOPATH_curve_obj_in_layer;
+	if ($AUTOPATH_error!="")
+	{
+		return;
+	}
+	select  $AUTOPATH_second_curve $AUTOPATH_base_curve;
+	SHIFT3_2_e8fab4220afb7ebae48fab83681f71a5(1);
+	delete -ch;
+	UnlockCurveLength;
+	if($AUTOPATH_circle_fake_curve!="")
+	{
+		delete $AUTOPATH_circle_fake_curve;
+		$AUTOPATH_circle_fake_curve="";
+	}
+	string $b_curve[]=`parent -w $AUTOPATH_base_curve`;
+	move -ws 0 0 0 $b_curve;
+	rotate -ws 0 0 0 $b_curve;
+	scale -ws 1 1 1  $b_curve;
+	makeIdentity -apply true -t 1 -r 1 -s 1 -n 0 -pn 1 $AUTOPATH_second_curve;
+	makeIdentity  -apply false -t 1 -r 1 -s 1 -n 0 -pn 1 $AUTOPATH_second_curve;
+	animLayer -edit -mute 1 $AUTOPATH_curr_selected_layers[0];
+	global float $AUTOPATH_framernge[];
+	string $base_obj[]=$AUTOPATH_base_objects;
+	string $obj_on_curve[];
+	$obj_on_curve=SHIFT3_2_96e2470b3ed39e03b8584a3bc1addada($AUTOPATH_base_objects,$b_curve[0], $AUTOPATH_framernge);
+	if ($vertical)
+		SHIFT3_2_cb45062f0642699cb3bb5a79fd4091b8(1);
+	select  $AUTOPATH_second_curve $b_curve[0];
+	UnlockCurveLength;
+	string $blShape[]=`blendShape -w 0 1   $AUTOPATH_second_curve $b_curve[0]`;
+	string $parent_items[];
+	if($easing_frame>0)
+		for($i=$AUTOPATH_curve_obj_in_layer;$i<size($base_obj);$i++)
+		{
+			$parent_items=`listConnections -d off -s on ($base_obj[$i] + ".blendPoint999wb")`;
+			setAttr -keyable true ($parent_items[0] + ".movement");
+			setAttr -keyable true ($parent_items[0] + ".rotates");
+			setKeyframe -t ($AUTOPATH_framernge[0] - $easing_frame) -t ($AUTOPATH_framernge[1] + $easing_frame) -v 0 -itt "flat" -ott "flat" ($parent_items[0] + ".movement");
+			setKeyframe -t $AUTOPATH_framernge[0]  -t $AUTOPATH_framernge[1] -v 1 -itt "flat" -ott "flat" ($parent_items[0] + ".movement") ;
+			setKeyframe -t ($AUTOPATH_framernge[0] - $easing_frame) -t ($AUTOPATH_framernge[1] + $easing_frame) -v 0 -itt "flat" -ott "flat" ($parent_items[0] + ".rotates") ;
+			setKeyframe -t $AUTOPATH_framernge[0] -t $AUTOPATH_framernge[1]  -v 1 -itt "flat" -ott "flat" ($parent_items[0] + ".rotates") ;
+		}
+	$AUTOPATH_curve_obj_in_layer=0;
+	select $base_obj;
+	string $WB_layer=SHIFT3_2_c830bbb3bb6041f72a5fb76403fcabe8();
+	if($both_alorithm)
+	{
+    	$new_add_layer=SHIFT3_2_bdd2d2262c150fe16a261bb2e2e76046(0);
+    	bakeResults -simulation false -dic false -removeBakedAttributeFromLayer 1 -destinationLayer $new_add_layer -sampleBy 1 -oversamplingRate 1 -time ":" -resolveWithoutLayer $WB_layer ;
+    	delete $WB_layer;
+        $WB_layer=`rename $new_add_layer by_path_add`;
+	}
+	if($AUTOPATH_circle_mod)
+		$WB_layer=`rename $WB_layer by_circle_over`;
+	else
+		$WB_layer=`rename $WB_layer by_path_over`;
+	$AUTOPATH_circle_mod=0;
+	if(!$both_alorithm)
+	{
+		animLayerEditorOnSelect $WB_layer 1;
+		animLayerEditorOnSelect $AUTOPATH_curr_selected_layers[0] 0;
+	}
+	select $b_curve[0];
+delete `pickWalk -d up`  $AUTOPATH_second_curve;
+	catchQuiet (`delete $WBend_sets_name[0]`);
+	catchQuiet (`delete $WBend_sets_name[1]`);
+	SHIFT3_2_194c7b09c27128a45486ac17560c7a25($WBend_curve_control);
+	catchQuiet (`delete`);
+	SHIFT3_2_57a906823be3ff74fc67f225ea020d49($base_obj);
+	if ($AUTOPATH_bend_control!="")
+	delete $AUTOPATH_bend_control;
+	$AUTOPATH_bend_control="";
+	string $shift_lay,$top_weight_layer;
+	if($both_alorithm)
+	{
+		animLayerEditorOnSelect $AUTOPATH_curr_selected_layers[0] 1;
+		animLayerEditorOnSelect $WB_layer 0;
+		animLayer -edit -mute 1 $WB_layer;
+		animLayer -edit -mute 0 $AUTOPATH_curr_selected_layers[0];
+		$shift_lay=SHIFT3_2_36e868f70d3bc857bf7c0d874db1cf86(1);
+		$shift_lay=`rename $shift_lay by_shift_master`;
+		animLayer -edit -weight 0  $shift_lay;
+		animLayer -edit -mute 0 $WB_layer;
+		$top_weight_layer=`animLayer -moveLayerBefore $shift_lay weight_control`;
+		animLayer -edit -parent   $top_weight_layer $shift_lay;
+		animLayer -edit -parent  $top_weight_layer $WB_layer;
+		SHIFT3_2_273526a87547ffdcb7ae088d08bdf57e($shift_lay, $WB_layer);
+	}
+	$AUTOPATH_second_curve="";
+	$AUTOPATH_base_curve="";
+}
+global proc SHIFT3_2_9ae282fb1fe972d565d0cedb2f703421()
+{
+	global string $AUTOPATH_second_curve;
+	global string $AUTOPATH_base_curve;
+	string $selection_cuve[],$dupl_cuve[],$c_info,$c_info2,$bshp[];
+	$selection_cuve=`ls-sl`;
+	$dupl_cuve=`duplicate  $selection_cuve[1]`;
+	$c_info=`arclen -ch 1 $dupl_cuve[0]`;
+	float $len_dupli=`getAttr ($c_info + ".arcLength")`;
+	int $CV_num=size(`getAttr -mi ($c_info + ".controlPoints")`);
+	delete $c_info ;
+	int $delitel=2;
+	float $part_len=$len_dupli/($CV_num*$delitel);
+	SHIFT3_2_14a16299b2c9c132f2cee1181c46be19($CV_num*$delitel);
+	$c_info2=`arclen -ch 1 $selection_cuve[0]`;
+	float $len_base=`getAttr ($c_info2 + ".arcLength")`;
+	delete $c_info2;
+	int $c1_cpans=$len_base/$part_len + 1;
+	select $selection_cuve[0];
+	SHIFT3_2_14a16299b2c9c132f2cee1181c46be19($c1_cpans);
+	UnlockCurveLength;
+	$bshp=`blendShape -tc 0 -w 0 1 $dupl_cuve[0] $selection_cuve[0]`;
+	delete -ch $selection_cuve[0];
+	delete $dupl_cuve;
+	SHIFT3_2_c0333f01c0305441f7e870d2e8681fb9;
+	if($selection_cuve[0]==$AUTOPATH_second_curve)
+	{
+		select $AUTOPATH_base_curve;
+		SHIFT3_2_14a16299b2c9c132f2cee1181c46be19($c1_cpans);
+		UnlockCurveLength;
+	}
+	select $AUTOPATH_second_curve;
+}
+global proc string SHIFT3_2_36e868f70d3bc857bf7c0d874db1cf86(int $global_mov)
+{
+	string $curr_selected_layers[] = getSelectedAnimLayer("AnimLayerTab");
+	string $calc_lay;
+	if($curr_selected_layers[0]==""||$curr_selected_layers[0]=="BaseAnimation"||size($curr_selected_layers)>1)
+	{
+		warning "\n no animation layer found!!!!!!";
+		return $calc_lay;
+	}
+	layerEditorSelectObjectAnimLayer($curr_selected_layers);
+	$obj_in_layer=SHIFT3_2_ab8c8018d47d542b750e72df0fa0b3ee();
+	select -cl;
+	select $obj_in_layer;
+	int $int_range[]=SHIFT3_2_8dcf27adae2f0cd4520378fd7044ea43(`SHIFT3_2_386a32a262bb9d12d279c0e143b212e3($curr_selected_layers[0])`, 1 ,1);
+	if(size($int_range)==1)
+	{
+		warning "\n no Anim Range Intervals found!!!!!!";
+		return $calc_lay;
+	}
+	$calc_lay=`animLayer -copy  $curr_selected_layers[0]  match_result`;
+	animLayer -edit -moveLayerAfter $curr_selected_layers[0] $calc_lay;
+	animLayer -edit -mute 1 $curr_selected_layers[0];
+    SHIFT3_2_92974e563427b6856d49efc764f12d33($calc_lay);
+    int $selectionKey = `optionVar -exists animLayerSelectionKey` ? `optionVar -query animLayerSelectionKey` : 1;
+    if($selectionKey!=1)
+    {
+        optionVar -intValue animLayerSelectionKey 1; setPreferredForAllLayers(false); setSelectedForAllLayers(false);
+        SHIFT3_2_92974e563427b6856d49efc764f12d33($calc_lay);
+    }
+	string $intervals[];
+	for($i=0;$i<size($int_range)-1;$i++)
+	       $intervals[$i]=$int_range[$i] + ":" + $int_range[$i+1];
+	if(size( $intervals)==0)
+	    $intervals[0]=$int_range[0] + ":" + $int_range[size($int_range)-1];
+	float $curr_range[];
+	string $buffer[];
+	string $interval;
+	currentTime $int_range[0];
+	for($interval in $intervals)
+	{
+		tokenize $interval ":" $buffer;
+		$curr_range[0]=$buffer[0];
+		$curr_range[1]=$buffer[1];
+		    SHIFT3_2_be3819c40798ce2d7ded60a16f5512c0($obj_in_layer, $curr_range,  $calc_lay,$global_mov);
+	}
+	optionVar -intValue animLayerSelectionKey $selectionKey; setPreferredForAllLayers(false); setSelectedForAllLayers(false);
+	SHIFT3_2_92974e563427b6856d49efc764f12d33($calc_lay);
+	return $calc_lay;
+}
+global proc SHIFT3_2_be3819c40798ce2d7ded60a16f5512c0(string $obj_in_layer[], float $rnge[], string $curr_selected_layer, int $global_mov)
+{
+	string $in_lay_move[], $constr[];
+	if ($global_mov)
+	    $in_lay_move=SHIFT3_2_abc1593bea20a15ff680d55921e389d8($rnge);
+	else
+	    $in_lay_move= SHIFT3_2_fac5eb6ffea73b52bf185bee1b205cd8 ($rnge);
+	$in_lay_move_gr=`ls-sl`;
+	select $in_lay_move;
+	SHIFT3_2_cc20e95399a3b6da44eb78e45451d764(13);
+	SHIFT3_2_09f1edc0a69a4931b08e1bcc40e94a55();
+	animLayer -edit -mute 1 $curr_selected_layer;
+	select $obj_in_layer;
+	if ($global_mov)
+	    $out_lay_move=SHIFT3_2_abc1593bea20a15ff680d55921e389d8($rnge);
+	else
+	    $out_lay_move= SHIFT3_2_fac5eb6ffea73b52bf185bee1b205cd8 ($rnge);
+	$out_lay_move_gr=`ls-sl`;
+	select $out_lay_move;
+	SHIFT3_2_09f1edc0a69a4931b08e1bcc40e94a55();
+	if ($global_mov)
+	    $constr=SHIFT3_2_17431451b1be026fdeee93b86579c6b6($out_lay_move, $obj_in_layer);
+	animLayer -edit -mute 0 $curr_selected_layer;
+	string $chnels[]={".tx", ".ty",".tz",".rx",".ry",".rz"};
+	string $in_lay_chn[];
+	string $out_lay_chn[];
+	float $out_lay_chn_fin[];
+	float $in_lay_st_end[];
+	float $out_lay_st_end[];
+	for($i=0;$i<size($out_lay_move);$i++)
+	{
+		for($chan in  $chnels)
+		{
+			$in_lay_chn=`keyframe -q -n ($in_lay_move[$i] + $chan)`;
+			$out_lay_chn=`keyframe -q -n ($out_lay_move[$i] + $chan)`;
+				$in_lay_st_end=SHIFT3_2_83cec84acc682cc2ae5e9eade918b171($in_lay_chn[0]);
+				$out_lay_st_end=SHIFT3_2_83cec84acc682cc2ae5e9eade918b171($out_lay_chn[0]);
+				$out_lay_chn_fin=SHIFT3_2_4456cc602c2236c5ece51bee2a5b2ee6($out_lay_chn[0],    {$in_lay_st_end[0]-$out_lay_st_end[0], $in_lay_st_end[1]-$out_lay_st_end[1]} , 1);
+				SHIFT3_2_00541a9a17599f40188bcea78040440d($out_lay_chn[0],$rnge, $out_lay_chn_fin);
+		}
+	}
+	autoKeyframe -st off;
+	select  $obj_in_layer;
+	$curv_in_layer = `animLayer -q -animCurves  $curr_selected_layer`;
+	for($i=$rnge[0];$i<=$rnge[1];$i++)
+	{
+		currentTime $i;
+		if (!$global_mov)
+		    SHIFT3_2_13f67b1447d1fe0d15313a69cb76f8e6($out_lay_move, $obj_in_layer);
+		setKeyframe -breakdown 0  -dd 0 -t $i  -hierarchy none -mr 1 -controlPoints 0 -shape 0 -at translateX -at translateY -at translateZ -at rotateX -at rotateY -at rotateZ $obj_in_layer;
+	}
+	autoKeyframe -st on;
+	catchQuiet (`delete $constr`);
+	delete  $in_lay_move $out_lay_move $out_lay_move_gr $in_lay_move_gr;
+	SHIFT3_2_09f1edc0a69a4931b08e1bcc40e94a55();
+}
+global proc float[] SHIFT3_2_4456cc602c2236c5ece51bee2a5b2ee6(string $curve_name,float $StartStopVal[], int $AbsRelMode)
+{
+	float $startValue =$StartStopVal[0];
+	float $stopValue =$StartStopVal[1];
+	float $spValues[] =  `keyframe -q -vc  $curve_name`;
+	float $percentage[]=SHIFT3_2_629955dac26448fd4dac7dd44010a6ea($curve_name);
+	$tot_len= SHIFT3_2_6878d678f96f9a2494927fe9200e401e($curve_name);
+	float $totalPoseLayerChange = abs($stopValue - $startValue);
+	float $previousValue = $startValue;
+	float $poseLayerFCurves[]={0.0};
+	$i=0;
+	float  $currentValue,$valueDelta,$value;
+	if($tot_len!=0)
+	{
+    	for($value in $percentage)
+    	{
+    		$valueDelta=($totalPoseLayerChange/100)*$value;
+    		if ($stopValue > $startValue)
+    			$currentValue = $previousValue + $valueDelta;
+    		else
+    			$currentValue = $previousValue - $valueDelta;
+    		if($AbsRelMode==0)
+    			$poseLayerFCurves[$i]= $currentValue;
+    		else
+    			$poseLayerFCurves[$i]= $currentValue + $spValues[$i];
+    		$previousValue = $currentValue;
+    		$i++;
+    	}
+    }
+    else
+    {
+        $valueDelta=($totalPoseLayerChange/(size($percentage)));
+        for($value in $percentage)
+        {
+			if ($stopValue > $startValue)
+    			$currentValue = $previousValue + $valueDelta;
+    		else
+    			$currentValue = $previousValue - $valueDelta;
+    		if($AbsRelMode==0)
+    			$poseLayerFCurves[$i]= $currentValue;
+    		else
+    			$poseLayerFCurves[$i]= $currentValue + $spValues[$i];
+    		$previousValue = $currentValue;
+    		$i++;
+    	}
+    }
+	return $poseLayerFCurves;
+}
+global proc float[] SHIFT3_2_83cec84acc682cc2ae5e9eade918b171(string $curve)
+{
+    float $Base_v[] = ` keyframe -q -vc  $curve `;
+    float $val[];
+    $val={$Base_v[0],$Base_v[size($Base_v)-1]};
+    return $val;
+}
+global proc string SHIFT3_2_f86532f512c57532bf69080729fb7c0c(string $main_ctrl, string $pelvis_ctrl, int $rotate_mode, int $flat_mode)
+{
+	string $anim_layers[]=getSelectedAnimLayer("AnimLayerTab");
+	if($anim_layers[0]==""||$anim_layers[0]=="BaseAnimation"||size($anim_layers)>1)
+	{
+		print "*****************************************************************\n";
+		print "ERROR:    no animation layer found!!!!!! Select animation layer!!!\n";
+		print "*****************************************************************\n";
+		return "";
+	}
+	layerEditorSelectObjectAnimLayer($anim_layers);
+	string $obj_in_layer[], $freeze_ctrls[],$WB_layer;
+	$obj_in_layer=`ls-fl-sl`;
+	$freeze_ctrls=stringArrayRemove({$main_ctrl}, $obj_in_layer);
+	$WB_layer= SHIFT3_2_e2ba956c9c1fac6238ed43e940bd7a18($main_ctrl, $pelvis_ctrl, $freeze_ctrls, $rotate_mode, $flat_mode);
+	animLayerEditorOnSelect $anim_layers[0] 0;
+	return $WB_layer;
+}
+global proc string[] SHIFT3_2_abc1593bea20a15ff680d55921e389d8(float $rnge[])
+{
+	$selected=`ls-fl-sl`;
+	if(size($selected)<=0)
+	{
+		warning "Nothing selected!";
+		return {""};
+	}
+	$locators=`SHIFT3_2_e0a5f9682afe5d450c5614dd6a49ac78`;
+	$locators=SHIFT3_2_e706e982298fe9e8f94ae04b06b5d6b2("LOH");
+    SHIFT3_2_17431451b1be026fdeee93b86579c6b6($selected, $locators);
+    string $gr_name=`group $locators`;
+    xform -piv 0 0 0;
+    string $axis=`upAxis -q -ax`;
+    if($axis=="y")
+        rotate -a 90 0 0  $gr_name;
+    select $locators;
+    SHIFT3_2_e02b9af8de573969d2834f5d4e4228fd($rnge[0],$rnge[1],`ls-sl`);
+    select $gr_name;
+	return $locators;
+}
+global proc string[] SHIFT3_2_fac5eb6ffea73b52bf185bee1b205cd8 (float $rnge[])
+{
+    $selected=`ls-fl-sl`;
+    if(size($selected)<=0)
+    {
+    	warning "Nothing selected!";
+    	return {""};
+    }
+    $locks=SHIFT3_2_24abb2efaf063b9b16a2b2c78969a384();
+    SHIFT3_2_54f6a67095b91b940ce86c3f80137d58($selected, $locks);
+    SHIFT3_2_b2a60fd1e225a3f7175601f5abca8a70($selected, $locks);
+    SHIFT3_2_14a1fba9c2d7db2800e701a123faba21($selected, $locks);
+    SHIFT3_2_e02b9af8de573969d2834f5d4e4228fd($rnge[0],$rnge[1],$locks);
+    for($i=0; $i<size($locks);$i++)
+    {
+        disconnectAttr ($selected[$i] + ".translate") ($locks[$i] + ".translate");
+        disconnectAttr ($selected[$i] + ".rotate") ($locks[$i] + ".rotate");
+        disconnectAttr ($selected[$i] + ".scale") ($locks[$i] + ".scale");
+    }
+    return $locks;
+}
+global proc string SHIFT3_2_bdd2d2262c150fe16a261bb2e2e76046(int $rotation_mod)
+{
+	string $selected[]=`ls-sl`;
+	string $animLayer=`animLayer -addSelectedObjects`;
+	for($obj in `ls-sl`)
+    {
+        select $obj;
+        animLayer -e -addSelectedObjects $animLayer;
+    }
+	$cmd="setAttr " + $animLayer + ".rotationAccumulationMode " + $rotation_mod;
+	eval ($cmd);
+	select -cl;
+	select $selected;
+	SHIFT3_2_92974e563427b6856d49efc764f12d33($animLayer);
+	return $animLayer;
+}
+global proc string[] SHIFT3_2_21b7c17e232d97d5c941030f7d497200(string $objects[])
+{
+    $sel_lay=SHIFT3_2_9a480b0a2130b035b6d90da712163295();
+    string $new_layrs[]=SHIFT3_2_561c6e17779ef401453c3b07933318b7($objects, $sel_lay );
+    SHIFT3_2_b836e5c025b25836e75484066fcd10a3($new_layrs);
+    return $new_layrs;
+}
+global proc SHIFT3_2_92974e563427b6856d49efc764f12d33(string $layer)
+{
+	string $layers[]=`ls -type "animLayer"`;
+	int $i;
+	for($i=0; $i<size($layers); $i++)
+		animLayer -e -selected 0 $layers[$i];
+	animLayer -e -selected 1 $layer;
+	animLayerEditorOnSelect $layer 1;
+}
+global proc SHIFT3_2_b836e5c025b25836e75484066fcd10a3(string $layers[])
+{
+    string $all_layers[]=`ls -type "animLayer"`;
+	string $lay;
+	for($lay in $all_layers)
+		animLayer -e -selected 0 $lay;
+	for($lay in $layers)
+		animLayer -e -selected 1 $lay;
+}
+global proc float[] SHIFT3_2_cb2b62a77c624e5fccb988d5e684b2e9(string $anim_layer_name)
+{
+    string $curr_layer_curve[];
+    if ($anim_layer_name!="BaseAnimation"&&$anim_layer_name!="")
+    {
+        $curr_layer_curve=`animLayer -q -animCurves  $anim_layer_name`;
+    }
+    else
+    {
+         $curr_layer_curve=`keyframe -q -n`;
+    }
+    if (`size $curr_layer_curve`==0)
+    {
+        warning "no layer and no object selected";
+        return {0};
+    }
+    float $range[]=`keyframe  -query -timeChange  $curr_layer_curve`;
+    $range =`sort $range`;
+    return  {$range[0],$range[size($range)-1]};
+}
+global proc float[] SHIFT3_2_386a32a262bb9d12d279c0e143b212e3(string $anim_layer_name)
+{
+    string $curr_layer_curve[];
+    if ($anim_layer_name!="BaseAnimation"&&$anim_layer_name!="")
+    {
+        $curr_layer_curve=`animLayer -q -animCurves  $anim_layer_name`;
+    }
+    else
+    {
+         $curr_layer_curve=`keyframe -q -n`;
+    }
+    if (`size $curr_layer_curve`==0)
+    {
+        warning "no layer and no object selected";
+        return {0};
+    }
+    float $range[]=`keyframe  -query -timeChange  $curr_layer_curve`;
+    string $string_range[];
+    $range =`sort $range`;
+    for($i=0;$i<size($range);$i++)
+    {
+        $string_range[$i]=$range[$i];
+    }
+     $string_range=stringArrayRemoveDuplicates($string_range);
+     float $final_range[];
+    for($i=0;$i<size($string_range);$i++)
+    {
+        $final_range[$i]=$string_range[$i];
+    }
+    return  $final_range;
+}
+global proc SHIFT3_2_273526a87547ffdcb7ae088d08bdf57e(string $master_layer, string $slave_layer)
+{
+	string $m_d_node=`createNode multiplyDivide`;
+	connectAttr -f ($master_layer + ".weight") ( $m_d_node + ".input1X");
+	setAttr ( $m_d_node + ".input2X") -1;
+	setAttr ( $m_d_node + ".input1Y") 1;
+	string $p_m_node=`createNode  plusMinusAverage`;
+	connectAttr -f ($m_d_node + ".outputX") ($p_m_node + ".input1D[0]");
+	connectAttr -f ($m_d_node + ".outputY") ($p_m_node + ".input1D[1]");
+	connectAttr -f ($p_m_node + ".output1D") ($slave_layer + ".weight");
+	setAttr -lock true ($slave_layer + ".wgth");
+}
+global proc SHIFT3_2_14a16299b2c9c132f2cee1181c46be19(int $spans_num)
+{
+	$selected=`ls-sl`;
+	$shape=SHIFT3_2_5e702211108f11813c411c94f8b1b380($selected[0]);
+	if(`objectType $shape[0]`=="nurbsCurve")
+	{
+    	$dgrees=`getAttr ($selected[0] + ".d")`;
+    	catchQuiet(`rebuildCurve -ch 0 -rpo 1 -rt 0 -end 1 -kr 1 -kcp 0 -kep 0 -kt 0 -s $spans_num -d $dgrees -tol 0.01`);
+	}
+	else
+	{
+	    warning "select curve";
+	}
+	select $selected;
+}
+global proc string[] SHIFT3_2_96e2470b3ed39e03b8584a3bc1addada(string $objects_to_bake[], string $curve_name, float $framernge[])
+{
+	global string $WBend_sets_name[];
+	float $time=`currentTime -q`;
+    string $items_to_parent[];
+	if (!`objExists $curve_name`)
+	{
+		print "curve not exists!!!!";
+		return {};
+	}
+	string $maya_unit=`currentUnit -q -l`;
+	if ($maya_unit!="cm")
+	{
+		currentUnit  -l cm;
+	}
+	select $curve_name;
+	SHIFT3_2_c0333f01c0305441f7e870d2e8681fb9();
+	optionVar -intValue animBlendingOpt 1;
+	optionVar -intValue animBlendBrokenInputOpt 1;
+    string $tmp_selected[];
+    select $objects_to_bake;
+	string $objects[];
+	float $mayaVersion = `getApplicationVersionAsFloat` ;
+    string $eval_mode[];
+    if ($mayaVersion>=2019)
+    {
+		python("from maya.plugin.evaluator.cache_preferences import CachePreferenceEnabled");
+		python("CachePreferenceEnabled().set_value( False )");
+    }
+	global string $eval_mode[];
+	if ($mayaVersion>=2016)
+	{
+		$eval_mode=`evaluationManager -q -mode`;
+		evaluationManager -mode "off";
+	}
+	$WBend_sets_name[0] = `sets -name "WALKING_rig_obj"`;
+    $objects=`SHIFT3_2_ec8fef482e9931b7fcc91a980b89860a`;
+	SHIFT3_2_6de8028af587b467034457b4d6349f89(0.5);
+	$WBend_sets_name[1] = `sets -name "WALKING_Parent_obj"`;
+	SHIFT3_2_34cdd1e4469c2d3c695448db824d2ecb(1);
+    string $obj,$gr_name,$node_name,$attribname;
+    int $j=0;
+    for($obj in $objects)
+    {
+        SHIFT3_2_9be2eef2a802c350cd492d919a5a748a($obj, $curve_name, $framernge);
+        $tmp_selected=`ls-sl`;
+        $items_to_parent[$j]=$tmp_selected[0];
+        $j++;
+    }
+	SHIFT3_2_e9caf5289a585699aa818aadd00d2a1a($items_to_parent,  $objects);
+	for($i=0 ;$i<size($items_to_parent);$i++)
+	{
+		$gr_name=`group $objects[$i]`;
+		xform -os -piv 0 0 0;
+		$node_name=`createNode blindDataTemplate -n "anim_movement_on_curve_tool_obraz"`;
+		$attribname=SHIFT3_2_65107bc37ea4a0d842be293fd78287a9("obj_on_curve", $node_name);
+		connectAttr -f ($items_to_parent[$i] + ".visibility")   $attribname;
+		$attribname=SHIFT3_2_65107bc37ea4a0d842be293fd78287a9("parent_object", $node_name);
+		connectAttr -f ($objects[$i] + ".visibility")   $attribname;
+		$attribname=SHIFT3_2_65107bc37ea4a0d842be293fd78287a9("parent_group", $node_name);
+		connectAttr -f ($gr_name + ".visibility")   $attribname;
+	}
+	group -n "WALKING_system_gr" $items_to_parent $curve_name;
+	xform -piv 0 0 0;
+	select $objects;
+	currentTime $time;
+	currentUnit  -l $maya_unit;
+	evaluationManager -mode $eval_mode;
+	return $objects;
+}
+global proc string SHIFT3_2_9be2eef2a802c350cd492d919a5a748a(string $object, string $curve_name, float $framerange[])
+{
+	if( ($framerange[1]- $framerange[0])==1)
+	{
+		$framerange[0]=`playbackOptions -q -ast`;
+		$framerange[1]=(`playbackOptions -q -aet`) + 1;
+	}
+	string $curve_movement_loc[],$m_path,$near_point_on_crve_node,$decompose_matrix_node,$crve_shape[];
+	$curve_movement_loc=`spaceLocator`;
+	$curve_movement_loc=SHIFT3_2_e706e982298fe9e8f94ae04b06b5d6b2("b_cuv_move");
+	$m_path=`pathAnimation -fractionMode 0 -follow true -followAxis x -upAxis z -worldUpType "scene" -inverseUp false -inverseFront false -bank false -startTimeU $framerange[0] -endTimeU ($framerange[1]-1) $curve_name $curve_movement_loc[0]`;
+	$near_point_on_crve_node=`createNode nearestPointOnCurve`;
+	$decompose_matrix_node=`createNode decomposeMatrix`;
+	connectAttr -f ($object + ".worldMatrix[0]") ($decompose_matrix_node + ".inputMatrix");
+	connectAttr -f ($decompose_matrix_node + ".outputTranslate") ($near_point_on_crve_node + ".inPosition");
+	$crve_shape=SHIFT3_2_5e702211108f11813c411c94f8b1b380($curve_name);
+	connectAttr -f ($crve_shape[0] + ".worldSpace[0]")  ($near_point_on_crve_node + ".inputCurve");
+	select $m_path;
+	$j=0;
+	float $U_V_param[];
+	for($i=$framerange[0]; $i<$framerange[1];$i++)
+	{
+		currentTime $i;
+		$U_V_param[$j]=getAttr ($near_point_on_crve_node + ".parameter");
+		setKeyframe  -v $U_V_param[$j] -t $i ($m_path + ".uValue");
+		keyframe -e -vc $U_V_param[$j]  -t $i ($m_path + "_uValue");
+		$j++;
+	}
+		string $mark;
+	for($mark in `SHIFT3_2_cfc20aa23531f881688ec3a171beaae5($m_path)`)
+	{
+		setAttr ($mark  +  ".lodVisibility") 0;
+		setAttr ($mark  +  ".visibility") 0;
+		setAttr ($mark  +  ".hideOnPlayback") 1;
+		setAttr ($mark  +  ".hiddenInOutliner") 1;
+		$marker_shape=SHIFT3_2_5e702211108f11813c411c94f8b1b380($mark);
+		setAttr ($marker_shape[0]  +  ".lodVisibility") 0;
+		setAttr ($marker_shape[0]  +  ".visibility") 0;
+		setAttr ($marker_shape[0]  +  ".hideOnPlayback") 1;
+		setAttr ($marker_shape[0]  +  ".hiddenInOutliner") 1;
+	}
+	keyTangent -itt linear -ott linear $m_path;
+	delete $near_point_on_crve_node $decompose_matrix_node;
+	select $curve_movement_loc;
+		$lock_shape=SHIFT3_2_5e702211108f11813c411c94f8b1b380($curve_movement_loc[0]);
+	setAttr ($lock_shape[0] + ".visibility") 0;
+	return $m_path;
+}
+global proc string SHIFT3_2_ea9ab7919e5a9de4f76ea8a166ea2117(int $step_count, float $frame_range[], int $from_edge_position, int $delete_vertical_movement, int $twise_motion)
+{
+	$time=`currentTime -q`;
+    string $selection[]=`ls-sl -head 1`;
+	$mayaVersion = `getApplicationVersionAsFloat` ;
+	global string $eval_mode[];
+	if ($mayaVersion>=2016)
+	{
+		$eval_mode=`evaluationManager -q -mode`;
+		if ($eval_mode[0]!="off")
+			evaluationManager -mode "off";
+	}
+	if( ($frame_range[1]- $frame_range[0])==1)
+	{
+		$frame_range[0]=`playbackOptions -q -ast`;
+		$frame_range[1]=(`playbackOptions -q -aet`) + 1;
+	}
+	vector $coords[];
+	vector $tmp_vec, $first_CV;
+	float $getPvPos[];
+	if($from_edge_position==0)
+	{
+	    $coords=SHIFT3_2_4ad38bb85176eb981038083a281c91d6($selection[0], {$frame_range[0],$frame_range[1]-1});
+	}
+    else
+    {
+        currentTime  ($frame_range[1]-1);
+		$getPvPos=`xform -q -ws -piv $selection`;
+    	$coords[1]=<<$getPvPos[0],$getPvPos[1],$getPvPos[2]>>;
+        currentTime  $frame_range[0];
+        $getPvPos=`xform -q -ws -piv $selection`;
+    	$coords[0]=<<$getPvPos[0],$getPvPos[1],$getPvPos[2]>>;
+    }
+	if($delete_vertical_movement)
+	{
+		$first_CV=$coords[0];
+		if (`upAxis -q -axis`=="z")
+			for($i=0;$i<size ($coords);$i++)
+			{
+				$tmp_vec=$coords[$i];
+				$coords[$i]=<<$tmp_vec.x,$tmp_vec.y,$first_CV.z>>;
+			}
+		else
+			for($i=0;$i<size ($coords);$i++)
+			{
+				$tmp_vec=$coords[$i];
+				$coords[$i]=<<$tmp_vec.x,$first_CV.y,$tmp_vec.z>>;
+			}
+	}
+	$no_intervals_coords=SHIFT3_2_2774c56ee9a8ad22e22f5e8c75ed4f4d($coords);
+	if ($twise_motion)
+	    $no_intervals_coords=SHIFT3_2_fe600b241bc9b3be89efa455d18bd9f9($no_intervals_coords);
+	string $crve;
+	if($from_edge_position)
+		$crve=SHIFT3_2_83a9015d514ecd1326a1648b28396ba2($no_intervals_coords,1);
+	else
+		$crve=SHIFT3_2_83a9015d514ecd1326a1648b28396ba2($no_intervals_coords,3);
+	if($crve=="")
+	{
+		print "\n Object not moving! I can create a curve!\n";
+		select $selection;
+		currentTime $time;
+		return "";
+	}
+	SmoothHairCurves 100;
+	int $rebuild_step=($frame_range[1]-$frame_range[0])/$step_count;
+	string $cuve_reb[]=`rebuildCurve -ch 0 -rpo 1 -rt 0 -end 1 -kr 1 -kcp 0 -kep 0 -kt 0 -s $rebuild_step -d 3 -tol 0.01 $crve`;
+	$cuve_reb=`rebuildCurve -ch 0 -rpo 1 -rt 0 -end 1 -kr 1 -kcp 0 -kep 0 -kt 0 -s $rebuild_step -d 3 -tol 0.01 $cuve_reb[0]`;
+	select $cuve_reb[0];
+	setAttr ( $cuve_reb[0] + ".dispCV") 1;
+	currentTime $time;
+	evaluationManager -mode $eval_mode;
+	return $cuve_reb[0];
+}
+global proc string[] SHIFT3_2_cfc20aa23531f881688ec3a171beaae5(string $m_path)
+{
+    string $connected_items_by_group[] =`listConnections  -d 1 $m_path`;
+    string $buffer[];
+    string $markers[];
+    $j=0;
+    for( $k = 0; $k <size($connected_items_by_group);$k++)
+    {
+        if(`gmatch $connected_items_by_group[$k] "*positionMarker*"`)
+        {
+            $markers[$j]=$connected_items_by_group[$k];
+            $j++;
+        }
+    }
+    string $obj;
+    string $markers_all[];
+    $j=0;
+    for ($obj in $markers)
+    {
+        tokenize $obj "->" $buffer;
+        $markers_all[$j]=$buffer[1];
+        $j++;
+    }
+    return $markers_all;
+}
+global proc string[] SHIFT3_2_cfc20aa23531f881688ec3a171beaae5(string $m_path)
+{
+	string $connected_items_by_group[] =`listConnections  -d 1 $m_path`;
+    string $buffer[];
+    string $markers[];
+    $j=0;
+    for( $k = 0; $k <size($connected_items_by_group);$k++)
+    {
+        if(`gmatch $connected_items_by_group[$k] "*positionMarker*"`)
+        {
+            $markers[$j]=$connected_items_by_group[$k];
+            $j++;
+        }
+    }
+    string $obj;
+    string $markers_all[];
+    $j=0;
+    for ($obj in $markers)
+    {
+        tokenize $obj "->" $buffer;
+        $markers_all[$j]=$buffer[1];
+        $j++;
+    }
+    return $markers_all;
+}
+global proc string[] SHIFT3_2_cb45062f0642699cb3bb5a79fd4091b8(int $independence)
+{
+	string $locks[];
+	string $axis=`upAxis -q -axis`;
+	string $buffer[];
+	string $full_path[];
+	string $temp_path,$attribname,$obj_on_cuve[],$top_gr[],$parent_grpp[],$parent_obj[],$top_lock[],$helper[],$side_lock[];
+	string $obj;
+	string $top_scale_gr;
+	string $WB_group_name;
+	string $vertical_independence_node_name;
+	$maya_unit=`currentUnit -q -l`;
+	if ($maya_unit!="cm")
+	{
+		currentUnit  -l cm;
+	}
+	$j=0;
+	for($obj in `ls-l-sl`)
+	{
+		select $obj;
+		$nodename=SHIFT3_2_e8f0c3b3e6300189aca31ae83320ec92("anim_movement_on_curve_tool_obraz*");
+		if($nodename=="")
+		{
+			warning ("object " + $obj + " not connected");
+		}
+		else
+		{
+		    tokenize  $obj "|" $buffer;
+		    $WB_group_name=$buffer[0];
+			$obj_on_cuve=SHIFT3_2_ffecd01738add909a797cd04488b55bd($nodename, "obj_on_curve");
+			$parent_grpp=SHIFT3_2_ffecd01738add909a797cd04488b55bd($nodename, "parent_group");
+			$parent_obj=SHIFT3_2_ffecd01738add909a797cd04488b55bd($nodename, "parent_object");
+			select $obj_on_cuve;
+			$top_gr=SHIFT3_2_e6d1cc62e700198ddfd8906d663761ba();
+			$top_lock=`ls-sl`;
+			$attribname=SHIFT3_2_41a30a2e9e6a02aac72ab138d3f62f90("scale_vertical", $top_lock[0]);
+			setAttr ($attribname) 1;
+			if($axis=="z")
+				move -r 0 0 150 $top_gr;
+			else
+				move -r 0 150 0 $top_gr;
+			if (!$independence)
+                parent $top_gr $obj_on_cuve;
+			pointConstraint -mo -weight 1 $obj_on_cuve[0] $top_gr[0];
+			orientConstraint -mo -weight 1 $obj_on_cuve[0] $top_gr[0];
+			select $top_lock $obj_on_cuve;
+			$helper=SHIFT3_2_46e3c16f7c510db12bc5343ac1a842b6(13, 1,0);
+			print $helper;
+			select $obj_on_cuve;
+			$side_lock=SHIFT3_2_54d92f8424c4459e6d996d9fd93902f0();
+			SHIFT3_2_4c2952dd9f486573856c8eb6a0dc46ac(0);
+			move -r -os 150 0 0 $side_lock;
+			parent $side_lock $obj_on_cuve;
+			SHIFT3_2_d299a61e0c068c7b602aab3964148a23 ($parent_grpp, $top_lock,$side_lock);
+            select $top_gr;
+			$top_scale_gr=`group`; xform -piv 0 0 0;
+			if ($independence)
+				parent $top_scale_gr $helper[0] $WB_group_name;
+			else
+				parent $helper[0] $WB_group_name;
+			connectAttr -f $attribname ($top_scale_gr + ".scaleX");
+			connectAttr -f $attribname ($top_scale_gr + ".scaleY");
+			connectAttr -f $attribname ($top_scale_gr + ".scaleZ");
+			$vertical_independence_node_name=`createNode blindDataTemplate -n "anim_movement_on_curve_tool_vertical_independence"`;
+			$attribname=SHIFT3_2_65107bc37ea4a0d842be293fd78287a9("top_aim_lock", $vertical_independence_node_name);
+			connectAttr -f ($top_lock[0] + ".visibility")   $attribname;
+			$attribname=SHIFT3_2_65107bc37ea4a0d842be293fd78287a9("top_aim_gr", $vertical_independence_node_name);
+			connectAttr -f ($top_gr[0] + ".visibility")   $attribname;
+			$attribname=SHIFT3_2_65107bc37ea4a0d842be293fd78287a9("side_aim_lock", $vertical_independence_node_name);
+			connectAttr -f ($side_lock[0] + ".visibility")   $attribname;
+			$attribname=SHIFT3_2_65107bc37ea4a0d842be293fd78287a9("helper_curve", $vertical_independence_node_name);
+			connectAttr -f ($helper[0] + ".visibility")   $attribname;
+			$locks[$j]=$top_lock[0];
+			$j++;
+		}
+	}
+    select $locks;
+	SHIFT3_2_29941243f77aa0343e79460d48136072 (8);
+	if ($independence)
+	{
+		SHIFT3_2_cc20e95399a3b6da44eb78e45451d764(13);
+		SHIFT3_2_e706e982298fe9e8f94ae04b06b5d6b2("incline_ind_vert");
+	}
+	else
+	{
+		SHIFT3_2_cc20e95399a3b6da44eb78e45451d764(22);
+		SHIFT3_2_e706e982298fe9e8f94ae04b06b5d6b2("incline_to_curve");
+	}
+	SHIFT3_2_34cdd1e4469c2d3c695448db824d2ecb(1);
+	SHIFT3_2_b6a5017ee305f5ba0bbf3116243cc3af;
+	SHIFT3_2_aa074854107180f09880ea0e8edd43f8;
+	SHIFT3_2_ade4e354383a28fcefcaf5ce40e6639d;
+	currentUnit  -l $maya_unit;
+    return $locks;
+}
+global proc SHIFT3_2_c0333f01c0305441f7e870d2e8681fb9()
+{
+    $selected_cuve=SHIFT3_2_9145a4487029b640fc70278199ce684f();
+    $shape=SHIFT3_2_5e702211108f11813c411c94f8b1b380($selected_cuve[0]);
+    if(size ($shape)>1)
+        delete $shape[1];
+    LockCurveLength;
+}
+global proc SHIFT3_2_2948842313131fcddb41ac6ad1efd38c()
+{
+	string $selected_curve[]=`ls-sl`;
+	string $curve_gr[]=`listRelatives  -p $selected_curve[0]`;
+	string $maya_unit=`currentUnit -q -l`;
+	global string $WBend_curve_control[];
+	if ($maya_unit!="cm")
+	{
+		currentUnit  -l cm;
+	}
+	SHIFT3_2_cc20e95399a3b6da44eb78e45451d764(22);
+	setAttr ( $selected_curve[0] + ".dispCV") 1;
+	setAttr ( $selected_curve[0] + ".visibility") 1;
+	string $name_loc[]=SHIFT3_2_95aedc626a621231a66a091788483a9e( $selected_curve[0], 1);
+	string $attribname,$node_name;
+	$node_name=`createNode blindDataTemplate -n "anim_movement_on_curve_tool_sequent_control"`;
+	$attribname=SHIFT3_2_65107bc37ea4a0d842be293fd78287a9("curve", $node_name);
+    connectAttr -f ($selected_curve[0] + ".visibility")   $attribname;
+	for($i=1;$i<size($name_loc);$i++)
+	{
+		$attribname=SHIFT3_2_65107bc37ea4a0d842be293fd78287a9(("loc" + $i), $node_name);
+		connectAttr -f ($name_loc[$i] + ".visibility")   $attribname;
+	}
+    $attribname=SHIFT3_2_65107bc37ea4a0d842be293fd78287a9("base_sequent_loc", $node_name);
+    connectAttr -f ($name_loc[0] + ".visibility")   $attribname;
+    float $all_dist=SHIFT3_2_a65c5852b41c00d87bef0899a048bc4e ($name_loc,1);
+	select $name_loc;
+	SHIFT3_2_cc20e95399a3b6da44eb78e45451d764(22);
+	SHIFT3_2_29941243f77aa0343e79460d48136072 ($all_dist/4.0);
+	$WBend_curve_control=SHIFT3_2_e706e982298fe9e8f94ae04b06b5d6b2("WB_CTRL");
+	currentUnit  -l $maya_unit;
+}
+global proc int SHIFT3_2_4ec8ec2e22058b36b7f19c5b04a2deed()
+{
+    $nodename=SHIFT3_2_e8f0c3b3e6300189aca31ae83320ec92("anim_movement_on_curve_tool_sequent_control*");
+	if($nodename=="")
+		return 0;
+	$connection=`listConnections -d 1  $nodename`;
+	$curv=SHIFT3_2_ffecd01738add909a797cd04488b55bd($nodename, "curve");
+	select $curv;
+	delete -ch $curv;
+	SHIFT3_2_c0333f01c0305441f7e870d2e8681fb9();
+	$neighbors=SHIFT3_2_6c03bcf1c4cd077aea727f60dfb001f6(0,$nodename);
+    delete(stringArrayRemove($curv, $neighbors));
+    delete $nodename;
+    return 1;
+}
+global proc SHIFT3_2_dfd04e9fc8891230ecf4649c050058d5()
+{
+    $selected = `ls -hd 1-sl`;
+    $nodename=SHIFT3_2_e8f0c3b3e6300189aca31ae83320ec92("anim_movement_on_curve_tool_sequent_control*");
+    $neighbors=SHIFT3_2_6c03bcf1c4cd077aea727f60dfb001f6(0,$nodename);
+	$base_loc=SHIFT3_2_ffecd01738add909a797cd04488b55bd($nodename, "base_sequent_loc");
+	string $other_loc[]=SHIFT3_2_ffecd01738add909a797cd04488b55bd($nodename, "loc*");
+    string $locks[];
+    clear $locks;
+    $locks[0]=$base_loc[0];
+    appendStringArray( $locks,  $other_loc, size($other_loc));
+    int $place;
+    for($i=0;$i<=size($locks);$i++)
+        if ($selected[0]==$locks[$i])
+            $place=$i;
+    select  $locks;
+	SHIFT3_2_cc20e95399a3b6da44eb78e45451d764(22);
+    $createSetResult = `sets -name "temp_set_parent_out"  $locks`;
+    catchQuiet(`parent -w  $locks`);
+    $new_order=`listConnections -t node $createSetResult`;
+    delete $createSetResult;
+    $new_name_selection= $new_order[$place];
+    $to_s=size( $new_order);
+    $tail=$to_s-$place;
+    $head=$place +1;
+    $forward=`ls -tail $tail $new_order`;
+    select $forward;
+    SHIFT3_2_f0209cb5b5931bdfa7ae6801db19a0f8;
+    $backward=`ls -head $head $new_order`;
+    select `SHIFT3_2_9542c11845a1e56080fc5b7a1c5e8a5b($backward)`;
+    SHIFT3_2_f0209cb5b5931bdfa7ae6801db19a0f8;
+    select $new_name_selection;
+	SHIFT3_2_cc20e95399a3b6da44eb78e45451d764(13);
+}
+global proc float[] SHIFT3_2_629955dac26448fd4dac7dd44010a6ea(string $curve_name)
+{
+    float $percentage[];
+    float $dynVal[] = `keyframe -q -vc  $curve_name`;
+    float $changeValues[]={0};
+    for($i=1;$i<size($dynVal);$i++)
+    {
+        $changeValues[$i]=abs($dynVal[$i-1]-$dynVal[$i]);
+    }
+    $tot_len= SHIFT3_2_6878d678f96f9a2494927fe9200e401e($curve_name);
+    for($i=0;$i<size($changeValues);$i++)
+    {
+        if($tot_len!=0)
+        {
+            $percentage[$i]=(100/ $tot_len)* $changeValues[$i];
+        }
+        else
+            $percentage[$i]=0;
+    }
+    return $percentage;
+}
+global proc float SHIFT3_2_6878d678f96f9a2494927fe9200e401e(string $curve_name)
+{
+    float $dynVal[] = `keyframe -q -vc  $curve_name`;
+    float $tot_path=0;
+    for($i=1;$i<size($dynVal);$i++)
+    {
+        $tot_path+=abs($dynVal[$i]-$dynVal[$i-1]);
+    }
+    return  $tot_path;
+}
+global proc SHIFT3_2_00541a9a17599f40188bcea78040440d(string $base_curve,float $range[], float $value[])
+{
+    int $start=$range[0];
+    int $end=$range[1]+1;
+    for($i=0;$i<($end-$start);$i++)
+    {
+        keyframe -a -vc $value[$i] -t ($start+$i) $base_curve;
+    }
+}
+global proc float[] SHIFT3_2_dfc2513778a513e560ec81c8f3df6563()
+{
+	global string $gPlayBackSlider;
+	float $selectedTime[]=`timeControl -q -ra $gPlayBackSlider`;
+	string $curve[] = `keyframe -q -n -sl`;
+	if((($selectedTime[1]-$selectedTime[0])<=1)&&($curve[0]==""))
+	{
+	}
+	else if((($selectedTime[1]-$selectedTime[0])<=1)&&($curve[0]!=""))
+	{
+		$selectedTime=SHIFT3_2_cba6da1b519f7600c71b7de0d52d2c3e();
+		$selectedTime[1]=ceil($selectedTime[1]+1);
+	}
+	return $selectedTime;
+}
+global proc SHIFT3_2_692e2fda85cadfdf0f28e93323f58c08()
+{
+	global float $startTime;
+	global string $my_eval_mode[];
+	float $mayaVersion;
+	$startTime = `timerX`;
+	refresh -su 1;
+	setTimeSliderVisible 0;
+	$mayaVersion = `getApplicationVersionAsFloat` ;
+	if ($mayaVersion>=2016)
+	{
+		$my_eval_mode=`evaluationManager -q -mode`;
+		evaluationManager -mode "off";
+	}
+}
+global proc SHIFT3_2_f4b1a2b52ab1771321003f86cde63160()
+{
+	global float $startTime;
+	global string $my_eval_mode[];
+	float $mayaVersion;
+	$totalTime = `timerX -startTime $startTime`;
+	print ("Total Time: "+$totalTime+"\n");
+	refresh -su 0;
+	setTimeSliderVisible 1;
+	$mayaVersion = `getApplicationVersionAsFloat` ;
+	if ($mayaVersion>=2016)
+	{
+		evaluationManager -mode $my_eval_mode[0];
+	}
+}
+global proc SHIFT3_2_d3d5060e35d6738adc9ec43bc95dfe74()
+{
+	selectPref  -trackSelectionOrder 1;
+	optionVar -intValue animBlendingOpt 1;
+	optionVar -intValue animBlendBrokenInputOpt 1;
+	$mayaVersion = `getApplicationVersionAsFloat` ;
+    global string $BARN_eval_mode[];
+    if ($mayaVersion>=2019)
+    {
+		python("from maya.plugin.evaluator.cache_preferences import CachePreferenceEnabled");
+		python("CachePreferenceEnabled().set_value( False )");
+    }
+	if ($mayaVersion>=2016)
+	{
+		$BARN_eval_mode=`evaluationManager -q -mode`;
+		evaluationManager -mode "off";
+	}
+}
+global proc SHIFT3_2_e322163f473d9ee1fb5be6b3f746dab1()
+{
+	global string $BARN_eval_mode[];
+	evaluationManager -mode $BARN_eval_mode;
+}
+global proc string[] SHIFT3_2_54d92f8424c4459e6d996d9fd93902f0()
+{
+	string $selection[];
+	$selection_true = `ls -fl -sl `;
+	$selection = `ls -fl -os`;
+	string $locators[];
+	string $b[];
+	if (size ($selection)>0)
+	{
+		$j=0;
+		for($obj in $selection)
+		{
+			$getPvPos=SHIFT3_2_8598296823aa3af15686cb0d78f1615d($obj);
+			$b=`spaceLocator -p 0 0 0`;
+			$locators[$j]=$b[0];
+			xform -ws -t $getPvPos[0] $getPvPos[1] $getPvPos[2] $b[0];
+			rotate -ws $getPvPos[3] $getPvPos[4] $getPvPos[5]  $b[0];
+			$j++;
+		}
+		select -cl;
+		for($obj in $locators)
+		{
+			select -add $obj;
+		}
+	}
+	else
+	{
+		$locators = `spaceLocator -p 0 0 0`;
+	}
+	return $locators;
+}
+global proc string SHIFT3_2_83a9015d514ecd1326a1648b28396ba2(vector $coords[],int $interp)
+{
+	string $pnt = "";
+	if (size ($coords)<=1)
+	{
+		warning "need 2 object or points";
+		return "";
+	}
+	for ($i=0;$i<size($coords);$i++)
+	{
+		$pnt= $pnt + " -p " + $coords[$i];
+	}
+	$curve_name=`eval("curve" + $pnt + "-d " + $interp)`;
+	return $curve_name;
+}
+global proc float[] SHIFT3_2_44d7389cf1da23b6064a4bcbaf8f4f7b(string $curve, float $position)
+{
+    string $curve_Shape[] = `listRelatives -shapes -f -type "nurbsCurve" $curve`;
+	int $numCVs = `getAttr -size ($curve_Shape[0] + ".controlPoints")`;
+	catchQuiet(`setAttr ($curve_Shape[0] + ".lockLength") 0`);
+    float $CVpos1[],$CVpos2[],$fin_position[];
+	$CVpos1=SHIFT3_2_8598296823aa3af15686cb0d78f1615d($curve + ".cv[0]");
+	$CVpos2=SHIFT3_2_8598296823aa3af15686cb0d78f1615d($curve + ".cv[" + ($numCVs-1) + "]");
+	$fin_position=SHIFT3_2_d43bd93439ed3879a3deac8b4d5b5d0d($CVpos1,$CVpos2,$position);
+    string $CV_locators[],$top_aim[], $parents[], $tmp_cuv_name[], $tmp_CV_lock_name[];
+    $CV_locators=SHIFT3_2_526c020cd7c9a859fd08d49719a4fddf({$curve + ".cv[0]",$curve + ".cv[" + ($numCVs-1) + "]"});
+    $top_aim=`duplicate $CV_locators[0]`;
+    if(`upAxis -q -axis`=="z")
+        move -r -ws 0 0 10 $top_aim;
+    else
+        move -r -ws 0 10 0 $top_aim;
+	delete `aimConstraint -offset 0 0 0 -weight 1 -aimVector 0 -1 0 -upVector 0 0 1 -worldUpType "object" -worldUpObject $top_aim[0] $CV_locators[1] $CV_locators[0]`;
+	move -a -ws $fin_position[0] $fin_position[1] $fin_position[2] $CV_locators[0];
+	$parents=`listRelatives -p $curve`;
+	$tmp_CV_lock_name[0]=$curve;
+	$tmp_CV_lock_name[0]=$CV_locators[0];
+	if($parents[0]!="")
+	    $tmp_CV_lock_name=`parent $CV_locators[0] $parents[0]`;
+	$tmp_cuv_name=`parent $curve $tmp_CV_lock_name[0]`;
+	makeIdentity -apply true -t 1 -r 1 -s 0 -n 0 -pn 1 $tmp_cuv_name;
+	makeIdentity -apply 0 -t 1 -r 1 -s 0 -n 0 -pn 1 $tmp_cuv_name;
+	if($parents[0]!="")
+	    $tmp_cuv_name=`parent $tmp_cuv_name $parents[0]`;
+	else
+	    $tmp_cuv_name=`parent -w $tmp_cuv_name`;
+	if($tmp_cuv_name[0]!=$curve)
+	    rename $tmp_cuv_name[0] $curve;
+	delete -ch $tmp_cuv_name[0];
+	delete $CV_locators $top_aim $tmp_CV_lock_name;
+    return {$CVpos1[0],$CVpos1[1],$CVpos1[2],$CVpos2[0],$CVpos2[1],$CVpos2[2]};
+}
+global proc string[] SHIFT3_2_e6d1cc62e700198ddfd8906d663761ba()
+{
+	$selected=`ls-fl-os`;
+	$grpps=`SHIFT3_2_0a10c57fddb9b8e3dc07486c3a9a5eed`;
+	$jnts=`SHIFT3_2_54d92f8424c4459e6d996d9fd93902f0`;
+	SHIFT3_2_32a3829df17c3736d9757e423eeaf0e3($grpps,$jnts);
+	catchQuiet(delete(SHIFT3_2_ac2021d0d7ff3ecfad4dbca9f9f88248($selected,$grpps)));
+	select $jnts;
+	SHIFT3_2_9a3ce25cfdbc96f0053e2e03715d7f2b;
+	return $grpps;
+}
+global proc string[] SHIFT3_2_f0209cb5b5931bdfa7ae6801db19a0f8 ()
+{
+	$obj=`ls-sl`;
+	$createSetResult_object = `sets -name "object"`;
+	for ($i=0; $i<(size($obj)-1);$i++)
+	{
+	    $childs=`listConnections -t node $createSetResult_object`;
+		catch (`parent $childs[$i+1] $childs[$i]`);
+	}
+	$childs=`listConnections -t node $createSetResult_object`;
+	delete $createSetResult_object;
+	return $childs;
+}
+global proc SHIFT3_2_32a3829df17c3736d9757e423eeaf0e3 (string $target[], string $object[])
+{
+    if(size($target)!=size($object))
+		warning "size parent massives is DIFFERENT!!! Only relevant objects will be processed! This can lead to unexpected consequences!!!!";
+	if(size($target)> size($object))
+		$target=`ls -head (size($object)) $target`;
+	select $object;
+    $createSetResult_object = `sets -name "object"`;
+    for($i=0;$i<size($target);$i++)
+    {
+        $childs=`listConnections -t node $createSetResult_object`;
+        catchQuiet (`parent $childs[$i] $target[$i]`);
+    }
+    $childs=`listConnections -t node $createSetResult_object`;
+    select  $childs;
+    delete $createSetResult_object;
+}
+global proc string[] SHIFT3_2_e706e982298fe9e8f94ae04b06b5d6b2(string $prefix)
+{
+	string $objs[] = `ls -selection`;
+	$j=0;
+		for($i=0;$i<size($objs);$i++)
+		{
+			while (`objExists ($prefix + $j)`)
+				$j++;
+			rename $objs[$i]($prefix + $j);
+			$objs = `ls -selection`;
+		}
+	return $objs;
+}
+global proc SHIFT3_2_ade4e354383a28fcefcaf5ce40e6639d()
+{
+	for($objs in `ls-sl`)
+	{
+		setAttr -lock true ($objs + ".scaleX");
+		setAttr -lock true ($objs + ".scaleY");
+		setAttr -lock true ($objs + ".scaleZ");
+	}
+}
+global proc int[] SHIFT3_2_8dcf27adae2f0cd4520378fd7044ea43(float $fl_array[], int $sorting ,int $remove_duplicates)
+{
+    int $output_int[];
+    for($i=0;$i<size($fl_array);$i++)
+       $output_int[$i] =$fl_array[$i];
+    if($sorting)
+        $output_int=sort($output_int);
+    string $tmp_str[];
+    if($remove_duplicates)
+    {
+       for($i=0;$i<size($output_int);$i++)
+           $tmp_str[$i]=$output_int[$i];
+       $tmp_str=stringArrayRemoveDuplicates($tmp_str);
+       $output_int={};
+       for($i=0;$i<size($tmp_str);$i++)
+           $output_int[$i]=$tmp_str[$i];
+    }
+    return $output_int;
+}
+global proc string[] SHIFT3_2_e0a5f9682afe5d450c5614dd6a49ac78()
+{
+    string $selection[]=`ls-fl-os`;
+    string $lock[]=SHIFT3_2_54d92f8424c4459e6d996d9fd93902f0();
+    for($i=0;$i<size($selection);$i++)
+        if(!((`objectType -isType "mesh" $selection[$i]`)+(`objectType -isType "nurbsSurface" $selection[$i]`)+(`objectType -isType "nurbsCurve" $selection[$i]`)+(`objectType -isType "lattice" $selection[$i]`)))
+            delete `orientConstraint $selection[$i] $lock[$i]`;
+    return $lock;
+}
+global proc string[] SHIFT3_2_24abb2efaf063b9b16a2b2c78969a384()
+{
+    string $selection[]=`ls-fl-os`;
+    string $lock[]=SHIFT3_2_54d92f8424c4459e6d996d9fd93902f0();
+    catchQuiet ( SHIFT3_2_d1b73d0512bac8d20998bdbab9b3aed7($selection, $lock) );
+    for($i=0;$i<size($selection);$i++)
+        if(!((`objectType -isType "mesh" $selection[$i]`)+(`objectType -isType "nurbsSurface" $selection[$i]`)+(`objectType -isType "nurbsCurve" $selection[$i]`)+(`objectType -isType "lattice" $selection[$i]`)))
+            delete `orientConstraint $selection[$i] $lock[$i]`;
+    return $lock;
+}
+global proc string[] SHIFT3_2_526c020cd7c9a859fd08d49719a4fddf(string $objects[])
+{
+	string $selection[] = `ls -fl -os`;
+	select -cl;
+	string $locators[],$b[];
+	if (size ($objects)>0)
+	{
+		for($obj in $objects)
+		{
+			$getPvPos=SHIFT3_2_8598296823aa3af15686cb0d78f1615d($obj);
+			$b=`spaceLocator -p 0 0 0`;
+			appendStringArray($locators, $b, 1);
+			move -a  $getPvPos[0] $getPvPos[1] $getPvPos[2] $b[0];
+			rotate -ws $getPvPos[3] $getPvPos[4] $getPvPos[5]  $b[0];
+		}
+	}
+	else
+		$locators = `spaceLocator -p 0 0 0`;
+	select $selection;
+	return $locators;
+}
+global proc SHIFT3_2_38212629cf9ce2087192134a449b78d6(int $tx, int $ty,int $tz, int $rx, int $ry,int $rz, int $sx, int $sy,int $sz, int $viz)
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	string $obj;
+	for($obj in `ls-sl`)
+	{
+		setAttr -lock $tx ($obj + ".translateX");
+		setAttr -lock $ty ($obj + ".translateY");
+		setAttr -lock $tz ($obj + ".translateZ");
+		setAttr -lock $rx ($obj + ".rotateX");
+		setAttr -lock $ry ($obj + ".rotateY");
+		setAttr -lock $rz ($obj + ".rotateZ");
+		setAttr -lock $sx ($obj + ".scaleX");
+		setAttr -lock $sy ($obj + ".scaleY");
+		setAttr -lock $sz ($obj + ".scaleZ");
+		setAttr -lock $viz ($obj + ".visibility");
+	}
+}
+global proc SHIFT3_2_b6a5017ee305f5ba0bbf3116243cc3af()
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	string $obj;
+	for($obj in $objs)
+	{
+		setAttr -lock true ($obj + ".rotateX");
+		setAttr -lock true ($obj + ".rotateY");
+		setAttr -lock true ($obj + ".rotateZ");
+	}
+}
+global proc SHIFT3_2_aa074854107180f09880ea0e8edd43f8()
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	for($i=0;$i<size($objs);$i++)
+		setAttr -lock true ($objs[$i] + ".v");
+}
+global proc SHIFT3_2_34cdd1e4469c2d3c695448db824d2ecb(int $on)
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	string $obj;
+	for($obj in $objs)
+		setAttr ($obj + ".displayHandle") $on;
+}
+global proc SHIFT3_2_cc20e95399a3b6da44eb78e45451d764(int $color)
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	for($i=0;$i<size($objs);$i++)
+	{
+		catchQuiet(`setAttr ($objs[$i] + ".overrideEnabled") 1`);
+		catchQuiet(`setAttr -lock false ($objs[$i] + ".overrideColor") $color`);
+	}
+}
+global proc SHIFT3_2_e8fab4220afb7ebae48fab83681f71a5(int $vis)
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	string $shapes[];
+	string $obj;
+	for($obj in $objs)
+	{
+	    $shapes=`listRelatives -shapes  $obj`;
+	    for($shape in $shapes)
+	    {
+	     catchQuiet(`setAttr ($shape + ".visibility") $vis`);
+		}
+	}
+}
+global proc SHIFT3_2_29941243f77aa0343e79460d48136072 (float $local_scale)
+{
+	string $objs[] = `ls-sl`;
+	$local_scale=SHIFT3_2_f71c299bf7b53f7243b078a9990e581c($local_scale)*SHIFT3_2_f71c299bf7b53f7243b078a9990e581c(1);
+	if(!size($objs))
+		return;
+	for($i=0;$i<size($objs);$i++)
+	{
+		catchQuiet (`setAttr ($objs[$i] + ".localScaleX") $local_scale`);
+		catchQuiet (`setAttr ($objs[$i] + ".localScaleY") $local_scale`);
+		catchQuiet (`setAttr ($objs[$i] + ".localScaleZ") $local_scale`);
+	}
+}
+global proc SHIFT3_2_4c2952dd9f486573856c8eb6a0dc46ac(int $vis)
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	string $obj;
+	for($obj in $objs)
+	{
+		if (!`getAttr -lock ($obj + ".v")`)
+			setAttr ($obj + ".v") $vis;
+	}
+}
+global proc SHIFT3_2_6de8028af587b467034457b4d6349f89(float $subScale)
+{
+    int $camera_ortograf=0;
+	float $dist=50;
+	$subScale=SHIFT3_2_f71c299bf7b53f7243b078a9990e581c($subScale)/SHIFT3_2_f71c299bf7b53f7243b078a9990e581c(1)/SHIFT3_2_f71c299bf7b53f7243b078a9990e581c(1);
+	$sel=`ls-head 1 -sl`;
+	string $camera_name="";
+	float $camera_scale=1;
+	catchQuiet( $camera_name= SHIFT3_2_20a28b95c1b8b4dd29397ab332dbc667());
+	if( $camera_name =="no model panel viewport")
+	    $camera_name="persp";
+	catchQuiet( $camera_scale=`getAttr ($camera_name + ".cameraScale")`);
+	catchQuiet( $dist=SHIFT3_2_c7822f1f10b007a6803735c105e40799($sel[0], $camera_name));
+	catchQuiet( $camera_ortograf=`getAttr ($camera_name + ".orthographic")`);
+	catchQuiet( $camera_orthographicWidth=`getAttr ($camera_name + ".orthographicWidth")`);
+	if(!$camera_ortograf)
+	    catchQuiet(SHIFT3_2_29941243f77aa0343e79460d48136072 (($dist/25)*$subScale*$camera_scale));
+	else
+	   catchQuiet(SHIFT3_2_29941243f77aa0343e79460d48136072 (($camera_orthographicWidth/25)*$subScale*$camera_scale));
+}
+global proc string [] SHIFT3_2_ac2021d0d7ff3ecfad4dbca9f9f88248(string $target_massiv[], string $object_massiv[])
+{
+	string $name_of_constrain[];
+	string $tmp[];
+	for($i=0;$i<size($target_massiv);$i++)
+		{
+		$rx_lock=`getAttr -lock ($object_massiv[$i] + ".rx")`;
+		$ry_lock=`getAttr -lock ($object_massiv[$i] + ".ry")`;
+		$rz_lock=`getAttr -lock ($object_massiv[$i] + ".rz")`;
+		$h=$rx_lock+$ry_lock+$rz_lock;
+		if ($h<3)
+		{
+			$skipX= "";
+			$skipY= "";
+			$skipZ= "";
+			if($rx_lock)
+				$skipX= " -skip x";
+			if($ry_lock)
+				$skipY= " -skip y";
+			if($rz_lock)
+				$skipZ= " -skip z";
+			$skipped = $skipX + $skipY + $skipZ;
+			$tmp=`eval ("orientConstraint  " + $skipped + " " + $target_massiv[$i] + " " + $object_massiv[$i])`;
+			$name_of_constrain[$i]=$tmp[0];
+		}
+	}
+	return $name_of_constrain;
+}
+global proc float[] SHIFT3_2_8598296823aa3af15686cb0d78f1615d(string $selection)
+{
+    float $objPosition[];
+    float $getPvPos[];
+    float $Rot[];
+    string $buffer[];
+    string $e_f_result[];
+    vector $coords[];
+    vector $coo;
+    float $pos[];
+    int $num;
+    if ((`objectType -isType "mesh" $selection`)+(`objectType -isType "nurbsSurface" $selection`)+(`objectType -isType "nurbsCurve" $selection`)+(`objectType -isType "lattice" $selection`))
+	{
+        if (`objectType -isType "mesh" $selection`)
+        {
+            tokenize  $selection "." $buffer;
+            $objname=$buffer[0];
+            tokenize  $buffer[1] "[]" $buffer;
+            $component_name=$buffer[0];
+            if($component_name=="vtx")
+            {
+                $getPvPos=`pointPosition -world $selection`;
+                $objPosition={$getPvPos[0],$getPvPos[1],$getPvPos[2],0,0,0};
+            }
+            if($component_name=="e")
+            {
+                $e_f_result=`polyInfo -ev $selection`;
+                $num=`tokenize  $e_f_result[0] " " $buffer`;
+                $j=0;
+                for($i=2;$i<$num-1;$i++)
+                {
+                    $getPvPos=`pointPosition -world ($objname + ".vtx[" + $buffer[$i] + "]")`;
+                    print ($objname + ".vtx[" + $buffer[$i] + "]");
+                    $coords[$j]=<<$getPvPos[0],$getPvPos[1],$getPvPos[2]>>;
+                    $j++;
+                }
+                $coo=SHIFT3_2_e3bea614176fbceebe7c7aae67e953b0($coords);
+                $objPosition={$coo.x,$coo.y,$coo.z,0,0,0};
+            }
+            if($component_name=="f")
+            {
+                $e_f_result=`polyInfo -fv $selection`;
+                tokenize  $e_f_result[0] " " $buffer;
+                $j=0;
+                for($i=2;$i<size($buffer)-1;$i++)
+                {
+                    $getPvPos=`pointPosition -world ($objname + ".vtx[" + $buffer[$i] + "]")`;
+                    $coords[$j]=<<$getPvPos[0],$getPvPos[1],$getPvPos[2]>>;
+                    $j++;
+                }
+                $coo=SHIFT3_2_e3bea614176fbceebe7c7aae67e953b0($coords);
+                $objPosition={$coo.x,$coo.y,$coo.z,0,0,0};
+            }
+        }
+        else
+        {
+    		$getPvPos=`pointPosition -world $selection`;
+    		$objPosition={$getPvPos[0],$getPvPos[1],$getPvPos[2],0,0,0};
+		}
+	}
+	else
+	{
+		$getPvPos = `xform -q -ws -piv $selection `;
+		$Rot= `xform -q -ro -ws $selection`;
+		$objPosition={$getPvPos[0],$getPvPos[1],$getPvPos[2],$Rot[0],$Rot[1],$Rot[2]};
+	}
+	return $objPosition;
+}
+global proc vector[] SHIFT3_2_4ad38bb85176eb981038083a281c91d6(string $selection, float $framerange[])
+{
+    float $objPosition[];
+    vector $getPvPos_range[];
+    vector $tmpp;
+    float $getPvPos[];
+    float $Rot[];
+    int $j=0;
+    for($i=$framerange[0];$i<=($framerange[1]);$i++)
+    {
+        currentTime $i;
+        if ((`objectType -isType "mesh" $selection`)+(`objectType -isType "nurbsSurface" $selection`)+(`objectType -isType "nurbsCurve" $selection`))
+    	{
+    		$getPvPos=`pointPosition -world $selection`;
+    		$tmpp=<<$getPvPos[0],$getPvPos[1],$getPvPos[2]>>;
+    	}
+    	else
+    	{
+    		$getPvPos = `xform -q -ws -piv $selection `;
+    		$tmpp=<<$getPvPos[0],$getPvPos[1],$getPvPos[2]>>;
+       	}
+       	$getPvPos_range[$j]=$tmpp;
+       	$j++;
+     }
+	return $getPvPos_range;
+}
+global proc string[] SHIFT3_2_17431451b1be026fdeee93b86579c6b6(string $target_massiv[], string $object_massiv[])
+{
+	string $name_constrain[];
+	string $tmp_constrain[];
+	string $skipTX;
+	string $skipTY;
+	string $skipTZ;
+	string $skipRX;
+	string $skipRY;
+	string $skipRZ;
+	string $delChannelTX;
+	string $delChannelTY;
+	string $delChannelTZ;
+	string $delChannelRX;
+	string $delChannelRY;
+	string $delChannelRZ;
+	int $rx_lock;
+	int $ry_lock;
+	int $rz_lock;
+	int $tx_lock;
+	int $ty_lock;
+	int $tz_lock;
+	if(size($target_massiv)!=size($object_massiv))
+		warning "size smart_parent constraints massives is DIFFERENT!!! Only relevant objects will be processed! This can lead to unexpected consequences!!!!";
+	if(size($target_massiv)> size($object_massiv))
+		$target_massiv=`ls -head (size($object_massiv)) $target_massiv`;
+	for($i=0;$i<size($target_massiv);$i++)
+	{
+		$rx_lock=`getAttr -lock ($object_massiv[$i] + ".rx")`;
+		$ry_lock=`getAttr -lock ($object_massiv[$i] + ".ry")`;
+		$rz_lock=`getAttr -lock ($object_massiv[$i] + ".rz")`;
+		$tx_lock=`getAttr -lock ($object_massiv[$i] + ".tx")`;
+		$ty_lock=`getAttr -lock ($object_massiv[$i] + ".ty")`;
+		$tz_lock=`getAttr -lock ($object_massiv[$i] + ".tz")`;
+		$h=$rx_lock+$ry_lock+$rz_lock+$tx_lock+$ty_lock+$tz_lock;
+		if ($h<6)
+		{
+			$skipTX= "";
+			$skipTY= "";
+			$skipTZ= "";
+			$skipRX= "";
+			$skipRY= "";
+			$skipRZ= "";
+			$delChannelTX = "";
+			$delChannelTY = "";
+			$delChannelTZ = "";
+			$delChannelRX = "";
+			$delChannelRY = "";
+			$delChannelRZ = "";
+			if($tx_lock)
+				$skipTX= " -st x";
+			else
+				$delChannelTX =" -at \"tx\"";
+			if($ty_lock)
+				$skipTY= " -st y";
+			else
+				$delChannelTY =" -at \"ty\"";
+			if($tz_lock)
+				$skipTZ= " -st z";
+			else
+				$delChannelTZ =" -at \"tz\"";
+			if($rx_lock)
+				$skipRX= " -sr x";
+			else
+				$delChannelRX =" -at \"rx\"";
+			if($ry_lock)
+				$skipRY= " -sr y";
+			else
+				$delChannelRY =" -at \"ry\"";
+			if($rz_lock)
+				$skipRZ= " -sr z";
+			else
+				$delChannelRZ =" -at \"rz\"";
+			$skipped = $skipTX + $skipTY + $skipTZ + $skipRX + $skipRY + $skipRZ;
+			if($target_massiv[$i]!="")
+			{
+			$tmp_constrain=`eval ("parentConstraint -mo " + $skipped + " " + $target_massiv[$i] + " " + $object_massiv[$i])`;
+			}
+			$name_constrain[$i]=$tmp_constrain[0];
+		}
+	}
+	return $name_constrain;
+}
+global proc string[] SHIFT3_2_d299a61e0c068c7b602aab3964148a23 (string $object[], string $aim_top_target[], string $aim_side_target[])
+{
+	string $name_of_constrain[];
+	string $tmp[];
+	for($i=0;$i<size($object);$i++)
+	{
+		$tmp=`aimConstraint -mo -weight 1 -aimVector 0 1 0 -upVector 0 0 1 -worldUpType "object" -worldUpObject $aim_side_target[$i] $aim_top_target[$i] $object[$i]`;
+		$name_of_constrain[$i]=$tmp[0];
+	}
+	return $name_of_constrain;
+}
+global proc string SHIFT3_2_c830bbb3bb6041f72a5fb76403fcabe8()
+{
+    $selection=`ls-sl`;
+    $mayaVersion = `getApplicationVersionAsFloat` ;
+    string $eval_mode[];
+    if ($mayaVersion>=2016)
+    {
+        $eval_mode=`evaluationManager -q -mode`;
+		if($eval_mode[0]!="off")
+			evaluationManager -mode "off";
+    }
+    $min=`playbackOptions -q -ast`;
+    $max=`playbackOptions -q -aet`;
+    string $lay=`animLayer -override 1  "BakedAnim"`;
+    $its_baked=catch (`bakeResults -sm 1 -s false -t ($min+":"+$max) -dl $lay  -minimizeRotation true  $selection`) ;
+    if ($mayaVersion>=2016)
+    {
+		if($eval_mode[0]!="off")
+			evaluationManager -mode $eval_mode[0];
+    }
+    if($its_baked)
+    {
+        warning "select something!";
+    }
+    select  $selection;
+    return  $lay;
+}
+global proc SHIFT3_2_e02b9af8de573969d2834f5d4e4228fd(float $min, float $max, string $objects[])
+{
+	$mayaVersion = `getApplicationVersionAsFloat` ;
+    string $eval_mode[];
+    if ($mayaVersion>=2016)
+    {
+        $eval_mode=`evaluationManager -q -mode`;
+		if($eval_mode[0]!="off")
+			evaluationManager -mode "off";
+    }
+    catchQuiet(`selectKey -clear`);
+	$its_baked=catchQuiet (`bakeResults -sm 1 -s false -t  ($min + ":" + $max) $objects`);
+    if ($mayaVersion>=2016)
+    {
+		if($eval_mode[0]!="off")
+			evaluationManager -mode $eval_mode[0];
+    }
+    if($its_baked)
+    {
+        warning "select something!";
+    }
+}
+global proc SHIFT3_2_d1b73d0512bac8d20998bdbab9b3aed7(string $target[], string $object[])
+{
+	int $ro;
+	for($i=0;$i<size($target);$i++)
+	{
+		$ro=`getAttr($target[$i] + ".rotateOrder")`;
+		setAttr ($object[$i] + ".rotateOrder")$ro;
+	}
+}
+global proc SHIFT3_2_5e8af8371c687e5c50d7ded5040ffe13(string $target_position[], string $object_to_move[])
+{
+	float $Trans[];
+	float $Rot[];
+	for($i=0;$i<size($target_position);$i++)
+	{
+        $Trans=SHIFT3_2_8598296823aa3af15686cb0d78f1615d($target_position[$i]);
+        $Rot={$Trans[3],$Trans[4],$Trans[5]};
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $object_to_move[$i];
+		move -rpr $Trans[0] $Trans[1] $Trans[2] $object_to_move[$i];
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $object_to_move[$i];
+		move -rpr $Trans[0] $Trans[1] $Trans[2] $object_to_move[$i];
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $object_to_move[$i];
+		move -rpr $Trans[0] $Trans[1] $Trans[2] $object_to_move[$i];
+	}
+}
+global proc SHIFT3_2_13f67b1447d1fe0d15313a69cb76f8e6(string $target_position[], string $object_to_move[])
+{
+	int $lock_rot[];
+	int $lock_trans[];
+	for($i=0;$i<size($target_position);$i++)
+	{
+		$Rot = `getAttr ($target_position[$i] + ".rotate")`;
+		$Trans = `getAttr ($target_position[$i] + ".translate")`;
+		$lock_rot[0] = `getAttr -l ($object_to_move[$i] + ".rotateX")`;
+		$lock_rot[1] = `getAttr -l ($object_to_move[$i] + ".rotateY")`;
+		$lock_rot[2] = `getAttr -l ($object_to_move[$i] + ".rotateZ")`;
+		$lock_trans[0] = `getAttr -l ($object_to_move[$i] + ".translateX")`;
+		$lock_trans[1] = `getAttr -l ($object_to_move[$i] + ".translateY")`;
+		$lock_trans[2] = `getAttr -l ($object_to_move[$i] + ".translateZ")`;
+		if(!$lock_rot[0])
+            setAttr ($object_to_move[$i] + ".rotateX")  $Rot[0];
+		if(!$lock_rot[1])
+            setAttr ($object_to_move[$i] + ".rotateY")  $Rot[1];
+		if(!$lock_rot[2])
+            setAttr ($object_to_move[$i] + ".rotateZ")  $Rot[2];
+		if(!$lock_trans[0])
+            setAttr ($object_to_move[$i] + ".translateX") $Trans[0];
+        if(!$lock_trans[1])
+            setAttr ($object_to_move[$i] + ".translateY") $Trans[1];
+        if(!$lock_trans[2])
+            setAttr ($object_to_move[$i] + ".translateZ") $Trans[2];
+	}
+}
+global proc SHIFT3_2_9a3ce25cfdbc96f0053e2e03715d7f2b()
+{
+	$objs = `ls-sl`;
+	for($obj in $objs)
+	{
+		if(!`getAttr -lock ($obj + ".rx") `)
+			setAttr ($obj + ".rx") 0;
+		if(!`getAttr  -lock ($obj + ".ry") `)
+			setAttr ($obj + ".ry") 0;
+		if(!`getAttr  -lock ($obj + ".rz")`)
+			setAttr ($obj + ".rz") 0;
+	}
+}
+global proc SHIFT3_2_09f1edc0a69a4931b08e1bcc40e94a55()
+{
+	string $selected[]= `ls -sl`;
+	if(size($selected)==0)
+	{
+		warning "select something!!!!";
+		return;
+	}
+	string $crvs[] = `keyframe -q -n`;
+	float $statTime[] = `keyframe -index 0 -q -tc $crvs`;
+	$statTime=`sort $statTime`;
+	float $null_frame = $statTime[0] - 10;
+	catchQuiet(`setKeyframe -v 0 -t $null_frame -at rotateX -at rotateY -at rotateZ`) ;
+	catchQuiet(`filterCurve $selected.rotateX $selected.rotateY $selected.rotateZ`);
+	selectKey -clear;
+	catchQuiet(`cutKey -t $null_frame  -at rotateX -at rotateY -at rotateZ `);
+	selectKey -clear;
+}
+global proc string[] SHIFT3_2_194c7b09c27128a45486ac17560c7a25(string $objs[])
+{
+	string $new_selected[];
+	$j=0;
+	for($i=0;$i<size($objs);$i++)
+	{
+		if( `objExists $objs[$i]` )
+		{
+			$new_selected[$j] = $objs[$i];
+			$j++;
+		}
+	}
+	select -r $new_selected;
+	return $new_selected;
+}
+global proc float SHIFT3_2_c7822f1f10b007a6803735c105e40799(string $obj1, string $obj2)
+{
+	float $temp[]=SHIFT3_2_8598296823aa3af15686cb0d78f1615d($obj1);
+	vector $point1 = <<$temp[0], $temp[1], $temp[2]>>;
+	$temp=SHIFT3_2_8598296823aa3af15686cb0d78f1615d($obj2);
+	vector $point2 = <<$temp[0], $temp[1], $temp[2]>>;
+	float $lenght=`mag($point1-$point2)`;
+	return  $lenght;
+}
+global proc SHIFT3_2_54f6a67095b91b940ce86c3f80137d58(string $target[], string $object[])
+{
+	for($i=0;$i<size($target);$i++)
+	{
+		connectAttr -f ($target[$i] + ".translate") ($object[$i] + ".translate");
+	}
+}
+global proc SHIFT3_2_b2a60fd1e225a3f7175601f5abca8a70(string $target[], string $object[])
+{
+	for($i=0;$i<size($target);$i++)
+	{
+		connectAttr -f ($target[$i] + ".rotate") ($object[$i] + ".rotate");
+	}
+}
+global proc SHIFT3_2_14a1fba9c2d7db2800e701a123faba21(string $target[], string $object[])
+{
+	for($i=0;$i<size($target);$i++)
+	{
+		connectAttr -f ($target[$i] + ".scale") ($object[$i] + ".scale");
+	}
+}
+global proc string[] SHIFT3_2_5e702211108f11813c411c94f8b1b380( string $transfrm )
+{
+   string $shapes[];
+   $shapes[0] = $transfrm;
+   if ( "transform" == `nodeType $transfrm` )
+   {
+		$shapes = `listRelatives -f -shapes $transfrm`;
+   }
+   return $shapes;
+}
+global proc string[] SHIFT3_2_9145a4487029b640fc70278199ce684f()
+{
+	string $facesShapes[] = `ls -l -sl -o`;
+	string $str1=stringArrayToString($facesShapes, " ");
+	string $selected[]=`ls -l -sl`;
+	string $str2=stringArrayToString($selected, " ");
+	string $obj_selected[];
+	if( $str1!=$str2 )
+	     $obj_selected = `listRelatives -f -p $facesShapes`;
+	    else
+	        $obj_selected=$selected;
+	if (size ($obj_selected)==0)
+	{
+	    $obj_selected=$facesShapes;
+	}
+	return $obj_selected;
+}
+global proc string[] SHIFT3_2_9542c11845a1e56080fc5b7a1c5e8a5b(string $get_string_for_revers[])
+{
+    string $revers_objs[];
+	$j=size($get_string_for_revers)-1;
+	for ($obj in $get_string_for_revers)
+	{
+		$revers_objs[$j]=$obj;
+		$j--;
+	}
+	return $revers_objs;
+}
+global proc string[] SHIFT3_2_ab8c8018d47d542b750e72df0fa0b3ee()
+{
+    string $sorted_massive[];
+    string $selected[]=`ls-fl-l-sl`;
+    string $buffer[];
+    float $num_list[];
+    for($i=0;$i<size($selected);$i++)
+        $num_list[$i]=`tokenize $selected[$i] "|" $buffer`;
+    $sorted_massive=SHIFT3_2_1d56f8884d88d7b022ffa48bc52b3755 ($selected,$num_list);
+    return $sorted_massive;
+}
+global proc string SHIFT3_2_20a28b95c1b8b4dd29397ab332dbc667()
+{
+    $currentPanel = `getPanel -withFocus`;
+    $error=catch($cam_name=`modelEditor -q -camera  $currentPanel`);
+    if($error)
+    {
+        $cam_name="no model panel viewport";
+    }
+    return $cam_name;
+}
+global proc string[] SHIFT3_2_46e3c16f7c510db12bc5343ac1a842b6(int $color, int $template, int $show_outliner)
+{
+	$selection=`ls-sl`;
+	$curv=SHIFT3_2_a8d1933a966541e62d79a2fcbf6e4ea4(1);
+	if($color)
+		SHIFT3_2_cc20e95399a3b6da44eb78e45451d764($color);
+	if( $template)
+		SHIFT3_2_8071326ac26a590fcb224ddba406d389();
+	string $tmpp[];
+	string $curves[] = `listRelatives -f -shapes -type "nurbsCurve" $curv`;
+	int $numCVs = `getAttr -size ($curves[0] + ".controlPoints")`;
+	string $cluster_names[];
+	clear $cluster_names;
+	for($i=0;$i<$numCVs;$i++)
+	{
+		$tmpp=`cluster -envelope 1 ($curv + ".cv[" + $i + "]")` ;
+		$cluster_names[$i]=$tmpp[1];
+	}
+	SHIFT3_2_32a3829df17c3736d9757e423eeaf0e3($selection,$cluster_names);
+	select  $cluster_names;
+	SHIFT3_2_4c2952dd9f486573856c8eb6a0dc46ac(0);
+	select $curv;
+	select -add  $cluster_names;
+	SHIFT3_2_1b3bfd1d62d966ea966f5caca72bac5d(`ls-sl`, $show_outliner);
+	SHIFT3_2_aa074854107180f09880ea0e8edd43f8;
+	SHIFT3_2_b6a5017ee305f5ba0bbf3116243cc3af;
+	SHIFT3_2_1f3f21e017b74355329202016bf1b177;
+	SHIFT3_2_ade4e354383a28fcefcaf5ce40e6639d;
+	string $ret[]=`ls-sl`;
+	select $selection;
+	return $ret;
+}
+global proc SHIFT3_2_1b3bfd1d62d966ea966f5caca72bac5d(string $objects[], int $hidden)
+{
+    string $shapes[];
+    for ($obj in $objects)
+    {
+        setAttr ($obj  +  ".hiddenInOutliner") $hidden;
+        $shapes=SHIFT3_2_5e702211108f11813c411c94f8b1b380($obj);
+        for($shape in $shapes)
+        {
+             setAttr ($shape  +  ".hiddenInOutliner") $hidden;
+        }
+    }
+}
+global proc string[] SHIFT3_2_95aedc626a621231a66a091788483a9e(string $curveName, int $sequent_parent)
+{
+	string $curve_Shape[] = `listRelatives -shapes -f -type "nurbsCurve" $curveName`;
+	int $numCVs = `getAttr -size ($curve_Shape[0] + ".controlPoints")`;
+	catchQuiet(`setAttr ($curve_Shape[0] + ".lockLength") 0`);
+	string $loks[];
+	string $clusters[], $tmppo[];
+	for($i=0;$i< $numCVs;$i++)
+	{
+		$tmppo=`cluster ($curveName + ".cv[" + $i + "]")`;
+		$clusters[$i]=$tmppo[1];
+	}
+	$loks=SHIFT3_2_526c020cd7c9a859fd08d49719a4fddf($clusters);
+	SHIFT3_2_32a3829df17c3736d9757e423eeaf0e3($loks,$clusters);
+	SHIFT3_2_4c2952dd9f486573856c8eb6a0dc46ac(0);
+	SHIFT3_2_113374ba19bc1f4dc9b1cc9706816f86($clusters);
+	SHIFT3_2_b6a5017ee305f5ba0bbf3116243cc3af;
+	SHIFT3_2_ade4e354383a28fcefcaf5ce40e6639d;
+	SHIFT3_2_aa074854107180f09880ea0e8edd43f8;
+	SHIFT3_2_8071326ac26a590fcb224ddba406d389();
+	SHIFT3_2_1b3bfd1d62d966ea966f5caca72bac5d($clusters, 1);
+	if($sequent_parent)
+	{
+		select  $loks;
+		SHIFT3_2_f0209cb5b5931bdfa7ae6801db19a0f8;
+	}
+	return $loks;
+}
+global proc SHIFT3_2_57a906823be3ff74fc67f225ea020d49(string $objects[])
+{
+    string $attr[],$obj,$att;
+    for($obj in $objects)
+    {
+        $attr=`listAttr -r -st "blendParent*" -st "blendOrient*" -st "blendPoint*" -st "blendAim*" -st "MaxHandle*" $obj `;
+        for($att in $attr)
+        {
+            cutKey -cl -t ":" -f ":" -at $att $obj;
+            catch (`deleteAttr -attribute $att $obj`);
+        }
+    }
+}
+global proc SHIFT3_2_e654812187805dfb8c3722d661c85115()
+{
+    $selected_loc=`ls-sl`;
+	float $rx=1;
+	float $ry=1;
+	float $local_pos[];
+	float $local_rot[];
+	float $local_rotTmp[];
+	float $joint_radius=0.5;
+	string $shapes[];
+	int $is_locator;
+	float $curr_unit=SHIFT3_2_f71c299bf7b53f7243b078a9990e581c(1);
+	for($loc in $selected_loc)
+	{
+	   	$shapes1=`listRelatives  -type "shape"  -f  $loc`;
+		$color=`getAttr  ($loc + ".overrideColor") `;
+		catchQuiet($joint_radius = (`getAttr  ($loc + ".radius")`));
+        catchQuiet($local_pos = (`getAttr  ($loc + ".localPosition")`));
+		$is_locator=catchQuiet($local_rot = (`getAttr ($shapes1[0] + ".localScale")`)  );
+		select -cl;
+		$cirle=SHIFT3_2_8a435c1e94becce7728e63b61ba412bd(2*$curr_unit);
+		move -a $local_pos[0]  $local_pos[1] $local_pos[2] $cirle;
+		delete -ch;
+		if( `objectType $loc` =="joint")
+		    scale -r -p  ($local_pos[0] + "cm") ($local_pos[1] + "cm") ($local_pos[2] + "cm") ($joint_radius/$curr_unit/$curr_unit) ($joint_radius/$curr_unit/$curr_unit) ($joint_radius/$curr_unit/$curr_unit) ($cirle[0] + ".cv[0:7]");
+		else
+    		if($is_locator==0)
+    		    scale -r -p  ($local_pos[0] + "cm") ($local_pos[1] + "cm") ($local_pos[2] + "cm") ($local_rot[0]/$curr_unit/$curr_unit) ($local_rot[1]/$curr_unit/$curr_unit) ($local_rot[2]/$curr_unit/$curr_unit) ($cirle[0] + ".cv[0:7]");
+		delete `orientConstraint $loc $cirle[0]`;
+		select $loc $cirle[0];
+		$objects=`ls-sl`;
+		$shapes=`listRelatives  -type "shape"  -f  $objects[0]`;
+		catchQuiet(`setAttr ($shapes[0] + ".visibility") 1`);
+		for($i=1;$i<size($objects);$i++)
+		{
+			$shapes=`listRelatives -shapes  $objects[$i]`;
+			delete (`parentConstraint $objects[0] $objects[$i] `);
+			parent $objects[$i] $objects[0];
+			makeIdentity -apply 1 $objects[$i];
+			$j=0;
+			for($sh in $shapes)
+			{
+			    $ren=`rename $sh  ($loc+ "Shape" + $j)`;
+			    parent -add  -s $ren $objects[0];
+			}
+		}
+		catchQuiet(`delete $shapes1`);
+		delete $objects[1];
+		select $objects[0];
+		$shapes=`listRelatives  -type "shape"  -f  $objects[0]`;
+		catchQuiet(`setAttr -keyable false -channelBox true ($shapes[1] + ".rcurve")`);
+		catchQuiet(`setAttr -keyable false -channelBox true  ($shapes[1] + ".cwdth")`);
+		catchQuiet(`setAttr -keyable false -channelBox true  ($shapes[1] + ".srate")`);
+		catchQuiet(`setAttr -keyable false -channelBox true  ($shapes[1] + ".ai_curve_shaderr")`);
+		catchQuiet(`setAttr -keyable false -channelBox true  ($shapes[1] + ".ai_curve_shaderg")`);
+		catchQuiet(`setAttr -keyable false -channelBox true  ($shapes[1] + ".ai_curve_shaderb")`);
+        catchQuiet(`setAttr ($shapes[1] + ".overrideEnabled")  1`);
+		catchQuiet(`setAttr -lock false ($shapes[1] + ".overrideColor") $color`);
+		select $shapes[0];
+		catchQuiet(`select $shapes[1]`);
+	}
+	select $selected_loc;
+}
+global proc float SHIFT3_2_9cf10c253bb06da91bcfe3836a7e5f36(float $pos1[], float $pos2[])
+{
+    vector $p1_p2=<<$pos1[0],$pos1[1],$pos1[2]>> -<<$pos2[0],$pos2[1],$pos2[2]>>;
+    $lenght=(`mag $p1_p2`);
+    return $lenght;
+}
+global proc float SHIFT3_2_a65c5852b41c00d87bef0899a048bc4e(string $object_names[], int $average)
+{
+    float $dist;
+    for($i=0;$i<size($object_names)-1;$i++)
+        $dist=$dist+SHIFT3_2_c7822f1f10b007a6803735c105e40799($object_names[$i] , $object_names[$i+1]);
+    if ($average)
+        $dist=$dist/size($object_names);
+    return $dist;
+}
+global proc vector[] SHIFT3_2_fe600b241bc9b3be89efa455d18bd9f9(vector $coords[])
+{
+    vector $no_reverse_coords[];
+    $no_reverse_coords=SHIFT3_2_2bf8a8136110c57d5b95308ba444b308($coords);
+    $no_reverse_coords=SHIFT3_2_3c3ce83b4c7fdce5b7da19beca86d659($no_reverse_coords);
+    $no_reverse_coords=SHIFT3_2_2bf8a8136110c57d5b95308ba444b308($no_reverse_coords);
+    $no_reverse_coords=SHIFT3_2_3c3ce83b4c7fdce5b7da19beca86d659($no_reverse_coords);
+    return $no_reverse_coords;
+}
+global proc vector[] SHIFT3_2_2774c56ee9a8ad22e22f5e8c75ed4f4d(vector $coords[])
+{
+    vector $final_coords[];
+    int $j=0;
+    vector $delta;
+    for($i=0;$i<size($coords)-1;$i++)
+    {
+        $delta=$coords[$i]-$coords[$i+1];
+        if(`mag $delta`> 0.001)
+        {
+            $final_coords[$j]=$coords[$i];
+            $j++;
+        }
+    }
+    $final_coords[$j]=$coords[size($coords)-1];
+    return  $final_coords;
+}
+global proc float[] SHIFT3_2_d43bd93439ed3879a3deac8b4d5b5d0d(float $point1[],float $point2[],float $kratDistances)
+{
+	float $res[];
+	vector $a=<<$point1[0],$point1[1],$point1[2]>>;
+	vector $b=<<$point2[0],$point2[1],$point2[2]>>;
+	$k=$a + ($b-$a)*$kratDistances;
+	$res=$k;
+	return $res;
+}
+global proc vector SHIFT3_2_e3bea614176fbceebe7c7aae67e953b0(vector $coords[])
+{
+	int $num = `size $coords`;
+	vector $ff;
+	for ($each in $coords)
+	    $ff+=$each;
+	$ff=($ff/$num);
+	return $ff;
+}
+global proc string[] SHIFT3_2_1d56f8884d88d7b022ffa48bc52b3755 (string $name_massive[],float $float_massive[])
+{
+    global string $my_name_massive[];
+    global float $my_float_massive[];
+    $my_name_massive= $name_massive;
+    $my_float_massive=$float_massive;
+    $shapka="import maya.cmds as cmds\nimport maya.mel as mel\nimport operator\n";
+    $procdres="def sort_by_float_array(arr1, float_array):\n    tmp = [(x, y) for x, y in zip(arr1, float_array)]\n    tmp.sort(key=lambda element: element[1])\n    return [x for x, _ in tmp]\n";
+    $KKKK_menue=$shapka + $procdres + "stringarr = maya.mel.eval('ls $my_name_massive')\nfloatarr = maya.mel.eval('$tmppp2float=$my_float_massive')\nmy_python_res = sort_by_float_array(stringarr,floatarr)";
+    python($KKKK_menue);
+    string $TransferVarPy[] = `python "my_python_res"`;
+    return $TransferVarPy;
+}
+global proc float SHIFT3_2_f71c299bf7b53f7243b078a9990e581c(float $input)
+{
+   string $un=`currentUnit -query -linear`;
+   float $output;
+   float $coeff;
+   if($un=="mm")
+       $coeff=0.1;
+   if($un=="cm")
+       $coeff=1;
+   if($un=="m")
+       $coeff=100;
+   if($un=="km")
+       $coeff=100000;
+   if($un=="in")
+       $coeff=2.54;
+   if($un=="ft")
+       $coeff=30.48;
+   if($un=="yd")
+       $coeff=91.44;
+   if($un=="mi")
+       $coeff=160934.4;
+    $output =  $input/$coeff;
+    return $output;
+}
+global proc string SHIFT3_2_41a30a2e9e6a02aac72ab138d3f62f90(string $attribname, string $object)
+{
+    addAttr -ln $attribname -nn $attribname -at double -dv 0 $object;
+    setAttr -e-channelBox true ($object + "." + $attribname);
+    return   ($object + "." + $attribname);
+}
+global proc string SHIFT3_2_65107bc37ea4a0d842be293fd78287a9(string $attribname, string $object)
+{
+    addAttr -ln $attribname -nn $attribname -at long  -dv 0 $object;
+    setAttr -e-channelBox true ($object + "." + $attribname);
+    return   ($object + "." + $attribname);
+}
+global proc string SHIFT3_2_e8f0c3b3e6300189aca31ae83320ec92(string $node_name_mask)
+{
+	$connected_nodes=`listConnections -t node`;
+	string $nodename;
+	int $has_connect_to_recalculate=0;
+	string $obj;
+	for($obj in $connected_nodes)
+		{
+		   if(`gmatch $obj $node_name_mask`)
+		   {
+		   $nodename=$obj;
+		   $has_connect_to_recalculate=1;
+		   }
+		}
+		return  $nodename;
+}
+global proc string[] SHIFT3_2_6c03bcf1c4cd077aea727f60dfb001f6(int $mode, string $nodename_mask)
+{
+    string $prevouos[];
+    string $next[];
+    string  $connected_items[];
+    int $current_item_index;
+    int $connected_items_size;
+    $select_items=`ls-sl`;
+    $j=0;
+    string $all_connected_items[];
+	string $top_connected_items[];
+    for($obj in $select_items)
+    {
+        select $obj;
+        $nodename=SHIFT3_2_e8f0c3b3e6300189aca31ae83320ec92($nodename_mask);
+        if($nodename!="")
+        {
+            $connected_items=`listConnections  -d 1 $nodename`;
+            $connected_items_size =size($connected_items)-1;
+            for ($i=0; $i<=$connected_items_size;$i++)
+            {
+              if($connected_items[$i]==$obj)
+                    $current_item_index=$i;
+            }
+        }
+        if($current_item_index!=0)
+            $prevouos[$j]=$connected_items[$current_item_index -1];
+        else
+            $prevouos[$j]=$connected_items[$connected_items_size];
+        if($current_item_index!=$connected_items_size)
+            $next[$j]=$connected_items[$current_item_index+1];
+        else
+            $next[$j]=$connected_items[0];
+        $j++;
+        appendStringArray( $all_connected_items, $connected_items, `size $connected_items`);
+		appendStringArray( $top_connected_items, $connected_items, 1);
+    }
+	$all_connected_items=stringArrayRemoveDuplicates($all_connected_items);
+	$top_connected_items=stringArrayRemoveDuplicates($top_connected_items);
+	select $select_items;
+	if($mode==2)
+		return $top_connected_items;
+    if($mode==-1)
+        return $prevouos;
+    if($mode==1)
+        return $next;
+        else
+        return $all_connected_items;
+}
+global proc string[] SHIFT3_2_ffecd01738add909a797cd04488b55bd(string $nodename, string $attrib_name_mask)
+{
+	$connected_items_by_group=`listConnections  -c 1 $nodename`;
+	string $connected_objects[];
+	string $tmk;
+	$j=0;
+	for($i=0;$i<size($connected_items_by_group);$i++)
+	{
+		$tmk=$connected_items_by_group[$i];
+		if(`gmatch  $tmk ("*." + $attrib_name_mask )`)
+		{
+			$connected_objects[$j]= $connected_items_by_group[$i+1];
+			$j++;
+		}
+	}
+	return  $connected_objects;
+}
+global proc string SHIFT3_2_e2ba956c9c1fac6238ed43e940bd7a18(string $main_ctrl, string $pelvis_ctrl, string $freeze_ctrls[], int $rotate_mode, int $flat_mode)
+{
+    string $axis=`upAxis -q -axis`;
+    float $min=`playbackOptions -q -ast`;
+    float $max=`playbackOptions -q -aet`;
+    select $main_ctrl;
+    string $main_pos_lock[]=SHIFT3_2_54d92f8424c4459e6d996d9fd93902f0();
+    SHIFT3_2_c89bf830cdb2b9cc874e6c8604e8b257;
+    string $WB_layer;
+    if($axis=="z")
+    {
+        if ($flat_mode==1)
+			pointConstraint -offset 0 0 0 -skip z -weight 1 $pelvis_ctrl $main_pos_lock[0];
+		else
+			pointConstraint -offset 0 0 0 -weight 1 $pelvis_ctrl $main_pos_lock[0];
+        if($rotate_mode)
+            orientConstraint -offset 0 0 0 -skip x -skip y -weight 1 $pelvis_ctrl $main_pos_lock[0];
+    }
+    else
+    {
+        if ($flat_mode==1)
+			pointConstraint -offset 0 0 0 -skip y -weight 1 $pelvis_ctrl $main_pos_lock[0];
+		else
+			pointConstraint -offset 0 0 0 -weight 1 $pelvis_ctrl $main_pos_lock[0];
+        if($rotate_mode)
+        {
+            setAttr ($main_pos_lock[0] + ".rotateOrder") 3;
+            orientConstraint -offset 0 0 0 -skip x -skip z -weight 1 $pelvis_ctrl $main_pos_lock[0];
+        }
+    }
+    select $freeze_ctrls;
+    string $parent_lock[]=SHIFT3_2_54d92f8424c4459e6d996d9fd93902f0();
+    SHIFT3_2_c89bf830cdb2b9cc874e6c8604e8b257;
+    SHIFT3_2_17431451b1be026fdeee93b86579c6b6($freeze_ctrls, $parent_lock);
+    select $parent_lock $main_pos_lock;
+    SHIFT3_2_de88efca2929f0080ae1d45ff5db42d4;
+    SHIFT3_2_17431451b1be026fdeee93b86579c6b6($parent_lock, $freeze_ctrls);
+    pointConstraint -offset 0 0 0 -weight 1 $main_pos_lock[0] $main_ctrl;
+    if($rotate_mode)
+    {
+        orientConstraint -offset 0 0 0  -weight 1 $main_pos_lock[0] $main_ctrl;
+    }
+    select $main_pos_lock[0];
+    SHIFT3_2_09f1edc0a69a4931b08e1bcc40e94a55;
+	float $mayaVersion = `getApplicationVersionAsFloat` ;
+
+    if($axis=="z")
+    {
+        selectKey {($main_pos_lock[0] + ".translateX"), ($main_pos_lock[0] + ".translateY"),($main_pos_lock[0] + ".rotateZ")};
+		if($mayaVersion<2019)
+			filterCurve -f simplify -timeTolerance 0.05 ;
+		else
+			filterCurve -f keyReducer -selectedKeys -precisionMode 1 -precision 1.8 -preserveKeyTangent "smooth" -preserveKeyTangent "clamped";
+    }
+    else
+    {
+        selectKey {($main_pos_lock[0] + ".translateX"), ($main_pos_lock[0] + ".translateZ"),($main_pos_lock[0] + ".rotateY")};
+		if($mayaVersion<2019)
+			filterCurve -f simplify -timeTolerance 0.05 ;
+		else
+			filterCurve -f keyReducer -selectedKeys -precisionMode 1 -precision 1.8 -preserveKeyTangent "smooth" -preserveKeyTangent "clamped";
+    }
+    SHIFT3_2_57a906823be3ff74fc67f225ea020d49($freeze_ctrls);
+    SHIFT3_2_57a906823be3ff74fc67f225ea020d49({$main_ctrl});
+    select $main_ctrl $freeze_ctrls;
+    $WB_layer=SHIFT3_2_c830bbb3bb6041f72a5fb76403fcabe8();
+    SHIFT3_2_09f1edc0a69a4931b08e1bcc40e94a55;
+    $WB_layer=`rename $WB_layer rootMotion_over`;
+    setAttr ($WB_layer + ".rotationAccumulationMode") 1;
+    animLayerEditorOnSelect $WB_layer 1;
+    delete $main_pos_lock $parent_lock;
+	return $WB_layer;
+}
+global proc SHIFT3_2_e9caf5289a585699aa818aadd00d2a1a(string $targets[], string $objects[])
+{
+    select $objects;
+	SHIFT3_2_37979d5db724aeac3ec6046edc570bbd;
+	SHIFT3_2_25dd166f9ad7839b589ab3bd870d76db;
+	SHIFT3_2_c89bf830cdb2b9cc874e6c8604e8b257;
+	$tmp_locks=SHIFT3_2_567de7ea28e53f73f8c890cb197b9d88();
+	SHIFT3_2_32a3829df17c3736d9757e423eeaf0e3($targets,$objects);
+	select $objects;
+	SHIFT3_2_de88efca2929f0080ae1d45ff5db42d4;
+	delete $tmp_locks;
+}
+global proc string[] SHIFT3_2_567de7ea28e53f73f8c890cb197b9d88()
+{
+	string $selection[] = `ls -fl -sl`;
+	if(!size($selection))
+	{
+		warning "select something!!!";
+		return {};
+	}
+	string $locators[]=SHIFT3_2_54d92f8424c4459e6d996d9fd93902f0();
+	$locators=SHIFT3_2_c9088e941b7677113499bb19ad80f9bf ("Parent_", $selection);
+	SHIFT3_2_c89bf830cdb2b9cc874e6c8604e8b257;
+	SHIFT3_2_29941243f77aa0343e79460d48136072 (8);
+	SHIFT3_2_cc20e95399a3b6da44eb78e45451d764(18);
+	delete (SHIFT3_2_ac2021d0d7ff3ecfad4dbca9f9f88248 ($selection,$locators));
+	string $constr_names[];
+	catch ($constr_names=SHIFT3_2_17431451b1be026fdeee93b86579c6b6($selection, $locators));
+	SHIFT3_2_de88efca2929f0080ae1d45ff5db42d4;
+	delete $constr_names;
+	catch (SHIFT3_2_17431451b1be026fdeee93b86579c6b6($locators, $selection));
+	return $locators;
+}
+global proc string[] SHIFT3_2_ec8fef482e9931b7fcc91a980b89860a()
+{
+	string $selection[] = `ls -fl -sl`;
+	SHIFT3_2_bb5805895dc14a829576cd013ec234e4($selection);
+	select -cl;
+	select $selection;
+	$locators=SHIFT3_2_275b8d2566c1c2cbde1899988b3fdabe(0,0,1);
+	$locators=SHIFT3_2_c9088e941b7677113499bb19ad80f9bf ("Parent_", $selection);
+	SHIFT3_2_29941243f77aa0343e79460d48136072 (8);
+	SHIFT3_2_cc20e95399a3b6da44eb78e45451d764(18);
+	$point_constr=SHIFT3_2_4a0278149f801323f33f7bb9e4ee597d($locators, $selection);
+	$orient_constr=SHIFT3_2_c99bdb5a898efbfb1d4fa2221eba881b($locators, $selection);
+	string $connected_nodes[];
+	$j=0;
+	for($obj in $locators)
+    {
+        addAttr -ln "movement" -nn "movement" -at double  -dv 0 $obj;
+        setAttr -e-channelBox true ($obj + ".movement");
+        setAttr ($obj + ".movement") 1;
+        addAttr -ln "rotates" -nn "rotates" -at double -dv 0 $obj;
+        setAttr -e -channelBox true ($obj + ".rotates");
+        setAttr ($obj + ".rotates") 1;
+        if($point_constr[$j]!="")
+        {
+            $connected_nodes=`listConnections -t pairBlend $point_constr[$j]` ;
+            connectAttr -f($obj + ".movement") ($connected_nodes[0] + ".weight");
+            setAttr ($connected_nodes[0] + ".rotInterpolation") 1 ;
+        }
+        if($orient_constr[$j]!="")
+        {
+            $connected_nodes=`listConnections -t pairBlend $orient_constr[$j] `;
+            connectAttr -f($obj + ".rotates") ($connected_nodes[0] + ".weight") ;
+            setAttr ($connected_nodes[0] + ".rotInterpolation") 1 ;
+        }
+		catch(`addAttr -ln "blendPoint999wb" -nn "blendPoint999wb" -at double  -dv 0 $selection[$j]`);
+		catch(`setAttr -e-channelBox true ($selection[$j] + ".blendPoint999wb")`);
+		catch (`connectAttr -f($obj + ".movement") ($selection[$j] + ".blendPoint999wb")`);
+        $j++;
+    }
+	SHIFT3_2_3323b46f97bc12510f86536ae21ff525;
+	return $locators;
+}
+global proc string[] SHIFT3_2_9a480b0a2130b035b6d90da712163295()
+{
+    string $selected_layers[];
+	string $layers[]=`ls -type "animLayer"`;
+    $j=0;
+	for($i=0; $i<size($layers); $i++)
+	    {
+    		if(`animLayer -q -selected $layers[$i]`==1)
+    		{
+    		    $selected_layers[$j]=$layers[$i];
+    		    $j++;
+    		}
+		}
+    return $selected_layers;
+}
+global proc string[] SHIFT3_2_561c6e17779ef401453c3b07933318b7(string $objects[], string $layers[])
+{
+    string $extracted_layers[],$lay ;
+    int $j=0;
+	for($lay in $layers)
+	{
+        $extracted_layers[$j]=layerEditorExtractObjectsSingleAnimLayer( $objects, $lay);
+		$j++;
+	}
+	return $extracted_layers;
+}
+global proc float[] SHIFT3_2_cba6da1b519f7600c71b7de0d52d2c3e()
+{
+	float $num_frame[] = `keyframe -q  -sl`;
+	$num_frame=`sort  $num_frame`;
+	if(size($num_frame)==0)
+	{
+		warning "no interval selected" ;
+		return {0,0};
+	}
+	return {$num_frame[0], $num_frame[size($num_frame)-1]};
+}
+global proc string[] SHIFT3_2_0a10c57fddb9b8e3dc07486c3a9a5eed()
+{
+	string $selection[];
+	$selection_true = `ls -fl -sl `;
+	$selection = `ls -fl -os`;
+	string $locators[];
+	string $gr;
+	if (size ($selection)>0)
+	{
+         $j=0;
+	    for($obj in $selection)
+	    {
+            $getPvPos=SHIFT3_2_8598296823aa3af15686cb0d78f1615d($obj);
+            $gr=`group -r -em`;
+            $locators[$j]=$gr;
+            xform -ws -t $getPvPos[0] $getPvPos[1] $getPvPos[2] $gr;
+            rotate -ws $getPvPos[3] $getPvPos[4] $getPvPos[5]  $gr;
+            $j++;
+		}
+		select -cl;
+		for($obj in $locators)
+		{
+		    select -add $obj;
+		}
+	}
+	else
+	{
+	$locators[0] = `group -r -em`;
+	}
+	return $locators;
+}
+global proc string SHIFT3_2_a8d1933a966541e62d79a2fcbf6e4ea4(int $interpolation)
+{
+    $selection_true = `ls -fl -sl `;
+	string $selection[]=`ls -fl -os`;
+	vector $coords[];
+	string $pnt = "";
+	float $getPvPos[];
+	if (size ($selection)<=1)
+	{
+		warning "select 2 object or points";
+		return "";
+	}
+    $coords=SHIFT3_2_72356eaf232b169651a82383ba9e7e57($selection);
+    $curve_name=SHIFT3_2_83a9015d514ecd1326a1648b28396ba2($coords,$interpolation);
+    return $curve_name;
+}
+global proc string[] SHIFT3_2_275b8d2566c1c2cbde1899988b3fdabe(int $no_translate, int $no_rotate, int $no_scale)
+{
+	string $selected[]=`ls-fl-sl`;
+	if(size($selected)<=0)
+	{
+		warning "Nothing selected!";
+		return {""};
+	}
+	string $locators[]=SHIFT3_2_e0a5f9682afe5d450c5614dd6a49ac78();
+    SHIFT3_2_90a059e9200ad500213586e0ecabdd0d($locators, $no_translate, $no_rotate, $no_scale, $no_scale);
+    string $constr[]=SHIFT3_2_17431451b1be026fdeee93b86579c6b6($selected, $locators);
+    SHIFT3_2_de88efca2929f0080ae1d45ff5db42d4;
+    SHIFT3_2_09f1edc0a69a4931b08e1bcc40e94a55;
+    delete  $constr;
+	return $locators;
+}
+global proc string [] SHIFT3_2_c9088e941b7677113499bb19ad80f9bf (string $prefix, string $name_massive[])
+{
+	$objs = `ls-sl`;
+	string $namesps,$short_name,$new_names[], $fin_name;
+	for($i=0;$i<size($objs);$i++)
+	{
+	    $namesps = `match "^.*:"  $name_massive[$i]`;
+	    $short_name = `match "[^/\:]*$" $name_massive[$i]`;
+		$fin_name=SHIFT3_2_c954f3ebe8232ef721ae19221935b64e( $namesps   + $prefix + $short_name);
+		$new_names[$i]=`rename $objs[$i] $fin_name`;
+	}
+	return $new_names;
+}
+global proc SHIFT3_2_37979d5db724aeac3ec6046edc570bbd()
+{
+string $objs;
+	if(!size(`ls-sl`))
+		return;
+	for($objs in `ls-sl`)
+	{
+		setAttr -lock false ($objs + ".scale");
+		setAttr -lock false ($objs + ".scaleX");
+		setAttr -lock false ($objs + ".scaleY");
+		setAttr -lock false ($objs + ".scaleZ");
+	}
+}
+global proc SHIFT3_2_25dd166f9ad7839b589ab3bd870d76db()
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	for($i=0;$i<size($objs);$i++)
+	{
+		cutKey -cl -t ":" -f ":" -at "sx" -at "sy" -at "sz" $objs[$i];
+	}
+}
+global proc SHIFT3_2_c89bf830cdb2b9cc874e6c8604e8b257()
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	for($i=0;$i<size($objs);$i++)
+	{
+		setAttr -keyable false -channelBox false ($objs[$i] + ".sx");
+		setAttr -keyable false -channelBox false ($objs[$i] + ".sy");
+		setAttr -keyable false -channelBox false ($objs[$i] + ".sz");
+		setAttr -keyable false -channelBox false ($objs[$i] + ".v");
+	}
+}
+global proc SHIFT3_2_8071326ac26a590fcb224ddba406d389()
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	for($i=0;$i<size($objs);$i++)
+	{
+		setAttr ($objs[$i] + ".template") 1;
+	}
+}
+global proc SHIFT3_2_1f3f21e017b74355329202016bf1b177()
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	string $obj;
+	for($obj in `ls-sl`)
+	{
+		setAttr -lock true ($obj + ".translateX");
+		setAttr -lock true ($obj + ".translateY");
+		setAttr -lock true ($obj + ".translateZ");
+	}
+}
+global proc SHIFT3_2_113374ba19bc1f4dc9b1cc9706816f86(string $objects[])
+{
+	if(!size($objects))
+		return;
+	string $obj;
+	for($obj in $objects)
+	{
+		setAttr -lock true ($obj + ".translateX");
+		setAttr -lock true ($obj + ".translateY");
+		setAttr -lock true ($obj + ".translateZ");
+	}
+}
+global proc SHIFT3_2_90a059e9200ad500213586e0ecabdd0d(string $objects[], int $t_lock, int $r_lock, int $s_lock, int $v_lock)
+{
+    if(!size($objects))
+        return;
+    string $obj;
+    for($obj in $objects)
+    {
+        if($t_lock==1)
+        {
+            setAttr ($obj + ".tx") -lock 1;
+            setAttr ($obj + ".ty") -lock 1;
+            setAttr ($obj + ".tz") -lock 1;
+        }
+        if($t_lock==0)
+        {
+            setAttr -lock false ($obj + ".translate");
+            setAttr ($obj + ".tx") -lock 0;
+            setAttr ($obj + ".ty") -lock 0;
+            setAttr ($obj + ".tz") -lock 0;
+        }
+        if($t_lock==2)
+        {
+            setAttr ($obj + ".tx") -lock (!`getAttr -lock ($obj + ".tx")`);
+            setAttr ($obj + ".ty") -lock (!`getAttr -lock ($obj + ".ty")`);
+            setAttr ($obj + ".tz") -lock (!`getAttr -lock ($obj + ".tz")`);
+        }
+        if($r_lock==1)
+        {
+            setAttr ($obj + ".rx") -lock 1;
+            setAttr ($obj + ".ry") -lock 1;
+            setAttr ($obj + ".rz") -lock 1;
+        }
+        if($r_lock==0)
+        {
+            setAttr -lock false ($obj + ".rotate");
+            setAttr ($obj + ".rx") -lock 0;
+            setAttr ($obj + ".ry") -lock 0;
+            setAttr ($obj + ".rz") -lock 0;
+        }
+        if($r_lock==2)
+        {
+            setAttr ($obj + ".rx") -lock (!`getAttr -lock ($obj + ".rx")`);
+            setAttr ($obj + ".ry") -lock (!`getAttr -lock ($obj + ".ry")`);
+            setAttr ($obj + ".rz") -lock (!`getAttr -lock ($obj + ".rz")`);
+        }
+        if($s_lock==1)
+        {
+            setAttr ($obj + ".sx") -lock 1;
+            setAttr ($obj + ".sy") -lock 1;
+            setAttr ($obj + ".sz") -lock 1;
+        }
+        if($s_lock==0)
+        {
+            setAttr -lock 0 ($obj + ".scale");
+            setAttr ($obj + ".sx") -lock 0;
+            setAttr ($obj + ".sy") -lock 0;
+            setAttr ($obj + ".sz") -lock 0;
+        }
+        if($s_lock==2)
+        {
+            setAttr ($obj + ".sx") -lock (!`getAttr -lock ($obj + ".sx")`);
+            setAttr ($obj + ".sy") -lock (!`getAttr -lock ($obj + ".sy")`);
+            setAttr ($obj + ".sz") -lock (!`getAttr -lock ($obj + ".sz")`);
+        }
+        if($v_lock==1)
+            setAttr ($obj + ".v") -lock 1;
+        if($v_lock==0)
+            setAttr ($obj + ".v") -lock 0;
+        if($v_lock==2)
+            setAttr ($obj + ".v") -lock (!`getAttr -lock ($obj + ".v")`);
+    }
+}
+global proc string [] SHIFT3_2_4a0278149f801323f33f7bb9e4ee597d(string $target_massiv[], string $object_massiv[])
+{
+	string $name_of_constrain[];
+	string $tmp[];
+	int $tx_lock;
+	int $ty_lock;
+	int $tz_lock;
+	int $h;
+	string $skipX;
+	string $skipY;
+	string $skipZ;
+	string $skipped;
+	if(size($target_massiv)!=size($object_massiv))
+		warning "size smart_point constraints massives is DIFFERENT!!! Only relevant objects will be processed! This can lead to unexpected consequences!!!!";
+	if(size($target_massiv)> size($object_massiv))
+		$target_massiv=`ls -head (size($object_massiv)) $target_massiv`;
+	for($i=0;$i<size($target_massiv);$i++)
+	{
+		$tx_lock=`getAttr -lock ($object_massiv[$i] + ".tx")`;
+		$ty_lock=`getAttr -lock ($object_massiv[$i] + ".ty")`;
+		$tz_lock=`getAttr -lock ($object_massiv[$i] + ".tz")`;
+		$h=$tx_lock+$ty_lock+$tz_lock;
+		if ($h<3)
+		{
+			$skipX= "";
+			$skipY= "";
+			$skipZ= "";
+			if($tx_lock)
+				$skipX= " -skip x";
+			if($ty_lock)
+				$skipY= " -skip y";
+			if($tz_lock)
+				$skipZ= " -skip z";
+			$skipped = $skipX + $skipY + $skipZ;
+			$tmp=`eval ("pointConstraint " + $skipped + " " + $target_massiv[$i] + " " + $object_massiv[$i])`;
+			$name_of_constrain[$i]=$tmp[0];
+		}
+	}
+	return $name_of_constrain;
+}
+global proc string [] SHIFT3_2_c99bdb5a898efbfb1d4fa2221eba881b(string $target_massiv[], string $object_massiv[])
+{
+	string $name_of_constrain[];
+	string $tmp[];
+	int $rx_lock;
+	int $ry_lock;
+	int $rz_lock;
+	int $h;
+	string $skipX;
+	string $skipY;
+	string $skipZ;
+	string $skipped;
+	for($i=0;$i<size($target_massiv);$i++)
+		{
+		$rx_lock=`getAttr -lock ($object_massiv[$i] + ".rx")`;
+		$ry_lock=`getAttr -lock ($object_massiv[$i] + ".ry")`;
+		$rz_lock=`getAttr -lock ($object_massiv[$i] + ".rz")`;
+		$h=$rx_lock+$ry_lock+$rz_lock;
+		if ($h<3)
+		{
+			$skipX= "";
+			$skipY= "";
+			$skipZ= "";
+			if($rx_lock)
+				$skipX= " -skip x";
+			if($ry_lock)
+				$skipY= " -skip y";
+			if($rz_lock)
+				$skipZ= " -skip z";
+			$skipped = $skipX + $skipY + $skipZ;
+			$tmp=`eval ("orientConstraint -mo " + $skipped + " " + $target_massiv[$i] + " " + $object_massiv[$i])`;
+			$name_of_constrain[$i]=$tmp[0];
+		}
+	}
+	return $name_of_constrain;
+}
+global proc SHIFT3_2_3323b46f97bc12510f86536ae21ff525()
+{
+	global string $GloabalCopyPaste2[];
+	$GloabalCopyPaste2=`ls-sl`;
+}
+global proc SHIFT3_2_de88efca2929f0080ae1d45ff5db42d4()
+{
+	$selection=`ls-sl`;
+    $mayaVersion = `getApplicationVersionAsFloat` ;
+    string $eval_mode[];
+    if ($mayaVersion>=2016)
+    {
+        $eval_mode=`evaluationManager -q -mode`;
+		if($eval_mode[0]!="off")
+			evaluationManager -mode "off";
+    }
+    $min=`playbackOptions -q -ast`;
+    $max=`playbackOptions -q -aet`;
+    $its_baked=catchQuiet (`bakeResults -sm 1 -s false -t ($min+":"+$max) $selection`);
+	if ($mayaVersion>=2016)
+    {
+		if($eval_mode[0]!="off")
+			evaluationManager -mode $eval_mode[0];
+    }
+    if($its_baked)
+    {
+        warning "select something!";
+    }
+}
+global proc string SHIFT3_2_c954f3ebe8232ef721ae19221935b64e(string $take_name)
+{
+    $i=0;
+    while (`objExists $take_name`)
+    {
+        $take_name=( $take_name + $i);
+	}
+   return $take_name;
+}
+global proc vector[] SHIFT3_2_3c3ce83b4c7fdce5b7da19beca86d659(vector $get_vector_for_revers[])
+{
+    vector $revers_objs[];
+    vector $obj;
+	$j=size($get_vector_for_revers)-1;
+	for ($obj in $get_vector_for_revers)
+	{
+		$revers_objs[$j]=$obj;
+		$j--;
+	}
+	return $revers_objs;
+}
+global proc string[] SHIFT3_2_8a435c1e94becce7728e63b61ba412bd(float $radius)
+{
+	$selection = `ls -fl -sl `;
+	string $curve_sphere[];
+	if(size($selection)>0)
+	{
+		for($i=0;$i<size($selection);$i++)
+		{
+			$curve_sphere[$i]=SHIFT3_2_1a0417e38be183894da98c3ef5716f0d($radius);
+		}
+		SHIFT3_2_847308ac6f1debf8edcc8d63e128d64c( $selection, $curve_sphere);
+		SHIFT3_2_7f958423a7cfe1774157efdcb79ac0be( $selection,$curve_sphere);
+	}
+	else
+	{
+		$curve_sphere[0]=SHIFT3_2_1a0417e38be183894da98c3ef5716f0d($radius);
+	}
+   select $curve_sphere ;
+   return $curve_sphere;
+}
+global proc string SHIFT3_2_1a0417e38be183894da98c3ef5716f0d(float $radius)
+{
+	string $curves[];
+	$crv=`curve -d 1
+        -p 0  0.5  0
+        -p 0  -0.5  0
+        -p 0  0  0
+        -p 0.5  0  0
+        -p -0.5  0  0
+        -p 0  0  0
+        -p 0  0  0.5
+        -p 0  0  -0.5 ` ;
+        scale -a (1*$radius) (1*$radius) (1*$radius)  $crv;
+        makeIdentity -apply true -t 1 -r 1 -s 1 -n 0 -pn 1;
+        select $crv;
+        return $crv;
+};
+global proc SHIFT3_2_7f958423a7cfe1774157efdcb79ac0be(string $target_position[], string $object_to_move[])
+{
+	if(size($target_position)!=size($object_to_move))
+		warning "size objects to rotate is DIFFERENT!!! Only relevant objects will be processed! This can lead to unexpected consequences!!!!";
+	if(size($target_position)> size($object_to_move))
+		$target_position=`ls -head (size($object_to_move)) $target_position`;
+	float $Rot[];
+	for($i=0;$i<size($target_position);$i++)
+	{
+		$Rot = `xform -q -ro -ws $target_position[$i]`;
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $object_to_move[$i];
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $object_to_move[$i];
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $object_to_move[$i];
+	}
+}
+global proc vector[] SHIFT3_2_2bf8a8136110c57d5b95308ba444b308(vector $coords[])
+{
+    vector $final_coords[]={};
+    vector $radius;
+    int $index_mass[];
+    for($i=0;$i<size($coords);$i++)
+        $index_mass[$i]=1;
+    for($i=0;$i<size($coords)-1;$i++)
+	{
+        if($index_mass[$i]==1&&$index_mass[$i+1]==1)
+        {
+            $radius=$coords[$i]-$coords[$i+1];
+            for($k=$i+2;$k<size($coords);$k++)
+                if(`mag $radius`>`mag ($coords[$i]-$coords[$k])`)
+                    $index_mass[$k]=0;
+        }
+	}
+	int $j=0;
+    for($i=0;$i<size($coords);$i++)
+	{
+        if($index_mass[$i]==1)
+        {
+            $final_coords[$j]=$coords[$i];
+            $j++;
+        }
+	}
+    return  $final_coords;
+}
+global proc vector[] SHIFT3_2_72356eaf232b169651a82383ba9e7e57(string $objects[])
+{
+    vector $vec_pos[];
+    $i=0;
+	float $pos[];
+   for($obj in $objects)
+   {
+       $pos=SHIFT3_2_8598296823aa3af15686cb0d78f1615d($obj);
+       $vec_pos[$i]=<<$pos[0],$pos[1],$pos[2]>>;
+       $i++;
+   }
+   return $vec_pos;
+}
+global proc SHIFT3_2_bb5805895dc14a829576cd013ec234e4(string $objects[])
+{
+    string $result[];
+    string $channels[]={".tx",".ty",".tz",".rx",".ry",".rz"};
+    for($obj in $objects)
+    {
+        for($ch in $channels)
+        {
+            $result=`listConnections -d off -s on ($obj + $ch)`;
+            if($result[0]=="")
+            {
+               catchQuiet (`setKeyframe -breakdown 0 -hierarchy none -controlPoints 0 -shape 0 ($obj + $ch)`);
+            }
+        }
+    }
+}
+global proc SHIFT3_2_847308ac6f1debf8edcc8d63e128d64c(string $target_position[], string $object_to_move[])
+{
+    if(size($target_position)!=size($object_to_move))
+		warning "size objects to move is DIFFERENT!!! Only relevant objects will be processed! This can lead to unexpected consequences!!!!";
+	if(size($target_position)> size($object_to_move))
+		$target_position=`ls -head (size($object_to_move)) $target_position`;
+	float $Trans[];
+	for($i=0;$i<size($target_position);$i++)
+	{
+        $Trans=SHIFT3_2_8598296823aa3af15686cb0d78f1615d($target_position[$i]);
+		move -rpr $Trans[0] $Trans[1] $Trans[2] $object_to_move[$i];
+		move -rpr $Trans[0] $Trans[1] $Trans[2] $object_to_move[$i];
+		move -rpr $Trans[0] $Trans[1] $Trans[2] $object_to_move[$i];
+	}
+}

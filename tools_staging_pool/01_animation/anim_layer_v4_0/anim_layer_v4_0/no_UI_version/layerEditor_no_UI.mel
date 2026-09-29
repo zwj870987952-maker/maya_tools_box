@@ -1,0 +1,685 @@
+global proc string create_and_select_anim_layer(int $rotation_mod)
+{
+	string $animLayer=`animLayer -addSelectedObjects`;
+	$cmd="setAttr " + $animLayer + ".rotationAccumulationMode " + $rotation_mod;
+	eval ($cmd);
+	selectLayer($animLayer);
+	return $animLayer;
+}
+global proc int extract_anim_on_base_layer_selected_object()
+{
+    $selection=`ls -sl`;
+    string $obj_in_layers[];
+    string  $aff[];
+    $i=0;
+    string $obj;
+    for ($obj in $selection)
+    {
+        select $obj;
+        $aff=getAffectedLayers({$obj});
+        if(size($aff)>=1)
+        {
+            $obj_in_layers[$i]=$obj;
+            $i++;
+        }
+    }
+    select $obj_in_layers;
+    string  $affected_layers[], $lay, $locked_a_layers[], $unlocked_a_layers[], $locked_muted_a_layers[],$locked_un_muted_a_layers[];
+    $size=size($obj_in_layers);
+    if ($size>=1)
+    {
+        $affected_layers=getAffectedLayers($obj_in_layers);
+        for($lay in $affected_layers)
+            {
+                if(`animLayer -q -lock  $lay`==1)
+                    appendStringArray($locked_a_layers, {$lay},1);
+                else
+                    appendStringArray($unlocked_a_layers, {$lay},1);
+            }
+        for($lay in $locked_a_layers)
+            {
+                if(`animLayer -q -mute  $lay`==1)
+                    appendStringArray($locked_muted_a_layers, {$lay},1);
+                else
+                    appendStringArray($locked_un_muted_a_layers, {$lay},1);
+            }
+        for($lay in $locked_a_layers)
+            animLayer -edit -mute 1 $lay;
+        bake_simulation_playback_range;
+        layerEditorRemoveObjectsAnimLayer($selection,  $unlocked_a_layers);
+        deleteEmptyAnimLayers();
+        for($lay in $locked_un_muted_a_layers)
+            animLayer -edit -mute 0 $lay;
+    }
+    select -cl;
+    int $have_locked=0;
+    select  $selection;
+	if ($size>=1)
+		euler_filter_on_selected;
+	if (size($locked_a_layers)>0)
+	    $have_locked=1;
+	return $have_locked;
+}
+global proc string extract_part_to_over_layer(float $side_frames)
+{
+	float $time_range[]=get_time_range_from_selected_keys_or_timeslider();
+	selectKey -clear ;
+	string $over_lay_name;
+    string $attrib[]=`channelBox -q -selectedMainAttributes mainChannelBox`;
+    string $bake_at_attr="";
+    string $attr;
+    if(size($attrib)>0)
+        for($attr in $attrib)
+            $bake_at_attr= $bake_at_attr + " -at " + $attr;
+    string $cmd;
+	if ($time_range[1]-$time_range[0]>1)
+	{
+	    $over_lay_name=`animLayer  -override 1 ("an_Over" + ($time_range[0]-$side_frames-1) + "_" + ($time_range[1]+$side_frames) + "_")`;
+	    $cmd="bakeResults -simulation false -dic false	-removeBakedAttributeFromLayer 0 -destinationLayer " ;
+			$cmd= $cmd + $over_lay_name ;
+			$cmd= $cmd + " -smart 1 -sampleBy 1 -oversamplingRate 1 -time " ;
+         $cmd= $cmd + "\"" + ($time_range[0]-$side_frames-1) + ":" + ($time_range[1]+$side_frames) + "\"";
+         $cmd= $cmd + $bake_at_attr;
+         eval ($cmd);
+		string $curves_in_lay[]=`animLayer -q -animCurves $over_lay_name`;
+		string $crv;
+		for($crv in $curves_in_lay)
+		{
+			setKeyframe -t ($time_range[0]-$side_frames -1) -insert $crv;
+			setKeyframe -t ($time_range[1]+$side_frames) -insert  $crv;
+		}
+		cutKey -t ( ":" +($time_range[0]-$side_frames-2)) -cl $curves_in_lay;
+		cutKey -t (($time_range[1]+$side_frames +1) + ":")  -cl $curves_in_lay;
+		setKeyframe -t ($time_range[0]-1) -v 0  -itt linear -ott linear -at ($over_lay_name + ".weight") ($over_lay_name + ".weight") ;
+		setKeyframe -t ($time_range[0]) -v 1  -itt linear -ott linear -at ($over_lay_name + ".weight") ($over_lay_name + ".weight") ;
+		setKeyframe -t ($time_range[1]-1) -v 1  -itt linear -ott linear -at ($over_lay_name + ".weight") ($over_lay_name + ".weight") ;
+		setKeyframe -t ($time_range[1]) -v 0  -itt linear -ott linear -at ($over_lay_name + ".weight") ($over_lay_name + ".weight") ;
+	}
+	else
+	{
+	    $over_lay_name=`animLayer  -override 1 an_Over_all`;
+        $cmd="bakeResults -simulation false -dic false -removeBakedAttributeFromLayer 0 -destinationLayer " ;
+			$cmd= $cmd + $over_lay_name ;
+			$cmd= $cmd + " -smart 1 -sampleBy 1 -oversamplingRate 1 -time " ;
+         $cmd= $cmd + "\"" + (`playbackOptions -q -ast`  + ":" + `playbackOptions -q -aet`) + "\"";
+         $cmd= $cmd + $bake_at_attr;
+          eval ($cmd);
+	}
+	selectLayer($over_lay_name);
+	return $over_lay_name;
+}
+global proc selectLayer(string $layer)
+{
+	string $layers[]=`ls -type "animLayer"`;
+	int $i;
+	for($i=0; $i<size($layers); $i++)
+		animLayer -e -selected 0 $layers[$i];
+	animLayer -e -selected 1 $layer;
+	animLayerEditorOnSelect $layer 1;
+}
+global proc select_few_Layers(string $layers[])
+{
+    string $all_layers[]=`ls -type "animLayer"`;
+	string $lay;
+	for($lay in $all_layers)
+		animLayer -e -selected 0 $lay;
+	for($lay in $layers)
+		animLayer -e -selected 1 $lay;
+}
+global proc select_object_in_selected_layers()
+{
+	string $curr_selected_layers[] = getSelectedAnimLayer("AnimLayerTab");
+	layerEditorSelectObjectAnimLayer($curr_selected_layers);
+	select_few_Layers($curr_selected_layers);
+}
+global proc string[] select_best_layer()
+{
+    string $bst_lay[]=`animLayer -q -blr`;
+    if(size($bst_lay)>1)
+        $bst_lay=`stringArrayRemove {"BaseAnimation"} $bst_lay ` ;
+    string $layers[]=`ls -type "animLayer"`;
+	string $lay;
+	for($lay in $layers)
+		animLayer -e -selected 0 $lay;
+	for($lay in $bst_lay)
+		animLayer -e -selected 1 $lay;
+    return $bst_lay;
+}
+global proc string animLayerMerge_toAdditive( string $layers[], float $timerange[] )
+{
+	int $lMergingBase = false;
+	string $lSelectedLayers[] = $layers;
+	string $attributes[];
+	for($layer in $layers)
+	{
+		string $attrs[] = `animLayer -query -attribute $layer`;
+		appendStringArray($attributes, $attrs, size($attrs));
+	}
+	$attributes = stringArrayRemoveDuplicates(`sort($attributes)`);
+	string $destLayer = "Merged_Layer";
+	$destLayer = `animLayer $destLayer`;
+	setAttr( $destLayer+".scaleAccumulationMode",1 );
+	setAttr( $destLayer+".rotationAccumulationMode",1 );
+	if( size( $attributes ) )
+	{
+		string $failedAttr[];
+		for($attr in $attributes)
+		{
+			if( `animLayer -edit -addRelatedKG false -attribute $attr $destLayer` <=0 )
+			{
+				$failedAttr[ size( $failedAttr ) ] =  $attr;
+			}
+		}
+		$attributes = stringArrayRemove( $failedAttr, $attributes );
+	}
+	if( size( $attributes ) )
+	{
+		animLayer -edit -mute 1 $destLayer;
+		dgdirty -allPlugs;
+		string $lCommand = "bakeResults -simulation false -dic false -removeBakedAttributeFromLayer 1 -destinationLayer " +$destLayer;
+		$lCommand += " -sampleBy 1 -oversamplingRate 1";
+		$lCommand= ($lCommand+ " -time \"" + $timerange[0] + ":" + ($timerange[1]-1) + "\"");
+		for($layer in $layers)
+		{
+			$lCommand  = $lCommand + " -resolveWithoutLayer "+$layer;
+		}
+		for($attr in $attributes)
+		{
+			$lCommand  = $lCommand +" "+$attr;
+		}
+		evalEcho($lCommand);
+		animLayer -edit -mute 0 $destLayer;
+	}
+	delete $lSelectedLayers;
+	dgdirty -allPlugs;
+	select -cl;
+	return $destLayer;
+}
+global proc string[] extract_animation_to_additive_layer()
+{
+	$selection=`ls-sl`;
+	float $cur_time=`currentTime -q`;
+	int $min=`playbackOptions -q -min`;
+	int $max=`playbackOptions -q -max`;
+	autoKeyframe -state off;
+	int $weight_offset;
+	$selectedTime=get_time_range_from_selected_keys_or_timeslider();
+	$timerange_selected=($selectedTime[1]-1)- $selectedTime[0];
+	$time_range= $max-$min;
+	int $rng;
+	select -r $selection;
+	string $over_layer_name;
+	if (!$timerange_selected)
+	{
+		$over_layer_name="pose_" + `abs($cur_time)`;
+	}
+	else
+	{
+		$over_layer_name="pose_" +  $selectedTime[0] + "__" + ($selectedTime[1]-1);
+	}
+	string $base_pose_animLayer=`animLayer -addSelectedObjects  -override 1 ($over_layer_name)`;
+	selectLayer($base_pose_animLayer);
+	if (!$timerange_selected)
+	{
+		$rng = $time_range;
+		$weight_offset=$time_range+1;
+		setKeyframe -breakdown 0 -id -itt linear -ott linear -dd true -hierarchy none -controlPoints 0 -shape 0 -t ($selectedTime[0]);
+	}
+	else
+	{
+		$rng = $timerange_selected;
+		currentTime $selectedTime[0];
+		setKeyframe -breakdown 0 -id -itt linear -ott linear -dd true -hierarchy none -controlPoints 0 -shape 0 -t ($selectedTime[0]);
+		currentTime ($selectedTime[1]-1);
+		setKeyframe -breakdown 0 -id -itt linear -ott linear -dd true -hierarchy none -controlPoints 0 -shape 0 -t ($selectedTime[1]-1);
+		$weight_offset=$max +1 - $selectedTime[0];
+	}
+	if ($timerange_selected)
+	{
+		setKeyframe -v 0 -itt linear -ott linear -t ($selectedTime[0]-1)($base_pose_animLayer +".weight");
+		setKeyframe -v 1 -itt linear -ott linear -t ($selectedTime[0])  ($base_pose_animLayer +".weight");
+		setKeyframe -v 1 -itt linear -ott linear -t ($selectedTime[1]-1) ($base_pose_animLayer +".weight");
+		setKeyframe -v 0 -itt linear -ott linear -t ($selectedTime[1]) ($base_pose_animLayer +".weight");
+	}
+    animLayer -edit -mute 1 $base_pose_animLayer;
+    animLayer -edit -lock true $base_pose_animLayer;
+    string $layer;
+	if (!$timerange_selected)
+	{
+	    $selectedTime={$min + 0.0,$max+ 0.0};
+	    $layer=bake_simulation_timerange_on_over_layer({$selectedTime[0],($selectedTime[1]+1)});
+	}
+	else
+        $layer=bake_simulation_timerange_on_over_layer($selectedTime);
+    animLayer -edit -mute 0 $base_pose_animLayer;
+    animLayer -edit -lock false $base_pose_animLayer;
+    string $additive_animLayer=animLayerMerge_toAdditive( {$layer},$selectedTime);
+    selectLayer($additive_animLayer);
+    layerEditorSelectObjectAnimLayer({$additive_animLayer});
+	animLayer -edit -parent $base_pose_animLayer $additive_animLayer;
+	autoKeyframe -state 1;
+	return {$base_pose_animLayer,$additive_animLayer};
+}
+global proc anim_layer_fast_merge()
+{
+    $selection=`ls-sl`;
+    string $layers[]=`ls -type "animLayer"`;
+    layerEditorSelectObjectAnimLayer($layers);
+    int $have_locked=extract_anim_on_base_layer_selected_object();
+    if(! $have_locked)
+        delete (`select_skip_no_exist($layers)`);
+    select $selection;
+}
+global proc string getLayerDisplayType()
+{
+	global string $gCurrentLayerEditor;
+	if ("" == $gCurrentLayerEditor)
+	{
+		error (uiRes("m_layerEditor.kNoLayerEditor"));
+		return "";
+	}
+	setParent $gCurrentLayerEditor;
+	string $type = `tabLayout -query -selectTab DisplayLayerUITabLayout`;
+	if ($type == "DisplayLayerTab")
+		return "Display";
+	else if($type == "AnimLayerTab")
+		return "Anim";
+	return "Render";
+}
+global proc float[] get_anim_time_range_from_anim_layer(string $anim_layer_name)
+{
+    string $curr_layer_curve[];
+    if ($anim_layer_name!="BaseAnimation"&&$anim_layer_name!="")
+    {
+        $curr_layer_curve=`animLayer -q -animCurves  $anim_layer_name`;
+    }
+    else
+    {
+         $curr_layer_curve=`keyframe -q -n`;
+    }
+    if (`size $curr_layer_curve`==0)
+    {
+        warning "no layer and no object selected";
+        return {0};
+    }
+    float $range[]=`keyframe  -query -timeChange  $curr_layer_curve`;
+    $range =`sort $range`;
+    return  {$range[0],$range[size($range)-1]};
+}
+global proc float[] get_anim_time_range_from_multiply_anim_layers(string $anim_layers_name[])
+{
+    float $range[];
+    float $total_range[];
+    int $k=0;
+    $num=size($anim_layers_name);
+	if( $num==0)
+	{
+		$num=1;
+	}
+    for($j=0;$j<$num;$j++)
+    {
+       $range=get_anim_time_range_from_anim_layer($anim_layers_name[$j]);
+       $total_range[$k]= $range[0];
+       $k++;
+       $total_range[$k]= $range[1];
+       $k++;
+    }
+	float $sort_total_range[];
+	$sort_total_range=`sort $total_range`;
+	float $ret_range[]={$sort_total_range[0],$sort_total_range[size($sort_total_range)-1]};
+	print $ret_range;
+	return $ret_range;
+}
+global proc string create_add_anim_layer_from_objects_and_set_framerange_from_multiply_anim_layers(string $objects[], int $mod)
+{
+    string $curr_selected_layers[] = getSelectedAnimLayer("AnimLayerTab");
+    select $objects;
+    $frame_range=get_anim_time_range_from_multiply_anim_layers($curr_selected_layers);
+    $num=`size $curr_selected_layers`;
+    string  $parent_layer;
+    if($num==0)
+    {
+         $parent_layer="BaseAnimation";
+    }else
+    {
+        $parent_layer=`animLayer -q -parent $curr_selected_layers[$num-1]`;
+    }
+    $new_add_layer_name=create_and_select_anim_layer($mod);
+    animLayer -edit -parent $parent_layer $new_add_layer_name;
+    setKeyframe -t ($frame_range[0]) -breakdown 0 -id -itt "linear" -ott "linear" -dd true -hierarchy none -controlPoints 0 -shape 0;
+    setKeyframe -t ($frame_range[1]) -breakdown 0 -id -itt "linear" -ott "linear" -dd true -hierarchy none -controlPoints 0 -shape 0;
+    return $new_add_layer_name;
+}
+global proc string create_add_anim_layer_from_timerange(string $objects[], int $mod)
+{
+    $frame_range=get_time_range_from_selected_keys_or_timeslider();
+    $new_add_layer_name=create_and_select_anim_layer($mod);
+    setKeyframe -t ($frame_range[0]) -breakdown 0 -id -itt "linear" -ott "linear" -dd true -hierarchy none -controlPoints 0 -shape 0;
+    setKeyframe -t ($frame_range[1] - 1 ) -breakdown 0 -id -itt "linear" -ott "linear" -dd true -hierarchy none -controlPoints 0 -shape 0;
+    return $new_add_layer_name;
+}
+global proc string[] create_anim_layer_from_channelbox_attrib(int $mode)
+{
+    $channel_names=`channelBox -q -selectedMainAttributes mainChannelBox`;
+    $selected=`ls-sl`;
+    string $all_attr_in_layer[];
+    string $obj;
+    string $chan;
+    for($obj in $selected)
+        for($chan in $channel_names)
+            appendStringArray($all_attr_in_layer, {($obj + "." + $chan)}, 1);
+    string $new_layer=`animLayer` ;
+    setAttr ($new_layer + ".rotationAccumulationMode") $mode;
+    string $cmd="animLayer -e ";
+    for($chan in $all_attr_in_layer)
+        $cmd= $cmd +  "-at " +  $chan;
+    $cmd= $cmd + " " + $new_layer;
+    eval ($cmd);
+    selectLayer($new_layer);
+    return $all_attr_in_layer;
+}
+global proc extract_smart_anim_on_base_layer_selected_object(int $fidelity,float $tolerance)
+{
+    $selection=`ls -sl`;
+    string $obj_in_layers[];
+    string  $aff[];
+    $i=0;
+    string $obj;
+    for ($obj in $selection)
+    {
+        select $obj;
+        $aff=getAffectedLayers({$obj});
+        if(size($aff)>=1)
+        {
+            $obj_in_layers[$i]=$obj;
+            $i++;
+        }
+    }
+    select $obj_in_layers;
+    string  $affected_layers[];
+    $size=size($obj_in_layers);
+    if ($size>=1)
+    {
+        $affected_layers=getAffectedLayers($obj_in_layers);
+        bake_smart_simulation_playback_range($fidelity,$tolerance);
+        layerEditorRemoveObjectsAnimLayer($selection,  $affected_layers);
+        deleteEmptyAnimLayers();
+    }
+    select -cl;
+    select  $selection;
+}
+global proc anim_layer_smart_fast_merge(int $fidelity,float $tolerance)
+{
+    $selection=`ls-sl`;
+    string $layers[]=`ls -type "animLayer"`;
+    layerEditorSelectObjectAnimLayer($layers);
+    extract_smart_anim_on_base_layer_selected_object($fidelity,$tolerance);
+    select_skip_no_exist($layers);
+	delete ;
+    select $selection;
+}
+global proc execute_smart_fast_merge(int $fidelity,float $tolerance)
+{
+	$selected=`ls-sl`;
+    disable_viewport;
+    anim_layer_smart_fast_merge($fidelity,$tolerance);
+    enable_viewport;
+	select -cl;
+    select  $selected;
+}
+global proc execute_fast_merge()
+{
+	$selected=`ls-sl`;
+    disable_viewport;
+    anim_layer_fast_merge;
+    enable_viewport;
+	select -cl;
+    select  $selected;
+}
+global proc execute_smart_fast_selected_merge(int $fidelity,float $tolerance)
+{
+    $selected=`ls-sl`;
+    disable_viewport;
+    extract_smart_anim_on_base_layer_selected_object( $fidelity, $tolerance);
+    enable_viewport;
+    select -cl;
+    select  $selected;
+}
+global proc execute_fast_selected_merge()
+{
+    $selected=`ls-sl`;
+    disable_viewport;
+    extract_anim_on_base_layer_selected_object;
+    enable_viewport;
+    select -cl;
+    select  $selected;
+}
+global proc extract_to_additive_layer()
+{
+    disable_viewport;
+    catchQuiet (extract_animation_to_additive_layer());
+    enable_viewport;
+}
+global proc anim_layer_util_menue()
+{
+	if(`window -q -ex "anim_layer_util"`)deleteUI("anim_layer_util");
+	window -tb true -mnb false -mxb false -mb false -tlb true -tbm true "anim_layer_util";
+	columnLayout -adj true al_clmn;
+	rowLayout -numberOfColumns 8 ;
+	symbolButton
+        -image "zeroKey.png"
+		-ann "- Zero Key Layer"
+		-c "setKeyframe -breakdown 0 -id -itt plateau  -ott plateau -dd true -hierarchy none -controlPoints 0 -shape 0";
+	symbolButton
+	        -image "expandInfluenceList.png"
+    		-ann "- fast smart merge all layers"
+    		-c "execute_fast_merge";
+	symbolButton
+    		-image "alignVMin.png"
+    		-ann "- merge selected objects from animation Layer (from Start to End time of animation)"
+    		-c "execute_fast_selected_merge";
+	symbolButton
+    		-image "flatTangent.png"
+    		-ann "- create layer from timerange"
+    		-c "create_add_anim_layer_from_timerange(`ls-sl`,1) ";
+	symbolButton
+    		-image "alignVMax.png"
+    		-ann "- create animLayer with zero keyframes from bottom animLayer"
+    		-c "create_add_anim_layer_from_objects_and_set_framerange_from_multiply_anim_layers(`ls-sl`,1)";
+	symbolButton
+    		-image "newLayerSelected.png"
+    		-ann "- create and select standart Maya animLayer from selected"
+    		-c "create_and_select_anim_layer(0)";
+ 	symbolButton
+    		-image "newLayerSelected.png"
+    		-bgc 0.6 0.6 0.9
+    		-ann " - create  animLayer with byLayer rotation accumulation. The best choice in most cases!!!!"
+    		-c "create_and_select_anim_layer(1)";
+    	frameLayout  -p al_clmn -bgc 0.6 0.42 0.6 -ebg true -bv false -cl true -cll true -l "anim util" -la "top"  -lw 161 -mh 5 -mw 3
+    			            -cc " window -e -h 50 anim_layer_util";
+    	button
+    		-l "smart merge"
+    		-ann "fast smart merge all layers"
+    		-c "execute_smart_fast_merge(0,5)";
+    	button
+    		-l "smart merge selected"
+    		-ann "fast smart merge selected  objects"
+    		-c "execute_smart_fast_selected_merge(0,5)";
+    	button
+    		-l "extract to over layer"
+    		-ann "extract selected objects to Override Anim Layer  by TimeRange or frameRange. Set Zero Key Layer added pose from bottom animation"
+    		-c "extract_part_to_over_layer(3)";
+    	button
+    		-l "extract to additive layer"
+    		-ann "extract selected objects to additive Anim Layer  relative to current frame or between timeRange frames"
+    		-c "extract_to_additive_layer";
+    	showWindow "anim_layer_util";
+}
+global proc float[] get_min_max_from_selected()
+{
+	float $num_frame[] = `keyframe -q  -sl`;
+	$num_frame=`sort  $num_frame`;
+	if(size($num_frame)==0)
+	{
+		warning "no interval selected" ;
+		return {0,0};
+	}
+	return {$num_frame[0], $num_frame[size($num_frame)-1]};
+}
+global proc float[] get_time_range_from_selected_keys_or_timeslider()
+{
+	global string $gPlayBackSlider;
+	float $selectedTime[]=`timeControl -q -ra $gPlayBackSlider`;
+	string $curve[] = `keyframe -q -n -sl`;
+	if((($selectedTime[1]-$selectedTime[0])<=1)&&($curve[0]==""))
+	{
+	}
+	else if((($selectedTime[1]-$selectedTime[0])<=1)&&($curve[0]!=""))
+	{
+		$selectedTime=get_min_max_from_selected();
+		$selectedTime[1]=ceil($selectedTime[1]+1);
+	}
+	return $selectedTime;
+}
+global proc disable_viewport()
+{
+	global float $startTime;
+	global string $my_eval_mode[];
+	float $mayaVersion;
+	$startTime = `timerX`;
+	refresh -su 1;
+	setTimeSliderVisible 0;
+	$mayaVersion = `getApplicationVersionAsFloat` ;
+	if ($mayaVersion>=2016)
+	{
+		$my_eval_mode=`evaluationManager -q -mode`;
+		evaluationManager -mode "off";
+	}
+}
+global proc enable_viewport()
+{
+	global float $startTime;
+	global string $my_eval_mode[];
+	float $mayaVersion;
+	$totalTime = `timerX -startTime $startTime`;
+	print ("Total Time: "+$totalTime+"\n");
+	refresh -su 0;
+	setTimeSliderVisible 1;
+	$mayaVersion = `getApplicationVersionAsFloat` ;
+	if ($mayaVersion>=2016)
+	{
+		evaluationManager -mode $my_eval_mode[0];
+	}
+}
+global proc string bake_simulation_timerange_on_over_layer(float $timerange[])
+{
+    $selection=`ls-sl`;
+    $mayaVersion = `getApplicationVersionAsFloat` ;
+    string $eval_mode[];
+    if ($mayaVersion>=2016)
+    {
+        $eval_mode=`evaluationManager -q -mode`;
+		if($eval_mode[0]!="off")
+			evaluationManager -mode "off";
+    }
+    $min=$timerange[0];
+    $max=$timerange[1]-1;
+    string $lay=`animLayer -override 1  "BakedAnim"`;
+    $its_baked=catch (`bakeResults -sm 1 -s false -t ($min+":"+$max) -dl $lay  -minimizeRotation true  $selection`) ;
+    if ($mayaVersion>=2016)
+    {
+		if($eval_mode[0]!="off")
+			evaluationManager -mode $eval_mode[0];
+    }
+    if($its_baked)
+    {
+        warning "select something!";
+    }
+    select  $selection;
+    return  $lay;
+}
+global proc bake_smart_simulation_playback_range(int $fidelity,float $tolerance)
+{
+	$selection=`ls-sl`;
+    $mayaVersion = `getApplicationVersionAsFloat` ;
+    string $eval_mode[];
+    if ($mayaVersion>=2016)
+    {
+        $eval_mode=`evaluationManager -q -mode`;
+		if($eval_mode[0]!="off")
+			evaluationManager -mode "off";
+    }
+    $min=`playbackOptions -q -ast`;
+    $max=`playbackOptions -q -aet`;
+    int $its_baked;
+    if($fidelity)
+        $its_baked=catchQuiet (`bakeResults -simulation true -t ($min+":"+$max) -smart 1 $fidelity -disableImplicitControl true  -minimizeRotation true $selection`);
+    else
+        $its_baked=catchQuiet (`bakeResults -simulation true -t ($min+":"+$max) -smart 1 -disableImplicitControl true  -minimizeRotation true $selection`);
+	if ($mayaVersion>=2016)
+    {
+		if($eval_mode[0]!="off")
+			evaluationManager -mode $eval_mode[0];
+    }
+    if($its_baked)
+    {
+        warning "select something!";
+    }
+}
+global proc bake_simulation_playback_range()
+{
+	$selection=`ls-sl`;
+    $mayaVersion = `getApplicationVersionAsFloat` ;
+    string $eval_mode[];
+    if ($mayaVersion>=2016)
+    {
+        $eval_mode=`evaluationManager -q -mode`;
+		if($eval_mode[0]!="off")
+			evaluationManager -mode "off";
+    }
+    $min=`playbackOptions -q -ast`;
+    $max=`playbackOptions -q -aet`;
+    $its_baked=catchQuiet (`bakeResults -sm 1 -s false -t ($min+":"+$max) $selection`);
+	if ($mayaVersion>=2016)
+    {
+		if($eval_mode[0]!="off")
+			evaluationManager -mode $eval_mode[0];
+    }
+    if($its_baked)
+    {
+        warning "select something!";
+    }
+}
+global proc euler_filter_on_selected()
+{
+	$selected= `ls -sl`;
+	if(size($selected)==0)
+	{
+		warning "select something!!!!";
+		return;
+	}
+	string $crvs[] = `keyframe -q -n`;
+	float $statTime[] = `keyframe -index 0 -q -tc $crvs`;
+	$statTime=`sort $statTime`;
+	$null_frame = $statTime[0] - 10;
+	catchQuiet(`setKeyframe -v 0 -t $null_frame -at rotateX -at rotateY -at rotateZ`) ;
+	catchQuiet(`filterCurve $selected.rotateX $selected.rotateY $selected.rotateZ`);
+	selectKey -clear;
+	catchQuiet(`cutKey -t $null_frame  -at rotateX -at rotateY -at rotateZ `);
+	selectKey -clear;
+}
+global proc string[] select_skip_no_exist(string $objs[])
+{
+	string $new_selected[];
+	$j=0;
+	for($i=0;$i<size($objs);$i++)
+	{
+		if( `objExists $objs[$i]` )
+		{
+			$new_selected[$j] = $objs[$i];
+			$j++;
+		}
+	}
+	select -r $new_selected;
+	return $new_selected;
+}

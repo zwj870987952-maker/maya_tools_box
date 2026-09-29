@@ -1,0 +1,125 @@
+# Embedded file name: S:\Git\eblabs-hub\eblabs_hub\WorldSpaceTools\scripts\Spaces.py
+"""
+Spaces Tool
+"""
+__author__ = 'Eric Bates, eblabs.com'
+__copyright__ = 'Copyright 2019, Eric Bates'
+__credits__ = ['Eric Bates']
+__maintainer__ = 'Eric Bates'
+__email__ = 'info@eblabs.com'
+__status__ = 'Production'
+__version__ = '1.0'
+__date__ = '2021.11.11'
+import copy
+from . import CoreWidgets
+from ..images import IconProvider
+from . import Tab_SpacesMain
+from . import Tab_ScreenSpace
+from . import Tab_PathSpace
+from . import Tab_Tools
+from ...UXFramework.scripts import MaterialDesign
+from ..data import PackageData
+package_data = PackageData.get_data()
+try:
+    from past.builtins import long
+except:
+    pass
+
+def iteritems(obj, **kwargs):
+    """Use this only if compatibility with Python versions before 2.7 is
+    required. Otherwise, prefer viewitems().
+    """
+    func = getattr(obj, 'iteritems', None)
+    if not func:
+        func = obj.items
+    return func(**kwargs)
+
+
+class Window(CoreWidgets.TabWidgetDialog):
+
+    def __init__(self, *args, **kwargs):
+        super(Window, self).__init__(*args, **kwargs)
+
+    @classmethod
+    def get_template_data(cls):
+        data = CoreWidgets.TabWidgetDialog.get_template_data()
+        data['label'] = 'Spaces | {0}'.format(package_data.get('version', ''))
+        data['size'] = [CoreWidgets.SharedSettings.Maya.get_dpi_scaled_value(200)] * 2
+        data['items'] = []
+        return copy.deepcopy(data)
+
+    def get_tab_data(self):
+        """
+        override this to customize what tabs are displayed
+        """
+        items = []
+        item_data = self.tab_contents_handler.get_item_template_data()
+        item_data['description'] = 'World Space'
+        label = 'World'
+        item_data['pixmap'] = self.get_label_icon(label, active=False)
+        item_data['pixmap_hover'] = item_data['pixmap'].copy()
+        item_data['pixmap_active'] = self.get_label_icon(label, active=True)
+        item_data['pixmap_hover_active'] = item_data['pixmap_active'].copy()
+        item_data['width'] = item_data['pixmap'].width()
+        item_data['height'] = item_data['pixmap'].height()
+        item_data['widgetBuilder'] = Tab_SpacesMain.ToolWidget
+        items.append(item_data)
+        item_data = self.tab_contents_handler.get_item_template_data()
+        item_data['description'] = 'Path'
+        label = 'Path'
+        item_data['pixmap'] = self.get_label_icon(label, active=False)
+        item_data['pixmap_hover'] = item_data['pixmap'].copy()
+        item_data['pixmap_active'] = self.get_label_icon(label, active=True)
+        item_data['pixmap_hover_active'] = item_data['pixmap_active'].copy()
+        item_data['width'] = item_data['pixmap'].width()
+        item_data['height'] = item_data['pixmap'].height()
+        item_data['widgetBuilder'] = Tab_PathSpace.ToolWidget
+        items.append(item_data)
+        item_data = self.tab_contents_handler.get_item_template_data()
+        item_data['description'] = 'Camera'
+        label = 'Camera'
+        item_data['pixmap'] = self.get_label_icon(label, active=False)
+        item_data['pixmap_hover'] = item_data['pixmap'].copy()
+        item_data['pixmap_active'] = self.get_label_icon(label, active=True)
+        item_data['pixmap_hover_active'] = item_data['pixmap_active'].copy()
+        item_data['width'] = item_data['pixmap'].width()
+        item_data['height'] = item_data['pixmap'].height()
+        item_data['widgetBuilder'] = Tab_ScreenSpace.ToolWidget
+        items.append(item_data)
+        item_data = self.tab_contents_handler.get_item_template_data()
+        item_data['description'] = 'Tools'
+        label = 'Tools'
+        item_data['pixmap'] = self.get_label_icon(label, active=False)
+        item_data['pixmap_hover'] = item_data['pixmap'].copy()
+        item_data['pixmap_active'] = self.get_label_icon(label, active=True)
+        item_data['pixmap_hover_active'] = item_data['pixmap_active'].copy()
+        item_data['width'] = item_data['pixmap'].width()
+        item_data['height'] = item_data['pixmap'].height()
+        item_data['widgetBuilder'] = Tab_Tools.ToolWidget
+        items.append(item_data)
+        return items
+
+    def get_label_icon(self, label, active = False):
+        block_height = CoreWidgets.SharedSettings.get_block_size() * 0.6
+        radius = block_height * 0.1
+        border_width = CoreWidgets.SharedSettings.Maya.get_dpi_scaled_value(1)
+        label_aspect = CoreWidgets.PixoShop.Actions.getTextAspect(label, self, bold=True)
+        label_width = label_aspect * block_height + block_height * 0.5
+        pixmap = CoreWidgets.PixoShop.Actions.pixmapCanvas(width=label_width, height=block_height)
+        if active:
+            color = MaterialDesign.Scheme.get_color_rgba('tertiary', elevation=MaterialDesign.Elevation.one)
+            pixmap = CoreWidgets.PixoShop.Actions.addPatternFill(pixmap, border_width, color, radius=radius)
+            color = MaterialDesign.Scheme.get_color_rgba('on-tertiary')
+            pixmap = CoreWidgets.PixoShop.Actions.addTextInsideRect(pixmap, label, color=color, alignMode=CoreWidgets.Qt.QtCore.Qt.AlignCenter, bold=True)
+        else:
+            color = MaterialDesign.Scheme.get_color_rgba('surface', elevation=MaterialDesign.Elevation.one)
+            pixmap = CoreWidgets.PixoShop.Actions.addPatternFill(pixmap, border_width, color, radius=radius)
+            color = MaterialDesign.Scheme.get_color_rgba('on-surface')
+            pixmap = CoreWidgets.PixoShop.Actions.addTextInsideRect(pixmap, label, color=color, alignMode=CoreWidgets.Qt.QtCore.Qt.AlignCenter, bold=True)
+            color = MaterialDesign.Scheme.get_color_rgba('outline')
+            pixmap = CoreWidgets.PixoShop.Actions.addBorder(pixmap, border_width, color, radius=radius)
+        return pixmap
+
+
+def launch():
+    Window.launch()

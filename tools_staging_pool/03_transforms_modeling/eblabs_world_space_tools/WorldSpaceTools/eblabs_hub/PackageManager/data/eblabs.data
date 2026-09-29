@@ -1,0 +1,101 @@
+{
+    "dependencies": [],
+    "description": "Package Manager for making it easier to update and install eblabs tools. ",
+    "id": "PackageManager",
+    "long_name": "Package Manager",
+    "shelf_data": [
+        {
+            "color": [
+                0.761,
+                0.224,
+                0.416,
+                1
+            ],
+            "command_data": {
+                "alt_command": "",
+                "command": "\ninstall_path = 'C:\\\\Users\\\\hanjt\\\\Documents\\\\maya\\\\scripts'\npackage_id = 'PackageManager'\n\nimport os\nimport sys\nif not install_path in sys.path:\n    sys.path.insert(0, install_path)\n\nimport eblabs_hub.PackageManager.scripts.PackageManager as tool\n\nw = tool.Window()\nw.display()",
+                "description": "",
+                "id": "",
+                "long_name": "",
+                "source_type": "python"
+            },
+            "data": {},
+            "description": "Package Manager",
+            "icon": {
+                "image": "C:\\Users\\hanjt\\Documents\\maya\\scripts\\eblabs_hub\\PackageManager\\images\\eblabs_package_manager.png",
+                "label": ""
+            },
+            "id": "Package Manager",
+            "items": [
+                {
+                    "color": [
+                        0.573,
+                        0.737,
+                        0.231,
+                        1
+                    ],
+                    "command_data": {
+                        "alt_command": "",
+                        "command": "",
+                        "description": "",
+                        "id": "",
+                        "long_name": "",
+                        "source_type": "python"
+                    },
+                    "data": {},
+                    "description": "",
+                    "icon": {
+                        "image": "",
+                        "label": ""
+                    },
+                    "id": "",
+                    "items": [],
+                    "long_name": "",
+                    "sub_type": "",
+                    "tags": [],
+                    "type": "divider",
+                    "uuid": "79aba12a4c0348ba94d0502b35039698"
+                },
+                {
+                    "color": [
+                        0.573,
+                        0.737,
+                        0.231,
+                        1
+                    ],
+                    "command_data": {
+                        "alt_command": null,
+                        "command": "\ninstall_path = 'C:\\\\Users\\\\hanjt\\\\Documents\\\\maya\\\\scripts'\npackage_id = 'PackageManager'\n\nimport os\nimport sys\nif not install_path in sys.path:\n    sys.path.append(install_path)\n\nimport PackageManager.scripts.PackageManager as tool\nreload(tool)\n\ntool.Utils.Core.update_package_manager()",
+                        "description": "",
+                        "id": "",
+                        "long_name": "",
+                        "source_type": "python"
+                    },
+                    "data": {},
+                    "description": "",
+                    "icon": {
+                        "image": "",
+                        "label": ""
+                    },
+                    "id": "Update Package Manager",
+                    "items": [],
+                    "long_name": "Update Package Manager",
+                    "sub_type": "",
+                    "tags": [],
+                    "type": "menuItem",
+                    "uuid": "ddbeff7148884181a17f4df45683f358"
+                }
+            ],
+            "long_name": "Package Manager",
+            "sub_type": "",
+            "tags": [
+                "eblabs_HUB_DEV"
+            ],
+            "type": "standardButton",
+            "uuid": "e8a72626492f4df4ab454a61c7af359b"
+        }
+    ],
+    "support": "https://github.com/eblabs/eblabs_docs/issues",
+    "version": "0.6.9",
+    "website": "https://github.com/eblabs/eblabs_docs"
+}

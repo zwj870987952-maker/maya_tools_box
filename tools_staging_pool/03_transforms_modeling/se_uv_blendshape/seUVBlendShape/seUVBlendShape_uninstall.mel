@@ -1,0 +1,91 @@
+/*
+seUVBlendShape Uninstall Script
+-------------------------------
+
+This script is to easily uninstall the seUVBlendShape module.
+
+Note: This will NOT delete the seUVBlendShape folder from your file system.
+Only the module file that was copied when installing and the shelf will be
+removed. Installation can be done by simply using the install script again.
+
+To use:
+
+    * Launch Maya (batch or interactive)
+    * Source this script by using either the "source [path to this script]"
+      MEL command OR in the script editor menu File->Source Script and choose
+      this file OR drag and drop this file into the viewport (if possible).
+    * If in a interactive session, a popup will ask if you want to delete
+      the shelf and confirm the uninstall was successful or not.
+    * That's it! The tools will no longer be available the next time you
+      restart Maya.
+
+If an error occurs, check the script editor for details.
+
+You can manually uninstall the seUVBlendShape module by:
+    
+    * Deleting the seUVBlendShape shelf.
+    * Deleting the seUVBlendShape.mod file from the Maya module directory
+      you selected during installation.
+    * Restart Maya to complete changes.
+*/
+
+global proc seUVBlendShape_uninstall() {
+
+    string $result = `confirmDialog -title "Uninstall seUVBlendShape?"
+                      -message "Are you sure you want to uninstall seUVBlendShape?"
+                      -button "Yes" -button "No" -defaultButton "Yes"
+                      -cancelButton "No" -dismissString "No"`;
+
+    if ($result == "No")
+        return;
+
+    int $status = seUVBlendShape_uninstall_module();
+    if ($status)
+        confirmDialog -title "Uninstall Failed"
+        -message "seUVBlendShape was not removed. See script editor for details."
+        -button "Ok";
+    else
+        confirmDialog -title "Uninstall Successful"
+        -message "seUVBlendShape was successfully removed. It will not be available the next restart of Maya."
+        -button "Ok";
+}
+
+global proc int seUVBlendShape_uninstall_module() {
+    print "\nUninstalling the seUVBlendShape module...\n";
+
+    // remove the seUVBlendShape shelf
+    if (`shelfLayout -exists "seUVBlendShape"`) {
+        deleteShelfTab "seUVBlendShape";
+    }
+
+    // make sure the seUVBlendShape module is available
+    string $loadedModules[] = `moduleInfo -listModules`;
+    if (stringArrayFind("seUVBlendShape", 0, $loadedModules) == -1) {
+        warning("The seUVBlendShape module appears to not be installed. Nothing more to do...");
+        return -1;
+    }
+
+    string $mayaModulesEnv = `getenv "MAYA_MODULE_PATH"`;
+    string $mayaModulePaths[];
+    if (`about -windows`)
+        $mayaModulePaths = stringToStringArray($mayaModulesEnv, ";");
+
+    else if (`about -linux` || `about -mac`)
+        $mayaModulePaths = stringToStringArray($mayaModulesEnv, ":");
+
+    string $moduleFile = searchPathArray("seUVBlendShape.mod", $mayaModulePaths);
+    if (size($moduleFile)) {
+        print ("Deleting module file: " + $moduleFile + "\n");
+        sysFile -delete $moduleFile;
+    }
+
+    print "seUVBlendShape module successfully removed. It will not be available the next restart of Maya.\n";
+
+    return 0;
+}
+
+// call this procedure when sourced
+if (`about -b`)
+    seUVBlendShape_uninstall_module;
+else
+    seUVBlendShape_uninstall;

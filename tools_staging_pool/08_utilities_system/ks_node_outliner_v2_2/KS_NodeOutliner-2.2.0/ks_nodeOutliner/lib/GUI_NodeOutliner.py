@@ -1,0 +1,667 @@
+# -*- coding: utf-8 -*-
+from __future__ import absolute_import
+from PySide2 import QtCore, QtGui, QtWidgets
+
+from functools import partial
+
+import ks_nodeOutliner
+from ks_nodeOutliner.lib import GUI_OutlinerContainer, libCommon, config, GUI_FilterManager
+from six.moves import range
+
+try:
+    from ks_nodeOutliner.lib import libMaya
+except:
+    from ks_nodeOutliner.lib import libDesktop as libMaya
+
+
+class GUI_NodeOutliner(QtWidgets.QWidget):
+    def __init__(self, parent=None, **kwargs):
+        super(GUI_NodeOutliner, self).__init__(parent=parent, **kwargs)
+        self.setStyleSheet('''QToolButton:hover{ color: black; }''')  #This is to avoid a bug of its hoverstate remaining stuck.
+        self.setObjectName("ks_NodeOutlinerGUI")
+        self.setWindowTitle(ks_nodeOutliner._TITLE_)
+
+        self.CONFIG = config.configuration()
+        self.CONFIG.updated.connect(self.refreshSettings)
+        self.buildUI()
+
+        if ks_nodeOutliner._TRIAL_:
+            color = self.palette().color(QtGui.QPalette.Foreground).name()
+            self.freeWidget = emptyWidget()
+            self.freeWidget.setFixedHeight(35)
+            self.freeWidget.label.setText('<a href="%s" style="color: %s; text-decoration:none;"><b>Trial Version</b><br>Useful? Thanks for considering a purchase!</a>' %(ks_nodeOutliner._URL_TOOL_, color))
+            self.freeWidget.label.setOpenExternalLinks(True)
+            self.freeWidget.label.setStatusTip('Open website - Remove this Trial-label by supporting the development with a purchase.')
+            font = QtGui.QFont()
+            font.setPointSize(7)
+            self.freeWidget.label.setFont(font)
+            self.freeWidget.label.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+            self.freeWidget.rootLayout.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+            self.layout_bottom.addWidget(self.freeWidget)
+
+        self.activeMenuPreset = None
+        self.commandline_position = None
+
+        menuPresetNames = self.CONFIG.getMenuPresetNames()
+        if menuPresetNames:
+            self.setActiveMenuPreset(menuPresetNames[0])
+
+        self.populate_menu_presets()
+        self.loadUI()
+
+
+
+    def buildUI(self):
+        self.rootLayout = QtWidgets.QGridLayout(self)
+        self.rootLayout.setObjectName("ksNodeOutliner_rootLayout") # need to set a name so it can be referenced by maya node path
+        self.setLayout(self.rootLayout)
+        self.rootLayout.setAlignment(QtCore.Qt.AlignTop | QtCore.Qt.AlignLeft)
+
+        self.rootLayout.setContentsMargins(0,0,0,0)
+        self.rootLayout.setSpacing(0)
+
+        self.layout_top = QtWidgets.QVBoxLayout()
+        self.layout_top.setContentsMargins(0,0,0,0)
+        self.rootLayout.addLayout(self.layout_top, 0, 0, 1, 3)
+
+        self.layout_left = QtWidgets.QVBoxLayout()
+        self.layout_left.setContentsMargins(0,0,0,0)
+        self.rootLayout.addLayout(self.layout_left, 1, 0, 2, 1)
+
+        self.layout_middle = QtWidgets.QVBoxLayout()
+        self.layout_middle.setObjectName("ksNodeOutliner_middleLayout")
+        self.rootLayout.addLayout(self.layout_middle, 1,1,1,1)
+
+        self.layout_right = QtWidgets.QVBoxLayout()
+        self.layout_right.setContentsMargins(0,0,0,0)
+        self.rootLayout.addLayout(self.layout_right, 1,2,2,1)
+
+        self.splitterWidget = QtWidgets.QSplitter(QtCore.Qt.Vertical)
+        self.splitterWidget.setObjectName('outliner_splitter')
+        self.splitterWidget.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        self.layout_middle.addWidget(self.splitterWidget)
+
+        self.allOutliners = []
+        outlinerSizes = []
+        numberOfOutliners = 2
+        for i in range(numberOfOutliners):
+            outlinerName = 'nodeOutliner' + chr(97+i).upper()
+            ksOutliner = GUI_OutlinerContainer.OutlinerContainer(parent=self.splitterWidget, outlinerName=outlinerName)
+            self.allOutliners.append(ksOutliner)
+            outlinerSizes.append(0)
+
+        self.splitterWidget.setCollapsible(0, False)
+        self.splitterWidget.setSizes(outlinerSizes)
+
+
+        self.commandLine_menu = self.buildUI_commandLine()
+        self.layout_left.addWidget(self.commandLine_menu)
+
+
+        ### Extra tool pallettes
+        self.layout_bottom = QtWidgets.QVBoxLayout()
+        self.layout_bottom.setContentsMargins(0,2,0,2)
+        self.layout_bottom.setSpacing(2)
+        self.rootLayout.addLayout(self.layout_bottom, 2,1,1,1)
+
+
+        self.tools_globalSelectionFilter = tool_globalSelectionFilter()
+        self.tools_globalSelectionFilter.setVisible(False)
+        self.tools_globalSelectionFilter.assignOutliners(self.allOutliners)
+        self.layout_bottom.addWidget(self.tools_globalSelectionFilter)
+
+
+    def buildUI_commandLine(self):
+        self.commandLine_widget = QtWidgets.QWidget()
+        self.commandLine_widget.setFixedWidth(24)
+
+        self.commandLine_layout = QtWidgets.QVBoxLayout()
+        self.commandLine_layout.setContentsMargins(0,0,0,0)
+        self.commandLine_layout.setAlignment(QtCore.Qt.AlignHCenter)
+        self.commandLine_layout.setSpacing(2)
+        self.commandLine_widget.setLayout(self.commandLine_layout)
+
+
+        self.commandLine_layout_A = QtWidgets.QVBoxLayout()
+        self.commandLine_layout_A.setAlignment(QtCore.Qt.AlignTop)
+        self.commandLine_layout.addLayout(self.commandLine_layout_A)
+
+        iconButton = libCommon.makeIconBtn(iconPath=':/selectByObject.png', statusTip='Filter by selected node types', iconFallBackLetter="Sel", command=self.setFilter_bySelection, iconSize=24)
+        self.commandLine_layout_A.addWidget(iconButton)
+
+        spacer = QtWidgets.QSpacerItem(5, 5, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        self.commandLine_layout_A.addItem(spacer)
+
+        self.widget_filterShortcuts = ks_minimalScrollArea(self)
+        self.commandLine_layout_A.addWidget(self.widget_filterShortcuts)
+
+
+
+        self.commandLine_layout_B = QtWidgets.QVBoxLayout()
+        self.commandLine_layout.addLayout(self.commandLine_layout_B)
+
+        statusTip = 'Enable Slow-Mode - Outliner will not update unless a Selection Filter or Script Filter is in use, and search does not update until finished typing. Used for large scenes where filtering the entire scene is slow.'
+        self.btn_slowMode_toggle = iconButton = libCommon.makeIconBtn(iconPath=':/pause_S.png', statusTip=statusTip, iconFallBackLetter="P", command=False, iconSize=24)
+        iconButton.setCheckable(True)
+        iconButton.toggled.connect(self.slowMode_global_toggle)
+        self.commandLine_layout_B.addWidget(iconButton)
+
+        self.btn_selectionFilter_global = iconButton = libCommon.makeIconBtn(iconPath=':/aselect.png', statusTip='Global Selection Filter - Only show nodes related to the selected root nodes.', iconFallBackLetter="Sel", command=False, iconSize=24)
+        iconButton.setCheckable(True)
+        iconButton.toggled.connect(self.selectionFilter_global_toggle)
+        self.commandLine_layout_B.addWidget(iconButton)
+
+        spacer = QtWidgets.QSpacerItem(10, 10, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        self.commandLine_layout_B.addItem(spacer)
+
+
+        ### CONFIG BUTTONS
+
+        self.buildUI_optionsMenu()
+        iconButton = libCommon.makeIconBtn(iconPath=':/QR_settings.png', statusTip='Settings', iconFallBackLetter="Con", command=False, iconSize=20)
+        iconButton.setPopupMode(QtWidgets.QToolButton.InstantPopup)
+        iconButton.setMenu(self.optionsMenu)
+        self.commandLine_layout_B.addWidget(iconButton)
+
+        return self.commandLine_widget
+
+
+    def buildUI_optionsMenu(self):
+        self.optionsMenu = QtWidgets.QMenu(self) #Parent is self, self is the root GUI
+        self.optionsMenu.addAction("Open Filter Manager", self.openConfig)
+        self.optionsMenu.addAction("Reload Filter Data", self.forceReloadConfig)
+
+        self.optionsMenu.addSeparator()
+
+        self.menu_presets = QtWidgets.QMenu('Menu Preset:')
+        self.optionsMenu.addMenu(self.menu_presets)
+
+        self.menu_commandlinePosition = QtWidgets.QMenu('Toolbar Posision:')
+        self.optionsMenu.addMenu(self.menu_commandlinePosition)
+        self.menu_commandlinePosition.addAction('Left', lambda:self.GUI_commandLine_setPosition('left'))
+        self.menu_commandlinePosition.addAction('Right', lambda:self.GUI_commandLine_setPosition('right'))
+        self.menu_commandlinePosition.addAction('Top', lambda:self.GUI_commandLine_setPosition('top'))
+
+        self.menu_commandlinePosition = QtWidgets.QMenu('Outliner Layout')
+        self.optionsMenu.addMenu(self.menu_commandlinePosition)
+        self.menu_commandlinePosition.addAction('Vertical', lambda:self.GUI_splitter_setOrientation('vertical'))
+        self.menu_commandlinePosition.addAction('Horizontal', lambda:self.GUI_splitter_setOrientation('horizontal'))
+
+        self.optionsMenu.addAction("Set as Default UI", self.storeUI)
+
+        self.optionsMenu.addSeparator()
+        self.optionsMenu.addAction("About", self.openAboutDialog)
+
+
+    def storeUI(self):
+        outlinerSizes = '_'.join(str(value) for value in self.splitterWidget.sizes())
+        libMaya.setOptionVar('ks_nodeOutliner_outlinerSizes', outlinerSizes)
+        libMaya.setOptionVar('ks_nodeOutliner_activeMenuPreset', self.activeMenuPreset)
+        libMaya.setOptionVar('ks_nodeOutliner_commandline_position', self.commandline_position)
+        libMaya.setOptionVar('ks_nodeOutliner_outliner_layout', self.splitter_orientation)
+
+
+
+    def loadUI(self):
+        outlinerSizes = libMaya.getOptionVar('ks_nodeOutliner_outlinerSizes')
+        if outlinerSizes:
+            outlinerSizes = outlinerSizes.split('_')
+            outlinerSizes = [int(i) for i in outlinerSizes]
+            self.splitterWidget.setSizes(outlinerSizes)
+
+        activeMenuPreset = libMaya.getOptionVar('ks_nodeOutliner_activeMenuPreset')
+        if activeMenuPreset:
+            self.setActiveMenuPreset(activeMenuPreset)
+
+        commandlinePos = libMaya.getOptionVar('ks_nodeOutliner_commandline_position')
+        if commandlinePos:
+            self.GUI_commandLine_setPosition(commandlinePos)
+
+        orientation = libMaya.getOptionVar('ks_nodeOutliner_outliner_layout')
+        if orientation:
+            self.GUI_splitter_setOrientation(orientation)
+
+    def forceReloadConfig(self):
+        self.CONFIG.loadData(self.CONFIG.userConfigPath)
+        self.refreshSettings()
+
+    def refreshSettings(self):
+        self.populate_menu_presets()
+        self.setActiveMenuPreset(self.activeMenuPreset, setFilter=False)
+
+    def setActiveMenuPreset(self, presetName, setFilter=True):
+        menuPresets = sorted(self.CONFIG.getMenuPresetNames())
+        if presetName not in menuPresets:
+            presetName = menuPresets[0]
+
+        self.activeMenuPreset = presetName
+        self.populate_iconMenu(presetName)
+
+        filterList = self.CONFIG.menuPreset_getList(presetName, 'outlinerMenu')
+        for ksOutliner in self.allOutliners:
+            ksOutliner.populate_filterList(filterList)
+            if not setFilter:
+                continue
+            outlinerName = ksOutliner.getOutlinerName()
+            defaultFilter = self.CONFIG.menuPreset_getList(presetName, 'defaultFilter_'+outlinerName)
+            if defaultFilter:
+                ksOutliner.setFilter_byPreset(defaultFilter[0])
+            else:
+                ksOutliner.setFilter_noFilter()
+
+    def populate_menu_presets(self):
+        self.menu_presets.clear()
+        for item in self.CONFIG.getMenuPresetNames():
+            self.menu_presets.addAction(item, partial(self.setActiveMenuPreset, item))
+
+
+    def populate_iconMenu(self, presetName):
+        self.widget_filterShortcuts.clearMenu()
+        filterList = self.CONFIG.menuPreset_getList(presetName, 'iconMenu')
+
+        for filterName in filterList:
+            command = partial(self.setFilter_byPresetName, filterName)
+            statusTip = 'Activate Filter - %s' %(filterName)
+            filterNode = self.CONFIG.getFilterNode(filterName)
+            iconPath = filterNode.getData('icon')
+            iconButton = libCommon.makeIconBtn(iconPath=iconPath, statusTip=statusTip, iconSize=20, iconFallBackLetter=filterName[0], command=command)
+            self.widget_filterShortcuts.addItem(iconButton)
+
+        self.widget_filterShortcuts.refreshSizeHint()
+
+
+    def GUI_commandLine_setPosition(self, position):
+        if self.commandline_position == position:
+            return
+
+        self.commandline_position = position
+
+        if position == 'top':
+            self.layout_top.addWidget(self.commandLine_menu)
+            self.commandLine_menu.setMaximumWidth(2000)
+            self.commandLine_menu.setMaximumHeight(24)
+            self.commandLine_menu.layout().setDirection(QtWidgets.QBoxLayout.LeftToRight)
+            self.commandLine_layout_A.setDirection(QtWidgets.QBoxLayout.LeftToRight)
+            self.commandLine_layout_B.setDirection(QtWidgets.QBoxLayout.LeftToRight)
+            self.commandLine_layout_A.setAlignment(QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
+            self.commandLine_layout_B.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignVCenter)
+            self.widget_filterShortcuts.setDirection('horizontal')
+            return
+
+        if position == 'left':
+            self.layout_left.addWidget(self.commandLine_menu)
+
+        if position == 'right':
+            self.layout_right.addWidget(self.commandLine_menu)
+
+        self.widget_filterShortcuts.setDirection('vertical')
+        self.commandLine_menu.setMaximumWidth(24)
+        self.commandLine_menu.setMaximumHeight(2000)
+        self.commandLine_menu.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        self.commandLine_menu.layout().setDirection(QtWidgets.QBoxLayout.TopToBottom)
+        self.commandLine_layout_A.setDirection(QtWidgets.QBoxLayout.TopToBottom)
+        self.commandLine_layout_B.setDirection(QtWidgets.QBoxLayout.TopToBottom)
+        self.commandLine_layout_A.setAlignment(QtCore.Qt.AlignTop | QtCore.Qt.AlignHCenter)
+        self.commandLine_layout_B.setAlignment(QtCore.Qt.AlignBottom | QtCore.Qt.AlignHCenter)
+
+    def GUI_splitter_setOrientation(self, orientation):
+        self.splitter_orientation = orientation
+
+        if orientation == 'vertical':
+            self.splitterWidget.setOrientation(QtCore.Qt.Vertical)
+        elif orientation == 'horizontal':
+            self.splitterWidget.setOrientation(QtCore.Qt.Horizontal)
+        return
+
+    def toggleToolVisiblity(self, widget, state):
+        widget.setVisible(state)
+
+
+    def getOutlinerTarget(self):
+        ### Gets which outliner to manipulate based on keyboard shotcuts.
+        keyboardModifiers = QtWidgets.QApplication.keyboardModifiers()
+        if keyboardModifiers == QtCore.Qt.ControlModifier:
+            return self.allOutliners[1]
+        else:
+            return self.allOutliners[0]
+
+
+    def openAboutDialog(self):
+        aboutDiag = aboutDialog(self)
+        aboutDiag.exec_()
+
+
+    def openConfig(self):
+        existingGUIs = self.findChildren(GUI_FilterManager.GUI_FilterManager)
+        if existingGUIs:
+            existingGUIs[0].show()
+            return
+
+        configGUI = GUI_FilterManager.GUI_FilterManager(self)
+        configGUI.show()
+
+
+
+    def setFilter_bySelection(self):
+        outliner = self.getOutlinerTarget()
+        outliner.setFilter_bySelectedNodeTypes()
+
+    def setFilter_noFilter(self):
+        outliner = self.getOutlinerTarget()
+        outliner.setFilter_noFilter()
+
+    def setFilter_byPresetName(self, filterName):
+        outliner = self.getOutlinerTarget()
+        outliner.setFilter_byPreset(filterName)
+
+
+    def selectionFilter_global_toggle(self):
+        state = self.btn_selectionFilter_global.isChecked()
+        self.toggleToolVisiblity(self.tools_globalSelectionFilter, state)
+        self.tools_globalSelectionFilter.selectionFilter_global_toggle(active=state)
+
+    def slowMode_global_toggle(self):
+        state = self.btn_slowMode_toggle.isChecked()
+        for outliner in self.allOutliners:
+            if state:
+                outliner.slowMode_activate()
+            else:
+                outliner.slowMode_deactivate()
+
+
+
+class tool_globalSelectionFilter(QtWidgets.QWidget):
+    def __init__(self, parent=None):
+        super(tool_globalSelectionFilter, self).__init__(parent=parent)
+
+        self.rootSelection = []
+        self.outliners = []
+
+        self.globalSelectionFilterActive = False
+
+        self.buildUI()
+
+    def buildUI(self):
+        rootLayout = QtWidgets.QGridLayout(self)
+        self.setMaximumHeight(50)
+        rootLayout.setSpacing(2)
+        rootLayout.setContentsMargins(5,5,5,5)
+        self.setLayout(rootLayout)
+
+        label = QtWidgets.QLabel('Global Selection Filter')
+        font = label.font()
+        font.setBold(True)
+        label.setFont(font)
+        rootLayout.addWidget(label, 0,0, 1, -1)
+
+        selectionModifiers = QtWidgets.QHBoxLayout()
+        selectionModifiers.setSpacing(0)
+        selectionModifiers.setAlignment(QtCore.Qt.AlignLeft)
+        selectionModifiers.setContentsMargins(0,0,0,0)
+        rootLayout.addLayout(selectionModifiers, 1,0,1,-1, QtCore.Qt.AlignLeft)
+
+        self.lineEdit_currentSelection = lineEdit = QtWidgets.QLineEdit()
+        lineEdit.setEnabled(False)
+        selectionModifiers.addWidget(lineEdit)
+
+        self.btn_lockSelection = iconButton = libCommon.makeIconBtn(iconPath=':/lock.png', statusTip='Lock Root Selection', iconFallBackLetter="Lock", command=None, iconSize=22)
+        iconButton.setCheckable(True)
+        selectionModifiers.addWidget(iconButton)
+
+        label = QtWidgets.QLabel('+')
+        label.setAlignment(QtCore.Qt.AlignCenter)
+        label.setFixedWidth(15)
+        selectionModifiers.addWidget(label)
+
+
+        self.checkBtn_hierarchy = iconButton = libCommon.makeIconBtn(iconPath=':/selectByHierarchy.png', statusTip='Get Hierarchy - Include all child nodes of root selection in selection filter.', iconFallBackLetter="H", command=None, iconSize=22)
+        iconButton.setCheckable(True)
+        iconButton.setChecked(True)
+        selectionModifiers.addWidget(iconButton)
+
+        self.checkBtn_shaders = iconButton = libCommon.makeIconBtn(iconPath=':/out_shadingEngine.png', statusTip='Get Shading Network - Include all shading network nodes relevant to selection.', iconFallBackLetter="S", command=None, iconSize=22)
+        iconButton.setCheckable(True)
+        iconButton.setChecked(True)
+        selectionModifiers.addWidget(iconButton)
+
+        self.checkBtn_inputs = iconButton = libCommon.makeIconBtn(iconPath=':/input.png', statusTip='Get Input Connections - Include all input and history nodes relevant to selection.', iconFallBackLetter="In", command=None, iconSize=22)
+        iconButton.setCheckable(True)
+        iconButton.setChecked(True)
+        selectionModifiers.addWidget(iconButton)
+
+        spacer = QtWidgets.QSpacerItem(10, 10, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        selectionModifiers.addItem(spacer)
+
+        self.btn_refresh = iconButton = libCommon.makeIconBtn(iconPath=':/CN_refresh.png', statusTip='Refresh Selection Filter', iconFallBackLetter="R", command=None, iconSize=24)
+        selectionModifiers.addWidget(iconButton)
+        iconButton.clicked.connect(self.selectionFilter_global_activate)
+
+    def assignOutliners(self, outlinersList):
+        self.outliners = outlinersList
+
+
+    def rootSelection_get(self):
+        return self.rootSelection
+
+    def rootSelection_set(self, nodeList=list):
+        self.rootSelection = nodeList
+        items = len(nodeList)
+        if items < 10:
+            nodeList = libMaya.names_longToShort(nodeList)
+            text = ', '.join(nodeList)
+        else:
+            text = '%s root-nodes selected' %(str(items))
+
+        self.lineEdit_currentSelection.setText(text)
+
+
+    def selectionFilter_global_toggle(self, active):
+        if active == True:
+            self.selectionFilter_global_activate()
+        else:
+            self.selectionFilter_global_deactivate()
+
+
+    def selectionFilter_global_activate(self):
+        if self.btn_lockSelection.isChecked():
+            rootSelection = self.rootSelection_get()
+        else:
+            rootSelection = libMaya.getSelection(fullPath=True)
+            self.rootSelection_set(rootSelection)
+
+        if not rootSelection:
+            return
+
+        outliner = self.outliners[0]
+        outliner.outlinerWidget.selectionFilter_reset(local=False)
+
+        hierarchy = self.checkBtn_hierarchy.isChecked()
+        shaders = self.checkBtn_shaders.isChecked()
+        inputs = self.checkBtn_inputs.isChecked()
+        outliner.outlinerWidget.selectionFilter_add(nodeList=rootSelection, local=False, inclHierarchy=hierarchy, inclShaders=shaders, inclInputs=inputs)
+        self.globalSelectionFilterActive = True
+
+        for outliner in self.outliners:
+            outliner.outlinerWidget.selectionFilter_check()
+            outliner.outlinerWidget.filter_updateActive()
+            # outliner.scriptFilter_refresh()
+
+    def selectionFilter_global_deactivate(self):
+        if not self.globalSelectionFilterActive:
+            return
+        self.globalSelectionFilterActive = False
+        outliner = self.outliners[0]
+        outliner.outlinerWidget.selectionFilter_reset(local=False)
+        for outliner in self.outliners:
+            outliner.outlinerWidget.selectionFilter_check()
+            outliner.outlinerWidget.filter_updateActive()
+
+
+
+_ABOUT_INFO_ = '''
+Author: Kim Strandli
+www.kimstrandli.com
+Copyright © 2021
+
+
+Feedback is highly appreciated to help me
+make better updates and plugins in the future!
+
+For contact information or additional plugins,
+please check out my website.
+
+'''
+
+_ABOUT_TRIAL_ = '''
+This is a trial version for non-commercial work.
+If you enjoy this plugin, please consider a purchase
+to support the development. It is greatly appreciated.
+
+Thank you.
+
+'''
+
+
+class aboutDialog(QtWidgets.QDialog):
+    def __init__(self, parent=None, **kwargs):
+        super(aboutDialog, self).__init__(parent=parent, **kwargs)
+        self.setWindowTitle('About')
+        self.setStyleSheet('QLabel#Header {color:Orange}')
+        self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
+        self.setModal(True)
+        self.rootLayout = QtWidgets.QVBoxLayout()
+        self.rootLayout.setSpacing(2)
+        self.rootLayout.setContentsMargins(20,20,20,20)
+        self.setLayout(self.rootLayout)
+
+        self.buildUI()
+
+        if ks_nodeOutliner._TRIAL_:
+            self.label_title.setText(ks_nodeOutliner._TITLE_ + '<br>Trial Version')
+
+        self.setMaximumSize(self.rootLayout.sizeHint())
+        self.show()
+
+
+    def buildUI(self):
+        self.font_header = QtGui.QFont()
+        self.font_header.setPixelSize(20)
+        self.font_header.setWeight(120)
+
+        self.label_title = QtWidgets.QLabel(ks_nodeOutliner._TITLE_)
+        self.label_title.setObjectName('Header')
+        self.label_title.setFont(self.font_header)
+        self.label_title.setAlignment(QtCore.Qt.AlignCenter)
+        self.rootLayout.addWidget(self.label_title)
+
+        self.label_version = QtWidgets.QLabel(ks_nodeOutliner._VERSION_)
+        self.label_version.setAlignment(QtCore.Qt.AlignCenter)
+        self.rootLayout.addWidget(self.label_version)
+
+        infoText = _ABOUT_INFO_
+        if ks_nodeOutliner._TRIAL_:
+            infoText += _ABOUT_TRIAL_
+
+        self.label_info = QtWidgets.QLabel(infoText)
+        self.label_info.setAlignment(QtCore.Qt.AlignCenter)
+        self.rootLayout.addWidget(self.label_info)
+
+            # self.label_info = QtWidgets.QLabel(_ABOUT_TRIAL_)
+            # self.label_info.setAlignment(QtCore.Qt.AlignCenter)
+            # self.rootLayout.addWidget(self.label_info)
+
+        self.btn_website = QtWidgets.QPushButton('Open Website')
+        self.btn_website.setFixedHeight(40)
+        self.rootLayout.addWidget(self.btn_website)
+        self.btn_website.clicked.connect(lambda: openUrl(ks_nodeOutliner._URL_))
+
+
+def openUrl(linkStr):
+    QtGui.QDesktopServices.openUrl(QtCore.QUrl(linkStr))
+
+
+class emptyWidget(QtWidgets.QWidget):
+    def __init__(self, parent=None):
+        super(emptyWidget, self).__init__(parent=parent)
+        self.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+
+        self.rootLayout = QtWidgets.QVBoxLayout()
+        self.rootLayout.setAlignment(QtCore.Qt.AlignCenter)
+        self.rootLayout.setContentsMargins(0,0,0,0)
+        self.setLayout(self.rootLayout)
+
+        self.label = QtWidgets.QLabel()
+        self.rootLayout.addWidget(self.label)
+
+
+
+
+
+class ks_minimalScrollArea(QtWidgets.QScrollArea):
+    def __init__(self, parent=None, vertical=True):
+        super(ks_minimalScrollArea, self).__init__(parent=parent)
+        self.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.rootWidget = QtWidgets.QWidget()
+
+        self.buttonSpaceRequired = 0
+
+        self.rootLayout = QtWidgets.QVBoxLayout()
+        if vertical is False:
+            self.setDirection('horizontal')
+        else:
+            self.setDirection('vertical')
+
+        self.rootLayout.setContentsMargins(0,0,0,0)
+        self.rootLayout.setSpacing(2)
+        self.rootLayout.setAlignment(QtCore.Qt.AlignCenter)
+        self.rootWidget.setLayout(self.rootLayout)
+        self.setWidget(self.rootWidget)
+
+        self.setWidgetResizable(True)
+        self.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+
+
+    def setDirection(self, direction):
+        self.direction = direction
+
+        if self.direction == 'vertical':
+            self.rootLayout.setDirection(QtWidgets.QBoxLayout.TopToBottom)
+        elif self.direction == 'horizontal':
+            self.rootLayout.setDirection(QtWidgets.QBoxLayout.LeftToRight)
+        else:
+            pass
+
+        self.refreshSizeHint()
+
+    def refreshSizeHint(self):
+        # self.update()
+        if self.direction == 'vertical':
+            self.setMaximumSize(24, (self.buttonSpaceRequired+4))
+        elif self.direction == 'horizontal':
+            self.setMaximumSize((self.buttonSpaceRequired+4), 24)
+        else:
+            pass
+
+    def addItem(self, widget):
+        self.rootLayout.addWidget(widget)
+        self.buttonSpaceRequired += (widget.size().height()+2)
+
+
+    def clearMenu(self):
+        for i in reversed(list(range(self.rootLayout.count()))):
+            widget = self.rootLayout.itemAt(i).widget()
+            widget.setParent(None)
+            widget.deleteLater()
+        self.buttonSpaceRequired = 0
+
+
+
+
+
+if __name__ == "__main__":
+    app = QtWidgets.QApplication([])
+    outlinerGUI = GUI_NodeOutliner()
+    outlinerGUI.show()
+    app.exec_()
+

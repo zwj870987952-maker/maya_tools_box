@@ -1,0 +1,112 @@
+/*
+seUVBlendShape Deformer Attribute Editor Template
+-------------------------------------------------
+
+Created by: Scott Englert
+Date: 4/7/2016
+*/
+
+global proc AEseUVBlendShapeTemplate_InputTargetRepl(string $name)
+{
+    setUITemplate -pst attributeEditorTemplate;
+
+    string $children[] = `columnLayout -q -ca AEseUVBlendShapeTemplate_inputTargetColLayout`;
+    for ($child in $children)
+    {
+        deleteUI -lay $child;
+    }
+
+    setParent AEseUVBlendShapeTemplate_inputTargetColLayout;
+
+    string $buffer[];
+    tokenize $name "." $buffer;
+
+    int $targetIndices[] = `getAttr -multiIndices ($buffer[0] + ".weight")`;
+
+    for ($index in $targetIndices)
+    {
+        string $attrBaseName = ($name + "[" + $index + "]");
+        string $targetName = `aliasAttr -q ($buffer[0] + ".weight[" + $index + "]")`;
+
+        frameLayout -l ("[" + $index + "] - " + $targetName);
+
+        columnLayout -adj 1 -rs 0;
+
+        attrFieldGrp -label "Delta Scale" -attribute ($attrBaseName + ".targetDeltaScale");
+
+        string $targetUV = `getAttr ($attrBaseName + ".targetUVSet")`;
+        string $baseUV = `getAttr ($attrBaseName + ".baseUVSet")`;
+
+        textFieldGrp -label "Target UV Set" -text $targetUV -ed false;
+        textFieldGrp -label "Base UV Set" -text $baseUV -ed false;
+
+        button -label "Rebind" -c ("AEseUVBlendShapeTemplate_Rebind(\""+$buffer[0]+"\", \""+$index+"\")");
+
+        setParent AEseUVBlendShapeTemplate_inputTargetColLayout;
+    }
+
+    setParent ..;
+    setUITemplate -ppt;
+}
+
+global proc AEseUVBlendShapeTemplate_InputTargetNew(string $name)
+{
+    setUITemplate -pst attributeEditorTemplate;
+
+    frameLayout -l "Input Targets" AEseUVBlendShapeTemplate_InputTargetFrame;
+    setParent AEseUVBlendShapeTemplate_InputTargetFrame;
+
+    columnLayout -adj 1 AEseUVBlendShapeTemplate_inputTargetColLayout;
+
+    setUITemplate -ppt;
+
+    AEseUVBlendShapeTemplate_InputTargetRepl $name;
+}
+
+global proc AEseUVBlendShapeTemplate(string $nodeName)
+{
+    editorTemplate -beginScrollLayout;
+
+        editorTemplate -beginLayout "seUVBlendShape Attributes" -collapse false;
+            editorTemplate -addControl "keepOffset";
+            editorTemplate -addControl "threadCount";
+            editorTemplate -addControl "origin";
+            if (`about -apiVersion` >= 201600)
+                editorTemplate -addControl "allowGPU";
+            editorTemplate -addControl "weight";
+
+            editorTemplate -callCustom "AEseUVBlendShapeTemplate_InputTargetNew"
+                                       "AEseUVBlendShapeTemplate_InputTargetRepl"
+                                       "inputTarget[0].inputTargetGroup";
+
+        editorTemplate -endLayout;
+
+    AEgeometryFilterCommon $nodeName;
+    AEgeometryFilterInclude $nodeName;  
+
+    editorTemplate -addExtraControls;
+    editorTemplate -endScrollLayout;
+
+    editorTemplate -suppress "inputTarget";
+    editorTemplate -suppress "weightList";
+    editorTemplate -suppress "deltaWeightsList";
+    editorTemplate -suppress "input";
+    editorTemplate -suppress "outputGeometry";
+    editorTemplate -suppress "map64BitIndices";
+}
+
+// Opens a prompt to enter the rebind tolerance and rebinds the deformer
+global proc AEseUVBlendShapeTemplate_Rebind(string $deformer, string $targetIndex)
+{
+    string $result = `promptDialog -title "Bind Tolerance"
+            -message "Enter the UV bind tolerance:"
+            -text "0.01"
+            -button "OK" -button "Cancel"
+            -defaultButton "OK" -cancelButton "Cancel"
+            -dismissString "Cancel"`;
+
+    if ($result == "OK") {
+        float $tol = float(`promptDialog -q -text`);
+        evalEcho("seUVBlendShape -e -tol "+$tol+" -index "+$targetIndex+" -rebind "+$deformer);    
+    }
+}

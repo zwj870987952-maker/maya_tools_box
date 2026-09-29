@@ -1,0 +1,283 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>seUVBlendShape Plug-in Documentation &mdash; seUVBlendShape 3.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction" href="intro.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> seUVBlendShape
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="melCommand.html">MEL Command Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonReference.html">Python Module Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nodeReference.html">Node Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples and Demo Videos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">seUVBlendShape</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>seUVBlendShape Plug-in Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="seuvblendshape-plug-in-documentation">
+<h1>seUVBlendShape Plug-in Documentation<a class="headerlink" href="#seuvblendshape-plug-in-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Version: 3.0</p>
+<p>Author: Scott Englert</p>
+<p>Welcome to the documentation home page for the seUVBlendShape plug-in for
+Maya. Below are links to all the different topics for this tool. The most
+up to date documentation can be found on the <a class="reference external" href="http://www.scottenglert.com/seuvblendshape">seUVBlendShape homepage</a>.</p>
+<p>Please read the <a class="reference internal" href="eula.html"><span class="doc">End User License Agreement (EULA)</span></a> prior to
+installing.</p>
+<div class="section" id="what-s-new">
+<h2>What’s New<a class="headerlink" href="#what-s-new" title="Permalink to this headline">¶</a></h2>
+<p>Version 3.0 of the plug-in was rewritten to use a different algorithm so that greater performance on the GPU
+override of the deformer is achieved. It is still backwards compatible if opening up previous scenes from
+version of Maya before 2022. The new algorithm will be used when a new target is added or an existing
+target is rebound. New attributes were added to the node to store the new data while the old attributes
+still exist for compatibility.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Deformers using the new algorithm will not work in Maya versions before 2022. So if you plan to open
+your scene in older versions, do not add or rebind the target so the original data is retained.</p>
+</div>
+<p>Additionally, set membership is supported in 2022 version of the plug-in for GPU override. Finally,
+the Python module is compatible for Python 2 and 3. Older versions of the plug-in for Maya 2015
+through 2017 are no longer being supported or supplied. Please contact me if they are still needed.</p>
+</div>
+<div class="section" id="contents">
+<h2>Contents:<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#key-features">Key Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#what-s-included">What’s Included</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#support">Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#tips-and-guidelines">Tips and Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#feature-requests">Feature Requests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#easy-install-script">Easy Install Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#manual-install">Manual Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#uninstall-script">Uninstall Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#manual-uninstall">Manual Uninstall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#upgrading-from-trial-version">Upgrading From Trial Version</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="melCommand.html">MEL Command Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="melCommand.html#command-flags">Command flags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="melCommand.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pythonReference.html">Python Module Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pythonReference.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nodeReference.html">Node Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nodeReference.html#attributes">Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nodeReference.html#paintable-attributes">Paintable Attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples and Demo Videos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#install-uninstall">Install/Uninstall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#basic-overview">Basic Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#painting-weights">Painting Weights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#mirroring-shapes">Mirroring Shapes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="index">
+<h2>Index:<a class="headerlink" href="#index" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="genindex.html"><span class="std std-ref">Documentation Index</span></a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="intro.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Scott Englert
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

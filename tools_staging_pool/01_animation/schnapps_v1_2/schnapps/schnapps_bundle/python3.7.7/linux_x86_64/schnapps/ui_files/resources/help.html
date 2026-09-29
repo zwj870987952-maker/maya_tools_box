@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="help.css">
+  <title>Schnapps Help</title>
+</head>
+
+<body id="preview">
+
+<div class="about_container">
+  <div class="about">
+    <h5>About Schnapps</h5>
+    <p>Version: 1.0 (rc)</p>
+    <p>Author: Billy Dao</p>
+    <p>Email: <a href="mailto:hello@decogged.com">hello@decogged.com</a></p>
+  </div>
+</div>
+
+<div class="bookend">
+  <h3>Table of Contents</h3>
+
+  <div class="table_contents">
+    <ol>
+      <li><a href="#What_is_Schnapps_0">What is Schnapps?</a></li>
+        <ul>
+          <li><a href="#How_Schnapps_works_8">How Schnapps works</a></li>
+          <li><a href="#How_should_I_use_Schnapps_28">How should I use Schnapps</a></li>
+        </ul>
+      <li><a href="#Getting_started_37">Getting Started</a></li>
+      <li><a href="#Snap_48">Snap</a>
+        <ul>
+          <li><a href="#Time_Based_57">Time Based</a></li>
+          <li><a href="#Translate_Rotate_Scale_checkboxes_62">Translate Rotate Scale Checkboxes</a></li>
+          <li><a href="#World_69">World</a></li>
+          <li><a href="#Object_72">Object</a></li>
+          <li><a href="#Pivot_75">Pivot</a></li>
+          <li><a href="#Center_79">Center</a></li>
+          <li><a href="#Mesh_82">Mesh</a></li>
+          <li><a href="#Impossible_87">Impossible</a></li>
+        </ul>
+      </li>
+      <li><a href="#Pop_Snap_92">Pop Snap</a>
+        <ul>
+          <li><a href="#Time_Based_109">Time Based</a></li>
+          <li><a href="#Translate_Rotate_Scale_fields_143">Translate</a></li>
+          <li><a href="#World_151">World</a></li>
+          <li><a href="#Object_158">Object</a></li>
+          <li><a href="#Pivot_165">Pivot</a></li>
+          <li><a href="#Center_174">Center</a></li>
+          <li><a href="#Impossible_182">Impossible</a></li>
+        </ul>
+      </li>
+      <li><a href="#Multi_Snap_193">Multi Snap</a></li>
+        <ul>
+          <li><a href="#Time_Based_212">Time Based</a></li>
+          <li><a href="#List_A_and_List_B_0">List A and List B</a></li>
+          <li><a href="#Translate_Rotate_Scale_checkboxes_217">Translate Rotate Scale Checkboxes</a></li>
+          <li><a href="#World_224">World</a></li>
+          <li><a href="#Object_227">Object</a></li>
+          <li><a href="#Pivot_230">Pivot</a></li>
+          <li><a href="#Center_234">Center</a></li>
+          <li><a href="#Mesh_237">Mesh</a></li>
+          <li><a href="#Impossible_242">Impossible</a></li>
+        </ul>
+    </ol>
+  </div>
+</div>
+
+<div class="start_heading">
+  <h1><a id="What_is_Schnapps_0"></a>What is Schnapps?</h1>
+</div>
+
+<div class="content">
+  <p><strong>Schnapps</strong> is a multi-purpose snapping tool that offers a variety of snapping methods.</p>
+  <p>The goal of Schnapps is to be incredibly useful in many different situations, super simple to use, but also highly customizable when needed.</p>
+  <p>While there may be many tools that might do something similar, Schnapps aims to be the <strong>most complete</strong> and <strong>flexible</strong>, yet <strong>simple</strong> to use snapping tool of them all.</p>
+  <h3><a id="How_Schnapps_works_8"></a>How Schnapps works</h3>
+  <p>The 3 primary snapping methods within Schnapps are:</p>
+  <h4><a id="Snap_11"></a>Snap</h4>
+  <img src="help_images/snap.gif">
+  <p>Snap one object or many objects, to a single source object.</p>
+  <h4><a id="Pop_Snap_14"></a>Pop Snap</h4>
+  <img src="help_images/pop_snap.gif">
+  <p>Store the selected object’s translate/rotate/scale values, and whenever you need to, you can snap object(s) to those stored values.</p>
+  <h4><a id="Multi_Snap_17"></a>Multi Snap</h4>
+  <img src="help_images/multi_snap.gif">
+  <p>Snap pairs of objects together, I.E. Snap objects in list B to list A.</p>
+  <p>Each snapping method has options for snapping such as:</p>
+  <ul>
+    <li>Affect only translate, rotate, scale, or a combination of each.</li>
+    <li>Snapping/storing to different transform spaces (world, object, pivot, center of an object, and more).</li>
+    <li>Snapping to the surface of a mesh.</li>
+    <li>Snapping objects over a highlighted timeline range.</li>
+    <li>Snapping to frozen objects</li>
+    <li>Storing the approximate translate, rotate, or scale values of a frozen object.</li>
+  </ul>
+  <h3><a id="How_should_I_use_Schnapps_28"></a>How should I use Schnapps?</h3>
+  <p>Because Schnapps is so multi-purpose and flexible. How you use it is really up to your imagination.</p>
+  <p>Here are <em>some</em> ideas of how you can use snaps:</p>
+  <ul>
+    <li>Copy the exact values of one object, and paste it to another.</li>
+    <li>Snap over multiple frames, to lock down foot slips on a walk cycle.</li>
+    <li>Stamp trees down onto a mesh surface.</li>
+    <li>Snap one rig to another (even if the control names are different), using Multi Snap.</li>
+    <li>Keep an object’s translate/rotate/scale values stored for when you need it.</li>
+  </ul>
+</div>
+
+<div class="main_heading">
+  <h1><a id="Getting_started_37"></a>Getting started</h1>
+</div>
+
+<div class="content">
+  <p>Here is the quickest way to get started with Schnapps:</p>
+  <ol>
+    <li>Switch to the <strong>Snap</strong> tab.</li>
+    <li>Select the source object (the object you want to snap to).</li>
+    <li><em>Shift-select</em> to add objects you want to snap.</li>
+    <li>Hit the <code>Snap</code> button.</li>
+  </ol>
+  <p>That’s it!<p>
+  <p>For more advanced snapping options, see the help sections for each of the snap methods, <strong>Snap</strong>, <strong>Snap Pop</strong>, <strong>Multi Snap</strong>.</p>
+</div>
+
+<div id="Snap" class="main_heading">
+  <h1><a id="Snap_48"></a>Snap</h1>
+</div>
+
+<div class="content">
+  <p><strong>Snap</strong> works on what you have selected.</p>
+  <img src="help_images/snap.gif">
+  <ol>
+    <li>Select the source object (the object you want to snap to).</li>
+    <li><em>Shift-select</em> to add objects you want to snap.</li>
+    <li>Hit the <code>Snap</code> button.</li>
+  </ol>
+  <p>This will snap all the latter selections, to the first selection.</p>
+
+  <h3><a id="Snap_Settings_56"></a>Snap Settings</h3>
+
+  <div class="settings_item">
+    <h4><a id="Time_Based_57"></a>Time Based</h4>
+    <img src="help_images/time_based_snap.gif">
+    <p>If you have a timeline selection, Schnapps will prompt you to ask whether you want to snap object(s) over time, on the frames you have highlighted.</p>
+    <p>If you answer <code>Yes</code>, then Schnapps will snap that object(s) on every frame you have highlighted.</p>
+    <p>This can be useful if you have keyframes on your object(s) and want to lock them down in space for the highlighted range or have them snap to an animated object over the highlighted range.</p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="Translate_Rotate_Scale_checkboxes_62"></a>Translate Rotate Scale Checkboxes</h4>
+    <img src="help_images/checkboxes.jpg">
+    <p>Sets whether you want to snap the <strong>translate</strong>, <strong>rotate</strong>, and/or <strong>scale</strong> of an object.</p>
+    <p><strong>Defaults</strong>:<br><code>Translate</code>: On<br><code>Rotate</code>: On<br><code>Scale</code>: Off</p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="World_69"></a>World</h4>
+    <p>Snap subjects to a source object using <strong>world space</strong> transform values.</p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="Object_72"></a>Object</h4>
+    <p>Copy and paste the source object’s transform values onto the subjects.</p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="Pivot_75"></a>Pivot</h4>
+    <p>Snap subjects to source object using the pivot positions of both.</p>
+    <p><em>Useful for when pivot positions are not the same as world space positions.</em></p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="Center_79"></a>Center</h4>
+    <p>Snap the center position of the subjects to the center position of the source object.</p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="Mesh_82"></a>Mesh</h4>
+    <img src="help_images/mesh_snap.gif">
+    <p>Snap subjects to the surface of the source object’s mesh.</p>
+    <p>This operation will perform a world space snap for every subject to its closest point to the source object’s mesh.</p>
+    <p><em>The source object must be a <strong>mesh</strong>.</em></p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="Impossible_87"></a>Impossible</h4>
+    <img src="help_images/impossible_snap.gif">
+    <p><em>Attempt</em> to do the impossible, and snap subjects to a frozen source object (an object that has had <strong>Freeze Transformations</strong> applied to it).</p>
+    <p><em>This operation is just an approximation. It works best on some-what symmetrical objects.</em></p>
+  </div>
+</div>
+
+<div id="Pop_Snap" class="main_heading">
+  <h1><a id="Pop_Snap_92"></a>Pop Snap</h1>
+</div>
+
+<div class="content">
+  <p><strong>Pop Snap</strong> separates the storing an object’s values, with the snapping of objects.</p>
+  <p>This means you can store an object’s translate/rotate/scale values. Then whenever you need to, you can snap other objects (or the same object) to those stored values.</p>
+  <img src="help_images/pop_snap.gif">
+  <ol>
+    <li>Select an object that you wish to store.</li>
+    <li>Hit the <code>Pop</code> button to store its values.</li>
+    <li>Select object(s) that you wish to snap.</li>
+    <li>Hit the <code>Snap</code> button to apply the stored values onto the objects.</li>
+  </ol>
+  <p>Pop Snap is handy if:</p>
+  <ul>
+    <li>You need to store and snap the same object, without needing to create some temporary locator.</li>
+    <li>You want to use different options (world, object, etc.) for storing than and snapping.</li>
+    <li>You need to temporarily store a position and recall it later.</li>
+    <li>You want to just copy the Channel Box values of an object somewhere (the settings dialog will show you those values).</li>
+  </ul>
+
+  <h3><a id="Pop_Snap_Settings_108"></a>Pop Snap Settings</h3>
+
+  <div class="settings_item">
+    <h4><a id="Time_Based_109"></a>Time Based</h4>
+    <img src="help_images/foot_slipping.gif">
+    <p>If you have a timeline selection, Schnapps will prompt you to ask whether you want to snap object(s) over time, on the frames you have highlighted.</p>
+    <p>If you answer <code>Yes</code>, then Schnapps will snap that object(s) on every frame you have highlighted.</p>
+    <p>This can be useful if you have keyframes on your object(s) and want to lock them down in space for the highlighted range, or have them snap to an animated object over the selcted range.</p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="Translate_Rotate_Scale_fields_143"></a>Translate Rotate Scale Fields</h4>
+    <p>These fields show you the values that are stored.</p>
+    <img src="help_images/stored_values.jpg">
+    <p>Use the checkboxes at the end to set whether you want to store/snap the <strong>translate</strong>, <strong>rotate</strong>, and/or <strong>scale</strong> of an object.</p>
+    <p><strong>Defaults</strong>:<br><code>Translate</code>: On<br><code>Rotate</code>: On<br><code>Scale</code>: Off</p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="World_151"></a>World</h4>
+    <p><strong>Store Method</strong></p>
+    <p>Store <strong>world space</strong> transform values of the selected object.</p>
+    <p><strong>Snap Method</strong></p>
+    <p>Applies stored values to source object as <strong>world space</strong> transform values.</p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="Object_158"></a>Object</h4>
+    <p><strong>Store Method</strong></p>
+    <p>Store selected object’s transform values seen in the Channel Box.</p>
+    <p><strong>Snap Method</strong></p>
+    <p>Paste stored values directly onto selected objects’ translate/rotate/scale attributes.</p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="Pivot_165"></a>Pivot</h4>
+    <p><strong>Store Method</strong></p>
+    <p>Store pivot positions of the selected object.</p>
+    <p><strong>Snap Method</strong></p>
+    <p>Snap selected objects to stored values using the pivot positions as the anchor point.</p>
+    <p><em>These operations are useful for when pivot positions are not the same as world space positions.</em></p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="Center_174"></a>Center</h4>
+    <p><strong>Store Method</strong></p>
+    <p>Store the center position of the selected object.</p>
+    <p><em>The center position is a similar position to if you were to perform Center Pivot.</em></p>
+    <p><strong>Snap Method</strong></p>
+    <p>Snap the center position of selected objects to stored values.</p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="Impossible_182"></a>Impossible</h4>
+    <img src="help_images/impossible_snap.gif">
+    <p><strong>Store Method</strong></p>
+    <p><em>Attempt</em> to do the impossible, and store selected frozen* object’s transforms.</p>
+    <p><strong>Snap Method</strong></p>
+    <p><em>Attempt</em> to do the impossible and snap selected frozen* objects to the stored values.</p>
+    <p><em>*An object that has had <strong>Freeze Transformations</strong> applied to it</em></p>
+    <p><em>These operations are just an approximation. They work best on some-what symmetrical objects.</em></p>
+  </div>
+</div>
+
+<div id="Multi_Snap" class="main_heading">
+  <h1><a id="Multi_Snap_193"></a>Multi Snap</h1>
+</div>
+
+<div class="content">
+  <p>Multi Snap is useful for snapping pairs of objects together.</p>
+  <p>Imagine you have one list of objects that you want to snap to another list of objects. Multi snap does just this.</p>
+  <img src="help_images/multi_snap.gif">
+  <ol>
+    <li>Select all your source objects.</li>
+    <li>Hit the <code>Load A</code> button.</li>
+    <li>Select all the objects you wish to snap to the sources.</li>
+    <li>Hit the <code>Load B</code> button.</li>
+    <li>Finally, hit the <code>Snap B to A</code> button.</li>
+  </ol>
+  <p>This will pair the objects in the B list together with the objects in the A list. For each pair, it will snap the B object to the A object.</p>
+  <p>Objects are paired based on your selection order.</p>
+  <p><strong>Example</strong>:</p>
+  <p>If you select <code>pCube1</code>, <code>pCube2</code>, <code>pCube3</code> in that order, and load them into list A. Then select <code>sphereA</code>, <code>sphereB</code>, <code>sphereC</code> in that order and load them into list B.</p>
+  <p>It will snap <code>sphereA</code> to <code>pCube1</code>, <code>sphereB</code> to <code>pCube2</code>, <code>sphereC</code> to <code>pCube3</code>.</p>
+
+  <h3><a id="Multi_Snap_Settings_211"></a>Multi Snap Settings</h3>
+
+  <div class="settings_item">
+    <h4><a id="Time_Based_212"></a>Time Based</h4>
+    <img src="help_images/time_based_multi_snap.gif">
+    <p>If you have a timeline selection, Schnapps will prompt you to ask whether you want to snap object(s) over time, on the frames you have highlighted.</p>
+    <p>If you answer <code>Yes</code>, then Schnapps will snap that object(s) on every frame you have highlighted.</p>
+    <p>This can be useful if you have keyframes on your object(s) and want to lock them down in space for the highlighted range or have them snap to an animated object over the highlighted range.</p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="List_A_and_List_B_0"></a>List A and List B</h4>
+    <img src="help_images/multilist.jpg">
+    <p>In the settings dialog for Multi Snap, you will see two list fields labeled <strong>A</strong> and <strong>B</strong>.</p>
+    <p>Both these fields display the objects loaded with the <code>Load A</code> and <code>Load B</code> buttons.</p>
+    <p>These objects are the will be used as the source objects (A) and the objects to snap (B).</p>
+    <p>The order of the objects in each list determines which object snaps to which. For example, the first object in list <strong>B</strong> will snap to the first object in list <strong>A</strong>, the second object in list <strong>B</strong> will snap to the second object in list <strong>A</strong>, and so on.</p>
+    <p>You can drag the objects around to reorder them, and this will adjust which objects are paired together from lists A and B.</p>
+    <img src="help_images/reorder_list.gif">
+    <p>List A and B can be swapped by pressing the swap list button in between the list fields.</p>
+    <p>Both lists can be sorted with their respective <code>Sort By Name</code> buttons. Sorting by name can be useful in certain circumstances, such as snapping together similar rigs.</p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="Translate_Rotate_Scale_checkboxes_217"></a>Translate Rotate Scale Checkboxes</h4>
+    <img src="help_images/checkboxes.jpg">
+    <p>Sets whether you want to snap the <strong>translate</strong>, <strong>rotate</strong>, and/or <strong>scale</strong> of list B objects.</p>
+    <p><strong>Defaults</strong>:<br><code>Translate</code>: On<br><code>Rotate</code>: On<br><code>Scale</code>: Off</p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="World_224"></a>World</h4>
+    <p>Snap list B objects to list A objects using <strong>world space</strong> transform values.</p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="Object_227"></a>Object</h4>
+    <p>Copy and paste list A objects’ transform values onto list B objects.</p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="Pivot_230"></a>Pivot</h4>
+    <p>Snap list B objects to list A objects using the pivot positions of both.</p>
+    <p><em>Useful for when pivot positions are not the same as world space positions.</em></p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="Center_234"></a>Center</h4>
+    <p>Snap the center position of list B objects to the center position of list A objects.</p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="Mesh_237"></a>Mesh</h4>
+    <img src="help_images/mesh_snap.gif">
+    <p>Snap objects in list B to the surface of objects in list A.</p>
+    <p>This operation will perform a world space snap for every list B object; snapping it to the surface of the paired object in list A.</p>
+    <p><em>List A objects must be a <strong>mesh</strong> for this operation.</em></p>
+  </div>
+
+  <div class="settings_item">
+    <h4><a id="Impossible_242"></a>Impossible</h4>
+    <img src="help_images/impossible_snap.gif">
+    <p><em>Attempt</em> to do the impossible, and snap list B objects to list A objects that are frozen (an object that has had <strong>Freeze Transformations</strong> applied to it).</p>
+    <p><em>This operation is just an approximation. It works best on some-what symmetrical objects.</em></p>
+  </div>
+</div>
+
+<div class="bookend">
+  <p id="footnote">For more tools, and other cool stuff, visit <a href="http://www.decogged.com">www.decogged.com</a> or contact us at <a href="mailto:hello@decogged.com">hello@decogged.com</a></p>
+</div>
+
+</body>
+
+</html>

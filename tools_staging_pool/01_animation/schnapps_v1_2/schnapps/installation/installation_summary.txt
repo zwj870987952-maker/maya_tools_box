@@ -1,0 +1,77 @@
+REQUIREMENTS
+Schnapps requires the optional PyMel python module to work. On older versions
+of Maya (2021 and below) this is installed by default. However, on newer
+versions (Maya 2022 and above) it can be optionally installed during the Maya
+installation process.
+
+Refer to:
+https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2022/ENU/Maya-Scripting/files/GUID-2AA5EFCE-53B1-46A0-8E43-4CD0B2C72FB4-htm.html
+
+
+
+INSTALLATION
+
+1. Extract the zip file.
+
+2. Inside of the "schnapps_bundle" folder, find the Python version installed
+during your Maya installation.
+
+    As of Maya 2022, there is now the option to install Maya with Python 3 or
+    the legacy Python 2.7 version. Which version you have installed is
+    determined during the Maya installation itself. If you are unsure of which
+    version you have installed, follow the steps outlined below.
+
+    To determine which Python version you have installed for Maya:
+        2a. Open Maya.
+        2b. In the Script Editor copy and paste:
+
+from __future__ import print_function
+import sys
+print('/'*10, '\n')
+if sys.version_info.major == 3:
+    print('Python version is: \tpython 3')
+else:
+    print('Python version is: \tpython 2.7')
+print('', '/'*10, sep='\n')
+
+
+        2c. Run the script and the result will tell you which version of Python
+        you are on.
+
+
+3. Inside of the python folder, find the folder that corresponds to
+    your operating system.
+
+        Linux : linux_x86_64
+        Mac : mac_x86_64
+        Windows : windows_x86_64
+    
+4. Dive inside of this folder, then copy the "schnapps" folder within it.
+
+5. Paste the "schnapps" folder into your script preferences directory.
+
+    Windows : C:\Users\<username>\Documents\maya\<version>\prefs\scripts
+
+    Mac : /Users/<username>/Library/Preferences/Autodesk/maya/<version>/prefs/scripts
+
+    Linux : ~<username>/maya/<version>/prefs/scripts
+
+6. Copy "schnappsIcon.png" file into the icon directory.
+
+    Windows : C:\Users\<username>\Documents\maya\<version>\prefs\icons
+
+    Mac : /Users/<username>/Library/Preferences/Autodesk/maya/<version>/prefs/icons
+
+    Linux : ~<username>/maya/<version>/prefs/icons
+
+7. Inside of Maya, open the Script Editor.
+
+8. In a fresh Python tab, load in the "install.py" file.
+    Note: on most systems you can drag and drop the install.py file from the
+    file browser directly onto the script editor panel.
+
+9. Run script.
+    This will create a new shelf named "Decogged" if one didn't already exist.
+    A shelf button with the "S" bottle icon will now exist under this shelf.
+
+10. Hit this shelf button to launch Schnapps.
