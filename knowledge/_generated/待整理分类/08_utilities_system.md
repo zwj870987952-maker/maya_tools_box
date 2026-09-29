@@ -11,7 +11,6 @@ category: "08_utilities_system"
 - [[knowledge/_generated/待整理/08_utilities_system--floating_toolbar|吸附式悬浮快捷工具栏]]
 - [[knowledge/_generated/待整理/08_utilities_system--ks_node_outliner_v2_2|KS NodeOutliner 节点分类大纲增强管理器 v2.2.0]]
 - [[knowledge/_generated/待整理/08_utilities_system--ks_save_timer_v1_3_0|KS SaveTimer 智能工程自动保存与版本递增 (原版+汉化版)]]
-- [[knowledge/_generated/待整理/08_utilities_system--maya_package_manager|Maya 模块与插件包可视化管理器 (MayaPackageManager)]]
 - [[knowledge/_generated/待整理/08_utilities_system--maya_process_finder|Maya 进程与端口查找器 (MayaFinder)]]
 - [[knowledge/_generated/待整理/08_utilities_system--maya_tabs_v1_3a|Maya-Tabs 视口多工程标签页切换扩展 v1.3a]]
 - [[knowledge/_generated/待整理/08_utilities_system--perform_file_drop_action|Maya 视口智能文件拖拽重载扩展]]

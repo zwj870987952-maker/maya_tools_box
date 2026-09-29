@@ -10,10 +10,8 @@ category: "07_subsystems_suites"
 
 - [[knowledge/_generated/待整理/07_subsystems_suites--animbot_copy|animBot 完整 UI 与工具克隆套件]]
 - [[knowledge/_generated/待整理/07_subsystems_suites--getools_overlappy|GETOOLS 动力学与次级动作套件 (含 Overlappy / CenterOfMass)]]
-- [[knowledge/_generated/待整理/07_subsystems_suites--gosavvy_toolset_v1_3_7|GoSavvy 动画与绑定综合生产套件 v1.3.7]]
 - [[knowledge/_generated/待整理/07_subsystems_suites--malcolm341_mega_pack|Malcolm341 Maya 高级实用脚本合集 (MegaPack 2023)]]
 - [[knowledge/_generated/待整理/07_subsystems_suites--maya_blueprint_toolbox|Maya 节点式蓝图自动化工具箱 (Blueprint Toolbox 完整工程)]]
-- [[knowledge/_generated/待整理/07_subsystems_suites--mgtools_v3_3|MGTools 动画师生产力综合工作台 v3.3]]
 - [[knowledge/_generated/待整理/07_subsystems_suites--smart_assistant|Maya 视口智能拖拽与对话框拦截助手]]
 - [[knowledge/_generated/待整理/07_subsystems_suites--studiolibrary_patch|Studio Library 世界空间扩展增强包 (PlusPatch)]]
 - [[knowledge/_generated/待整理/07_subsystems_suites--the_key_machine|TheKeyMachine 动画师综合套件 (完整汉化增强版)]]

@@ -1,0 +1,128 @@
+[
+  {
+    "category": "01_animation",
+    "folder": "01_animation/atrack_trajectory",
+    "name": "ATrack 空间运动轨迹跟踪器",
+    "entry": "ATrack/aTrack.pyc",
+    "desc": "实时计算骨骼与控制器的三维运动轨迹线与弧度分析"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/ghosting_master_v2_03",
+    "name": "视口洋葱皮残影大师 v2.03 (Ghosting Master)",
+    "entry": "ghosting_master.mel",
+    "desc": "视口实时显示前后帧残影网格与轨迹姿态，排查动画节奏"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/iconic_camera_rig",
+    "name": "电影级标准摄像机装配模板库 (Iconic Camera Rig)",
+    "entry": "Arnold_Shoulder_Camera_Rig.ma",
+    "desc": "包含肩扛、五点定位等影视级摄像机装配 .ma 与贴图预设"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/noodle_v1_3",
+    "name": "Noodle 次级重叠惯性动力学解算器 v1.3",
+    "entry": "noodle/install.py",
+    "desc": "解压 noodle_v1.3.zip，排除视频，保留 python 核心算法与测试资产"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/schnapps_v1_2",
+    "name": "Schnapps 角色动作捕捉重对齐工具 v1.2",
+    "entry": "schnapps/install.py",
+    "desc": "解压 schnapps_v1.2.zip，排除视频，保留核心代码与说明"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/speedline_creator_v1_5",
+    "name": "动漫速度线生成器 v1.5 (SpeedLine Creator)",
+    "entry": "SpeedLine_Creator.pyc",
+    "desc": "排除视频，保留 .ma 模板与核心代码"
+  },
+  {
+    "category": "01_animation",
+    "folder": "01_animation/transparent_graph_editor",
+    "name": "透明曲线编辑器 (Transparent Graph Editor)",
+    "entry": "transparentGE.py",
+    "desc": "让 Maya 动画曲线图编辑器半透明悬浮于视口上方"
+  },
+  {
+    "category": "02_rigging_hierarchy",
+    "folder": "02_rigging_hierarchy/advanced_skeleton_v5_74",
+    "name": "AdvancedSkeleton 高级人体与生物自动装配系统 v5.74",
+    "entry": "AdvancedSkeleton5.mel",
+    "desc": "业内顶级角色自动装配插件，淘汰旧版 5.55，保留 5.74 最新版完整结构"
+  },
+  {
+    "category": "02_rigging_hierarchy",
+    "folder": "02_rigging_hierarchy/constraint_manager_v1_3",
+    "name": "约束节点批量管理与状态烘焙面板 v1.3",
+    "entry": "ConstraintManager_1_3/constraintManager.pyc",
+    "desc": "清晰罗列场景所有约束，支持一键烘焙位移并安全断开约束连接"
+  },
+  {
+    "category": "02_rigging_hierarchy",
+    "folder": "02_rigging_hierarchy/ssdr_pointcache_to_skin",
+    "name": "SSDR 点缓存一键转骨骼蒙皮权重插件",
+    "entry": "SSDR_local_sp/main.py",
+    "desc": "解压 SSDR_local_sp.rar，通过平滑表皮变形分解算法将 ABC 点缓存自动转换为骨骼与 SkinCluster"
+  },
+  {
+    "category": "02_rigging_hierarchy",
+    "folder": "02_rigging_hierarchy/th_rig_tools",
+    "name": "TH RigTools 角色绑定与骨骼工具箱 (免费版)",
+    "entry": "ThRigTools.py",
+    "desc": "提供一键创建标准控制器、对称骨骼镜像与次级联动"
+  },
+  {
+    "category": "02_rigging_hierarchy",
+    "folder": "02_rigging_hierarchy/toolchefs_camera_lattice_softik",
+    "name": "ToolChefs 摄像机晶格变形与柔体 IK 解算器",
+    "entry": "tcCameraLattice.py",
+    "desc": "解压 tool chefs.zip，包含 tcCameraLattice 与 tcSoftIkSolver 插件与 Python 封装"
+  },
+  {
+    "category": "02_rigging_hierarchy",
+    "folder": "02_rigging_hierarchy/weight_sculpt",
+    "name": "WeightSculpt 蒙皮权重雕刻笔刷插件",
+    "entry": "weightSculpt.py",
+    "desc": "支持多版本 Maya 原生 C++ 插件 (mll/bundle/so)，像雕刻一样直观刷权重"
+  },
+  {
+    "category": "03_transforms_modeling",
+    "folder": "03_transforms_modeling/exoside_quad_remesher",
+    "name": "Exoside QuadRemesher 四边形自动重拓扑 v1.0.1",
+    "entry": "QuadRemesher.py",
+    "desc": "顶尖四边形网格自动拓扑计算核心与 Maya 交互面板"
+  },
+  {
+    "category": "03_transforms_modeling",
+    "folder": "03_transforms_modeling/se_uv_blendshape",
+    "name": "seUVBlendShape 基于 UV 拓扑的形态混合插件",
+    "entry": "seUVBlendShape.py",
+    "desc": "突破点序限制，基于 UV 贴图坐标传递形态与生成 BlendShape"
+  },
+  {
+    "category": "07_subsystems_suites",
+    "folder": "07_subsystems_suites/gosavvy_toolset_v1_3_7",
+    "name": "GoSavvy 动画与绑定综合生产套件 v1.3.7",
+    "entry": "gosavvyToolset.py",
+    "desc": "包含 C++ 节点插件、Python 控制面板、完整用户文档"
+  },
+  {
+    "category": "07_subsystems_suites",
+    "folder": "07_subsystems_suites/mgtools_v3_3",
+    "name": "MGTools 动画师生产力综合工作台 v3.3",
+    "entry": "MGTools_Loader.mel",
+    "desc": "集成了关键帧微调、HUD标记、选择集、视口控制与拍屏的经典套件"
+  },
+  {
+    "category": "08_utilities_system",
+    "folder": "08_utilities_system/maya_package_manager",
+    "name": "Maya 模块与插件包可视化管理器 (MayaPackageManager)",
+    "entry": "MayaPackageManager.py",
+    "desc": "管理、启用、禁用场景中的外部 mod 与 python 包"
+  }
+]

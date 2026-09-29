@@ -1,0 +1,38 @@
+///////////////////////////////////////
+//    Install Super_Connect_v1.00    //
+///////////////////////////////////////
+
+global string $gShelfTopLevel;
+string $rootPath=`InstallLocationPath`;
+string $currentShelf = `tabLayout -q -st $gShelfTopLevel`;
+string $iconPass = `internalVar -upd`;
+
+shelfButton
+    -command ("//=== Super Connect Tool =========================================================== \n$rootPath_SC = \"" + $rootPath + "\";\nsource\"" + $rootPath + "Super_Connect.mel\"; \n//==================================================================================")
+    -annotation "//  Super Connect v1.00"
+    -label "Super Connect Tool"
+    -image1 ($rootPath + "icon/S-Connect_100px.png")
+    -sourceType "mel"
+    -parent $currentShelf;
+
+
+inViewMessage -textOffset 50 -dragKill  -smg ("<font color=\"#00FF00\">" + "Super Connect v1.00 has been added to current shelf") -pos midCenter -bkc 0x00000000  -fade  -fadeOutTime 1000 -fadeStayTime 2000  -fontSize 12;
+
+
+
+
+//--installTemplate resume--//
+print ("\n// Super Connect v1.00 has been added to current shelf.\n");
+
+
+global proc string InstallLocationPath ()
+{
+    string $whatIs=`whatIs InstallLocationPath`;
+    string $fullPath=`substring $whatIs 25 999`;
+    string $buffer[];
+    int $numTok=`tokenize $fullPath "/" $buffer`;
+    int $numLetters=size($fullPath);
+    int $numLettersLastFolder=size($buffer[$numTok-1]);
+    string $scriptLocation=`substring $fullPath 1 ($numLetters-$numLettersLastFolder)`;
+    return $scriptLocation;
+}
