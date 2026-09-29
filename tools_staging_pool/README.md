@@ -3,7 +3,7 @@
 > 本目录为原始零散脚本与历史工具的**标准化过渡收拢池**。汇总了来自 `D:\jiaoben` 与 `C:\BaiduSyncdisk\自定义脚本` 的全部精选、去重、最新版本的实用工具，共包含 **54 个独立工具单元与大型专业套件**。
 
 > [!IMPORTANT]
-> **项目准入规则**：所有新制作或新引入的工具**必须首先置于本待整理库中**。测试方式以最轻量直观的**“直接在已打开的 Maya 中执行打开界面或运行功能”**为主。只有在真实场景中实测通过且确认满意后，才由开发者或 Agent 按照 `BaseMayaTool` 规范正式封装迁移至 `maya_toolkit/tools/` 生产库中。
+> **项目准入规则**：个人旧脚本和新制作的工具原型**必须首先置于本待整理库中**。测试方式以最轻量直观的**“直接在已打开的 Maya 中执行打开界面或运行功能”**为主。只有在真实场景中实测通过且确认满意后，才按照 `BaseMayaTool` 规范正式封装迁移至 `maya_toolkit/tools/`。
 
 
 ---
@@ -94,8 +94,8 @@
 ```
 
 ### 标准化迁移流程：
-1. **代码与逻辑解耦**：将原有 UI 逻辑与 Maya 执行内核拆分，纯算法/API 放入 `maya_toolkit/tools/<domain>/`；
-2. **统一基类封装**：继承 `BaseMayaTool`，补充 `tool_id`、`name`、`description` 和 `get_schema()`；
-3. **安全操作封装**：使用 `maya_toolkit.core.undo.UndoChunk` 与 `dry_run` 支持；
+1. **代码与逻辑解耦**：将原有 UI 逻辑与 Maya 执行内核拆分，通用能力下沉到 `maya_toolkit.core`，正式工具放入 `maya_toolkit/tools/<tool_name>/`；
+2. **统一基类封装**：继承 `BaseMayaTool`，定义 `tool_id`、`tool_name`、`category`、`description` 和 `parameters_schema`，实现 `validate(**kwargs)` 与 `execute(**kwargs)`；
+3. **安全操作封装**：由基类的 `run(dry_run=...)` 统一调度；预检不修改场景，场景写入通过 `UndoChunkContext` 分组；
 4. **自动化单元测试**：在 `tests/` 下添加针对该工具的 `unittest` 用例，并在 Live Maya 实例中进行实时校验；
-5. **界面统一收拢**：工具自动挂载到 `maya_toolkit.show_ui()` 的统一综合启动器面板中。
+5. **知识说明与界面**：记录用途、适用条件、参数、结果、操作影响、示例和关联工具，并挂载到 `maya_toolkit.show_ui()` 的统一启动器面板中。

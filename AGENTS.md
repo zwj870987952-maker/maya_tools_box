@@ -1,12 +1,12 @@
-# 项目开发规则与代理工作指南 (AGENTS.md)
+# 个人 Maya 工具知识库开发规则与代理工作指南 (AGENTS.md)
 
-本文件规定了本项目的核心开发原则、新工具准入工作流及 AI 代理行为规范。所有参与本项目的 AI 代理和开发者均须严格遵守。
+本项目用于持续整理用户自己编写的 Maya 旧脚本与新工具。目标是让工具共享 `maya_toolkit.core`，通过统一 API 调用，并以结构化说明帮助大模型检索、理解和组合功能。本文件规定准入流程与代理行为规范。
 
 ---
 
-## 📌 核心准则：新工具生命周期与准入规范 (Tool Lifecycle & Staging Rule)
+## 📌 核心准则：三步工具准入流程 (Tool Lifecycle & Staging Rule)
 
-本项目实行明确的**“双阶段渐进演进机制”**，严禁未经实测直接将实验性代码直接打包进生产库：
+项目使用待整理库和正式工具库两层存放位置，按**入库、Maya 直验、转正**三步推进。未经真实 Maya 验证，不得将实验代码直接纳入正式工具库：
 
 ```mermaid
 flowchart LR
@@ -18,12 +18,12 @@ flowchart LR
 ```
 
 ### 1. 阶段一：新工具必须先入驻待整理库 (`tools_staging_pool/`)
-- 凡是新开发的原型工具、新收集的零散脚本、未定型的功能实验代码，**必须首先放置在 `tools_staging_pool/` 对应的分类目录中**（如 `01_animation/`、`03_transforms_modeling/` 等）。
+- 用户自己编写的旧脚本、新工具原型与未定型功能实验，**必须首先放置在 `tools_staging_pool/` 对应的分类目录中**（如 `01_animation/`、`03_transforms_modeling/` 等）。
 - 在此阶段，以保证代码完整性、携带必要素材/配置文件为主，**暂不需要立即进行深度重构或继承复杂架构**。
 
 ### 2. 阶段二：轻量直验原则（直接在 Maya 中执行测试）
-- **测试方式保持最精炼直观**：无需提前编写繁重的抽象自动化测试。
-- **直验标准**：直接在已打开的真实 Maya 实例中（通过 Script Editor、MEL 快捷命令、或 Maya MCP 接口）直接执行该 Python/MEL 脚本：
+- **测试方式保持最精炼直观**：此阶段无需提前编写繁重的抽象自动化测试。
+- **直验标准**：直接在已打开的真实 Maya 实例中，通过 Script Editor 或 MEL 快捷命令执行该 Python/MEL 脚本：
   1. 验证界面是否能顺利打开无异常闪退；
   2. 验证核心按钮和滑动条是否正常响应；
   3. 验证对场景对象的选中与操作是否符合预期；
@@ -33,39 +33,19 @@ flowchart LR
 - **只有在阶段二通过 Maya 实测、确认没有问题后，才能启动正式封装**。
 - 正式封装迁移至 `maya_toolkit/tools/` 时必须满足以下五项规范：
   1. **继承标准基类**：继承自 `maya_toolkit.framework.base_tool.BaseMayaTool`；
-  2. **统一协议输出**：执行入口统一为 `run(**kwargs) -> ToolResult`，规范返回 `success`, `data`, `message`, `errors`；
-  3. **大模型 Schema 支持**：通过 `get_schema()` 提供入参字段定义、类型与默认值，支持 LLM/Agent 无缝调用；
-  4. **无副作用预检**：核心操作必须支持 `dry_run=True` 预检模式，以及 `UndoChunk` 安全撤销；
-  5. **集成与自动化回归**：编写 `tests/test_<tool_id>.py` 单元测试，并将工具自动挂载到综合启动器 `maya_toolkit.show_ui()` 面板。
+  2. **统一协议输出**：子类实现 `validate(**kwargs)` 与 `execute(**kwargs)`，外部通过继承的 `run(dry_run=False, **kwargs) -> ToolResult` 或 `maya_toolkit.execute_tool(tool_id, arguments, dry_run)` 调用；
+  3. **大模型 Schema 支持**：定义 `parameters_schema`（JSON Schema）；框架通过 `to_openai_tool()` / `to_mcp_tool()` 导出调用描述；
+  4. **安全预检**：`validate()` 与 `dry_run=True` 不得修改场景。场景写入使用 `UndoChunk` 分组；文件写入、导出等操作另行说明其不可由 Maya Undo 撤回的影响；
+  5. **知识说明与回归**：记录用途、适用条件、参数、输出、操作影响、示例及关联工具；编写 `tests/test_<tool_id>.py`，并接入 `maya_toolkit.show_ui()` 面板。框架和文档规范详见 `DEVELOPMENT_SPEC.md`。
 
 ---
 
-## 🔄 核心准则二：开源工具吸纳与双向技术迭代机制 (Open-Source Ingestion & Bidirectional Evolution)
+## 🔄 核心准则二：自有工具之间的知识复用与组合
 
-本项目定位为一个**长青、可持续演进的工业级工具箱体系**。对于从 GitHub、Highend3D 等外部社区引入的开源工具或自研新模块，实行**“双向技术比对与择优替换”**原则：
-
-```mermaid
-flowchart TD
-    subgraph S["🔍 技术对比判定"]
-        DIFF{"哪一方技术/算法更先进？"}
-    end
-
-    DIFF -- "A. 本项目现有模块更先进" --> P1["🎯 核心赋能新工具<br>1. 剔除新工具内部粗糙/过时的私有实现<br>2. 替换为复用 maya_toolkit.core（如 OpenMaya 2.0、Undo 上下文、统一深色主题）<br>3. 补齐统一 ToolResult 与 LLM JSON Schema"]
-    
-    DIFF -- "B. 外部开源工具更先进" --> P2["🚀 外部反哺核心库<br>1. 提取外部优秀的数学解算/高性能算法，下沉沉淀至 maya_toolkit.core<br>2. 若整体架构更优，将新工具作为官方升级版替换项目内原有老旧工具<br>3. 在文档与更新日志中完整记录演进历程与原作者致谢"]
-```
-
-### 1. 外部开源工具吸纳入驻流程
-1. **原样归档待整理库**：首先将开源工具放入 `tools_staging_pool/` 对应分类目录，完整保留其原作者署名、开源许可证（MIT/GPL/Apache等）及使用说明；
-2. **轻量 Maya 验证**：在已打开的 Maya 中直接运行测试，确认核心逻辑与功能可用；
-3. **技术代际差深度比对 (Gap Analysis)**：将该工具与本项目现有模块（`maya_toolkit.core`、同类 `tools`）进行多维度技术对比。
-
-### 2. “先进性”评估基准
-- **API 性能与现代度**：OpenMaya 2.0 (C++ 级性能) 优于传统 `maya.cmds` / `mel` 字符拼装；
-- **数学严密性**：四元数/旋转矩阵解算优于欧拉角计算（消除万向节死锁）；
-- **执行安全性**：支持 `dry_run` 预检与标准原子化 `UndoChunk` 优于破坏性直写；
-- **环境跨度**：兼顾 Python 2.7 / 3.7~3.11 跨版本与 Headless 无界面运行；
-- **AI 与大模型友好度**：执行入口具备清晰的入参 JSON Schema 与无界面执行入口，大模型可单行调用。
+1. **先比对再迁移**：整理旧工具时，先识别与 `maya_toolkit.core`、现有正式工具重复的能力；通用部分下沉到 `core`，工具只保留具体业务逻辑。
+2. **记录可组合信息**：每个转正工具的说明应写清输入、输出、适用条件、场景或文件影响，以及可衔接的其他工具。大模型可以据此先选择工具，再生成调用参数和组合步骤。
+3. **保留可追溯的演进记录**：功能替换、接口变动与算法升级记录在工具文档中。不要为了统一架构而未经直验改变旧工具行为。
+4. **按实际需求优化**：优先考虑正确性、可撤销性、跨版本实测结果和复用价值；不预设某一种 Maya API 在所有场景下都更快或更合适。
 
 ---
 
@@ -75,10 +55,17 @@ flowchart TD
 - `maya_toolkit/framework/`：基础协议与调度层（`BaseMayaTool`、`ToolResult`、`ToolRegistry`、`executor`）。
 - `maya_toolkit/tools/`：正式生产工具层（已转正的标准化工具）。
 - `maya_toolkit/ui/`：统一启动器主界面（`maya_toolkit.show_ui()`）。
-- `tools_staging_pool/`：待整理工具库（包含 8 大分类、54 项待转正储备工具）。
+- `tools_staging_pool/`：自有旧脚本与新原型的待整理库（当前目录说明列有 8 大分类、54 项储备工具）。
 
 ---
 
 ## 🌐 语言与交流偏好
 - 遵循用户的全局规则：默认使用**简体中文 (Simplified Chinese)** 进行交流、解释与总结。
 - 变量名、类名、终端命令与标准专业技术名词保持原汁原味的英文。
+
+## 🗂️ Obsidian 知识库同步
+- 项目根目录可作为 Obsidian Vault，入口为 knowledge/00-首页.md。
+- 在新电脑上安装 Vault、插件和项目级 MCP 连接时，按 OBSIDIAN_SETUP.md 操作；本机令牌和配置不随 Git 同步。
+- 修改工具代码、框架、待整理库或说明文档后，运行 scripts/sync_obsidian_knowledge.py 更新 knowledge/_generated/。若后台监视进程正在运行，会自动更新。
+- knowledge/_generated/ 是生成结果，不直接手工编辑；实际功能与已验证的组合关系写入 docs/tools/ 的专项知识说明。
+- 总览中的代码依赖来自静态 import，不等于 Maya 实测通过或功能已可组合。

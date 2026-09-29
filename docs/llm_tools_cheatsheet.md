@@ -1,6 +1,6 @@
 # Maya 工具箱大模型 (LLM / Agent) 脚本 API 调用速查指南 (LLM Tools Cheatsheet)
 
-本工具箱已完整实现面向 **大模型 Function Calling** 与 **Model Context Protocol (MCP)** 的自动化服务调度规范。大模型可以直接理解工具语义、生成合法的 JSON 参数并通过单行 Python 代码调度任何内置功能。
+本工具箱提供统一 Python 调度入口，并可导出 **Function Calling** 与 **MCP Tools** 格式的参数描述。MCP 描述可供外部 MCP 服务端使用；本仓库当前不提供可直接连接的 MCP 服务。工具描述和参数 Schema 帮助大模型选择、调用功能，具体使用条件与影响应结合专项工具文档阅读。
 
 ---
 
@@ -16,7 +16,7 @@ if tool_root not in sys.path:
 
 import maya_toolkit
 
-# 1. 预检模式 (Dry-Run: 仅参数校验与分析，绝不修改场景)
+# 1. 预检模式（由工具的 validate() 检查，不修改场景）
 result_dry = maya_toolkit.execute_tool(
     tool_id="clean_namespaces",
     arguments={"nodes": ["char:head"], "process_all_scene": False},
@@ -24,7 +24,7 @@ result_dry = maya_toolkit.execute_tool(
 )
 print("预检结果:", result_dry.to_dict())
 
-# 2. 正式执行模式 (自动包裹在 Undo Chunk 中，支持 Ctrl+Z)
+# 2. 正式执行模式（场景操作由 Maya Undo Chunk 分组）
 result = maya_toolkit.execute_tool(
     tool_id="clean_namespaces",
     arguments={"nodes": ["char:head"], "process_all_scene": False},
@@ -37,7 +37,7 @@ print("执行结果:", result.to_dict())
 
 ## 2. 导出标准 Schema (供 Agent 自动发现)
 
-如果您的 AI Agent 或 MCP Server 需要动态注册工具列表，可直接运行：
+如果 AI Agent 或 MCP Server 需要工具调用描述，可运行：
 
 ```python
 import maya_toolkit
@@ -48,6 +48,8 @@ openai_schemas = maya_toolkit.export_tool_schemas(format_type="openai")
 # 获取 MCP (Model Context Protocol) Tools 规范格式
 mcp_schemas = maya_toolkit.export_tool_schemas(format_type="mcp")
 ```
+
+Schema 只描述参数；完整的适用条件、输出、操作影响和组合关系应写入 [工具知识说明](tools/_tool_knowledge_template.md)。当前框架不自动验证传入参数是否满足 Schema，工具必须在 `validate(**kwargs)` 中执行必要检查。
 
 ---
 

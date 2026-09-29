@@ -65,11 +65,14 @@ class BaseMayaTool(object):
         # 1. 首先执行参数预检
         val_res = self.validate(**kwargs)
         if not val_res.success:
+            val_res.tool_id = self.tool_id
+            val_res.dry_run = bool(dry_run)
             val_res.execution_time = round(time.time() - start_time, 4)
             return val_res
 
         # 2. 如果是 Dry-Run 模式，直接返回预检结果，零污染零修改
         if dry_run:
+            val_res.tool_id = self.tool_id
             val_res.dry_run = True
             val_res.message = "[Dry-Run 预检成功] " + val_res.message
             val_res.execution_time = round(time.time() - start_time, 4)
@@ -92,6 +95,7 @@ class BaseMayaTool(object):
                     errors=[str(e), err_detail]
                 )
 
+        result.tool_id = self.tool_id
         result.dry_run = False
         result.execution_time = round(time.time() - start_time, 4)
         return result

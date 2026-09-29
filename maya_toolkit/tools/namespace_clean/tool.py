@@ -25,7 +25,7 @@ class NamespaceCleanTool(BaseMayaTool):
 
     tool_id = "clean_namespaces"
     tool_name = "命名空间清理工具"
-    category = "Pipeline"
+    category = "scene_hygiene"
     version = "1.1.0"
     description = (
         "清理指定节点或当前选中节点的命名空间。支持将本地命名空间安全合并至根目录 (':')，"

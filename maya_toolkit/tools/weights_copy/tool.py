@@ -122,7 +122,7 @@ class WeightsCopyTool(BaseMayaTool):
 
     tool_id = "copy_overlapping_weights"
     tool_name = "重叠位置顶点蒙皮权重复制工具"
-    category = "Rigging"
+    category = "rigging"
     version = "1.2.0"
     description = (
         "在源模型 (A) 与目标模型 (B) 之间，基于三维空间世界坐标匹配重叠的顶点，"

@@ -4,6 +4,20 @@ Live Maya 实测验证脚本：anim_layer_bookmark_trimmer (含 3 种书签作�
 """
 import os
 import sys
+
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
+try:
+    import maya.standalone
+    maya.standalone.initialize(name="python")
+except Exception:
+    pass
+
 import maya.cmds as cmds
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -15,10 +29,13 @@ import anim_layer_bookmark_trimmer as trimmer
 def run_live_maya_verification():
     print("=== 开始 Live Maya 实测验证 (含 3 种书签作用范围) ===")
 
-    # 1. UI 启动测试
-    ui = trimmer.show_ui()
-    assert cmds.window(trimmer.WINDOW_NAME, exists=True), "UI 窗口未能成功创建！"
-    print("✓ UI 窗口顺利打开，包含三种书签范围选择菜单。")
+    # 1. UI 启动测试 (在具备 GUI 交互界面的环境下验证)
+    if not cmds.about(batch=True):
+        ui = trimmer.show_ui()
+        assert cmds.window(trimmer.WINDOW_NAME, exists=True), "UI 窗口未能成功创建！"
+        print("✓ UI 窗口顺利打开，包含三种书签范围选择菜单。")
+    else:
+        print("ℹ️ 当前为 mayapy 独立无头环境 (Headless/Batch)，跳过窗口控件渲染，聚焦核心算法实测。")
 
     # 2. 准备测试场景数据
     test_node = "trim_verify_sphere_v4"
@@ -281,13 +298,154 @@ def run_live_maya_verification():
 
     print("✓ 通道过滤器验证通过：默认精准聚焦 Translate 与 Rotate，永久杜绝误改非目标属性！")
 
-    # 12. 清理测试节点
+    # 12. 重点验证：端点缓入缓出 (mode="ease") 直接作用于关键帧数值，并深度关联力度与权重偏置
+    print("--- 开始验证：端点缓入缓出模式 (mode='ease') 关键帧数值重塑与力度/权重分布关联 ---")
+    cmds.currentTime(75) # 处于 BM2 (60~100) 范围内
+    # 重设 BM2 的关键帧为确定性数值：60帧=10.0, 75帧=25.0, 85帧=35.0, 100帧=50.0
+    cmds.setKeyframe(sphere, attribute="translateY", time=60, value=10.0)
+    cmds.setKeyframe(sphere, attribute="translateY", time=75, value=25.0)
+    cmds.setKeyframe(sphere, attribute="translateY", time=85, value=35.0)
+    cmds.setKeyframe(sphere, attribute="translateY", time=100, value=50.0)
+
+    v_st_init = 10.0
+    v_sp_init = 50.0
+    v_75_init = 25.0
+    v_85_init = 35.0
+    dt_ease = 100.0 - 60.0 # 40.0
+    dv_ease = v_sp_init - v_st_init # 40.0
+
+    # 验证 A: strength=1.0, bias=0.5 居中对称缓入缓出
+    ease_test_1 = trimmer.optimize_layer_curves_by_bookmarks(
+        objects=[sphere],
+        layer="BaseAnimation",
+        scope="selected",
+        mode="ease",
+        strength=1.0,
+        bias=0.5,
+        dry_run=False
+    )
+    assert ease_test_1["success"] is True
+
+    # 验证端点绝对锁定不变
+    v_st_after = cmds.keyframe(sphere, attribute="translateY", time=(60, 60), query=True, valueChange=True)[0]
+    v_sp_after = cmds.keyframe(sphere, attribute="translateY", time=(100, 100), query=True, valueChange=True)[0]
+    assert abs(v_st_after - v_st_init) < 1e-4, "端点缓入缓出起始帧发生漂移！"
+    assert abs(v_sp_after - v_sp_init) < 1e-4, "端点缓入缓出结束帧发生漂移！"
+
+    # 验证内部帧数值真实被修改，且严格符合 Smootherstep 缓动
+    u_75 = (75.0 - 60.0) / 40.0 # 0.375
+    s_75 = 6.0 * (u_75 ** 5) - 15.0 * (u_75 ** 4) + 10.0 * (u_75 ** 3)
+    expected_v75 = v_st_init + s_75 * dv_ease
+
+    u_85 = (85.0 - 60.0) / 40.0 # 0.625
+    s_85 = 6.0 * (u_85 ** 5) - 15.0 * (u_85 ** 4) + 10.0 * (u_85 ** 3)
+    expected_v85 = v_st_init + s_85 * dv_ease
+
+    v_75_after = cmds.keyframe(sphere, attribute="translateY", time=(75, 75), query=True, valueChange=True)[0]
+    v_85_after = cmds.keyframe(sphere, attribute="translateY", time=(85, 85), query=True, valueChange=True)[0]
+
+    assert abs(v_75_after - v_75_init) > 0.1, "内部 75 帧数值未发生变化（错误地仅改了手柄）！"
+    assert abs(v_85_after - v_85_init) > 0.1, "内部 85 帧数值未发生变化（错误地仅改了手柄）！"
+    assert abs(v_75_after - expected_v75) < 1e-3, "75 帧缓入缓出数值不符合理论 Smootherstep！"
+    assert abs(v_85_after - expected_v85) < 1e-3, "85 帧缓入缓出数值不符合理论 Smootherstep！"
+
+    # 验证诊断报告
+    assert u"成功修改内部帧" in ease_test_1["message"], "报告中未指明修改内部帧！"
+    assert "75.0帧" in ease_test_1["message"] and "85.0帧" in ease_test_1["message"]
+
+    # 验证切线手柄协同 (平缓水平切线角度为 0，类型为 flat 或 fixed 加权手柄)
+    ott_st = cmds.keyTangent(sphere, attribute="translateY", time=(60, 60), query=True, outTangentType=True)[0]
+    itt_sp = cmds.keyTangent(sphere, attribute="translateY", time=(100, 100), query=True, inTangentType=True)[0]
+    out_ang = cmds.keyTangent(sphere, attribute="translateY", time=(60, 60), query=True, outAngle=True)[0]
+    in_ang = cmds.keyTangent(sphere, attribute="translateY", time=(100, 100), query=True, inAngle=True)[0]
+    assert ott_st in ["flat", "fixed"] and itt_sp in ["flat", "fixed"], "端点出入切线未设为平缓切线类型！"
+    assert abs(out_ang) < 1e-3 and abs(in_ang) < 1e-3, "端点出入切线角度不为 0 (非水平平缓)！"
+    print("✓ mode='ease' 基础验证通过：内部关键帧数值成功重塑，端点严格锁定，切线手柄协同平缓！")
+
+    # 验证 B: 关联力度 (strength=0.5) 混合测试
+    cmds.undo()
+    assert abs(cmds.keyframe(sphere, attribute="translateY", time=(75, 75), query=True, valueChange=True)[0] - v_75_init) < 1e-4
+
+    ease_test_half = trimmer.optimize_layer_curves_by_bookmarks(
+        objects=[sphere],
+        layer="BaseAnimation",
+        scope="selected",
+        mode="ease",
+        strength=0.5,
+        bias=0.5,
+        dry_run=False
+    )
+    assert ease_test_half["success"] is True
+    v_75_half = cmds.keyframe(sphere, attribute="translateY", time=(75, 75), query=True, valueChange=True)[0]
+    expected_v75_half = 0.5 * v_75_init + 0.5 * expected_v75
+    assert abs(v_75_half - expected_v75_half) < 1e-3, "strength=0.5 混合插值不符合预期！"
+    print("✓ mode='ease' 力度关联验证通过：strength=0.5 时数值严格按照 50% 比例连续混合！")
+
+    # 验证 C: 关联权重偏置 (bias=0.2 与 bias=0.8) 测试
+    cmds.undo()
+    # bias=0.2 (偏向起点：滞留起点更久，缓出加重)
+    ease_test_bias_start = trimmer.optimize_layer_curves_by_bookmarks(
+        objects=[sphere],
+        layer="BaseAnimation",
+        scope="selected",
+        mode="ease",
+        strength=1.0,
+        bias=0.2,
+        dry_run=False
+    )
+    assert ease_test_bias_start["success"] is True
+    v_75_b02 = cmds.keyframe(sphere, attribute="translateY", time=(75, 75), query=True, valueChange=True)[0]
+    denom_02 = (1.0 / 0.2 - 2.0) * (1.0 - 0.375) + 1.0
+    u_prime_02 = 0.375 / denom_02
+    s_02 = 6.0 * (u_prime_02 ** 5) - 15.0 * (u_prime_02 ** 4) + 10.0 * (u_prime_02 ** 3)
+    exp_v75_b02 = v_st_init + s_02 * dv_ease
+    assert abs(v_75_b02 - exp_v75_b02) < 1e-3, "mode='ease' bias=0.2 计算值不符合理论！"
+    assert v_75_b02 < expected_v75, "偏向起点的数值应低于居中对称时的数值！"
+
+    cmds.undo()
+    # bias=0.8 (偏向终点：滞留终点更久，缓入加重)
+    ease_test_bias_end = trimmer.optimize_layer_curves_by_bookmarks(
+        objects=[sphere],
+        layer="BaseAnimation",
+        scope="selected",
+        mode="ease",
+        strength=1.0,
+        bias=0.8,
+        dry_run=False
+    )
+    assert ease_test_bias_end["success"] is True
+    v_75_b08 = cmds.keyframe(sphere, attribute="translateY", time=(75, 75), query=True, valueChange=True)[0]
+    denom_08 = (1.0 / 0.8 - 2.0) * (1.0 - 0.375) + 1.0
+    u_prime_08 = 0.375 / denom_08
+    s_08 = 6.0 * (u_prime_08 ** 5) - 15.0 * (u_prime_08 ** 4) + 10.0 * (u_prime_08 ** 3)
+    exp_v75_b08 = v_st_init + s_08 * dv_ease
+    assert abs(v_75_b08 - exp_v75_b08) < 1e-3, "mode='ease' bias=0.8 计算值不符合理论！"
+    assert v_75_b08 > expected_v75, "偏向终点的数值应高于居中对称时的数值！"
+    print("✓ mode='ease' 权重偏置 (bias) 验证通过：bias=0.2 与 bias=0.8 严格受偏置调控！")
+
+    cmds.undo()
+
+    # 验证 D: 仅有端点帧无内部帧时的诊断反馈
+    cmds.cutKey(sphere, attribute="translateY", time=(61, 99))
+    ease_test_no_inner = trimmer.optimize_layer_curves_by_bookmarks(
+        objects=[sphere],
+        layer="BaseAnimation",
+        scope="selected",
+        mode="ease",
+        strength=1.0,
+        dry_run=False
+    )
+    assert ease_test_no_inner["success"] is True
+    assert u"仅包含 2 个端点帧，无内部关键帧可优化" in ease_test_no_inner["message"]
+    print("✓ mode='ease' 无内部帧诊断验证通过：准确提示仅有端点帧并安全锁定不变！")
+
+    # 13. 清理测试节点
     cmds.delete(sphere)
     cmds.delete(bm1)
     cmds.delete(bm2)
-    cmds.delete(bm3)
-    cmds.deleteUI(trimmer.WINDOW_NAME, window=True)
-    print("=== 全部功能、3 种书签作用范围、多帧缓动、权重偏置与通道安全隔离实测验证 100% 通过！===")
+    if hasattr(cmds, "window") and cmds.window(trimmer.WINDOW_NAME, exists=True):
+        cmds.deleteUI(trimmer.WINDOW_NAME, window=True)
+    print("=== 全部功能、3 种书签作用范围、多帧缓动、端点缓入缓出数值重塑、权重偏置与通道安全隔离实测验证 100% 通过！===")
 
 if __name__ == "__main__":
     run_live_maya_verification()

@@ -54,6 +54,7 @@ class TestFrameworkAndRegistry(unittest.TestCase):
         self.assertFalse(res.dry_run)
         d = res.to_dict()
         self.assertIn("success", d)
+        self.assertIn("tool_id", d)
 
     def test_tool_result_fail(self):
         res = ToolResult.fail("失败消息", errors=["Err1"])
@@ -90,18 +91,38 @@ class TestFrameworkAndRegistry(unittest.TestCase):
         dry_res = execute_tool("mock_test_tool", {"val": 10}, dry_run=True)
         self.assertTrue(dry_res.success)
         self.assertTrue(dry_res.dry_run)
+        self.assertEqual(dry_res.tool_id, "mock_test_tool")
 
         # 真实执行模式
         exec_res = execute_tool("mock_test_tool", {"val": 10}, dry_run=False)
         self.assertTrue(exec_res.success)
         self.assertFalse(exec_res.dry_run)
         self.assertEqual(exec_res.data.get("doubled"), 20)
+        self.assertEqual(exec_res.tool_id, "mock_test_tool")
 
     def test_execute_tool_validation_failure(self):
         # 传入非法负数
         fail_res = execute_tool("mock_test_tool", {"val": -5})
         self.assertFalse(fail_res.success)
         self.assertIn("非负整数", fail_res.message)
+        self.assertEqual(fail_res.tool_id, "mock_test_tool")
+
+        dry_fail_res = execute_tool("mock_test_tool", {"val": -5}, dry_run=True)
+        self.assertFalse(dry_fail_res.success)
+        self.assertTrue(dry_fail_res.dry_run)
+
+    def test_execute_tool_dispatch_errors_are_results(self):
+        missing = execute_tool("missing_tool")
+        self.assertFalse(missing.success)
+        self.assertEqual(missing.tool_id, "missing_tool")
+
+        bad_args = execute_tool("mock_test_tool", ["not", "a", "dict"])
+        self.assertFalse(bad_args.success)
+        self.assertEqual(bad_args.tool_id, "mock_test_tool")
+
+        empty_list = execute_tool("mock_test_tool", [])
+        self.assertFalse(empty_list.success)
+        self.assertIn("InvalidArgumentsType", empty_list.errors)
 
 
 if __name__ == "__main__":

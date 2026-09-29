@@ -26,7 +26,7 @@ class FBXDiffSyncTool(BaseMayaTool):
 
     tool_id = "compare_and_sync_fbx"
     tool_name = "FBX外部资产深度比对与同步工具"
-    category = "Pipeline"
+    category = "pipeline_io"
     version = "1.3.0"
     description = (
         "纯内存直接解析外部 FBX 文件（零场景几何污染），与 Maya 场景中同名模型进行"

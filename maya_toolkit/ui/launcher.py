@@ -25,11 +25,19 @@ from ..core.ui_base import (
     apply_dark_theme,
 )
 from ..framework.registry import ToolRegistry
+from ..framework.domains import get_domain_info, list_domains
 
 _LAUNCHER_INSTANCE = None
 
+if QtWidgets is not None:
+    _FrameBase = QtWidgets.QFrame
+    _DialogBase = QtWidgets.QDialog
+else:
+    _FrameBase = object
+    _DialogBase = object
 
-class ToolCardWidget(QtWidgets.QFrame):
+
+class ToolCardWidget(_FrameBase):
     """单个工具的卡片展示控件"""
 
     def __init__(self, tool_instance, parent=None):
@@ -56,15 +64,16 @@ class ToolCardWidget(QtWidgets.QFrame):
         # 顶部标题栏（分类徽章 + 工具名称 + 版本）
         top_row = QtWidgets.QHBoxLayout()
 
-        cat_badge = QtWidgets.QLabel(self.tool.category.upper())
+        dom_info = get_domain_info(self.tool.category)
+        cat_badge = QtWidgets.QLabel(dom_info["name"])
         cat_badge.setStyleSheet("""
-            background-color: #0e639c;
-            color: #ffffff;
+            background-color: {bg};
+            color: {fg};
             font-size: 10px;
             font-weight: bold;
             padding: 2px 6px;
             border-radius: 3px;
-        """)
+        """.format(bg=dom_info.get("badge_color", "#0e639c"), fg=dom_info.get("badge_text_color", "#ffffff")))
 
         title_label = QtWidgets.QLabel(self.tool.tool_name)
         title_font = QtGui.QFont()
@@ -116,7 +125,7 @@ class ToolCardWidget(QtWidgets.QFrame):
                 )
 
 
-class MayaToolkitLauncher(QtWidgets.QDialog):
+class MayaToolkitLauncher(_DialogBase):
     """Maya 工具箱主控制台主窗口"""
 
     WINDOW_TITLE = "Maya 生产力工具箱 (Toolkit Launcher v2.0)"
@@ -182,9 +191,11 @@ class MayaToolkitLauncher(QtWidgets.QDialog):
         filter_row.addWidget(self.search_edit)
 
         self.cat_combo = QtWidgets.QComboBox()
-        self.cat_combo.addItems(["全部类别 (All)", "Pipeline", "Modeling", "Rigging", "Animation"])
+        self.cat_combo.addItem("🌐 全部业务领域 (All Domains)", userData=None)
+        for dom in list_domains():
+            self.cat_combo.addItem("{name} ({id})".format(name=dom["name"], id=dom["id"]), userData=dom["id"])
         self.cat_combo.currentIndexChanged.connect(self._filter_tools)
-        self.cat_combo.setFixedWidth(150)
+        self.cat_combo.setFixedWidth(210)
         filter_row.addWidget(self.cat_combo)
 
         main_layout.addLayout(filter_row)
@@ -235,7 +246,7 @@ class MayaToolkitLauncher(QtWidgets.QDialog):
 
     def _filter_tools(self):
         kw = self.search_edit.text().strip().lower()
-        selected_cat = self.cat_combo.currentText().split(" ")[0]
+        selected_domain = self.cat_combo.currentData()
 
         visible_count = 0
         for card in self.cards:
@@ -247,8 +258,8 @@ class MayaToolkitLauncher(QtWidgets.QDialog):
                 or kw in t.description.lower()
             )
             matches_cat = (
-                selected_cat == "全部类别"
-                or selected_cat.lower() == t.category.lower()
+                selected_domain is None
+                or str(t.category).lower() == str(selected_domain).lower()
             )
 
             if matches_kw and matches_cat:
@@ -340,6 +351,10 @@ def install_shelf_button(root_dir=None):
 
 def show_launcher(parent=None):
     """打开 Maya 工具箱主控制台单例窗口"""
+    if not QtWidgets:
+        print("[Maya Toolkit] 提示: 当前 Python 环境未安装 PySide2/PySide6，无法呼出图形界面。请在 Maya 内部运行。")
+        return None
+
     global _LAUNCHER_INSTANCE
     if _LAUNCHER_INSTANCE is not None:
         try:

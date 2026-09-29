@@ -25,7 +25,7 @@ class EulerWindingTool(BaseMayaTool):
 
     tool_id = "fix_rotation_winding"
     tool_name = "欧拉旋转360度跳变修正工具"
-    category = "Animation"
+    category = "animation"
     version = "1.2.0"
     description = (
         "自动扫描并修复 Maya 控制器动画曲线上因 360 度整数倍异常增加或减少导致的旋转空转与插值跳变。"

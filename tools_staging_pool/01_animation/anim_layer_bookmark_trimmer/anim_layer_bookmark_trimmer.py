@@ -802,15 +802,56 @@ def simplify_curve_interval(curve, start_time, stop_time, strength=0.5):
 
 def apply_ease_in_out_interval(curve, start_time, stop_time, strength=0.5, bias=0.5, soften_adjacent=True):
     """
-    在书签端点及其紧邻关键帧上应用缓入缓出 (Ease In / Ease Out)。
-    - start_time 起始端点：出切线设为 flat，手柄权重根据 strength 与 bias 调配；
-    - stop_time 结束端点：入切线设为 flat，手柄权重根据 strength 与 bias 调配；
-    - 开启加权切线 weightedTangents=True，手柄按倍率扩展；
-    - bias 调控权重偏向：bias < 0.5 起点缓出加权更大；bias > 0.5 终点缓入加权更大；bias = 0.5 居中对称；
-    - 若 soften_adjacent 为 True：对紧邻端点的内部第一帧和倒数第一帧采用平滑过渡。
+    在单个书签区间 [start_time, stop_time] 内应用端点缓入缓出 (Ease In / Ease Out)。
+    🛡️ 核心法则：端点关键帧 (start_time 与 stop_time) 的数值与时间绝对保持 100% 锁定不变！
+
+    🎯 关键帧作用机制 (直接作用于内部关键帧数值，绝非仅改手柄):
+    - 针对区间内的内部关键帧，根据 Ken Perlin Smootherstep 结合 Schlick Bias 函数计算缓动目标数值；
+    - 结合 strength (0.0~1.0) 进行平滑插值混合，真实修改关键帧数值 (keyframe value)；
+    - 关联 bias (0.0~1.0) 调控权重偏向:
+        * bias < 0.5: 偏向起点 (滞留起点更久，缓出加重，起跑平缓)；
+        * bias > 0.5: 偏向终点 (快速到位，滞留终点更久，缓入平缓刹车)；
+        * bias = 0.5: 居中对称缓入缓出；
+    - 协同设置端点切线手柄为 Flat，手柄加权长度根据 strength 和 bias 动态扩展；
+    - 内部帧切线统一设置为自然顺畅的 Spline。
+
+    返回:
+        int: 本次被修改数值的内部关键帧总数量。
     """
     _ensure_boundary_keys_on_curve(curve, start_time, stop_time)
 
+    # 1. 严格获取端点数值，确保端点永不漂移
+    v0 = cmds.keyframe(curve, time=(start_time, start_time), query=True, valueChange=True)[0]
+    vn = cmds.keyframe(curve, time=(stop_time, stop_time), query=True, valueChange=True)[0]
+
+    # 2. 查询区间内部的关键帧（开区间）
+    inner_range = (start_time + 0.001, stop_time - 0.001)
+    inner_times = cmds.keyframe(curve, time=inner_range, query=True, timeChange=True) or []
+    inner_times = sorted(list(set([round(float(t), 4) for t in inner_times])))
+
+    dt = stop_time - start_time
+    dv = vn - v0
+
+    modified_count = 0
+
+    # 3. 若有内部帧且 strength > 0，直接修改关键帧数值
+    if inner_times and dt > 1e-4 and strength > 0.0:
+        for t_curr in inner_times:
+            u = (t_curr - start_time) / dt
+            # 计算带 bias 调配的 Smootherstep 缓动系数
+            ease_u = smootherstep(u, bias=bias)
+            target_val = v0 + ease_u * dv
+
+            orig_val = cmds.keyframe(curve, time=(t_curr, t_curr), query=True, valueChange=True)[0]
+            blended_val = (1.0 - strength) * orig_val + strength * target_val
+            cmds.keyframe(curve, time=(t_curr, t_curr), valueChange=blended_val)
+            modified_count += 1
+
+    # 4. 强制复位端点，确保绝对 100% 锁定不变
+    cmds.keyframe(curve, time=(start_time, start_time), valueChange=v0)
+    cmds.keyframe(curve, time=(stop_time, stop_time), valueChange=vn)
+
+    # 5. 切线与加权手柄深度协同
     try:
         cmds.keyTangent(curve, edit=True, weightedTangents=True)
     except Exception:
@@ -837,16 +878,13 @@ def apply_ease_in_out_interval(curve, start_time, stop_time, strength=0.5, bias=
     except Exception:
         pass
 
-    if soften_adjacent:
-        inner_times = cmds.keyframe(curve, time=(start_time + 0.001, stop_time - 0.001), query=True, timeChange=True) or []
-        inner_times = sorted(list(set([round(float(t), 4) for t in inner_times])))
-        if len(inner_times) >= 2:
-            t_first = inner_times[0]
-            cmds.keyTangent(curve, time=(t_first, t_first), edit=True, itt="spline", ott="spline")
-            t_last = inner_times[-1]
-            cmds.keyTangent(curve, time=(t_last, t_last), edit=True, itt="spline", ott="spline")
+    for t_in in inner_times:
+        try:
+            cmds.keyTangent(curve, time=(t_in, t_in), edit=True, itt="spline", ott="spline")
+        except Exception:
+            pass
 
-    return 2
+    return modified_count
 
 
 def smooth_tangents_interval(curve, start_time, stop_time):
@@ -1011,8 +1049,8 @@ def optimize_layer_curves_by_bookmarks(
                     total_inner_keys += inner_count
                     v0 = cmds.keyframe(c, time=(st, st), query=True, valueChange=True)[0]
                     vn = cmds.keyframe(c, time=(sp, sp), query=True, valueChange=True)[0]
-                    if mode in ["multikey_ease", "smart"] and abs(vn - v0) < 1e-4:
-                        unmodified_reports.append(u"  • [{}] 书签 [{}]({}~{}) 端点数值相同 ({:.2f} 水平平线)，位移重塑差为 0".format(plug, bm["name"], st, sp, v0))
+                    if mode in ["multikey_ease", "ease", "smart"] and abs(vn - v0) < 1e-4:
+                        unmodified_reports.append(u"  • [{}] 书签 [{}]({}~{}) 端点数值相同 ({:.2f} 水平平线)，缓动位移重塑差为 0".format(plug, bm["name"], st, sp, v0))
                     else:
                         modified_reports.append(u"  • [{}] 书签 [{}]({}~{}): 预计优化 {} 个内部帧 (端点锁定不变)".format(plug, bm["name"], st, sp, inner_count))
 
@@ -1068,11 +1106,14 @@ def optimize_layer_curves_by_bookmarks(
                 k_times = sorted(list(set([round(float(t), 4) for t in k_times])))
                 count = len(k_times)
 
-                if count < 3 and mode != "ease":
+                if count < 3:
                     if count == 0:
                         unmodified_reports.append(u"  • [{}] 书签 [{}]({}~{}) 区间内无任何关键帧".format(plug, bm["name"], st, sp))
                     else:
                         unmodified_reports.append(u"  • [{}] 书签 [{}]({}~{}) 仅包含 {} 个端点帧，无内部关键帧可优化 (端点依法锁定不变)".format(plug, bm["name"], st, sp, count))
+                    if ease_bounds or mode == "ease":
+                        apply_ease_in_out_interval(c, st, sp, strength=strength, bias=bias)
+                    continue
                 else:
                     # 记录优化前的值
                     pre_vals = {t: cmds.keyframe(c, time=(t, t), query=True, valueChange=True)[0] for t in k_times}
@@ -1334,7 +1375,7 @@ class BookmarkTrimmerUI(object):
         cmds.menuItem(label=u"圆滑曲线 (Smooth Curves - 去噪平滑)")
         cmds.menuItem(label=u"简化曲线 (Simplify Curves - 抽稀冗余)")
         cmds.menuItem(label=u"区间多帧缓入缓出 (Multi-key Ease - S曲线多帧重塑)")
-        cmds.menuItem(label=u"端点缓入缓出 (Ease In/Out - 端点手柄平缓)")
+        cmds.menuItem(label=u"端点缓入缓出 (Ease In/Out - 内部帧加减速数值缓动)")
         cmds.menuItem(label=u"综合优化 (Smart Optimize - 平滑+抽稀+缓动)")
         cmds.menuItem(label=u"平滑切线 (Smooth Tangents - Spline)")
         cmds.setParent("..")
@@ -1616,6 +1657,9 @@ class BookmarkTrimmerUI(object):
 
 def show_ui():
     """打开修剪与曲线优化工具界面的全局快捷入口"""
+    if cmds.about(batch=True):
+        print(u"ℹ️ 当前处于批处理/无头环境 (Batch/Headless)，跳过图形窗口创建。")
+        return None
     ui = BookmarkTrimmerUI()
     ui.show()
     return ui

@@ -21,7 +21,8 @@ class ToolResult(object):
         errors=None,
         warnings=None,
         dry_run=False,
-        execution_time=0.0
+        execution_time=0.0,
+        tool_id=None
     ):
         self.success = bool(success)
         self.message = str(message)
@@ -30,11 +31,13 @@ class ToolResult(object):
         self.warnings = list(warnings) if warnings else []
         self.dry_run = bool(dry_run)
         self.execution_time = float(execution_time)
+        self.tool_id = str(tool_id) if tool_id is not None else None
 
     def to_dict(self):
         """转为标准 Python 原生字典（保证可 JSON 序列化）"""
         return {
             "success": self.success,
+            "tool_id": self.tool_id,
             "message": self.message,
             "data": self.data,
             "errors": self.errors,
@@ -48,7 +51,7 @@ class ToolResult(object):
         return json.dumps(self.to_dict(), indent=indent, ensure_ascii=ensure_ascii)
 
     @classmethod
-    def ok(cls, message="操作执行成功", data=None, warnings=None, dry_run=False, execution_time=0.0):
+    def ok(cls, message="操作执行成功", data=None, warnings=None, dry_run=False, execution_time=0.0, tool_id=None):
         """快速构建成功响应"""
         return cls(
             success=True,
@@ -56,11 +59,12 @@ class ToolResult(object):
             data=data or {},
             warnings=warnings or [],
             dry_run=dry_run,
-            execution_time=execution_time
+            execution_time=execution_time,
+            tool_id=tool_id
         )
 
     @classmethod
-    def fail(cls, message="操作执行失败", errors=None, data=None, dry_run=False, execution_time=0.0):
+    def fail(cls, message="操作执行失败", errors=None, data=None, dry_run=False, execution_time=0.0, tool_id=None):
         """快速构建失败响应"""
         err_list = errors if isinstance(errors, list) else ([str(errors)] if errors else [])
         return cls(
@@ -69,7 +73,8 @@ class ToolResult(object):
             errors=err_list,
             data=data or {},
             dry_run=dry_run,
-            execution_time=execution_time
+            execution_time=execution_time,
+            tool_id=tool_id
         )
 
     def __repr__(self):

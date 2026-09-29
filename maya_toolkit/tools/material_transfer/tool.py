@@ -25,7 +25,7 @@ class MaterialTransferTool(BaseMayaTool):
 
     tool_id = "assign_materials_by_rows"
     tool_name = "按行一对一材质指定工具"
-    category = "Modeling"
+    category = "modeling_surfacing"
     version = "1.2.0"
     description = (
         "将源网格列表 (A) 的材质球与分面指派严格按列表顺序一对一赋予给目标网格列表 (B)。"

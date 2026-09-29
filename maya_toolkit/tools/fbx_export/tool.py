@@ -74,7 +74,7 @@ class FBXExportTool(BaseMayaTool):
 
     tool_id = "export_sets_to_fbx"
     tool_name = "选择集批量导出FBX工具"
-    category = "Pipeline"
+    category = "pipeline_io"
     version = "1.2.0"
     description = (
         "自动读取 Maya 场景中的用户选择集 (objectSet)，或根据传入的导出配置列表，"
