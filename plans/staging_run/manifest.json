@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T15:42:27.318001+08:00",
+  "updated_at": "2026-09-30T15:45:00.277197+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -13,12 +13,12 @@
     "heartbeat_transition_verified": true,
     "last_completed_tool": "01_animation/anim_layer_bookmark_trimmer",
     "last_usage": {
-      "five_hour_used_percent": 59.0,
-      "weekly_used_percent": 39.0,
-      "recorded_at": "2026-09-30T15:21:35.420970+08:00",
+      "five_hour_used_percent": 67.0,
+      "weekly_used_percent": 40.0,
+      "recorded_at": "2026-09-30T15:44:58.313240+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/anim_layer_bookmark_trimmer"
+    "current_tool": "01_animation/anim_layer_key_runner"
   },
   "entry_repairs": [
     {
@@ -457,7 +457,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Original six algorithms/native UI retained; read-only plugin preflight, exact layer/continuous-channel lookup, missing-boundary preview fix, parameter/scene guards, complete archive and promotion package.",
-      "prepared_at": "2026-09-30T15:44:49.059454+08:00"
+      "prepared_at": "2026-09-30T15:44:49.059454+08:00",
+      "source_commit": "ba407502d96e93443714daf11a2f9da8003bbda0"
     },
     {
       "source_path": "01_animation/anim_layer_key_runner",
@@ -475,7 +476,7 @@
       ],
       "license_files": [],
       "entry_sha256": "72af037b917ea6ca81c3268a16a1a03bd69615489ec79a286050bdd83dcd8f01",
-      "status": "pending",
+      "status": "working",
       "candidate_complete": false,
       "offline_checks": [],
       "maya_acceptance": {

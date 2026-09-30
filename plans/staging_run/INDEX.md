@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-09-30T15:42:27.318001+08:00
+更新时间：2026-09-30T15:45:00.277197+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -8,7 +8,7 @@
 | --- | --- | --- | --- | --- |
 | `01_animation/anim_filters` | prepared_unverified | True | True | not_run |
 | `01_animation/anim_layer_bookmark_trimmer` | prepared_verified_offline | True | True | not_run |
-| `01_animation/anim_layer_key_runner` | pending | True | False | not_run |
+| `01_animation/anim_layer_key_runner` | working | True | False | not_run |
 | `01_animation/anim_layer_keyframe_bookmark` | pending | True | False | not_run |
 | `01_animation/anim_layer_v4_0` | pending | True | False | not_run |
 | `01_animation/anim_mirror_helper_v1_1` | pending | True | False | not_run |
