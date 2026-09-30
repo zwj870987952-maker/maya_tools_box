@@ -1,0 +1,77 @@
+{
+  "tool_id": "anim_layer_key_runner",
+  "registration": {
+    "module": "anim_layer_key_runner",
+    "class_name": "AnimLayerKeyRunnerTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/anim_layer_key_runner.md",
+      "target": "docs/tools/anim_layer_key_runner.md"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_key_runner/__init__.py",
+      "target": "maya_toolkit/tools/anim_layer_key_runner/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_key_runner/launch_ui.mel",
+      "target": "maya_toolkit/tools/anim_layer_key_runner/launch_ui.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_key_runner/native_ui.py",
+      "target": "maya_toolkit/tools/anim_layer_key_runner/native_ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_key_runner/operations.py",
+      "target": "maya_toolkit/tools/anim_layer_key_runner/operations.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_key_runner/tool.py",
+      "target": "maya_toolkit/tools/anim_layer_key_runner/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_key_runner/ui.py",
+      "target": "maya_toolkit/tools/anim_layer_key_runner/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_key_runner/upstream/anim_layer_key_runner.mel",
+      "target": "maya_toolkit/tools/anim_layer_key_runner/upstream/anim_layer_key_runner.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_key_runner/upstream/anim_layer_key_runner.py",
+      "target": "maya_toolkit/tools/anim_layer_key_runner/upstream/anim_layer_key_runner.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_key_runner/upstream/README.md",
+      "target": "maya_toolkit/tools/anim_layer_key_runner/upstream/README.md"
+    },
+    {
+      "source": "tests/test_anim_layer_key_runner.py",
+      "target": "tests/test_anim_layer_key_runner.py"
+    },
+    {
+      "source": "tests/test_anim_layer_key_runner_maya.py",
+      "target": "tests/test_anim_layer_key_runner_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/anim_layer_key_runner.py",
+    "upstream/anim_layer_key_runner.mel",
+    "upstream/README.md",
+    "launch_ui.mel"
+  ],
+  "dependencies": [
+    "maya.cmds/maya.mel",
+    "existing maya_toolkit framework/core",
+    "Python 3",
+    "Advanced Skeleton only for asAutoSwitchFKIK preset"
+  ],
+  "source": "../anim_layer_key_runner.py",
+  "change_summary": "Layer-specific frame scheduling with normalized curve results and no cross-layer fallback; isolated preflight never executes commands; preserve MEL/Python engines/presets, restore time/selection, report per-frame errors, complete source archives/native UI/promotion package.",
+  "verification_limitations": [
+    "Actual Maya GUI and Advanced Skeleton preset pending",
+    "Custom commands execute with normal Maya process privileges and may have effects outside Undo",
+    "Other Maya versions/Python 2 unverified"
+  ],
+  "acceptance_required": true
+}

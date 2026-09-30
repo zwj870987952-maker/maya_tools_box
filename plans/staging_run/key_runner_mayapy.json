@@ -1,0 +1,10 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool\\01_animation\\anim_layer_key_runner\\release_candidate\\tests\\test_anim_layer_key_runner_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_deleted_target_reports_remaining_frames_and_restores_other_selection (__main__.MayaTests.test_deleted_target_reports_remaining_frames_and_restores_other_selection) ... ����: AnimLayerKeyRunnerTool_anim_layer_key_runner\nok\r\ntest_dry_run_never_evaluates_python_and_preserves_time_selection_undo (__main__.MayaTests.test_dry_run_never_evaluates_python_and_preserves_time_selection_undo) ... ok\r\ntest_frame_errors_continue_or_stop_and_restore (__main__.MayaTests.test_frame_errors_continue_or_stop_and_restore) ... ����: AnimLayerKeyRunnerTool_anim_layer_key_runner\nok\r\ntest_layer_base_and_all_scheduling_isolated (__main__.MayaTests.test_layer_base_and_all_scheduling_isolated) ... ok\r\ntest_mel_bridge_source_defines_without_running_ui (__main__.MayaTests.test_mel_bridge_source_defines_without_running_ui) ... ok\r\ntest_mel_command_execution_and_preview_has_no_eval (__main__.MayaTests.test_mel_command_execution_and_preview_has_no_eval) ... ����: AnimLayerKeyRunnerTool_anim_layer_key_runner\nok\r\ntest_playback_filter_cap_empty_animation_and_invalid_layer (__main__.MayaTests.test_playback_filter_cap_empty_animation_and_invalid_layer) ... ok\r\ntest_python_each_frame_namespace_and_one_step_undo (__main__.MayaTests.test_python_each_frame_namespace_and_one_step_undo) ... ����: AnimLayerKeyRunnerTool_anim_layer_key_runner\nok\r\ntest_target_rename_does_not_break_later_frames_or_selection_restore (__main__.MayaTests.test_target_rename_does_not_break_later_frames_or_selection_restore) ... ����: AnimLayerKeyRunnerTool_anim_layer_key_runner\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 9 tests in 0.255s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "490545ff19cfcd0642844f8af5f2879fb877d535a5bfa704eccf341167169cbd"
+}

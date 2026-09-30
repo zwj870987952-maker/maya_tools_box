@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T15:45:00.277197+08:00",
+  "updated_at": "2026-09-30T15:59:08.498260+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,7 +11,7 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/anim_layer_bookmark_trimmer",
+    "last_completed_tool": "01_animation/anim_layer_key_runner",
     "last_usage": {
       "five_hour_used_percent": 67.0,
       "weekly_used_percent": 40.0,
@@ -476,14 +476,52 @@
       ],
       "license_files": [],
       "entry_sha256": "72af037b917ea6ca81c3268a16a1a03bd69615489ec79a286050bdd83dcd8f01",
-      "status": "working",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_verified_offline",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_complete_original_python_mel_readme_archive (__main__.OfflineTests.test_complete_original_python_mel_readme_archive) ... ok\r\ntest_curve_name_string_layer_isolation_and_dedup (__main__.OfflineTests.test_curve_name_string_layer_isolation_and_dedup) ... ok\r\ntest_invalid_layer_and_nonfinite_frames_fail (__main__.OfflineTests.test_invalid_layer_and_nonfinite_frames_fail) ... ok\r\ntest_missing_base_does_not_fallback_through_other_layer (__main__.OfflineTests.test_missing_base_does_not_fallback_through_other_layer) ... ok\r\ntest_native_callbacks_overridden_and_mel_bridge_not_auto_executed (__main__.OfflineTests.test_native_callbacks_overridden_and_mel_bridge_not_auto_executed) ... ok\r\ntest_normalize_compiles_without_executing_python (__main__.OfflineTests.test_normalize_compiles_without_executing_python) ... ok\r\ntest_schema_exact_parameters_and_both_export_protocols (__main__.OfflineTests.test_schema_exact_parameters_and_both_export_protocols) ... ok\r\ntest_validation_rejects_unknown_empty_bad_types_and_invalid_python (__main__.OfflineTests.test_validation_rejects_unknown_empty_bad_types_and_invalid_python) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.002s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"anim_layer_key_runner\",\r\n  \"candidate_sha256\": \"c9c00cceba105d8791f1502219f50bfae10236c90faae2a0d8510a6e8a69f6a7\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\anim_layer_key_runner.md\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_key_runner\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_key_runner\\\\launch_ui.mel\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_key_runner\\\\native_ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_key_runner\\\\operations.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_key_runner\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_key_runner\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_key_runner\\\\upstream\\\\anim_layer_key_runner.mel\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_key_runner\\\\upstream\\\\anim_layer_key_runner.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_key_runner\\\\upstream\\\\README.md\",\r\n    \"tests\\\\test_anim_layer_key_runner.py\",\r\n    \"tests\\\\test_anim_layer_key_runner_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool\\01_animation\\anim_layer_key_runner\\release_candidate\\tests\\test_anim_layer_key_runner_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_deleted_target_reports_remaining_frames_and_restores_other_selection (__main__.MayaTests.test_deleted_target_reports_remaining_frames_and_restores_other_selection) ... ����: AnimLayerKeyRunnerTool_anim_layer_key_runner\nok\r\ntest_dry_run_never_evaluates_python_and_preserves_time_selection_undo (__main__.MayaTests.test_dry_run_never_evaluates_python_and_preserves_time_selection_undo) ... ok\r\ntest_frame_errors_continue_or_stop_and_restore (__main__.MayaTests.test_frame_errors_continue_or_stop_and_restore) ... ����: AnimLayerKeyRunnerTool_anim_layer_key_runner\nok\r\ntest_layer_base_and_all_scheduling_isolated (__main__.MayaTests.test_layer_base_and_all_scheduling_isolated) ... ok\r\ntest_mel_bridge_source_defines_without_running_ui (__main__.MayaTests.test_mel_bridge_source_defines_without_running_ui) ... ok\r\ntest_mel_command_execution_and_preview_has_no_eval (__main__.MayaTests.test_mel_command_execution_and_preview_has_no_eval) ... ����: AnimLayerKeyRunnerTool_anim_layer_key_runner\nok\r\ntest_playback_filter_cap_empty_animation_and_invalid_layer (__main__.MayaTests.test_playback_filter_cap_empty_animation_and_invalid_layer) ... ok\r\ntest_python_each_frame_namespace_and_one_step_undo (__main__.MayaTests.test_python_each_frame_namespace_and_one_step_undo) ... ����: AnimLayerKeyRunnerTool_anim_layer_key_runner\nok\r\ntest_target_rename_does_not_break_later_frames_or_selection_restore (__main__.MayaTests.test_target_rename_does_not_break_later_frames_or_selection_restore) ... ����: AnimLayerKeyRunnerTool_anim_layer_key_runner\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 9 tests in 0.255s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "490545ff19cfcd0642844f8af5f2879fb877d535a5bfa704eccf341167169cbd"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Actual Maya GUI and Advanced Skeleton preset pending",
+        "Custom commands execute with normal Maya process privileges and may have effects outside Undo",
+        "Other Maya versions/Python 2 unverified"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -492,7 +530,46 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "788189f2abbe73e9c4a5b9deb2cfb68e1ca5496ceb8e49151c4474daddce676f"
+      "source_tree_sha256": "788189f2abbe73e9c4a5b9deb2cfb68e1ca5496ceb8e49151c4474daddce676f",
+      "candidate_path": "tools_staging_pool/01_animation/anim_layer_key_runner/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/anim_layer_key_runner/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "anim_layer_key_runner",
+        "candidate_sha256": "c9c00cceba105d8791f1502219f50bfae10236c90faae2a0d8510a6e8a69f6a7",
+        "applied": false,
+        "files": [
+          "docs\\tools\\anim_layer_key_runner.md",
+          "maya_toolkit\\tools\\anim_layer_key_runner\\__init__.py",
+          "maya_toolkit\\tools\\anim_layer_key_runner\\launch_ui.mel",
+          "maya_toolkit\\tools\\anim_layer_key_runner\\native_ui.py",
+          "maya_toolkit\\tools\\anim_layer_key_runner\\operations.py",
+          "maya_toolkit\\tools\\anim_layer_key_runner\\tool.py",
+          "maya_toolkit\\tools\\anim_layer_key_runner\\ui.py",
+          "maya_toolkit\\tools\\anim_layer_key_runner\\upstream\\anim_layer_key_runner.mel",
+          "maya_toolkit\\tools\\anim_layer_key_runner\\upstream\\anim_layer_key_runner.py",
+          "maya_toolkit\\tools\\anim_layer_key_runner\\upstream\\README.md",
+          "tests\\test_anim_layer_key_runner.py",
+          "tests\\test_anim_layer_key_runner_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/anim_layer_key_runner.py",
+        "upstream/anim_layer_key_runner.mel",
+        "upstream/README.md",
+        "launch_ui.mel"
+      ],
+      "external_dependencies": [
+        "maya.cmds/maya.mel",
+        "existing maya_toolkit framework/core",
+        "Python 3",
+        "Advanced Skeleton only for asAutoSwitchFKIK preset"
+      ],
+      "source_preserved": true,
+      "change_summary": "Layer-specific frame scheduling with normalized curve results and no cross-layer fallback; isolated preflight never executes commands; preserve MEL/Python engines/presets, restore time/selection, report per-frame errors, complete source archives/native UI/promotion package.",
+      "prepared_at": "2026-09-30T15:57:56.056796+08:00"
     },
     {
       "source_path": "01_animation/anim_layer_keyframe_bookmark",
