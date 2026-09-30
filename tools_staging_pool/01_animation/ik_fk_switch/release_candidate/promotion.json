@@ -1,0 +1,85 @@
+{
+  "tool_id": "ik_fk_switch",
+  "registration": {
+    "module": "ik_fk_switch",
+    "class_name": "IKFKTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/ik_fk_switch.md",
+      "target": "docs/tools/ik_fk_switch.md"
+    },
+    {
+      "source": "docs/tools/ik_fk_switch_changes.diff",
+      "target": "docs/tools/ik_fk_switch_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/ik_fk_switch/__init__.py",
+      "target": "maya_toolkit/tools/ik_fk_switch/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ik_fk_switch/catalog.json",
+      "target": "maya_toolkit/tools/ik_fk_switch/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/ik_fk_switch/native.py",
+      "target": "maya_toolkit/tools/ik_fk_switch/native.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ik_fk_switch/proxy.py",
+      "target": "maya_toolkit/tools/ik_fk_switch/proxy.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ik_fk_switch/runtime.py",
+      "target": "maya_toolkit/tools/ik_fk_switch/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ik_fk_switch/tool.py",
+      "target": "maya_toolkit/tools/ik_fk_switch/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ik_fk_switch/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/ik_fk_switch/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/ik_fk_switch/upstream/how to install and use.txt",
+      "target": "maya_toolkit/tools/ik_fk_switch/upstream/how to install and use.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/ik_fk_switch/upstream/mog_ikFkSwitch.py",
+      "target": "maya_toolkit/tools/ik_fk_switch/upstream/mog_ikFkSwitch.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ik_fk_switch/upstream/mog_ikFkSwitchPro.py",
+      "target": "maya_toolkit/tools/ik_fk_switch/upstream/mog_ikFkSwitchPro.py"
+    },
+    {
+      "source": "tests/test_ik_fk_switch.py",
+      "target": "tests/test_ik_fk_switch.py"
+    },
+    {
+      "source": "tests/test_ik_fk_switch_maya.py",
+      "target": "tests/test_ik_fk_switch_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/mog_ikFkSwitchPro.py",
+    "upstream/mog_ikFkSwitch.py",
+    "upstream/how to install and use.txt",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "pymel.core compatible with target Maya; absent in local Maya2025",
+    "Maya native cmds/OpenMaya1/2 and actual GUI for original full panel",
+    "Existing BaseMayaTool/Undo"
+  ],
+  "source": "../mog_ikFkSwitchPro.py",
+  "change_summary": "Complete PRO matching/temp IK chain/pole vector/full UI/baking retained, guarded standard API/callbacks and owned Store JSON transfer, legacy source also archived intact.",
+  "verification_limitations": [
+    "PyMel absent: original matching/GUI/bake execution unverified",
+    "Rig-specific reference/control/joint orientation/pole vector behavior pending",
+    "Store transfer uses explicit guarded JSON metadata instead of original scene import/forced deletion",
+    "Source key deletion/rekey/temporary zero poses alter production animation; backup required"
+  ],
+  "acceptance_required": true
+}

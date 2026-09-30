@@ -245,3 +245,11 @@
 - 修复非XYZ从quat后仅赋order→reorderIt，六种顺序key矩阵保持；Maya API1不存在原angleShortestPath调用，等价归一化绝对点积2acos/clamp最短夹角；SLERP先复制第二quat避免缓存符号污染；getAttr(time)替代切帧，角曲线fallback TA但安全准入已有三轴才允许。
 - 只读有限参数/三轴TA/固定order/degree/样本量/锁引用共享曲线保护，层约束与缺轴拒绝；原private写入仅活跃scope，修复finallyAutoKey/时间/选择、局部失败Undo。说明范围外切线也变spline/增加键不保证保留Euler圈数。
 - 普通Python2项、Maya2025隔离5项、临时正式布局注册/面板/Schema及指纹通过，六顺序真实key矩阵/Undo、read-only detection/dry/真实区间、子帧密度范围/原UI业务桥、quat缓存/共享锁/order单位拒绝、第二笔写失败Undo-finally；未打开GUI/生产动画视觉待验prepared_unverified，完整文档/验收/晋级齐备。真实收尾5小时54%/周79%已用，继续下一项，无卡/同步/转正。
+
+## 2026-10-01：Universal IK FK Pro完整候选，累计26/109
+
+- Monika Gelbmann Pro3.0/旧版1.10/安装说明3原资源完整字节归档，Pro13全局函数19UI方法/完整窗口/临时RP链/复制控制器/约束/PV投影/offset/左右arm-leg六bend-axis/逐帧AllKeys原业务源码齐备，不发布。原PyMel在本机Maya2025 find_spec为None，不安装外部依赖，不将其算法/GUI标为通过。
+- 标准Schema/API、原6个写UI回调/根私有活跃guard、私有helper前缀/UUID范围/只删本次helper后代外部使用者保护/约束detach/shared solver保留，finally时间/选择/namespace/AutoKey；只读scope/reference-edit/锁/曲线共享/有限offset/范围/依赖检查。修复is比较/rotateY空白/multiplyer/IK→FK range硬码/None key列表/Bake取消AutoKey初始化/AllKeys范围，eval变literal_eval。
+- Owner transform Store保留原字符串形态并加JSON/message/UUID，更新必须自有+overwrite_store，引用message本次明确允许，改名重载可解析，不删外部同名节点。原.ma/.mb场景Store导入强制删除改为显式自有JSON进出，旧格式不直接互读须备份重定义，记录为明确格式变化而不承诺兼容。文件独占创建/明确覆盖原子写、不得MayaUndo；坏offset不执行代码。
+- 普通Python2项、静态全原资源/函数/UI、临时正式布局注册/面板/Schema/指纹通过；Maya2025隔离6项中5项实际通过（metadata/key/switch），完整原匹配1项因PyMel absent明确skip。真实0/1/10切换/key/Undo、Store只读/改名保存重载/更新Undo/外部子保护、JSON覆盖/更新导入/坏数据、消息失败finally/Undo、真实引用metadata明确编辑及同文件UUID上下文通过；不是原匹配或烘焙通过。
+- 缺PyMel+真实GUI+制作rig/临时IK链/双向match/bake待验prepared_unverified，完整知识/验收/晋级已备。收尾实际5小时63%/周80%已用，继续下一项；heartbeat暂停，无卡/购买/同步/转正。

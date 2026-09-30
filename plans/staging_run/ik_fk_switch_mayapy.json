@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/ik_fk_switch/release_candidate/tests/test_ik_fk_switch_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_json_overwrite_import_update_and_bad_file_no_scene_import (__main__.MayaTests.test_json_overwrite_import_update_and_bad_file_no_scene_import) ... ����: IKFKTool_ik_fk_switch\nok\r\ntest_metadata_partial_failure_finally_and_dependency_report (__main__.MayaTests.test_metadata_partial_failure_finally_and_dependency_report) ... ����: IKFKTool_ik_fk_switch\nok\r\ntest_original_fk_to_ik_matching_when_pymel_present (__main__.MayaTests.test_original_fk_to_ik_matching_when_pymel_present) ... skipped 'PyMel absent: full original matching/baking/GUI NOT verified'\r\ntest_real_reference_metadata_requires_explicit_edits (__main__.MayaTests.test_real_reference_metadata_requires_explicit_edits) ... �ļ���ȡ����ʱ��Ϊ  0.0017 �롣\n����: IKFKTool_ik_fk_switch\nok\r\ntest_store_readonly_rename_save_reload_undo_and_protection (__main__.MayaTests.test_store_readonly_rename_save_reload_undo_and_protection) ... ����: IKFKTool_ik_fk_switch\n����: IKFKTool_ik_fk_switch\n�ļ���ȡ����ʱ��Ϊ  0.0036 �롣\n����: IKFKTool_ik_fk_switch\nok\r\ntest_switch_range_one_ten_keying_undo_and_shared_curve (__main__.MayaTests.test_switch_range_one_ten_keying_undo_and_shared_curve) ... ����: IKFKTool_ik_fk_switch\n����: IKFKTool_ik_fk_switch\n����: IKFKTool_ik_fk_switch\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.079s\r\n\r\nOK (skipped=1)\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "6e9af0c109c62a6246aadf4e702110c2fddedcb8b8b598f72409df0dcbc188a8",
+  "runtime_source_sha256": "ef2bc04c680b4689408d8712d51b174a75f6eda1268bbd10f1e780f840b3818c"
+}

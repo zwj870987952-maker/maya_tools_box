@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T05:20:56.189824+08:00",
+  "updated_at": "2026-10-01T05:43:42.156037+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/gimbal_lock_fix",
+    "last_completed_tool": "01_animation/ik_fk_switch",
     "last_usage": {
-      "five_hour_used_percent": 50.0,
-      "weekly_used_percent": 78.0,
-      "recorded_at": "2026-10-01T05:13:07.396498+08:00",
+      "five_hour_used_percent": 54.0,
+      "weekly_used_percent": 79.0,
+      "recorded_at": "2026-10-01T05:22:22.883417+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/gimbal_lock_fix"
+    "current_tool": "01_animation/ik_fk_switch"
   },
   "entry_repairs": [
     {
@@ -4318,7 +4318,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete quaternion detection/interpolation/native UI, correct non-XYZ reconstruction and cache sign mutation, guarded direct rotation curves and read-only detection.",
-      "prepared_at": "2026-10-01T05:20:54.590871+08:00"
+      "prepared_at": "2026-10-01T05:20:54.590871+08:00",
+      "source_commit": "40a364944516fe9ea15b5a0dfdf59d12fa8ba17b"
     },
     {
       "source_path": "01_animation/ik_fk_switch",
@@ -4329,21 +4330,84 @@
       "entry_candidates": [
         "mog_ikFkSwitchPro.py"
       ],
-      "source_file_count": 3,
+      "source_file_count": 4,
       "source_files": [
         "mog_ikFkSwitch.py",
         "mog_ikFkSwitchPro.py"
       ],
       "license_files": [],
       "entry_sha256": "64f9ab82d2ec6b4dc38c3618f8298b09671b8a2164f55fee23f06709e9002013",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_full_original_sources_and_pro_panel (__main__.OfflineTests.test_full_original_sources_and_pro_panel) ... ok\r\ntest_schema_and_safe_offset_no_maya_or_pymel_import (__main__.OfflineTests.test_schema_and_safe_offset_no_maya_or_pymel_import) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.009s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"ik_fk_switch\",\r\n  \"candidate_sha256\": \"1168c639f9b9ab78184e53be9703c09fb9786c4e8cf497756ce3d7d1d472cbb9\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\ik_fk_switch.md\",\r\n    \"docs\\\\tools\\\\ik_fk_switch_changes.diff\",\r\n    \"maya_toolkit\\\\tools\\\\ik_fk_switch\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\ik_fk_switch\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\ik_fk_switch\\\\native.py\",\r\n    \"maya_toolkit\\\\tools\\\\ik_fk_switch\\\\proxy.py\",\r\n    \"maya_toolkit\\\\tools\\\\ik_fk_switch\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\ik_fk_switch\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\ik_fk_switch\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\ik_fk_switch\\\\upstream\\\\how to install and use.txt\",\r\n    \"maya_toolkit\\\\tools\\\\ik_fk_switch\\\\upstream\\\\mog_ikFkSwitch.py\",\r\n    \"maya_toolkit\\\\tools\\\\ik_fk_switch\\\\upstream\\\\mog_ikFkSwitchPro.py\",\r\n    \"tests\\\\test_ik_fk_switch.py\",\r\n    \"tests\\\\test_ik_fk_switch_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/ik_fk_switch/release_candidate/tests/test_ik_fk_switch_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_json_overwrite_import_update_and_bad_file_no_scene_import (__main__.MayaTests.test_json_overwrite_import_update_and_bad_file_no_scene_import) ... ����: IKFKTool_ik_fk_switch\nok\r\ntest_metadata_partial_failure_finally_and_dependency_report (__main__.MayaTests.test_metadata_partial_failure_finally_and_dependency_report) ... ����: IKFKTool_ik_fk_switch\nok\r\ntest_original_fk_to_ik_matching_when_pymel_present (__main__.MayaTests.test_original_fk_to_ik_matching_when_pymel_present) ... skipped 'PyMel absent: full original matching/baking/GUI NOT verified'\r\ntest_real_reference_metadata_requires_explicit_edits (__main__.MayaTests.test_real_reference_metadata_requires_explicit_edits) ... �ļ���ȡ����ʱ��Ϊ  0.0017 �롣\n����: IKFKTool_ik_fk_switch\nok\r\ntest_store_readonly_rename_save_reload_undo_and_protection (__main__.MayaTests.test_store_readonly_rename_save_reload_undo_and_protection) ... ����: IKFKTool_ik_fk_switch\n����: IKFKTool_ik_fk_switch\n�ļ���ȡ����ʱ��Ϊ  0.0036 �롣\n����: IKFKTool_ik_fk_switch\nok\r\ntest_switch_range_one_ten_keying_undo_and_shared_curve (__main__.MayaTests.test_switch_range_one_ten_keying_undo_and_shared_curve) ... ����: IKFKTool_ik_fk_switch\n����: IKFKTool_ik_fk_switch\n����: IKFKTool_ik_fk_switch\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.079s\r\n\r\nOK (skipped=1)\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "6e9af0c109c62a6246aadf4e702110c2fddedcb8b8b598f72409df0dcbc188a8",
+          "runtime_source_sha256": "ef2bc04c680b4689408d8712d51b174a75f6eda1268bbd10f1e780f840b3818c"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "pymel.core absent in Maya2025: original matching, temporary IK chain, bake and complete GUI unverified; metadata/switch/key tests only, one actual matching test skipped"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "1168c639f9b9ab78184e53be9703c09fb9786c4e8cf497756ce3d7d1d472cbb9",
+          "returncode": 0,
+          "output": "test_full_original_sources_and_pro_panel (__main__.OfflineTests.test_full_original_sources_and_pro_panel) ... ok\r\ntest_schema_and_safe_offset_no_maya_or_pymel_import (__main__.OfflineTests.test_schema_and_safe_offset_no_maya_or_pymel_import) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.009s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "PyMel absent: original matching/GUI/bake execution unverified",
+        "Rig-specific reference/control/joint orientation/pole vector behavior pending",
+        "Store transfer uses explicit guarded JSON metadata instead of original scene import/forced deletion",
+        "Source key deletion/rekey/temporary zero poses alter production animation; backup required"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 2,
@@ -4352,7 +4416,47 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "c4e744a605aec38ef4a2887b3af130712e14daba5af9b02d6a2ad8915da64e2c"
+      "source_tree_sha256": "e5c55fdd39f7c04c41805ded01a98f985112f75e599751fd94e5cd6cf53c909b",
+      "candidate_path": "tools_staging_pool/01_animation/ik_fk_switch/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/ik_fk_switch/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "ik_fk_switch",
+        "candidate_sha256": "1168c639f9b9ab78184e53be9703c09fb9786c4e8cf497756ce3d7d1d472cbb9",
+        "applied": false,
+        "files": [
+          "docs\\tools\\ik_fk_switch.md",
+          "docs\\tools\\ik_fk_switch_changes.diff",
+          "maya_toolkit\\tools\\ik_fk_switch\\__init__.py",
+          "maya_toolkit\\tools\\ik_fk_switch\\catalog.json",
+          "maya_toolkit\\tools\\ik_fk_switch\\native.py",
+          "maya_toolkit\\tools\\ik_fk_switch\\proxy.py",
+          "maya_toolkit\\tools\\ik_fk_switch\\runtime.py",
+          "maya_toolkit\\tools\\ik_fk_switch\\tool.py",
+          "maya_toolkit\\tools\\ik_fk_switch\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\ik_fk_switch\\upstream\\how to install and use.txt",
+          "maya_toolkit\\tools\\ik_fk_switch\\upstream\\mog_ikFkSwitch.py",
+          "maya_toolkit\\tools\\ik_fk_switch\\upstream\\mog_ikFkSwitchPro.py",
+          "tests\\test_ik_fk_switch.py",
+          "tests\\test_ik_fk_switch_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/mog_ikFkSwitchPro.py",
+        "upstream/mog_ikFkSwitch.py",
+        "upstream/how to install and use.txt",
+        "catalog.json"
+      ],
+      "external_dependencies": [
+        "pymel.core compatible with target Maya; absent in local Maya2025",
+        "Maya native cmds/OpenMaya1/2 and actual GUI for original full panel",
+        "Existing BaseMayaTool/Undo"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete PRO matching/temp IK chain/pole vector/full UI/baking retained, guarded standard API/callbacks and owned Store JSON transfer, legacy source also archived intact.",
+      "prepared_at": "2026-10-01T05:43:40.590998+08:00"
     },
     {
       "source_path": "01_animation/jop_retarget_anim_v09",

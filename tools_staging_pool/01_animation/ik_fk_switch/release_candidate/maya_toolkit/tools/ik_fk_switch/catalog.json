@@ -1,0 +1,55 @@
+{
+  "raw_files": [
+    {
+      "path": "upstream/mog_ikFkSwitchPro.py",
+      "sha256": "64f9ab82d2ec6b4dc38c3618f8298b09671b8a2164f55fee23f06709e9002013"
+    },
+    {
+      "path": "upstream/mog_ikFkSwitch.py",
+      "sha256": "381c9c4c57cc939057f35cd1762529ba4faabe5e79e7576f4c9b1e06322ab375"
+    },
+    {
+      "path": "upstream/how to install and use.txt",
+      "sha256": "2558e08b5345b170773775c0daf5d20d110d98594c51ce55eef18865517f326e"
+    }
+  ],
+  "functions": [
+    "findStoreNodeFromSelection",
+    "autoDetectSideAndLimb",
+    "fkikMatch",
+    "keyframeAll",
+    "ikfkMatch",
+    "saveIKFkCtrls",
+    "loadIkFkCtrl",
+    "get_variable_name",
+    "matchTransform",
+    "snap",
+    "poleVectorPosition",
+    "unlockAttributes",
+    "orientJoints"
+  ],
+  "ui_methods": [
+    "__init__",
+    "initializeTab",
+    "inputSelTfb",
+    "getAndCheckInputWin",
+    "clearInputFields",
+    "popupWarning",
+    "autoDetectSideAndLimbWin",
+    "inputChannelboxSelectionTbf",
+    "findStoreNodeFromSelectionWin",
+    "saveIkFkCtrlsWin",
+    "loadIkFkCtrlsWin",
+    "matchIkFkWin",
+    "switchIkFkWin",
+    "switchFkIkWin",
+    "selectAll",
+    "keyAll",
+    "bakeIkFkWin",
+    "exportStoreNode",
+    "importStoreNode"
+  ],
+  "version": "3.0 PRO / 1.10 legacy",
+  "license": "Monika Gelbmann credited supplied PRO/legacy source; no standalone redistribution grant supplied, private local preparation only.",
+  "external_dependency": "pymel.core compatible with target Maya/Python, currently absent in local Maya2025"
+}
