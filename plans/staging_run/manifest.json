@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T16:14:12.073128+08:00",
+  "updated_at": "2026-09-30T16:16:06.457809+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -13,12 +13,12 @@
     "heartbeat_transition_verified": true,
     "last_completed_tool": "01_animation/anim_layer_keyframe_bookmark",
     "last_usage": {
-      "five_hour_used_percent": 71.0,
-      "weekly_used_percent": 41.0,
-      "recorded_at": "2026-09-30T15:59:51.509408+08:00",
+      "five_hour_used_percent": 5.0,
+      "weekly_used_percent": 42.0,
+      "recorded_at": "2026-09-30T16:16:04.350399+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/anim_layer_keyframe_bookmark"
+    "current_tool": "01_animation/anim_layer_v4_0"
   },
   "entry_repairs": [
     {
@@ -679,7 +679,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Retain palettes/native controls/original archive; exact layer-frame lookup, structured generate/clear/inspect API, read-only creation/deletion preview, explicit plugin setup, deletion guards, Undo and partial-failure evidence.",
-      "prepared_at": "2026-09-30T16:14:09.988645+08:00"
+      "prepared_at": "2026-09-30T16:14:09.988645+08:00",
+      "source_commit": "949a3d0ffdd33fdc5a33b54e1763930d1a47dba8"
     },
     {
       "source_path": "01_animation/anim_layer_v4_0",
@@ -699,7 +700,7 @@
       "license_files": [
         "anim_layer_v4_0/License.txt"
       ],
-      "status": "pending",
+      "status": "working",
       "candidate_complete": false,
       "offline_checks": [],
       "maya_acceptance": {
