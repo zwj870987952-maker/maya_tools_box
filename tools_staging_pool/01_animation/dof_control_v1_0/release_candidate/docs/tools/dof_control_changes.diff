@@ -1,5 +1,14 @@
 --- upstream/dofControl.mel
 +++ runtime.mel
+@@ -12,7 +12,7 @@
+ 
+ 	TranslateZ = focus distance
+ 	ScaleZ = focus range
+-	
++
+ NOTE
+ 	The polyCube will not appear in the rendered image. To hide the cube
+ 	in shaded view use 'toggle template'.
 @@ -22,15 +22,16 @@
  // Main
  //

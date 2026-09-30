@@ -38,6 +38,7 @@ def main():
     text = text.replace('createNode "addDoubleLinear"', 'createNode -name ($prefix + "Add#") "addDoubleLinear"')
     text = text.replace('connectAttr -f ', 'connectAttr ')
     text = text.replace('\t}\n}\n', '\t\t$result[size($result)] = $cube[0];\n\t\t$result[size($result)] = $revNode;\n\t\t$result[size($result)] = $addNode;\n\t}\n    return $result;\n}\n')
+    text = '\n'.join(line.rstrip() for line in text.splitlines()) + '\n'
     (PACKAGE / 'runtime.mel').write_text(text, encoding='utf-8', newline='\n')
     docs = RC / 'docs/tools'
     docs.mkdir(parents=True, exist_ok=True)

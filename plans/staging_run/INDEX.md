@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-01T03:47:04.729800+08:00
+更新时间：2026-10-01T03:48:54.754538+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -25,8 +25,8 @@
 | `01_animation/cg_shake_py3` | prepared_unverified | True | True | not_run |
 | `01_animation/copy_animation` | prepared_unverified | True | True | not_run |
 | `01_animation/directional_cycle_tool_v1_1` | prepared_unverified | True | True | not_run |
-| `01_animation/dof_control_v1_0` | working | True | False | not_run |
-| `01_animation/eblabs_screenspace` | pending | True | False | not_run |
+| `01_animation/dof_control_v1_0` | prepared_unverified | True | True | not_run |
+| `01_animation/eblabs_screenspace` | working | True | False | not_run |
 | `01_animation/eblabs_whiskey` | pending | True | False | not_run |
 | `01_animation/fd_multi_space` | pending | True | False | not_run |
 | `01_animation/gimbal_lock_fix` | pending | True | False | not_run |
