@@ -287,3 +287,9 @@
 - 原全曲线floor(first)..ceil(last)+1 exclusive采样和关键帧/切线写回算法保留；2D几何容差不是最终Maya间帧最大值误差，子帧端点/Infinity可变，明确记录。Auto空/常量/等角log除零修复；cutKey原0.01偏移可能漏近首键改index1..last clear不改clipboard。error严格正，TL/TA/TU本地单输出/普通时间/非step、引用锁共享/层/驱动拒绝，采样预算及curve UUID写scope；Undo+AutoKey finally，失败需Undo。
 - 普通Python2项、Maya2025隔离3组、临时正式布局注册/面板/Schema与指纹通过：直线/常量20→2且1..20半帧值保持/Undo、Auto常量、只读dry/inspect、原类标准桥、共享/step/private写拒绝、weighted Existing/threshold波形流程与不减键分支、第二fit-key故障Auto/Undo恢复。首测误把原首帧前constant Infinity当线性外推，测试修为原键范围，未改业务算法。
 - 未创建真实Qt GUI、制作曲线插值质量未验，prepared_unverified，完整知识/验收/晋级备齐；现有正式库/core未发现同类Bezier完整拟合，不提前下沉。实际收尾5小时93%/周85%已用；无卡/购买/同步/转正，heartbeat仍暂停，提交后重读额度决定续跑。
+
+## 2026-10-01：31项后额度等待检查点
+
+- Keyframe Reduction候选完整提交8f61c8df89c4dd274d9af4d5430d3834e5e780df；提交后一次读数5小时94%已用，后续实际读数96%已用/周86%已用（5小时剩余4%）。已低于6%阈值，保存31/109完整候选后结束整理回合。
+- 下一项maya_timeline_marker仅阅读原源码，未写候选、未运行原UI、不计完成，保留working供恢复。进入waiting_for_quota，启用同聊天30分钟heartbeat；续跑必须重新扫描/核验额度与单写者。
+- 不消费重置卡、不购买额度，未同步Obsidian、未迁入正式库；真人Maya验收仍待进行。
