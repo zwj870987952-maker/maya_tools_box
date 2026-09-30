@@ -1,0 +1,84 @@
+{
+  "tool_id": "brs_loc_transfer",
+  "registration": {
+    "module": "brs_loc_transfer",
+    "class_name": "LocatorTransferTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/brs_loc_transfer.md",
+      "target": "docs/tools/brs_loc_transfer.md"
+    },
+    {
+      "source": "docs/tools/brs_loc_transfer_changes.diff",
+      "target": "docs/tools/brs_loc_transfer_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_loc_transfer/__init__.py",
+      "target": "maya_toolkit/tools/brs_loc_transfer/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_loc_transfer/catalog.json",
+      "target": "maya_toolkit/tools/brs_loc_transfer/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_loc_transfer/contracts.py",
+      "target": "maya_toolkit/tools/brs_loc_transfer/contracts.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_loc_transfer/legacy.py",
+      "target": "maya_toolkit/tools/brs_loc_transfer/legacy.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_loc_transfer/runtime.py",
+      "target": "maya_toolkit/tools/brs_loc_transfer/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_loc_transfer/scene.py",
+      "target": "maya_toolkit/tools/brs_loc_transfer/scene.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_loc_transfer/tool.py",
+      "target": "maya_toolkit/tools/brs_loc_transfer/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_loc_transfer/ui.py",
+      "target": "maya_toolkit/tools/brs_loc_transfer/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_loc_transfer/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/brs_loc_transfer/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_loc_transfer/upstream/BRSLocTransfer.py",
+      "target": "maya_toolkit/tools/brs_loc_transfer/upstream/BRSLocTransfer.py"
+    },
+    {
+      "source": "tests/test_brs_loc_transfer.py",
+      "target": "tests/test_brs_loc_transfer.py"
+    },
+    {
+      "source": "tests/test_brs_loc_transfer_maya.py",
+      "target": "tests/test_brs_loc_transfer_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/BRSLocTransfer.py",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya Python3/cmds constraints/bakeResults/filterCurve",
+    "Actual GUI for native layout",
+    "Existing framework/core Undo"
+  ],
+  "source": "../BRSLocTransfer.py",
+  "change_summary": "Complete original locator transfer/redirection bake algorithms and native layout, owned UUID helpers and strict channel preflight, no downloaded code or import-time scene writes.",
+  "verification_limitations": [
+    "GUI and production rig/layers pending",
+    "Original guide flow moves group while isolated test preserves locator world trajectory; intended redirection result unverified",
+    "Original round/bake/snapKey affect key timing and key density",
+    "Generated blend nodes may remain carrying old curves",
+    "Only standard API permitted; raw original unsafe entry archived"
+  ],
+  "acceptance_required": true
+}

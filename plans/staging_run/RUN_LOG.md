@@ -160,3 +160,13 @@
 - 无副作用标量通道预检，引用/锁/外部驱动/缺失属性/歧义拒绝，Undo分组/finally时间与组件选择/guard恢复。不显式打键，实际autoKey关闭旧键不变，切时间恢复原曲线。位移/custom使用同一角度数值，当前单位/整数强制转换/拖动Undo数量均写明。
 - 普通Python四项、Maya2025隔离八项、临时正式布局注册通过且指纹匹配；真实多轴/custom/有序/预设/首对象/Undo/reference/故障/动画检查。早期角度内部浮点3.0000000000000004/6.000000000000001导致fixture严格相等失败，改近似比较，原算法未改。
 - GUI/Interactive/Channel Box、autoKey开启/非默认单位/制作rig仍not_run，完整知识/人工验收/晋级清单已预制，只保留待整理候选；heartbeat暂停，无卡消费/正式库改动/Obsidian同步。
+
+- bh_waveIt完整候选提交83ecf29，实际收尾额度74%/68%已用，进入brs_loc_transfer。
+
+## 2026-10-01：BRS Locator Transfer完整候选，累计16/109
+
+- 单原文件字节归档，17原函数均有候选对应，18函数含build_ui；六helper AST除guard外一致，创建/回写/guide完整循环保留。移除导入GUI/下载exec/关cycleCheck，原四按钮/布局标准API，显式选项替代业务控件和全局进度条依赖。
+- UUID+message持久目标对应、Owner/Role定位器/组/guide/约束/annotation/shapes，重命名parent实际路径更新、安全所有权清理；约束先脱离目标再删保护空控制器。外部同名/子对象/约束/改接拒绝；None breakdown修复，原静默失败改明确错误。保留原bake/round/keep/snapKey边界，额外动画属性回写拒绝以免原全通道操作误改。
+- 普通Python3项、Maya2025隔离8项、临时正式布局注册检查与哈希匹配通过；涵盖真实创建/回写/编辑/annotation/密度/timeline/breakdown/Undo/重命名/保存重载/故障与保护。
+- guide路径实际完成但简单平移观测group.tx=10、locator第1帧worldX仍0，原先缓存世界动画→移组→回写流程保留，不能当作整体动画重定向通过。输出警告/知识/人工清单均明确，此项prepared_unverified，制作意图待真人确认后再修/转正。
+- 完整两测试/专项说明/资源/Schema/注册晋级资料齐备；正式库未改，heartbeat暂停，无卡消费/同步。多次额度读暂时失败未按0猜测，收尾成功实际80%/69%已用。

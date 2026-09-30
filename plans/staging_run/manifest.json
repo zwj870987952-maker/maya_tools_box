@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T00:56:46.214280+08:00",
+  "updated_at": "2026-10-01T01:25:15.616132+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/bh_wave_it",
+    "last_completed_tool": "01_animation/brs_loc_transfer",
     "last_usage": {
-      "five_hour_used_percent": 70.0,
+      "five_hour_used_percent": 74.0,
       "weekly_used_percent": 68.0,
-      "recorded_at": "2026-10-01T00:39:07.475913+08:00",
+      "recorded_at": "2026-10-01T01:00:12.872645+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/bh_wave_it"
+    "current_tool": "01_animation/brs_loc_transfer"
   },
   "entry_repairs": [
     {
@@ -2136,7 +2136,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Full ten-procedure wave/preset/base-offset/interactive native suite, strict ordered explicit API, read-only scalar channel preflight, ToolResult and Undo.",
-      "prepared_at": "2026-10-01T00:58:16.959702+08:00"
+      "prepared_at": "2026-10-01T00:58:16.959702+08:00",
+      "source_commit": "83ecf29b3afe5408055dbaa6641c904b390dca1c"
     },
     {
       "source_path": "01_animation/brs_loc_transfer",
@@ -2147,20 +2148,84 @@
       "entry_candidates": [
         "BRSLocTransfer.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "BRSLocTransfer.py"
       ],
       "license_files": [],
       "entry_sha256": "90129ce76b042749b86fb006afa482d41ae5ad2943cb7b555e82064347368d28",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_complete_source_and_no_executable_import (__main__.OfflineTests.test_complete_source_and_no_executable_import) ... ok\r\ntest_contract_schema_and_no_maya_inventory (__main__.OfflineTests.test_contract_schema_and_no_maya_inventory) ... ok\r\ntest_helpers_preserve_original_algorithms (__main__.OfflineTests.test_helpers_preserve_original_algorithms) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.008s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"brs_loc_transfer\",\r\n  \"candidate_sha256\": \"aedeb41fff52e9bffaab11639cb046588122e7a442ce14b30211040a78a3713b\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\brs_loc_transfer.md\",\r\n    \"docs\\\\tools\\\\brs_loc_transfer_changes.diff\",\r\n    \"maya_toolkit\\\\tools\\\\brs_loc_transfer\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_loc_transfer\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\brs_loc_transfer\\\\contracts.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_loc_transfer\\\\legacy.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_loc_transfer\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_loc_transfer\\\\scene.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_loc_transfer\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_loc_transfer\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_loc_transfer\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\brs_loc_transfer\\\\upstream\\\\BRSLocTransfer.py\",\r\n    \"tests\\\\test_brs_loc_transfer.py\",\r\n    \"tests\\\\test_brs_loc_transfer_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/brs_loc_transfer/release_candidate/tests/test_brs_loc_transfer_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_apply_edited_locator_constraints_undo (__main__.MayaTests.test_apply_edited_locator_constraints_undo) ... Initialized VP2.0 renderer {\n  Version : 2016.11.62.12. Feature Level 4.\n  Adapter : NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2\n  Vendor ID: 4318. Device ID : 10243\n  Driver : .\n  API : OpenGL V.4.6.\n  Max texture size : 32768 * 32768.\n  Max texture coords : 8\n  Shader versions supported (Vertex: 4, Geometry: 4, Pixel 4).\n  Shader compiler profile : (Best card profile)\n  Active stereo support available : 0\n  GPU Memory Limit : 16380 MB.\n  CPU Memory Limit : 59937.7 MB.\n}\nOpenCL evaluator is attempting to initialize OpenCL.\nDetected 2 OpenCL Platforms: \n 0: NVIDIA Corporation. NVIDIA CUDA. OpenCL 3.0 CUDA 13.3.80.\n Supported extensions: cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_fp64 cl_khr_3d_image_writes cl_khr_byte_addressable_store cl_khr_icd cl_khr_gl_sharing cl_nv_compiler_options cl_nv_device_attribute_query cl_nv_pragma_unroll cl_nv_d3d10_sharing cl_khr_d3d10_sharing cl_nv_d3d11_sharing cl_nv_copy_opts cl_nv_create_buffer cl_khr_int64_base_atomics cl_khr_int64_extended_atomics cl_khr_device_uuid cl_khr_pci_bus_info cl_khr_external_semaphore cl_khr_external_memory cl_khr_external_semaphore_win32 cl_khr_external_memory_win32 cl_khr_semaphore \n Selected matching OpenCL Platform: NVIDIA Corporation NVIDIA CUDA OpenCL 3.0 CUDA 13.3.80.\n 1: Advanced Micro Devices, Inc.. AMD Accelerated Parallel Processing. OpenCL 2.1 AMD-APP (3617.0).\n Supported extensions: cl_khr_icd cl_khr_d3d10_sharing cl_khr_d3d11_sharing cl_khr_dx9_media_sharing cl_amd_event_callback cl_amd_offline_devices  \nOpenCL evaluator choosing OpenCL platform NVIDIA Corporation.\nOpenCL evaluator is unable to find a GPU device that can share VBOs with OpenGL.\n����: LocatorTransferTool_brs_loc_transfer\nok\r\ntest_create_sparse_annotation_no_source_write_and_undo (__main__.MayaTests.test_create_sparse_annotation_no_source_write_and_undo) ... ����: LocatorTransferTool_brs_loc_transfer\nok\r\ntest_extra_animation_external_constraint_and_rewired_message_refused (__main__.MayaTests.test_extra_animation_external_constraint_and_rewired_message_refused) ... ok\r\ntest_failure_restores_refresh_time_selection_locks_guard (__main__.MayaTests.test_failure_restores_refresh_time_selection_locks_guard) ... ok\r\ntest_guide_full_redirect_path (__main__.MayaTests.test_guide_full_redirect_path) ... Create Anim Locator ['ctrl']\r\n|mtbBRSAnimLoc_Grp|ctrl_mtbBRSSnapLoc\r\nApply Anim Locator ['ctrl']\r\nCreate Anim Locator ['ctrl']\r\nCreate Anim Locator ['ctrl']\r\nCreate Anim Locator ['ctrl']\r\nCreate Anim Locator ['ctrl_mtbBRSSnapLoc']\r\n|ctrl_mtbBRSSnapLoc_mtbBRSSnapLoc\r\nApply Anim Locator ['ctrl_mtbBRSSnapLoc']\r\nOriginal redirection world observation: 0.0 0.0 group tx 10.0\r\nok\r\ntest_readonly_preflight_foreign_nodes_and_connections (__main__.MayaTests.test_readonly_preflight_foreign_nodes_and_connections) ... ok\r\ntest_rename_save_reload_identity_and_apply (__main__.MayaTests.test_rename_save_reload_identity_and_apply) ... �ļ���ȡ����ʱ��Ϊ  0.0047 �롣\nok\r\ntest_timeline_dense_sparse_skip_and_guard (__main__.MayaTests.test_timeline_dense_sparse_skip_and_guard) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.720s\r\n\r\nOK\r\nCreate Anim Locator ['ctrl']\r\nCreate Anim Locator ['ctrl']\r\n|renamedGroup|renamedLocator\r\nApply Anim Locator ['renamedCtrl']\r\nCreate Anim Locator ['ctrl', 'static']\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "21e540075bcd37d5e8b896ddd5b6caf90f993850d05b33c82635df7fbbeadf58",
+          "runtime_source_sha256": "babe06b21999dbdee6ff6ae4a717f563c26fd30865ca8a1394412a2862472538"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "原GUI/制作rig未实测；原guide流程隔离测试仅group移动而locator世界轨迹保留，真正重定向结果待人工确认；Position-only/小数帧等原破坏性边界未验收"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "aedeb41fff52e9bffaab11639cb046588122e7a442ce14b30211040a78a3713b",
+          "returncode": 0,
+          "output": "test_complete_source_and_no_executable_import (__main__.OfflineTests.test_complete_source_and_no_executable_import) ... ok\r\ntest_contract_schema_and_no_maya_inventory (__main__.OfflineTests.test_contract_schema_and_no_maya_inventory) ... ok\r\ntest_helpers_preserve_original_algorithms (__main__.OfflineTests.test_helpers_preserve_original_algorithms) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.008s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "GUI and production rig/layers pending",
+        "Original guide flow moves group while isolated test preserves locator world trajectory; intended redirection result unverified",
+        "Original round/bake/snapKey affect key timing and key density",
+        "Generated blend nodes may remain carrying old curves",
+        "Only standard API permitted; raw original unsafe entry archived"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -2169,7 +2234,45 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "85218eab724a6604399c7e097a41614c047e7689fdc3a7538c8fbdcf0355ac79"
+      "source_tree_sha256": "fadb8d4c1574d8713d75a7613529122f1b048be664587d110c1f597885879d25",
+      "candidate_path": "tools_staging_pool/01_animation/brs_loc_transfer/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/brs_loc_transfer/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "brs_loc_transfer",
+        "candidate_sha256": "aedeb41fff52e9bffaab11639cb046588122e7a442ce14b30211040a78a3713b",
+        "applied": false,
+        "files": [
+          "docs\\tools\\brs_loc_transfer.md",
+          "docs\\tools\\brs_loc_transfer_changes.diff",
+          "maya_toolkit\\tools\\brs_loc_transfer\\__init__.py",
+          "maya_toolkit\\tools\\brs_loc_transfer\\catalog.json",
+          "maya_toolkit\\tools\\brs_loc_transfer\\contracts.py",
+          "maya_toolkit\\tools\\brs_loc_transfer\\legacy.py",
+          "maya_toolkit\\tools\\brs_loc_transfer\\runtime.py",
+          "maya_toolkit\\tools\\brs_loc_transfer\\scene.py",
+          "maya_toolkit\\tools\\brs_loc_transfer\\tool.py",
+          "maya_toolkit\\tools\\brs_loc_transfer\\ui.py",
+          "maya_toolkit\\tools\\brs_loc_transfer\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\brs_loc_transfer\\upstream\\BRSLocTransfer.py",
+          "tests\\test_brs_loc_transfer.py",
+          "tests\\test_brs_loc_transfer_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/BRSLocTransfer.py",
+        "catalog.json"
+      ],
+      "external_dependencies": [
+        "Maya Python3/cmds constraints/bakeResults/filterCurve",
+        "Actual GUI for native layout",
+        "Existing framework/core Undo"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete original locator transfer/redirection bake algorithms and native layout, owned UUID helpers and strict channel preflight, no downloaded code or import-time scene writes.",
+      "prepared_at": "2026-10-01T01:25:16.176160+08:00"
     },
     {
       "source_path": "01_animation/brs_smooth_mocap",

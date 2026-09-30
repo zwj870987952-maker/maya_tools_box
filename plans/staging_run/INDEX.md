@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-01T00:56:46.214280+08:00
+更新时间：2026-10-01T01:25:15.616132+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -19,8 +19,8 @@
 | `01_animation/bh_aim_tools_v1_1` | prepared_unverified | True | True | not_run |
 | `01_animation/bh_local_nudge` | prepared_unverified | True | True | not_run |
 | `01_animation/bh_speedlines` | prepared_unverified | True | True | not_run |
-| `01_animation/bh_wave_it` | working | True | False | not_run |
-| `01_animation/brs_loc_transfer` | pending | True | False | not_run |
+| `01_animation/bh_wave_it` | prepared_unverified | True | True | not_run |
+| `01_animation/brs_loc_transfer` | working | True | False | not_run |
 | `01_animation/brs_smooth_mocap` | pending | True | False | not_run |
 | `01_animation/cg_shake_py3` | pending | True | False | not_run |
 | `01_animation/copy_animation` | pending | True | False | not_run |
