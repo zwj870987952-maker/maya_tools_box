@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T17:16:55.626926+08:00",
+  "updated_at": "2026-09-30T17:18:52.736741+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -13,12 +13,12 @@
     "heartbeat_transition_verified": true,
     "last_completed_tool": "01_animation/anim_mirror_helper_v1_1",
     "last_usage": {
-      "five_hour_used_percent": 20.0,
-      "weekly_used_percent": 44.0,
-      "recorded_at": "2026-09-30T16:53:04.467882+08:00",
+      "five_hour_used_percent": 37.0,
+      "weekly_used_percent": 47.0,
+      "recorded_at": "2026-09-30T17:18:50.067786+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/anim_mirror_helper_v1_1"
+    "current_tool": "01_animation/anim_polish_premium_v1_23"
   },
   "entry_repairs": [
     {
@@ -952,7 +952,8 @@
       ],
       "source_preserved": true,
       "change_summary": "All six original files and 90 global procedures preserved; typed calls, semantic workflow actions, read-only validation, Undo and runtime restoration, native gateway and promotion metadata.",
-      "prepared_at": "2026-09-30T17:16:53.967218+08:00"
+      "prepared_at": "2026-09-30T17:16:53.967218+08:00",
+      "source_commit": "553da077546f128b958925cd02f1bba6a0a9d277"
     },
     {
       "source_path": "01_animation/anim_polish_premium_v1_23",
@@ -984,7 +985,7 @@
         "animPolish/wrap.py"
       ],
       "license_files": [],
-      "status": "pending",
+      "status": "working",
       "candidate_complete": false,
       "offline_checks": [],
       "maya_acceptance": {

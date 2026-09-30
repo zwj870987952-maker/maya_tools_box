@@ -69,3 +69,5 @@
 - 新增测试适配未来正式目录；临时正式布局下 5 项离线检查通过，正式库没有改变。签名检查已修复 string [] 空格写法；最终 mayapy 报告与 Python/运行素材指纹一致。晋级预览 applied=false。
 - candidate_complete=true，prepared_unverified：真实 rig 镜像、连接、循环偏移、烘焙及视口按钮待人工；原 catchQuiet 与非 Undo 影响写入说明。未安装 shelf、未公开发布、未运行 Obsidian 同步。
 - 本项收尾读数：5 小时已用 33%、周已用 46%，剩余额度可继续；heartbeat 暂停，未兑换卡。下一项 anim_polish_premium_v1_23。
+
+- 镜像候选提交 553da07；提交后额度复读为 5 小时已用 37%、周已用 47%（可继续），写入下一项检查点。
