@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T02:48:59.475158+08:00",
+  "updated_at": "2026-10-01T03:29:04.238607+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/copy_animation",
+    "last_completed_tool": "01_animation/directional_cycle_tool_v1_1",
     "last_usage": {
-      "five_hour_used_percent": 1.0,
-      "weekly_used_percent": 71.0,
-      "recorded_at": "2026-10-01T02:16:52.049145+08:00",
+      "five_hour_used_percent": 8.0,
+      "weekly_used_percent": 72.0,
+      "recorded_at": "2026-10-01T02:50:55.722741+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/copy_animation"
+    "current_tool": "01_animation/directional_cycle_tool_v1_1"
   },
   "entry_repairs": [
     {
@@ -2722,7 +2722,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Full original frame/constraint/numeric/none modes and native list/config UI, preserved sampling algorithm, owned UUID persistent pair helpers/sets/constraints and standard API.",
-      "prepared_at": "2026-10-01T02:48:59.774305+08:00"
+      "prepared_at": "2026-10-01T02:48:59.774305+08:00",
+      "source_commit": "9034d82a18b443370c6f532b839fda745addf9f3"
     },
     {
       "source_path": "01_animation/directional_cycle_tool_v1_1",
@@ -2733,7 +2734,7 @@
       "entry_candidates": [
         "DirectionalCycleTool/main.py"
       ],
-      "source_file_count": 5,
+      "source_file_count": 6,
       "source_files": [
         "DirectionalCycleTool/__init__.py",
         "DirectionalCycleTool/functions.py",
@@ -2742,14 +2743,78 @@
       ],
       "license_files": [],
       "entry_sha256": "5afc53082d88876ec221b25f9756be2d6da5e5b8338ae6898d05375665c998fd",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_lazy_inventory_schema_and_contract (__main__.OfflineTests.test_lazy_inventory_schema_and_contract) ... ok\r\ntest_source_license_and_complete_algorithm (__main__.OfflineTests.test_source_license_and_complete_algorithm) ... ok\r\ntest_ui_buttons_and_binding (__main__.OfflineTests.test_ui_buttons_and_binding) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.003s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"directional_cycle_tool_v1_1\",\r\n  \"candidate_sha256\": \"063bc1de6322c1e5d6c0f290b48a2858193ca4e97f3046cb4f6a2800164b8f03\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\directional_cycle_changes.diff\",\r\n    \"docs\\\\tools\\\\directional_cycle_tool_v1_1.md\",\r\n    \"maya_toolkit\\\\tools\\\\directional_cycle_tool_v1_1\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\directional_cycle_tool_v1_1\\\\algorithms.py\",\r\n    \"maya_toolkit\\\\tools\\\\directional_cycle_tool_v1_1\\\\bridge.py\",\r\n    \"maya_toolkit\\\\tools\\\\directional_cycle_tool_v1_1\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\directional_cycle_tool_v1_1\\\\contracts.py\",\r\n    \"maya_toolkit\\\\tools\\\\directional_cycle_tool_v1_1\\\\native_ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\directional_cycle_tool_v1_1\\\\proxy.py\",\r\n    \"maya_toolkit\\\\tools\\\\directional_cycle_tool_v1_1\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\directional_cycle_tool_v1_1\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\directional_cycle_tool_v1_1\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\directional_cycle_tool_v1_1\\\\upstream\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\directional_cycle_tool_v1_1\\\\upstream\\\\functions.py\",\r\n    \"maya_toolkit\\\\tools\\\\directional_cycle_tool_v1_1\\\\upstream\\\\main.py\",\r\n    \"maya_toolkit\\\\tools\\\\directional_cycle_tool_v1_1\\\\upstream\\\\README.txt\",\r\n    \"maya_toolkit\\\\tools\\\\directional_cycle_tool_v1_1\\\\upstream\\\\version.py\",\r\n    \"maya_toolkit\\\\tools\\\\directional_cycle_tool_v1_1\\\\version.py\",\r\n    \"tests\\\\test_directional_cycle_tool_v1_1.py\",\r\n    \"tests\\\\test_directional_cycle_tool_v1_1_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/directional_cycle_tool_v1_1/release_candidate/tests/test_directional_cycle_tool_v1_1_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_back_reverses_feet_and_pelvis_layer (__main__.MayaTests.test_back_reverses_feet_and_pelvis_layer) ... ok\r\ntest_baked_layer_unique_foreign_name_and_undo (__main__.MayaTests.test_baked_layer_unique_foreign_name_and_undo) ... ����: DirectionalCycleTool_directional_cycle_tool_v1_1\nok\r\ntest_dry_run_and_guards (__main__.MayaTests.test_dry_run_and_guards) ... ok\r\ntest_failure_restores_state_and_is_undoable (__main__.MayaTests.test_failure_restores_state_and_is_undoable) ... ����: DirectionalCycleTool_directional_cycle_tool_v1_1\nok\r\ntest_left_right_live_foot_rotation_all_constraints_cleanup (__main__.MayaTests.test_left_right_live_foot_rotation_all_constraints_cleanup) ... ok\r\ntest_three_feet_correction_counter_rotation_and_bake (__main__.MayaTests.test_three_feet_correction_counter_rotation_and_bake) ... ok\r\ntest_uuid_save_reload_and_foreign_child_refusal (__main__.MayaTests.test_uuid_save_reload_and_foreign_child_refusal) ... �ļ���ȡ����ʱ��Ϊ  0.0077 �롣\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 7 tests in 0.594s\r\n\r\nOK\r\n1 5\r\nPelvis setup\r\nFeet setup\r\nmtbDCT_3720ee44_Loc_Feet__master_foot0\r\nmtbDCT_3720ee44_Loc_Feet__master_foot1\r\n1 5\r\nPelvis setup\r\nFeet setup\r\nmtbDCT_49bbf318_Loc_Feet__master_foot0\r\nmtbDCT_49bbf318_Loc_Feet__master_foot1\r\nmtbDCT_49bbf318_Loc_Feet__master_foot2\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "4fce8ef3de61c1c85a59ade842f245a107f31701f39ef3dd688dfc00d63c4542",
+          "runtime_source_sha256": "ef38b8b6706cf2585b91b8938d2158f72ddbee68c17f23ca5b8a9f924a13883f"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "真实Dockable GUI/制作循环rig/接地与层混合效果尚未人工验收"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "063bc1de6322c1e5d6c0f290b48a2858193ca4e97f3046cb4f6a2800164b8f03",
+          "returncode": 0,
+          "output": "test_lazy_inventory_schema_and_contract (__main__.OfflineTests.test_lazy_inventory_schema_and_contract) ... ok\r\ntest_source_license_and_complete_algorithm (__main__.OfflineTests.test_source_license_and_complete_algorithm) ... ok\r\ntest_ui_buttons_and_binding (__main__.OfflineTests.test_ui_buttons_and_binding) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.002s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Production rig/dockable Qt GUI pending",
+        "Original head aim uses fixed world point and body-angle/feet heuristics",
+        "BaseAnimation selected does not isolate other active output layers",
+        "Bake creates persistent direction/pelvis layers; helpers/constraints persist when bake false",
+        "Back upperbody/master role usage differs from side"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 4,
@@ -2758,7 +2823,55 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "f9daea3522dad174e3acb8b584a2e3d461ba5539c45c880b052d4be6d5df043e"
+      "source_tree_sha256": "d903818fdea9fb37bbc68b289b3efda49045c378549738e91954e4becf5df506",
+      "candidate_path": "tools_staging_pool/01_animation/directional_cycle_tool_v1_1/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/directional_cycle_tool_v1_1/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "directional_cycle_tool_v1_1",
+        "candidate_sha256": "063bc1de6322c1e5d6c0f290b48a2858193ca4e97f3046cb4f6a2800164b8f03",
+        "applied": false,
+        "files": [
+          "docs\\tools\\directional_cycle_changes.diff",
+          "docs\\tools\\directional_cycle_tool_v1_1.md",
+          "maya_toolkit\\tools\\directional_cycle_tool_v1_1\\__init__.py",
+          "maya_toolkit\\tools\\directional_cycle_tool_v1_1\\algorithms.py",
+          "maya_toolkit\\tools\\directional_cycle_tool_v1_1\\bridge.py",
+          "maya_toolkit\\tools\\directional_cycle_tool_v1_1\\catalog.json",
+          "maya_toolkit\\tools\\directional_cycle_tool_v1_1\\contracts.py",
+          "maya_toolkit\\tools\\directional_cycle_tool_v1_1\\native_ui.py",
+          "maya_toolkit\\tools\\directional_cycle_tool_v1_1\\proxy.py",
+          "maya_toolkit\\tools\\directional_cycle_tool_v1_1\\runtime.py",
+          "maya_toolkit\\tools\\directional_cycle_tool_v1_1\\tool.py",
+          "maya_toolkit\\tools\\directional_cycle_tool_v1_1\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\directional_cycle_tool_v1_1\\upstream\\__init__.py",
+          "maya_toolkit\\tools\\directional_cycle_tool_v1_1\\upstream\\functions.py",
+          "maya_toolkit\\tools\\directional_cycle_tool_v1_1\\upstream\\main.py",
+          "maya_toolkit\\tools\\directional_cycle_tool_v1_1\\upstream\\README.txt",
+          "maya_toolkit\\tools\\directional_cycle_tool_v1_1\\upstream\\version.py",
+          "maya_toolkit\\tools\\directional_cycle_tool_v1_1\\version.py",
+          "tests\\test_directional_cycle_tool_v1_1.py",
+          "tests\\test_directional_cycle_tool_v1_1_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/__init__.py",
+        "upstream/functions.py",
+        "upstream/main.py",
+        "upstream/README.txt",
+        "upstream/version.py",
+        "catalog.json"
+      ],
+      "external_dependencies": [
+        "Maya cmds/animLayer/bakeResults/constraints",
+        "Real GUI/project PySide2/6 and Maya dockable mixin",
+        "Existing framework/core Undo"
+      ],
+      "source_preserved": true,
+      "change_summary": "Full original left/right/back, pelvis/feet time reversal and correction/counter-rotation algorithms and native dockable UI, unique owned layers/helpers, complete temporary constraint cleanup and standard API.",
+      "prepared_at": "2026-10-01T03:29:04.559112+08:00"
     },
     {
       "source_path": "01_animation/dof_control_v1_0",

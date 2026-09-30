@@ -1,0 +1,112 @@
+{
+  "tool_id": "directional_cycle_tool_v1_1",
+  "registration": {
+    "module": "directional_cycle_tool_v1_1",
+    "class_name": "DirectionalCycleTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/directional_cycle_changes.diff",
+      "target": "docs/tools/directional_cycle_changes.diff"
+    },
+    {
+      "source": "docs/tools/directional_cycle_tool_v1_1.md",
+      "target": "docs/tools/directional_cycle_tool_v1_1.md"
+    },
+    {
+      "source": "maya_toolkit/tools/directional_cycle_tool_v1_1/__init__.py",
+      "target": "maya_toolkit/tools/directional_cycle_tool_v1_1/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/directional_cycle_tool_v1_1/algorithms.py",
+      "target": "maya_toolkit/tools/directional_cycle_tool_v1_1/algorithms.py"
+    },
+    {
+      "source": "maya_toolkit/tools/directional_cycle_tool_v1_1/bridge.py",
+      "target": "maya_toolkit/tools/directional_cycle_tool_v1_1/bridge.py"
+    },
+    {
+      "source": "maya_toolkit/tools/directional_cycle_tool_v1_1/catalog.json",
+      "target": "maya_toolkit/tools/directional_cycle_tool_v1_1/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/directional_cycle_tool_v1_1/contracts.py",
+      "target": "maya_toolkit/tools/directional_cycle_tool_v1_1/contracts.py"
+    },
+    {
+      "source": "maya_toolkit/tools/directional_cycle_tool_v1_1/native_ui.py",
+      "target": "maya_toolkit/tools/directional_cycle_tool_v1_1/native_ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/directional_cycle_tool_v1_1/proxy.py",
+      "target": "maya_toolkit/tools/directional_cycle_tool_v1_1/proxy.py"
+    },
+    {
+      "source": "maya_toolkit/tools/directional_cycle_tool_v1_1/runtime.py",
+      "target": "maya_toolkit/tools/directional_cycle_tool_v1_1/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/directional_cycle_tool_v1_1/tool.py",
+      "target": "maya_toolkit/tools/directional_cycle_tool_v1_1/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/directional_cycle_tool_v1_1/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/directional_cycle_tool_v1_1/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/directional_cycle_tool_v1_1/upstream/__init__.py",
+      "target": "maya_toolkit/tools/directional_cycle_tool_v1_1/upstream/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/directional_cycle_tool_v1_1/upstream/functions.py",
+      "target": "maya_toolkit/tools/directional_cycle_tool_v1_1/upstream/functions.py"
+    },
+    {
+      "source": "maya_toolkit/tools/directional_cycle_tool_v1_1/upstream/main.py",
+      "target": "maya_toolkit/tools/directional_cycle_tool_v1_1/upstream/main.py"
+    },
+    {
+      "source": "maya_toolkit/tools/directional_cycle_tool_v1_1/upstream/README.txt",
+      "target": "maya_toolkit/tools/directional_cycle_tool_v1_1/upstream/README.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/directional_cycle_tool_v1_1/upstream/version.py",
+      "target": "maya_toolkit/tools/directional_cycle_tool_v1_1/upstream/version.py"
+    },
+    {
+      "source": "maya_toolkit/tools/directional_cycle_tool_v1_1/version.py",
+      "target": "maya_toolkit/tools/directional_cycle_tool_v1_1/version.py"
+    },
+    {
+      "source": "tests/test_directional_cycle_tool_v1_1.py",
+      "target": "tests/test_directional_cycle_tool_v1_1.py"
+    },
+    {
+      "source": "tests/test_directional_cycle_tool_v1_1_maya.py",
+      "target": "tests/test_directional_cycle_tool_v1_1_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/__init__.py",
+    "upstream/functions.py",
+    "upstream/main.py",
+    "upstream/README.txt",
+    "upstream/version.py",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya cmds/animLayer/bakeResults/constraints",
+    "Real GUI/project PySide2/6 and Maya dockable mixin",
+    "Existing framework/core Undo"
+  ],
+  "source": "../DirectionalCycleTool/functions.py",
+  "change_summary": "Full original left/right/back, pelvis/feet time reversal and correction/counter-rotation algorithms and native dockable UI, unique owned layers/helpers, complete temporary constraint cleanup and standard API.",
+  "verification_limitations": [
+    "Production rig/dockable Qt GUI pending",
+    "Original head aim uses fixed world point and body-angle/feet heuristics",
+    "BaseAnimation selected does not isolate other active output layers",
+    "Bake creates persistent direction/pelvis layers; helpers/constraints persist when bake false",
+    "Back upperbody/master role usage differs from side"
+  ],
+  "acceptance_required": true
+}

@@ -198,3 +198,10 @@
 - 每pair Owner/token network与source/target message+UUID、helper/follow/target constraint UUID持久记录。私有组/四集合，只删自己的资源，后代/输出/改接/外部固定名保护；约束先脱离目标保护空transform，临时失败资源及时记UUID，blend可能保留。cleanup独立标准动作，列表清空不改场景。
 - 普通Python3项、Maya2025隔离9项通过：真实frame整数键/初始偏移/Undo，numeric逐整数/custom标量，持续constraint/repeat/cleanup，frame→constraint→numeric，持久重命名/保存重载、同叶名两pair批量、只读/外部对象、配置覆盖与错误返回失败/guard/Undo。正式布局注册/报告指纹匹配。
 - 未实例化Qt，圆点/右键/拖拽/编辑/文件对话框和nonuniform scale/层/制作rig/旧Python待真人；完整知识/两测试/验收/注册晋级预制，prepared_unverified。实际收尾5小时8%/周72%已用，heartbeat暂停，无卡/正式库/同步变更。
+
+## 2026-10-01：Directional Cycle完整候选，累计20/109
+
+- 原五文件字节/CC BY-SA 4.0署名保留，八函数及完整Dockable原窗口，复用core Qt绑定；左右±angle/脚±90、后退timeScale=-1/骨盆层、校正/反旋转原流程保留。原仅删第一组临时约束修复为全部嵌套列表，校正真实shape路径、足数1..999/当前角色计数检查。
+- per-cycle Owner/token network/UUID/message、唯一owned方向/骨盆层和helper，原Left/Right/Back不覆盖；清理先脱离目标约束防空控制器误删，外部子节点/输出/层成员保护。默认保留输出层/network/旧动画载体，remove_layers显式，失败含record UUID/Undo，finally时间/选择/旧层标记/guard恢复。全对象bake作用域、固定世界head aim、原pelvis层公式、back角色/参数差异均明确。
+- 普通Python3项、Maya2025隔离7项、临时正式布局注册/面板/Schema检查及指纹通过。实际左右脚轨迹/后退键反转/三足correction-counter路径与back双层/完整cleanup/命名隔离/重命名保存重载/故障Undo；捕获节点UUID改显式逐节点ls查询，层root内部连接允许，未创建Qt。
+- 真正GUI/制作循环rig/脚滑移/固定瞄准点/复杂层/非均匀缩放和其他版本待人工，prepared_unverified；完整候选/知识/两测试/注册晋级/验收齐备。收尾真实5小时19%、周74%已用，heartbeat仍暂停，无卡消费/正式库/同步。

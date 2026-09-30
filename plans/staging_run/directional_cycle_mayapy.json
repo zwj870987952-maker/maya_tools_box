@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/directional_cycle_tool_v1_1/release_candidate/tests/test_directional_cycle_tool_v1_1_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_back_reverses_feet_and_pelvis_layer (__main__.MayaTests.test_back_reverses_feet_and_pelvis_layer) ... ok\r\ntest_baked_layer_unique_foreign_name_and_undo (__main__.MayaTests.test_baked_layer_unique_foreign_name_and_undo) ... ����: DirectionalCycleTool_directional_cycle_tool_v1_1\nok\r\ntest_dry_run_and_guards (__main__.MayaTests.test_dry_run_and_guards) ... ok\r\ntest_failure_restores_state_and_is_undoable (__main__.MayaTests.test_failure_restores_state_and_is_undoable) ... ����: DirectionalCycleTool_directional_cycle_tool_v1_1\nok\r\ntest_left_right_live_foot_rotation_all_constraints_cleanup (__main__.MayaTests.test_left_right_live_foot_rotation_all_constraints_cleanup) ... ok\r\ntest_three_feet_correction_counter_rotation_and_bake (__main__.MayaTests.test_three_feet_correction_counter_rotation_and_bake) ... ok\r\ntest_uuid_save_reload_and_foreign_child_refusal (__main__.MayaTests.test_uuid_save_reload_and_foreign_child_refusal) ... �ļ���ȡ����ʱ��Ϊ  0.0077 �롣\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 7 tests in 0.594s\r\n\r\nOK\r\n1 5\r\nPelvis setup\r\nFeet setup\r\nmtbDCT_3720ee44_Loc_Feet__master_foot0\r\nmtbDCT_3720ee44_Loc_Feet__master_foot1\r\n1 5\r\nPelvis setup\r\nFeet setup\r\nmtbDCT_49bbf318_Loc_Feet__master_foot0\r\nmtbDCT_49bbf318_Loc_Feet__master_foot1\r\nmtbDCT_49bbf318_Loc_Feet__master_foot2\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "4fce8ef3de61c1c85a59ade842f245a107f31701f39ef3dd688dfc00d63c4542",
+  "runtime_source_sha256": "ef38b8b6706cf2585b91b8938d2158f72ddbee68c17f23ca5b8a9f924a13883f"
+}
