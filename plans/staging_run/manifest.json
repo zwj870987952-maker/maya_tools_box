@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T15:59:08.498260+08:00",
+  "updated_at": "2026-09-30T15:59:53.539552+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -13,12 +13,12 @@
     "heartbeat_transition_verified": true,
     "last_completed_tool": "01_animation/anim_layer_key_runner",
     "last_usage": {
-      "five_hour_used_percent": 67.0,
-      "weekly_used_percent": 40.0,
-      "recorded_at": "2026-09-30T15:44:58.313240+08:00",
+      "five_hour_used_percent": 71.0,
+      "weekly_used_percent": 41.0,
+      "recorded_at": "2026-09-30T15:59:51.509408+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/anim_layer_key_runner"
+    "current_tool": "01_animation/anim_layer_keyframe_bookmark"
   },
   "entry_repairs": [
     {
@@ -569,7 +569,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Layer-specific frame scheduling with normalized curve results and no cross-layer fallback; isolated preflight never executes commands; preserve MEL/Python engines/presets, restore time/selection, report per-frame errors, complete source archives/native UI/promotion package.",
-      "prepared_at": "2026-09-30T15:57:56.056796+08:00"
+      "prepared_at": "2026-09-30T15:57:56.056796+08:00",
+      "source_commit": "44a2f2b5a48d3e9ecc9a9a64a3708f93e2893692"
     },
     {
       "source_path": "01_animation/anim_layer_keyframe_bookmark",
@@ -586,7 +587,7 @@
       ],
       "license_files": [],
       "entry_sha256": "f00732f3be6016050c3daf0ab4ca084f28f9c52bb8eda3b00851f886092cba2c",
-      "status": "pending",
+      "status": "working",
       "candidate_complete": false,
       "offline_checks": [],
       "maya_acceptance": {
