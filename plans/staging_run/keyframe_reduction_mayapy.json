@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/maya_keyframe_reduction/release_candidate/tests/test_keyframe_reduction_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_linear_constant_auto_and_undo (__main__.MayaTests.test_linear_constant_auto_and_undo) ... ����: KeyframeReductionTool_keyframe_reduction\nok\r\ntest_readonly_scope_and_source_bridge (__main__.MayaTests.test_readonly_scope_and_source_bridge) ... ����: KeyframeReductionTool_keyframe_reduction\nok\r\ntest_weighted_split_waveform_and_partial_failure (__main__.MayaTests.test_weighted_split_waveform_and_partial_failure) ... ����: KeyframeReductionTool_keyframe_reduction\n����: KeyframeReductionTool_keyframe_reduction\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.026s\r\n\r\nOK\r\n< KeyframeReduction.reduce() | path: control_translateX | process-time: 0.00 seconds | reduction-rate: 90.00%  >\r\n< KeyframeReduction.reduce() | path: control_translateY | process-time: 0.00 seconds | reduction-rate: 90.00%  >\r\n< KeyframeReduction.reduce() | path: control_translateX | process-time: 0.00 seconds | reduction-rate: 90.00%  >\r\n< KeyframeReduction.reduce() | path: control_translateX | process-time: 0.00 seconds | unable-to-reduce >\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "c7390b4fa0d1abdc475d699c9845d366a9352ac074914ff188d3ffe78803c227",
+  "runtime_source_sha256": "b4b4bbc605cdcdddb23120a1e9743d2bb63d3e5d68453561e9d82bf0e0174284"
+}

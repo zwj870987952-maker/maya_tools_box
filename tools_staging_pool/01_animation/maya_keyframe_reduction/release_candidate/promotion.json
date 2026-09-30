@@ -1,0 +1,402 @@
+{
+  "tool_id": "keyframe_reduction",
+  "registration": {
+    "module": "keyframe_reduction",
+    "class_name": "KeyframeReductionTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/keyframe_reduction.md",
+      "target": "docs/tools/keyframe_reduction.md"
+    },
+    {
+      "source": "docs/tools/keyframe_reduction_changes.diff",
+      "target": "docs/tools/keyframe_reduction_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/__init__.py",
+      "target": "maya_toolkit/tools/keyframe_reduction/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/catalog.json",
+      "target": "maya_toolkit/tools/keyframe_reduction/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/native/__init__.py",
+      "target": "maya_toolkit/tools/keyframe_reduction/native/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/native/classes/__init__.py",
+      "target": "maya_toolkit/tools/keyframe_reduction/native/classes/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/native/classes/fit.py",
+      "target": "maya_toolkit/tools/keyframe_reduction/native/classes/fit.py"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/native/classes/keyframe.py",
+      "target": "maya_toolkit/tools/keyframe_reduction/native/classes/keyframe.py"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/native/classes/keyframeReduction.py",
+      "target": "maya_toolkit/tools/keyframe_reduction/native/classes/keyframeReduction.py"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/native/classes/vector.py",
+      "target": "maya_toolkit/tools/keyframe_reduction/native/classes/vector.py"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/native/install.py",
+      "target": "maya_toolkit/tools/keyframe_reduction/native/install.py"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/native/ui.py",
+      "target": "maya_toolkit/tools/keyframe_reduction/native/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/native/utils.py",
+      "target": "maya_toolkit/tools/keyframe_reduction/native/utils.py"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/proxy.py",
+      "target": "maya_toolkit/tools/keyframe_reduction/proxy.py"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/runtime.py",
+      "target": "maya_toolkit/tools/keyframe_reduction/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/tool.py",
+      "target": "maya_toolkit/tools/keyframe_reduction/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/.gitignore",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/.gitignore"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/.buildinfo",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/.buildinfo"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/.nojekyll",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/.nojekyll"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_images/keyframeReductionExample.gif",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_images/keyframeReductionExample.gif"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_images/keyframeReductionUI.png",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_images/keyframeReductionUI.png"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/index.rst.txt",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/index.rst.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/keyframeReduction.classes.fit.rst.txt",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/keyframeReduction.classes.fit.rst.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/keyframeReduction.classes.keyframe.rst.txt",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/keyframeReduction.classes.keyframe.rst.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/keyframeReduction.classes.keyframeReduction.rst.txt",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/keyframeReduction.classes.keyframeReduction.rst.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/keyframeReduction.classes.rst.txt",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/keyframeReduction.classes.rst.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/keyframeReduction.classes.vector.rst.txt",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/keyframeReduction.classes.vector.rst.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/keyframeReduction.install.rst.txt",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/keyframeReduction.install.rst.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/keyframeReduction.rst.txt",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/keyframeReduction.rst.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/keyframeReduction.ui.rst.txt",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/keyframeReduction.ui.rst.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/keyframeReduction.utils.rst.txt",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/keyframeReduction.utils.rst.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/modules.rst.txt",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_sources/modules.rst.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/ajax-loader.gif",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/ajax-loader.gif"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/basic.css",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/basic.css"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/classic.css",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/classic.css"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/comment-bright.png",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/comment-bright.png"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/comment-close.png",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/comment-close.png"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/comment.png",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/comment.png"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/down-pressed.png",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/down-pressed.png"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/down.png",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/down.png"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/file.png",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/file.png"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/minus.png",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/minus.png"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/plus.png",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/plus.png"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/pygments.css",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/pygments.css"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/up-pressed.png",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/up-pressed.png"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/up.png",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/_static/up.png"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/genindex.html",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/genindex.html"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/index.html",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/index.html"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/keyframeReduction.classes.fit.html",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/keyframeReduction.classes.fit.html"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/keyframeReduction.classes.html",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/keyframeReduction.classes.html"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/keyframeReduction.classes.keyframe.html",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/keyframeReduction.classes.keyframe.html"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/keyframeReduction.classes.keyframeReduction.html",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/keyframeReduction.classes.keyframeReduction.html"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/keyframeReduction.classes.vector.html",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/keyframeReduction.classes.vector.html"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/keyframeReduction.html",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/keyframeReduction.html"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/keyframeReduction.install.html",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/keyframeReduction.install.html"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/keyframeReduction.ui.html",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/keyframeReduction.ui.html"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/keyframeReduction.utils.html",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/keyframeReduction.utils.html"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/modules.html",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/modules.html"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/objects.inv",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/objects.inv"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/py-modindex.html",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/py-modindex.html"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/docs/search.html",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/docs/search.html"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/icons/KR_icon.png",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/icons/KR_icon.png"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/keyframeReduction.mel",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/keyframeReduction.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/keyframeReduction.mod",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/keyframeReduction.mod"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/LICENSE",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/LICENSE"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/README.md",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/README.md"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/scripts/keyframeReduction/__init__.py.original",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/scripts/keyframeReduction/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/scripts/keyframeReduction/classes/__init__.py.original",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/scripts/keyframeReduction/classes/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/scripts/keyframeReduction/classes/fit.py.original",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/scripts/keyframeReduction/classes/fit.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/scripts/keyframeReduction/classes/keyframe.py.original",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/scripts/keyframeReduction/classes/keyframe.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/scripts/keyframeReduction/classes/keyframeReduction.py.original",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/scripts/keyframeReduction/classes/keyframeReduction.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/scripts/keyframeReduction/classes/vector.py.original",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/scripts/keyframeReduction/classes/vector.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/scripts/keyframeReduction/install.py.original",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/scripts/keyframeReduction/install.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/scripts/keyframeReduction/ui.py.original",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/scripts/keyframeReduction/ui.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/scripts/keyframeReduction/utils.py.original",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/scripts/keyframeReduction/utils.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_reduction/upstream/scripts/userSetup.py.original",
+      "target": "maya_toolkit/tools/keyframe_reduction/upstream/scripts/userSetup.py.original"
+    },
+    {
+      "source": "tests/test_keyframe_reduction.py",
+      "target": "tests/test_keyframe_reduction.py"
+    },
+    {
+      "source": "tests/test_keyframe_reduction_maya.py",
+      "target": "tests/test_keyframe_reduction_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/.gitignore",
+    "upstream/docs/.buildinfo",
+    "upstream/docs/.nojekyll",
+    "upstream/docs/_images/keyframeReductionExample.gif",
+    "upstream/docs/_images/keyframeReductionUI.png",
+    "upstream/docs/_sources/index.rst.txt",
+    "upstream/docs/_sources/keyframeReduction.classes.fit.rst.txt",
+    "upstream/docs/_sources/keyframeReduction.classes.keyframe.rst.txt",
+    "upstream/docs/_sources/keyframeReduction.classes.keyframeReduction.rst.txt",
+    "upstream/docs/_sources/keyframeReduction.classes.rst.txt",
+    "upstream/docs/_sources/keyframeReduction.classes.vector.rst.txt",
+    "upstream/docs/_sources/keyframeReduction.install.rst.txt",
+    "upstream/docs/_sources/keyframeReduction.rst.txt",
+    "upstream/docs/_sources/keyframeReduction.ui.rst.txt",
+    "upstream/docs/_sources/keyframeReduction.utils.rst.txt",
+    "upstream/docs/_sources/modules.rst.txt",
+    "upstream/docs/_static/ajax-loader.gif",
+    "upstream/docs/_static/basic.css",
+    "upstream/docs/_static/classic.css",
+    "upstream/docs/_static/comment-bright.png",
+    "upstream/docs/_static/comment-close.png",
+    "upstream/docs/_static/comment.png",
+    "upstream/docs/_static/down-pressed.png",
+    "upstream/docs/_static/down.png",
+    "upstream/docs/_static/file.png",
+    "upstream/docs/_static/minus.png",
+    "upstream/docs/_static/plus.png",
+    "upstream/docs/_static/pygments.css",
+    "upstream/docs/_static/up-pressed.png",
+    "upstream/docs/_static/up.png",
+    "upstream/docs/genindex.html",
+    "upstream/docs/index.html",
+    "upstream/docs/keyframeReduction.classes.fit.html",
+    "upstream/docs/keyframeReduction.classes.html",
+    "upstream/docs/keyframeReduction.classes.keyframe.html",
+    "upstream/docs/keyframeReduction.classes.keyframeReduction.html",
+    "upstream/docs/keyframeReduction.classes.vector.html",
+    "upstream/docs/keyframeReduction.html",
+    "upstream/docs/keyframeReduction.install.html",
+    "upstream/docs/keyframeReduction.ui.html",
+    "upstream/docs/keyframeReduction.utils.html",
+    "upstream/docs/modules.html",
+    "upstream/docs/objects.inv",
+    "upstream/docs/py-modindex.html",
+    "upstream/docs/search.html",
+    "upstream/icons/KR_icon.png",
+    "upstream/keyframeReduction.mel",
+    "upstream/keyframeReduction.mod",
+    "upstream/LICENSE",
+    "upstream/README.md",
+    "upstream/scripts/keyframeReduction/__init__.py.original",
+    "upstream/scripts/keyframeReduction/classes/__init__.py.original",
+    "upstream/scripts/keyframeReduction/classes/fit.py.original",
+    "upstream/scripts/keyframeReduction/classes/keyframe.py.original",
+    "upstream/scripts/keyframeReduction/classes/keyframeReduction.py.original",
+    "upstream/scripts/keyframeReduction/classes/vector.py.original",
+    "upstream/scripts/keyframeReduction/install.py.original",
+    "upstream/scripts/keyframeReduction/ui.py.original",
+    "upstream/scripts/keyframeReduction/utils.py.original",
+    "upstream/scripts/userSetup.py.original",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya cmds/OpenMaya API1; Python3",
+    "Native Qt UI PySide6/shiboken6 or PySide2/shiboken2",
+    "BaseMayaTool/Undo"
+  ],
+  "source": "../maya-keyframe-reduction-master/scripts/keyframeReduction/classes/keyframeReduction.py",
+  "change_summary": "Whole upstream archive/native Python3 library and full Qt UI, original Bezier least-squares/recursive fit and tangent splits, strict time-curve scope/dry/Undo/UI bridge; constant Auto split and near-first-key deletion fixed.",
+  "verification_limitations": [
+    "Real Qt GUI/production sample interpolation quality pending",
+    "Error is 2D sample geometric fitting tolerance, not guaranteed final Maya subframe max channel error",
+    "Whole curve resampled floor(first)..ceil(last)+1 exclusive, may move fractional endpoints",
+    "Only writable local unshared TL/TA/TU curves without step tangents/time remapping accepted"
+  ],
+  "acceptance_required": true
+}

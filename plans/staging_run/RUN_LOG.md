@@ -281,3 +281,9 @@
 - import插件加载去掉，冻结采样用只读API2；整数范围/degree-cm/唯一transform/静态pivot/额外变换限制/选中通道锁引用共享与compound驱动/奇异矩阵/总量预检。APIattributes与channelBox显式互斥，原UI长名短名正规化，子帧按钮值明确拒绝不截断。原吞异常并误报rotateOrder改真实异常，finally清自有助手/AutoKey/时间/选择/namespace；标准Undo，插件不归sceneUndo，无文件写。
 - 普通Python2项、Maya2025隔离3组、临时正式布局注册/面板/Schema/全部指纹通过：六order+动画父级worldMatrix逐帧保持、冻结worldpivot、多控制器无键新目标、只读dry、仅tx时未选ry锁与旋转曲线保持、共享/动态pivot/GUI batch/privatewrite保护、第二键失败真实错误cleanup/finally/Undo。初测锁通道被Maya对象keyframe查询排除，改直接曲线查询避免测试误判。
 - 真人GUI/channelBox/引用业务/真实脚底IK接触和复杂scale仍待验prepared_unverified；完整文档/验收/晋级备齐。实际收尾5小时88%/周84%已用，继续下一项，无卡/购买/同步/转正，heartbeat暂停。
+## 2026-10-01：Keyframe Reduction完整候选，累计31/109
+
+- Robert Joosten MIT 0.0.1整仓60资源字节归档（Python2原件.py.original而非可执行Py3），MIT/Paper.js归属保留。全12类68方法/完整MVector二维、least-squares/Bezier递归/weighted Wu-Barsky fallback/Newton重参数/三拆分/Qt筛选设置和callback转换Py3，未执行安装器、不写shelf/userSetup。PySide6/2延迟GUI与包内图标、回调清理/空选提示/标准API桥。
+- 原全曲线floor(first)..ceil(last)+1 exclusive采样和关键帧/切线写回算法保留；2D几何容差不是最终Maya间帧最大值误差，子帧端点/Infinity可变，明确记录。Auto空/常量/等角log除零修复；cutKey原0.01偏移可能漏近首键改index1..last clear不改clipboard。error严格正，TL/TA/TU本地单输出/普通时间/非step、引用锁共享/层/驱动拒绝，采样预算及curve UUID写scope；Undo+AutoKey finally，失败需Undo。
+- 普通Python2项、Maya2025隔离3组、临时正式布局注册/面板/Schema与指纹通过：直线/常量20→2且1..20半帧值保持/Undo、Auto常量、只读dry/inspect、原类标准桥、共享/step/private写拒绝、weighted Existing/threshold波形流程与不减键分支、第二fit-key故障Auto/Undo恢复。首测误把原首帧前constant Infinity当线性外推，测试修为原键范围，未改业务算法。
+- 未创建真实Qt GUI、制作曲线插值质量未验，prepared_unverified，完整知识/验收/晋级备齐；现有正式库/core未发现同类Bezier完整拟合，不提前下沉。实际收尾5小时93%/周85%已用；无卡/购买/同步/转正，heartbeat仍暂停，提交后重读额度决定续跑。
