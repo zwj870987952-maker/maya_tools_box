@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-01T05:43:42.156037+08:00
+更新时间：2026-10-01T06:02:45.103721+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -31,7 +31,7 @@
 | `01_animation/fd_multi_space` | prepared_unverified | True | True | not_run |
 | `01_animation/gimbal_lock_fix` | prepared_unverified | True | True | not_run |
 | `01_animation/ik_fk_switch` | prepared_unverified | True | True | not_run |
-| `01_animation/jop_retarget_anim_v09` | pending | True | False | not_run |
+| `01_animation/jop_retarget_anim_v09` | prepared_unverified | True | True | not_run |
 | `01_animation/keyframe_overlap_v2_0` | pending | True | False | not_run |
 | `01_animation/kf_animrig_ikfk` | pending | True | False | not_run |
 | `01_animation/lock_to_world` | pending | True | False | not_run |

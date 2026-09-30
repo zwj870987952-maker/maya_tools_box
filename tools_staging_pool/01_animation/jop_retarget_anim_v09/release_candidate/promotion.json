@@ -1,0 +1,99 @@
+{
+  "tool_id": "jop_retarget_anim",
+  "registration": {
+    "module": "jop_retarget_anim",
+    "class_name": "JopRetargetTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/jop_retarget_anim.md",
+      "target": "docs/tools/jop_retarget_anim.md"
+    },
+    {
+      "source": "docs/tools/jop_retarget_anim_changes.diff",
+      "target": "docs/tools/jop_retarget_anim_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/jop_retarget_anim/__init__.py",
+      "target": "maya_toolkit/tools/jop_retarget_anim/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/jop_retarget_anim/catalog.json",
+      "target": "maya_toolkit/tools/jop_retarget_anim/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/jop_retarget_anim/native.py",
+      "target": "maya_toolkit/tools/jop_retarget_anim/native.py"
+    },
+    {
+      "source": "maya_toolkit/tools/jop_retarget_anim/proxy.py",
+      "target": "maya_toolkit/tools/jop_retarget_anim/proxy.py"
+    },
+    {
+      "source": "maya_toolkit/tools/jop_retarget_anim/runtime.py",
+      "target": "maya_toolkit/tools/jop_retarget_anim/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/jop_retarget_anim/tool.py",
+      "target": "maya_toolkit/tools/jop_retarget_anim/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/jop_retarget_anim/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/jop_retarget_anim/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/jop_retarget_anim/upstream/dragAndDrop.py",
+      "target": "maya_toolkit/tools/jop_retarget_anim/upstream/dragAndDrop.py"
+    },
+    {
+      "source": "maya_toolkit/tools/jop_retarget_anim/upstream/HOW_TO_INSTALL.txt",
+      "target": "maya_toolkit/tools/jop_retarget_anim/upstream/HOW_TO_INSTALL.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/jop_retarget_anim/upstream/install.mel",
+      "target": "maya_toolkit/tools/jop_retarget_anim/upstream/install.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/jop_retarget_anim/upstream/jop_retargetAnim.py",
+      "target": "maya_toolkit/tools/jop_retarget_anim/upstream/jop_retargetAnim.py"
+    },
+    {
+      "source": "maya_toolkit/tools/jop_retarget_anim/upstream/jop_retargetAnim_icon.png",
+      "target": "maya_toolkit/tools/jop_retarget_anim/upstream/jop_retargetAnim_icon.png"
+    },
+    {
+      "source": "maya_toolkit/tools/jop_retarget_anim/upstream/LICENCE.txt",
+      "target": "maya_toolkit/tools/jop_retarget_anim/upstream/LICENCE.txt"
+    },
+    {
+      "source": "tests/test_jop_retarget_anim.py",
+      "target": "tests/test_jop_retarget_anim.py"
+    },
+    {
+      "source": "tests/test_jop_retarget_anim_maya.py",
+      "target": "tests/test_jop_retarget_anim_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/dragAndDrop.py",
+    "upstream/HOW_TO_INSTALL.txt",
+    "upstream/install.mel",
+    "upstream/jop_retargetAnim.py",
+    "upstream/jop_retargetAnim_icon.png",
+    "upstream/LICENCE.txt",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya cmds/OpenMaya API2; matrix/quat nodes lazily enabled if missing",
+    "Existing BaseMayaTool/Undo"
+  ],
+  "source": "../jop_retargetAnim/jop_retargetAnim.py",
+  "change_summary": "Complete native matrix retarget/UI, frozen-pivot matrix capture via equivalent read-only API, structured UUID/context snapshot and guarded scene/key/plugin lifetime.",
+  "verification_limitations": [
+    "Real GUI/production parent-scale/pivots/rotateOrder behavior pending",
+    "Current degree/cm units; animated pivots/joints/externally-driven target channels unsupported",
+    "License forbids third-party sharing; local only",
+    "Plugin enable/disable is Maya global state and not ordinary scene Undo"
+  ],
+  "acceptance_required": true
+}

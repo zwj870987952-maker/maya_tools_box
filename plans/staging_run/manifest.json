@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T05:43:42.156037+08:00",
+  "updated_at": "2026-10-01T06:02:45.103721+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/ik_fk_switch",
+    "last_completed_tool": "01_animation/jop_retarget_anim_v09",
     "last_usage": {
-      "five_hour_used_percent": 54.0,
-      "weekly_used_percent": 79.0,
-      "recorded_at": "2026-10-01T05:22:22.883417+08:00",
+      "five_hour_used_percent": 63.0,
+      "weekly_used_percent": 80.0,
+      "recorded_at": "2026-10-01T05:45:39.625568+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/ik_fk_switch"
+    "current_tool": "01_animation/jop_retarget_anim_v09"
   },
   "entry_repairs": [
     {
@@ -4456,7 +4456,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete PRO matching/temp IK chain/pole vector/full UI/baking retained, guarded standard API/callbacks and owned Store JSON transfer, legacy source also archived intact.",
-      "prepared_at": "2026-10-01T05:43:40.590998+08:00"
+      "prepared_at": "2026-10-01T05:43:40.590998+08:00",
+      "source_commit": "ba71f34bbbe246218b18e85ff293aaddb7ed3759"
     },
     {
       "source_path": "01_animation/jop_retarget_anim_v09",
@@ -4467,7 +4468,7 @@
       "entry_candidates": [
         "jop_retargetAnim/jop_retargetAnim.py"
       ],
-      "source_file_count": 6,
+      "source_file_count": 7,
       "source_files": [
         "jop_retargetAnim/dragAndDrop.py",
         "jop_retargetAnim/install.mel",
@@ -4477,14 +4478,77 @@
         "jop_retargetAnim/LICENCE.txt"
       ],
       "entry_sha256": "2244bbd21529ac467bf5c0f603efdaa52b081fba368712468cd19bc1e4b72241",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_full_source_resources_and_ui (__main__.OfflineTests.test_full_source_resources_and_ui) ... ok\r\ntest_lazy_schema_and_snapshot_validation (__main__.OfflineTests.test_lazy_schema_and_snapshot_validation) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.002s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"jop_retarget_anim\",\r\n  \"candidate_sha256\": \"b4532af542986b883a2548482763263d6ba3508da45cb3e20aa0ae81dfae680b\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\jop_retarget_anim.md\",\r\n    \"docs\\\\tools\\\\jop_retarget_anim_changes.diff\",\r\n    \"maya_toolkit\\\\tools\\\\jop_retarget_anim\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\jop_retarget_anim\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\jop_retarget_anim\\\\native.py\",\r\n    \"maya_toolkit\\\\tools\\\\jop_retarget_anim\\\\proxy.py\",\r\n    \"maya_toolkit\\\\tools\\\\jop_retarget_anim\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\jop_retarget_anim\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\jop_retarget_anim\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\jop_retarget_anim\\\\upstream\\\\dragAndDrop.py\",\r\n    \"maya_toolkit\\\\tools\\\\jop_retarget_anim\\\\upstream\\\\HOW_TO_INSTALL.txt\",\r\n    \"maya_toolkit\\\\tools\\\\jop_retarget_anim\\\\upstream\\\\install.mel\",\r\n    \"maya_toolkit\\\\tools\\\\jop_retarget_anim\\\\upstream\\\\jop_retargetAnim.py\",\r\n    \"maya_toolkit\\\\tools\\\\jop_retarget_anim\\\\upstream\\\\jop_retargetAnim_icon.png\",\r\n    \"maya_toolkit\\\\tools\\\\jop_retarget_anim\\\\upstream\\\\LICENCE.txt\",\r\n    \"tests\\\\test_jop_retarget_anim.py\",\r\n    \"tests\\\\test_jop_retarget_anim_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/jop_retarget_anim_v09/release_candidate/tests/test_jop_retarget_anim_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_actual_reference_context_and_explicit_edit_permission (__main__.MayaTests.test_actual_reference_context_and_explicit_edit_permission) ... ����: Success : 1 object(s) animation saved in 0.0 sec\n�ļ���ȡ����ʱ��Ϊ  0.0026 �롣\n����: Success : 1 object(s) animation saved in 0.0 sec\n����: Success : 1 object(s) animation retargeted in 0.0 sec\n����: JopRetargetTool_jop_retarget_anim\nok\r\ntest_dense_multiple_frozen_capture_equivalent_to_original_dg (__main__.MayaTests.test_dense_multiple_frozen_capture_equivalent_to_original_dg) ... ����: Success : 2 object(s) animation saved in 0.0 sec\n����: Success : 2 object(s) animation retargeted in 0.016 sec\n����: JopRetargetTool_jop_retarget_anim\nok\r\ntest_guards_and_partial_failure_cleanup_undo (__main__.MayaTests.test_guards_and_partial_failure_cleanup_undo) ... ����: Success : 1 object(s) animation saved in 0.0 sec\n����: \n����: JopRetargetTool_jop_retarget_anim\nok\r\ntest_json_rename_mapping_reload_and_gui_business_bridge (__main__.MayaTests.test_json_rename_mapping_reload_and_gui_business_bridge) ... ����: Success : 1 object(s) animation saved in 0.0 sec\n�ļ���ȡ����ʱ��Ϊ  0.0031 �롣\n����: Success : 1 object(s) animation retargeted in 0.0 sec\n����: JopRetargetTool_jop_retarget_anim\n����: Success : 1 object(s) animation retargeted in 0.0 sec\n����: JopRetargetTool_jop_retarget_anim\n����: Success : 1 object(s) animation retargeted in 0.0 sec\n����: JopRetargetTool_jop_retarget_anim\nok\r\ntest_readonly_capture_dry_and_parent_order_retarget_undo (__main__.MayaTests.test_readonly_capture_dry_and_parent_order_retarget_undo) ... ����: Success : 1 object(s) animation saved in 0.0 sec\n����: Success : 1 object(s) animation retargeted in 0.015 sec\n����: JopRetargetTool_jop_retarget_anim\n����: Success : 1 object(s) animation retargeted in 0.0 sec\n����: JopRetargetTool_jop_retarget_anim\n����: Success : 1 object(s) animation retargeted in 0.0 sec\n����: JopRetargetTool_jop_retarget_anim\n����: Success : 1 object(s) animation retargeted in 0.0 sec\n����: JopRetargetTool_jop_retarget_anim\n����: Success : 1 object(s) animation retargeted in 0.0 sec\n����: JopRetargetTool_jop_retarget_anim\n����: Success : 1 object(s) animation retargeted in 0.0 sec\n����: JopRetargetTool_jop_retarget_anim\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.152s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "3e5acc2e23c7187781238625014b8019b3e212d7b5e4d0d830163e1328bd5411",
+          "runtime_source_sha256": "c8994567dc9caf6c14153e3c8b92c9d9e5e0b2047004ad575fbc4721496f20de"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya GUI, production rigs and nonuniform/negative parent scale pending"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "b4532af542986b883a2548482763263d6ba3508da45cb3e20aa0ae81dfae680b",
+          "returncode": 0,
+          "output": "test_full_source_resources_and_ui (__main__.OfflineTests.test_full_source_resources_and_ui) ... ok\r\ntest_lazy_schema_and_snapshot_validation (__main__.OfflineTests.test_lazy_schema_and_snapshot_validation) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.002s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real GUI/production parent-scale/pivots/rotateOrder behavior pending",
+        "Current degree/cm units; animated pivots/joints/externally-driven target channels unsupported",
+        "License forbids third-party sharing; local only",
+        "Plugin enable/disable is Maya global state and not ordinary scene Undo"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 2,
@@ -4493,7 +4557,52 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "d518775b82f8fb3e883560f9e4673d1f532ac5c8aa8d27e3786d4db441c6e2a5"
+      "source_tree_sha256": "c3478c4fc948159d46053f676db5bd7ae71f309a671686cb0f0f385d7dbd9da3",
+      "candidate_path": "tools_staging_pool/01_animation/jop_retarget_anim_v09/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/jop_retarget_anim_v09/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "jop_retarget_anim",
+        "candidate_sha256": "b4532af542986b883a2548482763263d6ba3508da45cb3e20aa0ae81dfae680b",
+        "applied": false,
+        "files": [
+          "docs\\tools\\jop_retarget_anim.md",
+          "docs\\tools\\jop_retarget_anim_changes.diff",
+          "maya_toolkit\\tools\\jop_retarget_anim\\__init__.py",
+          "maya_toolkit\\tools\\jop_retarget_anim\\catalog.json",
+          "maya_toolkit\\tools\\jop_retarget_anim\\native.py",
+          "maya_toolkit\\tools\\jop_retarget_anim\\proxy.py",
+          "maya_toolkit\\tools\\jop_retarget_anim\\runtime.py",
+          "maya_toolkit\\tools\\jop_retarget_anim\\tool.py",
+          "maya_toolkit\\tools\\jop_retarget_anim\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\jop_retarget_anim\\upstream\\dragAndDrop.py",
+          "maya_toolkit\\tools\\jop_retarget_anim\\upstream\\HOW_TO_INSTALL.txt",
+          "maya_toolkit\\tools\\jop_retarget_anim\\upstream\\install.mel",
+          "maya_toolkit\\tools\\jop_retarget_anim\\upstream\\jop_retargetAnim.py",
+          "maya_toolkit\\tools\\jop_retarget_anim\\upstream\\jop_retargetAnim_icon.png",
+          "maya_toolkit\\tools\\jop_retarget_anim\\upstream\\LICENCE.txt",
+          "tests\\test_jop_retarget_anim.py",
+          "tests\\test_jop_retarget_anim_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/dragAndDrop.py",
+        "upstream/HOW_TO_INSTALL.txt",
+        "upstream/install.mel",
+        "upstream/jop_retargetAnim.py",
+        "upstream/jop_retargetAnim_icon.png",
+        "upstream/LICENCE.txt",
+        "catalog.json"
+      ],
+      "external_dependencies": [
+        "Maya cmds/OpenMaya API2; matrix/quat nodes lazily enabled if missing",
+        "Existing BaseMayaTool/Undo"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete native matrix retarget/UI, frozen-pivot matrix capture via equivalent read-only API, structured UUID/context snapshot and guarded scene/key/plugin lifetime.",
+      "prepared_at": "2026-10-01T06:02:43.497457+08:00"
     },
     {
       "source_path": "01_animation/keyframe_overlap_v2_0",

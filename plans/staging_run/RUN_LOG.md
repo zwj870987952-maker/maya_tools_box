@@ -253,3 +253,10 @@
 - Owner transform Store保留原字符串形态并加JSON/message/UUID，更新必须自有+overwrite_store，引用message本次明确允许，改名重载可解析，不删外部同名节点。原.ma/.mb场景Store导入强制删除改为显式自有JSON进出，旧格式不直接互读须备份重定义，记录为明确格式变化而不承诺兼容。文件独占创建/明确覆盖原子写、不得MayaUndo；坏offset不执行代码。
 - 普通Python2项、静态全原资源/函数/UI、临时正式布局注册/面板/Schema/指纹通过；Maya2025隔离6项中5项实际通过（metadata/key/switch），完整原匹配1项因PyMel absent明确skip。真实0/1/10切换/key/Undo、Store只读/改名保存重载/更新Undo/外部子保护、JSON覆盖/更新导入/坏数据、消息失败finally/Undo、真实引用metadata明确编辑及同文件UUID上下文通过；不是原匹配或烘焙通过。
 - 缺PyMel+真实GUI+制作rig/临时IK链/双向match/bake待验prepared_unverified，完整知识/验收/晋级已备。收尾实际5小时63%/周80%已用，继续下一项；heartbeat暂停，无卡/购买/同步/转正。
+## 2026-10-01：JOP Retarget Anim完整候选，累计27/109
+
+- Jesse ONG PHO v09全14函数/3UI方法/6原资源字节保留；许可允许自用商业修改但禁止第三方分享，原安装器不执行。保留稀疏/逐整数帧采样、mult/decompose/quatToEuler目标rotateOrder/减pivot/六轴key/整曲线Euler filter，不键scale、不承诺长圈/复杂scale插值。
+- 原空选择mySelec错误修复；去掉import插件加载；冻结分支原DG创建删除改只读API2世界pivot与旋转重构（单位scale），实际与原point/decompose/compose图对照通过。UUID+referenceNode UUID快照支持JSON/改名重载/明确映射，完整UI保存会话cache/回放标准API桥；degree/cm/非实例transform/静态pivot、目标rotateAxis-pivotTranslate零/offsetParentMatrix identity、锁/引用曲线/外部输入/共享/奇异矩阵/范围保护。
+- 标准Undo与私有助手身份/外部输出保护，finally清理助手和恢复AutoKey/选择/时间/namespace，插件按需加载可卸载才清理且不属场景Undo。失败不自动局部回滚。动态pivot子通道漏检在首轮测试发现后修复；引用fixture原工作文件自引用未加载改为另名工作场景，真实同UUID/reference上下文检查通过。
+- 普通Python2项、隔离Maya2025五组、临时正式布局注册/面板/Schema及指纹通过：六顺序父级变换回放+Undo、只读dry/capture、多控制器dense/frozen原DG等价、JSON/改名保存重载/原UI业务桥/新目标、真实引用保护/明确本地映射、共享/锁/动画pivot/单位/额外旋转/奇异矩阵和第二键故障cleanup-finally/Undo。真人GUI/复杂父级scale/生产rig待验prepared_unverified；完整验收/晋级备齐。
+- 实际收尾5小时71%/周82%已用，继续下一项；heartbeat暂停，无卡/购买/Obsidian同步/转正。

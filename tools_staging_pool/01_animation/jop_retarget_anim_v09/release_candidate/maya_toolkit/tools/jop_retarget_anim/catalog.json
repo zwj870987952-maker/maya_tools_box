@@ -1,0 +1,50 @@
+{
+  "raw_files": [
+    {
+      "path": "upstream/dragAndDrop.py",
+      "sha256": "a2938bdd224b148845c33f946e137c8353a1bdaf2ef980029ecd7e02e582e5c5"
+    },
+    {
+      "path": "upstream/HOW_TO_INSTALL.txt",
+      "sha256": "97e9fceb6b9134cbee231ab9a0e3645a079d2821eea4c0a39725f778a493bc0a"
+    },
+    {
+      "path": "upstream/install.mel",
+      "sha256": "2b262e0c8aeeabb2d3d89e39a22e0976870e04fd5e618510186b136565daf6fa"
+    },
+    {
+      "path": "upstream/jop_retargetAnim.py",
+      "sha256": "2244bbd21529ac467bf5c0f603efdaa52b081fba368712468cd19bc1e4b72241"
+    },
+    {
+      "path": "upstream/jop_retargetAnim_icon.png",
+      "sha256": "5b4cc1a8fd79b6fe49d721b18f8e3d5f91a523f8280f66eec796c789874b4b08"
+    },
+    {
+      "path": "upstream/LICENCE.txt",
+      "sha256": "bf3b3c148e73503d804ab1d5692d92194872bd0cbf21313010e1e4994464cc4a"
+    }
+  ],
+  "functions": [
+    "checkEmptySelection",
+    "hasBeenFrozen",
+    "endExistingTimer",
+    "createMultDecompeCombo",
+    "createQuatToEuler",
+    "createPlusMinusAverage",
+    "getOutput",
+    "getWorldMatrix",
+    "getKeyframeTab",
+    "getFullTimeRange",
+    "setKeysToCtrl",
+    "saveAnimToList",
+    "snapCtlFromMatrixDic",
+    "main"
+  ],
+  "ui_methods": [
+    "__init__",
+    "create",
+    "updateDicAndList"
+  ],
+  "license": "Jesse ONG PHO commercial use license: personal/commercial use and modification allowed, sharing/distribution prohibited. Supplied private local candidate."
+}
