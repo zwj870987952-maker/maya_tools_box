@@ -1,0 +1,247 @@
+{
+  "tool_id": "anim_polish_premium_v1_23",
+  "registration": {
+    "module": "anim_polish_premium_v1_23",
+    "class_name": "AnimPolishTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/anim_polish_premium_v1_23.md",
+      "target": "docs/tools/anim_polish_premium_v1_23.md"
+    },
+    {
+      "source": "docs/tools/anim_polish_premium_v1_23_functions.md",
+      "target": "docs/tools/anim_polish_premium_v1_23_functions.md"
+    },
+    {
+      "source": "docs/tools/anim_polish_runtime_changes.diff",
+      "target": "docs/tools/anim_polish_runtime_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/__init__.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/catalog.json",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/contracts.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/contracts.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/file_guards.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/file_guards.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/runtime.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/state.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/state.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/tool.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/ui.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/__init__.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/assignColors.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/assignColors.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/caching.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/caching.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/copyPasteAttrs.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/copyPasteAttrs.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/cycleCam.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/cycleCam.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/growShrink.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/growShrink.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/iron.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/iron.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/quickBake.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/quickBake.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/rivetStuff.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/rivetStuff.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/sculptPose.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/sculptPose.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/smoothPreview.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/smoothPreview.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/subdue.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/subdue.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/ui.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/user_copyPasteAttrs.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/user_copyPasteAttrs.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/user_settings.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/user_settings.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/user_settings_default.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/user_settings_default.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/wrap.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/animPolish/wrap.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/AnimPolish Documentation.docx",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/AnimPolish Documentation.docx"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/AnimPolish_README.txt",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/upstream/AnimPolish_README.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/__init__.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/__init__.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/assignColors.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/assignColors.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/caching.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/caching.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/copyPasteAttrs.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/copyPasteAttrs.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/cycleCam.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/cycleCam.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/growShrink.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/growShrink.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/iron.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/iron.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/quickBake.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/quickBake.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/rivetStuff.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/rivetStuff.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/sculptPose.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/sculptPose.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/smoothPreview.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/smoothPreview.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/subdue.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/subdue.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/ui.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/user_copyPasteAttrs.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/user_copyPasteAttrs.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/user_settings.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/user_settings.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/user_settings_default.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/user_settings_default.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/wrap.py",
+      "target": "maya_toolkit/tools/anim_polish_premium_v1_23/vendor/animPolish/wrap.py"
+    },
+    {
+      "source": "tests/test_anim_polish_premium_v1_23.py",
+      "target": "tests/test_anim_polish_premium_v1_23.py"
+    },
+    {
+      "source": "tests/test_anim_polish_premium_v1_23_maya.py",
+      "target": "tests/test_anim_polish_premium_v1_23_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/animPolish/__init__.py",
+    "upstream/animPolish/assignColors.py",
+    "upstream/animPolish/caching.py",
+    "upstream/animPolish/copyPasteAttrs.py",
+    "upstream/animPolish/cycleCam.py",
+    "upstream/animPolish/growShrink.py",
+    "upstream/animPolish/iron.py",
+    "upstream/animPolish/quickBake.py",
+    "upstream/animPolish/rivetStuff.py",
+    "upstream/animPolish/sculptPose.py",
+    "upstream/animPolish/smoothPreview.py",
+    "upstream/animPolish/subdue.py",
+    "upstream/animPolish/ui.py",
+    "upstream/animPolish/user_copyPasteAttrs.py",
+    "upstream/animPolish/user_settings.py",
+    "upstream/animPolish/user_settings_default.py",
+    "upstream/animPolish/wrap.py",
+    "upstream/AnimPolish Documentation.docx",
+    "upstream/AnimPolish_README.txt"
+  ],
+  "source": "../animPolish",
+  "dependencies": [
+    "Maya MEL/cmds",
+    "Interactive Maya for original UI, Channel Box and paint tools",
+    "AbcExport/AbcImport loaded explicitly by user for Alembic",
+    "existing maya_toolkit core/framework"
+  ],
+  "license": "Copyright Frigging Awesome Studios / Josh Sobel; local bundle has no standalone redistribution license; no relicensing claim",
+  "change_summary": "Entire original 19-file bundle and 160 signatures retained; private runtime namespace and narrow fixes, JSON settings/clipboard outside code, guarded cache I/O, framework API/UI/provenance and promotion metadata.",
+  "verification_limitations": [
+    "Real GUI and all rig/topology-dependent workflows pending",
+    "Settings/clipboard JSON intentionally replace executable state scripts",
+    "Source exception swallowing remains; success return alone cannot prove deformation",
+    "Cache file writes/imports cannot be fully reversed with scene Undo",
+    "Redistribution permission not established"
+  ],
+  "acceptance_required": true
+}

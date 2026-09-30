@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T17:18:52.736741+08:00",
+  "updated_at": "2026-09-30T17:56:18.608456+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,7 +11,7 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/anim_mirror_helper_v1_1",
+    "last_completed_tool": "01_animation/anim_polish_premium_v1_23",
     "last_usage": {
       "five_hour_used_percent": 37.0,
       "weekly_used_percent": 47.0,
@@ -985,14 +985,64 @@
         "animPolish/wrap.py"
       ],
       "license_files": [],
-      "status": "working",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "......\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.099s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"anim_polish_premium_v1_23\",\r\n  \"candidate_sha256\": \"1c5d3aff26048e3ab4ef0af3f3df50a4128199966907b448544a9857a1b72f93\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\anim_polish_premium_v1_23.md\",\r\n    \"docs\\\\tools\\\\anim_polish_premium_v1_23_functions.md\",\r\n    \"docs\\\\tools\\\\anim_polish_runtime_changes.diff\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\contracts.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\file_guards.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\state.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\upstream\\\\animPolish\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\upstream\\\\animPolish\\\\assignColors.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\upstream\\\\animPolish\\\\caching.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\upstream\\\\animPolish\\\\copyPasteAttrs.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\upstream\\\\animPolish\\\\cycleCam.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\upstream\\\\animPolish\\\\growShrink.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\upstream\\\\animPolish\\\\iron.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\upstream\\\\animPolish\\\\quickBake.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\upstream\\\\animPolish\\\\rivetStuff.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\upstream\\\\animPolish\\\\sculptPose.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\upstream\\\\animPolish\\\\smoothPreview.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\upstream\\\\animPolish\\\\subdue.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\upstream\\\\animPolish\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\upstream\\\\animPolish\\\\user_copyPasteAttrs.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\upstream\\\\animPolish\\\\user_settings.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\upstream\\\\animPolish\\\\user_settings_default.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\upstream\\\\animPolish\\\\wrap.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\upstream\\\\AnimPolish Documentation.docx\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\upstream\\\\AnimPolish_README.txt\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\vendor\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\vendor\\\\animPolish\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\vendor\\\\animPolish\\\\assignColors.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\vendor\\\\animPolish\\\\caching.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\vendor\\\\animPolish\\\\copyPasteAttrs.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\vendor\\\\animPolish\\\\cycleCam.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\vendor\\\\animPolish\\\\growShrink.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\vendor\\\\animPolish\\\\iron.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\vendor\\\\animPolish\\\\quickBake.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\vendor\\\\animPolish\\\\rivetStuff.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\vendor\\\\animPolish\\\\sculptPose.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\vendor\\\\animPolish\\\\smoothPreview.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\vendor\\\\animPolish\\\\subdue.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\vendor\\\\animPolish\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\vendor\\\\animPolish\\\\user_copyPasteAttrs.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\vendor\\\\animPolish\\\\user_settings.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\vendor\\\\animPolish\\\\user_settings_default.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_polish_premium_v1_23\\\\vendor\\\\animPolish\\\\wrap.py\",\r\n    \"tests\\\\test_anim_polish_premium_v1_23.py\",\r\n    \"tests\\\\test_anim_polish_premium_v1_23_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/anim_polish_premium_v1_23/release_candidate/tests/test_anim_polish_premium_v1_23_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": ".����: AnimPolishTool_anim_polish_premium_v1_23\n.����: AnimPolishTool_anim_polish_premium_v1_23\n.����: AnimPolishTool_anim_polish_premium_v1_23\n..����: AnimPolishTool_anim_polish_premium_v1_23\n......����: AnimPolishTool_anim_polish_premium_v1_23\n.����: AnimPolishTool_anim_polish_premium_v1_23\n����: AnimPolishTool_anim_polish_premium_v1_23\n����: AnimPolishTool_anim_polish_premium_v1_23\n..����: \n����: \n.\r\n----------------------------------------------------------------------\r\nRan 15 tests in 0.420s\r\n\r\nOK\r\nWraped 'wrapMesh' to world.Created 'Grow/Shrink' on 'growMesh'.Created 'Iron' on 'ironMesh'.Sculpting 'sculptMesh_1_scu'.Exported 'C:/Users/zwj87/AppData/Local/Temp/polish_camera_xgpxgem8/cameras.ma'.[0.10000000149011612, 0.20000000298023224, 0.30000001192092896]\r\nSculpting 'applyMesh_1_scu'.Calculating...Applied 'applyMesh_1_scu' as a keyable attribute.Sculpting 'applyMesh_1_scu'.Calculating...Applied 'applyMesh_1_scu' as a keyable attribute.Applied 'applyMesh_1_scu' as a keyable attribute and keyed 0-1-0 around current frameSculpting 'applyMesh_1_scu'.Calculating...Applied 'applyMesh_1_scu' as a P2P sculpt and re-keyed to interpolate between existing P2P shapes.Sorted channel box using the deleteAttr/undo trick.",
+          "gui_acceptance": false,
+          "python_source_sha256": "68b785df25bbff2e580d7376b44e78f7468b2ba5fb15d9424a0959cfc131aa7c",
+          "runtime_source_sha256": "d3eb1a9bdc9cf936ab959d779212a13091cd8eac06f74c420ca9117171c748ce"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real full UI/paint/idle event, full Subdue cache, Alembic, complex P2P editing and sticky/cache attachment workflows need human Maya acceptance"
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real GUI and all rig/topology-dependent workflows pending",
+        "Settings/clipboard JSON intentionally replace executable state scripts",
+        "Source exception swallowing remains; success return alone cannot prove deformation",
+        "Cache file writes/imports cannot be fully reversed with scene Undo",
+        "Redistribution permission not established"
+      ],
       "entry_review": {
         "evidence": "Bundled README explicitly imports animPolish.ui and calls ui(dock=1/0); original source/readme license attribution retained.",
         "kind": "python_package_function",
@@ -1007,7 +1057,99 @@
         "possible_top_level_calls": 3,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "4ab14aa53c38d2dc68f6564471155ae5f29d2b3fbf5fcca6250ebda397fefc40"
+      "source_tree_sha256": "4ab14aa53c38d2dc68f6564471155ae5f29d2b3fbf5fcca6250ebda397fefc40",
+      "candidate_path": "tools_staging_pool/01_animation/anim_polish_premium_v1_23/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/anim_polish_premium_v1_23/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "anim_polish_premium_v1_23",
+        "candidate_sha256": "1c5d3aff26048e3ab4ef0af3f3df50a4128199966907b448544a9857a1b72f93",
+        "applied": false,
+        "files": [
+          "docs\\tools\\anim_polish_premium_v1_23.md",
+          "docs\\tools\\anim_polish_premium_v1_23_functions.md",
+          "docs\\tools\\anim_polish_runtime_changes.diff",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\__init__.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\catalog.json",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\contracts.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\file_guards.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\runtime.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\state.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\tool.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\ui.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\upstream\\animPolish\\__init__.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\upstream\\animPolish\\assignColors.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\upstream\\animPolish\\caching.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\upstream\\animPolish\\copyPasteAttrs.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\upstream\\animPolish\\cycleCam.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\upstream\\animPolish\\growShrink.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\upstream\\animPolish\\iron.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\upstream\\animPolish\\quickBake.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\upstream\\animPolish\\rivetStuff.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\upstream\\animPolish\\sculptPose.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\upstream\\animPolish\\smoothPreview.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\upstream\\animPolish\\subdue.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\upstream\\animPolish\\ui.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\upstream\\animPolish\\user_copyPasteAttrs.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\upstream\\animPolish\\user_settings.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\upstream\\animPolish\\user_settings_default.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\upstream\\animPolish\\wrap.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\upstream\\AnimPolish Documentation.docx",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\upstream\\AnimPolish_README.txt",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\vendor\\__init__.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\vendor\\animPolish\\__init__.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\vendor\\animPolish\\assignColors.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\vendor\\animPolish\\caching.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\vendor\\animPolish\\copyPasteAttrs.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\vendor\\animPolish\\cycleCam.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\vendor\\animPolish\\growShrink.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\vendor\\animPolish\\iron.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\vendor\\animPolish\\quickBake.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\vendor\\animPolish\\rivetStuff.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\vendor\\animPolish\\sculptPose.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\vendor\\animPolish\\smoothPreview.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\vendor\\animPolish\\subdue.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\vendor\\animPolish\\ui.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\vendor\\animPolish\\user_copyPasteAttrs.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\vendor\\animPolish\\user_settings.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\vendor\\animPolish\\user_settings_default.py",
+          "maya_toolkit\\tools\\anim_polish_premium_v1_23\\vendor\\animPolish\\wrap.py",
+          "tests\\test_anim_polish_premium_v1_23.py",
+          "tests\\test_anim_polish_premium_v1_23_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/animPolish/__init__.py",
+        "upstream/animPolish/assignColors.py",
+        "upstream/animPolish/caching.py",
+        "upstream/animPolish/copyPasteAttrs.py",
+        "upstream/animPolish/cycleCam.py",
+        "upstream/animPolish/growShrink.py",
+        "upstream/animPolish/iron.py",
+        "upstream/animPolish/quickBake.py",
+        "upstream/animPolish/rivetStuff.py",
+        "upstream/animPolish/sculptPose.py",
+        "upstream/animPolish/smoothPreview.py",
+        "upstream/animPolish/subdue.py",
+        "upstream/animPolish/ui.py",
+        "upstream/animPolish/user_copyPasteAttrs.py",
+        "upstream/animPolish/user_settings.py",
+        "upstream/animPolish/user_settings_default.py",
+        "upstream/animPolish/wrap.py",
+        "upstream/AnimPolish Documentation.docx",
+        "upstream/AnimPolish_README.txt"
+      ],
+      "external_dependencies": [
+        "Maya MEL/cmds",
+        "Interactive Maya for original UI, Channel Box and paint tools",
+        "AbcExport/AbcImport loaded explicitly by user for Alembic",
+        "existing maya_toolkit core/framework"
+      ],
+      "source_preserved": true,
+      "change_summary": "Entire original 19-file bundle and 160 signatures retained; private runtime namespace and narrow fixes, JSON settings/clipboard outside code, guarded cache I/O, framework API/UI/provenance and promotion metadata.",
+      "prepared_at": "2026-09-30T17:56:16.934133+08:00"
     },
     {
       "source_path": "01_animation/animation_retarget",

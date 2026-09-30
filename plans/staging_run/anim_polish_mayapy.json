@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/anim_polish_premium_v1_23/release_candidate/tests/test_anim_polish_premium_v1_23_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": ".����: AnimPolishTool_anim_polish_premium_v1_23\n.����: AnimPolishTool_anim_polish_premium_v1_23\n.����: AnimPolishTool_anim_polish_premium_v1_23\n..����: AnimPolishTool_anim_polish_premium_v1_23\n......����: AnimPolishTool_anim_polish_premium_v1_23\n.����: AnimPolishTool_anim_polish_premium_v1_23\n����: AnimPolishTool_anim_polish_premium_v1_23\n����: AnimPolishTool_anim_polish_premium_v1_23\n..����: \n����: \n.\r\n----------------------------------------------------------------------\r\nRan 15 tests in 0.420s\r\n\r\nOK\r\nWraped 'wrapMesh' to world.Created 'Grow/Shrink' on 'growMesh'.Created 'Iron' on 'ironMesh'.Sculpting 'sculptMesh_1_scu'.Exported 'C:/Users/zwj87/AppData/Local/Temp/polish_camera_xgpxgem8/cameras.ma'.[0.10000000149011612, 0.20000000298023224, 0.30000001192092896]\r\nSculpting 'applyMesh_1_scu'.Calculating...Applied 'applyMesh_1_scu' as a keyable attribute.Sculpting 'applyMesh_1_scu'.Calculating...Applied 'applyMesh_1_scu' as a keyable attribute.Applied 'applyMesh_1_scu' as a keyable attribute and keyed 0-1-0 around current frameSculpting 'applyMesh_1_scu'.Calculating...Applied 'applyMesh_1_scu' as a P2P sculpt and re-keyed to interpolate between existing P2P shapes.Sorted channel box using the deleteAttr/undo trick.",
+  "gui_acceptance": false,
+  "python_source_sha256": "68b785df25bbff2e580d7376b44e78f7468b2ba5fb15d9424a0959cfc131aa7c",
+  "runtime_source_sha256": "d3eb1a9bdc9cf936ab959d779212a13091cd8eac06f74c420ca9117171c748ce"
+}

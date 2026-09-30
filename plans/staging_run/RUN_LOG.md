@@ -71,3 +71,13 @@
 - 本项收尾读数：5 小时已用 33%、周已用 46%，剩余额度可继续；heartbeat 暂停，未兑换卡。下一项 anim_polish_premium_v1_23。
 
 - 镜像候选提交 553da07；提交后额度复读为 5 小时已用 37%、周已用 47%（可继续），写入下一项检查点。
+
+## 2026-09-30：AnimPolish 完整候选，累计 8/109
+
+- 原 17 Python + README + Word 文档共 19 文件完整保留，160 原函数签名，其中 157 为 JSON API；旧状态脚本/实时文件句柄辅助保留但不作为 JSON invoke。原 Word 内容及五张嵌图用于核对工作流，不对原 Word 改排版。
+- 独立 vendor namespace 保留完整算法和原 UI；fix literal_eval/list 默认参数、Python3 exec 局部回写、缓存 New Version 漏调用和 swap 目录。差异单独保存。Settings/属性剪贴板改 JSON、支持字符串/向量，不自动执行旧用户 Python 状态。
+- 所有 cache exp/import/swap 自带保护且 reload 后仍有效；禁止覆盖 cameras.ma/geometry.abc。Subdue 仍调用原 doCreateGeometryCache，args[5] 根据本机 Maya2025 stock MEL 定义改为全新 UUID 用户缓存目录；外部 .mcx/.xml 不能 Maya Undo。
+- 发现原 sortCB deleteAttr/Undo 与框架 chunk 冲突；保留排序算法但延后 UI idle，UUID 捕获/恢复选择，排序不宣称包含在雕刻原子撤销内。
+- 6 项离线检查通过，临时未来正式布局同样 6 项通过；Maya2025 isolated 15 项通过，含 Wrap/Grow/Iron/preview 真节点+Undo、Sculpt start/abort、三个 apply 模式的真实 cluster/keys/Undo、字符串属性 JSON/Undo、相机临时导出及防覆盖、namespace 全模块 import/reload、异常恢复。设置 UI 控件/Subdue MEL 是 stub；Sculpt apply 的 prefix/延后排序是 stub；sort 原算法在 chunk 结束后手动执行排队回调验证，未验收真实 GUI idle。
+- candidate_complete=true，prepared_unverified；完整 UI、绘画、Subdue cache、Alembic/Sticky/P2P编辑/缓存附着仍待真人复验。晋级预览 applied=false，长期规范/正式工具库/注册/生成知识库未改。
+- 首次收尾额度读取暂时失败，未当作额度为零；提交前后重读，再记录实际检查点。
