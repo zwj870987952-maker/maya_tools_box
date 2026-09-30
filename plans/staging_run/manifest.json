@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T22:17:11.974437+08:00",
+  "updated_at": "2026-09-30T22:19:51.498805+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -13,12 +13,12 @@
     "heartbeat_transition_verified": true,
     "last_completed_tool": "01_animation/animirror_v2_0",
     "last_usage": {
-      "five_hour_used_percent": 95,
-      "weekly_used_percent": 56,
-      "recorded_at": "2026-09-30T18:41:11.335669+08:00",
-      "note": "Actual tool read before checkpoint; 5 percent primary remaining. Partial complex item saved before hard limit."
+      "five_hour_used_percent": 33.0,
+      "weekly_used_percent": 62.0,
+      "recorded_at": "2026-09-30T22:19:47.703059+08:00",
+      "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/animirror_v2_0"
+    "current_tool": "01_animation/back2origin_v05_gaiv3"
   },
   "entry_repairs": [
     {
@@ -1417,7 +1417,8 @@
         "Existing maya_toolkit framework/core Undo"
       ],
       "source_preserved": true,
-      "prepared_at": "2026-09-30T22:17:15.953557+08:00"
+      "prepared_at": "2026-09-30T22:17:15.953557+08:00",
+      "source_commit": "e109a1afcf3c7d22f7b288d8bde1aeec33847cc1"
     },
     {
       "source_path": "01_animation/back2origin_v05_gaiv3",
@@ -1434,7 +1435,7 @@
       ],
       "license_files": [],
       "entry_sha256": "692b510197ebb098c59eb99cc7255c698a3abe3e941ccd98fd3e38c83a8cabbf",
-      "status": "pending",
+      "status": "working",
       "candidate_complete": false,
       "offline_checks": [],
       "maya_acceptance": {
