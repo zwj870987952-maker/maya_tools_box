@@ -1,0 +1,98 @@
+{
+  "tool_id": "anim_layer_v4_0",
+  "registration": {
+    "module": "anim_layer_v4_0",
+    "class_name": "AnimLayerSuiteTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/anim_layer_v4_0.md",
+      "target": "docs/tools/anim_layer_v4_0.md"
+    },
+    {
+      "source": "docs/tools/anim_layer_v4_0_procedures.md",
+      "target": "docs/tools/anim_layer_v4_0_procedures.md"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_v4_0/__init__.py",
+      "target": "maya_toolkit/tools/anim_layer_v4_0/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_v4_0/catalog.json",
+      "target": "maya_toolkit/tools/anim_layer_v4_0/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_v4_0/contracts.py",
+      "target": "maya_toolkit/tools/anim_layer_v4_0/contracts.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_v4_0/runtime.py",
+      "target": "maya_toolkit/tools/anim_layer_v4_0/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_v4_0/tool.py",
+      "target": "maya_toolkit/tools/anim_layer_v4_0/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_v4_0/ui.py",
+      "target": "maya_toolkit/tools/anim_layer_v4_0/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_v4_0/upstream/anim_layer_help.jpg",
+      "target": "maya_toolkit/tools/anim_layer_v4_0/upstream/anim_layer_help.jpg"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_v4_0/upstream/layerEditor.mel",
+      "target": "maya_toolkit/tools/anim_layer_v4_0/upstream/layerEditor.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_v4_0/upstream/License.txt",
+      "target": "maya_toolkit/tools/anim_layer_v4_0/upstream/License.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_v4_0/upstream/no_UI_version/Drag_and_Drop_to_install_Layer_Editor_NoUI.mel",
+      "target": "maya_toolkit/tools/anim_layer_v4_0/upstream/no_UI_version/Drag_and_Drop_to_install_Layer_Editor_NoUI.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_v4_0/upstream/no_UI_version/layerEditor_no_UI.mel",
+      "target": "maya_toolkit/tools/anim_layer_v4_0/upstream/no_UI_version/layerEditor_no_UI.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_v4_0/upstream/readme_layerEditor.TXT",
+      "target": "maya_toolkit/tools/anim_layer_v4_0/upstream/readme_layerEditor.TXT"
+    },
+    {
+      "source": "tests/test_anim_layer_v4_0.py",
+      "target": "tests/test_anim_layer_v4_0.py"
+    },
+    {
+      "source": "tests/test_anim_layer_v4_0_maya.py",
+      "target": "tests/test_anim_layer_v4_0_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/anim_layer_help.jpg",
+    "upstream/layerEditor.mel",
+    "upstream/License.txt",
+    "upstream/no_UI_version/Drag_and_Drop_to_install_Layer_Editor_NoUI.mel",
+    "upstream/no_UI_version/layerEditor_no_UI.mel",
+    "upstream/readme_layerEditor.TXT"
+  ],
+  "dependencies": [
+    "Maya MEL/cmds and original animation/render/display layerEditor support",
+    "Interactive Maya for full edition and most UI-dependent procedures",
+    "existing maya_toolkit framework/core",
+    "Python 3"
+  ],
+  "source": "../anim_layer_v4_0",
+  "license": "Custom Barnev Pavel agreement plus Autodesk notices; intact sources/resources retained locally; no redistribution or relicensing claim",
+  "change_summary": "Intact six-file suite and all global signatures retained; self-contained full/NoUI loaders, typed MEL calls, inventory/dry-run, framework result/Undo, export collision guard and UI gateway; original source and callbacks unchanged.",
+  "verification_limitations": [
+    "Full editor GUI and all menu operations pending",
+    "NoUI is not universally headless: many procedures need stock Maya UI",
+    "MEL global definitions/UI/options/scriptJobs are not reverted by scene Undo",
+    "Legacy source encoding and other Maya versions unverified",
+    "License does not establish public redistribution permission"
+  ],
+  "acceptance_required": true
+}

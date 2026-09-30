@@ -16,6 +16,19 @@ def python_fingerprint(source_root):
     return digest.hexdigest()
 
 
+def runtime_fingerprint(source_root):
+    """Include MEL, UI/assets and catalogs used by candidates, plus Python tests/loaders."""
+    paths = set(source_root.rglob('*.py'))
+    runtime = source_root / 'maya_toolkit'
+    if runtime.is_dir():
+        paths.update(p for p in runtime.rglob('*') if p.is_file())
+    digest = hashlib.sha256()
+    for path in sorted(paths):
+        if '__pycache__' not in path.parts:
+            digest.update(path.relative_to(source_root).as_posix().encode('utf-8') + b'\0' + path.read_bytes())
+    return digest.hexdigest()
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("test")
@@ -26,6 +39,7 @@ def main():
     test_path = Path(args.test).resolve()
     source_root = test_path.parents[1]
     source_hash = python_fingerprint(source_root)
+    runtime_hash = runtime_fingerprint(source_root)
     with tempfile.TemporaryDirectory(prefix="staging_maya_") as directory:
         env = os.environ.copy()
         env.update({"MAYA_APP_DIR": directory, "QT_QPA_PLATFORM": "offscreen", "MAYA_DISABLE_CIP": "1", "MAYA_DISABLE_CER": "1", "STAGING_ISOLATED_MAYAPY": "1", "PYTHONDONTWRITEBYTECODE": "1"})
@@ -36,6 +50,7 @@ def main():
             output = error.stdout or b""
             report = {"kind": "mayapy_standalone", "executable": args.mayapy, "passed": False, "timeout_seconds": args.timeout, "output": output.decode("utf-8", errors="replace"), "gui_acceptance": False}
         report["python_source_sha256"] = source_hash
+        report["runtime_source_sha256"] = runtime_hash
         Path(args.output).write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         print(json.dumps({key: value for key, value in report.items() if key != "output"}, ensure_ascii=True))
 

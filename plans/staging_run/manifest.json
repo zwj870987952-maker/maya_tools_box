@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T16:16:06.457809+08:00",
+  "updated_at": "2026-09-30T16:49:35.677890+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,7 +11,7 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/anim_layer_keyframe_bookmark",
+    "last_completed_tool": "01_animation/anim_layer_v4_0",
     "last_usage": {
       "five_hour_used_percent": 5.0,
       "weekly_used_percent": 42.0,
@@ -700,14 +700,64 @@
       "license_files": [
         "anim_layer_v4_0/License.txt"
       ],
-      "status": "working",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_adapter_never_executes_installer_or_rewrites_original (__main__.OfflineTests.test_adapter_never_executes_installer_or_rewrites_original) ... ok\r\ntest_all_global_signatures_preserved_and_schema_both_protocols (__main__.OfflineTests.test_all_global_signatures_preserved_and_schema_both_protocols) ... ok\r\ntest_array_float_string_literals_and_domain_constraints (__main__.OfflineTests.test_array_float_string_literals_and_domain_constraints) ... ok\r\ntest_exact_argument_names_types_and_finite_values (__main__.OfflineTests.test_exact_argument_names_types_and_finite_values) ... ok\r\ntest_export_collision_guard_is_readonly (__main__.OfflineTests.test_export_collision_guard_is_readonly) ... ok\r\ntest_inventory_never_imports_or_sources_maya (__main__.OfflineTests.test_inventory_never_imports_or_sources_maya) ... ok\r\ntest_resource_hashes_and_original_bytes_including_legacy_encoding (__main__.OfflineTests.test_resource_hashes_and_original_bytes_including_legacy_encoding) ... ok\r\ntest_signature_catalog_covers_all_global_declarations (__main__.OfflineTests.test_signature_catalog_covers_all_global_declarations) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.017s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"anim_layer_v4_0\",\r\n  \"candidate_sha256\": \"c1b356fac413da0acaea99b5f5de9e8f91c5fb76b9d911ca71c5b9c7d8eb4191\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\anim_layer_v4_0.md\",\r\n    \"docs\\\\tools\\\\anim_layer_v4_0_procedures.md\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_v4_0\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_v4_0\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_v4_0\\\\contracts.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_v4_0\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_v4_0\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_v4_0\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_v4_0\\\\upstream\\\\anim_layer_help.jpg\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_v4_0\\\\upstream\\\\layerEditor.mel\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_v4_0\\\\upstream\\\\License.txt\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_v4_0\\\\upstream\\\\no_UI_version\\\\Drag_and_Drop_to_install_Layer_Editor_NoUI.mel\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_v4_0\\\\upstream\\\\no_UI_version\\\\layerEditor_no_UI.mel\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_v4_0\\\\upstream\\\\readme_layerEditor.TXT\",\r\n    \"tests\\\\test_anim_layer_v4_0.py\",\r\n    \"tests\\\\test_anim_layer_v4_0_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool\\01_animation\\anim_layer_v4_0\\release_candidate\\tests\\test_anim_layer_v4_0_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_explicit_layer_selection_and_multilayer_time_array (__main__.MayaTests.test_explicit_layer_selection_and_multilayer_time_array) ... 2\n9\nok\r\ntest_full_editor_and_ui_only_procedures_are_refused_in_standalone (__main__.MayaTests.test_full_editor_and_ui_only_procedures_are_refused_in_standalone) ... ok\r\ntest_noui_all_declarations_source_from_intact_package (__main__.MayaTests.test_noui_all_declarations_source_from_intact_package) ... ok\r\ntest_numeric_types_and_untrusted_string_cannot_escape_outer_call (__main__.MayaTests.test_numeric_types_and_untrusted_string_cannot_escape_outer_call) ... ok\r\ntest_original_noui_load_and_query_base_and_named_layer (__main__.MayaTests.test_original_noui_load_and_query_base_and_named_layer) ... ok\r\ntest_preflight_does_not_source_and_preserves_scene_queue (__main__.MayaTests.test_preflight_does_not_source_and_preserves_scene_queue) ... ok\r\ntest_runtime_restores_evaluation_mode_and_reports_original_mel_error (__main__.MayaTests.test_runtime_restores_evaluation_mode_and_reports_original_mel_error) ... ����: line 1: fixture failure\nok\r\ntest_string_array_selection_and_one_step_undo (__main__.MayaTests.test_string_array_selection_and_one_step_undo) ... ����: AnimLayerSuiteTool_anim_layer_v4_0\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.320s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "34b2f76a58923e47339e1a48edaf112c86a3cd2364246612fbaee460fa0937ae",
+          "runtime_source_sha256": "58ebefc58377df89470ed50e3e8e4bfb0800f44024709da2999b72d5cf3947e7"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Intact full editor and original UI-dependent suite operations cannot be exercised in standalone; real interactive Maya verification remains required"
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Full editor GUI and all menu operations pending",
+        "NoUI is not universally headless: many procedures need stock Maya UI",
+        "MEL global definitions/UI/options/scriptJobs are not reverted by scene Undo",
+        "Legacy source encoding and other Maya versions unverified",
+        "License does not establish public redistribution permission"
+      ],
       "entry_review": {
         "evidence": "Actual layerEditor.mel exists; final top-level block creates and updates the layer editor; sourcing is not read-only.",
         "kind": "mel_with_top_level_ui",
@@ -722,7 +772,52 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "2793dde2b4f323a1d1b41d01cc5455d361a63f91c0fd1e82aff2bf435d6b9f9a"
+      "source_tree_sha256": "2793dde2b4f323a1d1b41d01cc5455d361a63f91c0fd1e82aff2bf435d6b9f9a",
+      "candidate_path": "tools_staging_pool/01_animation/anim_layer_v4_0/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/anim_layer_v4_0/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "anim_layer_v4_0",
+        "candidate_sha256": "c1b356fac413da0acaea99b5f5de9e8f91c5fb76b9d911ca71c5b9c7d8eb4191",
+        "applied": false,
+        "files": [
+          "docs\\tools\\anim_layer_v4_0.md",
+          "docs\\tools\\anim_layer_v4_0_procedures.md",
+          "maya_toolkit\\tools\\anim_layer_v4_0\\__init__.py",
+          "maya_toolkit\\tools\\anim_layer_v4_0\\catalog.json",
+          "maya_toolkit\\tools\\anim_layer_v4_0\\contracts.py",
+          "maya_toolkit\\tools\\anim_layer_v4_0\\runtime.py",
+          "maya_toolkit\\tools\\anim_layer_v4_0\\tool.py",
+          "maya_toolkit\\tools\\anim_layer_v4_0\\ui.py",
+          "maya_toolkit\\tools\\anim_layer_v4_0\\upstream\\anim_layer_help.jpg",
+          "maya_toolkit\\tools\\anim_layer_v4_0\\upstream\\layerEditor.mel",
+          "maya_toolkit\\tools\\anim_layer_v4_0\\upstream\\License.txt",
+          "maya_toolkit\\tools\\anim_layer_v4_0\\upstream\\no_UI_version\\Drag_and_Drop_to_install_Layer_Editor_NoUI.mel",
+          "maya_toolkit\\tools\\anim_layer_v4_0\\upstream\\no_UI_version\\layerEditor_no_UI.mel",
+          "maya_toolkit\\tools\\anim_layer_v4_0\\upstream\\readme_layerEditor.TXT",
+          "tests\\test_anim_layer_v4_0.py",
+          "tests\\test_anim_layer_v4_0_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/anim_layer_help.jpg",
+        "upstream/layerEditor.mel",
+        "upstream/License.txt",
+        "upstream/no_UI_version/Drag_and_Drop_to_install_Layer_Editor_NoUI.mel",
+        "upstream/no_UI_version/layerEditor_no_UI.mel",
+        "upstream/readme_layerEditor.TXT"
+      ],
+      "external_dependencies": [
+        "Maya MEL/cmds and original animation/render/display layerEditor support",
+        "Interactive Maya for full edition and most UI-dependent procedures",
+        "existing maya_toolkit framework/core",
+        "Python 3"
+      ],
+      "source_preserved": true,
+      "change_summary": "Intact six-file suite and all global signatures retained; self-contained full/NoUI loaders, typed MEL calls, inventory/dry-run, framework result/Undo, export collision guard and UI gateway; original source and callbacks unchanged.",
+      "prepared_at": "2026-09-30T16:49:33.346848+08:00"
     },
     {
       "source_path": "01_animation/anim_mirror_helper_v1_1",

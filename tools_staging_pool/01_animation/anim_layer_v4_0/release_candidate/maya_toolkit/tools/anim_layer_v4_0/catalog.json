@@ -1,0 +1,3352 @@
+{
+  "editions": {
+    "full": {
+      "entry": "upstream/layerEditor.mel",
+      "sha256": "071fa210af9e0cc122baae18c559da4227d346128577472eb4e4f7a4470a7600",
+      "procedures": {
+        "create_and_select_anim_layer": {
+          "name": "create_and_select_anim_layer",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "rotation_mod",
+              "type": "int"
+            }
+          ],
+          "line": 1,
+          "end_line": 8
+        },
+        "extract_anim_on_base_layer_selected_object": {
+          "name": "extract_anim_on_base_layer_selected_object",
+          "global_scope": true,
+          "return_type": "int",
+          "parameters": [],
+          "line": 9,
+          "end_line": 62
+        },
+        "extract_part_to_over_layer": {
+          "name": "extract_part_to_over_layer",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "side_frames",
+              "type": "float"
+            }
+          ],
+          "line": 63,
+          "end_line": 110
+        },
+        "selectLayer": {
+          "name": "selectLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 111,
+          "end_line": 119
+        },
+        "select_few_Layers": {
+          "name": "select_few_Layers",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layers",
+              "type": "string[]"
+            }
+          ],
+          "line": 120,
+          "end_line": 128
+        },
+        "select_object_in_selected_layers": {
+          "name": "select_object_in_selected_layers",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 129,
+          "end_line": 134
+        },
+        "select_best_layer": {
+          "name": "select_best_layer",
+          "global_scope": true,
+          "return_type": "string[]",
+          "parameters": [],
+          "line": 135,
+          "end_line": 147
+        },
+        "animLayerMerge_toAdditive": {
+          "name": "animLayerMerge_toAdditive",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "layers",
+              "type": "string[]"
+            },
+            {
+              "name": "timerange",
+              "type": "float[]"
+            }
+          ],
+          "line": 148,
+          "end_line": 197
+        },
+        "extract_animation_to_additive_layer": {
+          "name": "extract_animation_to_additive_layer",
+          "global_scope": true,
+          "return_type": "string[]",
+          "parameters": [],
+          "line": 198,
+          "end_line": 262
+        },
+        "anim_layer_fast_merge": {
+          "name": "anim_layer_fast_merge",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 263,
+          "end_line": 272
+        },
+        "getLayerDisplayType": {
+          "name": "getLayerDisplayType",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [],
+          "line": 273,
+          "end_line": 288
+        },
+        "get_anim_time_range_from_anim_layer": {
+          "name": "get_anim_time_range_from_anim_layer",
+          "global_scope": true,
+          "return_type": "float[]",
+          "parameters": [
+            {
+              "name": "anim_layer_name",
+              "type": "string"
+            }
+          ],
+          "line": 289,
+          "end_line": 308
+        },
+        "get_anim_time_range_from_multiply_anim_layers": {
+          "name": "get_anim_time_range_from_multiply_anim_layers",
+          "global_scope": true,
+          "return_type": "float[]",
+          "parameters": [
+            {
+              "name": "anim_layers_name",
+              "type": "string[]"
+            }
+          ],
+          "line": 309,
+          "end_line": 332
+        },
+        "create_add_anim_layer_from_objects_and_set_framerange_from_multiply_anim_layers": {
+          "name": "create_add_anim_layer_from_objects_and_set_framerange_from_multiply_anim_layers",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "objects",
+              "type": "string[]"
+            },
+            {
+              "name": "mod",
+              "type": "int"
+            }
+          ],
+          "line": 333,
+          "end_line": 352
+        },
+        "create_add_anim_layer_from_timerange": {
+          "name": "create_add_anim_layer_from_timerange",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "objects",
+              "type": "string[]"
+            },
+            {
+              "name": "mod",
+              "type": "int"
+            }
+          ],
+          "line": 353,
+          "end_line": 360
+        },
+        "create_anim_layer_from_channelbox_attrib": {
+          "name": "create_anim_layer_from_channelbox_attrib",
+          "global_scope": true,
+          "return_type": "string[]",
+          "parameters": [
+            {
+              "name": "mode",
+              "type": "int"
+            }
+          ],
+          "line": 361,
+          "end_line": 380
+        },
+        "extract_smart_anim_on_base_layer_selected_object": {
+          "name": "extract_smart_anim_on_base_layer_selected_object",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "fidelity",
+              "type": "int"
+            },
+            {
+              "name": "tolerance",
+              "type": "float"
+            }
+          ],
+          "line": 381,
+          "end_line": 410
+        },
+        "anim_layer_smart_fast_merge": {
+          "name": "anim_layer_smart_fast_merge",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "fidelity",
+              "type": "int"
+            },
+            {
+              "name": "tolerance",
+              "type": "float"
+            }
+          ],
+          "line": 411,
+          "end_line": 420
+        },
+        "execute_smart_fast_merge": {
+          "name": "execute_smart_fast_merge",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "fidelity",
+              "type": "int"
+            },
+            {
+              "name": "tolerance",
+              "type": "float"
+            }
+          ],
+          "line": 421,
+          "end_line": 429
+        },
+        "execute_fast_merge": {
+          "name": "execute_fast_merge",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 430,
+          "end_line": 438
+        },
+        "execute_smart_fast_selected_merge": {
+          "name": "execute_smart_fast_selected_merge",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "fidelity",
+              "type": "int"
+            },
+            {
+              "name": "tolerance",
+              "type": "float"
+            }
+          ],
+          "line": 439,
+          "end_line": 447
+        },
+        "execute_fast_selected_merge": {
+          "name": "execute_fast_selected_merge",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 448,
+          "end_line": 456
+        },
+        "extract_to_additive_layer": {
+          "name": "extract_to_additive_layer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 457,
+          "end_line": 462
+        },
+        "anim_layer_util_menue": {
+          "name": "anim_layer_util_menue",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 463,
+          "end_line": 517
+        },
+        "get_min_max_from_selected": {
+          "name": "get_min_max_from_selected",
+          "global_scope": true,
+          "return_type": "float[]",
+          "parameters": [],
+          "line": 518,
+          "end_line": 528
+        },
+        "get_time_range_from_selected_keys_or_timeslider": {
+          "name": "get_time_range_from_selected_keys_or_timeslider",
+          "global_scope": true,
+          "return_type": "float[]",
+          "parameters": [],
+          "line": 529,
+          "end_line": 543
+        },
+        "disable_viewport": {
+          "name": "disable_viewport",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 544,
+          "end_line": 558
+        },
+        "enable_viewport": {
+          "name": "enable_viewport",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 559,
+          "end_line": 573
+        },
+        "bake_simulation_timerange_on_over_layer": {
+          "name": "bake_simulation_timerange_on_over_layer",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "timerange",
+              "type": "float[]"
+            }
+          ],
+          "line": 574,
+          "end_line": 600
+        },
+        "bake_smart_simulation_playback_range": {
+          "name": "bake_smart_simulation_playback_range",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "fidelity",
+              "type": "int"
+            },
+            {
+              "name": "tolerance",
+              "type": "float"
+            }
+          ],
+          "line": 601,
+          "end_line": 628
+        },
+        "bake_simulation_playback_range": {
+          "name": "bake_simulation_playback_range",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 629,
+          "end_line": 652
+        },
+        "euler_filter_on_selected": {
+          "name": "euler_filter_on_selected",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 653,
+          "end_line": 670
+        },
+        "select_skip_no_exist": {
+          "name": "select_skip_no_exist",
+          "global_scope": true,
+          "return_type": "string[]",
+          "parameters": [
+            {
+              "name": "objs",
+              "type": "string[]"
+            }
+          ],
+          "line": 671,
+          "end_line": 685
+        },
+        "getSelectedAnimLayer": {
+          "name": "getSelectedAnimLayer",
+          "global_scope": true,
+          "return_type": "string[]",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 731,
+          "end_line": 736
+        },
+        "deselectAnimLayers": {
+          "name": "deselectAnimLayers",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "layers",
+              "type": "string[]"
+            }
+          ],
+          "line": 738,
+          "end_line": 742
+        },
+        "isAffectedLayer": {
+          "name": "isAffectedLayer",
+          "global_scope": true,
+          "return_type": "int",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            },
+            {
+              "name": "affectedLayers",
+              "type": "string[]"
+            },
+            {
+              "name": "recursive",
+              "type": "int"
+            }
+          ],
+          "line": 794,
+          "end_line": 828
+        },
+        "getAffectedLayers": {
+          "name": "getAffectedLayers",
+          "global_scope": true,
+          "return_type": "string[]",
+          "parameters": [
+            {
+              "name": "selected",
+              "type": "string[]"
+            }
+          ],
+          "line": 830,
+          "end_line": 836
+        },
+        "buildAnimLayerArrayRecursive": {
+          "name": "buildAnimLayerArrayRecursive",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            },
+            {
+              "name": "layerArray",
+              "type": "string[]"
+            }
+          ],
+          "line": 845,
+          "end_line": 858
+        },
+        "buildAnimLayerArray": {
+          "name": "buildAnimLayerArray",
+          "global_scope": true,
+          "return_type": "string[]",
+          "parameters": [],
+          "line": 861,
+          "end_line": 873
+        },
+        "animLayerWarnNonEmptyAccChange": {
+          "name": "animLayerWarnNonEmptyAccChange",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layers",
+              "type": "string[]"
+            }
+          ],
+          "line": 875,
+          "end_line": 899
+        },
+        "openFloatingAnimLayerEditor": {
+          "name": "openFloatingAnimLayerEditor",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 902,
+          "end_line": 912
+        },
+        "updateAddButtons": {
+          "name": "updateAddButtons",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 914,
+          "end_line": 924
+        },
+        "createAnimLayerEditor": {
+          "name": "createAnimLayerEditor",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "parentLayout",
+              "type": "string"
+            },
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 927,
+          "end_line": 1309
+        },
+        "layerEditorBuildAnimLayerMenu": {
+          "name": "layerEditorBuildAnimLayerMenu",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "parent",
+              "type": "string"
+            },
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 1311,
+          "end_line": 1579
+        },
+        "layerModeSubMenu": {
+          "name": "layerModeSubMenu",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layerModeMenu",
+              "type": "string"
+            },
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 1581,
+          "end_line": 1612
+        },
+        "layerRotationAccSubMenu": {
+          "name": "layerRotationAccSubMenu",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layerAccumulationMenu",
+              "type": "string"
+            },
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 1614,
+          "end_line": 1639
+        },
+        "layerScaleAccSubMenu": {
+          "name": "layerScaleAccSubMenu",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layerAccumulationMenu",
+              "type": "string"
+            },
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 1641,
+          "end_line": 1666
+        },
+        "onAnimLayersAnimationChanged": {
+          "name": "onAnimLayersAnimationChanged",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 1869,
+          "end_line": 1883
+        },
+        "onAnimLayersBaseLockChanged": {
+          "name": "onAnimLayersBaseLockChanged",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 1885,
+          "end_line": 1904
+        },
+        "onAnimLayersLockChanged": {
+          "name": "onAnimLayersLockChanged",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 1907,
+          "end_line": 1927
+        },
+        "updateEditorFeedbackAnimLayers": {
+          "name": "updateEditorFeedbackAnimLayers",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 1930,
+          "end_line": 2020
+        },
+        "animLayerEditorDoNothingSJ": {
+          "name": "animLayerEditorDoNothingSJ",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 2022,
+          "end_line": 2025
+        },
+        "animLayerEditorUpdateWeightSJ": {
+          "name": "animLayerEditorUpdateWeightSJ",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "pTool",
+              "type": "string"
+            },
+            {
+              "name": "pWeightAttribute",
+              "type": "string"
+            }
+          ],
+          "line": 2027,
+          "end_line": 2034
+        },
+        "setPreferredForAllLayers": {
+          "name": "setPreferredForAllLayers",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "preferred",
+              "type": "int"
+            }
+          ],
+          "line": 2037,
+          "end_line": 2044
+        },
+        "setSelectedForAllLayers": {
+          "name": "setSelectedForAllLayers",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "selected",
+              "type": "int"
+            }
+          ],
+          "line": 2046,
+          "end_line": 2053
+        },
+        "setSelectedLayerRecursive": {
+          "name": "setSelectedLayerRecursive",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            },
+            {
+              "name": "selected",
+              "type": "int"
+            },
+            {
+              "name": "skipRoot",
+              "type": "int"
+            }
+          ],
+          "line": 2055,
+          "end_line": 2079
+        },
+        "animLayerMuteCallBack": {
+          "name": "animLayerMuteCallBack",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "item",
+              "type": "string"
+            },
+            {
+              "name": "buttonState",
+              "type": "int"
+            }
+          ],
+          "line": 2125,
+          "end_line": 2145
+        },
+        "animLayerGhostCallBack": {
+          "name": "animLayerGhostCallBack",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "animLayerEditor",
+              "type": "string"
+            },
+            {
+              "name": "item",
+              "type": "string"
+            },
+            {
+              "name": "buttonState",
+              "type": "int"
+            }
+          ],
+          "line": 2147,
+          "end_line": 2180
+        },
+        "animLayerGhostColorChanged": {
+          "name": "animLayerGhostColorChanged",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 2182,
+          "end_line": 2187
+        },
+        "animLayerGhostRightCallBack": {
+          "name": "animLayerGhostRightCallBack",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "item",
+              "type": "string"
+            },
+            {
+              "name": "buttonState",
+              "type": "int"
+            }
+          ],
+          "line": 2189,
+          "end_line": 2198
+        },
+        "animLayerSoloCallBack": {
+          "name": "animLayerSoloCallBack",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "item",
+              "type": "string"
+            },
+            {
+              "name": "buttonState",
+              "type": "int"
+            }
+          ],
+          "line": 2200,
+          "end_line": 2231
+        },
+        "animLayerLockCallBack": {
+          "name": "animLayerLockCallBack",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "item",
+              "type": "string"
+            },
+            {
+              "name": "buttonState",
+              "type": "int"
+            }
+          ],
+          "line": 2233,
+          "end_line": 2239
+        },
+        "animLayerDragAndDropCallback": {
+          "name": "animLayerDragAndDropCallback",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "dropItems",
+              "type": "string[]"
+            },
+            {
+              "name": "oldParents",
+              "type": "string[]"
+            },
+            {
+              "name": "oldIndexes",
+              "type": "int[]"
+            },
+            {
+              "name": "newParent",
+              "type": "string"
+            },
+            {
+              "name": "newIndex",
+              "type": "int[]"
+            },
+            {
+              "name": "newItemPrev",
+              "type": "string"
+            },
+            {
+              "name": "newItemNext",
+              "type": "string"
+            }
+          ],
+          "line": 2241,
+          "end_line": 2280
+        },
+        "layerEditorMoveAnimItem": {
+          "name": "layerEditorMoveAnimItem",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "up",
+              "type": "int"
+            }
+          ],
+          "line": 2282,
+          "end_line": 2316
+        },
+        "animLayerEditLabelCallback": {
+          "name": "animLayerEditLabelCallback",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "item",
+              "type": "string"
+            },
+            {
+              "name": "newLabel",
+              "type": "string"
+            }
+          ],
+          "line": 2318,
+          "end_line": 2350
+        },
+        "animLayerExpandCollapseCallback": {
+          "name": "animLayerExpandCollapseCallback",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "item",
+              "type": "string"
+            },
+            {
+              "name": "expand",
+              "type": "int"
+            }
+          ],
+          "line": 2352,
+          "end_line": 2370
+        },
+        "updateAnimLayerEditor": {
+          "name": "updateAnimLayerEditor",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 2372,
+          "end_line": 2379
+        },
+        "rebuildAnimLayerEditor": {
+          "name": "rebuildAnimLayerEditor",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 2381,
+          "end_line": 2457
+        },
+        "animLayerEditorOnSelect": {
+          "name": "animLayerEditorOnSelect",
+          "global_scope": true,
+          "return_type": "int",
+          "parameters": [
+            {
+              "name": "item",
+              "type": "string"
+            },
+            {
+              "name": "itemSelected",
+              "type": "int"
+            }
+          ],
+          "line": 2459,
+          "end_line": 2518
+        },
+        "layerInitialiseParameterDefaults": {
+          "name": "layerInitialiseParameterDefaults",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 2550,
+          "end_line": 2620
+        },
+        "layerEditorBuildAnimOptionMenu": {
+          "name": "layerEditorBuildAnimOptionMenu",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "parentMenu",
+              "type": "string"
+            }
+          ],
+          "line": 2622,
+          "end_line": 2663
+        },
+        "layerEditorBuildAnimShowMenu": {
+          "name": "layerEditorBuildAnimShowMenu",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "parentMenu",
+              "type": "string"
+            }
+          ],
+          "line": 2665,
+          "end_line": 2716
+        },
+        "layerEditorBuildAnimHelpMenu": {
+          "name": "layerEditorBuildAnimHelpMenu",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "parentMenu",
+              "type": "string"
+            }
+          ],
+          "line": 2718,
+          "end_line": 2725
+        },
+        "layerEditorBuildPopupMenu": {
+          "name": "layerEditorBuildPopupMenu",
+          "global_scope": true,
+          "return_type": "int",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "parentMenu",
+              "type": "string"
+            },
+            {
+              "name": "item",
+              "type": "string"
+            }
+          ],
+          "line": 2727,
+          "end_line": 2758
+        },
+        "layerEditorAnimLayersPopup": {
+          "name": "layerEditorAnimLayersPopup",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layers",
+              "type": "string[]"
+            },
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "parentMenu",
+              "type": "string"
+            },
+            {
+              "name": "outline",
+              "type": "int"
+            }
+          ],
+          "line": 2808,
+          "end_line": 3015
+        },
+        "layerEditorCreateAnimLayer": {
+          "name": "layerEditorCreateAnimLayer",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "addSelection",
+              "type": "int"
+            },
+            {
+              "name": "createOverrideLayer",
+              "type": "int"
+            }
+          ],
+          "line": 3017,
+          "end_line": 3077
+        },
+        "layerEditorDeleteAnimLayer": {
+          "name": "layerEditorDeleteAnimLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layers",
+              "type": "string[]"
+            }
+          ],
+          "line": 3079,
+          "end_line": 3095
+        },
+        "animLayersExport": {
+          "name": "animLayersExport",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layers",
+              "type": "string[]"
+            },
+            {
+              "name": "branch",
+              "type": "int"
+            }
+          ],
+          "line": 3097,
+          "end_line": 3133
+        },
+        "animLayersSaveExportClbc": {
+          "name": "animLayersSaveExportClbc",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "file",
+              "type": "string"
+            },
+            {
+              "name": "type",
+              "type": "string"
+            }
+          ],
+          "line": 3135,
+          "end_line": 3138
+        },
+        "deleteEmptyAnimLayers": {
+          "name": "deleteEmptyAnimLayers",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 3167,
+          "end_line": 3209
+        },
+        "packageAnimLayerObjects": {
+          "name": "packageAnimLayerObjects",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 3211,
+          "end_line": 3217
+        },
+        "layerEditorAddObjectsAnimLayer": {
+          "name": "layerEditorAddObjectsAnimLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "objects",
+              "type": "string[]"
+            },
+            {
+              "name": "layers",
+              "type": "string[]"
+            },
+            {
+              "name": "showOptions",
+              "type": "int"
+            }
+          ],
+          "line": 3219,
+          "end_line": 3227
+        },
+        "layerEditorExtractObjectsSingleAnimLayer": {
+          "name": "layerEditorExtractObjectsSingleAnimLayer",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "objects",
+              "type": "string[]"
+            },
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 3230,
+          "end_line": 3332
+        },
+        "layerEditorExtractObjectsAnimLayer": {
+          "name": "layerEditorExtractObjectsAnimLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "objects",
+              "type": "string[]"
+            },
+            {
+              "name": "layers",
+              "type": "string[]"
+            }
+          ],
+          "line": 3334,
+          "end_line": 3341
+        },
+        "layerEditorMergeAnimLayer": {
+          "name": "layerEditorMergeAnimLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layers",
+              "type": "string[]"
+            },
+            {
+              "name": "pOptions",
+              "type": "int"
+            }
+          ],
+          "line": 3343,
+          "end_line": 3350
+        },
+        "layerEditorRemoveObjectsAnimLayer": {
+          "name": "layerEditorRemoveObjectsAnimLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "objects",
+              "type": "string[]"
+            },
+            {
+              "name": "layers",
+              "type": "string[]"
+            }
+          ],
+          "line": 3352,
+          "end_line": 3376
+        },
+        "layerEditorCopyAnimLayer": {
+          "name": "layerEditorCopyAnimLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layers",
+              "type": "string[]"
+            }
+          ],
+          "line": 3378,
+          "end_line": 3389
+        },
+        "layerEditorCopyAnimLayerNoAnim": {
+          "name": "layerEditorCopyAnimLayerNoAnim",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layers",
+              "type": "string[]"
+            }
+          ],
+          "line": 3391,
+          "end_line": 3402
+        },
+        "layerEditorSelectObjectAnimLayer": {
+          "name": "layerEditorSelectObjectAnimLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layers",
+              "type": "string[]"
+            }
+          ],
+          "line": 3405,
+          "end_line": 3430
+        },
+        "layerEditorZeroKeyAnimLayer": {
+          "name": "layerEditorZeroKeyAnimLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layers",
+              "type": "string[]"
+            }
+          ],
+          "line": 3433,
+          "end_line": 3436
+        },
+        "layerEditorZeroWeightKeyAnimLayer": {
+          "name": "layerEditorZeroWeightKeyAnimLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layers",
+              "type": "string[]"
+            }
+          ],
+          "line": 3438,
+          "end_line": 3442
+        },
+        "layerEditorFullWeightKeyAnimLayer": {
+          "name": "layerEditorFullWeightKeyAnimLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layers",
+              "type": "string[]"
+            }
+          ],
+          "line": 3444,
+          "end_line": 3448
+        },
+        "layerEditorWeightAnimLayerNoForcedRefresh": {
+          "name": "layerEditorWeightAnimLayerNoForcedRefresh",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layers",
+              "type": "string[]"
+            },
+            {
+              "name": "value",
+              "type": "float"
+            }
+          ],
+          "line": 3450,
+          "end_line": 3461
+        },
+        "layerEditorWeightAnimLayer": {
+          "name": "layerEditorWeightAnimLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layers",
+              "type": "string[]"
+            },
+            {
+              "name": "value",
+              "type": "float"
+            }
+          ],
+          "line": 3463,
+          "end_line": 3471
+        },
+        "layerEditorKeyWeightAnimLayer": {
+          "name": "layerEditorKeyWeightAnimLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layers",
+              "type": "string[]"
+            }
+          ],
+          "line": 3473,
+          "end_line": 3482
+        },
+        "layerEditorExclusiveSoloAnimLayer": {
+          "name": "layerEditorExclusiveSoloAnimLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layers",
+              "type": "string[]"
+            }
+          ],
+          "line": 3485,
+          "end_line": 3502
+        },
+        "getSelectedRenderItems": {
+          "name": "getSelectedRenderItems",
+          "global_scope": true,
+          "return_type": "string[]",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "specified",
+              "type": "string"
+            },
+            {
+              "name": "type",
+              "type": "int"
+            }
+          ],
+          "line": 3525,
+          "end_line": 3552
+        },
+        "buildRenderLayerArray": {
+          "name": "buildRenderLayerArray",
+          "global_scope": true,
+          "return_type": "string[]",
+          "parameters": [],
+          "line": 3554,
+          "end_line": 3570
+        },
+        "buildLayerContMapIdent": {
+          "name": "buildLayerContMapIdent",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            },
+            {
+              "name": "map",
+              "type": "string"
+            }
+          ],
+          "line": 3572,
+          "end_line": 3579
+        },
+        "parseLayerContMapIdent": {
+          "name": "parseLayerContMapIdent",
+          "global_scope": true,
+          "return_type": "string[]",
+          "parameters": [
+            {
+              "name": "ident",
+              "type": "string"
+            }
+          ],
+          "line": 3581,
+          "end_line": 3596
+        },
+        "renderLayerEditorValidateSelection": {
+          "name": "renderLayerEditorValidateSelection",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "deselectNonCurrent",
+              "type": "int"
+            }
+          ],
+          "line": 3598,
+          "end_line": 3646
+        },
+        "blendModeOptions_AttrToUI": {
+          "name": "blendModeOptions_AttrToUI",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "attrVal",
+              "type": "int"
+            }
+          ],
+          "line": 3648,
+          "end_line": 3680
+        },
+        "blendModeOptions_UIToAttr": {
+          "name": "blendModeOptions_UIToAttr",
+          "global_scope": true,
+          "return_type": "int",
+          "parameters": [
+            {
+              "name": "ui",
+              "type": "string"
+            }
+          ],
+          "line": 3682,
+          "end_line": 3708
+        },
+        "isNodeConnectedToContMap": {
+          "name": "isNodeConnectedToContMap",
+          "global_scope": true,
+          "return_type": "int",
+          "parameters": [
+            {
+              "name": "obj",
+              "type": "string"
+            },
+            {
+              "name": "map",
+              "type": "string"
+            },
+            {
+              "name": "attr",
+              "type": "string"
+            }
+          ],
+          "line": 3710,
+          "end_line": 3727
+        },
+        "alterNodeContMapConnection": {
+          "name": "alterNodeContMapConnection",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "obj",
+              "type": "string"
+            },
+            {
+              "name": "map",
+              "type": "string"
+            },
+            {
+              "name": "attr",
+              "type": "string"
+            },
+            {
+              "name": "connect",
+              "type": "int"
+            }
+          ],
+          "line": 3729,
+          "end_line": 3749
+        },
+        "alterContMapConnectionsForParentsOfShape": {
+          "name": "alterContMapConnectionsForParentsOfShape",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "shape",
+              "type": "string"
+            },
+            {
+              "name": "map",
+              "type": "string"
+            },
+            {
+              "name": "connect",
+              "type": "int"
+            }
+          ],
+          "line": 3751,
+          "end_line": 3785
+        },
+        "displayLabelRenderLayer": {
+          "name": "displayLabelRenderLayer",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "showNamespace",
+              "type": "int"
+            },
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 3787,
+          "end_line": 3815
+        },
+        "hookShaderOverride": {
+          "name": "hookShaderOverride",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            },
+            {
+              "name": "type",
+              "type": "string"
+            },
+            {
+              "name": "shader",
+              "type": "string"
+            }
+          ],
+          "line": 3817,
+          "end_line": 3844
+        },
+        "getUnassociatedContMaps": {
+          "name": "getUnassociatedContMaps",
+          "global_scope": true,
+          "return_type": "string[]",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 3846,
+          "end_line": 3852
+        },
+        "layerEditorRenderLayerManagerChange": {
+          "name": "layerEditorRenderLayerManagerChange",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 3859,
+          "end_line": 3885
+        },
+        "renderLayerEditorItemOnRename": {
+          "name": "renderLayerEditorItemOnRename",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "oldName",
+              "type": "string"
+            },
+            {
+              "name": "newName",
+              "type": "string"
+            }
+          ],
+          "line": 3891,
+          "end_line": 3925
+        },
+        "renderLayerEditorOnSelectionChanged": {
+          "name": "renderLayerEditorOnSelectionChanged",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 3927,
+          "end_line": 3986
+        },
+        "layerEditorRenderLayerOnDragDrop": {
+          "name": "layerEditorRenderLayerOnDragDrop",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "dropItems",
+              "type": "string[]"
+            },
+            {
+              "name": "oldParents",
+              "type": "string[]"
+            },
+            {
+              "name": "oldIndexes",
+              "type": "int[]"
+            },
+            {
+              "name": "newParent",
+              "type": "string"
+            },
+            {
+              "name": "newIndexes",
+              "type": "int[]"
+            },
+            {
+              "name": "newItemPrev",
+              "type": "string"
+            },
+            {
+              "name": "newItemNext",
+              "type": "string"
+            }
+          ],
+          "line": 3988,
+          "end_line": 4028
+        },
+        "renderLayerEditorRenderable": {
+          "name": "renderLayerEditorRenderable",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "layer",
+              "type": "string"
+            },
+            {
+              "name": "state",
+              "type": "string"
+            }
+          ],
+          "line": 4030,
+          "end_line": 4039
+        },
+        "renderLayerEditorRecycleChange": {
+          "name": "renderLayerEditorRecycleChange",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "layer",
+              "type": "string"
+            },
+            {
+              "name": "state",
+              "type": "string"
+            }
+          ],
+          "line": 4042,
+          "end_line": 4060
+        },
+        "renderLayerEditorSettingsOverride": {
+          "name": "renderLayerEditorSettingsOverride",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "layer",
+              "type": "string"
+            },
+            {
+              "name": "state",
+              "type": "string"
+            }
+          ],
+          "line": 4062,
+          "end_line": 4075
+        },
+        "layerEditorMoveRenderItem": {
+          "name": "layerEditorMoveRenderItem",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "up",
+              "type": "int"
+            }
+          ],
+          "line": 4081,
+          "end_line": 4108
+        },
+        "layerBlendModeChanged": {
+          "name": "layerBlendModeChanged",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 4110,
+          "end_line": 4123
+        },
+        "renderLayerEditorShowLayersMenu": {
+          "name": "renderLayerEditorShowLayersMenu",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "menu",
+              "type": "string"
+            }
+          ],
+          "line": 4125,
+          "end_line": 4166
+        },
+        "renderLayerEditorShowContributionMenu": {
+          "name": "renderLayerEditorShowContributionMenu",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "menu",
+              "type": "string"
+            }
+          ],
+          "line": 4168,
+          "end_line": 4215
+        },
+        "renderLayerEditorShowOptionsMenu": {
+          "name": "renderLayerEditorShowOptionsMenu",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "menu",
+              "type": "string"
+            }
+          ],
+          "line": 4217,
+          "end_line": 4242
+        },
+        "layerEditorCreateRenderLayer": {
+          "name": "layerEditorCreateRenderLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "contents",
+              "type": "int"
+            }
+          ],
+          "line": 4244,
+          "end_line": 4267
+        },
+        "renderLayerEditorCopyLayer": {
+          "name": "renderLayerEditorCopyLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "inLayer",
+              "type": "string"
+            }
+          ],
+          "line": 4270,
+          "end_line": 4300
+        },
+        "setRenderLayerCopyLayerMode": {
+          "name": "setRenderLayerCopyLayerMode",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "parent",
+              "type": "string"
+            }
+          ],
+          "line": 4302,
+          "end_line": 4318
+        },
+        "resetRenderLayerCopyLayerMode": {
+          "name": "resetRenderLayerCopyLayerMode",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "parent",
+              "type": "string"
+            }
+          ],
+          "line": 4320,
+          "end_line": 4329
+        },
+        "renderLayerEditorCopyLayerOptions": {
+          "name": "renderLayerEditorCopyLayerOptions",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 4331,
+          "end_line": 4389
+        },
+        "renderLayerEditorDeleteLayer": {
+          "name": "renderLayerEditorDeleteLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "inLayer",
+              "type": "string"
+            }
+          ],
+          "line": 4391,
+          "end_line": 4433
+        },
+        "renderLayerEditorSelectObjects": {
+          "name": "renderLayerEditorSelectObjects",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 4436,
+          "end_line": 4453
+        },
+        "renderLayerEditorRemoveObjects": {
+          "name": "renderLayerEditorRemoveObjects",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "inLayer",
+              "type": "string"
+            }
+          ],
+          "line": 4455,
+          "end_line": 4472
+        },
+        "renderLayerEditorEmptyLayer": {
+          "name": "renderLayerEditorEmptyLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "inLayer",
+              "type": "string"
+            }
+          ],
+          "line": 4474,
+          "end_line": 4489
+        },
+        "renderLayerEditorAddObjects": {
+          "name": "renderLayerEditorAddObjects",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "inLayer",
+              "type": "string"
+            }
+          ],
+          "line": 4491,
+          "end_line": 4511
+        },
+        "renderLayerEditorDeleteUnused": {
+          "name": "renderLayerEditorDeleteUnused",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 4513,
+          "end_line": 4532
+        },
+        "renderLayerEditorLayerAttributes": {
+          "name": "renderLayerEditorLayerAttributes",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 4534,
+          "end_line": 4552
+        },
+        "renderLayerEditorMembership": {
+          "name": "renderLayerEditorMembership",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 4554,
+          "end_line": 4563
+        },
+        "renderLayerEditorAlterObjectsInContMap": {
+          "name": "renderLayerEditorAlterObjectsInContMap",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "layer",
+              "type": "string"
+            },
+            {
+              "name": "inMap",
+              "type": "string"
+            },
+            {
+              "name": "addObjects",
+              "type": "int"
+            }
+          ],
+          "line": 4565,
+          "end_line": 4609
+        },
+        "renderLayerEditorSelectObjectsInContMap": {
+          "name": "renderLayerEditorSelectObjectsInContMap",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "inMap",
+              "type": "string"
+            }
+          ],
+          "line": 4611,
+          "end_line": 4627
+        },
+        "renderLayerEditorEmptyContMap": {
+          "name": "renderLayerEditorEmptyContMap",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "map",
+              "type": "string"
+            }
+          ],
+          "line": 4630,
+          "end_line": 4647
+        },
+        "renderLayerEditorAssocContMap": {
+          "name": "renderLayerEditorAssocContMap",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "layers",
+              "type": "string[]"
+            },
+            {
+              "name": "map",
+              "type": "string"
+            }
+          ],
+          "line": 4649,
+          "end_line": 4664
+        },
+        "renderLayerEditorCreateContMap": {
+          "name": "renderLayerEditorCreateContMap",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "inLayer",
+              "type": "string"
+            },
+            {
+              "name": "withSelected",
+              "type": "int"
+            }
+          ],
+          "line": 4666,
+          "end_line": 4682
+        },
+        "renderLayerEditorCopyContMap": {
+          "name": "renderLayerEditorCopyContMap",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "inMap",
+              "type": "string"
+            },
+            {
+              "name": "inLayer",
+              "type": "string"
+            }
+          ],
+          "line": 4684,
+          "end_line": 4709
+        },
+        "renderLayerEditorDeleteContMap": {
+          "name": "renderLayerEditorDeleteContMap",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "map",
+              "type": "string"
+            }
+          ],
+          "line": 4711,
+          "end_line": 4744
+        },
+        "renderLayerEditorDeleteUnusedContMaps": {
+          "name": "renderLayerEditorDeleteUnusedContMaps",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 4746,
+          "end_line": 4762
+        },
+        "renderLayerEditorContMapMembership": {
+          "name": "renderLayerEditorContMapMembership",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "map",
+              "type": "string"
+            }
+          ],
+          "line": 4764,
+          "end_line": 4774
+        },
+        "renderLayerEditorContMapAttributes": {
+          "name": "renderLayerEditorContMapAttributes",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "map",
+              "type": "string"
+            }
+          ],
+          "line": 4776,
+          "end_line": 4794
+        },
+        "renderLayerEditorCreateAndAssignPass": {
+          "name": "renderLayerEditorCreateAndAssignPass",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            },
+            {
+              "name": "map",
+              "type": "string"
+            },
+            {
+              "name": "uiName",
+              "type": "string"
+            },
+            {
+              "name": "presetPath",
+              "type": "string"
+            }
+          ],
+          "line": 4796,
+          "end_line": 4826
+        },
+        "updateEditorFeedbackRenderLayer": {
+          "name": "updateEditorFeedbackRenderLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 4832,
+          "end_line": 4903
+        },
+        "updateEditorRenderLayer": {
+          "name": "updateEditorRenderLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 4905,
+          "end_line": 5012
+        },
+        "getSortedPassContributionMapList": {
+          "name": "getSortedPassContributionMapList",
+          "global_scope": true,
+          "return_type": "string[]",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 5014,
+          "end_line": 5025
+        },
+        "renderLayerEditorFloatingWindow": {
+          "name": "renderLayerEditorFloatingWindow",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 5027,
+          "end_line": 5042
+        },
+        "createRenderLayerEditor": {
+          "name": "createRenderLayerEditor",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "parentLayout",
+              "type": "string"
+            },
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 5044,
+          "end_line": 5177
+        },
+        "layerEditorBuildRenderLayerMenu": {
+          "name": "layerEditorBuildRenderLayerMenu",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "parent",
+              "type": "string"
+            },
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 5179,
+          "end_line": 5248
+        },
+        "layerEditorBuildRenderContributionMenu": {
+          "name": "layerEditorBuildRenderContributionMenu",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "parent",
+              "type": "string"
+            },
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 5250,
+          "end_line": 5322
+        },
+        "layerEditorBuildRenderOptionMenu": {
+          "name": "layerEditorBuildRenderOptionMenu",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "parent",
+              "type": "string"
+            },
+            {
+              "name": "toolName",
+              "type": "string"
+            }
+          ],
+          "line": 5324,
+          "end_line": 5365
+        },
+        "renderLayerEditorBuildPopupMenu": {
+          "name": "renderLayerEditorBuildPopupMenu",
+          "global_scope": true,
+          "return_type": "int",
+          "parameters": [
+            {
+              "name": "toolName",
+              "type": "string"
+            },
+            {
+              "name": "parentMenu",
+              "type": "string"
+            },
+            {
+              "name": "item",
+              "type": "string"
+            }
+          ],
+          "line": 5367,
+          "end_line": 5608
+        },
+        "setLayerToMenuItems": {
+          "name": "setLayerToMenuItems",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "parent",
+              "type": "string"
+            },
+            {
+              "name": "layers",
+              "type": "string"
+            }
+          ],
+          "line": 5614,
+          "end_line": 5721
+        },
+        "layerEditorBuildDisplayLayerMenu": {
+          "name": "layerEditorBuildDisplayLayerMenu",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "parent",
+              "type": "string"
+            }
+          ],
+          "line": 5723,
+          "end_line": 5820
+        },
+        "layerEditorBuildDisplayOptionMenu": {
+          "name": "layerEditorBuildDisplayOptionMenu",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "parent",
+              "type": "string"
+            }
+          ],
+          "line": 5822,
+          "end_line": 5854
+        },
+        "getLayerSelection": {
+          "name": "getLayerSelection",
+          "global_scope": true,
+          "return_type": "string[]",
+          "parameters": [
+            {
+              "name": "type",
+              "type": "string"
+            }
+          ],
+          "line": 6125,
+          "end_line": 6180
+        },
+        "layerEditorNewScene": {
+          "name": "layerEditorNewScene",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 6273,
+          "end_line": 6284
+        },
+        "layerEditorOpenScene": {
+          "name": "layerEditorOpenScene",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 6286,
+          "end_line": 6299
+        },
+        "layerEditorDisplayLayerChange": {
+          "name": "layerEditorDisplayLayerChange",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 6301,
+          "end_line": 6311
+        },
+        "layerEditorDisplayLayerManagerChange": {
+          "name": "layerEditorDisplayLayerManagerChange",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 6313,
+          "end_line": 6333
+        },
+        "layerEditorLayerButtonSelect": {
+          "name": "layerEditorLayerButtonSelect",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "modifiers",
+              "type": "int"
+            },
+            {
+              "name": "layerButton",
+              "type": "string"
+            }
+          ],
+          "line": 6335,
+          "end_line": 6501
+        },
+        "layerEditorQuickEditWindowSave": {
+          "name": "layerEditorQuickEditWindowSave",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layerArray",
+              "type": "string[]"
+            }
+          ],
+          "line": 6503,
+          "end_line": 6677
+        },
+        "updateLayerEditorColorType": {
+          "name": "updateLayerEditorColorType",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "objectColorType",
+              "type": "string"
+            },
+            {
+              "name": "colorPalette",
+              "type": "string"
+            },
+            {
+              "name": "rgbSlider",
+              "type": "string"
+            }
+          ],
+          "line": 6679,
+          "end_line": 6684
+        },
+        "createLayerEditorQuickEditWindow": {
+          "name": "createLayerEditorQuickEditWindow",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layerArray",
+              "type": "string[]"
+            }
+          ],
+          "line": 6686,
+          "end_line": 6903
+        },
+        "layerEditorLayerButtonRename": {
+          "name": "layerEditorLayerButtonRename",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "oldName",
+              "type": "string"
+            },
+            {
+              "name": "newName",
+              "type": "string"
+            }
+          ],
+          "line": 6905,
+          "end_line": 6932
+        },
+        "getDisplayLayerVisibility": {
+          "name": "getDisplayLayerVisibility",
+          "global_scope": true,
+          "return_type": "int",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 6940,
+          "end_line": 6956
+        },
+        "getDisplayLayerHideOnPlayback": {
+          "name": "getDisplayLayerHideOnPlayback",
+          "global_scope": true,
+          "return_type": "int",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 6962,
+          "end_line": 6966
+        },
+        "setDisplayLayerVisibility": {
+          "name": "setDisplayLayerVisibility",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            },
+            {
+              "name": "layerVisibility",
+              "type": "int"
+            }
+          ],
+          "line": 6968,
+          "end_line": 6974
+        },
+        "setDisplayLayerHideOnPlayback": {
+          "name": "setDisplayLayerHideOnPlayback",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            },
+            {
+              "name": "layerHideOnPlayback",
+              "type": "int"
+            }
+          ],
+          "line": 6976,
+          "end_line": 6982
+        },
+        "layerEditorLayerButtonVisibilityChange": {
+          "name": "layerEditorLayerButtonVisibilityChange",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 6984,
+          "end_line": 6998
+        },
+        "layerEditorLayerButtonHidePlaybackChange": {
+          "name": "layerEditorLayerButtonHidePlaybackChange",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 7000,
+          "end_line": 7014
+        },
+        "layerEditorLayerButtonTypeChange": {
+          "name": "layerEditorLayerButtonTypeChange",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 7016,
+          "end_line": 7037
+        },
+        "layerEditorLayerButtonDrag": {
+          "name": "layerEditorLayerButtonDrag",
+          "global_scope": true,
+          "return_type": "string[]",
+          "parameters": [
+            {
+              "name": "dragControl",
+              "type": "string"
+            },
+            {
+              "name": "x",
+              "type": "int"
+            },
+            {
+              "name": "y",
+              "type": "int"
+            },
+            {
+              "name": "mods",
+              "type": "int"
+            }
+          ],
+          "line": 7040,
+          "end_line": 7065
+        },
+        "layerEditorLayerButtonDrop": {
+          "name": "layerEditorLayerButtonDrop",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "dragControl",
+              "type": "string"
+            },
+            {
+              "name": "dropControl",
+              "type": "string"
+            },
+            {
+              "name": "messages",
+              "type": "string[]"
+            },
+            {
+              "name": "x",
+              "type": "int"
+            },
+            {
+              "name": "y",
+              "type": "int"
+            },
+            {
+              "name": "dragType",
+              "type": "int"
+            }
+          ],
+          "line": 7067,
+          "end_line": 7118
+        },
+        "layerEditorShowEditMenu": {
+          "name": "layerEditorShowEditMenu",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "menu",
+              "type": "string"
+            }
+          ],
+          "line": 7120,
+          "end_line": 7232
+        },
+        "layerEditorShowOptionsMenu": {
+          "name": "layerEditorShowOptionsMenu",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "menu",
+              "type": "string"
+            }
+          ],
+          "line": 7234,
+          "end_line": 7262
+        },
+        "layerEditorShowPopupMenu": {
+          "name": "layerEditorShowPopupMenu",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "menu",
+              "type": "string"
+            },
+            {
+              "name": "layerButton",
+              "type": "string"
+            }
+          ],
+          "line": 7264,
+          "end_line": 7373
+        },
+        "layerEditorCreateLayer": {
+          "name": "layerEditorCreateLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "contents",
+              "type": "int"
+            }
+          ],
+          "line": 7375,
+          "end_line": 7438
+        },
+        "layerEditorDeleteLayer": {
+          "name": "layerEditorDeleteLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "inLayer",
+              "type": "string"
+            }
+          ],
+          "line": 7440,
+          "end_line": 7495
+        },
+        "layerEditorEditLayer": {
+          "name": "layerEditorEditLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 7497,
+          "end_line": 7522
+        },
+        "layerEditorSelectObjects": {
+          "name": "layerEditorSelectObjects",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 7524,
+          "end_line": 7569
+        },
+        "layerEditorAddObjects": {
+          "name": "layerEditorAddObjects",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "inLayer",
+              "type": "string"
+            }
+          ],
+          "line": 7571,
+          "end_line": 7608
+        },
+        "layerEditorRemoveObjects": {
+          "name": "layerEditorRemoveObjects",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "inLayer",
+              "type": "string"
+            }
+          ],
+          "line": 7610,
+          "end_line": 7638
+        },
+        "layerEditorEmpty": {
+          "name": "layerEditorEmpty",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "inLayer",
+              "type": "string"
+            }
+          ],
+          "line": 7640,
+          "end_line": 7680
+        },
+        "layerEditorSelectUnused": {
+          "name": "layerEditorSelectUnused",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 7682,
+          "end_line": 7751
+        },
+        "layerEditorRemoveFromLayer": {
+          "name": "layerEditorRemoveFromLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 7753,
+          "end_line": 7787
+        },
+        "layerEditorLayerAttributes": {
+          "name": "layerEditorLayerAttributes",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 7789,
+          "end_line": 7816
+        },
+        "layerEditorMembership": {
+          "name": "layerEditorMembership",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 7818,
+          "end_line": 7849
+        },
+        "layerEditorDisplayTypeChange": {
+          "name": "layerEditorDisplayTypeChange",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 7851,
+          "end_line": 7882
+        },
+        "layerEditorMoveDisplayLayer": {
+          "name": "layerEditorMoveDisplayLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "up",
+              "type": "int"
+            }
+          ],
+          "line": 7884,
+          "end_line": 7913
+        },
+        "displayLabel": {
+          "name": "displayLabel",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "showNamespace",
+              "type": "int"
+            },
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 7915,
+          "end_line": 7933
+        },
+        "updateLayersByType": {
+          "name": "updateLayersByType",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "type",
+              "type": "string"
+            }
+          ],
+          "line": 7935,
+          "end_line": 8085
+        },
+        "updateLayerOrderByType": {
+          "name": "updateLayerOrderByType",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "type",
+              "type": "string"
+            }
+          ],
+          "line": 8087,
+          "end_line": 8161
+        },
+        "updateLayerEditor": {
+          "name": "updateLayerEditor",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 8163,
+          "end_line": 8174
+        },
+        "layerEditorVisibilityStateChange": {
+          "name": "layerEditorVisibilityStateChange",
+          "global_scope": true,
+          "return_type": "int",
+          "parameters": [
+            {
+              "name": "newState",
+              "type": "int"
+            },
+            {
+              "name": "layout",
+              "type": "string"
+            }
+          ],
+          "line": 8176,
+          "end_line": 8204
+        }
+      },
+      "top_level_lines": [
+        "706:if( !`exists passesTabSetDefaultPrecomp` )",
+        "707:{",
+        "708:\teval(\"source \\\"createMayaRenderPassTab.mel\\\"\");",
+        "709:}",
+        "3510:global float $gRenderLayerEditorSelectColorOne[];",
+        "3511:global float $gRenderLayerEditorSelectColorTwo[];",
+        "3513:$gRenderLayerEditorSelectColorOne[0] = 0.40;",
+        "3514:$gRenderLayerEditorSelectColorOne[1] = 0.55;",
+        "3515:$gRenderLayerEditorSelectColorOne[2] = 0.70;",
+        "3517:$gRenderLayerEditorSelectColorTwo[0] = 0.29;",
+        "3518:$gRenderLayerEditorSelectColorTwo[1] = 0.32;",
+        "3519:$gRenderLayerEditorSelectColorTwo[2] = 0.34;",
+        "3858:global int $gLayerEditorCurrentLayerUpdateFromSelection = 0;",
+        "8210:{",
+        "8211:\tglobal string $gLayerEditorForm;",
+        "8215:\tcreateLayerEditor($gLayerEditorForm);",
+        "8219:\tupdateLayerEditor();",
+        "8220:}"
+      ],
+      "duplicate_names": {
+        "getLayerDisplayType": 2
+      },
+      "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified"
+    },
+    "no_ui": {
+      "entry": "upstream/no_UI_version/layerEditor_no_UI.mel",
+      "sha256": "2b5dbc224c8c017b80425d0ce68cd000385d14f96bc730201db400bb1d202aa5",
+      "procedures": {
+        "create_and_select_anim_layer": {
+          "name": "create_and_select_anim_layer",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "rotation_mod",
+              "type": "int"
+            }
+          ],
+          "line": 1,
+          "end_line": 8
+        },
+        "extract_anim_on_base_layer_selected_object": {
+          "name": "extract_anim_on_base_layer_selected_object",
+          "global_scope": true,
+          "return_type": "int",
+          "parameters": [],
+          "line": 9,
+          "end_line": 62
+        },
+        "extract_part_to_over_layer": {
+          "name": "extract_part_to_over_layer",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "side_frames",
+              "type": "float"
+            }
+          ],
+          "line": 63,
+          "end_line": 110
+        },
+        "selectLayer": {
+          "name": "selectLayer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layer",
+              "type": "string"
+            }
+          ],
+          "line": 111,
+          "end_line": 119
+        },
+        "select_few_Layers": {
+          "name": "select_few_Layers",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "layers",
+              "type": "string[]"
+            }
+          ],
+          "line": 120,
+          "end_line": 128
+        },
+        "select_object_in_selected_layers": {
+          "name": "select_object_in_selected_layers",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 129,
+          "end_line": 134
+        },
+        "select_best_layer": {
+          "name": "select_best_layer",
+          "global_scope": true,
+          "return_type": "string[]",
+          "parameters": [],
+          "line": 135,
+          "end_line": 147
+        },
+        "animLayerMerge_toAdditive": {
+          "name": "animLayerMerge_toAdditive",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "layers",
+              "type": "string[]"
+            },
+            {
+              "name": "timerange",
+              "type": "float[]"
+            }
+          ],
+          "line": 148,
+          "end_line": 197
+        },
+        "extract_animation_to_additive_layer": {
+          "name": "extract_animation_to_additive_layer",
+          "global_scope": true,
+          "return_type": "string[]",
+          "parameters": [],
+          "line": 198,
+          "end_line": 262
+        },
+        "anim_layer_fast_merge": {
+          "name": "anim_layer_fast_merge",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 263,
+          "end_line": 272
+        },
+        "getLayerDisplayType": {
+          "name": "getLayerDisplayType",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [],
+          "line": 273,
+          "end_line": 288
+        },
+        "get_anim_time_range_from_anim_layer": {
+          "name": "get_anim_time_range_from_anim_layer",
+          "global_scope": true,
+          "return_type": "float[]",
+          "parameters": [
+            {
+              "name": "anim_layer_name",
+              "type": "string"
+            }
+          ],
+          "line": 289,
+          "end_line": 308
+        },
+        "get_anim_time_range_from_multiply_anim_layers": {
+          "name": "get_anim_time_range_from_multiply_anim_layers",
+          "global_scope": true,
+          "return_type": "float[]",
+          "parameters": [
+            {
+              "name": "anim_layers_name",
+              "type": "string[]"
+            }
+          ],
+          "line": 309,
+          "end_line": 332
+        },
+        "create_add_anim_layer_from_objects_and_set_framerange_from_multiply_anim_layers": {
+          "name": "create_add_anim_layer_from_objects_and_set_framerange_from_multiply_anim_layers",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "objects",
+              "type": "string[]"
+            },
+            {
+              "name": "mod",
+              "type": "int"
+            }
+          ],
+          "line": 333,
+          "end_line": 352
+        },
+        "create_add_anim_layer_from_timerange": {
+          "name": "create_add_anim_layer_from_timerange",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "objects",
+              "type": "string[]"
+            },
+            {
+              "name": "mod",
+              "type": "int"
+            }
+          ],
+          "line": 353,
+          "end_line": 360
+        },
+        "create_anim_layer_from_channelbox_attrib": {
+          "name": "create_anim_layer_from_channelbox_attrib",
+          "global_scope": true,
+          "return_type": "string[]",
+          "parameters": [
+            {
+              "name": "mode",
+              "type": "int"
+            }
+          ],
+          "line": 361,
+          "end_line": 380
+        },
+        "extract_smart_anim_on_base_layer_selected_object": {
+          "name": "extract_smart_anim_on_base_layer_selected_object",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "fidelity",
+              "type": "int"
+            },
+            {
+              "name": "tolerance",
+              "type": "float"
+            }
+          ],
+          "line": 381,
+          "end_line": 410
+        },
+        "anim_layer_smart_fast_merge": {
+          "name": "anim_layer_smart_fast_merge",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "fidelity",
+              "type": "int"
+            },
+            {
+              "name": "tolerance",
+              "type": "float"
+            }
+          ],
+          "line": 411,
+          "end_line": 420
+        },
+        "execute_smart_fast_merge": {
+          "name": "execute_smart_fast_merge",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "fidelity",
+              "type": "int"
+            },
+            {
+              "name": "tolerance",
+              "type": "float"
+            }
+          ],
+          "line": 421,
+          "end_line": 429
+        },
+        "execute_fast_merge": {
+          "name": "execute_fast_merge",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 430,
+          "end_line": 438
+        },
+        "execute_smart_fast_selected_merge": {
+          "name": "execute_smart_fast_selected_merge",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "fidelity",
+              "type": "int"
+            },
+            {
+              "name": "tolerance",
+              "type": "float"
+            }
+          ],
+          "line": 439,
+          "end_line": 447
+        },
+        "execute_fast_selected_merge": {
+          "name": "execute_fast_selected_merge",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 448,
+          "end_line": 456
+        },
+        "extract_to_additive_layer": {
+          "name": "extract_to_additive_layer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 457,
+          "end_line": 462
+        },
+        "anim_layer_util_menue": {
+          "name": "anim_layer_util_menue",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 463,
+          "end_line": 517
+        },
+        "get_min_max_from_selected": {
+          "name": "get_min_max_from_selected",
+          "global_scope": true,
+          "return_type": "float[]",
+          "parameters": [],
+          "line": 518,
+          "end_line": 528
+        },
+        "get_time_range_from_selected_keys_or_timeslider": {
+          "name": "get_time_range_from_selected_keys_or_timeslider",
+          "global_scope": true,
+          "return_type": "float[]",
+          "parameters": [],
+          "line": 529,
+          "end_line": 543
+        },
+        "disable_viewport": {
+          "name": "disable_viewport",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 544,
+          "end_line": 558
+        },
+        "enable_viewport": {
+          "name": "enable_viewport",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 559,
+          "end_line": 573
+        },
+        "bake_simulation_timerange_on_over_layer": {
+          "name": "bake_simulation_timerange_on_over_layer",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "timerange",
+              "type": "float[]"
+            }
+          ],
+          "line": 574,
+          "end_line": 600
+        },
+        "bake_smart_simulation_playback_range": {
+          "name": "bake_smart_simulation_playback_range",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [
+            {
+              "name": "fidelity",
+              "type": "int"
+            },
+            {
+              "name": "tolerance",
+              "type": "float"
+            }
+          ],
+          "line": 601,
+          "end_line": 628
+        },
+        "bake_simulation_playback_range": {
+          "name": "bake_simulation_playback_range",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 629,
+          "end_line": 652
+        },
+        "euler_filter_on_selected": {
+          "name": "euler_filter_on_selected",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 653,
+          "end_line": 670
+        },
+        "select_skip_no_exist": {
+          "name": "select_skip_no_exist",
+          "global_scope": true,
+          "return_type": "string[]",
+          "parameters": [
+            {
+              "name": "objs",
+              "type": "string[]"
+            }
+          ],
+          "line": 671,
+          "end_line": 685
+        }
+      },
+      "top_level_lines": [],
+      "duplicate_names": {},
+      "lexical_decoding": "utf-8-sig"
+    }
+  },
+  "resources": {
+    "upstream/anim_layer_help.jpg": "f44875ed8f0a53f0fbd753bdca2362d19a68651c5c6019170169b655ae3fc396",
+    "upstream/layerEditor.mel": "071fa210af9e0cc122baae18c559da4227d346128577472eb4e4f7a4470a7600",
+    "upstream/License.txt": "ac828796527ac370417d63c811f756daa15e019b20c2aa8f1d7897428b48182f",
+    "upstream/no_UI_version/Drag_and_Drop_to_install_Layer_Editor_NoUI.mel": "cc59a6015c975c74bc04d1d555b0a32001b44d509944389eb34ea23043c1faf6",
+    "upstream/no_UI_version/layerEditor_no_UI.mel": "2b5dbc224c8c017b80425d0ce68cd000385d14f96bc730201db400bb1d202aa5",
+    "upstream/readme_layerEditor.TXT": "c91cd556fcc09ec41d52abab510f28ecf59ad0d2fb7c79d3e284008df02af6be"
+  }
+}

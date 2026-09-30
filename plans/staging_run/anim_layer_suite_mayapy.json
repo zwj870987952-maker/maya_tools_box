@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool\\01_animation\\anim_layer_v4_0\\release_candidate\\tests\\test_anim_layer_v4_0_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_explicit_layer_selection_and_multilayer_time_array (__main__.MayaTests.test_explicit_layer_selection_and_multilayer_time_array) ... 2\n9\nok\r\ntest_full_editor_and_ui_only_procedures_are_refused_in_standalone (__main__.MayaTests.test_full_editor_and_ui_only_procedures_are_refused_in_standalone) ... ok\r\ntest_noui_all_declarations_source_from_intact_package (__main__.MayaTests.test_noui_all_declarations_source_from_intact_package) ... ok\r\ntest_numeric_types_and_untrusted_string_cannot_escape_outer_call (__main__.MayaTests.test_numeric_types_and_untrusted_string_cannot_escape_outer_call) ... ok\r\ntest_original_noui_load_and_query_base_and_named_layer (__main__.MayaTests.test_original_noui_load_and_query_base_and_named_layer) ... ok\r\ntest_preflight_does_not_source_and_preserves_scene_queue (__main__.MayaTests.test_preflight_does_not_source_and_preserves_scene_queue) ... ok\r\ntest_runtime_restores_evaluation_mode_and_reports_original_mel_error (__main__.MayaTests.test_runtime_restores_evaluation_mode_and_reports_original_mel_error) ... ����: line 1: fixture failure\nok\r\ntest_string_array_selection_and_one_step_undo (__main__.MayaTests.test_string_array_selection_and_one_step_undo) ... ����: AnimLayerSuiteTool_anim_layer_v4_0\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.320s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "34b2f76a58923e47339e1a48edaf112c86a3cd2364246612fbaee460fa0937ae",
+  "runtime_source_sha256": "58ebefc58377df89470ed50e3e8e4bfb0800f44024709da2999b72d5cf3947e7"
+}

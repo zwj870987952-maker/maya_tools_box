@@ -1,6 +1,7 @@
-# Anim Layer v4.0 整理检查点（尚未形成完整候选）
+# Anim Layer v4.0 源审计与整理检查点
 
-当前 manifest 为 working，不计入已完成单元。下轮继续整体套件适配，不能只包装菜单并丢弃其他功能。
+最新结果：完整 release_candidate 已形成，manifest 为 prepared_unverified / candidate_complete=true。
+8 项离线检查与 8 项 NoUI mayapy 隔离检查通过，完整 GUI/原菜单业务仍待真人验证；计入本轮已处理，但没有转正。下文保留之前源审计的事实与最初工作项，最终状态以 manifest/候选验收表为准。
 
 ## 已核对的源文件
 

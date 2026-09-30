@@ -53,3 +53,10 @@
 - 全套 6 文件，完整版包含 216 个过程/197 global 和 source 时创建编辑器的顶层代码；NoUI 为 33 global、无顶层执行，但多个过程依赖原生 UI。审计保存源 SHA/签名/顶层行，不执行安装器或原始完整 UI。
 - 全版不为 UTF-8，词法审计 byte-preserving Latin-1 仅认 ASCII MEL 结构；不能重编码原资源。自定义商业许可/Autodesk 通知均原样保留，下一轮制作整体运行适配，不改写原脚本。
 - 状态仍 working，详见 anim_layer_v4_0_notes.md；累计完成仍 5/109。实际额度本次读取 primary used=5%、weekly used=42%，窗口已自然刷新、4 张卡未兑换，heartbeat 保持 PAUSED。
+# 2026-09-30：Anim Layer v4.0 完整套件候选完成
+
+- 完整 6 文件资源原样保留，包括非 UTF-8 全版 MEL、NoUI/安装器、帮助图/许可/readme；没有改写算法或 source 安装器。完整版 197 global/NoUI 33 global 全部签名保留，新增 typed MEL bridge、inventory/load/invoke/open_ui、网关/帮助、BaseMayaTool/Schema/ToolResult/Undo 和导出新路径保护。
+- 修复适配器把 BaseAnimation 时间查询 sentinel 误当作必需节点的预检；原时间查询、数组/层选择、source provenance、字面量、单步 Undo 和异常 evaluation 状态恢复经隔离验证。8 项离线/8 项 NoUI Maya2025 检查最终全部通过。
+- 整套仍 prepared_unverified：full source 会重建原编辑器/覆写全局 MEL，未在 standalone 强行加载；原菜单/烘焙/抽取/合并/legacy渲染/显示功能未GUI验收。已预制完整业务/签名知识说明、逐项验收、目标 tests 与晋级清单。原 UI 回调不自动进入新增框架，进程 MEL/UI/options/scriptJobs/文件不由场景 Undo 保证，说明已记录。
+- mayapy 报告新增 runtime_source_sha256，覆盖 MEL/catalog/UI/图片等运行资源与 Python/tests，防止资源变动仍复用旧报告；本候选 Python/runtime 指纹均匹配。记录器可显式登记未满足的运行证据，本项完整套件 GUI 证据缺失如实保存为 false。
+- 累计 6/109 个候选完整；正式库、注册表、长期规则/Obsidian 生成文件未改动。

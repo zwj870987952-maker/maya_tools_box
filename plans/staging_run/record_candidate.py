@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 import scan_pool
-from run_mayapy_check import python_fingerprint
+from run_mayapy_check import python_fingerprint, runtime_fingerprint
 
 
 def main():
@@ -16,6 +16,7 @@ def main():
     parser.add_argument("--tool", required=True)
     parser.add_argument("--test", required=True)
     parser.add_argument("--mayapy-report")
+    parser.add_argument("--unverified-reason", help="Explicit required runtime evidence absent beyond the checks run")
     args = parser.parse_args()
     candidate = scan_pool.POOL / args.tool / "release_candidate"
     description = json.loads((candidate / "promotion.json").read_text(encoding="utf-8"))
@@ -42,6 +43,9 @@ def main():
         report = json.loads(Path(args.mayapy_report).read_text(encoding="utf-8"))
         checks.append(report)
         checks.append({"kind": "mayapy_report_matches_candidate", "passed": report.get("python_source_sha256") == python_fingerprint(candidate)})
+        checks.append({"kind": "mayapy_runtime_report_matches_candidate", "passed": report.get("runtime_source_sha256") == runtime_fingerprint(candidate)})
+    if args.unverified_reason:
+        checks.append({"kind": "required_runtime_evidence", "passed": False, "reason": args.unverified_reason})
     manifest = json.loads((scan_pool.RUN / "manifest.json").read_text(encoding="utf-8"))
     item = next(item for item in manifest["tools"] if item["source_path"] == args.tool)
     complete = bool(preview) and (candidate / "acceptance.md").is_file()
