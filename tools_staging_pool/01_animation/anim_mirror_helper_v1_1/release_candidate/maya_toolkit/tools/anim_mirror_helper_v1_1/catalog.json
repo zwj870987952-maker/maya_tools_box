@@ -1,0 +1,1164 @@
+{
+  "entry": "upstream/mirror_walk_tool_code.mel",
+  "resources": {
+    "upstream/Anim Mirror Helper guide ENG.pdf": "0c2831dcc4a7ebcdaa0a9799e4bb86c320984e87b806ef257ed61a608e6c5567",
+    "upstream/Anim Mirror Helper guide RUS.pdf": "d86742b31785d4c8a6dd95e2b5462bf3d28cab91ac1ff15e26c1d88168f7dbc6",
+    "upstream/Drag_and_Drop_to_install.mel": "dbbb195cad0b5ef651a7cfdd4ca2285e25a9b80155f756ce16b532a76bb27941",
+    "upstream/icons/mirror_tool.bmp": "178419934db4610d706df2285f4a7b0d861d67b584d6593fef0e8a7d5bcff101",
+    "upstream/License.txt": "4ed7cf291055d3bad3cf06a30205280d29df5a053e3be5bdeeb286b5afa537f8",
+    "upstream/mirror_walk_tool_code.mel": "445c1cf9d076d158c1cb23a19c61684f9060dababd139a1a6b5670fc410ecaff"
+  },
+  "procedures": {
+    "Mirror_tool_menue": {
+      "name": "Mirror_tool_menue",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 10,
+      "end_line": 256
+    },
+    "MIRR_692e2fda85cadfdf0f28e93323f58c08": {
+      "name": "MIRR_692e2fda85cadfdf0f28e93323f58c08",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 257,
+      "end_line": 271
+    },
+    "MIRR_f4b1a2b52ab1771321003f86cde63160": {
+      "name": "MIRR_f4b1a2b52ab1771321003f86cde63160",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 272,
+      "end_line": 286
+    },
+    "MIRR_de88efca2929f0080ae1d45ff5db42d4": {
+      "name": "MIRR_de88efca2929f0080ae1d45ff5db42d4",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 287,
+      "end_line": 310
+    },
+    "MIRR_09f1edc0a69a4931b08e1bcc40e94a55": {
+      "name": "MIRR_09f1edc0a69a4931b08e1bcc40e94a55",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 311,
+      "end_line": 328
+    },
+    "MIRR_48485870564b576698e443b951ff184a": {
+      "name": "MIRR_48485870564b576698e443b951ff184a",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 329,
+      "end_line": 337
+    },
+    "MIRR_ef5038f332443510e158b37092b13e2e": {
+      "name": "MIRR_ef5038f332443510e158b37092b13e2e",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 338,
+      "end_line": 346
+    },
+    "MIRR_b7cfd62c53832d19b9248a27c80a6f44": {
+      "name": "MIRR_b7cfd62c53832d19b9248a27c80a6f44",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mirror_axis",
+          "type": "string"
+        },
+        {
+          "name": "offset",
+          "type": "float"
+        },
+        {
+          "name": "cycled",
+          "type": "int"
+        }
+      ],
+      "line": 347,
+      "end_line": 473
+    },
+    "MIRR_9147e5087e953411782b272b89b1ddb6": {
+      "name": "MIRR_9147e5087e953411782b272b89b1ddb6",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 474,
+      "end_line": 563
+    },
+    "MIRR_4e55dd5ee0a5a72502e97cf0ed202fa7": {
+      "name": "MIRR_4e55dd5ee0a5a72502e97cf0ed202fa7",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 564,
+      "end_line": 569
+    },
+    "MIRR_c8f9519489b62d03fdd39080a1626293": {
+      "name": "MIRR_c8f9519489b62d03fdd39080a1626293",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "axis",
+          "type": "string"
+        }
+      ],
+      "line": 570,
+      "end_line": 607
+    },
+    "MIRR_9d6d9b3fa6689f784a8751133c4da807": {
+      "name": "MIRR_9d6d9b3fa6689f784a8751133c4da807",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "axis",
+          "type": "string"
+        }
+      ],
+      "line": 608,
+      "end_line": 629
+    },
+    "MIRR_ebdde21f7478f2e87c8125a749c52f7a": {
+      "name": "MIRR_ebdde21f7478f2e87c8125a749c52f7a",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 630,
+      "end_line": 635
+    },
+    "MIRR_66c56c7553b8c48c1c480f58c19084ce": {
+      "name": "MIRR_66c56c7553b8c48c1c480f58c19084ce",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 636,
+      "end_line": 648
+    },
+    "MIRR_f0a28d7c6e1c7cd0114c5b790b5810db": {
+      "name": "MIRR_f0a28d7c6e1c7cd0114c5b790b5810db",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 649,
+      "end_line": 654
+    },
+    "MIRR_0d9dbbe39a5758068cdf30cf9c7cb924": {
+      "name": "MIRR_0d9dbbe39a5758068cdf30cf9c7cb924",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "side_from",
+          "type": "string"
+        },
+        {
+          "name": "side_to",
+          "type": "string"
+        },
+        {
+          "name": "rig_type",
+          "type": "string"
+        }
+      ],
+      "line": 655,
+      "end_line": 710
+    },
+    "MIRR_af16024bff0824c73ab6c4082569d9ed": {
+      "name": "MIRR_af16024bff0824c73ab6c4082569d9ed",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "side_from",
+          "type": "string"
+        },
+        {
+          "name": "side_to",
+          "type": "string"
+        }
+      ],
+      "line": 711,
+      "end_line": 744
+    },
+    "MIRR_18a1bcd5e135a60ba68f5eb3c465884e": {
+      "name": "MIRR_18a1bcd5e135a60ba68f5eb3c465884e",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "type",
+          "type": "string"
+        },
+        {
+          "name": "offset",
+          "type": "int"
+        }
+      ],
+      "line": 745,
+      "end_line": 759
+    },
+    "MT_calcul_single": {
+      "name": "MT_calcul_single",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 760,
+      "end_line": 765
+    },
+    "MIRR_54d92f8424c4459e6d996d9fd93902f0": {
+      "name": "MIRR_54d92f8424c4459e6d996d9fd93902f0",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 766,
+      "end_line": 796
+    },
+    "MIRR_f2d5a2798ed7cfee36eb77ee8a281ed8": {
+      "name": "MIRR_f2d5a2798ed7cfee36eb77ee8a281ed8",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 797,
+      "end_line": 830
+    },
+    "MIRR_0a10c57fddb9b8e3dc07486c3a9a5eed": {
+      "name": "MIRR_0a10c57fddb9b8e3dc07486c3a9a5eed",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 831,
+      "end_line": 861
+    },
+    "MIRR_910f54508e7e0e76ffe92926566add2d": {
+      "name": "MIRR_910f54508e7e0e76ffe92926566add2d",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 862,
+      "end_line": 873
+    },
+    "MIRR_e6d1cc62e700198ddfd8906d663761ba": {
+      "name": "MIRR_e6d1cc62e700198ddfd8906d663761ba",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 874,
+      "end_line": 884
+    },
+    "MIRR_32a3829df17c3736d9757e423eeaf0e3": {
+      "name": "MIRR_32a3829df17c3736d9757e423eeaf0e3",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "string[]"
+        },
+        {
+          "name": "object",
+          "type": "string[]"
+        }
+      ],
+      "line": 885,
+      "end_line": 897
+    },
+    "MIRR_e706e982298fe9e8f94ae04b06b5d6b2": {
+      "name": "MIRR_e706e982298fe9e8f94ae04b06b5d6b2",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "prefix",
+          "type": "string"
+        }
+      ],
+      "line": 898,
+      "end_line": 912
+    },
+    "MIRR_10b1c67feba7e9570357d44ba9306692": {
+      "name": "MIRR_10b1c67feba7e9570357d44ba9306692",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "prefix",
+          "type": "string"
+        },
+        {
+          "name": "name_massive",
+          "type": "string[]"
+        },
+        {
+          "name": "postfix",
+          "type": "string"
+        }
+      ],
+      "line": 913,
+      "end_line": 920
+    },
+    "MIRR_ade4e354383a28fcefcaf5ce40e6639d": {
+      "name": "MIRR_ade4e354383a28fcefcaf5ce40e6639d",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 921,
+      "end_line": 929
+    },
+    "MIRR_37979d5db724aeac3ec6046edc570bbd": {
+      "name": "MIRR_37979d5db724aeac3ec6046edc570bbd",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 930,
+      "end_line": 942
+    },
+    "MIRR_c89bf830cdb2b9cc874e6c8604e8b257": {
+      "name": "MIRR_c89bf830cdb2b9cc874e6c8604e8b257",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 943,
+      "end_line": 955
+    },
+    "MIRR_ef6700cd4efa166b5d6bde47732f420a": {
+      "name": "MIRR_ef6700cd4efa166b5d6bde47732f420a",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 956,
+      "end_line": 967
+    },
+    "MIRR_aa074854107180f09880ea0e8edd43f8": {
+      "name": "MIRR_aa074854107180f09880ea0e8edd43f8",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 968,
+      "end_line": 975
+    },
+    "MIRR_cc20e95399a3b6da44eb78e45451d764": {
+      "name": "MIRR_cc20e95399a3b6da44eb78e45451d764",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "color",
+          "type": "int"
+        }
+      ],
+      "line": 976,
+      "end_line": 986
+    },
+    "MIRR_d709ffba9755e96e5977d4e5832da1cd": {
+      "name": "MIRR_d709ffba9755e96e5977d4e5832da1cd",
+      "global_scope": true,
+      "return_type": "int[]",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        }
+      ],
+      "line": 987,
+      "end_line": 1006
+    },
+    "MIRR_92de112c5c170c44ad9daf4d48b1acdd": {
+      "name": "MIRR_92de112c5c170c44ad9daf4d48b1acdd",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "rad",
+          "type": "float"
+        }
+      ],
+      "line": 1007,
+      "end_line": 1014
+    },
+    "MIRR_1b2691cd3c4740f4f00465c7e94c0373": {
+      "name": "MIRR_1b2691cd3c4740f4f00465c7e94c0373",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "jnts",
+          "type": "string[]"
+        },
+        {
+          "name": "rad",
+          "type": "float"
+        }
+      ],
+      "line": 1015,
+      "end_line": 1034
+    },
+    "MIRR_29941243f77aa0343e79460d48136072": {
+      "name": "MIRR_29941243f77aa0343e79460d48136072",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "local_scale",
+          "type": "float"
+        }
+      ],
+      "line": 1035,
+      "end_line": 1047
+    },
+    "MIRR_e9a3d5ffe283044f2485219b12ac5f73": {
+      "name": "MIRR_e9a3d5ffe283044f2485219b12ac5f73",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "objs",
+          "type": "string[]"
+        },
+        {
+          "name": "vis",
+          "type": "int"
+        }
+      ],
+      "line": 1048,
+      "end_line": 1055
+    },
+    "MIRR_4c2952dd9f486573856c8eb6a0dc46ac": {
+      "name": "MIRR_4c2952dd9f486573856c8eb6a0dc46ac",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "vis",
+          "type": "int"
+        }
+      ],
+      "line": 1056,
+      "end_line": 1067
+    },
+    "MIRR_6de8028af587b467034457b4d6349f89": {
+      "name": "MIRR_6de8028af587b467034457b4d6349f89",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "subScale",
+          "type": "float"
+        }
+      ],
+      "line": 1068,
+      "end_line": 1087
+    },
+    "MIRR_ac2021d0d7ff3ecfad4dbca9f9f88248": {
+      "name": "MIRR_ac2021d0d7ff3ecfad4dbca9f9f88248",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "target_massiv",
+          "type": "string[]"
+        },
+        {
+          "name": "object_massiv",
+          "type": "string[]"
+        }
+      ],
+      "line": 1088,
+      "end_line": 1115
+    },
+    "MIRR_bfe56aae7d5797fb0a4d2b81c633d99e": {
+      "name": "MIRR_bfe56aae7d5797fb0a4d2b81c633d99e",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "target_massiv",
+          "type": "string[]"
+        },
+        {
+          "name": "object_massiv",
+          "type": "string[]"
+        }
+      ],
+      "line": 1116,
+      "end_line": 1151
+    },
+    "MIRR_8598296823aa3af15686cb0d78f1615d": {
+      "name": "MIRR_8598296823aa3af15686cb0d78f1615d",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "selection",
+          "type": "string"
+        }
+      ],
+      "line": 1152,
+      "end_line": 1219
+    },
+    "MIRR_17431451b1be026fdeee93b86579c6b6": {
+      "name": "MIRR_17431451b1be026fdeee93b86579c6b6",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "target_massiv",
+          "type": "string[]"
+        },
+        {
+          "name": "object_massiv",
+          "type": "string[]"
+        }
+      ],
+      "line": 1220,
+      "end_line": 1298
+    },
+    "MIRR_5e8af8371c687e5c50d7ded5040ffe13": {
+      "name": "MIRR_5e8af8371c687e5c50d7ded5040ffe13",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "target_position",
+          "type": "string[]"
+        },
+        {
+          "name": "object_to_move",
+          "type": "string[]"
+        }
+      ],
+      "line": 1299,
+      "end_line": 1314
+    },
+    "MIRR_5145561f67290e54dacf2e0b5d4f02b7": {
+      "name": "MIRR_5145561f67290e54dacf2e0b5d4f02b7",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "target_position",
+          "type": "string[]"
+        },
+        {
+          "name": "object_to_move",
+          "type": "string[]"
+        }
+      ],
+      "line": 1315,
+      "end_line": 1332
+    },
+    "MIRR_9a8d2e62249cad27916aacc736478655": {
+      "name": "MIRR_9a8d2e62249cad27916aacc736478655",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1333,
+      "end_line": 1347
+    },
+    "MIRR_9713c7abe7f317a1eaefb22b30d9ce1c": {
+      "name": "MIRR_9713c7abe7f317a1eaefb22b30d9ce1c",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [],
+      "line": 1348,
+      "end_line": 1389
+    },
+    "MIRR_3a25eaad774c71ebdcb06ee4d2b25ce3": {
+      "name": "MIRR_3a25eaad774c71ebdcb06ee4d2b25ce3",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1390,
+      "end_line": 1405
+    },
+    "MIRR_9a3ce25cfdbc96f0053e2e03715d7f2b": {
+      "name": "MIRR_9a3ce25cfdbc96f0053e2e03715d7f2b",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1406,
+      "end_line": 1418
+    },
+    "MIRR_41b4e3b470ec48427b6ebd4f09a607e7": {
+      "name": "MIRR_41b4e3b470ec48427b6ebd4f09a607e7",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1419,
+      "end_line": 1431
+    },
+    "MIRR_194c7b09c27128a45486ac17560c7a25": {
+      "name": "MIRR_194c7b09c27128a45486ac17560c7a25",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "objs",
+          "type": "string[]"
+        }
+      ],
+      "line": 1432,
+      "end_line": 1446
+    },
+    "MIRR_c7822f1f10b007a6803735c105e40799": {
+      "name": "MIRR_c7822f1f10b007a6803735c105e40799",
+      "global_scope": true,
+      "return_type": "float",
+      "parameters": [
+        {
+          "name": "obj1",
+          "type": "string"
+        },
+        {
+          "name": "obj2",
+          "type": "string"
+        }
+      ],
+      "line": 1447,
+      "end_line": 1455
+    },
+    "MIRR_b3acc831f9f61a01a45fe7165ec12c62": {
+      "name": "MIRR_b3acc831f9f61a01a45fe7165ec12c62",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "full_name",
+          "type": "string"
+        },
+        {
+          "name": "side_from",
+          "type": "string"
+        },
+        {
+          "name": "side_to",
+          "type": "string"
+        }
+      ],
+      "line": 1456,
+      "end_line": 1486
+    },
+    "MIRR_c954f3ebe8232ef721ae19221935b64e": {
+      "name": "MIRR_c954f3ebe8232ef721ae19221935b64e",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "take_name",
+          "type": "string"
+        }
+      ],
+      "line": 1487,
+      "end_line": 1495
+    },
+    "MIRR_95d47209f5832c068ce7614b82201089": {
+      "name": "MIRR_95d47209f5832c068ce7614b82201089",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1496,
+      "end_line": 1519
+    },
+    "MIRR_9ef8981ccf72c74373e900ef581dfaea": {
+      "name": "MIRR_9ef8981ccf72c74373e900ef581dfaea",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "string[]"
+        },
+        {
+          "name": "object",
+          "type": "string[]"
+        }
+      ],
+      "line": 1520,
+      "end_line": 1530
+    },
+    "MIRR_8f1bbed6c413bd9cd1ae5d3c63afb5cc": {
+      "name": "MIRR_8f1bbed6c413bd9cd1ae5d3c63afb5cc",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "string[]"
+        },
+        {
+          "name": "object",
+          "type": "string[]"
+        }
+      ],
+      "line": 1531,
+      "end_line": 1541
+    },
+    "MIRR_2fa2b06e9166235ba786cb6586606b52": {
+      "name": "MIRR_2fa2b06e9166235ba786cb6586606b52",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "string[]"
+        },
+        {
+          "name": "object",
+          "type": "string[]"
+        }
+      ],
+      "line": 1542,
+      "end_line": 1550
+    },
+    "MIRR_c8fcd9a605f50c9c5156cafe60648ba3": {
+      "name": "MIRR_c8fcd9a605f50c9c5156cafe60648ba3",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "string[]"
+        },
+        {
+          "name": "object",
+          "type": "string[]"
+        }
+      ],
+      "line": 1551,
+      "end_line": 1560
+    },
+    "MIRR_27fa0883c172ae08e08f5b2f5e58ad38": {
+      "name": "MIRR_27fa0883c172ae08e08f5b2f5e58ad38",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "icon",
+          "type": "string"
+        },
+        {
+          "name": "command",
+          "type": "string"
+        },
+        {
+          "name": "to_object",
+          "type": "string"
+        }
+      ],
+      "line": 1561,
+      "end_line": 1569
+    },
+    "MIRR_20a28b95c1b8b4dd29397ab332dbc667": {
+      "name": "MIRR_20a28b95c1b8b4dd29397ab332dbc667",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [],
+      "line": 1570,
+      "end_line": 1579
+    },
+    "MIRR_8a435c1e94becce7728e63b61ba412bd": {
+      "name": "MIRR_8a435c1e94becce7728e63b61ba412bd",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "radius",
+          "type": "float"
+        }
+      ],
+      "line": 1580,
+      "end_line": 1599
+    },
+    "MIRR_1a0417e38be183894da98c3ef5716f0d": {
+      "name": "MIRR_1a0417e38be183894da98c3ef5716f0d",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "radius",
+          "type": "float"
+        }
+      ],
+      "line": 1600,
+      "end_line": 1616
+    },
+    "MIRR_465f2c70f8e4bf417e93834f61ee4f6e": {
+      "name": "MIRR_465f2c70f8e4bf417e93834f61ee4f6e",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "stroka",
+          "type": "string"
+        },
+        {
+          "name": "poisk",
+          "type": "string"
+        }
+      ],
+      "line": 1617,
+      "end_line": 1632
+    },
+    "MIRR_a358a7c27f7a7b80712d695138ed032e": {
+      "name": "MIRR_a358a7c27f7a7b80712d695138ed032e",
+      "global_scope": true,
+      "return_type": "float",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        },
+        {
+          "name": "average",
+          "type": "int"
+        }
+      ],
+      "line": 1633,
+      "end_line": 1641
+    },
+    "MIRR_e3bea614176fbceebe7c7aae67e953b0": {
+      "name": "MIRR_e3bea614176fbceebe7c7aae67e953b0",
+      "global_scope": true,
+      "return_type": "vector",
+      "parameters": [
+        {
+          "name": "coords",
+          "type": "vector[]"
+        }
+      ],
+      "line": 1642,
+      "end_line": 1650
+    },
+    "MIRR_f71c299bf7b53f7243b078a9990e581c": {
+      "name": "MIRR_f71c299bf7b53f7243b078a9990e581c",
+      "global_scope": true,
+      "return_type": "float",
+      "parameters": [
+        {
+          "name": "input",
+          "type": "float"
+        }
+      ],
+      "line": 1651,
+      "end_line": 1674
+    },
+    "MIRR_41a30a2e9e6a02aac72ab138d3f62f90": {
+      "name": "MIRR_41a30a2e9e6a02aac72ab138d3f62f90",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "attribname",
+          "type": "string"
+        },
+        {
+          "name": "object",
+          "type": "string"
+        }
+      ],
+      "line": 1675,
+      "end_line": 1680
+    },
+    "MIRR_81710030388b6f6922e422fe523dd15a": {
+      "name": "MIRR_81710030388b6f6922e422fe523dd15a",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "attribname",
+          "type": "string"
+        },
+        {
+          "name": "object",
+          "type": "string"
+        }
+      ],
+      "line": 1681,
+      "end_line": 1687
+    },
+    "MIRR_65107bc37ea4a0d842be293fd78287a9": {
+      "name": "MIRR_65107bc37ea4a0d842be293fd78287a9",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "attribname",
+          "type": "string"
+        },
+        {
+          "name": "object",
+          "type": "string"
+        }
+      ],
+      "line": 1688,
+      "end_line": 1693
+    },
+    "MIRR_e8f0c3b3e6300189aca31ae83320ec92": {
+      "name": "MIRR_e8f0c3b3e6300189aca31ae83320ec92",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "node_name_mask",
+          "type": "string"
+        }
+      ],
+      "line": 1694,
+      "end_line": 1709
+    },
+    "MIRR_6c03bcf1c4cd077aea727f60dfb001f6": {
+      "name": "MIRR_6c03bcf1c4cd077aea727f60dfb001f6",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "mode",
+          "type": "int"
+        },
+        {
+          "name": "nodename_mask",
+          "type": "string"
+        }
+      ],
+      "line": 1710,
+      "end_line": 1758
+    },
+    "MIRR_b3a0af3dcb5c339fc02c21363528b660": {
+      "name": "MIRR_b3a0af3dcb5c339fc02c21363528b660",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "type_of_connection",
+          "type": "string"
+        },
+        {
+          "name": "offset",
+          "type": "int"
+        }
+      ],
+      "line": 1759,
+      "end_line": 1784
+    },
+    "MIRR_1ae288c6b64a87de88c296f40fb5ed72": {
+      "name": "MIRR_1ae288c6b64a87de88c296f40fb5ed72",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "object",
+          "type": "string"
+        }
+      ],
+      "line": 1785,
+      "end_line": 1792
+    },
+    "MIRR_338d6d9c2032e82a688aa841f622a6cf": {
+      "name": "MIRR_338d6d9c2032e82a688aa841f622a6cf",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1793,
+      "end_line": 1850
+    },
+    "execute_single_MT_calculation": {
+      "name": "execute_single_MT_calculation",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "manip_name",
+          "type": "string"
+        }
+      ],
+      "line": 1851,
+      "end_line": 1859
+    },
+    "rotate_to_position": {
+      "name": "rotate_to_position",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "target_position",
+          "type": "string[]"
+        },
+        {
+          "name": "object_to_move",
+          "type": "string[]"
+        }
+      ],
+      "line": 1860,
+      "end_line": 1870
+    },
+    "MIRR_19d76f37038db0f20211caf8b74f382f": {
+      "name": "MIRR_19d76f37038db0f20211caf8b74f382f",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "radius",
+          "type": "float"
+        },
+        {
+          "name": "rnd_persent",
+          "type": "float"
+        }
+      ],
+      "line": 1871,
+      "end_line": 1888
+    },
+    "MIRR_1b5534c2455631fcdd51693bf0e0f9d5": {
+      "name": "MIRR_1b5534c2455631fcdd51693bf0e0f9d5",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 1889,
+      "end_line": 1922
+    },
+    "MIRR_e0b44e5f427a869b704a743cf1d3614c": {
+      "name": "MIRR_e0b44e5f427a869b704a743cf1d3614c",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [],
+      "line": 1923,
+      "end_line": 1951
+    },
+    "MIRR_008e7eaba89cfdd4ba3b1eca102e0dba": {
+      "name": "MIRR_008e7eaba89cfdd4ba3b1eca102e0dba",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "obj",
+          "type": "string[]"
+        },
+        {
+          "name": "offset",
+          "type": "int"
+        }
+      ],
+      "line": 1952,
+      "end_line": 1982
+    },
+    "MIRR_3463baee6dea488d87f160cd40a14353": {
+      "name": "MIRR_3463baee6dea488d87f160cd40a14353",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "obj",
+          "type": "string[]"
+        },
+        {
+          "name": "offset",
+          "type": "int"
+        }
+      ],
+      "line": 1983,
+      "end_line": 2034
+    },
+    "MIRR_847308ac6f1debf8edcc8d63e128d64c": {
+      "name": "MIRR_847308ac6f1debf8edcc8d63e128d64c",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "target_position",
+          "type": "string[]"
+        },
+        {
+          "name": "object_to_move",
+          "type": "string[]"
+        }
+      ],
+      "line": 2035,
+      "end_line": 2045
+    },
+    "MIRR_4aba01922b93bf80f149ac6b55439e7d": {
+      "name": "MIRR_4aba01922b93bf80f149ac6b55439e7d",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "string[]"
+        },
+        {
+          "name": "object",
+          "type": "string[]"
+        }
+      ],
+      "line": 2046,
+      "end_line": 2059
+    },
+    "MIRR_ccabd0c1dfc9e3be77b0702d110cbb7c": {
+      "name": "MIRR_ccabd0c1dfc9e3be77b0702d110cbb7c",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "radius",
+          "type": "float"
+        }
+      ],
+      "line": 2060,
+      "end_line": 2091
+    },
+    "MIRR_7c2ba8388365b4e58c01dc0fb2c2d23c": {
+      "name": "MIRR_7c2ba8388365b4e58c01dc0fb2c2d23c",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 2092,
+      "end_line": 2100
+    },
+    "MIRR_e0a5f9682afe5d450c5614dd6a49ac78": {
+      "name": "MIRR_e0a5f9682afe5d450c5614dd6a49ac78",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 2101,
+      "end_line": 2109
+    },
+    "MIRR_9de233870ac6b9c5087a491c3b4ca38a": {
+      "name": "MIRR_9de233870ac6b9c5087a491c3b4ca38a",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        }
+      ],
+      "line": 2110,
+      "end_line": 2158
+    },
+    "MIRR_174b5e03acbe9a8ba7bf83b031094a2e": {
+      "name": "MIRR_174b5e03acbe9a8ba7bf83b031094a2e",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "object",
+          "type": "string"
+        }
+      ],
+      "line": 2159,
+      "end_line": 2181
+    }
+  },
+  "top_level_lines": [
+    "1616:};"
+  ],
+  "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified"
+}

@@ -60,3 +60,12 @@
 - 整套仍 prepared_unverified：full source 会重建原编辑器/覆写全局 MEL，未在 standalone 强行加载；原菜单/烘焙/抽取/合并/legacy渲染/显示功能未GUI验收。已预制完整业务/签名知识说明、逐项验收、目标 tests 与晋级清单。原 UI 回调不自动进入新增框架，进程 MEL/UI/options/scriptJobs/文件不由场景 Undo 保证，说明已记录。
 - mayapy 报告新增 runtime_source_sha256，覆盖 MEL/catalog/UI/图片等运行资源与 Python/tests，防止资源变动仍复用旧报告；本候选 Python/runtime 指纹均匹配。记录器可显式登记未满足的运行证据，本项完整套件 GUI 证据缺失如实保存为 false。
 - 累计 6/109 个候选完整；正式库、注册表、长期规则/Obsidian 生成文件未改动。
+
+## 2026-09-30：Anim Mirror Helper 完整候选，累计 7/109
+
+- 保留原商业 MEL、安装器、图标、许可和英俄指南共六文件，所有 90 个 global proc；原英文指南 12 页提取并渲染查看，俄文仅保留资源未进行翻译。
+- 增加 typed invoke（含 vector[]）、有明确名称的镜像工作流 action、只读预检、Undo、Evaluation/refresh/timeSlider 的 finally 恢复、原生候选入口与完整原窗口加载；原业务代码及回调不修改。
+- 普通 Python 5 项通过；Maya 2025 隔离 standalone 7 项通过，涵盖完整 source/90 过程来源、icon、向量平均、单位、dry-run 不 source、异常恢复。选择保护使用 GUI 标志 shim 验证只读分支，未创建或验收真实 GUI。
+- 新增测试适配未来正式目录；临时正式布局下 5 项离线检查通过，正式库没有改变。签名检查已修复 string [] 空格写法；最终 mayapy 报告与 Python/运行素材指纹一致。晋级预览 applied=false。
+- candidate_complete=true，prepared_unverified：真实 rig 镜像、连接、循环偏移、烘焙及视口按钮待人工；原 catchQuiet 与非 Undo 影响写入说明。未安装 shelf、未公开发布、未运行 Obsidian 同步。
+- 本项收尾读数：5 小时已用 33%、周已用 46%，剩余额度可继续；heartbeat 暂停，未兑换卡。下一项 anim_polish_premium_v1_23。

@@ -1,0 +1,96 @@
+{
+  "tool_id": "anim_mirror_helper_v1_1",
+  "registration": {
+    "module": "anim_mirror_helper_v1_1",
+    "class_name": "AnimMirrorHelperTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/anim_mirror_helper_v1_1.md",
+      "target": "docs/tools/anim_mirror_helper_v1_1.md"
+    },
+    {
+      "source": "docs/tools/anim_mirror_helper_v1_1_procedures.md",
+      "target": "docs/tools/anim_mirror_helper_v1_1_procedures.md"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_mirror_helper_v1_1/__init__.py",
+      "target": "maya_toolkit/tools/anim_mirror_helper_v1_1/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_mirror_helper_v1_1/catalog.json",
+      "target": "maya_toolkit/tools/anim_mirror_helper_v1_1/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_mirror_helper_v1_1/contracts.py",
+      "target": "maya_toolkit/tools/anim_mirror_helper_v1_1/contracts.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_mirror_helper_v1_1/runtime.py",
+      "target": "maya_toolkit/tools/anim_mirror_helper_v1_1/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_mirror_helper_v1_1/tool.py",
+      "target": "maya_toolkit/tools/anim_mirror_helper_v1_1/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_mirror_helper_v1_1/ui.py",
+      "target": "maya_toolkit/tools/anim_mirror_helper_v1_1/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_mirror_helper_v1_1/upstream/Anim Mirror Helper guide ENG.pdf",
+      "target": "maya_toolkit/tools/anim_mirror_helper_v1_1/upstream/Anim Mirror Helper guide ENG.pdf"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_mirror_helper_v1_1/upstream/Anim Mirror Helper guide RUS.pdf",
+      "target": "maya_toolkit/tools/anim_mirror_helper_v1_1/upstream/Anim Mirror Helper guide RUS.pdf"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_mirror_helper_v1_1/upstream/Drag_and_Drop_to_install.mel",
+      "target": "maya_toolkit/tools/anim_mirror_helper_v1_1/upstream/Drag_and_Drop_to_install.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_mirror_helper_v1_1/upstream/icons/mirror_tool.bmp",
+      "target": "maya_toolkit/tools/anim_mirror_helper_v1_1/upstream/icons/mirror_tool.bmp"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_mirror_helper_v1_1/upstream/License.txt",
+      "target": "maya_toolkit/tools/anim_mirror_helper_v1_1/upstream/License.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_mirror_helper_v1_1/upstream/mirror_walk_tool_code.mel",
+      "target": "maya_toolkit/tools/anim_mirror_helper_v1_1/upstream/mirror_walk_tool_code.mel"
+    },
+    {
+      "source": "tests/test_anim_mirror_helper_v1_1.py",
+      "target": "tests/test_anim_mirror_helper_v1_1.py"
+    },
+    {
+      "source": "tests/test_anim_mirror_helper_v1_1_maya.py",
+      "target": "tests/test_anim_mirror_helper_v1_1_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/Anim Mirror Helper guide ENG.pdf",
+    "upstream/Anim Mirror Helper guide RUS.pdf",
+    "upstream/Drag_and_Drop_to_install.mel",
+    "upstream/icons/mirror_tool.bmp",
+    "upstream/License.txt",
+    "upstream/mirror_walk_tool_code.mel"
+  ],
+  "source": "../Anim_Mirror_Helper_v1_1_studio_lic",
+  "dependencies": [
+    "Interactive Maya MEL/cmds, buttonManip, stock timeSlider procedures",
+    "existing maya_toolkit framework/core",
+    "Python 3"
+  ],
+  "license": "Custom Barnev Pavel Studio license; intact local copies; redistribution permission not established",
+  "change_summary": "All six original files and 90 global procedures preserved; typed calls, semantic workflow actions, read-only validation, Undo and runtime restoration, native gateway and promotion metadata.",
+  "verification_limitations": [
+    "Actual rig mirroring/constraints/attributes/baking and viewport button pending GUI acceptance",
+    "Original catchQuiet may conceal failures",
+    "MEL globals, UI, tool context and clipboard cannot be undone as scene edits",
+    "No public redistribution authorized"
+  ],
+  "acceptance_required": true
+}

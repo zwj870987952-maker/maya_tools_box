@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T16:53:06.601599+08:00",
+  "updated_at": "2026-09-30T17:16:55.626926+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,7 +11,7 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/anim_layer_v4_0",
+    "last_completed_tool": "01_animation/anim_mirror_helper_v1_1",
     "last_usage": {
       "five_hour_used_percent": 20.0,
       "weekly_used_percent": 44.0,
@@ -837,14 +837,63 @@
       "license_files": [
         "Anim_Mirror_Helper_v1_1_studio_lic/License.txt"
       ],
-      "status": "working",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": ".....\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.010s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"anim_mirror_helper_v1_1\",\r\n  \"candidate_sha256\": \"978c5087b5b9e1e7aae8c9e9475f18fa981066855101b11779c42e17b708581a\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\anim_mirror_helper_v1_1.md\",\r\n    \"docs\\\\tools\\\\anim_mirror_helper_v1_1_procedures.md\",\r\n    \"maya_toolkit\\\\tools\\\\anim_mirror_helper_v1_1\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_mirror_helper_v1_1\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\anim_mirror_helper_v1_1\\\\contracts.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_mirror_helper_v1_1\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_mirror_helper_v1_1\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_mirror_helper_v1_1\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_mirror_helper_v1_1\\\\upstream\\\\Anim Mirror Helper guide ENG.pdf\",\r\n    \"maya_toolkit\\\\tools\\\\anim_mirror_helper_v1_1\\\\upstream\\\\Anim Mirror Helper guide RUS.pdf\",\r\n    \"maya_toolkit\\\\tools\\\\anim_mirror_helper_v1_1\\\\upstream\\\\Drag_and_Drop_to_install.mel\",\r\n    \"maya_toolkit\\\\tools\\\\anim_mirror_helper_v1_1\\\\upstream\\\\icons\\\\mirror_tool.bmp\",\r\n    \"maya_toolkit\\\\tools\\\\anim_mirror_helper_v1_1\\\\upstream\\\\License.txt\",\r\n    \"maya_toolkit\\\\tools\\\\anim_mirror_helper_v1_1\\\\upstream\\\\mirror_walk_tool_code.mel\",\r\n    \"tests\\\\test_anim_mirror_helper_v1_1.py\",\r\n    \"tests\\\\test_anim_mirror_helper_v1_1_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/anim_mirror_helper_v1_1/release_candidate/tests/test_anim_mirror_helper_v1_1_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": ".....����: line 1: intentional isolated test\n..\r\n----------------------------------------------------------------------\r\nRan 7 tests in 0.107s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "9c6e8dbe426270bb7e880ffebcbd45345d2d2e89819433feb726e9986c7fd36d",
+          "runtime_source_sha256": "b1bcab8c038ea7cf2797ae659deb11a9574c16a4c0fdf608c1fe57265aad8107"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Original GUI, real rig mirroring/constraints/attributes, cyclic offset, baking and viewport button not available in standalone"
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Actual rig mirroring/constraints/attributes/baking and viewport button pending GUI acceptance",
+        "Original catchQuiet may conceal failures",
+        "MEL globals, UI, tool context and clipboard cannot be undone as scene edits",
+        "No public redistribution authorized"
+      ],
       "entry_review": {
         "evidence": "Installer shelf command sources this file then calls Mirror_tool_menue and supplies icon path.",
         "kind": "mel_procedure_with_resources",
@@ -859,7 +908,51 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "b346109c0291127d036b4f87511e6f69dabc572a724c56dd69e7da6c0c5fa3fe"
+      "source_tree_sha256": "b346109c0291127d036b4f87511e6f69dabc572a724c56dd69e7da6c0c5fa3fe",
+      "candidate_path": "tools_staging_pool/01_animation/anim_mirror_helper_v1_1/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/anim_mirror_helper_v1_1/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "anim_mirror_helper_v1_1",
+        "candidate_sha256": "978c5087b5b9e1e7aae8c9e9475f18fa981066855101b11779c42e17b708581a",
+        "applied": false,
+        "files": [
+          "docs\\tools\\anim_mirror_helper_v1_1.md",
+          "docs\\tools\\anim_mirror_helper_v1_1_procedures.md",
+          "maya_toolkit\\tools\\anim_mirror_helper_v1_1\\__init__.py",
+          "maya_toolkit\\tools\\anim_mirror_helper_v1_1\\catalog.json",
+          "maya_toolkit\\tools\\anim_mirror_helper_v1_1\\contracts.py",
+          "maya_toolkit\\tools\\anim_mirror_helper_v1_1\\runtime.py",
+          "maya_toolkit\\tools\\anim_mirror_helper_v1_1\\tool.py",
+          "maya_toolkit\\tools\\anim_mirror_helper_v1_1\\ui.py",
+          "maya_toolkit\\tools\\anim_mirror_helper_v1_1\\upstream\\Anim Mirror Helper guide ENG.pdf",
+          "maya_toolkit\\tools\\anim_mirror_helper_v1_1\\upstream\\Anim Mirror Helper guide RUS.pdf",
+          "maya_toolkit\\tools\\anim_mirror_helper_v1_1\\upstream\\Drag_and_Drop_to_install.mel",
+          "maya_toolkit\\tools\\anim_mirror_helper_v1_1\\upstream\\icons\\mirror_tool.bmp",
+          "maya_toolkit\\tools\\anim_mirror_helper_v1_1\\upstream\\License.txt",
+          "maya_toolkit\\tools\\anim_mirror_helper_v1_1\\upstream\\mirror_walk_tool_code.mel",
+          "tests\\test_anim_mirror_helper_v1_1.py",
+          "tests\\test_anim_mirror_helper_v1_1_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/Anim Mirror Helper guide ENG.pdf",
+        "upstream/Anim Mirror Helper guide RUS.pdf",
+        "upstream/Drag_and_Drop_to_install.mel",
+        "upstream/icons/mirror_tool.bmp",
+        "upstream/License.txt",
+        "upstream/mirror_walk_tool_code.mel"
+      ],
+      "external_dependencies": [
+        "Interactive Maya MEL/cmds, buttonManip, stock timeSlider procedures",
+        "existing maya_toolkit framework/core",
+        "Python 3"
+      ],
+      "source_preserved": true,
+      "change_summary": "All six original files and 90 global procedures preserved; typed calls, semantic workflow actions, read-only validation, Undo and runtime restoration, native gateway and promotion metadata.",
+      "prepared_at": "2026-09-30T17:16:53.967218+08:00"
     },
     {
       "source_path": "01_animation/anim_polish_premium_v1_23",
