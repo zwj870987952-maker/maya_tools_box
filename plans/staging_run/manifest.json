@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T00:33:52.996158+08:00",
+  "updated_at": "2026-10-01T00:56:46.214280+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/bh_speedlines",
+    "last_completed_tool": "01_animation/bh_wave_it",
     "last_usage": {
-      "five_hour_used_percent": 57.0,
-      "weekly_used_percent": 66.0,
-      "recorded_at": "2026-09-30T23:47:37.248688+08:00",
+      "five_hour_used_percent": 70.0,
+      "weekly_used_percent": 68.0,
+      "recorded_at": "2026-10-01T00:39:07.475913+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/bh_speedlines"
+    "current_tool": "01_animation/bh_wave_it"
   },
   "entry_repairs": [
     {
@@ -1997,7 +1997,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete original speedline geometry/curve/visibility/drawing suite and resources; explicit arguments, standard API, preference restoration and owned live-plane/scriptJob cleanup.",
-      "prepared_at": "2026-10-01T00:33:53.740981+08:00"
+      "prepared_at": "2026-10-01T00:33:53.740981+08:00",
+      "source_commit": "ef1268f32d549f81daa851a5970e2efc29a2f2ae"
     },
     {
       "source_path": "01_animation/bh_wave_it",
@@ -2008,20 +2009,83 @@
       "entry_candidates": [
         "bh_waveIt/bh_waveIt.mel"
       ],
-      "source_file_count": 3,
+      "source_file_count": 4,
       "source_files": [
         "bh_waveIt/bh_waveIt.mel"
       ],
       "license_files": [],
       "entry_sha256": "3c73caed21d2b2db9c81d1937832350474741d94a38d832e45074be1e5bfb789",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_first_offset_and_frequency_inside_sine (__main__.OfflineTests.test_first_offset_and_frequency_inside_sine) ... ok\r\ntest_full_source_and_resource_hashes (__main__.OfflineTests.test_full_source_and_resource_hashes) ... ok\r\ntest_schema_and_inventory_no_maya (__main__.OfflineTests.test_schema_and_inventory_no_maya) ... ok\r\ntest_strict_contract_and_presets (__main__.OfflineTests.test_strict_contract_and_presets) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.001s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"bh_wave_it\",\r\n  \"candidate_sha256\": \"22e0d26d0a4229a7a92062fa54ad0bfe6298a93681b7d9b1d39f05bb4be1b1a6\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\bh_wave_it.md\",\r\n    \"docs\\\\tools\\\\bh_wave_it_changes.diff\",\r\n    \"maya_toolkit\\\\tools\\\\bh_wave_it\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_wave_it\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\bh_wave_it\\\\contracts.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_wave_it\\\\runtime.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bh_wave_it\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_wave_it\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_wave_it\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_wave_it\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\bh_wave_it\\\\upstream\\\\bh_waveIt\\\\bh_waveIt.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bh_wave_it\\\\upstream\\\\bh_waveIt\\\\bh_waveIt_Icon.png\",\r\n    \"maya_toolkit\\\\tools\\\\bh_wave_it\\\\upstream\\\\\\u6b22\\u8fce\\u5173\\u6ce8\\u8bba\\u575b\\u5751\\u91cc\\u4eba \\u516c\\u4f17\\u53f7\\u52a8\\u753b\\u5e08.txt\",\r\n    \"tests\\\\test_bh_wave_it.py\",\r\n    \"tests\\\\test_bh_wave_it_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/bh_wave_it/release_candidate/tests/test_bh_wave_it_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_animation_no_explicit_keys (__main__.MayaTests.test_animation_no_explicit_keys) ... ok\r\ntest_base_offset_only_first_rotation (__main__.MayaTests.test_base_offset_only_first_rotation) ... ok\r\ntest_duplicate_leaf_and_reference_are_refused (__main__.MayaTests.test_duplicate_leaf_and_reference_are_refused) ... �ļ���ȡ����ʱ��Ϊ  0.0026 �롣\nok\r\ntest_failure_restores_selection_time_and_guard (__main__.MayaTests.test_failure_restores_selection_time_and_guard) ... ok\r\ntest_full_source_guard_and_gui_refusal (__main__.MayaTests.test_full_source_guard_and_gui_refusal) ... ����: �ڲ�д�������̽�����WaveItTool.run()\n# Traceback (most recent call last):\n#   File \"<maya console>\", line 1, in <module>\n#   File \"E:\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\bh_wave_it\\release_candidate\\maya_toolkit\\tools\\bh_wave_it\\runtime.py\", line 10, in require_active\n#     raise RuntimeError('�ڲ�д�������̽�����WaveItTool.run()')\n# RuntimeError: �ڲ�д�������̽�����WaveItTool.run()\nok\r\ntest_ordered_wave_multiple_axes_custom_and_undo (__main__.MayaTests.test_ordered_wave_multiple_axes_custom_and_undo) ... ����: WaveItTool_bh_wave_it\nok\r\ntest_presets_and_invert (__main__.MayaTests.test_presets_and_invert) ... ok\r\ntest_readonly_dryrun_preflight_lock_driver_components (__main__.MayaTests.test_readonly_dryrun_preflight_lock_driver_components) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.078s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "b93a11b3f40a809469cf44aeb76956c1d130cac3d675efc0f5a49415a4a8a852",
+          "runtime_source_sha256": "494db6113c4a37b664be3b09048ae2597002ee2b4a5ef0401be1c5d1cc91a96c"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "原生GUI滑条Interactive/Channel Box、非默认单位/整数属性、生产rig和autoKey开启未真人验收"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "22e0d26d0a4229a7a92062fa54ad0bfe6298a93681b7d9b1d39f05bb4be1b1a6",
+          "returncode": 0,
+          "output": "test_first_offset_and_frequency_inside_sine (__main__.OfflineTests.test_first_offset_and_frequency_inside_sine) ... ok\r\ntest_full_source_and_resource_hashes (__main__.OfflineTests.test_full_source_and_resource_hashes) ... ok\r\ntest_schema_and_inventory_no_maya (__main__.OfflineTests.test_schema_and_inventory_no_maya) ... ok\r\ntest_strict_contract_and_presets (__main__.OfflineTests.test_strict_contract_and_presets) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.002s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Native GUI/interactive sliders/channel box pending",
+        "Original overwrite values do not explicitly create animation keys",
+        "Degrees numeric result also applied to translations/custom attrs in current Maya units",
+        "Selection order determines wave and first-object offset"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 0,
@@ -2030,7 +2094,49 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "9814f1bc488b1a244ad05bd6efdfca6169be2eb9782103f0892f38539f8e8a16"
+      "source_tree_sha256": "7e45455aaea5c3596109ae7d6384cce46e7782d8664029523ff190d87d0355ed",
+      "candidate_path": "tools_staging_pool/01_animation/bh_wave_it/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/bh_wave_it/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "bh_wave_it",
+        "candidate_sha256": "22e0d26d0a4229a7a92062fa54ad0bfe6298a93681b7d9b1d39f05bb4be1b1a6",
+        "applied": false,
+        "files": [
+          "docs\\tools\\bh_wave_it.md",
+          "docs\\tools\\bh_wave_it_changes.diff",
+          "maya_toolkit\\tools\\bh_wave_it\\__init__.py",
+          "maya_toolkit\\tools\\bh_wave_it\\catalog.json",
+          "maya_toolkit\\tools\\bh_wave_it\\contracts.py",
+          "maya_toolkit\\tools\\bh_wave_it\\runtime.mel",
+          "maya_toolkit\\tools\\bh_wave_it\\runtime.py",
+          "maya_toolkit\\tools\\bh_wave_it\\tool.py",
+          "maya_toolkit\\tools\\bh_wave_it\\ui.py",
+          "maya_toolkit\\tools\\bh_wave_it\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\bh_wave_it\\upstream\\bh_waveIt\\bh_waveIt.mel",
+          "maya_toolkit\\tools\\bh_wave_it\\upstream\\bh_waveIt\\bh_waveIt_Icon.png",
+          "maya_toolkit\\tools\\bh_wave_it\\upstream\\欢迎关注论坛坑里人 公众号动画师.txt",
+          "tests\\test_bh_wave_it.py",
+          "tests\\test_bh_wave_it_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/bh_waveIt/bh_waveIt.mel",
+        "upstream/bh_waveIt/bh_waveIt_Icon.png",
+        "upstream/欢迎关注论坛坑里人 公众号动画师.txt",
+        "runtime.mel",
+        "catalog.json"
+      ],
+      "external_dependencies": [
+        "Maya Python3/native MEL",
+        "Actual Maya GUI for native controls/channel box",
+        "Existing maya_toolkit framework/core Undo"
+      ],
+      "source_preserved": true,
+      "change_summary": "Full ten-procedure wave/preset/base-offset/interactive native suite, strict ordered explicit API, read-only scalar channel preflight, ToolResult and Undo.",
+      "prepared_at": "2026-10-01T00:58:16.959702+08:00"
     },
     {
       "source_path": "01_animation/brs_loc_transfer",

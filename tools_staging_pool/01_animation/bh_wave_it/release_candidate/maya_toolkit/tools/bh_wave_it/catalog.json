@@ -1,0 +1,196 @@
+{
+  "tool_id": "bh_wave_it",
+  "original_procedures": [
+    "bh_waveIt",
+    "bh_waveVal",
+    "bh_invertFields",
+    "bh_basicS",
+    "bh_inverseS",
+    "bh_basicC",
+    "bh_inverseC",
+    "bh_baseOffset",
+    "bhResizeWaveUIToggle",
+    "bh_intCheck"
+  ],
+  "runtime_procedures": [
+    "mtbWI_bh_waveIt",
+    "mtbWI_bh_waveVal",
+    "mtbWI_bh_invertFields",
+    "mtbWI_bh_basicS",
+    "mtbWI_bh_inverseS",
+    "mtbWI_bh_basicC",
+    "mtbWI_bh_inverseC",
+    "mtbWI_bh_baseOffset",
+    "mtbWI_bhResizeWaveUIToggle",
+    "mtbWI_bh_intCheck",
+    "mtbWI_read_float",
+    "mtbWI_set_float",
+    "mtbWI_read_flag",
+    "mtbWI_read_attrs"
+  ],
+  "raw_files": [
+    {
+      "path": "upstream/bh_waveIt/bh_waveIt.mel",
+      "sha256": "3c73caed21d2b2db9c81d1937832350474741d94a38d832e45074be1e5bfb789"
+    },
+    {
+      "path": "upstream/bh_waveIt/bh_waveIt_Icon.png",
+      "sha256": "16821430d23e0961cb4fbd2813acd60ae09cdfcf420bde2fed9df5f18bf7f048"
+    },
+    {
+      "path": "upstream/欢迎关注论坛坑里人 公众号动画师.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "runtime_audit": {
+    "file": "E:\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\bh_wave_it\\release_candidate\\maya_toolkit\\tools\\bh_wave_it\\runtime.mel",
+    "sha256": "bcd1cbac0359c46d793fdc3525e1d4dcb45cb9440eb79b5f743edf3f81e7a506",
+    "bytes": 9896,
+    "lexical_decoding": "utf-8-sig",
+    "procedures": [
+      {
+        "name": "mtbWI_bh_waveIt",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 8,
+        "end_line": 110
+      },
+      {
+        "name": "mtbWI_bh_waveVal",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 117,
+        "end_line": 205
+      },
+      {
+        "name": "mtbWI_bh_invertFields",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 209,
+        "end_line": 221
+      },
+      {
+        "name": "mtbWI_bh_basicS",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 225,
+        "end_line": 232
+      },
+      {
+        "name": "mtbWI_bh_inverseS",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 234,
+        "end_line": 241
+      },
+      {
+        "name": "mtbWI_bh_basicC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 243,
+        "end_line": 250
+      },
+      {
+        "name": "mtbWI_bh_inverseC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 252,
+        "end_line": 259
+      },
+      {
+        "name": "mtbWI_bh_baseOffset",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 261,
+        "end_line": 286
+      },
+      {
+        "name": "mtbWI_bhResizeWaveUIToggle",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 297,
+        "end_line": 316
+      },
+      {
+        "name": "mtbWI_bh_intCheck",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 319,
+        "end_line": 328
+      },
+      {
+        "name": "mtbWI_read_float",
+        "global_scope": true,
+        "return_type": "float",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "string"
+          }
+        ],
+        "line": 330,
+        "end_line": 330
+      },
+      {
+        "name": "mtbWI_set_float",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "value",
+            "type": "float"
+          }
+        ],
+        "line": 331,
+        "end_line": 331
+      },
+      {
+        "name": "mtbWI_read_flag",
+        "global_scope": true,
+        "return_type": "int",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "string"
+          }
+        ],
+        "line": 332,
+        "end_line": 332
+      },
+      {
+        "name": "mtbWI_read_attrs",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 333,
+        "end_line": 333
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority"
+  },
+  "source_license": "Provided toolkit; independent redistribution authorization absent, private preparation",
+  "changes": [
+    "Remove both import-time windows",
+    "Private procedures/widgets",
+    "Typed explicit ordered objects, axes and custom attributes",
+    "Native sliders/presets use standard API",
+    "Original 6.28/rad_to_deg arithmetic and first-object base offset preserved"
+  ]
+}

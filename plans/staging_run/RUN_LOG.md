@@ -151,3 +151,12 @@
 - owned plane/shapes/live/context UUID记录，外部同名/子对象/消费者拒绝；只按已保存ID清理自身parented EP ToolChanged和Undo job，关闭窗口/Undo deferred路径预制。平面重命名仍可stop，深度固定名操作拒绝。Undo/Redo不宣称自动复原GUI上下文和任务。
 - 4普通Python及9 Maya2025隔离检查通过，实际几何/曲线/法线/可见性键/偏好/Undo/层、guard/故障恢复与headless owned-plane fixture；正式布局及注册预览通过，指纹匹配。headless没有currentCtx，清理跳过GUI上下文命令；转换偏好恢复异常仍尝试恢复时间/选择并关闭guard。
 - 实际polyReduce显示已有历史导致ch=0被忽略，说明中保留此限制。鼠标绘画/start_draw、滑条、EP/Pencil、ToolChanged/关闭/deferred Undo均未运行真实GUI，仍prepared_unverified；完整人工步骤和知识说明齐备，正式库未改。
+
+- bh_speedLines完整候选提交ef1268f，收尾实际额度70%/68%已用，进入bh_wave_it。
+
+## 2026-10-01：bh_waveIt 完整候选，累计15/109
+
+- 原十过程/完整compact-advanced窗口和三资源保留，移除两次顶层开窗；四typed参数reader/setter，无业务窗口查询。原6.28/rad_to_deg公式、S/C/invert、首对象base offset覆盖语义保留；显式有序数组确保选择顺序不被排序，UI滑条/预设走标准API。
+- 无副作用标量通道预检，引用/锁/外部驱动/缺失属性/歧义拒绝，Undo分组/finally时间与组件选择/guard恢复。不显式打键，实际autoKey关闭旧键不变，切时间恢复原曲线。位移/custom使用同一角度数值，当前单位/整数强制转换/拖动Undo数量均写明。
+- 普通Python四项、Maya2025隔离八项、临时正式布局注册通过且指纹匹配；真实多轴/custom/有序/预设/首对象/Undo/reference/故障/动画检查。早期角度内部浮点3.0000000000000004/6.000000000000001导致fixture严格相等失败，改近似比较，原算法未改。
+- GUI/Interactive/Channel Box、autoKey开启/非默认单位/制作rig仍not_run，完整知识/人工验收/晋级清单已预制，只保留待整理候选；heartbeat暂停，无卡消费/正式库改动/Obsidian同步。

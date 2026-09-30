@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/bh_wave_it/release_candidate/tests/test_bh_wave_it_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_animation_no_explicit_keys (__main__.MayaTests.test_animation_no_explicit_keys) ... ok\r\ntest_base_offset_only_first_rotation (__main__.MayaTests.test_base_offset_only_first_rotation) ... ok\r\ntest_duplicate_leaf_and_reference_are_refused (__main__.MayaTests.test_duplicate_leaf_and_reference_are_refused) ... �ļ���ȡ����ʱ��Ϊ  0.0026 �롣\nok\r\ntest_failure_restores_selection_time_and_guard (__main__.MayaTests.test_failure_restores_selection_time_and_guard) ... ok\r\ntest_full_source_guard_and_gui_refusal (__main__.MayaTests.test_full_source_guard_and_gui_refusal) ... ����: �ڲ�д�������̽�����WaveItTool.run()\n# Traceback (most recent call last):\n#   File \"<maya console>\", line 1, in <module>\n#   File \"E:\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\bh_wave_it\\release_candidate\\maya_toolkit\\tools\\bh_wave_it\\runtime.py\", line 10, in require_active\n#     raise RuntimeError('�ڲ�д�������̽�����WaveItTool.run()')\n# RuntimeError: �ڲ�д�������̽�����WaveItTool.run()\nok\r\ntest_ordered_wave_multiple_axes_custom_and_undo (__main__.MayaTests.test_ordered_wave_multiple_axes_custom_and_undo) ... ����: WaveItTool_bh_wave_it\nok\r\ntest_presets_and_invert (__main__.MayaTests.test_presets_and_invert) ... ok\r\ntest_readonly_dryrun_preflight_lock_driver_components (__main__.MayaTests.test_readonly_dryrun_preflight_lock_driver_components) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.078s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "b93a11b3f40a809469cf44aeb76956c1d130cac3d675efc0f5a49415a4a8a852",
+  "runtime_source_sha256": "494db6113c4a37b664be3b09048ae2597002ee2b4a5ef0401be1c5d1cc91a96c"
+}

@@ -1,0 +1,90 @@
+{
+  "tool_id": "bh_wave_it",
+  "registration": {
+    "module": "bh_wave_it",
+    "class_name": "WaveItTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/bh_wave_it.md",
+      "target": "docs/tools/bh_wave_it.md"
+    },
+    {
+      "source": "docs/tools/bh_wave_it_changes.diff",
+      "target": "docs/tools/bh_wave_it_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_wave_it/__init__.py",
+      "target": "maya_toolkit/tools/bh_wave_it/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_wave_it/catalog.json",
+      "target": "maya_toolkit/tools/bh_wave_it/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_wave_it/contracts.py",
+      "target": "maya_toolkit/tools/bh_wave_it/contracts.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_wave_it/runtime.mel",
+      "target": "maya_toolkit/tools/bh_wave_it/runtime.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_wave_it/runtime.py",
+      "target": "maya_toolkit/tools/bh_wave_it/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_wave_it/tool.py",
+      "target": "maya_toolkit/tools/bh_wave_it/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_wave_it/ui.py",
+      "target": "maya_toolkit/tools/bh_wave_it/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_wave_it/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/bh_wave_it/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_wave_it/upstream/bh_waveIt/bh_waveIt.mel",
+      "target": "maya_toolkit/tools/bh_wave_it/upstream/bh_waveIt/bh_waveIt.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_wave_it/upstream/bh_waveIt/bh_waveIt_Icon.png",
+      "target": "maya_toolkit/tools/bh_wave_it/upstream/bh_waveIt/bh_waveIt_Icon.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_wave_it/upstream/欢迎关注论坛坑里人 公众号动画师.txt",
+      "target": "maya_toolkit/tools/bh_wave_it/upstream/欢迎关注论坛坑里人 公众号动画师.txt"
+    },
+    {
+      "source": "tests/test_bh_wave_it.py",
+      "target": "tests/test_bh_wave_it.py"
+    },
+    {
+      "source": "tests/test_bh_wave_it_maya.py",
+      "target": "tests/test_bh_wave_it_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/bh_waveIt/bh_waveIt.mel",
+    "upstream/bh_waveIt/bh_waveIt_Icon.png",
+    "upstream/欢迎关注论坛坑里人 公众号动画师.txt",
+    "runtime.mel",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya Python3/native MEL",
+    "Actual Maya GUI for native controls/channel box",
+    "Existing maya_toolkit framework/core Undo"
+  ],
+  "source": "../bh_waveIt/bh_waveIt.mel",
+  "change_summary": "Full ten-procedure wave/preset/base-offset/interactive native suite, strict ordered explicit API, read-only scalar channel preflight, ToolResult and Undo.",
+  "verification_limitations": [
+    "Native GUI/interactive sliders/channel box pending",
+    "Original overwrite values do not explicitly create animation keys",
+    "Degrees numeric result also applied to translations/custom attrs in current Maya units",
+    "Selection order determines wave and first-object offset"
+  ],
+  "acceptance_required": true
+}
