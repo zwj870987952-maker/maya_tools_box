@@ -83,3 +83,12 @@
 - 首次收尾额度读取暂时失败，未当作额度为零；提交前后重读，再记录实际检查点。
 
 - AnimPolish 提交 03faa9d；收尾读数恢复成功为 5 小时已用 70%、周已用 52%；heartbeat 继续暂停，无重置卡兑换。下一项 animation_retarget 已标 working。
+
+## 2026-09-30：动画重定向完整候选，累计 9/109
+
+- 原始自有 Python 按字节完整保留；全部 Qt 界面交互保留，业务迁移为 align/numeric_copy/bake/load_scene/restore_pose/save_config/load_config 标准接口，使用现有 core Qt 兼容层与框架 Undo。
+- 修复原脚本全局 Constraint_SelectionSet 误删风险：仅删除所选目标的候选约束，校验 UUID、所有权、pair_id 和输出目标；network 姿态记录不占用原 Rematch 组，兼容旧 Rematch/JSON 读取，类型化字符串/向量/矩阵姿态与命名空间/长路径。
+- 保留原 maintainOffset、TRS 模式默认值、源对象帧并集和两种 bakeResults 参数；明确记录 bake 不受 none 限制。源/目标姿态提前到约束创建前，数值复合属性拆子通道，配置保存不覆盖，执行 finally 恢复时间与选择。
+- 5 项普通 Python 检查通过，12 项 Maya2025 隔离实节点检查通过：约束偏移、数值/小数帧/自定义向量、默认/智能烘焙与 Undo、外部约束集合保持、重命名与同名替身 UUID 防护、类型化 JSON/旧姿态、无副作用预检、文件保护和异常恢复。首次旧姿态 fixture 硬编码 source 失败，Maya 实际创建 source1；修正为实际返回节点名后通过，未把最初失败记成通过。
+- 临时正式布局下离线检查及真实 ToolRegistry 注册/面板入口查询通过；正式库没有写入。Python/runtime 指纹与 mayapy 报告匹配，晋级预览 applied=false；candidate_complete=true、prepared_unverified，真实 GUI/复杂绑定/旧分隔符歧义姿态仍待真人。
+- 收尾最新读数为 5 小时已用 84%、周已用 54%，继续读取并保存下一项检查点。没有兑换重置卡，没有改长期规则或同步 Obsidian。

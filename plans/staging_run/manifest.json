@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T17:59:52.892195+08:00",
+  "updated_at": "2026-09-30T18:25:35.750913+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,7 +11,7 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/anim_polish_premium_v1_23",
+    "last_completed_tool": "01_animation/animation_retarget",
     "last_usage": {
       "five_hour_used_percent": 70.0,
       "weekly_used_percent": 52.0,
@@ -1167,14 +1167,64 @@
       ],
       "license_files": [],
       "entry_sha256": "a16c733ff17fc935cb4124f6ac2e682657c9d0770486d6c622624047b2d1cf41",
-      "status": "working",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_files_are_read_only_in_preflight_and_collision_protected (__main__.OfflineTests.test_files_are_read_only_in_preflight_and_collision_protected) ... ok\r\ntest_full_ui_classes_modes_and_edit_actions_retained (__main__.OfflineTests.test_full_ui_classes_modes_and_edit_actions_retained) ... ok\r\ntest_invalid_modes_names_duplicates_ranges_rejected (__main__.OfflineTests.test_invalid_modes_names_duplicates_ranges_rejected) ... ok\r\ntest_legacy_config_and_modes_round_trip (__main__.OfflineTests.test_legacy_config_and_modes_round_trip) ... ok\r\ntest_source_hash_metadata_and_lazy_ui (__main__.OfflineTests.test_source_hash_metadata_and_lazy_ui) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.027s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"animation_retarget\",\r\n  \"candidate_sha256\": \"d38af73b73aec656f898d9c467b6945b1dd9ce8618c37493f11a5d11f8a574e0\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\animation_retarget.md\",\r\n    \"docs\\\\tools\\\\animation_retarget_ui_changes.diff\",\r\n    \"maya_toolkit\\\\tools\\\\animation_retarget\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\animation_retarget\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\animation_retarget\\\\contracts.py\",\r\n    \"maya_toolkit\\\\tools\\\\animation_retarget\\\\operations.py\",\r\n    \"maya_toolkit\\\\tools\\\\animation_retarget\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\animation_retarget\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\animation_retarget\\\\upstream\\\\\\u52a8\\u753b\\u91cd\\u5b9a\\u5411.py\",\r\n    \"tests\\\\test_animation_retarget.py\",\r\n    \"tests\\\\test_animation_retarget_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/animation_retarget/release_candidate/tests/test_animation_retarget_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_all_constraint_modes_offsets_and_one_step_undo (__main__.MayaTests.test_all_constraint_modes_offsets_and_one_step_undo) ... ����: \n����: \n����: AnimationRetargetTool_animation_retarget\nok\r\ntest_bake_only_selected_owned_constraints_foreign_set_untouched (__main__.MayaTests.test_bake_only_selected_owned_constraints_foreign_set_untouched) ... ����: AnimationRetargetTool_animation_retarget\nok\r\ntest_dry_run_no_scene_time_selection_or_undo_changes (__main__.MayaTests.test_dry_run_no_scene_time_selection_or_undo_changes) ... ok\r\ntest_execution_exception_restores_time_and_selection (__main__.MayaTests.test_execution_exception_restores_time_and_selection) ... ok\r\ntest_json_pose_strings_and_rename_uuid (__main__.MayaTests.test_json_pose_strings_and_rename_uuid) ... ����: AnimationRetargetTool_animation_retarget\nok\r\ntest_legacy_scene_info_and_pose (__main__.MayaTests.test_legacy_scene_info_and_pose) ... ok\r\ntest_numeric_union_fractional_frames_custom_vector_children (__main__.MayaTests.test_numeric_union_fractional_frames_custom_vector_children) ... ����: AnimationRetargetTool_animation_retarget\nok\r\ntest_owned_constraint_rename_and_deleted_name_reuse_guard (__main__.MayaTests.test_owned_constraint_rename_and_deleted_name_reuse_guard) ... ok\r\ntest_preflight_locked_driven_ambiguous_cycle_rejected (__main__.MayaTests.test_preflight_locked_driven_ambiguous_cycle_rejected) ... ok\r\ntest_save_load_exclusive_file_dry_run (__main__.MayaTests.test_save_load_exclusive_file_dry_run) ... ok\r\ntest_scene_and_restore_preflight_no_mutation_and_undo_required (__main__.MayaTests.test_scene_and_restore_preflight_no_mutation_and_undo_required) ... ok\r\ntest_smart_bake_real_command (__main__.MayaTests.test_smart_bake_real_command) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 12 tests in 0.383s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "d947fc28855deed4792a8611e748bfb2a681bd49e37992bd1f71fdd5e38411b6",
+          "runtime_source_sha256": "4d01a2ecacdee471285176893a3247ca472a9f99a8409b8f3fefb9e9fc949520"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya GUI and complex production rigs require human acceptance"
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI pending",
+        "Legacy comma/colon custom attribute pose data can be ambiguous",
+        "Bake affects all bakeable channels regardless of pair modes",
+        "Restore skips locked/driven/unmatched attributes",
+        "Execution errors may leave partial scene changes; Undo the complete chunk"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -1183,7 +1233,42 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "91da5d69d4626f6c6b3977adb605bde39d017cb131bc5ca8df3c2c7e79cde60d"
+      "source_tree_sha256": "91da5d69d4626f6c6b3977adb605bde39d017cb131bc5ca8df3c2c7e79cde60d",
+      "candidate_path": "tools_staging_pool/01_animation/animation_retarget/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/animation_retarget/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "animation_retarget",
+        "candidate_sha256": "d38af73b73aec656f898d9c467b6945b1dd9ce8618c37493f11a5d11f8a574e0",
+        "applied": false,
+        "files": [
+          "docs\\tools\\animation_retarget.md",
+          "docs\\tools\\animation_retarget_ui_changes.diff",
+          "maya_toolkit\\tools\\animation_retarget\\__init__.py",
+          "maya_toolkit\\tools\\animation_retarget\\catalog.json",
+          "maya_toolkit\\tools\\animation_retarget\\contracts.py",
+          "maya_toolkit\\tools\\animation_retarget\\operations.py",
+          "maya_toolkit\\tools\\animation_retarget\\tool.py",
+          "maya_toolkit\\tools\\animation_retarget\\ui.py",
+          "maya_toolkit\\tools\\animation_retarget\\upstream\\动画重定向.py",
+          "tests\\test_animation_retarget.py",
+          "tests\\test_animation_retarget_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/动画重定向.py",
+        "catalog.json"
+      ],
+      "external_dependencies": [
+        "Maya Python 3",
+        "existing maya_toolkit framework/core/ui_base",
+        "PySide2 or PySide6 only for GUI"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete owned retarget UI and business API; preserve modes/offsets/default and smart bake; UUID tracked owned constraints, typed JSON poses, source-frame numeric copying, old config and Rematch reading, read-only preflight, Undo grouping and exclusive file creation.",
+      "prepared_at": "2026-09-30T18:26:30.043674+08:00"
     },
     {
       "source_path": "01_animation/animirror_v2_0",

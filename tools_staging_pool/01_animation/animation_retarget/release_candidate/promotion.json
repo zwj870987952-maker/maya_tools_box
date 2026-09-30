@@ -1,0 +1,72 @@
+{
+  "tool_id": "animation_retarget",
+  "registration": {
+    "module": "animation_retarget",
+    "class_name": "AnimationRetargetTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/animation_retarget.md",
+      "target": "docs/tools/animation_retarget.md"
+    },
+    {
+      "source": "docs/tools/animation_retarget_ui_changes.diff",
+      "target": "docs/tools/animation_retarget_ui_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/animation_retarget/__init__.py",
+      "target": "maya_toolkit/tools/animation_retarget/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animation_retarget/catalog.json",
+      "target": "maya_toolkit/tools/animation_retarget/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/animation_retarget/contracts.py",
+      "target": "maya_toolkit/tools/animation_retarget/contracts.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animation_retarget/operations.py",
+      "target": "maya_toolkit/tools/animation_retarget/operations.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animation_retarget/tool.py",
+      "target": "maya_toolkit/tools/animation_retarget/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animation_retarget/ui.py",
+      "target": "maya_toolkit/tools/animation_retarget/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animation_retarget/upstream/动画重定向.py",
+      "target": "maya_toolkit/tools/animation_retarget/upstream/动画重定向.py"
+    },
+    {
+      "source": "tests/test_animation_retarget.py",
+      "target": "tests/test_animation_retarget.py"
+    },
+    {
+      "source": "tests/test_animation_retarget_maya.py",
+      "target": "tests/test_animation_retarget_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/动画重定向.py",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya Python 3",
+    "existing maya_toolkit framework/core/ui_base",
+    "PySide2 or PySide6 only for GUI"
+  ],
+  "source": "../动画重定向.py",
+  "change_summary": "Complete owned retarget UI and business API; preserve modes/offsets/default and smart bake; UUID tracked owned constraints, typed JSON poses, source-frame numeric copying, old config and Rematch reading, read-only preflight, Undo grouping and exclusive file creation.",
+  "verification_limitations": [
+    "Real Maya GUI pending",
+    "Legacy comma/colon custom attribute pose data can be ambiguous",
+    "Bake affects all bakeable channels regardless of pair modes",
+    "Restore skips locked/driven/unmatched attributes",
+    "Execution errors may leave partial scene changes; Undo the complete chunk"
+  ],
+  "acceptance_required": true
+}
