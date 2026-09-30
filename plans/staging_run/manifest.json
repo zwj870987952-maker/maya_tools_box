@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T06:41:32.341378+08:00",
+  "updated_at": "2026-10-01T06:49:52.201436+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/kf_animrig_ikfk",
+    "last_completed_tool": "01_animation/lock_to_world",
     "last_usage": {
-      "five_hour_used_percent": 78.0,
+      "five_hour_used_percent": 83.0,
       "weekly_used_percent": 83.0,
-      "recorded_at": "2026-10-01T06:24:18.474707+08:00",
+      "recorded_at": "2026-10-01T06:42:12.294943+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/kf_animrig_ikfk"
+    "current_tool": "01_animation/lock_to_world"
   },
   "entry_repairs": [
     {
@@ -4603,7 +4603,7 @@
       "source_preserved": true,
       "change_summary": "Complete native matrix retarget/UI, frozen-pivot matrix capture via equivalent read-only API, structured UUID/context snapshot and guarded scene/key/plugin lifetime.",
       "prepared_at": "2026-10-01T06:39:09.989222+08:00",
-      "source_commit": "0546e5d3ce2ee9399e66248deb9dffa5368fa1a0"
+      "source_commit": "de76c37d53b727c3f4b9fffd5edb01fc7c16ad1f"
     },
     {
       "source_path": "01_animation/keyframe_overlap_v2_0",
@@ -4886,7 +4886,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete seven original MEL procedures and native UI, private procedure names, guarded target writes/helper deletes, explicit reference consent, Python timeline with finally state restoration.",
-      "prepared_at": "2026-10-01T06:41:30.621321+08:00"
+      "prepared_at": "2026-10-01T06:41:30.621321+08:00",
+      "source_commit": "de76c37d53b727c3f4b9fffd5edb01fc7c16ad1f"
     },
     {
       "source_path": "01_animation/lock_to_world",
@@ -4897,21 +4898,84 @@
       "entry_candidates": [
         "jop_lockToWorld.py"
       ],
-      "source_file_count": 2,
+      "source_file_count": 3,
       "source_files": [
         "jop_lockToWorld.py",
         "jop_lockToWorld启动.py"
       ],
       "license_files": [],
       "entry_sha256": "c4f221db32ac30d136070cfc021e93e8645e4fae96b49b356b0e6e9021ebc900",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_lazy_import_schema_and_strict_integer_mask (__main__.OfflineTests.test_lazy_import_schema_and_strict_integer_mask) ... ok\r\ntest_source_and_full_ui_algorithm (__main__.OfflineTests.test_source_and_full_ui_algorithm) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.003s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"lock_to_world\",\r\n  \"candidate_sha256\": \"3b03b80e4bdb3b0b0806fd905265a6968281a900e313bbb2e13c8328e91d2b75\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\lock_to_world.md\",\r\n    \"docs\\\\tools\\\\lock_to_world_changes.diff\",\r\n    \"maya_toolkit\\\\tools\\\\lock_to_world\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\lock_to_world\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\lock_to_world\\\\matrix_support.py\",\r\n    \"maya_toolkit\\\\tools\\\\lock_to_world\\\\native.py\",\r\n    \"maya_toolkit\\\\tools\\\\lock_to_world\\\\proxy.py\",\r\n    \"maya_toolkit\\\\tools\\\\lock_to_world\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\lock_to_world\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\lock_to_world\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\lock_to_world\\\\upstream\\\\jop_lockToWorld.py\",\r\n    \"maya_toolkit\\\\tools\\\\lock_to_world\\\\upstream\\\\jop_lockToWorld\\u542f\\u52a8.py\",\r\n    \"tests\\\\test_lock_to_world.py\",\r\n    \"tests\\\\test_lock_to_world_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/lock_to_world/release_candidate/tests/test_lock_to_world_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_frozen_multi_mask_dry_and_channel_scope (__main__.MayaTests.test_frozen_multi_mask_dry_and_channel_scope) ... ����: Success : 1 object(s) was lockToWorld\n����: LockToWorldTool_lock_to_world\n����: Success : 1 object(s) was lockToWorld\n����: LockToWorldTool_lock_to_world\n����: Success : 2 object(s) was lockToWorld\n����: LockToWorldTool_lock_to_world\nok\r\ntest_full_lock_all_orders_parent_motion_and_undo (__main__.MayaTests.test_full_lock_all_orders_parent_motion_and_undo) ... ����: Success : 1 object(s) was lockToWorld\n����: LockToWorldTool_lock_to_world\n����: Success : 1 object(s) was lockToWorld\n����: LockToWorldTool_lock_to_world\n����: Success : 1 object(s) was lockToWorld\n����: LockToWorldTool_lock_to_world\n����: Success : 1 object(s) was lockToWorld\n����: LockToWorldTool_lock_to_world\n����: Success : 1 object(s) was lockToWorld\n����: LockToWorldTool_lock_to_world\n����: Success : 1 object(s) was lockToWorld\n����: LockToWorldTool_lock_to_world\nok\r\ntest_guards_failure_cleanup_and_finally (__main__.MayaTests.test_guards_failure_cleanup_and_finally) ... ����: \n����: LockToWorldTool_lock_to_world\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.104s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "b89b22a8753cfbdf4ffe1e8760f5a0b94a48807462e0feb3461e347a96c1a6b4",
+          "runtime_source_sha256": "33b7cccf95a1a0aa2bc7c3bfc0cae9cfd342564fd8d3d186734ec7041c448d48"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real GUI channelBox/reference controls and production foot contact rigs pending"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "3b03b80e4bdb3b0b0806fd905265a6968281a900e313bbb2e13c8328e91d2b75",
+          "returncode": 0,
+          "output": "test_lazy_import_schema_and_strict_integer_mask (__main__.OfflineTests.test_lazy_import_schema_and_strict_integer_mask) ... ok\r\ntest_source_and_full_ui_algorithm (__main__.OfflineTests.test_source_and_full_ui_algorithm) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.002s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real GUI/production parent scale/pivots and foot contact acceptance pending",
+        "Partial local channels cannot promise complete world-space lock",
+        "Degree/cm, static pivots, zero target rotateAxis/pivotTranslate and identity offsetParentMatrix required",
+        "Integer frame ranges only; plugin state is not scene Undo"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 2,
@@ -4920,7 +4984,45 @@
         "possible_top_level_calls": 2,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "06d49925df448616bf37ca4f816510cd081a06e457a771817d5e6b04ba5874ba"
+      "source_tree_sha256": "fe9d4f280f41c60de89c22cf7e1312dac148790239be1854d2929c2837629994",
+      "candidate_path": "tools_staging_pool/01_animation/lock_to_world/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/lock_to_world/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "lock_to_world",
+        "candidate_sha256": "3b03b80e4bdb3b0b0806fd905265a6968281a900e313bbb2e13c8328e91d2b75",
+        "applied": false,
+        "files": [
+          "docs\\tools\\lock_to_world.md",
+          "docs\\tools\\lock_to_world_changes.diff",
+          "maya_toolkit\\tools\\lock_to_world\\__init__.py",
+          "maya_toolkit\\tools\\lock_to_world\\catalog.json",
+          "maya_toolkit\\tools\\lock_to_world\\matrix_support.py",
+          "maya_toolkit\\tools\\lock_to_world\\native.py",
+          "maya_toolkit\\tools\\lock_to_world\\proxy.py",
+          "maya_toolkit\\tools\\lock_to_world\\runtime.py",
+          "maya_toolkit\\tools\\lock_to_world\\tool.py",
+          "maya_toolkit\\tools\\lock_to_world\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\lock_to_world\\upstream\\jop_lockToWorld.py",
+          "maya_toolkit\\tools\\lock_to_world\\upstream\\jop_lockToWorld启动.py",
+          "tests\\test_lock_to_world.py",
+          "tests\\test_lock_to_world_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/jop_lockToWorld.py",
+        "upstream/jop_lockToWorld启动.py",
+        "catalog.json"
+      ],
+      "external_dependencies": [
+        "Maya cmds/OpenMaya API2, matrix/quat nodes loaded only if required",
+        "BaseMayaTool/Undo"
+      ],
+      "source_preserved": true,
+      "change_summary": "Full native start-matrix/per-frame parent compensation, frozen pivot, channel mask/UI with readonly preflight/Undo and owned helpers; vendored support has no staging dependencies.",
+      "prepared_at": "2026-10-01T06:49:50.422303+08:00"
     },
     {
       "source_path": "01_animation/maya_keyframe_reduction",

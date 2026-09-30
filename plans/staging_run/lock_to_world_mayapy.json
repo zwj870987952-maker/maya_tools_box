@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/lock_to_world/release_candidate/tests/test_lock_to_world_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_frozen_multi_mask_dry_and_channel_scope (__main__.MayaTests.test_frozen_multi_mask_dry_and_channel_scope) ... ����: Success : 1 object(s) was lockToWorld\n����: LockToWorldTool_lock_to_world\n����: Success : 1 object(s) was lockToWorld\n����: LockToWorldTool_lock_to_world\n����: Success : 2 object(s) was lockToWorld\n����: LockToWorldTool_lock_to_world\nok\r\ntest_full_lock_all_orders_parent_motion_and_undo (__main__.MayaTests.test_full_lock_all_orders_parent_motion_and_undo) ... ����: Success : 1 object(s) was lockToWorld\n����: LockToWorldTool_lock_to_world\n����: Success : 1 object(s) was lockToWorld\n����: LockToWorldTool_lock_to_world\n����: Success : 1 object(s) was lockToWorld\n����: LockToWorldTool_lock_to_world\n����: Success : 1 object(s) was lockToWorld\n����: LockToWorldTool_lock_to_world\n����: Success : 1 object(s) was lockToWorld\n����: LockToWorldTool_lock_to_world\n����: Success : 1 object(s) was lockToWorld\n����: LockToWorldTool_lock_to_world\nok\r\ntest_guards_failure_cleanup_and_finally (__main__.MayaTests.test_guards_failure_cleanup_and_finally) ... ����: \n����: LockToWorldTool_lock_to_world\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.104s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "b89b22a8753cfbdf4ffe1e8760f5a0b94a48807462e0feb3461e347a96c1a6b4",
+  "runtime_source_sha256": "33b7cccf95a1a0aa2bc7c3bfc0cae9cfd342564fd8d3d186734ec7041c448d48"
+}

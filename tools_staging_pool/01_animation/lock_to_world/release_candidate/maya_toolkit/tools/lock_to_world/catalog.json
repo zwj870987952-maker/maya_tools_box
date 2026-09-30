@@ -1,0 +1,35 @@
+{
+  "raw_files": [
+    {
+      "path": "upstream/jop_lockToWorld.py",
+      "sha256": "c4f221db32ac30d136070cfc021e93e8645e4fae96b49b356b0e6e9021ebc900"
+    },
+    {
+      "path": "upstream/jop_lockToWorld启动.py",
+      "sha256": "7d79b6a4f33cad53f03edfc08924c9befa6132f4c1da248939bfb6104146d506"
+    }
+  ],
+  "functions": [
+    "checkEmptySelection",
+    "hasBeenFrozen",
+    "createMultDecompeCombo",
+    "createQuatToEuler",
+    "createPlusMinusAverage",
+    "getSelectedChannelBoxAttributes",
+    "getSelectedAttrList",
+    "getOutput",
+    "getWorldMatrixStartPosition",
+    "setKeysToCtrl",
+    "snapCtlFromMatrixList",
+    "lockToWorld",
+    "main"
+  ],
+  "ui_methods": [
+    "__init__",
+    "create",
+    "updateStartButton",
+    "updateEndButton"
+  ],
+  "license": "Jesse ONG PHO copyright; no separate license supplied. Private local candidate.",
+  "private_reuse": "Vendored equivalent matrix/pivot/quat plugin and ownership helpers from reviewed JOP candidate, self-contained."
+}

@@ -275,3 +275,9 @@
 - 普通Python2项+完整MEL编译与引用手臂2组mayapy+临时正式布局注册/面板/Schema/指纹通过：实际Hand位置/旋转/Pole、单帧/逐帧1/2/3和Undo、dry/引用默认拒绝、AutoKey/时间/选择/助手清理、注入helper属性失败finally/Undo。真实GUI、原rig、反向FK stretch/腿狗腿样条尚未运行，prepared_unverified。
 - 顺带按第28项发现的Maya带shape listHistory遗漏TR曲线，补第27项JOP直接曲线连接和compound驱动检查，fixture增加实际curve shape，五组重新通过并刷新全部匹配报告。JOP计数不重复。
 - 实际收尾5小时83%/周83%已用，继续下一项；heartbeat暂停，无卡/购买/同步/转正。
+## 2026-10-01：Lock to World完整候选，累计30/109
+
+- Jesse ONG PHO v09全部13函数/4UI方法/2原资源完整保留。完整起始世界矩阵/逐整数帧父逆补偿/quat目标order/冻结pivot减法/通道掩码与Start-End-Lock窗口；未附独立license私有不发布。矩阵/identity/plugin/助手支持从审阅JOP候选复制进本payload，无其他staging运行依赖，不提前下沉正式core。
+- import插件加载去掉，冻结采样用只读API2；整数范围/degree-cm/唯一transform/静态pivot/额外变换限制/选中通道锁引用共享与compound驱动/奇异矩阵/总量预检。APIattributes与channelBox显式互斥，原UI长名短名正规化，子帧按钮值明确拒绝不截断。原吞异常并误报rotateOrder改真实异常，finally清自有助手/AutoKey/时间/选择/namespace；标准Undo，插件不归sceneUndo，无文件写。
+- 普通Python2项、Maya2025隔离3组、临时正式布局注册/面板/Schema/全部指纹通过：六order+动画父级worldMatrix逐帧保持、冻结worldpivot、多控制器无键新目标、只读dry、仅tx时未选ry锁与旋转曲线保持、共享/动态pivot/GUI batch/privatewrite保护、第二键失败真实错误cleanup/finally/Undo。初测锁通道被Maya对象keyframe查询排除，改直接曲线查询避免测试误判。
+- 真人GUI/channelBox/引用业务/真实脚底IK接触和复杂scale仍待验prepared_unverified；完整文档/验收/晋级备齐。实际收尾5小时88%/周84%已用，继续下一项，无卡/购买/同步/转正，heartbeat暂停。

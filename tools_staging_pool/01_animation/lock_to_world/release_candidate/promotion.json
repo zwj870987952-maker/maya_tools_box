@@ -1,0 +1,83 @@
+{
+  "tool_id": "lock_to_world",
+  "registration": {
+    "module": "lock_to_world",
+    "class_name": "LockToWorldTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/lock_to_world.md",
+      "target": "docs/tools/lock_to_world.md"
+    },
+    {
+      "source": "docs/tools/lock_to_world_changes.diff",
+      "target": "docs/tools/lock_to_world_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/lock_to_world/__init__.py",
+      "target": "maya_toolkit/tools/lock_to_world/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/lock_to_world/catalog.json",
+      "target": "maya_toolkit/tools/lock_to_world/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/lock_to_world/matrix_support.py",
+      "target": "maya_toolkit/tools/lock_to_world/matrix_support.py"
+    },
+    {
+      "source": "maya_toolkit/tools/lock_to_world/native.py",
+      "target": "maya_toolkit/tools/lock_to_world/native.py"
+    },
+    {
+      "source": "maya_toolkit/tools/lock_to_world/proxy.py",
+      "target": "maya_toolkit/tools/lock_to_world/proxy.py"
+    },
+    {
+      "source": "maya_toolkit/tools/lock_to_world/runtime.py",
+      "target": "maya_toolkit/tools/lock_to_world/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/lock_to_world/tool.py",
+      "target": "maya_toolkit/tools/lock_to_world/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/lock_to_world/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/lock_to_world/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/lock_to_world/upstream/jop_lockToWorld.py",
+      "target": "maya_toolkit/tools/lock_to_world/upstream/jop_lockToWorld.py"
+    },
+    {
+      "source": "maya_toolkit/tools/lock_to_world/upstream/jop_lockToWorld启动.py",
+      "target": "maya_toolkit/tools/lock_to_world/upstream/jop_lockToWorld启动.py"
+    },
+    {
+      "source": "tests/test_lock_to_world.py",
+      "target": "tests/test_lock_to_world.py"
+    },
+    {
+      "source": "tests/test_lock_to_world_maya.py",
+      "target": "tests/test_lock_to_world_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/jop_lockToWorld.py",
+    "upstream/jop_lockToWorld启动.py",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya cmds/OpenMaya API2, matrix/quat nodes loaded only if required",
+    "BaseMayaTool/Undo"
+  ],
+  "source": "../jop_lockToWorld.py",
+  "change_summary": "Full native start-matrix/per-frame parent compensation, frozen pivot, channel mask/UI with readonly preflight/Undo and owned helpers; vendored support has no staging dependencies.",
+  "verification_limitations": [
+    "Real GUI/production parent scale/pivots and foot contact acceptance pending",
+    "Partial local channels cannot promise complete world-space lock",
+    "Degree/cm, static pivots, zero target rotateAxis/pivotTranslate and identity offsetParentMatrix required",
+    "Integer frame ranges only; plugin state is not scene Undo"
+  ],
+  "acceptance_required": true
+}

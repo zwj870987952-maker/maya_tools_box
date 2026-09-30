@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-01T06:41:32.341378+08:00
+更新时间：2026-10-01T06:49:52.201436+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -34,7 +34,7 @@
 | `01_animation/jop_retarget_anim_v09` | prepared_unverified | True | True | not_run |
 | `01_animation/keyframe_overlap_v2_0` | prepared_unverified | True | True | not_run |
 | `01_animation/kf_animrig_ikfk` | prepared_unverified | True | True | not_run |
-| `01_animation/lock_to_world` | pending | True | False | not_run |
+| `01_animation/lock_to_world` | prepared_unverified | True | True | not_run |
 | `01_animation/maya_keyframe_reduction` | pending | True | False | not_run |
 | `01_animation/maya_timeline_marker` | pending | True | False | not_run |
 | `01_animation/mov_playblast_v11` | pending | True | False | not_run |
