@@ -48,3 +48,8 @@
 - 初次隔离检查发现 Maya 删除后重用节点名，异常报告误以为原节点仍存在；改用 UUID 记录删除目标与新节点。针对中途 color 写入失败，报告部分创建/删除并验证单步 Undo 可恢复。
 - 8 项离线检查和 8 项 Maya2025 隔离检查最终全通过，涵盖四色板、预检无写入、层隔离/全层、清空/替换 Undo、数量上限、插件未加载、锁定项与部分失败。报告与当前 Python 指纹一致，晋级预览通过；状态 prepared_verified_offline，GUI/引用书签真人检查/其他版本仍待验收。
 - 插件加载从预检中移出，生成保留原 writeRequires=true 并注明不能由场景 Undo 保证恢复；创建 skipSelect 保持选择。累计 5/109 完整候选。
+# 2026-09-30：Anim Layer v4.0 开始源审计，未计完成
+
+- 全套 6 文件，完整版包含 216 个过程/197 global 和 source 时创建编辑器的顶层代码；NoUI 为 33 global、无顶层执行，但多个过程依赖原生 UI。审计保存源 SHA/签名/顶层行，不执行安装器或原始完整 UI。
+- 全版不为 UTF-8，词法审计 byte-preserving Latin-1 仅认 ASCII MEL 结构；不能重编码原资源。自定义商业许可/Autodesk 通知均原样保留，下一轮制作整体运行适配，不改写原脚本。
+- 状态仍 working，详见 anim_layer_v4_0_notes.md；累计完成仍 5/109。实际额度本次读取 primary used=5%、weekly used=42%，窗口已自然刷新、4 张卡未兑换，heartbeat 保持 PAUSED。
