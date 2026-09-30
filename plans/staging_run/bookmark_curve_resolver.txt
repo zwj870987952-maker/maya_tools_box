@@ -1,0 +1,43 @@
+def get_layer_curves_for_objects(
+    objects, layer_name, include_translate=True, include_rotate=True,
+    include_scale=False, include_others=False, channel_box_priority=True
+):
+    """Resolve exact animated plugs on one layer; never traverse another layer."""
+    if isinstance(objects, str):
+        objects = [objects]
+    highlighted = get_selected_channel_box_attributes() if channel_box_priority else []
+    highlighted = {a.lower() for a in highlighted}
+    allowed = set()
+    if include_translate:
+        allowed.update(a.lower() for a in ATTRS_TRANSLATE)
+    if include_rotate:
+        allowed.update(a.lower() for a in ATTRS_ROTATE)
+    if include_scale:
+        allowed.update(a.lower() for a in ATTRS_SCALE)
+    standard = {a.lower() for a in ATTRS_TRANSLATE | ATTRS_ROTATE | ATTRS_SCALE}
+    result = set()
+    layers = cmds.ls(type='animLayer') or []
+    for obj in objects or []:
+        for plug in cmds.listAnimatable(obj) or []:
+            attr = plug.rsplit('.', 1)[-1].lower()
+            if attr in DISCRETE_EXCLUDES:
+                continue
+            if cmds.getAttr(plug, type=True) not in ('double', 'float', 'doubleAngle', 'doubleLinear'):
+                continue
+            if highlighted:
+                if attr not in highlighted:
+                    continue
+            elif attr not in allowed and not (include_others and attr not in standard):
+                continue
+            if layer_name in layers:
+                curves = cmds.animLayer(layer_name, query=True, findCurveForPlug=plug) or []
+                if isinstance(curves, str):
+                    curves = [curves]
+            elif layer_name == 'BaseAnimation' and not layers:
+                curves = cmds.listConnections(plug, source=True, destination=False, type='animCurve') or []
+            else:
+                curves = []
+            for curve in curves:
+                if cmds.objExists(curve) and cmds.nodeType(curve) in ('animCurveTA', 'animCurveTL', 'animCurveTU'):
+                    result.add(curve)
+    return sorted(result)

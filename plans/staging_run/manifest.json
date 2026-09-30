@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T15:22:44.191152+08:00",
+  "updated_at": "2026-09-30T15:42:27.318001+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,7 +11,7 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/anim_filters",
+    "last_completed_tool": "01_animation/anim_layer_bookmark_trimmer",
     "last_usage": {
       "five_hour_used_percent": 59.0,
       "weekly_used_percent": 39.0,
@@ -368,14 +368,52 @@
       ],
       "license_files": [],
       "entry_sha256": "2bcb241573a5f0e230b54e1b2be701cd577cd6a9e0919da921ef6032c5bfc653",
-      "status": "working",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_verified_offline",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_all_modes_preserved_and_ui_routes_four_actions (__main__.OfflineTests.test_all_modes_preserved_and_ui_routes_four_actions) ... ok\r\ntest_base_fallback_is_only_allowed_without_animation_layers (__main__.OfflineTests.test_base_fallback_is_only_allowed_without_animation_layers) ... ok\r\ntest_boundary_insertion_errors_are_not_hidden (__main__.OfflineTests.test_boundary_insertion_errors_are_not_hidden) ... ok\r\ntest_curve_query_normalizes_single_name_and_includes_other_float (__main__.OfflineTests.test_curve_query_normalizes_single_name_and_includes_other_float) ... ok\r\ntest_parameters_reject_unknown_empty_invalid_and_nonfinite (__main__.OfflineTests.test_parameters_reject_unknown_empty_invalid_and_nonfinite) ... ok\r\ntest_query_never_loads_bookmark_plugin (__main__.OfflineTests.test_query_never_loads_bookmark_plugin) ... ok\r\ntest_schema_exports_exact_supported_parameters (__main__.OfflineTests.test_schema_exports_exact_supported_parameters) ... ok\r\ntest_upstream_archive_matches_original_when_staged (__main__.OfflineTests.test_upstream_archive_matches_original_when_staged) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.003s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"anim_layer_bookmark_trimmer\",\r\n  \"candidate_sha256\": \"a40e98836113938c13e9a35e9775964559c270a637e5b732da313fc3eeb9fdce\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\anim_layer_bookmark_trimmer.md\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_bookmark_trimmer\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_bookmark_trimmer\\\\native_ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_bookmark_trimmer\\\\operations.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_bookmark_trimmer\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_bookmark_trimmer\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_bookmark_trimmer\\\\upstream\\\\anim_layer_bookmark_trimmer.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_bookmark_trimmer\\\\upstream\\\\README.md\",\r\n    \"tests\\\\test_anim_layer_bookmark_trimmer.py\",\r\n    \"tests\\\\test_anim_layer_bookmark_trimmer_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool\\01_animation\\anim_layer_bookmark_trimmer\\release_candidate\\tests\\test_anim_layer_bookmark_trimmer_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_base_with_other_layer_present_remains_isolated (__main__.MayaTests.test_base_with_other_layer_present_remains_isolated) ... ok\r\ntest_explicit_layer_does_not_modify_base_animation (__main__.MayaTests.test_explicit_layer_does_not_modify_base_animation) ... ok\r\ntest_locked_curve_and_overlap_reject_without_writes (__main__.MayaTests.test_locked_curve_and_overlap_reject_without_writes) ... ok\r\ntest_missing_endpoints_preflight_evaluates_without_adding (__main__.MayaTests.test_missing_endpoints_preflight_evaluates_without_adding) ... ok\r\ntest_other_floats_included_discrete_scale_excluded (__main__.MayaTests.test_other_floats_included_discrete_scale_excluded) ... ok\r\ntest_playback_matches_entire_bookmark_and_keeps_outside_keys (__main__.MayaTests.test_playback_matches_entire_bookmark_and_keeps_outside_keys) ... ok\r\ntest_selected_cursor_outside_uses_nearest_bookmark (__main__.MayaTests.test_selected_cursor_outside_uses_nearest_bookmark) ... ok\r\ntest_six_modes_keep_endpoints_outside_key_values_and_undo (__main__.MayaTests.test_six_modes_keep_endpoints_outside_key_values_and_undo) ... ����: AnimLayerBookmarkTrimmerTool_anim_layer_bookmark_trimmer\n����: AnimLayerBookmarkTrimmerTool_anim_layer_bookmark_trimmer\n����: AnimLayerBookmarkTrimmerTool_anim_layer_bookmark_trimmer\n����: AnimLayerBookmarkTrimmerTool_anim_layer_bookmark_trimmer\n����: AnimLayerBookmarkTrimmerTool_anim_layer_bookmark_trimmer\n����: AnimLayerBookmarkTrimmerTool_anim_layer_bookmark_trimmer\nok\r\ntest_trim_can_insert_missing_endpoints_and_undo (__main__.MayaTests.test_trim_can_insert_missing_endpoints_and_undo) ... ����: AnimLayerBookmarkTrimmerTool_anim_layer_bookmark_trimmer\nok\r\ntest_trim_preview_read_only_and_apply_undo (__main__.MayaTests.test_trim_preview_read_only_and_apply_undo) ... ����: AnimLayerBookmarkTrimmerTool_anim_layer_bookmark_trimmer\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 10 tests in 0.443s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "03855290b0cbe7abbd1f893a0df570edd824399788358dc6bbac6459d126b307"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Actual Maya GUI and timeline/channel-box interaction pending",
+        "Other Maya versions/Python 2 unverified",
+        "Optimization may change interpolation outside bookmarks; overlapping optimization bookmarks rejected"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 4,
@@ -384,7 +422,42 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "3905fc35a23a5318f6c60a90f12daea61eb53490f6c420b4e568d3ad8a565391"
+      "source_tree_sha256": "3905fc35a23a5318f6c60a90f12daea61eb53490f6c420b4e568d3ad8a565391",
+      "candidate_path": "tools_staging_pool/01_animation/anim_layer_bookmark_trimmer/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/anim_layer_bookmark_trimmer/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "anim_layer_bookmark_trimmer",
+        "candidate_sha256": "a40e98836113938c13e9a35e9775964559c270a637e5b732da313fc3eeb9fdce",
+        "applied": false,
+        "files": [
+          "docs\\tools\\anim_layer_bookmark_trimmer.md",
+          "maya_toolkit\\tools\\anim_layer_bookmark_trimmer\\__init__.py",
+          "maya_toolkit\\tools\\anim_layer_bookmark_trimmer\\native_ui.py",
+          "maya_toolkit\\tools\\anim_layer_bookmark_trimmer\\operations.py",
+          "maya_toolkit\\tools\\anim_layer_bookmark_trimmer\\tool.py",
+          "maya_toolkit\\tools\\anim_layer_bookmark_trimmer\\ui.py",
+          "maya_toolkit\\tools\\anim_layer_bookmark_trimmer\\upstream\\anim_layer_bookmark_trimmer.py",
+          "maya_toolkit\\tools\\anim_layer_bookmark_trimmer\\upstream\\README.md",
+          "tests\\test_anim_layer_bookmark_trimmer.py",
+          "tests\\test_anim_layer_bookmark_trimmer_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/anim_layer_bookmark_trimmer.py",
+        "upstream/README.md"
+      ],
+      "external_dependencies": [
+        "maya.cmds/maya.mel",
+        "timeSliderBookmark plugin explicitly loaded",
+        "existing maya_toolkit framework/core",
+        "Python 3"
+      ],
+      "source_preserved": true,
+      "change_summary": "Original six algorithms/native UI retained; read-only plugin preflight, exact layer/continuous-channel lookup, missing-boundary preview fix, parameter/scene guards, complete archive and promotion package.",
+      "prepared_at": "2026-09-30T15:42:25.299102+08:00"
     },
     {
       "source_path": "01_animation/anim_layer_key_runner",

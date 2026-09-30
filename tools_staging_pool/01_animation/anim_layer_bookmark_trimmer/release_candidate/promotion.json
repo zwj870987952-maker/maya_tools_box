@@ -1,0 +1,67 @@
+{
+  "tool_id": "anim_layer_bookmark_trimmer",
+  "registration": {
+    "module": "anim_layer_bookmark_trimmer",
+    "class_name": "AnimLayerBookmarkTrimmerTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/anim_layer_bookmark_trimmer.md",
+      "target": "docs/tools/anim_layer_bookmark_trimmer.md"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_bookmark_trimmer/__init__.py",
+      "target": "maya_toolkit/tools/anim_layer_bookmark_trimmer/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_bookmark_trimmer/native_ui.py",
+      "target": "maya_toolkit/tools/anim_layer_bookmark_trimmer/native_ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_bookmark_trimmer/operations.py",
+      "target": "maya_toolkit/tools/anim_layer_bookmark_trimmer/operations.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_bookmark_trimmer/tool.py",
+      "target": "maya_toolkit/tools/anim_layer_bookmark_trimmer/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_bookmark_trimmer/ui.py",
+      "target": "maya_toolkit/tools/anim_layer_bookmark_trimmer/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_bookmark_trimmer/upstream/anim_layer_bookmark_trimmer.py",
+      "target": "maya_toolkit/tools/anim_layer_bookmark_trimmer/upstream/anim_layer_bookmark_trimmer.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_bookmark_trimmer/upstream/README.md",
+      "target": "maya_toolkit/tools/anim_layer_bookmark_trimmer/upstream/README.md"
+    },
+    {
+      "source": "tests/test_anim_layer_bookmark_trimmer.py",
+      "target": "tests/test_anim_layer_bookmark_trimmer.py"
+    },
+    {
+      "source": "tests/test_anim_layer_bookmark_trimmer_maya.py",
+      "target": "tests/test_anim_layer_bookmark_trimmer_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/anim_layer_bookmark_trimmer.py",
+    "upstream/README.md"
+  ],
+  "dependencies": [
+    "maya.cmds/maya.mel",
+    "timeSliderBookmark plugin explicitly loaded",
+    "existing maya_toolkit framework/core",
+    "Python 3"
+  ],
+  "source": "../anim_layer_bookmark_trimmer.py",
+  "change_summary": "Original six algorithms/native UI retained; read-only plugin preflight, exact layer/continuous-channel lookup, missing-boundary preview fix, parameter/scene guards, complete archive and promotion package.",
+  "verification_limitations": [
+    "Actual Maya GUI and timeline/channel-box interaction pending",
+    "Other Maya versions/Python 2 unverified",
+    "Optimization may change interpolation outside bookmarks; overlapping optimization bookmarks rejected"
+  ],
+  "acceptance_required": true
+}
