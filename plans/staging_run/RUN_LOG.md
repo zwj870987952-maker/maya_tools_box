@@ -214,3 +214,12 @@
 - camera UUID/message、Owner/token network记录原focusDistance/fStop、cube与全资源真实UUID、实际相机源plug。全批只读预检拒绝原动画/驱动/锁/引用/实例/重复记录；清理仅自己的图且恢复创建前数值，外部后代/输入/输出/改接/缺失保护，材质集合membership自动断开但不删除集合。时间/选择/guard恢复，故障record可追溯/Undo。
 - 普通Python2项、Maya2025隔离6项、临时正式布局注册/面板/Schema及报告指纹通过：厘米focus=-tz/fStop=sz/四renderflag/DepthOfField保持、真实值编辑/cleanup原值恢复/Undo-redo、双相机namespace/模板Undo、原动画拒绝/外部保护、重命名保存重载和部分失败Undo。
 - 原ScaleZ实际fStop而非物理焦深范围明确；真实GUI/Viewport/template/renderer/非厘米单位/相机缩放待验收，prepared_unverified。完整知识/两测试/晋级/验收齐备，收尾真实5小时23%/周74%已用，工作继续、heartbeat暂停、无卡/正式库/同步。
+
+- DOF提交01b2566；生成MEL继承原注释的一处尾空白随后修正为5c4dc6b，Maya/布局/指纹刷新通过，后续提交只在检查exit0后执行。正式库未改。
+
+## 2026-10-01：EB Labs ScreenSpace完整候选，累计22/109
+
+- 148原文件/版权/原许可管理/数据/prefs完整字节归档，不运行安装器/Hub/prefs/许可/网络；原Python hybrid版本模块缺失，候选直接使用完整独立native MEL，不依赖临时路径。21原过程对应，全原窗口/投影归一化/aim-depth/orientation/Smart Bake循环保留，Full Bake原逐步1采样后同Smart流程。
+- 私有procedure/control名，按钮标准API，明确camera/target/orientation；只读验证，owned network UUID/message/source/control/rig映射、唯一helper名、外部后代/输入/输出/锁保护，清理仅owned约束/helper且保护空target，必要pairBlend/target曲线/buffer与来源record保留。去除全Maya窗口/pane隐藏，finally时间/选择/namespace/guard。零距离明确错误；已有焦距/许可逻辑不改。
+- 普通Python2项、Maya2025隔离6项、临时正式布局注册/面板/Schema与全指纹通过，实际0.4/-1归一化/屏幕编辑后的目标移动/nearClip、TR稀疏Smart及逐帧Full Bake/Undo、namespace、改名保存重载和后代保护、部分失败Undo。曾因测试在动作后额外currentTime导致只Undo切帧，改为只读带time取值后整组Undo通过，不当作算法缺陷。
+- 真正GUI/生产camera/非均匀父级scale/镜头穿越/复杂rig/层与视觉效果待人工，prepared_unverified；clip/buffer/key时序切线影响、原Hub缺模块仅归档/版权私用、完整验收/晋级齐备。manifest原子替换一次WinError5，立即重试scan成功再记录，并非持续权限障碍。收尾实际5小时31%/周75%已用，继续工作、heartbeat暂停，无卡/正式库/同步/公开发布。

@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/eblabs_screenspace/release_candidate/tests/test_eblabs_screenspace_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_orientation_full_bake_dense_and_namespace_restore (__main__.MayaTests.test_orientation_full_bake_dense_and_namespace_restore) ... ok\r\ntest_partial_failure_and_standard_undo (__main__.MayaTests.test_partial_failure_and_standard_undo) ... ����: ScreenSpaceTool_eblabs_screenspace\nok\r\ntest_projection_motion_control_edit_and_safe_cleanup (__main__.MayaTests.test_projection_motion_control_edit_and_safe_cleanup) ... ok\r\ntest_read_only_guards_and_provenance (__main__.MayaTests.test_read_only_guards_and_provenance) ... ok\r\ntest_smart_bake_keeps_sparse_timing_and_undo (__main__.MayaTests.test_smart_bake_keeps_sparse_timing_and_undo) ... ����: ScreenSpaceTool_eblabs_screenspace\nok\r\ntest_uuid_rename_reload_foreign_descendant_refusal (__main__.MayaTests.test_uuid_rename_reload_foreign_descendant_refusal) ... �ļ���ȡ����ʱ��Ϊ  0.0063 �롣\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.154s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "206f7359cd5161e06c466afce63bb4f8f1a25cbd24c9dee00386aa0883aba4a6",
+  "runtime_source_sha256": "5da4c210c8e98f5d0d9fbcc928e0217e2b1327df43af67f6ca1110de97d5eeff"
+}

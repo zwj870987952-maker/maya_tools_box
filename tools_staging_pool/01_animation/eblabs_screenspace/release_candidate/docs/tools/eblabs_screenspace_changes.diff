@@ -1,0 +1,1825 @@
+--- upstream/eblabs_screenSpace.mel
++++ runtime.mel
+@@ -7,432 +7,276 @@
+ 
+ 
+ //## Defaults
+-string $ebLabs_screenSpace_defaultTangentType = "spline";
+-global string $ebLabs_screenSpace_version = "v2017-05-12";
++string $mtbSS_ebLabs_screenSpace_defaultTangentType = "spline";
++global string $mtbSS_ebLabs_screenSpace_version = "v2017-05-12";
+ //define global string for progress indicator
+-global string $ebLabs_screenSpace_progressControl;
+-
+-//######################################################################################################################
+-
+-global proc ebLabs_screenSpace()
++global string $mtbSS_ebLabs_screenSpace_progressControl;
++
++//######################################################################################################################
++
++global proc mtbSS_ebLabs_screenSpace()
+ {
+ 
+ //remove window
+-string $windowName = "ebLabs_screenSpace";
++string $windowName = "mtbSS_ebLabs_screenSpace";
+ if (`window -exists $windowName`)
+-	{
+-	deleteUI $windowName;
+-	}
++    {
++    deleteUI $windowName;
++    }
+ 
+ //remove prefs
+ if (`windowPref -exists $windowName`)
+-	{
+-	windowPref -remove $windowName;
+-	}
++    {
++    windowPref -remove $windowName;
++    }
+ 
+ //make sure default namespace is set to root
+-namespace -set ":";
+-
+-string $window = `window -widthHeight 250 432 -title $windowName ebLabs_screenSpace`;
++// Preserve current namespace; runtime uses an isolated private namespace.
++
++string $window = `window -widthHeight 250 432 -title $windowName mtbSS_ebLabs_screenSpace`;
+ string $form = `formLayout`;
+ string $tabs = `tabLayout -innerMarginWidth 5 -innerMarginHeight 5`;
+ 
+-	string $child1 = `formLayout`;
+-
+-	//send to screen space
+-	string $toScreenFrame = `frameLayout -label "Send To Screen Space" `;
+-	string $toScreenFrame_inside = `formLayout`;
+-	string $camListHeader = `text -label "[cameras in scene]"   -align "left"`;
+-	string $cameraListScrollBox = `textScrollList -font "fixedWidthFont" -h 10 -w 10  -allowMultiSelection 0 -sc "ebLabs_screenSpace_camExistCheck" -dcc "ebLabs_screenSpace_selCamFromList" eb_labs_screenSpace_cameraList`;
+-	string $orientationChkBox = `checkBox -label "+include orientation" -ann "include rotations on screen space controls" ebLabs_sc_orientationChkBox`;
+-	string $createScrSpcRig = `button -label "Create ScreenSpace Rig" -ann "highlight your camera in the list, then select all the controls youd like to send to screen space" -c "ebLabs_animTools_screenSpaceRigMulti()"`;
+-
+-	setParent ..;
+-
+-	formLayout -edit
+-
+-	//toScreenFrame
+-	-attachForm     $camListHeader     "top"    2
+-	-attachForm     $camListHeader     "left"   2
+-	-attachNone     $camListHeader     "bottom"
+-	-attachForm     $camListHeader     "right" 2
+-
+-	-attachNone     $createScrSpcRig     "top"
+-	-attachForm     $createScrSpcRig     "left"   2
+-	-attachForm     $createScrSpcRig     "bottom" 2
+-	-attachForm     $createScrSpcRig     "right" 2
+-
+-	-attachNone     $orientationChkBox     "top"
+-	-attachForm     $orientationChkBox     "left"   2
+-	-attachControl  $orientationChkBox     "bottom" 2 $createScrSpcRig
+-	-attachForm     $orientationChkBox     "right" 2
+-
+-	-attachControl  $cameraListScrollBox     "top" 2 $camListHeader
+-	-attachForm     $cameraListScrollBox     "left"   2
+-	-attachControl  $cameraListScrollBox     "bottom" 2 $orientationChkBox
+-	-attachForm     $cameraListScrollBox     "right" 2
+-
+-	$toScreenFrame_inside;
+-
+-	setParent ..;
+-
+-	//send to local space
+-	string $toLocalFrame = `frameLayout -label "Send To Local Space" `;
+-	string $toLocalFrame_inside = `formLayout`;
+-	string $rigListHeader = `text -label "[screen space rigs]"   -align "left"`;
+-	string $screenSpaceRigList = `textScrollList -font "fixedWidthFont" -h 10 -w 10 -ann "click to select screen space controls in scene" -allowMultiSelection 1 -sc "ebLabs_screenSpace_selRigFromList" eb_labs_screenSpace_rigList`;
+-	string $deleteRig = `button -label "delete rig" -h 15 -ann "delete selected screen space rigs, animation will go back to previous state" -c "ebLabs_screenSpace_deleteRig"`;
+-	string $smartBakeButton = `button -label "Smart Bake" -ann "send animation back to the original controls, use only existing keyframes" -c "ebLabs_animTools_screenSpaceSmartBakeMulti()"`;
+-	string $fullBakeButton = `button -label "Full Bake" -ann "bake animation back to controls" -c "ebLabs_animTools_screenSpaceFullBakeMulti()"`;
+-
+-	setParent ..;
+-	formLayout -edit
+-
+-	//toScreenFrame
+-	-attachForm     $rigListHeader     "top"    2
+-	-attachForm     $rigListHeader     "left"   2
+-	-attachNone     $rigListHeader     "bottom"
+-	-attachForm     $rigListHeader     "right" 2
+-
+-	-attachNone     $smartBakeButton     "top"
+-	-attachForm     $smartBakeButton     "left"   2
+-	-attachForm     $smartBakeButton     "bottom" 2
+-	-attachPosition $smartBakeButton     "right" 2 50
+-
+-	-attachNone     $fullBakeButton     "top"
+-	-attachControl  $fullBakeButton     "left"   2 $smartBakeButton
+-	-attachForm     $fullBakeButton     "bottom" 2
+-	-attachForm     $fullBakeButton     "right" 2
+-
+-	-attachNone     $deleteRig     "top"
+-	-attachForm     $deleteRig     "left"   2
+-	-attachControl  $deleteRig     "bottom" 2 $smartBakeButton
+-	-attachNone     $deleteRig     "right"
+-
+-
+-	-attachControl  $screenSpaceRigList     "top" 2 $rigListHeader
+-	-attachForm     $screenSpaceRigList     "left"   2
+-	-attachControl  $screenSpaceRigList     "bottom" 2 $deleteRig
+-	-attachForm     $screenSpaceRigList     "right" 2
+-
+-	$toLocalFrame_inside;
+-
+-	setParent ..;
+-
+-	//bottom buttons
+-	string $qUndo = `button -label "quick undo" -ann "quick undo with maya UI disabled" -c "ebLabs_screenSpace_quickUndo(\"undo\")"`;
+-	string $qRedp = `button -label "quick redo" -ann "quick redo with maya UI disabled" -c "ebLabs_screenSpace_quickUndo(\"redo\")"`;
+-	string $update = `button -label "refresh lists" -ann "refresh lists" -bgc .404 0.553 0.698 -c "ebLabs_screenSpace_updateAllLists" ebLabs_sc_refreshListsButton`;
+-	$ebLabs_screenSpace_progressControl = `progressBar -vis 0 -maxValue 100 ebLabs_sc_progress`;
+-	setParent ..;
+-
+-	formLayout -edit
+-
+-	//toScreenFrame
+-	-attachForm     $toScreenFrame     "top"    5
+-	-attachForm     $toScreenFrame     "left"   5
+-	-attachPosition $toScreenFrame     "bottom" 3 40
+-	-attachForm     $toScreenFrame     "right" 5
+-
+-	//$qUndo
+-	-attachNone     $qUndo     "top"
+-	-attachForm     $qUndo     "left"   5
+-	-attachForm     $qUndo     "bottom" 5
+-	-attachPosition $qUndo     "right" 2 50
+-
+-	//$qredo
+-	-attachNone     $qRedp     "top"
+-	-attachControl  $qRedp     "left"   2 $qUndo
+-	-attachForm     $qRedp     "bottom" 5
+-	-attachForm     $qRedp     "right" 5
+-
+-	//$update
+-	-attachNone     $update     "top"
+-	-attachForm     $update     "left"   5
+-	-attachControl  $update     "bottom" 2 $qUndo
+-	-attachForm     $update     "right" 5
+-
+-	//$ebLabs_screenSpace_progressControl
+-	-attachNone     $ebLabs_screenSpace_progressControl     "top"
+-	-attachForm     $ebLabs_screenSpace_progressControl     "left"   5
+-	-attachControl  $ebLabs_screenSpace_progressControl     "bottom" 2 $qUndo
+-	-attachForm     $ebLabs_screenSpace_progressControl     "right" 5
+-
+-	//toLocalFrame
+-	-attachControl  $toLocalFrame     "top"    5 $toScreenFrame
+-	-attachForm     $toLocalFrame     "left"   5
+-	-attachControl  $toLocalFrame     "bottom" 5 $update
+-	-attachForm     $toLocalFrame     "right" 5
+-
+-	$child1;
+-
+-	string $child3 = `formLayout`;
+-	string $t1Text = "";
+-	$t1Text += ". ebLabs ||.Screen Space Tool\n";
+-	$t1Text += "         ||.version " + $ebLabs_screenSpace_version + "\n";
+-	$t1Text += "..(c)ericBates 2012\n";
+-	$t1Text += "...eric-bates.com\n";
+-	$t1Text += "\n";
+-	$t1Text += "             o\n";
+-	$t1Text += "        o    |\n";
+-	$t1Text += "         \\   |\n";
+-	$t1Text += "          \\  |\n";
+-	$t1Text += "           \\.|-.\n";
+-	$t1Text += "           (\\|  )\n";
+-	$t1Text += "  .==================.\n";
+-	$t1Text += "  | .--------------. |\n";
+-	$t1Text += "  | |--.__.--.__.--| |\n";
+-	$t1Text += "  | |--.__.--.__.--| |\n";
+-	$t1Text += "  | |--.__.--.__.--| |\n";
+-	$t1Text += "  | |--.__.--.__.--| |\n";
+-	$t1Text += "  | |--.__.--.__.--| |\n";
+-	$t1Text += "  | '--------------'o|\n";
+-	$t1Text += "  | LI LI \"\"\"\"\"\"\"   o|\n";
+-	$t1Text += "  '=================='\n";
+-	$t1Text += "\n";
+-	$t1Text += ". Manual\n";
+-	$t1Text += "\nCreate Screen Space Rig:\nCreates a new control attached to the camera and control you have selected.\n";
+-	$t1Text += "\nChannelBox:PlaneAdjust:\nIn case the control is hidden by the clipping plane, use this to slide the control away from the camera.\n";
+-	$t1Text += "\nSmart Bake Animation:\nSends the animation back to your controls using only existing keyframes, and deletes the rig.\n";
+-	$t1Text += "\nFull Bake Animation:\nSends the animation back to your controls baking out all frames, and deletes the rig.\n";
+-	$t1Text += "\nQuick Undo Redo:\nDisables the Maya UI while Undo and Redo run.\n";
+-	string $helpText = `scrollField -wordWrap true -w 230 -h 400 -editable false -text $t1Text`;
+-	setParent ..;
+-
+-	formLayout -edit
+-
+-	//help frame
+-	-attachForm     $helpText     "top"    2
+-	-attachForm     $helpText     "left"   2
+-	-attachForm     $helpText     "bottom" 2
+-	-attachForm     $helpText     "right" 2
+-	$child3;
+-
+-
+-	tabLayout -edit
+-		-tabLabel $child1 "Screen Space Tools" -tabLabel $child3 "Help"
+-		$tabs;
+-
+-	formLayout -edit
+-		-attachForm $tabs "top"    0
+-		-attachForm $tabs "left"   0
+-		-attachForm $tabs "bottom" 0
+-		-attachForm $tabs "right"  0
+-
+-		$form;
++    string $child1 = `formLayout`;
++
++    //send to screen space
++    string $toScreenFrame = `frameLayout -label "Send To Screen Space" `;
++    string $toScreenFrame_inside = `formLayout`;
++    string $camListHeader = `text -label "[cameras in scene]"   -align "left"`;
++    string $cameraListScrollBox = `textScrollList -font "fixedWidthFont" -h 10 -w 10  -allowMultiSelection 0 -sc "mtbSS_ebLabs_screenSpace_camExistCheck" -dcc "mtbSS_ebLabs_screenSpace_selCamFromList" mtbSS_eb_labs_screenSpace_cameraList`;
++    string $orientationChkBox = `checkBox -label "+include orientation" -ann "include rotations on screen space controls" mtbSS_ebLabs_sc_orientationChkBox`;
++    string $createScrSpcRig = `button -label "Create ScreenSpace Rig" -ann "highlight your camera in the list, then select all the controls youd like to send to screen space" -c "mtbSS_ebLabs_animTools_screenSpaceRigMulti()"`;
++
++    setParent ..;
++
++    formLayout -edit
++
++    //toScreenFrame
++    -attachForm     $camListHeader     "top"    2
++    -attachForm     $camListHeader     "left"   2
++    -attachNone     $camListHeader     "bottom"
++    -attachForm     $camListHeader     "right" 2
++
++    -attachNone     $createScrSpcRig     "top"
++    -attachForm     $createScrSpcRig     "left"   2
++    -attachForm     $createScrSpcRig     "bottom" 2
++    -attachForm     $createScrSpcRig     "right" 2
++
++    -attachNone     $orientationChkBox     "top"
++    -attachForm     $orientationChkBox     "left"   2
++    -attachControl  $orientationChkBox     "bottom" 2 $createScrSpcRig
++    -attachForm     $orientationChkBox     "right" 2
++
++    -attachControl  $cameraListScrollBox     "top" 2 $camListHeader
++    -attachForm     $cameraListScrollBox     "left"   2
++    -attachControl  $cameraListScrollBox     "bottom" 2 $orientationChkBox
++    -attachForm     $cameraListScrollBox     "right" 2
++
++    $toScreenFrame_inside;
++
++    setParent ..;
++
++    //send to local space
++    string $toLocalFrame = `frameLayout -label "Send To Local Space" `;
++    string $toLocalFrame_inside = `formLayout`;
++    string $rigListHeader = `text -label "[screen space rigs]"   -align "left"`;
++    string $screenSpaceRigList = `textScrollList -font "fixedWidthFont" -h 10 -w 10 -ann "click to select screen space controls in scene" -allowMultiSelection 1 -sc "mtbSS_ebLabs_screenSpace_selRigFromList" mtbSS_eb_labs_screenSpace_rigList`;
++    string $deleteRig = `button -label "delete rig" -h 15 -ann "delete selected screen space rigs, animation will go back to previous state" -c "mtbSS_ebLabs_screenSpace_deleteRig"`;
++    string $smartBakeButton = `button -label "Smart Bake" -ann "send animation back to the original controls, use only existing keyframes" -c "mtbSS_ebLabs_animTools_screenSpaceSmartBakeMulti()"`;
++    string $fullBakeButton = `button -label "Full Bake" -ann "bake animation back to controls" -c "mtbSS_ebLabs_animTools_screenSpaceFullBakeMulti()"`;
++
++    setParent ..;
++    formLayout -edit
++
++    //toScreenFrame
++    -attachForm     $rigListHeader     "top"    2
++    -attachForm     $rigListHeader     "left"   2
++    -attachNone     $rigListHeader     "bottom"
++    -attachForm     $rigListHeader     "right" 2
++
++    -attachNone     $smartBakeButton     "top"
++    -attachForm     $smartBakeButton     "left"   2
++    -attachForm     $smartBakeButton     "bottom" 2
++    -attachPosition $smartBakeButton     "right" 2 50
++
++    -attachNone     $fullBakeButton     "top"
++    -attachControl  $fullBakeButton     "left"   2 $smartBakeButton
++    -attachForm     $fullBakeButton     "bottom" 2
++    -attachForm     $fullBakeButton     "right" 2
++
++    -attachNone     $deleteRig     "top"
++    -attachForm     $deleteRig     "left"   2
++    -attachControl  $deleteRig     "bottom" 2 $smartBakeButton
++    -attachNone     $deleteRig     "right"
++
++
++    -attachControl  $screenSpaceRigList     "top" 2 $rigListHeader
++    -attachForm     $screenSpaceRigList     "left"   2
++    -attachControl  $screenSpaceRigList     "bottom" 2 $deleteRig
++    -attachForm     $screenSpaceRigList     "right" 2
++
++    $toLocalFrame_inside;
++
++    setParent ..;
++
++    //bottom buttons
++    string $qUndo = `button -label "quick undo" -ann "quick undo with maya UI disabled" -c "mtbSS_ebLabs_screenSpace_quickUndo(\"undo\")"`;
++    string $qRedp = `button -label "quick redo" -ann "quick redo with maya UI disabled" -c "mtbSS_ebLabs_screenSpace_quickUndo(\"redo\")"`;
++    string $update = `button -label "refresh lists" -ann "refresh lists" -bgc .404 0.553 0.698 -c "mtbSS_ebLabs_screenSpace_updateAllLists" mtbSS_ebLabs_sc_refreshListsButton`;
++    $mtbSS_ebLabs_screenSpace_progressControl = `progressBar -vis 0 -maxValue 100 mtbSS_ebLabs_sc_progress`;
++    setParent ..;
++
++    formLayout -edit
++
++    //toScreenFrame
++    -attachForm     $toScreenFrame     "top"    5
++    -attachForm     $toScreenFrame     "left"   5
++    -attachPosition $toScreenFrame     "bottom" 3 40
++    -attachForm     $toScreenFrame     "right" 5
++
++    //$qUndo
++    -attachNone     $qUndo     "top"
++    -attachForm     $qUndo     "left"   5
++    -attachForm     $qUndo     "bottom" 5
++    -attachPosition $qUndo     "right" 2 50
++
++    //$qredo
++    -attachNone     $qRedp     "top"
++    -attachControl  $qRedp     "left"   2 $qUndo
++    -attachForm     $qRedp     "bottom" 5
++    -attachForm     $qRedp     "right" 5
++
++    //$update
++    -attachNone     $update     "top"
++    -attachForm     $update     "left"   5
++    -attachControl  $update     "bottom" 2 $qUndo
++    -attachForm     $update     "right" 5
++
++    //$mtbSS_ebLabs_screenSpace_progressControl
++    -attachNone     $mtbSS_ebLabs_screenSpace_progressControl     "top"
++    -attachForm     $mtbSS_ebLabs_screenSpace_progressControl     "left"   5
++    -attachControl  $mtbSS_ebLabs_screenSpace_progressControl     "bottom" 2 $qUndo
++    -attachForm     $mtbSS_ebLabs_screenSpace_progressControl     "right" 5
++
++    //toLocalFrame
++    -attachControl  $toLocalFrame     "top"    5 $toScreenFrame
++    -attachForm     $toLocalFrame     "left"   5
++    -attachControl  $toLocalFrame     "bottom" 5 $update
++    -attachForm     $toLocalFrame     "right" 5
++
++    $child1;
++
++    string $child3 = `formLayout`;
++    string $t1Text = "";
++    $t1Text += ". mtbSS_ebLabs ||.Screen Space Tool\n";
++    $t1Text += "         ||.version " + $mtbSS_ebLabs_screenSpace_version + "\n";
++    $t1Text += "..(c)ericBates 2012\n";
++    $t1Text += "...eric-bates.com\n";
++    $t1Text += "\n";
++    $t1Text += "             o\n";
++    $t1Text += "        o    |\n";
++    $t1Text += "         \\   |\n";
++    $t1Text += "          \\  |\n";
++    $t1Text += "           \\.|-.\n";
++    $t1Text += "           (\\|  )\n";
++    $t1Text += "  .==================.\n";
++    $t1Text += "  | .--------------. |\n";
++    $t1Text += "  | |--.__.--.__.--| |\n";
++    $t1Text += "  | |--.__.--.__.--| |\n";
++    $t1Text += "  | |--.__.--.__.--| |\n";
++    $t1Text += "  | |--.__.--.__.--| |\n";
++    $t1Text += "  | |--.__.--.__.--| |\n";
++    $t1Text += "  | '--------------'o|\n";
++    $t1Text += "  | LI LI \"\"\"\"\"\"\"   o|\n";
++    $t1Text += "  '=================='\n";
++    $t1Text += "\n";
++    $t1Text += ". Manual\n";
++    $t1Text += "\nCreate Screen Space Rig:\nCreates a new control attached to the camera and control you have selected.\n";
++    $t1Text += "\nChannelBox:PlaneAdjust:\nIn case the control is hidden by the clipping plane, use this to slide the control away from the camera.\n";
++    $t1Text += "\nSmart Bake Animation:\nSends the animation back to your controls using only existing keyframes, and deletes the rig.\n";
++    $t1Text += "\nFull Bake Animation:\nSends the animation back to your controls baking out all frames, and deletes the rig.\n";
++    $t1Text += "\nQuick Undo Redo:\nDisables the Maya UI while Undo and Redo run.\n";
++    string $helpText = `scrollField -wordWrap true -w 230 -h 400 -editable false -text $t1Text`;
++    setParent ..;
++
++    formLayout -edit
++
++    //help frame
++    -attachForm     $helpText     "top"    2
++    -attachForm     $helpText     "left"   2
++    -attachForm     $helpText     "bottom" 2
++    -attachForm     $helpText     "right" 2
++    $child3;
++
++
++    tabLayout -edit
++        -tabLabel $child1 "Screen Space Tools" -tabLabel $child3 "Help"
++        $tabs;
++
++    formLayout -edit
++        -attachForm $tabs "top"    0
++        -attachForm $tabs "left"   0
++        -attachForm $tabs "bottom" 0
++        -attachForm $tabs "right"  0
++
++        $form;
+ 
+ showWindow;
+-ebLabs_screenSpace_updateAllLists;
++mtbSS_ebLabs_screenSpace_updateAllLists;
+ }
+ 
+ 
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-global proc ebLabs_screenSpace_setRandoColor(string $objects[])
+-{
++global proc mtbSS_ebLabs_screenSpace_setRandoColor(string $objects[])
++{
++python("import maya_toolkit.tools.eblabs_screenspace.runtime as _r; _r.require_active()");
++
+ if(`size($objects)`!=0)
+-	{
+-	for($o in $objects)
+-		{
+-		//find objects shape first!
+-		string $shapes[] = `listRelatives -ad -s $o`;
+-
+-		//choose random color between 0-31
+-		int $rand = `rand 0 32`;
+-
+-		//apply override
+-		setAttr ($o + ".overrideEnabled") 1;
+-		setAttr ($o + ".overrideColor") $rand;
+-
+-		}
+-	}
+-}
+-
+-//######################################################################################################################
+-
+-global proc ebLabs_screenSpace_updateAllLists()
+-{
+-ebLabs_screenSpace_updateCameraList;
+-ebLabs_screenSpace_updateRigList;
+-}
+-
+-//######################################################################################################################
+-
+-global proc ebLabs_animTools_screenSpaceFullBakeMulti()
+-{
+-//get list of rigs
+-string $selected[] = `ls -selection`;
+-string $controlsToBake[];
+-string $errorMsg[];
+-
+-//set selections
+-select -cl;
+-for($obj in $selected)
+-	{
+-	if(!(`objExists $obj`))
+-		{
+-		ebLabs_screenSpace_updateRigList;
+-		}
+-	else
+-		{
+-		if (`gmatch $obj "*_screenSpaceControl"`)
+-			{
+-			$controlsToBake[`size($controlsToBake)`] = $obj;
+-			}
+-		else
+-			{
+-			$errorMsg[`size($errorMsg)`] = ("Object isn't a screen space control: " + $obj);
+-			}
+-		}
+-	}
+-
+-if((`size($errorMsg)`==0))
+-	{
+-	for($control in $controlsToBake)
+-		{
+-
+-		//make sure at least one translate key on screen space control
+-		if((`keyframe -query -keyframeCount ($control + ".tx")`)==0 && (`keyframe -query -keyframeCount ($control + ".ty")`)==0 && (`keyframe -query -keyframeCount ($control + ".tz")`)==0)
+-			{
+-			$errorMsg[`size($errorMsg)`] = ("Object needs at least one translation key to smart bake: " + $control);
+-			}
+-
+-		//check use orientation attribute
+-		int $orientationExists = `objExists ($control + ".useOrientation")`;
+-		int $useOrientationValue = 0;
+-		if($orientationExists)
+-			{
+-			$useOrientationValue = `getAttr ($control + ".useOrientation") `;
+-			}
+-
+-		//make sure theres at least one rotation key
+-		if(($orientationExists)&&($useOrientationValue)&&((`keyframe -query -keyframeCount ($selected[0] + ".rx")`)==0)&&((`keyframe -query -keyframeCount ($selected[0] + ".ry")`)==0)&&((`keyframe -query -keyframeCount ($selected[0] + ".rz")`)==0))
+-			{
+-			$errorMsg[`size($errorMsg)`] = ("Object needs at least one rotation key to smart bake rotations: " + $control);
+-			}
+-		}
+-	}
+-
+-if((`size($errorMsg)`==0))
+-	{
+-	//hide UI
+-	ebLabs_screenSpace_enableMayaUI(off, "ebLabs_screenSpace");
+-
+-	//smart bake animation
+-	for($control in $controlsToBake)
+-		{
+-		//get current time
+-		float $now = `currentTime -query`;
+-
+-		//bake out everyframe here
+-		float $firstKey = (`findKeyframe -which first $control`);
+-		float $lastKey = (`findKeyframe -which last $control`);
+-		for ($f = $firstKey; $f < ($lastKey+1); $f++)
+-			{
+-			currentTime $f;
+-			setKeyframe $control;
+-			}
+-		//reset current time
+-		currentTime $now;
+-		//continue on with the smart baking
+-		ebLabs_animTools_screenSpaceSmartBake($control);
+-		}
+-
+-	//enable UI
+-	ebLabs_screenSpace_enableMayaUI(on, "ebLabs_screenSpace");
+-
+-	//update rig list
+-	ebLabs_screenSpace_updateRigList;
+-	}
+-
+-//spit out any error message
+-if((`size($errorMsg)`!=0)){ebLabs_screenSpace_errorDialogue($errorMsg);}
+-
+-}
+-
+-
+-//######################################################################################################################
+-
+-global proc ebLabs_animTools_screenSpaceSmartBakeMulti()
+-{
+-//get list of rigs
+-string $selected[] = `ls -selection`;
+-string $controlsToBake[];
+-string $errorMsg[];
+-
+-//set selections
+-select -cl;
+-for($obj in $selected)
+-	{
+-	if(!(`objExists $obj`))
+-		{
+-		ebLabs_screenSpace_updateRigList;
+-		}
+-	else
+-		{
+-		if (`gmatch $obj "*_screenSpaceControl"`)
+-			{
+-			$controlsToBake[`size($controlsToBake)`] = $obj;
+-			}
+-		else
+-			{
+-			$errorMsg[`size($errorMsg)`] = ("Object isn't a screen space control: " + $obj);
+-			}
+-		}
+-	}
+-
+-if((`size($errorMsg)`==0))
+-	{
+-	for($control in $controlsToBake)
+-		{
+-
+-		//make sure at least one translate key on screen space control
+-		if((`keyframe -query -keyframeCount ($control + ".tx")`)==0 && (`keyframe -query -keyframeCount ($control + ".ty")`)==0 && (`keyframe -query -keyframeCount ($control + ".tz")`)==0)
+-			{
+-			$errorMsg[`size($errorMsg)`] = ("Object needs at least one translation key to smart bake: " + $control);
+-			}
+-
+-		//check use orientation attribute
+-		int $orientationExists = `objExists ($control + ".useOrientation")`;
+-		int $useOrientationValue = 0;
+-		if($orientationExists)
+-			{
+-			$useOrientationValue = `getAttr ($control + ".useOrientation") `;
+-			}
+-
+-		//make sure theres at least one rotation key
+-		if(($orientationExists)&&($useOrientationValue)&&((`keyframe -query -keyframeCount ($selected[0] + ".rx")`)==0)&&((`keyframe -query -keyframeCount ($selected[0] + ".ry")`)==0)&&((`keyframe -query -keyframeCount ($selected[0] + ".rz")`)==0))
+-			{
+-			$errorMsg[`size($errorMsg)`] = ("Object needs at least one rotation key to smart bake rotations: " + $control);
+-			}
+-		}
+-	}
+-
+-if((`size($errorMsg)`==0))
+-	{
+-	//hide UI
+-	ebLabs_screenSpace_enableMayaUI(off, "ebLabs_screenSpace");
+-
+-	//smart bake animation
+-	for($control in $controlsToBake)
+-		{
+-		ebLabs_animTools_screenSpaceSmartBake($control);
+-		}
+-
+-	//enable UI
+-	ebLabs_screenSpace_enableMayaUI(on, "ebLabs_screenSpace");
+-
+-	//update rig list
+-	ebLabs_screenSpace_updateRigList;
+-	}
+-
+-//spit out any error message
+-if((`size($errorMsg)`!=0)){ebLabs_screenSpace_errorDialogue($errorMsg);}
+-
+-}
+-//######################################################################################################################
+-
+-global proc ebLabs_animTools_screenSpaceSmartBake(string $control)
+-{
++    {
++    for($o in $objects)
++        {
++        //find objects shape first!
++        string $shapes[] = `listRelatives -ad -s $o`;
++
++        //choose random color between 0-31
++        int $rand = `rand 0 32`;
++
++        //apply override
++        setAttr ($o + ".overrideEnabled") 1;
++        setAttr ($o + ".overrideColor") $rand;
++
++        }
++    }
++}
++
++//######################################################################################################################
++
++global proc mtbSS_ebLabs_screenSpace_updateAllLists()
++{
++mtbSS_ebLabs_screenSpace_updateCameraList;
++mtbSS_ebLabs_screenSpace_updateRigList;
++}
++
++//######################################################################################################################
++
++global proc mtbSS_ebLabs_animTools_screenSpaceFullBakeMulti()
++{
++python("import maya_toolkit.tools.eblabs_screenspace.ui as _u; _u.dispatch('full_bake')");
++}
++
++
++//######################################################################################################################
++
++global proc mtbSS_ebLabs_animTools_screenSpaceSmartBakeMulti()
++{
++python("import maya_toolkit.tools.eblabs_screenspace.ui as _u; _u.dispatch('smart_bake')");
++}
++//######################################################################################################################
++
++global proc mtbSS_ebLabs_animTools_screenSpaceSmartBake(string $control)
++{
++python("import maya_toolkit.tools.eblabs_screenspace.runtime as _r; _r.require_active()");
++
+ 
+ //setup
+ float $now = `currentTime -query`;
+@@ -444,27 +288,27 @@
+ string $trAttributes[] = {"translateX", "translateY", "translateZ", "rotateX", "rotateY", "rotateZ"};
+ string $keyPrepAttr[];
+ 
+-string $object = substituteAllString($control, "_screenSpaceControl", "");
+-string $rig = ($object + "_screenSpaceRig");
++string $object = python("__import__('maya_toolkit.tools.eblabs_screenspace.runtime', fromlist=['current_target']).current_target()");
++string $rig = python("__import__('maya_toolkit.tools.eblabs_screenspace.runtime', fromlist=['current_rig']).current_rig()");
+ //$object = substituteAllString($object, "__", ":");
+ 
+ //check use orientation attribute
+ int $orientationExists = `objExists ($control + ".useOrientation")`;
+ int $useOrientationValue = 0;
+ if($orientationExists)
+-	{
+-	$useOrientationValue = `getAttr ($control + ".useOrientation") `;
+-	}
++    {
++    $useOrientationValue = `getAttr ($control + ".useOrientation") `;
++    }
+ 
+ //setup list of attributes to prep
+ if($useOrientationValue)
+-	{
+-	$keyPrepAttr = $trAttributes;
+-	}
++    {
++    $keyPrepAttr = $trAttributes;
++    }
+ else
+-	{
+-	$keyPrepAttr = $tAttributes;
+-	}
++    {
++    $keyPrepAttr = $tAttributes;
++    }
+ 
+ //get list of keyable unlocked attributes
+ string $keyableList[] = `listAttr -k -u $object`;
+@@ -477,154 +321,124 @@
+ 
+ //key prep for destination
+ for($a in $keyPrepAttr)
+-	{
+-	//continue if the attribute is keyable and unlocked
+-	int $attrCheck = stringArrayContains($a, $keyableList);
+-	if($attrCheck==1)
+-		{
+-		//make sure there is a key on all tran/rot channels that are keyable/unlocked on target
+-		if((`keyframe -query -keyframeCount ($object + "." + $a)`)==0)
+-			{
+-			//find first keyframe time for control
+-			float $firstKey = (`findKeyframe -which first $control`);
+-			currentTime $firstKey;
+-			setKeyframe ($object + "." + $a);
+-			}
+-		//copy and paste keys for timing reference
+-		copyKey -time ":" -option keys ($control + "." + $a);
+-		pasteKey -option "replace" ($object + "." + $a) ;
+-		}
+-	}
++    {
++    //continue if the attribute is keyable and unlocked
++    int $attrCheck = stringArrayContains($a, $keyableList);
++    if($attrCheck==1)
++        {
++        //make sure there is a key on all tran/rot channels that are keyable/unlocked on target
++        if((`keyframe -query -keyframeCount ($object + "." + $a)`)==0)
++            {
++            //find first keyframe time for control
++            float $firstKey = (`findKeyframe -which first $control`);
++            currentTime $firstKey;
++            setKeyframe ($object + "." + $a);
++            }
++        //copy and paste keys for timing reference
++        copyKey -time ":" -option keys ($control + "." + $a);
++        pasteKey -option "replace" ($object + "." + $a) ;
++        }
++    }
+ 
+ //smart baking go through and set keys on available translation
+ for ($a in $tAttributes)
+-	{
+-	//continue if the attribute is keyable and unlocked
+-	int $attrCheck = stringArrayContains($a, $keyableList);
+-	if($attrCheck==1)
+-		{
+-		//query key count
+-		int $keyCount = (`keyframe -query -keyframeCount ($object + "." + $a)`);
+-		for ($f = 0; $f < $keyCount; $f++)
+-			{
+-			float $timeCheck[] = (`keyframe -index $f -query ($object + "." + $a)`);
+-			currentTime $timeCheck[0];
+-			//print ($object + "." + $a + " " + $timeCheck[0] + "\n" );
+-			//key all translations
+-			for ($transAttr in $tAttributes)
+-				{
+-				setKeyframe ($object + "." + $transAttr);
+-				}
+-			ebLabs_screenSpace_updateProgress($f, $keyCount, "ebLabs_sc_progress");
+-
+-			}
+-		//print ($object + "." + $a + " " + "\n" );
+-		keyTangent -itt plateau -ott plateau -attribute $a ($object);
+-		}
+-	}
++    {
++    //continue if the attribute is keyable and unlocked
++    int $attrCheck = stringArrayContains($a, $keyableList);
++    if($attrCheck==1)
++        {
++        //query key count
++        int $keyCount = (`keyframe -query -keyframeCount ($object + "." + $a)`);
++        for ($f = 0; $f < $keyCount; $f++)
++            {
++            float $timeCheck[] = (`keyframe -index $f -query ($object + "." + $a)`);
++            currentTime $timeCheck[0];
++            //print ($object + "." + $a + " " + $timeCheck[0] + "\n" );
++            //key all translations
++            for ($transAttr in $tAttributes)
++                {
++                setKeyframe ($object + "." + $transAttr);
++                }
++            mtbSS_ebLabs_screenSpace_updateProgress($f, $keyCount, "mtbSS_ebLabs_sc_progress");
++
++            }
++        //print ($object + "." + $a + " " + "\n" );
++        keyTangent -itt plateau -ott plateau -attribute $a ($object);
++        }
++    }
+ 
+ if($useOrientationValue)
+-	{
+-
+-	//smart baking go through and set keys on available translation
+-	for ($a in $rAttributes)
+-		{
+-		//continue if the attribute is keyable and unlocked
+-		int $attrCheck = stringArrayContains($a, $keyableList);
+-		if($attrCheck==1)
+-			{
+-			//query key count
+-			int $keyCount = (`keyframe -query -keyframeCount ($object + "." + $a)`);
+-			for ($f = 0; $f < $keyCount; $f++)
+-				{
+-				float $timeCheck[] = (`keyframe -index $f -query ($object + "." + $a)`);
+-				currentTime $timeCheck[0];
+-
+-				//key all translations
+-				for ($rotsAttr in $rAttributes)
+-					{
+-					setKeyframe ($object + "." + $rotsAttr);
+-					}
+-				ebLabs_screenSpace_updateProgress($f, $keyCount, "ebLabs_sc_progress");
+-				}
+-			keyTangent -itt plateau -ott plateau -attribute $a ($object);
+-			}
+-		}
+-	//euler filter curves
+-	filterCurve $object;
+-	}
++    {
++
++    //smart baking go through and set keys on available translation
++    for ($a in $rAttributes)
++        {
++        //continue if the attribute is keyable and unlocked
++        int $attrCheck = stringArrayContains($a, $keyableList);
++        if($attrCheck==1)
++            {
++            //query key count
++            int $keyCount = (`keyframe -query -keyframeCount ($object + "." + $a)`);
++            for ($f = 0; $f < $keyCount; $f++)
++                {
++                float $timeCheck[] = (`keyframe -index $f -query ($object + "." + $a)`);
++                currentTime $timeCheck[0];
++
++                //key all translations
++                for ($rotsAttr in $rAttributes)
++                    {
++                    setKeyframe ($object + "." + $rotsAttr);
++                    }
++                mtbSS_ebLabs_screenSpace_updateProgress($f, $keyCount, "mtbSS_ebLabs_sc_progress");
++                }
++            keyTangent -itt plateau -ott plateau -attribute $a ($object);
++            }
++        }
++    //euler filter curves
++    filterCurve $object;
++    }
+ 
+ //delete rig
+-delete ($rig);
++python("import maya_toolkit.tools.eblabs_screenspace.runtime as _r; _r.clean_active()");
+ select ($object);
+ currentTime $now;
+ 
+ //set progress bar to 100%
+-ebLabs_screenSpace_updateProgress(100, 100, "ebLabs_sc_progress");
+-
+-}
+-
+-
+-//######################################################################################################################
+-
+-global proc ebLabs_screenSpace_deleteRig()
+-{
+-//get selection from list
+-string $selectListObjects[] = `textScrollList -q -si eb_labs_screenSpace_rigList`;
+-string $deleteMe[];
+-
+-//set selections
+-select -cl;
+-for($obj in $selectListObjects)
+-	{
+-	if(!(`objExists $obj`))
+-		{
+-		ebLabs_screenSpace_updateRigList;
+-		}
+-	else
+-		{
+-		$deleteMe[`size($deleteMe)`] = $obj;
+-		}
+-	}
+-
+-//run through and delete rigs
+-for($control in $deleteMe)
+-	{
+-
+-	//figure out rig name
+-	string $rig = substituteAllString($control, "_screenSpaceControl", "");
+-	$rig = ($rig + "_screenSpaceRig");
+-
+-	if(`objExists $rig`)
+-		{
+-		//print ($rig + "\n");
+-		delete $rig;
+-		}
+-	}
+-ebLabs_screenSpace_updateRigList;
+-}
+-
+-
+-//######################################################################################################################
+-
+-global proc ebLabs_animTools_screenSpaceRig(string $inputCam, string $inputObj)
+-{
++mtbSS_ebLabs_screenSpace_updateProgress(100, 100, "mtbSS_ebLabs_sc_progress");
++
++}
++
++
++//######################################################################################################################
++
++global proc mtbSS_ebLabs_screenSpace_deleteRig()
++{
++python("import maya_toolkit.tools.eblabs_screenspace.ui as _u; _u.dispatch('cleanup')");
++}
++
++
++//######################################################################################################################
++
++global proc mtbSS_ebLabs_animTools_screenSpaceRig(string $inputCam, string $inputObj, string $prefix, int $orientationChkBox)
++{
++python("import maya_toolkit.tools.eblabs_screenspace.runtime as _r; _r.require_active()");
++
+ 
+ //setup
+ float $now = `currentTime -query`;
+ 
+ //orientation checkbox
+-int $orientationChkBox = `checkBox -q -v ebLabs_sc_orientationChkBox`;
++// Explicit orientation argument.
+ 
+ //check if its possible to have orientation, of not, then set this off
+ if($orientationChkBox==1)
+-	{
+-	if((`keyframe -query -keyframeCount ($inputObj + ".rx")`)==0 && (`keyframe -query -keyframeCount ($inputObj + ".ry")`)==0 && (`keyframe -query -keyframeCount ($inputObj + ".rz")`)==0)
+-		{
+-		//override checkbox
+-		$orientationChkBox = 0;
+-		}
+-	}
++    {
++    if((`keyframe -query -keyframeCount ($inputObj + ".rx")`)==0 && (`keyframe -query -keyframeCount ($inputObj + ".ry")`)==0 && (`keyframe -query -keyframeCount ($inputObj + ".rz")`)==0)
++        {
++        //override checkbox
++        $orientationChkBox = 0;
++        }
++    }
+ 
+ //channel lists
+ string $trAttributes[] = {"translateX", "translateY", "translateZ", "rotateX", "rotateY", "rotateZ"};
+@@ -638,16 +452,16 @@
+ string $camera = substituteAllString($inputCam, ":", "__");
+ $camera = substituteAllString($camera, "|", "__");
+ string $object = $inputObj;
+-string $rigGroup = $object + "_screenSpaceRig";
+-string $controlGroup = $object + "_controlGroup";
+-string $aimGroup = $object + "_aimGroup";
+-string $depthLoc = $object + "_zDepth";
+-string $newControl = $object + "_screenSpaceControl";
+-string $camConstraint = $object + "_pcCam_" + $camera;
+-string $aimConstraint = $object + "_ac_" + $camera;
+-string $orientConstraint = $object + "_oc_" + $camera;
+-string $pointConstraint = $object + "_pc_" + $camera;
+-string $aimControlConstraint = $object + "_acControl_" + $camera;
++string $rigGroup = $prefix + "_screenSpaceRig";
++string $controlGroup = $prefix + "_controlGroup";
++string $aimGroup = $prefix + "_aimGroup";
++string $depthLoc = $prefix + "_zDepth";
++string $newControl = $prefix + "_screenSpaceControl";
++string $camConstraint = $prefix + "_pcCam_" + $camera;
++string $aimConstraint = $prefix + "_ac_" + $camera;
++string $orientConstraint = $prefix + "_oc_" + $camera;
++string $pointConstraint = $prefix + "_pc_" + $camera;
++string $aimControlConstraint = $prefix + "_acControl_" + $camera;
+ string $camShp[] = `listRelatives -fullPath -type "camera" -shapes $inputCam`;
+ //float $camClipPlanes[] = `getAttr ($camShp[0] + ".nearClipPlane")`;
+ //float $camClipPlane =  $camClipPlanes[0];
+@@ -661,15 +475,15 @@
+ 
+ //make a different control object depending on the orient check box
+ if($orientationChkBox)
+-	{
+-	ebLabs_screenSpace_makeCurveCube($newControl);
+-	scale  .1 .1 .1 $newControl;
+-	}else{
+-	circle -r 0.1 -n $newControl;
+-	}
++    {
++    mtbSS_ebLabs_screenSpace_makeCurveCube($newControl);
++    scale  .1 .1 .1 $newControl;
++    }else{
++    circle -r 0.1 -n $newControl;
++    }
+ 
+ //apply rando colours
+-ebLabs_screenSpace_setRandoColor({$newControl});
++mtbSS_ebLabs_screenSpace_setRandoColor({$newControl});
+ 
+ //freeze transformation on new control
+ makeIdentity -apply true -t 0 -r 0 -s 1 -n 0 $newControl;
+@@ -700,122 +514,123 @@
+ setAttr ($newControl + ".controlRadius") 1;
+ 
+ if($orientationChkBox)
+-	{
+-	addAttr -ln "useOrientation"  -at bool  ($newControl);
+-	setAttr -cb true ($newControl + ".useOrientation");
+-	setAttr ($newControl + ".useOrientation") 1;
+-	//set min and max
+-	}
++    {
++    addAttr -ln "useOrientation"  -at bool  ($newControl);
++    setAttr -cb true ($newControl + ".useOrientation");
++    setAttr ($newControl + ".useOrientation") 1;
++    //set min and max
++    }
+ 
+ //pre-key all rotation channels on first frame, for using maintain offset with orient constraint
+ if($orientationChkBox)
+-	{
+-	for ($a in $rAttributes)
+-		{
+-		//find first keyframe set a key on all rotation channels
+-		float $firstKey = `findKeyframe -which first $inputObj`;
+-		currentTime $firstKey;
+-		setKeyframe ($newControl + "." + $a);
+-		}
++    {
++    for ($a in $rAttributes)
++        {
++        //find first keyframe set a key on all rotation channels
++        float $firstKey = `findKeyframe -which first $inputObj`;
++        currentTime $firstKey;
++        setKeyframe ($newControl + "." + $a);
++        }
+ }
+ 
+ //go through keys on input object and set keys on new control
+ for ($a in $tAttributes)
+-	{
+-	//get keyable list on input object
+-	string $keyableList[] = `listAttr -k -u $inputObj`;
+-	int $attrCheck = stringArrayContains($a, $keyableList);
+-
+-	//query key count
+-	int $keyCount = `keyframe -q -keyframeCount ($inputObj + "." + $a)`;
+-
+-	if(($keyCount>0)&&($attrCheck==1))
+-		{
+-		for ($f = 0; $f < $keyCount; $f++)
+-			{
+-
+-			//query keyframe time and go there
+-			float $timeCheck[] = `keyframe -index $f -query ($inputObj + "." + $a)`;
+-			currentTime $timeCheck[0];
+-
+-			//update progress bar
+-			ebLabs_screenSpace_updateProgress($f, $keyCount, "ebLabs_sc_progress");
+-
+-			//get aligned position
+-			float $objectPos[] = `xform -q -ws -rp ($inputObj)`;
+-			float $camPos[] = `xform -q -ws -rp ($inputCam)`;
+-			move -ws ($objectPos[0]) ($objectPos[1]) ($objectPos[2]) ($newControl);
+-			move -ws ($objectPos[0]) ($objectPos[1]) ($objectPos[2]) ($depthLoc);
+-
+-			//get local values, normalize to z
+-			//divide x,y,z by distance(or rather magnitude), this will calculate x and y position with a fixed z value of 1
+-			float $normalizer = (`getAttr ($newControl + ".tz")`);
+-			$normalizer = `abs $normalizer`;
+-
+-			//this is a bit of code to handle an object going behind the camera, or closer than z value 1
+-			if((`getAttr ($newControl + ".tz")`)>-1)
+-				{
+-				//creates a new normalization value that is 1 unit distant to the camera
+-				vector $diffVector = <<($objectPos[0]-$camPos[0]), ($objectPos[1]-$camPos[1]), ($objectPos[2]-$camPos[2])>>;
+-				$normalizer = `mag $diffVector`;
+-				}
+-
+-			//key control and depth locator
+-			setAttr ($newControl + ".tx") ((`getAttr ($newControl + ".tx")`)/$normalizer);
+-			setAttr ($newControl + ".ty") ((`getAttr ($newControl + ".ty")`)/$normalizer);
+-			setAttr ($newControl + ".tz") ((`getAttr ($newControl + ".tz")`)/$normalizer);
+-			setKeyframe ($newControl + ".tx");
+-			setKeyframe ($newControl + ".ty");
+-			setKeyframe ($newControl + ".tz");
+-			setKeyframe ($depthLoc + ".tx");
+-			keyTangent -itt auto -ott auto -attribute translateZ $newControl;
+-			}
+-		}
+-	}
++    {
++    //get keyable list on input object
++    string $keyableList[] = `listAttr -k -u $inputObj`;
++    int $attrCheck = stringArrayContains($a, $keyableList);
++
++    //query key count
++    int $keyCount = `keyframe -q -keyframeCount ($inputObj + "." + $a)`;
++
++    if(($keyCount>0)&&($attrCheck==1))
++        {
++        for ($f = 0; $f < $keyCount; $f++)
++            {
++
++            //query keyframe time and go there
++            float $timeCheck[] = `keyframe -index $f -query ($inputObj + "." + $a)`;
++            currentTime $timeCheck[0];
++
++            //update progress bar
++            mtbSS_ebLabs_screenSpace_updateProgress($f, $keyCount, "mtbSS_ebLabs_sc_progress");
++
++            //get aligned position
++            float $objectPos[] = `xform -q -ws -rp ($inputObj)`;
++            float $camPos[] = `xform -q -ws -rp ($inputCam)`;
++            move -ws ($objectPos[0]) ($objectPos[1]) ($objectPos[2]) ($newControl);
++            move -ws ($objectPos[0]) ($objectPos[1]) ($objectPos[2]) ($depthLoc);
++
++            //get local values, normalize to z
++            //divide x,y,z by distance(or rather magnitude), this will calculate x and y position with a fixed z value of 1
++            float $normalizer = (`getAttr ($newControl + ".tz")`);
++            $normalizer = `abs $normalizer`;
++
++            //this is a bit of code to handle an object going behind the camera, or closer than z value 1
++            if((`getAttr ($newControl + ".tz")`)>-1)
++                {
++                //creates a new normalization value that is 1 unit distant to the camera
++                vector $diffVector = <<($objectPos[0]-$camPos[0]), ($objectPos[1]-$camPos[1]), ($objectPos[2]-$camPos[2])>>;
++                $normalizer = `mag $diffVector`;
++                }
++
++            if($normalizer < 0.000000001) error "Target coincides with camera at sampled key";
++//key control and depth locator
++            setAttr ($newControl + ".tx") ((`getAttr ($newControl + ".tx")`)/$normalizer);
++            setAttr ($newControl + ".ty") ((`getAttr ($newControl + ".ty")`)/$normalizer);
++            setAttr ($newControl + ".tz") ((`getAttr ($newControl + ".tz")`)/$normalizer);
++            setKeyframe ($newControl + ".tx");
++            setKeyframe ($newControl + ".ty");
++            setKeyframe ($newControl + ".tz");
++            setKeyframe ($depthLoc + ".tx");
++            keyTangent -itt auto -ott auto -attribute translateZ $newControl;
++            }
++        }
++    }
+ 
+ //if orientation is included, key rotation
+ if($orientationChkBox)
+-	{
+-
+-	//add orient constraint after key is addd to new control
+-	orientConstraint -n ($orientConstraint) ($inputObj) ($newControl);
+-
+-	//go through rotation channel keys
+-	for ($a in $rAttributes)
+-		{
+-
+-		//get keyable list on input object
+-		string $keyableList[] = `listAttr -k -u $inputObj`;
+-		int $attrCheck = stringArrayContains($a, $keyableList);
+-
+-		//query key count
+-		int $keyCount = `keyframe -q -keyframeCount ($inputObj + "." + $a)`;
+-
+-		if(($keyCount>0)&&($attrCheck==1))
+-			{
+-			//query key count
+-			int $keyCount = `keyframe -q -keyframeCount ($inputObj + "." + $a)`;
+-				for ($f = 0; $f < $keyCount; $f++)
+-				{
+-				//query keyframe time and go there
+-				float $timeCheck[] = `keyframe -index $f -query ($inputObj + "." + $a)`;
+-				currentTime $timeCheck[0];
+-
+-				//update progress bar
+-				ebLabs_screenSpace_updateProgress($f, $keyCount, "ebLabs_sc_progress");
+-
+-				//key all rotations
+-				for ($ra in $rAttributes)
+-					{
+-					setKeyframe ($newControl + "." + $ra);
+-					}
+-				}
+-			}
+-		}
+-
+-	//remove constraint and apply it to $object
+-	delete $orientConstraint;
+-	}
++    {
++
++    //add orient constraint after key is addd to new control
++    orientConstraint -n ($orientConstraint) ($inputObj) ($newControl);
++
++    //go through rotation channel keys
++    for ($a in $rAttributes)
++        {
++
++        //get keyable list on input object
++        string $keyableList[] = `listAttr -k -u $inputObj`;
++        int $attrCheck = stringArrayContains($a, $keyableList);
++
++        //query key count
++        int $keyCount = `keyframe -q -keyframeCount ($inputObj + "." + $a)`;
++
++        if(($keyCount>0)&&($attrCheck==1))
++            {
++            //query key count
++            int $keyCount = `keyframe -q -keyframeCount ($inputObj + "." + $a)`;
++                for ($f = 0; $f < $keyCount; $f++)
++                {
++                //query keyframe time and go there
++                float $timeCheck[] = `keyframe -index $f -query ($inputObj + "." + $a)`;
++                currentTime $timeCheck[0];
++
++                //update progress bar
++                mtbSS_ebLabs_screenSpace_updateProgress($f, $keyCount, "mtbSS_ebLabs_sc_progress");
++
++                //key all rotations
++                for ($ra in $rAttributes)
++                    {
++                    setKeyframe ($newControl + "." + $ra);
++                    }
++                }
++            }
++        }
++
++    //remove constraint and apply it to $object
++    delete $orientConstraint;
++    }
+ 
+ //tidy up
+ 
+@@ -856,15 +671,15 @@
+ 
+ //setup constraints
+ if($orientationChkBox)
+-	{
+-	//go to first frame, just so that maintain offset will match
+-	float $firstKey = `findKeyframe -which first $inputObj`;
+-	currentTime $firstKey;
+-
+-	//orientConstraint -mo -sk $skipRX -sk $skipRY -sk $skipRZ -n ($orientConstraint) ($newControl) ($inputObj);
+-	orientConstraint -sk $skipRX -sk $skipRY -sk $skipRZ -n ($orientConstraint) ($newControl) ($inputObj);
+-	//print $orientConstraint;
+-	}
++    {
++    //go to first frame, just so that maintain offset will match
++    float $firstKey = `findKeyframe -which first $inputObj`;
++    currentTime $firstKey;
++
++    //orientConstraint -mo -sk $skipRX -sk $skipRY -sk $skipRZ -n ($orientConstraint) ($newControl) ($inputObj);
++    orientConstraint -sk $skipRX -sk $skipRY -sk $skipRZ -n ($orientConstraint) ($newControl) ($inputObj);
++    //print $orientConstraint;
++    }
+ pointConstraint -sk $skipTX -sk $skipTY -sk $skipTZ -n ($pointConstraint) ($depthLoc) ($inputObj);
+ 
+ parent ($pointConstraint) ($rigGroup);
+@@ -879,11 +694,11 @@
+ 
+ //lock orientation if translate only
+ if($orientationChkBox==0)
+-	{
+-	setAttr -keyable false -channelBox false -lock true ($newControl + ".rx");
+-	setAttr -keyable false -channelBox false -lock true ($newControl + ".ry");
+-	setAttr -keyable false -channelBox false -lock true ($newControl + ".rz");
+-	}
++    {
++    setAttr -keyable false -channelBox false -lock true ($newControl + ".rx");
++    setAttr -keyable false -channelBox false -lock true ($newControl + ".ry");
++    setAttr -keyable false -channelBox false -lock true ($newControl + ".rz");
++    }
+ 
+ //move control ahead of clipping plane by a hair
+ setAttr ($newControl + ".planeAdjust") ($camClipPlane*1.1);
+@@ -894,18 +709,18 @@
+ 
+ //make pairblends non keyable and link to orientation switch
+ for($attr in $attrList)
+-	{
+-	//print $attr;
+-	//fix for attributes named "blender"
+-	if((`gmatch $attr "blendPoint*"`)&&(!(`gmatch $attr "*blender*"`)))
+-		{
+-		setAttr -keyable false -channelBox true ($inputObj + "." + $attr);
+-		}
+-	if(`gmatch $attr "blendOrient*"`)
+-		{
+-		//connectAttr -f ($newControl + ".useOrientation") ($inputObj + "." + $attr);
+-		}
+-	}
++    {
++    //print $attr;
++    //fix for attributes named "blender"
++    if((`gmatch $attr "blendPoint*"`)&&(!(`gmatch $attr "*blender*"`)))
++        {
++        setAttr -keyable false -channelBox true ($inputObj + "." + $attr);
++        }
++    if(`gmatch $attr "blendOrient*"`)
++        {
++        //connectAttr -f ($newControl + ".useOrientation") ($inputObj + "." + $attr);
++        }
++    }
+ 
+ 
+ 
+@@ -914,216 +729,79 @@
+ currentTime $now;
+ 
+ //set progress bar to 100%
+-ebLabs_screenSpace_updateProgress(100, 100, "ebLabs_sc_progress");
++mtbSS_ebLabs_screenSpace_updateProgress(100, 100, "mtbSS_ebLabs_sc_progress");
+ 
+ //update rig list
+-ebLabs_screenSpace_updateRigList;
+-}
+-
+-
+-//######################################################################################################################
+-
+-global proc ebLabs_animTools_screenSpaceRigMulti()
+-{
+-
+-//get camera
+-string $selectedCamera[] = `textScrollList -q -si eb_labs_screenSpace_cameraList`;
+-
+-//get selection
+-string $selected[] = `ls -selection`;
+-
+-//remove cameras from selected
+-for ($f = 0; $f < (`size($selected)`); $f++)
+-	{
+-	if(`ebLabs_isCamera($selected[$f])`)
+-		{
+-		$selected[$f] = "";
+-		}
+-	}
+-$selected = stringArrayRemove({""}, $selected);
+-
+-
+-//variables
+-int $orientationChkBox = `checkBox -q -v ebLabs_sc_orientationChkBox`;
+-
+-//error checking
+-
+-string $errorMsg[];
+-
+-//check if the camera exist in the scene
+-if(!(`objExists $selectedCamera[0]`))
+-	{
+-	$errorMsg[`size($errorMsg)`] = ("Camera doesnt exist: " + $selectedCamera[0]);
+-	}
+-if($selectedCamera[0]=="")
+-	{
+-	$errorMsg[`size($errorMsg)`] = ("Please select a camera from the list");
+-	}
+-
+-//check if anything is selected
+-if(`size($selected)`==0)
+-	{
+-	$errorMsg[`size($errorMsg)`] = ("Select object in scene first.");
+-	}
+-
+-//check if the objects exist in the scene
+-for($s in $selected)
+-	{
+-	if(!(`objExists $s`))
+-		{
+-		$errorMsg[`size($errorMsg)`] = ("Object doesnt exist: " + $s);
+-		}
+-	}
+-
+-for($s in $selected)
+-	{
+-	//make sure that a screenspace rig isnt selected
+-	int $isScreenSpaceCheck =  (`gmatch $s "*_screenSpace*"`);
+-	if($isScreenSpaceCheck)
+-		{
+-		$errorMsg[`size($errorMsg)`] = ("Object is already a screen space rig: " + $s);
+-		}
+-	}
+-
+-//check if rigs already exist
+-if(`size($selected)`!=0)
+-	{
+-	for($s in $selected)
+-		{
+-		//pre define variables for error checking
+-		string $camera = substituteAllString($selectedCamera[0], ":", "__");
+-		$camera = substituteAllString($camera, "|", "__");
+-		string $object = $s;
+-		string $rigGroup = $object + "_screenSpaceRig";
+-		string $controlGroup = $object + "_controlGroup";
+-		string $aimGroup = $object + "_aimGroup";
+-		string $depthLoc = $object + "_zDepth";
+-		string $newControl = $object + "_screenSpaceControl" ;
+-		string $camConstraint = $object + "_pcCam_" + $camera;
+-		string $aimConstraint = $object + "_ac_" + $camera;
+-		string $pointConstraint = $object + "_pc_" + $camera;
+-		string $aimControlConstraint = $object + "_acControl_" + $camera;
+-
+-		//check that rig parts don't already exist
+-		if(`objExists $rigGroup`){$errorMsg[`size($errorMsg)`] = ("ScreenSpace controls already exists: " + $rigGroup);}
+-		if(`objExists $controlGroup`){$errorMsg[`size($errorMsg)`] = ("ScreenSpace controls already exists: " + $controlGroup);}
+-		if(`objExists $aimGroup`){$errorMsg[`size($errorMsg)`] = ("ScreenSpace controls already exists: " + $aimGroup);}
+-		if(`objExists $depthLoc`){$errorMsg[`size($errorMsg)`] = ("ScreenSpace controls already exists: " + $depthLoc);}
+-		if(`objExists $newControl`){$errorMsg[`size($errorMsg)`] = ("ScreenSpace controls already exists: " + $newControl);}
+-		if((`objExists $newControl`)||(`objExists $controlGroup`)||(`objExists $aimGroup`)||(`objExists $depthLoc`)||(`objExists $newControl`)||(`objExists $newControl`)){$errorMsg[`size($errorMsg)`] = ("Try deleting your old screen space rig first.");}
+-
+-		//check that there is actualy translation animation on the object
+-		if((`keyframe -query -keyframeCount ($s + ".tx")`)==0 && (`keyframe -query -keyframeCount ($s + ".ty")`)==0 && (`keyframe -query -keyframeCount ($s + ".tz")`)==0)
+-			{
+-			$errorMsg[`size($errorMsg)`] = "Make sure you have at least one key on any of the translation channels";
+-			}
+-		}
+-	}
+-//create screen space rigs
+-if((`size($errorMsg)`==0))
+-	{
+-
+-	//hide UI
+-	ebLabs_screenSpace_enableMayaUI(off, "ebLabs_screenSpace");
+-
+-	for($s in $selected)
+-		{
+-		ebLabs_animTools_screenSpaceRig($selectedCamera[0], $s);
+-		}
+-
+-	//enable UI
+-	ebLabs_screenSpace_enableMayaUI(on, "ebLabs_screenSpace");
+-	}
+-
+-//spit out any error message
+-if((`size($errorMsg)`!=0)){ebLabs_screenSpace_errorDialogue($errorMsg);}
+-
++mtbSS_ebLabs_screenSpace_updateRigList;
++}
++
++
++//######################################################################################################################
++
++global proc mtbSS_ebLabs_animTools_screenSpaceRigMulti()
++{
++python("import maya_toolkit.tools.eblabs_screenspace.ui as _u; _u.dispatch('create')");
+ }
+ 
+ //###########################################################################################################################
+-global proc ebLabs_screenSpace_selCamFromList()
++global proc mtbSS_ebLabs_screenSpace_selCamFromList()
+ {
+ //get selection from list
+-string $selectListObjects[] = `textScrollList -q -si eb_labs_screenSpace_cameraList`;
++string $selectListObjects[] = `textScrollList -q -si mtbSS_eb_labs_screenSpace_cameraList`;
+ 
+ //set selections
+ select -cl;
+ for($obj in $selectListObjects)
+-	{
+-	select -add $obj;
+-	}
++    {
++    select -add $obj;
++    }
+ }
+ 
+ //###########################################################################################################################
+-global proc ebLabs_screenSpace_selRigFromList()
++global proc mtbSS_ebLabs_screenSpace_selRigFromList()
+ {
+ //get selection from list
+-string $selectListObjects[] = `textScrollList -q -si eb_labs_screenSpace_rigList`;
++string $selectListObjects[] = `textScrollList -q -si mtbSS_eb_labs_screenSpace_rigList`;
+ 
+ 
+ 
+ //set selections
+ select -cl;
+ for($obj in $selectListObjects)
+-	{
+-	if(!(`objExists $obj`))
+-		{
+-		ebLabs_screenSpace_updateRigList;
+-		}
+-	else
+-		{
+-		select -add $obj;
+-		}
+-	}
+-
+-}
+-
+-//######################################################################################################################
+-global proc ebLabs_screenSpace_updateRigList()
+-{
+-
+-//get list of all nurbs curves
+-string $selection[] = `ls -type nurbsCurve`;
+-string $list[] = `listRelatives -allParents $selection`;
+-
+-string $rigList[];
+-string $obj;
+-
+-//sort through and see which one is a screenspace control
+-for($obj in $list)
+-	{
+-	if (`gmatch $obj "*_screenSpaceControl"`)
+-		{
+-		$rigList[`size($rigList)`] = $obj;
+-		}
+-	}
+-
+-//clear rig list
+-textScrollList -e -ra eb_labs_screenSpace_rigList;
+-
+-//add rigs
+-for ($f = 0; $f < (`size($rigList)`); $f++)
+-	{
+-	//add cams to list
+-	textScrollList -e -append ($rigList[$f]) eb_labs_screenSpace_rigList;
+-	}
+-}
+-
+-//######################################################################################################################
+-global proc ebLabs_screenSpace_camExistCheck()
+-{
+-string $selectedCam[] = `textScrollList -q -si eb_labs_screenSpace_cameraList`;
++    {
++    if(!(`objExists $obj`))
++        {
++        mtbSS_ebLabs_screenSpace_updateRigList;
++        }
++    else
++        {
++        select -add $obj;
++        }
++    }
++
++}
++
++//######################################################################################################################
++global proc mtbSS_ebLabs_screenSpace_updateRigList()
++{
++python("import maya_toolkit.tools.eblabs_screenspace.ui as _u; _u.refresh_rigs()");
++}
++
++//######################################################################################################################
++global proc mtbSS_ebLabs_screenSpace_camExistCheck()
++{
++string $selectedCam[] = `textScrollList -q -si mtbSS_eb_labs_screenSpace_cameraList`;
+ 
+ //update if the selected camera doesnt exist
+-if(!(`objExists $selectedCam[0]`))
+-	{
+-	ebLabs_screenSpace_updateCameraList;
+-	}
+-
+-}
+-
+-//######################################################################################################################
+-global proc ebLabs_screenSpace_updateCameraList()
++if(size($selectedCam)==0 || !(`objExists $selectedCam[0]`))
++    {
++    mtbSS_ebLabs_screenSpace_updateCameraList;
++    }
++
++}
++
++//######################################################################################################################
++global proc mtbSS_ebLabs_screenSpace_updateCameraList()
+ {
+ 
+ //get list of all nurbs curves
+@@ -1132,29 +810,29 @@
+ string $cameraList[];
+ 
+ //clear cam list
+-textScrollList -e -ra eb_labs_screenSpace_cameraList;
++textScrollList -e -ra mtbSS_eb_labs_screenSpace_cameraList;
+ 
+ //sort through and ignore orthographic cameras
+ for($cam in $cameraCheckList)
+-	{
+-	if (!(`camera -q -o $cam`))
+-		{
+-		$cameraList[`size($cameraList)`] = $cam;
+-		//print $cam;
+-		}
+-	}
++    {
++    if (!(`camera -q -o $cam`))
++        {
++        $cameraList[`size($cameraList)`] = $cam;
++        //print $cam;
++        }
++    }
+ //print $cameraList;
+ 
+ //add cams
+ for ($f = 0; $f < (`size($cameraList)`); $f++)
+-	{
+-
+-	//add cams to list
+-	textScrollList -e -append ($cameraList[$f]) eb_labs_screenSpace_cameraList;
+-
+-	//select the first control for timewarp list(dont select anything for untimewarp list)
+-	textScrollList -e -sii 1 eb_labs_screenSpace_cameraList;
+-	}
++    {
++
++    //add cams to list
++    textScrollList -e -append ($cameraList[$f]) mtbSS_eb_labs_screenSpace_cameraList;
++
++    //select the first control for timewarp list(dont select anything for untimewarp list)
++    textScrollList -e -sii 1 mtbSS_eb_labs_screenSpace_cameraList;
++    }
+ }
+ 
+ 
+@@ -1165,8 +843,10 @@
+ 
+ //######################################################################################################################
+ 
+-global proc ebLabs_screenSpace_makeCurveCube(string $name)
+-{
++global proc mtbSS_ebLabs_screenSpace_makeCurveCube(string $name)
++{
++python("import maya_toolkit.tools.eblabs_screenspace.runtime as _r; _r.require_active()");
++
+ string $box = `curve -d 1 -p -0.5 -0.5 0.5 -p 0.5 -0.5 0.5 -p 0.5 -0.5 -0.5
+ -p -0.5 -0.5 -0.5 -p -0.5 -0.5 0.5 -p -0.5 0.5 0.5 -p 0.5 0.5 0.5
+ -p 0.5 0.5 -0.5 -p -0.5 0.5 -0.5 -p -0.5 0.5 0.5 -p -0.5 -0.5 0.5
+@@ -1179,104 +859,45 @@
+ 
+ //######################################################################################################################
+ 
+-global proc ebLabs_screenSpace_enableMayaUI(int $on, string $ignore)
+-{
+-
+-	//if turning off, add safety popup
+-	if($on==off)
+-		{
+-		if (`window -exists ebLabs_UIFIX`){deleteUI ebLabs_UIFIX; windowPref -remove ebLabs_UIFIX;}
+-		string $window = `window -widthHeight 200 100 -bgc 1 1 1 -title "ebLabs UI Restore" ebLabs_UIFIX`;
+-		columnLayout -adjustableColumn true;
+-		text -label "\nClick to restore UI, \nif there are any errors\n" -align "center";
+-		button -label "RestoreUI" -command "global string $gMainPane;for($p in (`lsUI -typ window`)){ if (!(catchQuiet (`window -e -i 0 $p`))) {window -e -i 0 $p;}}paneLayout -e -m 1 $gMainPane;print \"\*Restoring Maya UI...\\n\"; if (`window -exists ebLabs_UIFIX`){deleteUI ebLabs_UIFIX; windowPref -remove ebLabs_UIFIX;}";
+-		showWindow $window;
+-		}
+-
+-	if($on==on)
+-		{
+-		if (`window -exists ebLabs_UIFIX`){deleteUI ebLabs_UIFIX; windowPref -remove ebLabs_UIFIX;}
+-		}
+-
+-	//modified from NaughtyNathan on cgtalk.com
+-	print (($on) ? "*Enabling Maya UI...\n" : "*Disabling Maya UI...\n");
+-	global string $gMainPane;
+-	string $windows[] = `lsUI -typ window`;
+-	for ($window in $windows)
+-		if ($window != "MayaWindow" && $window != "CommandWindow" && $window != $ignore && $window != "ebLabs_UIFIX")
+-		  {
+-
+-		  //this is to fix some weird window error, not sure what or why this is erroring on some UI elements
+-		  if (!(catchQuiet (`window -e -i (!$on) $window`)))
+-		    {
+-		    window -e -i (!$on) $window;
+-		    }
+-		  else
+-		    {
+-		    //print ("erroring on " + $window);
+-		    }
+-		  }
+-	paneLayout -e -m $on $gMainPane;
+-}
+-
+-//######################################################################################################################
+-
+-global proc ebLabs_screenSpace_updateProgress(float $value, float $max, string $pbar)
+-{
+-progressBar -edit -pr ($value) -maxValue ($max) $pbar;
+-
+-//flip visibility
+-if($value!=$max)
+-	{
+-
+-	//in progress
+-	progressBar -edit -vis 1 ebLabs_sc_progress;
+-	button -e -vis 0 ebLabs_sc_refreshListsButton;
+-	}
+-else
+-	{
+-	progressBar -edit -vis 0 ebLabs_sc_progress;
+-	button -e -vis 1 ebLabs_sc_refreshListsButton;
+-	}
+-
+-
+-}
+-
+-//######################################################################################################################
+-
+-global proc ebLabs_screenSpace_errorDialogue(string $msgs[])
+-{
+-$msgs = `stringArrayRemoveDuplicates($msgs)`;
+-string $longMessage;
+-string $msg;
+-for($msg in $msgs)
+-	{
+-	$longMessage += ($msg + "\n");
+-	}
+-
+-confirmDialog -title "Confirm" -message $longMessage -button "no worries mate" ;
+-}
+-
+-//######################################################################################################################
+-
+-global proc int ebLabs_isCamera(string $object)
++global proc mtbSS_ebLabs_screenSpace_enableMayaUI(int $on, string $ignore)
++{
++// No global Maya windows/panes are hidden or restored.
++}
++
++//######################################################################################################################
++
++global proc mtbSS_ebLabs_screenSpace_updateProgress(float $value, float $max, string $pbar)
++{
++// Progress is deliberately independent of window existence.
++}
++
++//######################################################################################################################
++
++global proc mtbSS_ebLabs_screenSpace_errorDialogue(string $msgs[])
++{
++error (stringArrayToString($msgs, "\n"));
++}
++
++//######################################################################################################################
++
++global proc int mtbSS_ebLabs_isCamera(string $object)
+ {
+ int $result = 0;
+ 
+ if($object!="")
+-	{
+-	string $shapeChk[] = `listRelatives -type "camera" -shapes $object`;
+-	if($shapeChk[0]!="")
+-		{
+-		$result = 1;
+-		}
+-	}
++    {
++    string $shapeChk[] = `listRelatives -type "camera" -shapes $object`;
++    if(size($shapeChk)>0 && $shapeChk[0]!="")
++        {
++        $result = 1;
++        }
++    }
+ return $result;
+ }
+ 
+ //######################################################################################################################
+ 
+-global proc int ebLabs_KUchannelCheck(string $object)
++global proc int mtbSS_ebLabs_KUchannelCheck(string $object)
+ {
+ int $checkChannels = 3;
+ string $attrList[] = `listAttr -k -u $object`;
+@@ -1300,30 +921,9 @@
+ 
+ //######################################################################################################################
+ 
+-global proc ebLabs_screenSpace_quickUndo(string $action)
+-{
+-if($action=="undo")
+-	{
+-	//hide UI
+-	ebLabs_screenSpace_enableMayaUI(off, "ebLabs_worldSpace");
+-
+-	//do the undo
+-	undo;
+-
+-	//unhide UI
+-	ebLabs_screenSpace_enableMayaUI(on, "ebLabs_worldSpace");
+-	}
+-else if($action=="redo")
+-	{
+-	//hide UI
+-	ebLabs_screenSpace_enableMayaUI(off, "ebLabs_worldSpace");
+-
+-	//do the undo
+-	redo;
+-
+-	//unhide UI
+-	ebLabs_screenSpace_enableMayaUI(on, "ebLabs_worldSpace");
+-	}
++global proc mtbSS_ebLabs_screenSpace_quickUndo(string $action)
++{
++if($action=="undo") python("import maya_toolkit.tools.eblabs_screenspace.ui as _u; _u.quick_undo('undo')"); else if($action=="redo") python("import maya_toolkit.tools.eblabs_screenspace.ui as _u; _u.quick_undo('redo')");
+ }
+ 
+ 

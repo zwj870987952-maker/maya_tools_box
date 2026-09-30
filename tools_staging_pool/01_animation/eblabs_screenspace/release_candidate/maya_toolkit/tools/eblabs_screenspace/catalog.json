@@ -1,0 +1,912 @@
+{
+  "tool_id": "eblabs_screenspace",
+  "original_procedures": [
+    "ebLabs_screenSpace",
+    "ebLabs_screenSpace_setRandoColor",
+    "ebLabs_screenSpace_updateAllLists",
+    "ebLabs_animTools_screenSpaceFullBakeMulti",
+    "ebLabs_animTools_screenSpaceSmartBakeMulti",
+    "ebLabs_animTools_screenSpaceSmartBake",
+    "ebLabs_screenSpace_deleteRig",
+    "ebLabs_animTools_screenSpaceRig",
+    "ebLabs_animTools_screenSpaceRigMulti",
+    "ebLabs_screenSpace_selCamFromList",
+    "ebLabs_screenSpace_selRigFromList",
+    "ebLabs_screenSpace_updateRigList",
+    "ebLabs_screenSpace_camExistCheck",
+    "ebLabs_screenSpace_updateCameraList",
+    "ebLabs_screenSpace_makeCurveCube",
+    "ebLabs_screenSpace_enableMayaUI",
+    "ebLabs_screenSpace_updateProgress",
+    "ebLabs_screenSpace_errorDialogue",
+    "ebLabs_isCamera",
+    "ebLabs_KUchannelCheck",
+    "ebLabs_screenSpace_quickUndo"
+  ],
+  "runtime_procedures": [
+    "mtbSS_ebLabs_screenSpace",
+    "mtbSS_ebLabs_screenSpace_setRandoColor",
+    "mtbSS_ebLabs_screenSpace_updateAllLists",
+    "mtbSS_ebLabs_animTools_screenSpaceFullBakeMulti",
+    "mtbSS_ebLabs_animTools_screenSpaceSmartBakeMulti",
+    "mtbSS_ebLabs_animTools_screenSpaceSmartBake",
+    "mtbSS_ebLabs_screenSpace_deleteRig",
+    "mtbSS_ebLabs_animTools_screenSpaceRig",
+    "mtbSS_ebLabs_animTools_screenSpaceRigMulti",
+    "mtbSS_ebLabs_screenSpace_selCamFromList",
+    "mtbSS_ebLabs_screenSpace_selRigFromList",
+    "mtbSS_ebLabs_screenSpace_updateRigList",
+    "mtbSS_ebLabs_screenSpace_camExistCheck",
+    "mtbSS_ebLabs_screenSpace_updateCameraList",
+    "mtbSS_ebLabs_screenSpace_makeCurveCube",
+    "mtbSS_ebLabs_screenSpace_enableMayaUI",
+    "mtbSS_ebLabs_screenSpace_updateProgress",
+    "mtbSS_ebLabs_screenSpace_errorDialogue",
+    "mtbSS_ebLabs_isCamera",
+    "mtbSS_ebLabs_KUchannelCheck",
+    "mtbSS_ebLabs_screenSpace_quickUndo"
+  ],
+  "raw_files": [
+    {
+      "path": "upstream/eblabs_hub/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/data/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/data/eblabs.data",
+      "sha256": "ea65387be5e62be26db7a9870c818125302b9ba5cb05865999d9daa5bd8c7c97"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/data/PackageData.py",
+      "sha256": "07d07ac282071d5d87cfb5c2492bc9109251923e45bcbcfd3eb34a1542e3dba6"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/images/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/images/eblabs_package_manager.png",
+      "sha256": "8b1b9b5f12f40f4a023171aea29b7e87be537ed4672db143e26236829ef2068a"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/images/eblabs_package_manager_Editor.png",
+      "sha256": "10874c64df0b6f3153eb44e53c230a153c7af45b2567f65a26e28978bfc0a3cd"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Data_Widgets.py",
+      "sha256": "57b4f906d9985a2e687e8ec3ee706538db6aaeef65441d66bb0cc75591621671"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/eblabs_drag_drop_install.py",
+      "sha256": "07e5269fe9a459869d55075671d5aae0aa649691dbc2b75c3f13304d31ee263c"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/PackageManager.py",
+      "sha256": "a2cb92eb25db86740b43164d8060cd8c395e3c0e44f51e6e8545088f6b8559eb"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Plugin.py",
+      "sha256": "bbe743df370e6689687db3c882245911c4befb205fb7e08751ec75032123cc24"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Plugin_Manager.py",
+      "sha256": "c3e8dc2a6ac841d1e530aa890cada99c2d519304b9d03d1ebed8a8b3eeff7f8e"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Plugins/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Utils/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Utils/Maya.py",
+      "sha256": "3f7b713f69fa9062edb7d08ecd8a0951e050bdf80057e0a29e729afbaaf6b67d"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Utils/Misc.py",
+      "sha256": "b0a332e511dcbe8373c76ac9fd445e596c6b0fe85f20c3d33ac5a0148e848e1a"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Utils/PixoShop.py",
+      "sha256": "8f81269c31b55983f4ef7b20c7453259bde38b95ebdff2b85b528f4d37f3c330"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Utils/Prefs.py",
+      "sha256": "4322c1abdd0d7f18300ebefec6ff921777d9b58844e93b75d800c7d046c1db48"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Utils/Qt.py",
+      "sha256": "f0b80c3ba77eec8cdc566e25435c090eb79b30cb6f68e2dfec1454f5f917295b"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Utils/Scandir.py",
+      "sha256": "dd1988dc4bf9453541a5d50c9d3ad3d4d81a6e83360120a8a768e216e86834ba"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Utils/Templates.py",
+      "sha256": "ffb33126130e1166566ffd69677c70398664bea7f176c13290e913e0559dc5af"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/versions/eblabs_PackageManager_0.6.9.h.eblabs",
+      "sha256": "93841b225c0ded2af562be8474afdf5d698d67d0277aeb8e50576cd858a9194b"
+    },
+    {
+      "path": "upstream/eblabs_hub/ScreenSpace/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/eblabs_hub/ScreenSpace/data/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/ScreenSpace/data/eblabs.data",
+      "sha256": "6f14ec06cf9af72b744f3d221e19ad023c04c3dd9e6353f93cbd5ddb3975e4b8"
+    },
+    {
+      "path": "upstream/eblabs_hub/ScreenSpace/data/PackageData.py",
+      "sha256": "07d07ac282071d5d87cfb5c2492bc9109251923e45bcbcfd3eb34a1542e3dba6"
+    },
+    {
+      "path": "upstream/eblabs_hub/ScreenSpace/images/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/ScreenSpace/images/eblabs_screenSpace.png",
+      "sha256": "ee964b2508530479cfb45c37b48c148bd89c5a10d5597ca4e3655442de8d8e07"
+    },
+    {
+      "path": "upstream/eblabs_hub/ScreenSpace/scripts/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/eblabs_hub/ScreenSpace/scripts/eblabs_screenSpace.mel",
+      "sha256": "0d308f653d6c969c663d201ba27cfaf53d4b3d51e3068a9afcbb4db08b30da50"
+    },
+    {
+      "path": "upstream/eblabs_hub/ScreenSpace/scripts/LicenseManager.py",
+      "sha256": "303e3aca6687856cca89b53a036e1828ce20201af08b90dc81f9270064e57a0b"
+    },
+    {
+      "path": "upstream/eblabs_hub/ScreenSpace/scripts/Plugin.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/eblabs_hub/ScreenSpace/scripts/ScreenSpaceTools.py",
+      "sha256": "8a4c6d0d5958ced35e0ceebd01a9f221a06b9b08cf2c83403af8957dd4b8e247"
+    },
+    {
+      "path": "upstream/eblabs_hub/ScreenSpace/versions/eblabs_ScreenSpace_1.0.5.h.eblabs",
+      "sha256": "70836b0c98fcd7b9dcee6452305892c09bf2c6e9e42fa2f06dc5c086f6471c1d"
+    },
+    {
+      "path": "upstream/eblabs_hub/Search/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/eblabs_hub/Search/data/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/Search/data/eblabs.data",
+      "sha256": "acb04cc5509371e19b158a2e215b806a7a2c83dbd913cee19b16ffa057154ccf"
+    },
+    {
+      "path": "upstream/eblabs_hub/Search/images/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/Search/images/altcommand.png",
+      "sha256": "63fa90fb26acff54ab35aa84afd892e1bcaa346f39e60424b7108a10336eee5b"
+    },
+    {
+      "path": "upstream/eblabs_hub/Search/images/focus.png",
+      "sha256": "c3449586dfe5dae5257ab805f34e5d50278459337eb982074015a0d22c0e3fa0"
+    },
+    {
+      "path": "upstream/eblabs_hub/Search/images/IconProvider.py",
+      "sha256": "797f7829036acd4085b5ff15741101cc1a84ed07b9fbaaef8b4a1403231249e7"
+    },
+    {
+      "path": "upstream/eblabs_hub/Search/images/placeholder.jpg",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/eblabs_hub/Search/images/recent.png",
+      "sha256": "957df713af5eaa24abeb2aebb78d90b39fcbd05e6b2cd2e24b5bb4bdbb3e367a"
+    },
+    {
+      "path": "upstream/eblabs_hub/Search/images/search.png",
+      "sha256": "5df296ee15b1eda6dae184d22e83ada8f5dade52848ef15fef9f65b9c486a28b"
+    },
+    {
+      "path": "upstream/eblabs_hub/Search/images/star.png",
+      "sha256": "6af359a26110d5a8f15c4d19c68a6f9fe6dd25fe6b60f1b92d17f5a5f8da84a5"
+    },
+    {
+      "path": "upstream/eblabs_hub/Search/scripts/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/Search/scripts/ColorModule.py",
+      "sha256": "dd1b874608e2f21b8d9681c477e1df51ba6495ddaacf33b6736ebcf8f8fa864d"
+    },
+    {
+      "path": "upstream/eblabs_hub/Search/scripts/LoggingUtils.py",
+      "sha256": "635b8306240a966a934f85ca9c2385de037b9c42d270f09c65715cfe8c0934ed"
+    },
+    {
+      "path": "upstream/eblabs_hub/Search/scripts/MainModule.py",
+      "sha256": "5f3f74d15c7192523e04384703ba0bfe0ad5aea96f3b7ca793988f0f7294eaf9"
+    },
+    {
+      "path": "upstream/eblabs_hub/Search/scripts/Prefs.py",
+      "sha256": "4322c1abdd0d7f18300ebefec6ff921777d9b58844e93b75d800c7d046c1db48"
+    },
+    {
+      "path": "upstream/eblabs_hub/Search/scripts/Qt.py",
+      "sha256": "f0b80c3ba77eec8cdc566e25435c090eb79b30cb6f68e2dfec1454f5f917295b"
+    },
+    {
+      "path": "upstream/eblabs_hub/Search/scripts/Search_Core.py",
+      "sha256": "8183cd6148657b3cff3150a9b29cde60c2604c7bfc9d2d14ee83df1c9bced59e"
+    },
+    {
+      "path": "upstream/eblabs_hub/Search/scripts/Search_UI.py",
+      "sha256": "16df66f3e206aaed5b06b36695c821edbf4aa223fa583d7c9b26e990529da8f5"
+    },
+    {
+      "path": "upstream/eblabs_hub/Search/versions/eblabs_Search_0.0.h.eblabs",
+      "sha256": "80c209477139b8a064730a88c314d622e3d8720887add0e820eeee663a9b43bd"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/data/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/data/eblabs.data",
+      "sha256": "ec6e6d6a75f8507a2e7220dca0a3e9d112014aab0698f5a578e75572bec8d494"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/images/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/images/clear.fill.svg",
+      "sha256": "aa41584189a53b6fca1b134216f3ab3cf73dd736006cbc294021cf9eabba587b"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/images/IconProvider.py",
+      "sha256": "797f7829036acd4085b5ff15741101cc1a84ed07b9fbaaef8b4a1403231249e7"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/images/more_vert.svg",
+      "sha256": "aa14b4757a7d3927eae3aa6f8f369fc68268fe1d7bbebd1030009bd43fccc8be"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/images/placeholder.jpg",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/images/test.png",
+      "sha256": "89e90c02636125cc721d2cfd75bc02bd3e3d165f6becbc5b2fd59f209a6d5c34"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/images/world.svg",
+      "sha256": "edb4c085eac48db1d408023fdc9f23c57d1f75be66444f80adf34408be76bf9e"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/BasicTool_Widgets.py",
+      "sha256": "2b4e046052f1f3f59349e758a09cd888be96618dac1a2098fd78ca92c4dbeb58"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/ColorModule.py",
+      "sha256": "dd1b874608e2f21b8d9681c477e1df51ba6495ddaacf33b6736ebcf8f8fa864d"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/ColorPaletteManager.py",
+      "sha256": "4590edca15ca7bad69096776bb2a549af81e2b1ad1c0335598942f7bbb3ef300"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/ColorTemplates/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/ColorTemplates/material-theme_default.json",
+      "sha256": "ec1ec45ad473d9add127c9e66044885593a9f4da96a7838d100c9ef51a512267"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/DevTool.py",
+      "sha256": "d73c0b7b738878f4b4b32809c907584c6293a8178dc3414827c73e866fbc2560"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/DPIHandler.py",
+      "sha256": "45f6ffa52375c32f43322c4d42e7071956d93ffe8539a79e84c3cbbd21d55eca"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/blend/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/blend/blend.py",
+      "sha256": "14eece4bab50f8b3c524a894588844f2a49945e78d00b4af4c115bfc948f0357"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/hct/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/hct/cam16.py",
+      "sha256": "4968348bec818acc8ede95b5a9ebf283661ac98b6c0ba2f4793b5e051a380f5e"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/hct/hct.py",
+      "sha256": "d97f5c3f24a0e3f43117493cca248f4505be320f1de2d34a34e1deeec161ce53"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/hct/viewing_conditions.py",
+      "sha256": "73069db4bd07b4d9d38da244831a6093d90c90569b8e305d8e41e0265ac554cc"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/palettes/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/palettes/core_palette.py",
+      "sha256": "56d0f39f74018c1f09b359c19396244c6f7e9f70f2fafe13b22ec1f8db7c1782"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/palettes/tonal_palette.py",
+      "sha256": "2c420513544774b317bd137571b1d0fcda2c70661fa8b13b7aadbef32f6a8a39"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/lab_point_provider.py",
+      "sha256": "18dfc9b45653660ad79c502cb788db7a1562c54e66cf9d101d79c3dd3a9bff13"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_celebi.py",
+      "sha256": "cd631a1edc0a90d9c2df20fbc9261121a91106ac20dcd0f0f4c765c120d508c2"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_map.py",
+      "sha256": "e2b89390416a52e9f565dc3f1d769e1205c69a3c27826e803494e01a1211c3e5"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_wsmeans.py",
+      "sha256": "a0031870266e6b4dc0f36d52227daacbcff98a2064b385bb633d9fa67558d4a0"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_wu.py",
+      "sha256": "bfabb66ca6f8ca091e7e8d541b5e1f7aea5300e66be7b6d518df11d524a3f1ce"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/scheme/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/scheme/scheme.py",
+      "sha256": "3a4b8a39992ae61040a3ddc03752b8dd04e622b28e71450c0eaa60ae811edef5"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/score/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/score/score.py",
+      "sha256": "2bc8efafdabe7961b11a12ebab0760ee18892571cd72c09235258babc605e050"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/utils/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/utils/color_utils.py",
+      "sha256": "6c4bf8ad5cd4373317f43cac2c698918a9b94c79d0125df87959b9ec3f4fc051"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/utils/image_utils.py",
+      "sha256": "cf4245ea0495702cbbf95bfbea1ba548f5d27335aec21caa22511c72cb948d74"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/utils/math_utils.py",
+      "sha256": "e8686426f915505d6636043ba04ba416cd9e51d9c6063a6a7dddb75ba984b3c6"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/utils/string_utils.py",
+      "sha256": "5cf61c53e5ff59db56cd29990f7ecaa5cbf86b41dcc64c14841e234217e3a39a"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/utils/theme_utils.py",
+      "sha256": "ca8fede1459cae5dcafd28978c05be376cef46e5acc4d05708adaaefe442ba92"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/IconProvider.py",
+      "sha256": "797f7829036acd4085b5ff15741101cc1a84ed07b9fbaaef8b4a1403231249e7"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/LicenseManager.py",
+      "sha256": "6e7bbbff7630b7a78d50009f5a606e250836b70f19515601226c8b4e2dbed929"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/LicenseManager_27.py",
+      "sha256": "a9e42990452a9f4b0287093496a527477bfa680758e57bbaaf1735e08e95e6af"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/MaterialDesign.py",
+      "sha256": "01584a6a5c2ca7aefd7e7f09fbdc3faec82c7e37f06685f35cb45a70791c07d4"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/PixoShop.py",
+      "sha256": "8f81269c31b55983f4ef7b20c7453259bde38b95ebdff2b85b528f4d37f3c330"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/Prefs.py",
+      "sha256": "4322c1abdd0d7f18300ebefec6ff921777d9b58844e93b75d800c7d046c1db48"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/Prefs_27.py",
+      "sha256": "fd0ccf3ec064019e02a7cbbdeb26e4128c0fb9c55d1164cc7108d43e9347fc9c"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/Qt.py",
+      "sha256": "f0b80c3ba77eec8cdc566e25435c090eb79b30cb6f68e2dfec1454f5f917295b"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/__init__.py",
+      "sha256": "c256ff27ea57350ef582a064c9c398ae631a00f2608590edebe3b86e7becb5f4"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/_version.py",
+      "sha256": "de78e06c2d46471ec8e7dd9f4517805352926c712912e2991c49a8d5a02bd72e"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/animation.py",
+      "sha256": "613f13c7a4f590c96ff3b208893085e4113248c8cb5e33bd53a711d32fabade0"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/codicon-charmap.json",
+      "sha256": "41d77e67ccd91f6306f8450973c05bf4e392eee082930d12db2e1a0d95890740"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/codicon.ttf",
+      "sha256": "3b7e8ba26aadc209c21eb70c08fe583435de7b63bcbd64abcd3c5ee51120e9ab"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/elusiveicons-webfont-charmap.json",
+      "sha256": "f5b192a1ad7ac07ac47ca74feaa70a00a9b8a63749c0d2c64ed47d01ceadc9be"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/elusiveicons-webfont.ttf",
+      "sha256": "29b93f3fe666bf73dcc857869aee47532f710c0a16959c6275dc5bc2e3be4c9e"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome4.7-webfont-charmap.json",
+      "sha256": "36840a99b70806d9d4bba92fa2b6f42fa02e2d60632adc7d641f09b66215856c"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome4.7-webfont.ttf",
+      "sha256": "aa58f33f239a0fb02f5c7a6c45c043d7a9ac9a093335806694ecd6d4edc0d6a8"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-brands-webfont-charmap.json",
+      "sha256": "1e0057ba782f72807e52e7ae0bdcff3eee55ecf639ca656d14e6c6312713ea3c"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-brands-webfont.ttf",
+      "sha256": "cda59d6efffa685830fd95b55f64ae9cb51279cd34b2410b69f84c7ec30157d9"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-regular-webfont-charmap.json",
+      "sha256": "e95c14f91be3ec1efbd54752b5a8f2a9f24977cef1644791633b937a4c02d396"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-regular-webfont.ttf",
+      "sha256": "fb5143dfe010d47b0fdedd36e4bac1ac8ff2e39b9f20b64891a88a7a219422f5"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-solid-webfont-charmap.json",
+      "sha256": "5c7ebc9366e844a7367d3faf52b5aee3e6722c5282409f4798e22375871e1b36"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-solid-webfont.ttf",
+      "sha256": "4c5431bc1b2abf8aed5c614f2f32120d666bdda640cb1a7678d70e08cdd4323f"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons5-webfont-charmap.json",
+      "sha256": "079227fd7b6e112a028a6864786c2ef858ddc39039f949f63cded287334fb6a8"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons5-webfont.ttf",
+      "sha256": "f89ca374a7545105f70a6345919083f9011badade1ff17f5e99f97853e7c33da"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons6-webfont-charmap.json",
+      "sha256": "ba43d95ea09e7fc4bc80cbf6acb5ba8234da1a062fa14fe2a5e633f89636d5b6"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons6-webfont.ttf",
+      "sha256": "fbe4f53935ef33c3e6807aedc2afa884492bef1d2273bc33f419424ec530f97b"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/phosphor-charmap.json",
+      "sha256": "e8819671935d0b6ff163c077c930038f7e529132e0989e4be2f87ae2c5b121aa"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/phosphor.ttf",
+      "sha256": "351874de64758f3b7fb405cd078ac0ed5ffb9717fb5b9b10013ac03d4c13680b"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/remixicon-charmap.json",
+      "sha256": "6e345883f07c595036008fc047b61c6db865866e10e69a881ab5b82f4952f2e0"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/remixicon.ttf",
+      "sha256": "0ac8bc3ccea26ed47e96844ef26675969c669714d723c081101e51799d501520"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/icon_browser.py",
+      "sha256": "d5ce020859f8b042efbe527bbf085a5a3247fa0f8abf385f342329cbbcfd33f2"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/iconic_font.py",
+      "sha256": "289efb6cbcc0361500135633931de1b8012d1b0f6de15f41516ab06a01e09153"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/styles.py",
+      "sha256": "e8be989f9bc3676d48219d046541786c9f2beaf85703358d09d46402bcd60ce8"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/tests/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/tests/test_icon_browser.py",
+      "sha256": "1f942b8357b54aff3c5e3970e59fb3399979a1eee3595f6e794102476ce8d4b4"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/tests/test_qtawesome.py",
+      "sha256": "5f1cd1558a07d6f1ebe9abe6f42b2122b7844a6862949e5b7a8e77bc17e4e9f0"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/Scandir.py",
+      "sha256": "dd1988dc4bf9453541a5d50c9d3ad3d4d81a6e83360120a8a768e216e86834ba"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/SceneCallbacks.py",
+      "sha256": "82a1a4f08332892a3f444b35a0046b04f3cadaa963f1ab9d1e27982a5eb86fbb"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/SharedSettings.py",
+      "sha256": "77ec4d9d8c50b53ef37a07d218ff0401034b6343b8029267a3e181cab62e4bdd"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/versions/eblabs_UXFramework_0.0.h.eblabs",
+      "sha256": "9e189fde1e9f816349b54f9d45c10030a67580a6e924d9129e0566902f23f996"
+    },
+    {
+      "path": "upstream/eblabs_prefs/eblabs_HUB_Main.prefs",
+      "sha256": "7663b90c8c97922079a6b7e3e458bc3a039782437ed7bdee351f85e32e0a16e3"
+    },
+    {
+      "path": "upstream/eblabs_prefs/PackageManager.prefs",
+      "sha256": "956bb7bda50fc4a6f3fb760973876f5f6f3082db719915a00b07b3990bdffabb"
+    },
+    {
+      "path": "upstream/eblabs_prefs/whiskey.prefs",
+      "sha256": "b11b33fb34dadd15b6ed7e90edc19a753a693fce110ab4ab11f8622d34ce18b6"
+    },
+    {
+      "path": "upstream/ScreenSpace.py",
+      "sha256": "5ccf44d7e329ad8bb65cce457fbcc6dc475830c1327d5f8fe0cfe30bfc999090"
+    },
+    {
+      "path": "upstream/上面那个PY文件拖进maya就安装好了",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/记得先把ScreenSpace文件夹放到规范路径",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "runtime_audit": {
+    "file": "E:\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\eblabs_screenspace\\release_candidate\\maya_toolkit\\tools\\eblabs_screenspace\\runtime.mel",
+    "sha256": "239636198f4f91585ad7b04b1be89f4c8b2ed6681f511dd8d2fc831a7d71828f",
+    "bytes": 34286,
+    "lexical_decoding": "utf-8-sig",
+    "procedures": [
+      {
+        "name": "mtbSS_ebLabs_screenSpace",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 17,
+        "end_line": 226
+      },
+      {
+        "name": "mtbSS_ebLabs_screenSpace_setRandoColor",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          }
+        ],
+        "line": 230,
+        "end_line": 250
+      },
+      {
+        "name": "mtbSS_ebLabs_screenSpace_updateAllLists",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 254,
+        "end_line": 258
+      },
+      {
+        "name": "mtbSS_ebLabs_animTools_screenSpaceFullBakeMulti",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 262,
+        "end_line": 265
+      },
+      {
+        "name": "mtbSS_ebLabs_animTools_screenSpaceSmartBakeMulti",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 270,
+        "end_line": 273
+      },
+      {
+        "name": "mtbSS_ebLabs_animTools_screenSpaceSmartBake",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "control",
+            "type": "string"
+          }
+        ],
+        "line": 276,
+        "end_line": 409
+      },
+      {
+        "name": "mtbSS_ebLabs_screenSpace_deleteRig",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 414,
+        "end_line": 417
+      },
+      {
+        "name": "mtbSS_ebLabs_animTools_screenSpaceRig",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "inputCam",
+            "type": "string"
+          },
+          {
+            "name": "inputObj",
+            "type": "string"
+          },
+          {
+            "name": "prefix",
+            "type": "string"
+          },
+          {
+            "name": "orientationChkBox",
+            "type": "int"
+          }
+        ],
+        "line": 422,
+        "end_line": 736
+      },
+      {
+        "name": "mtbSS_ebLabs_animTools_screenSpaceRigMulti",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 741,
+        "end_line": 744
+      },
+      {
+        "name": "mtbSS_ebLabs_screenSpace_selCamFromList",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 747,
+        "end_line": 758
+      },
+      {
+        "name": "mtbSS_ebLabs_screenSpace_selRigFromList",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 761,
+        "end_line": 782
+      },
+      {
+        "name": "mtbSS_ebLabs_screenSpace_updateRigList",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 785,
+        "end_line": 788
+      },
+      {
+        "name": "mtbSS_ebLabs_screenSpace_camExistCheck",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 791,
+        "end_line": 801
+      },
+      {
+        "name": "mtbSS_ebLabs_screenSpace_updateCameraList",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 804,
+        "end_line": 836
+      },
+      {
+        "name": "mtbSS_ebLabs_screenSpace_makeCurveCube",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "string"
+          }
+        ],
+        "line": 846,
+        "end_line": 858
+      },
+      {
+        "name": "mtbSS_ebLabs_screenSpace_enableMayaUI",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "on",
+            "type": "int"
+          },
+          {
+            "name": "ignore",
+            "type": "string"
+          }
+        ],
+        "line": 862,
+        "end_line": 865
+      },
+      {
+        "name": "mtbSS_ebLabs_screenSpace_updateProgress",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "float"
+          },
+          {
+            "name": "max",
+            "type": "float"
+          },
+          {
+            "name": "pbar",
+            "type": "string"
+          }
+        ],
+        "line": 869,
+        "end_line": 872
+      },
+      {
+        "name": "mtbSS_ebLabs_screenSpace_errorDialogue",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "msgs",
+            "type": "string[]"
+          }
+        ],
+        "line": 876,
+        "end_line": 879
+      },
+      {
+        "name": "mtbSS_ebLabs_isCamera",
+        "global_scope": true,
+        "return_type": "int",
+        "parameters": [
+          {
+            "name": "object",
+            "type": "string"
+          }
+        ],
+        "line": 883,
+        "end_line": 896
+      },
+      {
+        "name": "mtbSS_ebLabs_KUchannelCheck",
+        "global_scope": true,
+        "return_type": "int",
+        "parameters": [
+          {
+            "name": "object",
+            "type": "string"
+          }
+        ],
+        "line": 900,
+        "end_line": 920
+      },
+      {
+        "name": "mtbSS_ebLabs_screenSpace_quickUndo",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "action",
+            "type": "string"
+          }
+        ],
+        "line": 924,
+        "end_line": 927
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "1:{",
+      "10:string $mtbSS_ebLabs_screenSpace_defaultTangentType = \"spline\";",
+      "11:global string $mtbSS_ebLabs_screenSpace_version = \"v2017-05-12\";",
+      "13:global string $mtbSS_ebLabs_screenSpace_progressControl;",
+      "932:}//end of entire script"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority"
+  },
+  "license": "Copyright Eric Bates / EB Labs. No independent redistribution grant found; private local preparation only. Bundled license managers/data remain unchanged and unused by direct MEL adapter.",
+  "changes": [
+    "All original MEL rig sampling/normalization/aim/depth/orientation and sparse bake loops retained",
+    "No installer shelf/prefs/network/license alteration",
+    "Private native UI names and standard dispatch",
+    "Owned persistent UUID source/control/rig and safe cleanup",
+    "No global Maya window/pane hiding; time/selection/namespace restored",
+    "Version-specific PackageData launcher not used; direct bundled native MEL"
+  ]
+}
