@@ -231,3 +231,10 @@
 - 修复源包围盒缺cls、Multiply不存在层方法→合成值标准分支、无曲线层通道索引、Maya2025曲线keyValue禁止setAttr→等值keyframe；采集吞错进ToolResult，拒绝Smash上游删除兜底。文档说明Smash全通道/断输入、match-last全对象删键、子帧shape遍历/负数取整、全局切线无法保证Undo、每拖拽回调独立撤销。
 - 普通Python2项、Maya2025隔离7项、临时正式布局注册/面板/Schema与全指纹通过。真实原native tween/world/PosePusher/multiply/Hotkeys/层曲线、真正animLayer与AutoKey补键Undo、快照/明确camera InOut、共享输出/锁/文件引用拒绝、子帧/常量/彩key/rekey、Smash采样/Undo、原回调/注入故障finally、会话profiles/JSON/切线。没有构造真实GUI；界面/生产rig/复杂图 prepared_unverified，完整验收/晋级齐备。
 - 收尾额度接口连续两次暂不可读，第三次实际5小时44%/周77%已用，未推测错误为额度耗尽；保存并继续下一项，heartbeat暂停，未用卡/购买/同步/转正。
+
+## 2026-10-01：FD Multi Space完整候选，累计24/109
+
+- 3原Python/RTF 4资源字节保留，Filippo Dattola All Rights Reserved/商业与修改再分发许可说明，私有本地不发布；实际local插组centerPivot与reference既有父级算法，没有文件打开/导出行为。完整两种模式/三步UI与标准create全部步骤/阶段API。
+- 显式属性名/driver UUID→weightAlias替代listAttr[-1]/force，同driven的不同driver复用自有多target constraint，保持mo；Owner network/helper标签/message与阶段1/2/3，半成品保存重载/重命名可续跑。引用节点UUID可能与原场景节点重复，增加referenceNode UUID上下文；local拒绝引用重父级，reference默认拒绝引用编辑，明确allow才接受addAttr/约束/reference edits。
+- 只读参数/层级/循环/锁/外部驱动/target/权重/来源预检，拒绝重复attr/driver、外部同名图或改接；create整组Undo/Redo、三步各chunk，finally选择按身份/时间/namespace/AutoKey恢复。失败不自动回滚，保留Undo；不添加冒险图删除/自动清理，文档说明插组/整个父级子树/权重归一化与非无跳变算法影响。
+- 普通Python2项、Maya2025隔离5项、临时正式布局注册/面板/Schema及全指纹通过：真实值0/1、双target同组同约束/Undo回退、只读/循环/锁/已有驱动、真实引用与共享原UUID场景编辑/Undo、三步改名后加attr保存重载准确alias/外部target拒绝、部分失败finally/Undo。真实GUI/生产rig/scale/复杂引用待人工prepared_unverified，验收/晋级齐备；收尾真实5小时50%/周78%已用，继续下一项，heartbeat暂停、无卡/同步/转正。

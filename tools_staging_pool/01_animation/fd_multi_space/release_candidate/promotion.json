@@ -1,0 +1,88 @@
+{
+  "tool_id": "fd_multi_space",
+  "registration": {
+    "module": "fd_multi_space",
+    "class_name": "MultiSpaceTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/fd_multi_space.md",
+      "target": "docs/tools/fd_multi_space.md"
+    },
+    {
+      "source": "maya_toolkit/tools/fd_multi_space/__init__.py",
+      "target": "maya_toolkit/tools/fd_multi_space/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/fd_multi_space/catalog.json",
+      "target": "maya_toolkit/tools/fd_multi_space/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/fd_multi_space/contracts.py",
+      "target": "maya_toolkit/tools/fd_multi_space/contracts.py"
+    },
+    {
+      "source": "maya_toolkit/tools/fd_multi_space/runtime.py",
+      "target": "maya_toolkit/tools/fd_multi_space/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/fd_multi_space/scene.py",
+      "target": "maya_toolkit/tools/fd_multi_space/scene.py"
+    },
+    {
+      "source": "maya_toolkit/tools/fd_multi_space/tool.py",
+      "target": "maya_toolkit/tools/fd_multi_space/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/fd_multi_space/ui.py",
+      "target": "maya_toolkit/tools/fd_multi_space/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/fd_multi_space/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/fd_multi_space/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/fd_multi_space/upstream/FD_Multi_Space_tool_GUI.py",
+      "target": "maya_toolkit/tools/fd_multi_space/upstream/FD_Multi_Space_tool_GUI.py"
+    },
+    {
+      "source": "maya_toolkit/tools/fd_multi_space/upstream/FD_Multi_Space_tool_no_reference.py",
+      "target": "maya_toolkit/tools/fd_multi_space/upstream/FD_Multi_Space_tool_no_reference.py"
+    },
+    {
+      "source": "maya_toolkit/tools/fd_multi_space/upstream/FD_Multi_Space_tool_reference.py",
+      "target": "maya_toolkit/tools/fd_multi_space/upstream/FD_Multi_Space_tool_reference.py"
+    },
+    {
+      "source": "maya_toolkit/tools/fd_multi_space/upstream/Read_Me.rtf",
+      "target": "maya_toolkit/tools/fd_multi_space/upstream/Read_Me.rtf"
+    },
+    {
+      "source": "tests/test_fd_multi_space.py",
+      "target": "tests/test_fd_multi_space.py"
+    },
+    {
+      "source": "tests/test_fd_multi_space_maya.py",
+      "target": "tests/test_fd_multi_space_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/FD_Multi_Space_tool_GUI.py",
+    "upstream/FD_Multi_Space_tool_reference.py",
+    "upstream/FD_Multi_Space_tool_no_reference.py",
+    "upstream/Read_Me.rtf",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya cmds native GUI for two-mode three-step workflow",
+    "Existing BaseMayaTool/Undo framework"
+  ],
+  "source": "../FD_Multi_Space_tool_GUI.py",
+  "change_summary": "Both complete original local-group/existing-parent algorithms and three-step UI, explicit weight aliases/no force, persistent UUID provenance and guarded multi-target constraints.",
+  "verification_limitations": [
+    "Real Maya GUI/production rig/reference edits pending",
+    "Original temporary parenting causes scene hierarchy/constraint edits",
+    "All-rights-reserved supplied resource; do not publish"
+  ],
+  "acceptance_required": true
+}

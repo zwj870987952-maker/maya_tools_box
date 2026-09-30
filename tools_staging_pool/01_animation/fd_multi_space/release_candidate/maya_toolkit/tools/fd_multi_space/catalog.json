@@ -1,0 +1,41 @@
+{
+  "tool_id": "fd_multi_space",
+  "raw_files": [
+    {
+      "path": "upstream/FD_Multi_Space_tool_GUI.py",
+      "sha256": "1e339de9b56c83804050f5a0f615e9f0596c21516c78b5aca7d6c97bae6a0357"
+    },
+    {
+      "path": "upstream/FD_Multi_Space_tool_reference.py",
+      "sha256": "e118f49db86ca44ee45ab4e186a5120cef985d5f69f6b9f26b44a008e925b38b"
+    },
+    {
+      "path": "upstream/FD_Multi_Space_tool_no_reference.py",
+      "sha256": "c89adb13377dccc02b7094f2cdab6cd0117f3cac697c443bb407484361db77d6"
+    },
+    {
+      "path": "upstream/Read_Me.rtf",
+      "sha256": "a4d90b638e6164bcdd02330a36c2b7d8c04a3ba15c120d927f235ef7bd1b5f64"
+    }
+  ],
+  "source_functions": {
+    "gui": [
+      "launch_script1",
+      "launch_script2",
+      "create_main_ui"
+    ],
+    "reference": [
+      "create_ui",
+      "driven_obj",
+      "driver_obj",
+      "connect_objs"
+    ],
+    "local": [
+      "create_ui",
+      "driven_obj",
+      "driver_obj",
+      "connect_objs"
+    ]
+  },
+  "license": "Copyright 2023 Filippo Dattola; all rights reserved; source commercial use/adaptation/distribution require author permission. Private supplied-copy preparation only, no public publishing."
+}

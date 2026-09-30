@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T04:55:02.774101+08:00",
+  "updated_at": "2026-10-01T05:11:22.259521+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/eblabs_whiskey",
+    "last_completed_tool": "01_animation/fd_multi_space",
     "last_usage": {
-      "five_hour_used_percent": 31.0,
-      "weekly_used_percent": 75.0,
-      "recorded_at": "2026-10-01T04:19:25.484149+08:00",
+      "five_hour_used_percent": 44.0,
+      "weekly_used_percent": 77.0,
+      "recorded_at": "2026-10-01T04:56:46.572940+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/eblabs_whiskey"
+    "current_tool": "01_animation/fd_multi_space"
   },
   "entry_repairs": [
     {
@@ -4041,7 +4041,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete original Whiskey Pro suite/UI/resources, self-contained source metadata, explicit standard API and guarded native callbacks, Undo/finally and session preference import/export.",
-      "prepared_at": "2026-10-01T04:55:01.241813+08:00"
+      "prepared_at": "2026-10-01T04:55:01.241813+08:00",
+      "source_commit": "5c62177df843582c90b2208370c949616edf78ce"
     },
     {
       "source_path": "01_animation/fd_multi_space",
@@ -4052,21 +4053,83 @@
       "entry_candidates": [
         "FD_Multi_Space_tool_GUI.py"
       ],
-      "source_file_count": 4,
+      "source_file_count": 5,
       "source_files": [
         "FD_Multi_Space_tool_GUI.py",
         "FD_Multi_Space_tool_no_reference.py",
         "FD_Multi_Space_tool_reference.py"
       ],
       "license_files": [],
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_resources_and_two_modes (__main__.OfflineTests.test_resources_and_two_modes) ... ok\r\ntest_schema_and_lazy_readonly (__main__.OfflineTests.test_schema_and_lazy_readonly) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"fd_multi_space\",\r\n  \"candidate_sha256\": \"729bcca95ff6142a1002b1329ecc0eafcb4aec232522d87a0e20b1a2d31b3927\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\fd_multi_space.md\",\r\n    \"maya_toolkit\\\\tools\\\\fd_multi_space\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\fd_multi_space\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\fd_multi_space\\\\contracts.py\",\r\n    \"maya_toolkit\\\\tools\\\\fd_multi_space\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\fd_multi_space\\\\scene.py\",\r\n    \"maya_toolkit\\\\tools\\\\fd_multi_space\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\fd_multi_space\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\fd_multi_space\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\fd_multi_space\\\\upstream\\\\FD_Multi_Space_tool_GUI.py\",\r\n    \"maya_toolkit\\\\tools\\\\fd_multi_space\\\\upstream\\\\FD_Multi_Space_tool_no_reference.py\",\r\n    \"maya_toolkit\\\\tools\\\\fd_multi_space\\\\upstream\\\\FD_Multi_Space_tool_reference.py\",\r\n    \"maya_toolkit\\\\tools\\\\fd_multi_space\\\\upstream\\\\Read_Me.rtf\",\r\n    \"tests\\\\test_fd_multi_space.py\",\r\n    \"tests\\\\test_fd_multi_space_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/fd_multi_space/release_candidate/tests/test_fd_multi_space_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_dry_preflight_cycle_foreign_and_full_undo (__main__.MayaTests.test_dry_preflight_cycle_foreign_and_full_undo) ... ����: MultiSpaceTool_fd_multi_space\n����: MultiSpaceTool_fd_multi_space\nok\r\ntest_existing_parent_foreign_driver_and_failure_finally (__main__.MayaTests.test_existing_parent_foreign_driver_and_failure_finally) ... ����: MultiSpaceTool_fd_multi_space\nok\r\ntest_local_values_multitarget_and_atomic_undo (__main__.MayaTests.test_local_values_multitarget_and_atomic_undo) ... ����: MultiSpaceTool_fd_multi_space\nok\r\ntest_reference_existing_parent_and_real_edits (__main__.MayaTests.test_reference_existing_parent_and_real_edits) ... ����: MultiSpaceTool_fd_multi_space\n�ļ���ȡ����ʱ��Ϊ  0.0018 �롣\n����: MultiSpaceTool_fd_multi_space\nok\r\ntest_staged_uuid_rename_save_reload_and_foreign_target (__main__.MayaTests.test_staged_uuid_rename_save_reload_and_foreign_target) ... �ļ���ȡ����ʱ��Ϊ  0.0039 �롣\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.088s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "dbb8cf4621ce54f26ca44a9f2f98743af3b2c4ad10e81223d0ae8084e3817d0e",
+          "runtime_source_sha256": "f4ed656c2afd455b758a63bfc4f7f362d5de1664e148e8a6f45b82c6f4de69a8"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real GUI, production animation rig, complex reference/scale/rotation behavior needs human acceptance"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "729bcca95ff6142a1002b1329ecc0eafcb4aec232522d87a0e20b1a2d31b3927",
+          "returncode": 0,
+          "output": "test_resources_and_two_modes (__main__.OfflineTests.test_resources_and_two_modes) ... ok\r\ntest_schema_and_lazy_readonly (__main__.OfflineTests.test_schema_and_lazy_readonly) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI/production rig/reference edits pending",
+        "Original temporary parenting causes scene hierarchy/constraint edits",
+        "All-rights-reserved supplied resource; do not publish"
+      ],
       "entry_review": {
         "evidence": "Defines create_main_ui and invokes it at module scope; dispatches reference and no-reference sibling modules.",
         "kind": "python_with_import_ui_side_effect",
@@ -4081,7 +4144,48 @@
         "possible_top_level_calls": 3,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "241e818bfcb1b73373699af403c0dfa7d3887edf149b04b139fc14559e5511ae"
+      "source_tree_sha256": "b751ae17ab654b3681606adf8b9a86b892532adc7d2ae0d2c3028965499afdfc",
+      "candidate_path": "tools_staging_pool/01_animation/fd_multi_space/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/fd_multi_space/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "fd_multi_space",
+        "candidate_sha256": "729bcca95ff6142a1002b1329ecc0eafcb4aec232522d87a0e20b1a2d31b3927",
+        "applied": false,
+        "files": [
+          "docs\\tools\\fd_multi_space.md",
+          "maya_toolkit\\tools\\fd_multi_space\\__init__.py",
+          "maya_toolkit\\tools\\fd_multi_space\\catalog.json",
+          "maya_toolkit\\tools\\fd_multi_space\\contracts.py",
+          "maya_toolkit\\tools\\fd_multi_space\\runtime.py",
+          "maya_toolkit\\tools\\fd_multi_space\\scene.py",
+          "maya_toolkit\\tools\\fd_multi_space\\tool.py",
+          "maya_toolkit\\tools\\fd_multi_space\\ui.py",
+          "maya_toolkit\\tools\\fd_multi_space\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\fd_multi_space\\upstream\\FD_Multi_Space_tool_GUI.py",
+          "maya_toolkit\\tools\\fd_multi_space\\upstream\\FD_Multi_Space_tool_no_reference.py",
+          "maya_toolkit\\tools\\fd_multi_space\\upstream\\FD_Multi_Space_tool_reference.py",
+          "maya_toolkit\\tools\\fd_multi_space\\upstream\\Read_Me.rtf",
+          "tests\\test_fd_multi_space.py",
+          "tests\\test_fd_multi_space_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/FD_Multi_Space_tool_GUI.py",
+        "upstream/FD_Multi_Space_tool_reference.py",
+        "upstream/FD_Multi_Space_tool_no_reference.py",
+        "upstream/Read_Me.rtf",
+        "catalog.json"
+      ],
+      "external_dependencies": [
+        "Maya cmds native GUI for two-mode three-step workflow",
+        "Existing BaseMayaTool/Undo framework"
+      ],
+      "source_preserved": true,
+      "change_summary": "Both complete original local-group/existing-parent algorithms and three-step UI, explicit weight aliases/no force, persistent UUID provenance and guarded multi-target constraints.",
+      "prepared_at": "2026-10-01T05:11:20.680628+08:00"
     },
     {
       "source_path": "01_animation/gimbal_lock_fix",
