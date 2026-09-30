@@ -102,3 +102,17 @@
 - 初次编译探针 passed；加入真实隔离场景探针后遇到 floatMath 不可用。确认本机 lookdevKit.mll，并在隔离进程显式加载；随后修正探针对 XY/negX 的错误几何预期。最终所有9过程来源/编译、原算法 X 镜像动态采样和清理检查 passed。UI 查询是固定值 shim，未验收 GUI/其他轴/旋转/中心变换/bake；没有把探索报告当完整候选指纹证据。
 - 此项仍 working、candidate_complete=false。API、持久化 UUID 所有权/Undo、标准界面回调、晋级及真人验收资料未完成，不计入9项完成数量。下次先读 animirror_v2_0_notes.md 和 diff 接续。
 - 两次额度读失败未按0推断；之后恢复读到 92%、93%、94%、最终95%已用（剩5%），周已用56%。为避免复杂工具中途触达硬限额，保存未完成项并启用同聊天30分钟 heartbeat；工具返回 ACTIVE。自动定时触发/续跑仍未实测，不声称完全无人值守；重置卡未兑换，守护未启动。
+
+## 2026-09-30：同聊天 heartbeat 恢复成功
+
+- 最后一批 Git add/commit 上次因自动审批遇到额度上限而未执行，原始部分暂存及工作文件均保留；这属于审批服务无法完成而非安全风险判定。没有绕过审批。
+- 30分钟同聊天 heartbeat 消息实际到达；本次先读额度失败，重试恢复为 5小时已用2%（剩98%）、周已用57%（剩43%）。满足条件后工具暂停 heartbeat 为 PAUSED，恢复 AniMirror 工作；未消费任何重置卡。
+- 补完成本地检查点提交 4d83d47。已观察到同聊天定时触发→读取恢复额度→暂停自身→恢复工作整个路径；手机推送和卡守护仍未验证/未启动，不声称其他机器或全额度彻底耗尽时同样可靠。
+
+## 2026-09-30：AniMirror 完整候选，累计 10/109
+
+- 全部九个原 MEL 过程和原窗口保留，另加两个 typed option/cache reader；业务 UI 查询改显式参数，原 UI enable/disable 保留，四按钮走 BaseMayaTool/ToolResult/Undo。位移用原 X/Y/Z 选择，不凭原平面标签重写算法。加载仅定义过程，不执行安装器或 Shelf。
+- UUID 所有权 network 随保存/Undo 恢复，执行前从场景重建 MEL 列表；清理拒绝外部后代/消费连接，仅允许 floatMath 的 defaultRenderUtilityList 系统登记。显式 UUID baseline 修正多镜像所有权捕获；删除前缓存 UUID 和脱离目标下候选约束，修复 Maya 清理 helper 时连带删除空 transform。内部写场景 MEL 受标准入口保护。
+- 普通 Python 五项及 Maya2025 隔离十四项通过，涵盖真实三轴/旋转、累计 bake/filterCurve、单次 Undo、失败保护、重命名同名替身、组件选择及保存重载。没有创建 GUI；复杂中心/绑定、实际高亮范围、其他版本与原指南的生产骨架支持待真人。
+- 完整专项知识说明、资源/Schema/注册晋级清单与真人验收已预制；本项原资源和 upstream 加 -text Git 属性，防止自动换行转换破坏字节归档哈希。原资源内容未编辑。早期探索探针历史保留，当前编译探针不再绕过标准 API。
+- 修正 record_candidate 不覆盖已观察到的 heartbeat 验证事实；本轮 heartbeat 已实际恢复且保持 PAUSED。正式库/长期规范/生成知识库未改，不运行同步，不消费卡或购买额度。

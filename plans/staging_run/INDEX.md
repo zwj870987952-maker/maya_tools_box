@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-09-30T18:41:14.145535+08:00
+更新时间：2026-09-30T22:17:11.974437+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -14,7 +14,7 @@
 | `01_animation/anim_mirror_helper_v1_1` | prepared_unverified | True | True | not_run |
 | `01_animation/anim_polish_premium_v1_23` | prepared_unverified | True | True | not_run |
 | `01_animation/animation_retarget` | prepared_unverified | True | True | not_run |
-| `01_animation/animirror_v2_0` | working | True | False | not_run |
+| `01_animation/animirror_v2_0` | pending | True | False | not_run |
 | `01_animation/back2origin_v05_gaiv3` | pending | True | False | not_run |
 | `01_animation/bh_aim_tools_v1_1` | pending | True | False | not_run |
 | `01_animation/bh_local_nudge` | pending | True | False | not_run |

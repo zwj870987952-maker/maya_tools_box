@@ -1,0 +1,96 @@
+{
+  "tool_id": "animirror_v2_0",
+  "registration": {
+    "module": "animirror_v2_0",
+    "class_name": "AnimirrorV2Tool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/animirror_runtime_changes.diff",
+      "target": "docs/tools/animirror_runtime_changes.diff"
+    },
+    {
+      "source": "docs/tools/animirror_v2_0.md",
+      "target": "docs/tools/animirror_v2_0.md"
+    },
+    {
+      "source": "maya_toolkit/tools/animirror_v2_0/__init__.py",
+      "target": "maya_toolkit/tools/animirror_v2_0/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animirror_v2_0/catalog.json",
+      "target": "maya_toolkit/tools/animirror_v2_0/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/animirror_v2_0/contracts.py",
+      "target": "maya_toolkit/tools/animirror_v2_0/contracts.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animirror_v2_0/embedded_original.mel",
+      "target": "maya_toolkit/tools/animirror_v2_0/embedded_original.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/animirror_v2_0/runtime.mel",
+      "target": "maya_toolkit/tools/animirror_v2_0/runtime.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/animirror_v2_0/runtime.py",
+      "target": "maya_toolkit/tools/animirror_v2_0/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animirror_v2_0/state.py",
+      "target": "maya_toolkit/tools/animirror_v2_0/state.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animirror_v2_0/tool.py",
+      "target": "maya_toolkit/tools/animirror_v2_0/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animirror_v2_0/ui.py",
+      "target": "maya_toolkit/tools/animirror_v2_0/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animirror_v2_0/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/animirror_v2_0/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/animirror_v2_0/upstream/AniMirror(Drag&Drop Install).mel",
+      "target": "maya_toolkit/tools/animirror_v2_0/upstream/AniMirror(Drag&Drop Install).mel"
+    },
+    {
+      "source": "maya_toolkit/tools/animirror_v2_0/upstream/AniMirror- Mirror Animation Tool.pdf",
+      "target": "maya_toolkit/tools/animirror_v2_0/upstream/AniMirror- Mirror Animation Tool.pdf"
+    },
+    {
+      "source": "tests/test_animirror_v2_0.py",
+      "target": "tests/test_animirror_v2_0.py"
+    },
+    {
+      "source": "tests/test_animirror_v2_0_maya.py",
+      "target": "tests/test_animirror_v2_0_maya.py"
+    }
+  ],
+  "resources": [
+    "runtime.mel",
+    "embedded_original.mel",
+    "catalog.json",
+    "upstream/AniMirror(Drag&Drop Install).mel",
+    "upstream/AniMirror- Mirror Animation Tool.pdf"
+  ],
+  "dependencies": [
+    "Maya Python 3",
+    "Autodesk lookdevKit for floatMath; explicit user loading",
+    "Native Maya GUI only for the original window",
+    "Existing maya_toolkit framework/core Undo"
+  ],
+  "source": "../AniMirror(Drag&Drop Install).mel",
+  "change_summary": "Complete embedded nine-procedure mirror suite and original window; explicit argument options without business UI dependency, UUID and Undo-aware scene metadata, owned-constraint detachment to protect empty targets, source-origin/internal invocation guards, and cleanup/bake/runtime restoration protections.",
+  "verification_limitations": [
+    "Real Maya GUI and production skeleton/AdvancedSkeleton acceptance pending",
+    "Original author guide supports Maya2016-2022; adapter Python3 and Maya2025 standalone do not verify that full range",
+    "Bake applies to all accumulated candidate targets including static channel deletion/filterCurve",
+    "Target locked/referenced/already driven channels are refused",
+    "Original rotation/local-space/center-transform behavior retained; realistic rigs and nondefault units need acceptance"
+  ],
+  "acceptance_required": true
+}

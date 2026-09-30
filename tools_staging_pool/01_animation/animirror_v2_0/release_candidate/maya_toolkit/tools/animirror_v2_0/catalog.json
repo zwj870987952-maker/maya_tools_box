@@ -31,7 +31,9 @@
     "mtbAV2_rotate_connect_operator",
     "mtbAV2_delete_all_created",
     "mtbAV2_fast_bake",
-    "mtbAV2_define_frames_range"
+    "mtbAV2_define_frames_range",
+    "mtbAV2_read_flag",
+    "mtbAV2_read_cache"
   ],
   "globals": [
     "centerJoint",
@@ -61,6 +63,16 @@
     "UndoMirrorButton",
     "BakeMirrorButton",
     "MirrorBakeButton"
+  ],
+  "flag_order": [
+    "TranslationsCheckbox",
+    "RotationsCheckbox",
+    "XAxisRotCheckbox",
+    "YAxisRotCheckbox",
+    "ZAxisRotCheckbox",
+    "XAxisTransRadio",
+    "YAxisTransRadio",
+    "ZAxisTransRadio"
   ],
   "original_audit": {
     "file": "E:\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\animirror_v2_0\\release_candidate\\maya_toolkit\\tools\\animirror_v2_0\\embedded_original.mel",
@@ -179,8 +191,8 @@
   },
   "runtime_audit": {
     "file": "E:\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\animirror_v2_0\\release_candidate\\maya_toolkit\\tools\\animirror_v2_0\\runtime.mel",
-    "sha256": "9e8f2c951bddba488d33b9a21a52b1a5ad7b80fba8da6f7236237e4796030e73",
-    "bytes": 14557,
+    "sha256": "014d0b3c16967858b00fec74bbf102d7a73d416020b0c03069757ae68f3f786d",
+    "bytes": 16031,
     "lexical_decoding": "utf-8-sig",
     "procedures": [
       {
@@ -188,24 +200,24 @@
         "global_scope": true,
         "return_type": "void",
         "parameters": [],
-        "line": 2,
-        "end_line": 54
+        "line": 3,
+        "end_line": 55
       },
       {
         "name": "mtbAV2_globals_variables",
         "global_scope": true,
         "return_type": "void",
         "parameters": [],
-        "line": 56,
-        "end_line": 70
+        "line": 57,
+        "end_line": 71
       },
       {
         "name": "mtbAV2_change_options_mirror",
         "global_scope": true,
         "return_type": "void",
         "parameters": [],
-        "line": 72,
-        "end_line": 82
+        "line": 73,
+        "end_line": 83
       },
       {
         "name": "mtbAV2_mirror_animation",
@@ -217,8 +229,8 @@
             "type": "int"
           }
         ],
-        "line": 84,
-        "end_line": 162
+        "line": 85,
+        "end_line": 165
       },
       {
         "name": "mtbAV2_transform_connect_operator",
@@ -234,8 +246,8 @@
             "type": "string"
           }
         ],
-        "line": 164,
-        "end_line": 205
+        "line": 167,
+        "end_line": 210
       },
       {
         "name": "mtbAV2_rotate_connect_operator",
@@ -251,16 +263,16 @@
             "type": "string"
           }
         ],
-        "line": 209,
-        "end_line": 254
+        "line": 214,
+        "end_line": 261
       },
       {
         "name": "mtbAV2_delete_all_created",
         "global_scope": true,
         "return_type": "void",
         "parameters": [],
-        "line": 256,
-        "end_line": 264
+        "line": 263,
+        "end_line": 267
       },
       {
         "name": "mtbAV2_fast_bake",
@@ -272,16 +284,42 @@
             "type": "int"
           }
         ],
-        "line": 266,
-        "end_line": 283
+        "line": 269,
+        "end_line": 288
       },
       {
         "name": "mtbAV2_define_frames_range",
         "global_scope": true,
         "return_type": "void",
         "parameters": [],
-        "line": 286,
-        "end_line": 303
+        "line": 291,
+        "end_line": 308
+      },
+      {
+        "name": "mtbAV2_read_flag",
+        "global_scope": true,
+        "return_type": "int",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "string"
+          }
+        ],
+        "line": 314,
+        "end_line": 327
+      },
+      {
+        "name": "mtbAV2_read_cache",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "string"
+          }
+        ],
+        "line": 329,
+        "end_line": 340
       }
     ],
     "duplicate_names": {},
@@ -300,5 +338,13 @@
     "YX": "mirrorYZ",
     "ZY": "mirrorXZ"
   },
-  "status": "working; API, safety guards, tests and acceptance not yet complete"
+  "status": "candidate prepared; real GUI acceptance pending",
+  "adapter_changes": [
+    "Definition-only loader and preserved internal reset",
+    "Arguments replace business UI queries; original UI enable/disable retained",
+    "Nine original functions plus two typed option/cache readers",
+    "Original scene button callbacks use the standard API",
+    "UUID ownership metadata and safe clear replaces stale-name delete",
+    "Increment-before-bake ordering; Python records helpers before immediate bake"
+  ]
 }

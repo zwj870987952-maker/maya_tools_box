@@ -1,4 +1,12 @@
-# AniMirror v2.0 工作中审计
+# AniMirror v2.0 审计与完成记录
+
+最终候选已包含完整 API、原窗口回调、UUID 所有权、专项说明、两个测试、晋级清单和真人验收步骤；当前最终证据为 animirror_v2_0_mayapy.json（14 项真实隔离检查）和 manifest 指纹匹配，仍是 GUI not_run。下方“工作中”内容保留早期检查点过程，不代表最终缺项。早期 UI-query shim 报告只作探索历史；probe_animirror_suite.py 现仅编译检查，实际镜像检查使用候选标准 API，不绕过内部保护。
+
+最终保留 X/Y/Z 参数语义，不再推断平面。所有三轴、旋转、累计烘焙、Undo、错误恢复、组件选择、重命名替身、外部消费/后代、场景保存重载已在 Maya2025 隔离场景检查通过。实际 GUI/复杂中心/真实绑定/其他版本仍待人工。
+
+实节点排查修正：MEL 全局数组用 typed 返回过程读取；重建 globals 依赖场景记录；捕获前显式逐节点记录 UUID，避免不完整 baseline 覆盖其他镜像所有权；floatMath 默认工具列表连接按真实 defaultRenderUtilityList 类型判断。删除先记录 UUID、脱离目标下本候选约束再删 helper，避免 Maya 连带删除空目标。完整原过程和窗口保留，删除保护及四按钮走标准 Undo API。当前对象源码/upstream Git 属性为 -text，保持原资源字节与哈希跨检出一致。
+
+## 以下为早期工作中审计历史
 
 当前仅完成完整原资源归档、嵌入命令提取、私有 MEL 名称及参数契约。没有完整 ToolResult 类/GUI 回调保护/删除保护/晋级资料，candidate_complete=false，不能记入已完成数量或转正。
 

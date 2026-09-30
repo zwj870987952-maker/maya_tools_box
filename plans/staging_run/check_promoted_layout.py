@@ -41,6 +41,7 @@ def main():
         registered = subprocess.run([sys.executable, '-c', probe], cwd=folder, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=45)
     changed = (ROOT / 'maya_toolkit/tools/__init__.py').read_bytes() != original_registry
     report = {'kind': 'promoted_layout_offline', 'passed': test.returncode == 0 and registered.returncode == 0 and not changed,
+              'candidate_sha256': promotion.fingerprint(candidate, description),
               'returncode': test.returncode, 'output': test.stdout.decode('utf-8', errors='replace'),
               'registry_returncode': registered.returncode, 'registry_output': registered.stdout.decode('utf-8', errors='replace'),
               'production_changed': changed}

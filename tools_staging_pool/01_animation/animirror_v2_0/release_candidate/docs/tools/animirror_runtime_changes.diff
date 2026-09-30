@@ -1,11 +1,12 @@
 --- embedded_original.mel
 +++ runtime.mel
-@@ -1,17 +1,16 @@
+@@ -1,17 +1,17 @@
 -aniMirror_menu();
 -
 -proc aniMirror_menu()
 -{
 -if (`window -exists AniMirror`) deleteUI AniMirror;
++
 +
 +global proc mtbAV2_aniMirror_menu()
 +{
@@ -14,7 +15,7 @@
  -w 280 -h 400
 --title "AniMirror v2.00"
 --iconName "AniMirror"
-+-title "mtbAV2_AniMirror v2.00"
++-title "AniMirror v2.00 - Candidate"
 +-iconName "mtbAV2_AniMirror"
  //-dockStation
  -bgc 0.265 0.265 0.265
@@ -27,7 +28,7 @@
  
  frameLayout -la "center" -lv 1 -cll 0 -label "                 Animation Mirror Tool" -w 270 -backgroundColor 0.5 0.2 0.2 -backgroundShade 0;
  columnLayout -bgc 0.242 0.207 0.3 -co both 0 -rs 2 -ann "ThisCreateCol""ThisCreateCol";
-@@ -27,283 +26,279 @@
+@@ -27,283 +27,314 @@
  
  
  rowLayout -columnAttach 1 "left" 5  -numberOfColumns 6 -ann "TranslationModeRow""TranslationModeRow";
@@ -65,9 +66,9 @@
 -        button -en 1 -h 30 -w 70 -enableBackground 1 -bgc 1 0.5 0.4 -label "Bake" -c "fast_bake(1)" -ann "BakeMirrorButton""BakeMirrorButton";
 -        setParent ..;
 -        
-+        button -en 1 -h 30 -w 120 -enableBackground 1 -bgc 0.25 0.5 0.4 -label "Interactive Mirror" -c "mtbAV2_mirror_animation(0);" -ann "mtbAV2_MirrorRealButton""mtbAV2_MirrorRealButton";
-+        button -en 1 -h 30 -w 70 -enableBackground 1 -bgc 0.65 0.5 0.4 -label "Undo" -c "mtbAV2_delete_all_created()" -ann "mtbAV2_UndoMirrorButton""mtbAV2_UndoMirrorButton";
-+        button -en 1 -h 30 -w 70 -enableBackground 1 -bgc 1 0.5 0.4 -label "Bake" -c "mtbAV2_fast_bake(1)" -ann "mtbAV2_BakeMirrorButton""mtbAV2_BakeMirrorButton";
++        button -en 1 -h 30 -w 120 -enableBackground 1 -bgc 0.25 0.5 0.4 -label "Interactive Mirror" -c "python(\"import maya_toolkit.tools.animirror_v2_0.ui as _av2ui; _av2ui.dispatch('mirror')\");" -ann "mtbAV2_MirrorRealButton""mtbAV2_MirrorRealButton";
++        button -en 1 -h 30 -w 70 -enableBackground 1 -bgc 0.65 0.5 0.4 -label "Undo" -c "python(\"import maya_toolkit.tools.animirror_v2_0.ui as _av2ui; _av2ui.dispatch('clear')\");" -ann "mtbAV2_UndoMirrorButton""mtbAV2_UndoMirrorButton";
++        button -en 1 -h 30 -w 70 -enableBackground 1 -bgc 1 0.5 0.4 -label "Bake" -c "python(\"import maya_toolkit.tools.animirror_v2_0.ui as _av2ui; _av2ui.dispatch('bake')\");" -ann "mtbAV2_BakeMirrorButton""mtbAV2_BakeMirrorButton";
 +        setParent ..;
 +
  rowLayout -columnAttach 1 "left" 5  -numberOfColumns 6  -ann "MirrorBakeRow""MirrorBakeRow";
@@ -117,7 +118,7 @@
 -        
 -	    $selected = `ls -selection`; //записываем выделенные объекты
 -	    
-+        button -en 1 -h 30 -w 264 -enableBackground 1 -bgc 0.25 0.5 0.4 -label "Mirror with Bake" -c "mtbAV2_mirror_animation(1)" -ann "mtbAV2_MirrorBakeButton""mtbAV2_MirrorBakeButton";
++        button -en 1 -h 30 -w 264 -enableBackground 1 -bgc 0.25 0.5 0.4 -label "Mirror with Bake" -c "python(\"import maya_toolkit.tools.animirror_v2_0.ui as _av2ui; _av2ui.dispatch('mirror_bake')\");" -ann "mtbAV2_MirrorBakeButton""mtbAV2_MirrorBakeButton";
 +        setParent ..;
 +
 +}
@@ -152,14 +153,16 @@
 +
 +global proc mtbAV2_mirror_animation(int $withBake)
 +{
++    python("import maya_toolkit.tools.animirror_v2_0.runtime as _av2; _av2.require_active()");
++
 +    global string $mtbAV2_centerObject[];
 +    global string $mtbAV2_referenceObject[];
 +    global string $mtbAV2_mirrorObject[];
 +    global string $mtbAV2_centerJoint[];
 +    global int $mtbAV2_ind;
 +
-+        $doTransforms = `checkBox -q -v mtbAV2_TranslationsCheckbox`;
-+        $doRotations = `checkBox -q -v mtbAV2_RotationsCheckbox`;
++        $doTransforms = `mtbAV2_read_flag "TranslationsCheckbox"`;
++        $doRotations = `mtbAV2_read_flag "RotationsCheckbox"`;
 +
 +        $selected = `ls -selection`; //записываем выделенные объекты
 +
@@ -177,7 +180,7 @@
 +        $mtbAV2_mirrorObject[$mtbAV2_ind] = $selected[2];
 +
 +
-+        if (`checkBox -q -v mtbAV2_RotationsCheckbox`)
++        if (`mtbAV2_read_flag "RotationsCheckbox"`)
          {
 -            $referenceObjectRotate = `xform -q -os -ro $referenceObject[$ind]`;
 -            if (`checkBox -q -v XAxisRotCheckbox`) $valX = -1; else $valX = 1;
@@ -185,9 +188,9 @@
 -            if (`checkBox -q -v ZAxisRotCheckbox`) $valZ = -1; else $valZ = 1;
 -            xform -os -ro ($referenceObjectRotate[0]*$valX) ($referenceObjectRotate[1]*$valY) ($referenceObjectRotate[2]*$valZ) $mirrorObject[$ind];
 +            $referenceObjectRotate = `xform -q -os -ro $mtbAV2_referenceObject[$mtbAV2_ind]`;
-+            if (`checkBox -q -v mtbAV2_XAxisRotCheckbox`) $valX = -1; else $valX = 1;
-+            if (`checkBox -q -v mtbAV2_YAxisRotCheckbox`) $valY = -1; else $valY = 1;
-+            if (`checkBox -q -v mtbAV2_ZAxisRotCheckbox`) $valZ = -1; else $valZ = 1;
++            if (`mtbAV2_read_flag "XAxisRotCheckbox"`) $valX = -1; else $valX = 1;
++            if (`mtbAV2_read_flag "YAxisRotCheckbox"`) $valY = -1; else $valY = 1;
++            if (`mtbAV2_read_flag "ZAxisRotCheckbox"`) $valZ = -1; else $valZ = 1;
 +            xform -os -ro ($referenceObjectRotate[0]*$valX) ($referenceObjectRotate[1]*$valY) ($referenceObjectRotate[2]*$valZ) $mtbAV2_mirrorObject[$mtbAV2_ind];
          }
 - 
@@ -224,14 +227,14 @@
 +      string $mirrorJoint[];
      //Mirror joint
 -        if (`checkBox -q -v TranslationsCheckbox`)
-+        if (`checkBox -q -v mtbAV2_TranslationsCheckbox`)
++        if (`mtbAV2_read_flag "TranslationsCheckbox"`)
          {
 -            if (`radioButton -q -sl XAxisTransRadio`) $mirrorJoint = `mirrorJoint -mirrorXY -mirrorBehavior $referenceJoint`;
 -            if (`radioButton -q -sl YAxisTransRadio`) $mirrorJoint = `mirrorJoint -mirrorYZ -mirrorBehavior $referenceJoint`;
 -            if (`radioButton -q -sl ZAxisTransRadio`) $mirrorJoint = `mirrorJoint -mirrorXZ -mirrorBehavior $referenceJoint`;
-+            if (`radioButton -q -sl mtbAV2_XAxisTransRadio`) $mirrorJoint = `mirrorJoint -mirrorXY -mirrorBehavior $referenceJoint`;
-+            if (`radioButton -q -sl mtbAV2_YAxisTransRadio`) $mirrorJoint = `mirrorJoint -mirrorYZ -mirrorBehavior $referenceJoint`;
-+            if (`radioButton -q -sl mtbAV2_ZAxisTransRadio`) $mirrorJoint = `mirrorJoint -mirrorXZ -mirrorBehavior $referenceJoint`;
++            if (`mtbAV2_read_flag "XAxisTransRadio"`) $mirrorJoint = `mirrorJoint -mirrorXY -mirrorBehavior $referenceJoint`;
++            if (`mtbAV2_read_flag "YAxisTransRadio"`) $mirrorJoint = `mirrorJoint -mirrorYZ -mirrorBehavior $referenceJoint`;
++            if (`mtbAV2_read_flag "ZAxisTransRadio"`) $mirrorJoint = `mirrorJoint -mirrorXZ -mirrorBehavior $referenceJoint`;
          }else $mirrorJoint = `mirrorJoint -mirrorYZ -mirrorBehavior $referenceJoint`;
 -        
 +
@@ -284,12 +287,14 @@
 +
 +global proc mtbAV2_transform_connect_operator(string $mirrorJoint, string $referenceJoint)
 +{
++    python("import maya_toolkit.tools.animirror_v2_0.runtime as _av2; _av2.require_active()");
++
 +    global int $mtbAV2_iTo;
 +    global string $mtbAV2_operatorTrans[];
 +
-+    $transX = `radioButton -q -sl mtbAV2_XAxisTransRadio`;
-+    $transY = `radioButton -q -sl mtbAV2_YAxisTransRadio`;
-+    $transZ = `radioButton -q -sl mtbAV2_ZAxisTransRadio`;
++    $transX = `mtbAV2_read_flag "XAxisTransRadio"`;
++    $transY = `mtbAV2_read_flag "YAxisTransRadio"`;
++    $transZ = `mtbAV2_read_flag "ZAxisTransRadio"`;
 +
      $constPoint = `pointConstraint -weight 1 $referenceJoint $mirrorJoint`;
 -    
@@ -364,12 +369,14 @@
 +
 +global proc mtbAV2_rotate_connect_operator(string $mirrorJoint, string $referenceJoint)
 +{
++    python("import maya_toolkit.tools.animirror_v2_0.runtime as _av2; _av2.require_active()");
++
 +    global int $mtbAV2_iRo;
 +    global string $mtbAV2_operatorRotate[];
 +
-+    $rotateX = `checkBox -q -v mtbAV2_XAxisRotCheckbox`;
-+    $rotateY = `checkBox -q -v mtbAV2_YAxisRotCheckbox`;
-+    $rotateZ = `checkBox -q -v mtbAV2_ZAxisRotCheckbox`;
++    $rotateX = `mtbAV2_read_flag "XAxisRotCheckbox"`;
++    $rotateY = `mtbAV2_read_flag "YAxisRotCheckbox"`;
++    $rotateZ = `mtbAV2_read_flag "ZAxisRotCheckbox"`;
  
      if ($rotateX == 1)
      {
@@ -445,12 +452,8 @@
 -  
 +global proc mtbAV2_delete_all_created()
 +{
-+    global string $mtbAV2_centerJoint[];
-+    global string $mtbAV2_operatorTrans[];
-+    global string $mtbAV2_operatorRotate[];
-+    if (catch (`delete $mtbAV2_centerJoint $mtbAV2_operatorTrans $mtbAV2_operatorRotate`)) warning -n "Some temporary objects have been removed from the scene";
-+    //delete $mtbAV2_centerJoint $mtbAV2_operatorTrans $mtbAV2_operatorRotate;
-+
++    python("import maya_toolkit.tools.animirror_v2_0.runtime as _av2; _av2.clear_owned()");
++    mtbAV2_globals_variables();
  }
  //----------------------------------------
 -proc fast_bake(int $defineFrames)
@@ -461,6 +464,8 @@
 -    
 +global proc mtbAV2_fast_bake(int $defineFrames)
 +{
++    python("import maya_toolkit.tools.animirror_v2_0.runtime as _av2; _av2.require_active()");
++
 +    global string $mtbAV2_mirrorObject[];
 +
 +    select -r $mtbAV2_mirrorObject;
@@ -519,6 +524,34 @@
 +            }
  }
  //-----------------------------------------------------------
--
--
--
+ 
+ 
+ 
++
++global proc int mtbAV2_read_flag(string $name)
++{
++    global int $mtbAV2_flags[];
++    if ($name == "TranslationsCheckbox") return $mtbAV2_flags[0];
++    if ($name == "RotationsCheckbox") return $mtbAV2_flags[1];
++    if ($name == "XAxisRotCheckbox") return $mtbAV2_flags[2];
++    if ($name == "YAxisRotCheckbox") return $mtbAV2_flags[3];
++    if ($name == "ZAxisRotCheckbox") return $mtbAV2_flags[4];
++    if ($name == "XAxisTransRadio") return $mtbAV2_flags[5];
++    if ($name == "YAxisTransRadio") return $mtbAV2_flags[6];
++    if ($name == "ZAxisTransRadio") return $mtbAV2_flags[7];
++    error "Unknown AniMirror option";
++    return 0;
++}
++
++global proc string[] mtbAV2_read_cache(string $name)
++{
++    global string $mtbAV2_centerJoint[];
++    global string $mtbAV2_operatorTrans[];
++    global string $mtbAV2_operatorRotate[];
++    if ($name == "centerJoint") return $mtbAV2_centerJoint;
++    if ($name == "operatorTrans") return $mtbAV2_operatorTrans;
++    if ($name == "operatorRotate") return $mtbAV2_operatorRotate;
++    error "Unknown AniMirror cache";
++    string $empty[];
++    return $empty;
++}

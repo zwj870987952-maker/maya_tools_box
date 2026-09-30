@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T18:41:14.145535+08:00",
+  "updated_at": "2026-09-30T22:17:11.974437+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
-    "state": "waiting_for_quota",
+    "state": "working",
     "heartbeat_id": "automation",
-    "heartbeat_status": "ACTIVE",
-    "heartbeat_verified": false,
+    "heartbeat_status": "PAUSED",
+    "heartbeat_verified": true,
     "reset_guard": "not_started_requires_authorization",
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/animation_retarget",
+    "last_completed_tool": "01_animation/animirror_v2_0",
     "last_usage": {
       "five_hour_used_percent": 95,
       "weekly_used_percent": 56,
@@ -1280,23 +1280,82 @@
       "entry_candidates": [
         "AniMirror(Drag&Drop Install).mel"
       ],
-      "source_file_count": 2,
+      "source_file_count": 3,
       "source_files": [
         "AniMirror(Drag&Drop Install).mel"
       ],
       "license_files": [],
-      "status": "working",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_all_raw_resources_preserved (__main__.OfflineTests.test_all_raw_resources_preserved) ... ok\r\ntest_full_extracted_algorithm_and_window_present (__main__.OfflineTests.test_full_extracted_algorithm_and_window_present) ... ok\r\ntest_parameter_contract_rejects_wrong_axis_boolean_count_and_ranges (__main__.OfflineTests.test_parameter_contract_rejects_wrong_axis_boolean_count_and_ranges) ... ok\r\ntest_schema_exports_and_inventory_without_maya_scene (__main__.OfflineTests.test_schema_exports_and_inventory_without_maya_scene) ... ok\r\ntest_source_top_level_calls_removed_without_losing_internal_reset (__main__.OfflineTests.test_source_top_level_calls_removed_without_losing_internal_reset) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.003s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"animirror_v2_0\",\r\n  \"candidate_sha256\": \"35fba07af086e4a455727318845f0ac39983bd0625351160a67be73246825220\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\animirror_runtime_changes.diff\",\r\n    \"docs\\\\tools\\\\animirror_v2_0.md\",\r\n    \"maya_toolkit\\\\tools\\\\animirror_v2_0\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\animirror_v2_0\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\animirror_v2_0\\\\contracts.py\",\r\n    \"maya_toolkit\\\\tools\\\\animirror_v2_0\\\\embedded_original.mel\",\r\n    \"maya_toolkit\\\\tools\\\\animirror_v2_0\\\\runtime.mel\",\r\n    \"maya_toolkit\\\\tools\\\\animirror_v2_0\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\animirror_v2_0\\\\state.py\",\r\n    \"maya_toolkit\\\\tools\\\\animirror_v2_0\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\animirror_v2_0\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\animirror_v2_0\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\animirror_v2_0\\\\upstream\\\\AniMirror(Drag&Drop Install).mel\",\r\n    \"maya_toolkit\\\\tools\\\\animirror_v2_0\\\\upstream\\\\AniMirror- Mirror Animation Tool.pdf\",\r\n    \"tests\\\\test_animirror_v2_0.py\",\r\n    \"tests\\\\test_animirror_v2_0_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/animirror_v2_0/release_candidate/tests/test_animirror_v2_0_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_all_original_procedure_origins_and_internal_guard (__main__.MayaTests.test_all_original_procedure_origins_and_internal_guard) ... ����: ��ͨ�� AnimirrorV2Tool.run() ���ã�����ֱ��ִ���ڲ� MEL д��������\n# Traceback (most recent call last):\n#   File \"<maya console>\", line 1, in <module>\n#   File \"E:\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\animirror_v2_0\\release_candidate\\maya_toolkit\\tools\\animirror_v2_0\\runtime.py\", line 13, in require_active\n#     raise RuntimeError('��ͨ�� AnimirrorV2Tool.run() ���ã�����ֱ��ִ���ڲ� MEL д��������')\n# RuntimeError: ��ͨ�� AnimirrorV2Tool.run() ���ã�����ֱ��ִ���ڲ� MEL д��������\nok\r\ntest_bake_accumulated_targets_filter_and_cleanup (__main__.MayaTests.test_bake_accumulated_targets_filter_and_cleanup) ... ����: AnimirrorV2Tool_animirror_v2_0\nok\r\ntest_execution_error_restores_refresh_time_selection_and_captures_partial (__main__.MayaTests.test_execution_error_restores_refresh_time_selection_and_captures_partial) ... ok\r\ntest_external_child_or_connection_refuses_delete (__main__.MayaTests.test_external_child_or_connection_refuses_delete) ... ok\r\ntest_foreign_output_connection_refuses_delete_and_component_selection_restored (__main__.MayaTests.test_foreign_output_connection_refuses_delete_and_component_selection_restored) ... ok\r\ntest_live_x_mirror_ownership_cleanup_and_one_undo (__main__.MayaTests.test_live_x_mirror_ownership_cleanup_and_one_undo) ... ����: AnimirrorV2Tool_animirror_v2_0\nok\r\ntest_mirror_one_chunk_undo_then_new_mirror_has_no_stale_globals (__main__.MayaTests.test_mirror_one_chunk_undo_then_new_mirror_has_no_stale_globals) ... ����: AnimirrorV2Tool_animirror_v2_0\nok\r\ntest_mirror_with_bake_actual_keys_and_single_undo (__main__.MayaTests.test_mirror_with_bake_actual_keys_and_single_undo) ... ����: AnimirrorV2Tool_animirror_v2_0\nok\r\ntest_missing_plugin_locked_driver_reference_or_wrong_selection (__main__.MayaTests.test_missing_plugin_locked_driver_reference_or_wrong_selection) ... ok\r\ntest_readonly_dry_run_with_no_source_or_scene_mutation (__main__.MayaTests.test_readonly_dry_run_with_no_source_or_scene_mutation) ... ok\r\ntest_rotation_only_and_disabled_translation (__main__.MayaTests.test_rotation_only_and_disabled_translation) ... ok\r\ntest_scene_save_reload_recovers_uuid_ownership_without_name_cache (__main__.MayaTests.test_scene_save_reload_recovers_uuid_ownership_without_name_cache) ... �ļ���ȡ����ʱ��Ϊ  0.017 �롣\nok\r\ntest_three_translation_axes_original_actual_values (__main__.MayaTests.test_three_translation_axes_original_actual_values) ... ok\r\ntest_uuid_rename_then_cleanup_preserves_same_name_foreign_node (__main__.MayaTests.test_uuid_rename_then_cleanup_preserves_same_name_foreign_node) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 14 tests in 0.874s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "fdcb81a541b911a4c1cc2ccaa9e126e4d39cbd4e439ea6fe0015ad56216e6b86",
+          "runtime_source_sha256": "ceb82a08330514e72a8ae57fef5e83251da9a6e067f03718bca0e8a00d0836fb"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya GUI, complex center transforms and production rigs need human acceptance"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "35fba07af086e4a455727318845f0ac39983bd0625351160a67be73246825220",
+          "returncode": 0,
+          "output": "test_all_raw_resources_preserved (__main__.OfflineTests.test_all_raw_resources_preserved) ... ok\r\ntest_full_extracted_algorithm_and_window_present (__main__.OfflineTests.test_full_extracted_algorithm_and_window_present) ... ok\r\ntest_parameter_contract_rejects_wrong_axis_boolean_count_and_ranges (__main__.OfflineTests.test_parameter_contract_rejects_wrong_axis_boolean_count_and_ranges) ... ok\r\ntest_schema_exports_and_inventory_without_maya_scene (__main__.OfflineTests.test_schema_exports_and_inventory_without_maya_scene) ... ok\r\ntest_source_top_level_calls_removed_without_losing_internal_reset (__main__.OfflineTests.test_source_top_level_calls_removed_without_losing_internal_reset) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.003s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
       "issues": [
-        "Incomplete candidate; do not count as processed or promote",
-        "lookdevKit/floatMath must be explicitly loaded by user; preflight should query only",
-        "GUI/rotation/other axes/center transforms/bake pending",
-        "UUID deletion protection and persistent Undo-aware ownership not implemented"
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI and production skeleton/AdvancedSkeleton acceptance pending",
+        "Original author guide supports Maya2016-2022; adapter Python3 and Maya2025 standalone do not verify that full range",
+        "Bake applies to all accumulated candidate targets including static channel deletion/filterCurve",
+        "Target locked/referenced/already driven channels are refused",
+        "Original rotation/local-space/center-transform behavior retained; realistic rigs and nondefault units need acceptance"
       ],
       "entry_review": {
         "evidence": "Only source file contains shelf installer and embedded aniMirror_menu code; this is an installer, not a safe read-only runtime entry.",
@@ -1312,11 +1371,53 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "6f4e046c2fd43ec768e975a0ad078c67d385ab35d4e02a3fbd247e98c3585ef0",
+      "source_tree_sha256": "9b453de4855d27d84dd061a520b392c683232f3b1e700b8579fa2087964d03fa",
       "candidate_path": "tools_staging_pool/01_animation/animirror_v2_0/release_candidate",
       "work_notes": "plans/staging_run/animirror_v2_0_notes.md",
       "exploratory_probe": "plans/staging_run/animirror_suite_probe.json",
-      "change_summary": "Original MEL/PDF archived, all 9 embedded procedures extracted and namespaced, strict axis-based JSON contract drafted. Isolated compile and actual X-translation mirror/cleanup with UI query stubs passed. API/ownership/Undo/UI/promotion/acceptance incomplete."
+      "change_summary": "Complete embedded nine-procedure mirror suite and original window; explicit argument options without business UI dependency, UUID and Undo-aware scene metadata, owned-constraint detachment to protect empty targets, source-origin/internal invocation guards, and cleanup/bake/runtime restoration protections.",
+      "acceptance_instructions": "tools_staging_pool/01_animation/animirror_v2_0/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "animirror_v2_0",
+        "candidate_sha256": "35fba07af086e4a455727318845f0ac39983bd0625351160a67be73246825220",
+        "applied": false,
+        "files": [
+          "docs\\tools\\animirror_runtime_changes.diff",
+          "docs\\tools\\animirror_v2_0.md",
+          "maya_toolkit\\tools\\animirror_v2_0\\__init__.py",
+          "maya_toolkit\\tools\\animirror_v2_0\\catalog.json",
+          "maya_toolkit\\tools\\animirror_v2_0\\contracts.py",
+          "maya_toolkit\\tools\\animirror_v2_0\\embedded_original.mel",
+          "maya_toolkit\\tools\\animirror_v2_0\\runtime.mel",
+          "maya_toolkit\\tools\\animirror_v2_0\\runtime.py",
+          "maya_toolkit\\tools\\animirror_v2_0\\state.py",
+          "maya_toolkit\\tools\\animirror_v2_0\\tool.py",
+          "maya_toolkit\\tools\\animirror_v2_0\\ui.py",
+          "maya_toolkit\\tools\\animirror_v2_0\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\animirror_v2_0\\upstream\\AniMirror(Drag&Drop Install).mel",
+          "maya_toolkit\\tools\\animirror_v2_0\\upstream\\AniMirror- Mirror Animation Tool.pdf",
+          "tests\\test_animirror_v2_0.py",
+          "tests\\test_animirror_v2_0_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "runtime.mel",
+        "embedded_original.mel",
+        "catalog.json",
+        "upstream/AniMirror(Drag&Drop Install).mel",
+        "upstream/AniMirror- Mirror Animation Tool.pdf"
+      ],
+      "external_dependencies": [
+        "Maya Python 3",
+        "Autodesk lookdevKit for floatMath; explicit user loading",
+        "Native Maya GUI only for the original window",
+        "Existing maya_toolkit framework/core Undo"
+      ],
+      "source_preserved": true,
+      "prepared_at": "2026-09-30T22:17:15.953557+08:00"
     },
     {
       "source_path": "01_animation/back2origin_v05_gaiv3",

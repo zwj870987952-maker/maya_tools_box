@@ -16,6 +16,7 @@ def main():
     parser.add_argument("--tool", required=True)
     parser.add_argument("--test", required=True)
     parser.add_argument("--mayapy-report")
+    parser.add_argument("--layout-report")
     parser.add_argument("--unverified-reason", help="Explicit required runtime evidence absent beyond the checks run")
     args = parser.parse_args()
     candidate = scan_pool.POOL / args.tool / "release_candidate"
@@ -46,12 +47,17 @@ def main():
         checks.append({"kind": "mayapy_runtime_report_matches_candidate", "passed": report.get("runtime_source_sha256") == runtime_fingerprint(candidate)})
     if args.unverified_reason:
         checks.append({"kind": "required_runtime_evidence", "passed": False, "reason": args.unverified_reason})
+    if args.layout_report:
+        report = json.loads(Path(args.layout_report).read_text(encoding="utf-8"))
+        checks.append(report)
+        checks.append({"kind": "layout_report_matches_candidate", "passed": bool(preview) and report.get("candidate_sha256") == preview.get("candidate_sha256")})
     manifest = json.loads((scan_pool.RUN / "manifest.json").read_text(encoding="utf-8"))
     item = next(item for item in manifest["tools"] if item["source_path"] == args.tool)
     complete = bool(preview) and (candidate / "acceptance.md").is_file()
     limitations = ["Real Maya GUI acceptance pending", "Other Maya/Python versions unverified"] + description.get("verification_limitations", [])
     item.update({"status": "prepared_verified_offline" if all(check["passed"] for check in checks) else "prepared_unverified", "candidate_path": candidate.relative_to(scan_pool.ROOT).as_posix(), "candidate_complete": complete, "offline_checks": checks, "acceptance_instructions": (candidate / "acceptance.md").relative_to(scan_pool.ROOT).as_posix(), "promotion": preview, "resources": description.get("resources", []), "external_dependencies": description.get("dependencies", []), "source_preserved": True, "change_summary": description.get("change_summary", "See candidate knowledge document for behavior and safety changes."), "issues": limitations, "prepared_at": datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).isoformat()})
-    manifest["execution"].update({"state": "working", "heartbeat_transition_verified": True, "heartbeat_verified": False, "heartbeat_status": "PAUSED", "last_completed_tool": args.tool})
+    # Preserve observed heartbeat evidence; candidate checks do not test scheduling.
+    manifest["execution"].update({"state": "working", "heartbeat_status": "PAUSED", "last_completed_tool": args.tool})
     scan_pool.dump(scan_pool.RUN / "manifest.json", manifest)
     print(json.dumps({"tool": args.tool, "status": item["status"], "candidate_complete": item["candidate_complete"], "checks": [{"kind": check["kind"], "passed": check["passed"]} for check in checks]}, ensure_ascii=True))
 
