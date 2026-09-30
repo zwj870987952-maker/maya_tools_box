@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T18:25:35.750913+08:00",
+  "updated_at": "2026-09-30T18:27:15.175592+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -13,12 +13,12 @@
     "heartbeat_transition_verified": true,
     "last_completed_tool": "01_animation/animation_retarget",
     "last_usage": {
-      "five_hour_used_percent": 70.0,
-      "weekly_used_percent": 52.0,
-      "recorded_at": "2026-09-30T17:59:50.413396+08:00",
+      "five_hour_used_percent": 88.0,
+      "weekly_used_percent": 55.0,
+      "recorded_at": "2026-09-30T18:27:12.192800+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/animation_retarget"
+    "current_tool": "01_animation/animirror_v2_0"
   },
   "entry_repairs": [
     {
@@ -1268,7 +1268,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete owned retarget UI and business API; preserve modes/offsets/default and smart bake; UUID tracked owned constraints, typed JSON poses, source-frame numeric copying, old config and Rematch reading, read-only preflight, Undo grouping and exclusive file creation.",
-      "prepared_at": "2026-09-30T18:26:30.043674+08:00"
+      "prepared_at": "2026-09-30T18:26:30.043674+08:00",
+      "source_commit": "34b9bbee11def5207e4adf3057bcbef7ea28ea95"
     },
     {
       "source_path": "01_animation/animirror_v2_0",
@@ -1284,7 +1285,7 @@
         "AniMirror(Drag&Drop Install).mel"
       ],
       "license_files": [],
-      "status": "pending",
+      "status": "working",
       "candidate_complete": false,
       "offline_checks": [],
       "maya_acceptance": {
