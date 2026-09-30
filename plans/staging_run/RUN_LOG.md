@@ -125,3 +125,13 @@
 - 原世界root→局部global数值、反向覆盖root、absolute frame modulus 和 cutKey全部translate行为保留且写入说明；帧步长>1检查所有可能被删键的轴，拒绝引用/锁定/非animCurve驱动、重复角色和不明确对象。执行finally恢复eval/refresh/time/selection/四个播放范围。
 - 5项普通Python及10项Maya2025隔离实节点通过，涵盖真实正向/反向、世界位置、键与Undo、未选轴删键、范围外键、缺省范围/缺global、引用/驱动预检、发现和失败恢复；原生GUI/生产rig/引擎结果待真人。首次Undo fixture用currentTime采样在工具之上增加动作而失败，改为worldMatrix/time只读采样后通过。
 - 当前候选包含完整知识说明、两测试、验收及注册晋级清单；Git属性防止换行转换破坏原件/candidate哈希。继续保持heartbeat暂停，不兑换卡、不购买、不运行Obsidian同步。
+
+- Back2Origin候选提交95c457a，收尾实时额度43%/64%已用，下一项bh_aim_tools_v1_1。
+
+## 2026-09-30：bh_aimTools 完整候选，累计12/109
+
+- 购买工具ReadMe明确不要分享，四原资源完整本地保留，未发布；完整16原过程/原生UI，另加typed参数读取，共17过程。创建/附着/Aim/两种烘焙均标准API，唯一顶层窗口移除。
+- UUID/Owner/token与ctrl message防护，不接管旧工具定位器；只删除自己临时约束，清理前脱离控制器下候选约束，保护空控制器；临时root返回实际唯一名及DAG叶名，避免碰撞误删。旧全时段旋转键删除改显式参数，UI仍给Yes/No且默认No。
+- 原轴启发式、maintainOffset、SetKeyRotate、pairBlend与filterCurve保留；Maya混合节点/属性可能保留，明确返回survivors，不自动删除承载旧动画的节点。执行finally恢复cache/eval/refresh/time/range/selection，create/bake成功选择结果。
+- 4普通Python及9隔离Maya2025检查通过：真实流程/键/朝向/烘焙/Undo、UUID/重载/批量同叶名、外部约束/后代/改接、失败恢复和来源保护。首次Aim后新增控制器键生成外部pairBlend被正确拒绝；改为Aim前旧键。批量fixture歧义短名改确定长路径。GUI、生产rig、动画层和复杂blend仍待真人。
+- 专项说明、两测试、晋级注册与验收齐备；Git属性保存原资源实际字节。正式工具库、长期规则及knowledge未改，heartbeat继续暂停，卡未消费。

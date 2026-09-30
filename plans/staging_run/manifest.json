@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T22:44:30.415892+08:00",
+  "updated_at": "2026-09-30T23:26:15.670831+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/back2origin_v05_gaiv3",
+    "last_completed_tool": "01_animation/bh_aim_tools_v1_1",
     "last_usage": {
-      "five_hour_used_percent": 33.0,
-      "weekly_used_percent": 62.0,
-      "recorded_at": "2026-09-30T22:19:47.703059+08:00",
+      "five_hour_used_percent": 43.0,
+      "weekly_used_percent": 64.0,
+      "recorded_at": "2026-09-30T22:48:40.376477+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/back2origin_v05_gaiv3"
+    "current_tool": "01_animation/bh_aim_tools_v1_1"
   },
   "entry_repairs": [
     {
@@ -1553,7 +1553,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete original forward helpers, reverse loops and native UI; no import-time installation, typed API, read-only scene/channel preflight, reliable Undo and runtime state restoration, unambiguous controller discovery.",
-      "prepared_at": "2026-09-30T22:44:31.765231+08:00"
+      "prepared_at": "2026-09-30T22:44:31.765231+08:00",
+      "source_commit": "95c457acd1dffb79c8e7999aeb4511b60b7df8b2"
     },
     {
       "source_path": "01_animation/bh_aim_tools_v1_1",
@@ -1565,20 +1566,83 @@
         "bh_aimTools_v1.1/bh_aimTools.mel",
         "bh_aimTools_v1.1/汉化/bh_aimTools.mel"
       ],
-      "source_file_count": 4,
+      "source_file_count": 5,
       "source_files": [
         "bh_aimTools_v1.1/bh_aimTools.mel",
         "bh_aimTools_v1.1/汉化/bh_aimTools.mel"
       ],
       "license_files": [],
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_all_four_original_resources_preserved (__main__.OfflineTests.test_all_four_original_resources_preserved) ... ok\r\ntest_complete_suite_definition_only_and_original_ui (__main__.OfflineTests.test_complete_suite_definition_only_and_original_ui) ... ok\r\ntest_explicit_rotation_deletion_and_bad_contracts (__main__.OfflineTests.test_explicit_rotation_deletion_and_bad_contracts) ... ok\r\ntest_inventory_schema_without_maya (__main__.OfflineTests.test_inventory_schema_without_maya) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.002s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"bh_aim_tools_v1_1\",\r\n  \"candidate_sha256\": \"8be102b95a4c2851fcd01aec101992fda0c6003968d3e27904191fae41fab5f3\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\bh_aim_changes.diff\",\r\n    \"docs\\\\tools\\\\bh_aim_tools_v1_1.md\",\r\n    \"maya_toolkit\\\\tools\\\\bh_aim_tools_v1_1\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_aim_tools_v1_1\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\bh_aim_tools_v1_1\\\\contracts.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_aim_tools_v1_1\\\\runtime.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bh_aim_tools_v1_1\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_aim_tools_v1_1\\\\state.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_aim_tools_v1_1\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_aim_tools_v1_1\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_aim_tools_v1_1\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\bh_aim_tools_v1_1\\\\upstream\\\\bh_aimTools.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bh_aim_tools_v1_1\\\\upstream\\\\bh_aimTools_ICON.png\",\r\n    \"maya_toolkit\\\\tools\\\\bh_aim_tools_v1_1\\\\upstream\\\\ReadMe.txt\",\r\n    \"maya_toolkit\\\\tools\\\\bh_aim_tools_v1_1\\\\upstream\\\\\\u6c49\\u5316\\\\bh_aimTools.mel\",\r\n    \"tests\\\\test_bh_aim_tools_v1_1.py\",\r\n    \"tests\\\\test_bh_aim_tools_v1_1_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/bh_aim_tools_v1_1/release_candidate/tests/test_bh_aim_tools_v1_1_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_aim_bake_actual_rotation_keys_cleanup_and_undo (__main__.MayaTests.test_aim_bake_actual_rotation_keys_cleanup_and_undo) ... Created a locator called control_AIM_LOCATORcontrol_AIM_LOCATOR has been keyed to match controlAim set up successfully on control_AIM_LOCATORcontrol has been keyed to match control_AIM_LOCATOR����: BhAimTool_bh_aim_tools_v1_1\nok\r\ntest_attach_keys_only_and_all_frames_actual_locator_keys (__main__.MayaTests.test_attach_keys_only_and_all_frames_actual_locator_keys) ... Created a locator called control_AIM_LOCATORcontrol_AIM_LOCATOR has been keyed to match controlCreated a locator called control_AIM_LOCATORcontrol_AIM_LOCATOR has been keyed to match controlok\r\ntest_complete_load_origin_and_guard_no_gui (__main__.MayaTests.test_complete_load_origin_and_guard_no_gui) ... ����: �ڲ�д���� MEL ������ͨ�� BhAimTool.run() ����\n# Traceback (most recent call last):\n#   File \"<maya console>\", line 1, in <module>\n#   File \"E:\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\bh_aim_tools_v1_1\\release_candidate\\maya_toolkit\\tools\\bh_aim_tools_v1_1\\runtime.py\", line 12, in require_active\n#     raise RuntimeError('�ڲ�д���� MEL ������ͨ�� BhAimTool.run() ����')\n# RuntimeError: �ڲ�д���� MEL ������ͨ�� BhAimTool.run() ����\nok\r\ntest_create_uuid_link_selection_and_single_undo (__main__.MayaTests.test_create_uuid_link_selection_and_single_undo) ... Created a locator called control_AIM_LOCATOR����: BhAimTool_bh_aim_tools_v1_1\nok\r\ntest_dry_run_and_exception_restore_runtime (__main__.MayaTests.test_dry_run_and_exception_restore_runtime) ... Created a locator called control_AIM_LOCATORok\r\ntest_duplicate_leaf_controller_batch_uuid_rename_and_scene_reload (__main__.MayaTests.test_duplicate_leaf_controller_batch_uuid_rename_and_scene_reload) ... Created a locator called control_AIM_LOCATORCreated a locator called control_AIM_LOCATOR1�ļ���ȡ����ʱ��Ϊ  0.0064 �롣\nok\r\ntest_foreign_child_ctrl_rewire_and_foreign_constraint_refused (__main__.MayaTests.test_foreign_child_ctrl_rewire_and_foreign_constraint_refused) ... Created a locator called control_AIM_LOCATORok\r\ntest_keys_only_delete_all_old_rotations_explicit_and_no_empty_keys (__main__.MayaTests.test_keys_only_delete_all_old_rotations_explicit_and_no_empty_keys) ... Created a locator called control_AIM_LOCATORcontrol_AIM_LOCATOR has been keyed to match controlAim set up successfully on control_AIM_LOCATORcontrol has been keyed to match control_AIM_LOCATORok\r\ntest_long_path_collision_actual_name_protects_foreign_temp_root (__main__.MayaTests.test_long_path_collision_actual_name_protects_foreign_temp_root) ... Created a locator called control_AIM_LOCATORAim set up successfully on control_AIM_LOCATORok\r\n\r\n----------------------------------------------------------------------\r\nRan 9 tests in 0.260s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "aba3fce062cf403eff8aaa3f05f02013de4bfb50ab0a27a996b5e843f227ceef",
+          "runtime_source_sha256": "525acb9e0962b43b8be064f748210f154f420a680d37cebf82d25ff9d2b7070b"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya GUI, production rigs, complex pairBlend and animation-layer behavior require human acceptance"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "8be102b95a4c2851fcd01aec101992fda0c6003968d3e27904191fae41fab5f3",
+          "returncode": 0,
+          "output": "test_all_four_original_resources_preserved (__main__.OfflineTests.test_all_four_original_resources_preserved) ... ok\r\ntest_complete_suite_definition_only_and_original_ui (__main__.OfflineTests.test_complete_suite_definition_only_and_original_ui) ... ok\r\ntest_explicit_rotation_deletion_and_bad_contracts (__main__.OfflineTests.test_explicit_rotation_deletion_and_bad_contracts) ... ok\r\ntest_inventory_schema_without_maya (__main__.OfflineTests.test_inventory_schema_without_maya) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.005s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI and production rigs pending",
+        "Original axis heuristic, pairBlend routing and Euler filter behavior preserved; complex rigs require acceptance",
+        "Original keys-only rotation deletion can remove all rotation keys when explicitly requested",
+        "Maya-generated pairBlend nodes/attributes may remain to preserve original animation; report survivors"
+      ],
       "entry_review": {
         "evidence": "Source installation comment specifies source bh_aimTools.mel to launch GUI; original and Chinese variants retained, primary selects original.",
         "kind": "mel_with_top_level_ui",
@@ -1593,7 +1657,52 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "97a33d5cf3a028d65a36fce9063bd7c7b811ea61502db8f80ea0523cb5acd925"
+      "source_tree_sha256": "2af32b1f9bdc23207864b6fbaffd9145c7c7ca64162dece1d7dcf013e9016c19",
+      "candidate_path": "tools_staging_pool/01_animation/bh_aim_tools_v1_1/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/bh_aim_tools_v1_1/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "bh_aim_tools_v1_1",
+        "candidate_sha256": "8be102b95a4c2851fcd01aec101992fda0c6003968d3e27904191fae41fab5f3",
+        "applied": false,
+        "files": [
+          "docs\\tools\\bh_aim_changes.diff",
+          "docs\\tools\\bh_aim_tools_v1_1.md",
+          "maya_toolkit\\tools\\bh_aim_tools_v1_1\\__init__.py",
+          "maya_toolkit\\tools\\bh_aim_tools_v1_1\\catalog.json",
+          "maya_toolkit\\tools\\bh_aim_tools_v1_1\\contracts.py",
+          "maya_toolkit\\tools\\bh_aim_tools_v1_1\\runtime.mel",
+          "maya_toolkit\\tools\\bh_aim_tools_v1_1\\runtime.py",
+          "maya_toolkit\\tools\\bh_aim_tools_v1_1\\state.py",
+          "maya_toolkit\\tools\\bh_aim_tools_v1_1\\tool.py",
+          "maya_toolkit\\tools\\bh_aim_tools_v1_1\\ui.py",
+          "maya_toolkit\\tools\\bh_aim_tools_v1_1\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\bh_aim_tools_v1_1\\upstream\\bh_aimTools.mel",
+          "maya_toolkit\\tools\\bh_aim_tools_v1_1\\upstream\\bh_aimTools_ICON.png",
+          "maya_toolkit\\tools\\bh_aim_tools_v1_1\\upstream\\ReadMe.txt",
+          "maya_toolkit\\tools\\bh_aim_tools_v1_1\\upstream\\汉化\\bh_aimTools.mel",
+          "tests\\test_bh_aim_tools_v1_1.py",
+          "tests\\test_bh_aim_tools_v1_1_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/bh_aimTools.mel",
+        "upstream/bh_aimTools_ICON.png",
+        "upstream/ReadMe.txt",
+        "upstream/汉化/bh_aimTools.mel",
+        "runtime.mel",
+        "catalog.json"
+      ],
+      "external_dependencies": [
+        "Maya Python3/native MEL",
+        "Real Maya GUI for window",
+        "Existing maya_toolkit framework/core Undo"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete locator attach/aim/bake suite and original UI with arguments, UUID ownership/preflight, guarded cleanup, explicit key deletion and runtime state recovery; original purchased resources privately preserved.",
+      "prepared_at": "2026-09-30T23:26:17.880104+08:00"
     },
     {
       "source_path": "01_animation/bh_local_nudge",

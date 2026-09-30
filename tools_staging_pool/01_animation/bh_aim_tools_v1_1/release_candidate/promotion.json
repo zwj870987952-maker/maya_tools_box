@@ -1,0 +1,99 @@
+{
+  "tool_id": "bh_aim_tools_v1_1",
+  "registration": {
+    "module": "bh_aim_tools_v1_1",
+    "class_name": "BhAimTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/bh_aim_changes.diff",
+      "target": "docs/tools/bh_aim_changes.diff"
+    },
+    {
+      "source": "docs/tools/bh_aim_tools_v1_1.md",
+      "target": "docs/tools/bh_aim_tools_v1_1.md"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_aim_tools_v1_1/__init__.py",
+      "target": "maya_toolkit/tools/bh_aim_tools_v1_1/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_aim_tools_v1_1/catalog.json",
+      "target": "maya_toolkit/tools/bh_aim_tools_v1_1/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_aim_tools_v1_1/contracts.py",
+      "target": "maya_toolkit/tools/bh_aim_tools_v1_1/contracts.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_aim_tools_v1_1/runtime.mel",
+      "target": "maya_toolkit/tools/bh_aim_tools_v1_1/runtime.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_aim_tools_v1_1/runtime.py",
+      "target": "maya_toolkit/tools/bh_aim_tools_v1_1/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_aim_tools_v1_1/state.py",
+      "target": "maya_toolkit/tools/bh_aim_tools_v1_1/state.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_aim_tools_v1_1/tool.py",
+      "target": "maya_toolkit/tools/bh_aim_tools_v1_1/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_aim_tools_v1_1/ui.py",
+      "target": "maya_toolkit/tools/bh_aim_tools_v1_1/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_aim_tools_v1_1/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/bh_aim_tools_v1_1/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_aim_tools_v1_1/upstream/bh_aimTools.mel",
+      "target": "maya_toolkit/tools/bh_aim_tools_v1_1/upstream/bh_aimTools.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_aim_tools_v1_1/upstream/bh_aimTools_ICON.png",
+      "target": "maya_toolkit/tools/bh_aim_tools_v1_1/upstream/bh_aimTools_ICON.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_aim_tools_v1_1/upstream/ReadMe.txt",
+      "target": "maya_toolkit/tools/bh_aim_tools_v1_1/upstream/ReadMe.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_aim_tools_v1_1/upstream/汉化/bh_aimTools.mel",
+      "target": "maya_toolkit/tools/bh_aim_tools_v1_1/upstream/汉化/bh_aimTools.mel"
+    },
+    {
+      "source": "tests/test_bh_aim_tools_v1_1.py",
+      "target": "tests/test_bh_aim_tools_v1_1.py"
+    },
+    {
+      "source": "tests/test_bh_aim_tools_v1_1_maya.py",
+      "target": "tests/test_bh_aim_tools_v1_1_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/bh_aimTools.mel",
+    "upstream/bh_aimTools_ICON.png",
+    "upstream/ReadMe.txt",
+    "upstream/汉化/bh_aimTools.mel",
+    "runtime.mel",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya Python3/native MEL",
+    "Real Maya GUI for window",
+    "Existing maya_toolkit framework/core Undo"
+  ],
+  "source": "../bh_aimTools_v1.1/bh_aimTools.mel",
+  "change_summary": "Complete locator attach/aim/bake suite and original UI with arguments, UUID ownership/preflight, guarded cleanup, explicit key deletion and runtime state recovery; original purchased resources privately preserved.",
+  "verification_limitations": [
+    "Real Maya GUI and production rigs pending",
+    "Original axis heuristic, pairBlend routing and Euler filter behavior preserved; complex rigs require acceptance",
+    "Original keys-only rotation deletion can remove all rotation keys when explicitly requested",
+    "Maya-generated pairBlend nodes/attributes may remain to preserve original animation; report survivors"
+  ],
+  "acceptance_required": true
+}

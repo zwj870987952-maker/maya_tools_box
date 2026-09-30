@@ -1,0 +1,970 @@
+--- upstream/bh_aimTools.mel
++++ runtime.mel
+@@ -1,4 +1,4 @@
+-// bh_aimTools v 1.1 -  030219
++// mtbAim_bh_aimTools v 1.1 -  030219
+ 
+ /*
+ To Install :
+@@ -7,9 +7,9 @@
+ 
+ Type (in the MEL field) :
+ 
+-source "bh_aimTools.mel";
+-
+-and hit enter to launch the GUI. For convenience this command can be added to a 
++source "mtbAim_bh_aimTools.mel";
++
++and hit enter to launch the GUI. For convenience this command can be added to a
+ shelf button (icon is provided).
+ 
+ SEE THE READ ME AND VIDEOS ON MY VIMEO CHANNEL FOR DETAILS ON HOW TO USE
+@@ -19,61 +19,65 @@
+ 
+ 
+ 
+-proc bh_aimTools() 
+-{
+-if (`window -exists bh_aimTools`)
+-deleteUI bh_aimTools;
+-window -toolbox 1 -width 180 -t "bh_aimTools" -mxb 0 -mnb 0 bh_aimTools;
+-
+-columnLayout -adj 1 mainCol;
+-
+-
+-button -l " Create Aim Locator " -ann "Select a Controller to create a locator for it" -c bh_createAimLoc;
++global proc mtbAim_bh_aimTools()
++{
++if (`window -exists mtbAim_bh_aimTools`)
++deleteUI mtbAim_bh_aimTools;
++window -toolbox 1 -width 180 -t "mtbAim_bh_aimTools" -mxb 0 -mnb 0 mtbAim_bh_aimTools;
++
++columnLayout -adj 1 mtbAim_mainCol;
++
++
++button -l " Create Aim Locator " -ann "Select a Controller to create a locator for it" -c "python(\"import maya_toolkit.tools.bh_aim_tools_v1_1.ui as _u; _u.dispatch('create')\");";
+ 
+  separator -h 20 -style "in";
+ rowColumnLayout -numberOfColumns 2;
+-button -l "  Attach Locator To Control   " -ann "Select the locator to attach it to the Control" -c bh_attachLoc;
+-checkBox -label "KeysOnly" -ann "Turning this off will key All frames in the timeslider range" -value 1 keysOnlyAttachSwitch;
+-
+-button -l "Aim Control At Locator" -ann "Select the locator and run to set up the Aim constraint on the controller" -c bh_aimCtrlAtLoc;
+-
+- setParent..; 
++button -l "  Attach Locator To Control   " -ann "Select the locator to attach it to the Control" -c "python(\"import maya_toolkit.tools.bh_aim_tools_v1_1.ui as _u; _u.dispatch('attach')\");";
++checkBox -label "KeysOnly" -ann "Turning this off will key All frames in the timeslider range" -value 1 mtbAim_keysOnlyAttachSwitch;
++
++button -l "Aim Control At Locator" -ann "Select the locator and run to set up the Aim constraint on the controller" -c "python(\"import maya_toolkit.tools.bh_aim_tools_v1_1.ui as _u; _u.dispatch('aim')\");";
++
++ setParent..;
+  separator -h 20 -style "in";
+ rowColumnLayout -numberOfColumns 2;
+-button -l "Key Control From Aim Locator" -ann "Select the locator to bake the aim animation to the controller" -c bh_bakeFromAimLoc;
+-checkBox -label "KeysOnly" -ann "Turning this off will key All frames in the timeslider range" -value 1 keysOnlyBakeSwitch;
++button -l "Key Control From Aim Locator" -ann "Select the locator to bake the aim animation to the controller" -c "python(\"import maya_toolkit.tools.bh_aim_tools_v1_1.ui as _u; _u.dispatch('bake')\");";
++checkBox -label "KeysOnly" -ann "Turning this off will key All frames in the timeslider range" -value 1 mtbAim_keysOnlyBakeSwitch;
+ 
+ showWindow;
+ }
+ 
+-global proc bh_attachLoc()
+-{
+-
+-
+-int $bakeAllOrNot =`checkBox -q -v keysOnlyAttachSwitch`;
++global proc mtbAim_bh_attachLoc()
++{
++python("import maya_toolkit.tools.bh_aim_tools_v1_1.runtime as _a; _a.require_active()");
++
++
++
++int $bakeAllOrNot =`mtbAim_read_keys_only`;
+ if ($bakeAllOrNot==1)
+-{bh_parentAimLocToKeys;
++{mtbAim_bh_parentAimLocToKeys;
+ }
+ else {
+-bh_parentAimLocAllFrames;
+-}
+-
+-}
+-
+-global proc bh_bakeFromAimLoc()
+-{
+-int $bakeAllOrNot =`checkBox -q -v keysOnlyBakeSwitch`;
++mtbAim_bh_parentAimLocAllFrames;
++}
++
++}
++
++global proc mtbAim_bh_bakeFromAimLoc()
++{
++python("import maya_toolkit.tools.bh_aim_tools_v1_1.runtime as _a; _a.require_active()");
++
++int $bakeAllOrNot =`mtbAim_read_keys_only`;
+ if ($bakeAllOrNot==1)
+-{bh_bakeCtrlKeysOnly;
++{mtbAim_bh_bakeCtrlKeysOnly;
+ }
+ else {
+-bh_bakeCtrlAllFrames;
++mtbAim_bh_bakeCtrlAllFrames;
+ }
+ }
+ 
+ 
+ ///////////////////////////
+-bh_aimTools;
++
+ ///////////////////////////
+ 
+ 
+@@ -81,7 +85,7 @@
+ 
+ //============ global proc for detecting modifier key (Shift)
+ // check if the user holds shift while clicking a button
+-global proc string selectFlag(){
++global proc string mtbAim_selectFlag(){
+ if (`getModifiers` == 1)
+ return "-tgl" ;
+ else
+@@ -89,23 +93,25 @@
+ 
+ 
+ }
+-global proc bh_dummy(){}
++global proc mtbAim_bh_dummy(){}
+ 
+ 
+ 
+ 
+ ////////////////////////////////////////////////////////////////////////////////////
+ 
+-global proc bh_createAimLoc()
+-{
++global proc mtbAim_bh_createAimLoc()
++{
++python("import maya_toolkit.tools.bh_aim_tools_v1_1.runtime as _a; _a.require_active()");
++
+ //First, match Locator to Target...
+ string $selObj[] = `ls -sl`;
+ for ($each in $selObj)
+ {
+-string $ng = $each + "_AIM_LOCATOR";
++string $ng = `match "[^|]*$" $each` + "_AIM_LOCATOR";
+ string $tempNull[]= `spaceLocator -name $ng`;
+ 
+-select $each; 
++select $each;
+ select -add $tempNull[0];
+ 
+ setAttr ($tempNull[0]+".localScaleX") 2;
+@@ -117,7 +123,7 @@
+ 
+ parentConstraint -weight 1;
+ string $findPtCns[] = `listRelatives -type parentConstraint $tempNull[0]`;
+-delete $findPtCns; 
++delete $findPtCns;
+ 
+ // now add a message attr to the locator to connect it to the control (to avoid name clashes etc)
+ 
+@@ -125,32 +131,36 @@
+ connectAttr ($each+".message") ($tempNull[0]+".ctrl");
+ 
+ print ("Created a locator called "+$tempNull[0]);
+-select -r $tempNull[0]; // select the aim locator 
+-}
+-
+-
+-}
+-
+-
+-global proc string bh_createTempRootLoc(string $targetObj)
+-{
+-
+-string $ng = $targetObj + "_ROOTLOCATOR";
++select -r $tempNull[0]; // select the aim locator
++}
++
++
++}
++
++
++global proc string mtbAim_bh_createTempRootLoc(string $targetObj)
++{
++python("import maya_toolkit.tools.bh_aim_tools_v1_1.runtime as _a; _a.require_active()");
++
++
++string $ng = `match "[^|]*$" $targetObj` + "_ROOTLOCATOR";
+ string $tempNull[]= `spaceLocator -name $ng`;
+-select -r $targetObj; 
++select -r $targetObj;
+ select -add $tempNull[0];
+ parentConstraint -weight 1;
+ string $findPtCns[] = `listRelatives -type parentConstraint $tempNull[0]`;
+-delete $findPtCns; 
+-return $ng;
++delete $findPtCns;
++return $tempNull[0];
+ 
+ }
+ 
+ 
+ //////////////////////////////////////////////////////////////////////////////////
+ // aimCtrlAtLoc process - the user should select the Locator.. and this will do the rest..
+-global proc bh_aimCtrlAtLoc()
+-{
++global proc mtbAim_bh_aimCtrlAtLoc()
++{
++python("import maya_toolkit.tools.bh_aim_tools_v1_1.runtime as _a; _a.require_active()");
++
+ string $sels[]=`ls -sl`;
+ 
+ for ($each in $sels)
+@@ -161,22 +171,22 @@
+ string $object;
+ 
+ if (`objExists ($obj+".ctrl")`)
+-	{
+-	  string $control[]=`listConnections ($obj+".ctrl")`;
+-	$target=$each;
+-	$object=$control[0];
+-	
+-	}
++    {
++      string $control[]=`listConnections ($obj+".ctrl")`;
++    $target=$each;
++    $object=$control[0];
++
++    }
+ 
+  else
+  {error "Please Select the Locator to Aim at";
+  }
+ 
+  // figure out best aim/up v axis for this object
+- 
++
+  string $aimAxis="Z";
+- 
+- string $tempRoot=`bh_createTempRootLoc($object)`;
++
++ string $tempRoot=`mtbAim_bh_createTempRootLoc($object)`;
+  string $dupeLoc[]=`duplicate $target`;
+  parent $dupeLoc[0] $tempRoot;
+  float $XT=`getAttr ($dupeLoc[0]+".translateX")`;
+@@ -185,7 +195,7 @@
+  float $YSize=`abs $YT`;
+  float $ZT=`getAttr ($dupeLoc[0]+".translateZ")`;
+  float $ZSize=`abs $ZT`;
+- 
++
+  if ($YSize>$ZSize)
+  {$aimAxis="Y";
+  }
+@@ -222,7 +232,7 @@
+ aimConstraint -mo  -weight 1 -aimVector 0 1 0 -upVector 1 0 1 -worldUpType "object" -worldUpObject  $upVLoc[0];
+ }
+ 
+-bh_lockHideAllTranslates($upVLoc[0]);
++mtbAim_bh_lockHideAllTranslates($upVLoc[0]);
+ rename $upVLoc "UpVLocator";
+ select -r $target;
+ print ("Aim set up successfully on "+$target);
+@@ -233,9 +243,11 @@
+ 
+ 
+ //////////////////////////////////////////
+-global proc bh_lockHideAllTranslates(string $obj)
+-{
+- 
++global proc mtbAim_bh_lockHideAllTranslates(string $obj)
++{
++python("import maya_toolkit.tools.bh_aim_tools_v1_1.runtime as _a; _a.require_active()");
++
++
+  string $attrs[] = {"translateX","translateY","translateZ","rotateX","rotateY","rotateZ","scaleX","scaleY","scaleZ"};
+ 
+          for($attr in $attrs){
+@@ -243,12 +255,12 @@
+          }
+    }
+    ///////////////////////////////////////////////
+-   
+-   
+-  
+-
+-// proc that removes keyframes that have the same times	
+-global proc float [] floatArrayRemoveDuplicates(float $list[])
++
++
++
++
++// global proc that removes keyframes that have the same times
++global proc float [] mtbAim_floatArrayRemoveDuplicates(float $list[])
+ {
+     float $item, $results[];
+     int $index = 0, $found;
+@@ -267,366 +279,377 @@
+ 
+ 
+ 
+-global proc  bh_parentConstrainAndKeyTarget ()
++global proc  mtbAim_bh_parentConstrainAndKeyTarget ()
+     {
+     string $selObj[] = `ls -sl`;
+     select $selObj[1];
+     SetKeyTranslate;
+     setKeyframe -at translate;
+     SetKeyRotate;
+-    setKeyframe -at rotate;   
++    setKeyframe -at rotate;
+     select $selObj[0];
+     select -add $selObj[1];
+     parentConstraint -mo -weight 1;
+-	//print "Added Parent Constraint and Keyed!";
+-    }
+-    
+-    
+-    
+-    
+-     global proc bh_deleteParentConstraintAndKeyTarget ()
++    //print "Added Parent Constraint and Keyed!";
++    }
++
++
++
++
++     global proc mtbAim_bh_deleteParentConstraintAndKeyTarget ()
+     {
+      string $selObj[] = `ls -sl`;
+-	 for ($each in $selObj)
+-	 {
++     for ($each in $selObj)
++     {
+     select $each;
+     SetKeyTranslate;
+     setKeyframe -at translate;
+     SetKeyRotate;
+     setKeyframe -at rotate;
+-    
++
+     string $findPtCns[] = `listRelatives -type parentConstraint $each`;
+-    select -r $findPtCns; doDelete;
+-	select -r $each;
+-	filterCurve; // do a Euller filter as this can cause gimbal..
+-	}
+-	
+-    }
+-	
+-	
+-	
+- global proc bh_parentAimLocToKeys()
+-{
+-
+-	
+-	string $sels[]=`ls -sl`;
+-	for ($each in $sels)
+-	{
+-	string $obj=$each;
+-	string $target;
+-	string $ctrlr;
++    python("import maya_toolkit.tools.bh_aim_tools_v1_1.runtime as _a; _a.delete_parent_constraints()");
++    select -r $each;
++    filterCurve; // do a Euller filter as this can cause gimbal..
++    }
++
++    }
++
++
++
++ global proc mtbAim_bh_parentAimLocToKeys()
++{
++python("import maya_toolkit.tools.bh_aim_tools_v1_1.runtime as _a; _a.require_active()");
++
++
++
++    string $sels[]=`ls -sl`;
++    for ($each in $sels)
++    {
++    string $obj=$each;
++    string $target;
++    string $ctrlr;
+ 
+ if (`objExists ($obj+".ctrl")`)
+-	{
+-	  string $control[]=`listConnections ($obj+".ctrl")`;
+-	$target=$each;
+-	$ctrlr=$control[0];	
+-	}
++    {
++      string $control[]=`listConnections ($obj+".ctrl")`;
++    $target=$each;
++    $ctrlr=$control[0];
++    }
+ 
+  else
+  {error "Please Select the Aim Locator to Attach to the Control";
+- }	
+-	
+-	
+-	int $startRange = `playbackOptions -q -min`;
++ }
++
++
++    int $startRange = `playbackOptions -q -min`;
+     int $stopRange = `playbackOptions -q -max`;
+ 
+-	float $keyTimes[];
++    float $keyTimes[];
+     string $nodes[] = `keyframe -q -name $ctrlr`;
+-    $keyTimes =  ` keyframe -time ($startRange+":"+$stopRange) -q -tc $ctrlr`;//stores the selected key times within the range in an array 
+-   
+-  // need to figure out how many unique times there are for the keys - 
+-   float $keyListNotSorted[] = `floatArrayRemoveDuplicates($keyTimes)`; // remove any duplicates from the array of keyframes 
++    $keyTimes =  ` keyframe -time ($startRange+":"+$stopRange) -q -tc $ctrlr`;//stores the selected key times within the range in an array
++
++  // need to figure out how many unique times there are for the keys -
++   float $keyListNotSorted[] = `mtbAim_floatArrayRemoveDuplicates($keyTimes)`; // remove any duplicates from the array of keyframes
+    float $keyList[]=sort($keyListNotSorted);
+-   
++
+    int $keyCount= `size $keyList`;
+-	
+-
+-	if ($keyCount==0)
+-	{
+-	error "No Keys found on the Control object - please disable the 'keysOnly' check box and try again";
+-	}
+-	
+-	select -r  $ctrlr $target;
+-	bh_parentConstrainAndKeyTarget;
+-	
+-	select -r $target;
+-	 for ($kc = 0; $kc < ($keyCount); $kc++) 
+-           
+-    	    {
+-			currentTime -edit $keyList[$kc] -update yes ;//go to that key time
+-					
+-			setKeyframe;
+-			
+-	}
+-		
+-	
+-	currentTime -edit $keyList[0]  ;  
+-	 
+-	bh_deleteParentConstraintAndKeyTarget;
+-	select -r $target;   
+-	filterCurve;
+-	print ($target+" has been keyed to match "+$ctrlr);
++
++
++    if ($keyCount==0)
++    {
++    error "No Keys found on the Control object - please disable the 'keysOnly' check box and try again";
++    }
++
++    select -r  $ctrlr $target;
++    mtbAim_bh_parentConstrainAndKeyTarget;
++
++    select -r $target;
++     for ($kc = 0; $kc < ($keyCount); $kc++)
++
++            {
++            currentTime -edit $keyList[$kc] -update yes ;//go to that key time
++
++            setKeyframe;
++
++    }
++
++
++    currentTime -edit $keyList[0]  ;
++
++    mtbAim_bh_deleteParentConstraintAndKeyTarget;
++    select -r $target;
++    filterCurve;
++    print ($target+" has been keyed to match "+$ctrlr);
+ 
+ }
+ select -r $sels;
+-} 
++}
+ //////////////////////////////////////////////////////////
+ /////////////////////////////////////////////////////////
+ ///////////////////////////////////////////////////////
+-	
+-	 global proc bh_bakeCtrlKeysOnly()
+-{
+-
+-	
+-	string $sels[]=`ls -sl`;
+-	
+-	for ($each in $sels)
+-	{
+-	
+-	string $obj=$each;
+-	string $target;
+-	string $ctrlr;
+-	string $pairBlendNodesFound[];
++
++     global proc mtbAim_bh_bakeCtrlKeysOnly()
++{
++python("import maya_toolkit.tools.bh_aim_tools_v1_1.runtime as _a; _a.require_active()");
++
++
++
++    string $sels[]=`ls -sl`;
++
++    for ($each in $sels)
++    {
++
++    string $obj=$each;
++    string $target;
++    string $ctrlr;
++    string $pairBlendNodesFound[];
+ 
+ if (`objExists ($obj+".ctrl")`)
+-	{
+-	  string $control[]=`listConnections ($obj+".ctrl")`;
+-	$target=$each;
+-	$ctrlr=$control[0];	
+-  
+-	}
++    {
++      string $control[]=`listConnections ($obj+".ctrl")`;
++    $target=$each;
++    $ctrlr=$control[0];
++
++    }
+ 
+  else
+  {error "Please Select the Aim Locator to Bake from";
+- }	
+-
+-     string $checkIt=`confirmDialog -title "Confirm" -message "Delete Existing Rotation Keys on Control first?"
+-	-button "Yes" -button "No" -defaultButton "Yes" -cancelButton "No" -dismissString "No"`;
++ }
++
++     global int $mtbAim_deleteKeys;
++string $checkIt = "No";
++if ($mtbAim_deleteKeys) $checkIt = "Yes";
+ 
+ if ($checkIt=="Yes")
+  {
+      cutKey -cl -t ":" -f ":" -at "rx" -at "ry" -at "rz" $ctrlr;
+-    
+-     
+- }
+- 
+- 
+-	int $startRange = `playbackOptions -q -min`;
++
++
++ }
++
++
++    int $startRange = `playbackOptions -q -min`;
+     int $stopRange = `playbackOptions -q -max`;
+-	
+-		// CACHING STUFF FOR MAYA 2019 - MAY be more stable to disable it while baking.. TEST!!
+-	int $cacheDisableFlag=0;
+-	float $mayaVersion =`getApplicationVersionAsFloat`;
++
++        // CACHING STUFF FOR MAYA 2019 - MAY be more stable to disable it while baking.. TEST!!
++    int $cacheDisableFlag=0;
++    float $mayaVersion =`getApplicationVersionAsFloat`;
+     string $mayaVer=`about -version`;
+ 
+-if ($mayaVersion>2018)// (2019 or newer has the new caching. 
+-	{
+-	    int $cacheState = `evaluator -q  -name "cache"`;
++if ($mayaVersion>2018)// (2019 or newer has the new caching.
++    {
++        int $cacheState = `evaluator -q  -name "cache"`;
+         if ($cacheState==1)
+         {//print "cache is on";
+         evaluator -name "cache" -enable 0;//turn cache off temporailly
+         // store a variable to keep track of the fact that it was disabled here..
+         $cacheDisableFlag=1;
+             }
+-	}
+-	
+-	
+-	
+-	
+-
+-	float $keyTimes[];
++    }
++
++
++
++
++
++    float $keyTimes[];
+     string $nodes[] = `keyframe -q -name $target`;
+-    $keyTimes =  ` keyframe -time ($startRange+":"+$stopRange) -q -tc $target`;//stores the selected key times within the range in an array 
+-   
+-  // need to figure out how many unique times there are for the keys - 
+-   float $keyListNotSorted[] = `floatArrayRemoveDuplicates($keyTimes)`; // remove any duplicates from the array of keyframes 
++    $keyTimes =  ` keyframe -time ($startRange+":"+$stopRange) -q -tc $target`;//stores the selected key times within the range in an array
++
++  // need to figure out how many unique times there are for the keys -
++   float $keyListNotSorted[] = `mtbAim_floatArrayRemoveDuplicates($keyTimes)`; // remove any duplicates from the array of keyframes
+    float $keyList[]=sort($keyListNotSorted);
+-	//print $keyList;   
++    //print $keyList;
+    int $keyCount= `size $keyList`;
+-	
+-	//print $keyCount; print" keys found___";
+-	
+-	select -r $ctrlr;
+-	 for ($kc = 0; $kc < ($keyCount); $kc++) 
+-           
+-    	    {
+-			currentTime -edit $keyList[$kc] -update yes ;//go to that key time
+-			
+-			 $pairBlendNodesFound=`listConnections -s 0 -type "pairBlend" $ctrlr`;
+-			if (`size $pairBlendNodesFound`>0) // there is a pair blend node on the controller so make sure it's set to 1
+-			{
+-			string $pairBlndAttr=`connectionInfo -sourceFromDestination ($pairBlendNodesFound[0]+".weight")`;
+-			setAttr $pairBlndAttr 1;
+-			
+-			}
+-					
+-			//setKeyframe;
+-			SetKeyRotate;
+-	}
+-		
+-	
+-	currentTime -edit $keyList[0]  ;  
+-	//select -r $target; 
+-	delete $target;
+-	//bh_deleteParentConstraintAndKeyTarget;
+-	select -r $ctrlr;
+-	filterCurve; // do a Euller filter as this can cause gimbal..
+-	
+-//after baking has completed..  TURN CACHING BACK ON -IF- it was enabled before bake proc ran
+-	if ($cacheDisableFlag==1)
+-	{evaluator -name "cache" -enable 1;// turn it back on .. 
+-	$cacheDisableFlag=0;
+-	    }
+-	
+-	
+-	
+-	print ($ctrlr+" has been keyed to match "+$target);
+-
+- }
+-} 
+-
+-
+-
+-
+- global proc bh_parentAimLocAllFrames()
+-{
+-
+-	
+-	string $sels[]=`ls -sl`;
+-		for ($each in $sels)
+-	{
+-	string $obj=$each;
+-
+-	string $target;
+-	string $ctrlr;
++
++    //print $keyCount; print" keys found___";
++
++    select -r $ctrlr;
++     for ($kc = 0; $kc < ($keyCount); $kc++)
++
++            {
++            currentTime -edit $keyList[$kc] -update yes ;//go to that key time
++
++             $pairBlendNodesFound=`listConnections -s 0 -type "pairBlend" $ctrlr`;
++            if (`size $pairBlendNodesFound`>0) // there is a pair blend node on the controller so make sure it's set to 1
++            {
++            string $pairBlndAttr=`connectionInfo -sourceFromDestination ($pairBlendNodesFound[0]+".weight")`;
++            setAttr $pairBlndAttr 1;
++
++            }
++
++            //setKeyframe;
++            SetKeyRotate;
++    }
++
++
++    currentTime -edit $keyList[0]  ;
++    //select -r $target;
++    python("import maya_toolkit.tools.bh_aim_tools_v1_1.runtime as _a; _a.delete_locator()");
++    //mtbAim_bh_deleteParentConstraintAndKeyTarget;
++    select -r $ctrlr;
++    filterCurve; // do a Euller filter as this can cause gimbal..
++
++//after baking has completed..  TURN CACHING BACK ON -IF- it was enabled before bake global proc ran
++    if ($cacheDisableFlag==1)
++    {evaluator -name "cache" -enable 1;// turn it back on ..
++    $cacheDisableFlag=0;
++        }
++
++
++
++    print ($ctrlr+" has been keyed to match "+$target);
++
++ }
++}
++
++
++
++
++ global proc mtbAim_bh_parentAimLocAllFrames()
++{
++python("import maya_toolkit.tools.bh_aim_tools_v1_1.runtime as _a; _a.require_active()");
++
++
++
++    string $sels[]=`ls -sl`;
++        for ($each in $sels)
++    {
++    string $obj=$each;
++
++    string $target;
++    string $ctrlr;
+ 
+ if (`objExists ($obj+".ctrl")`)
+-	{
+-	  string $control[]=`listConnections ($obj+".ctrl")`;
+-	$target=$each;
+-	$ctrlr=$control[0];	
+-	}
++    {
++      string $control[]=`listConnections ($obj+".ctrl")`;
++    $target=$each;
++    $ctrlr=$control[0];
++    }
+ 
+  else
+  {error "Please Select the Aim Locator to Attach to the Control";
+- }	
+-	select -r  $ctrlr $target;
+-	bh_parentConstrainAndKeyTarget;
+-	int $startRange = `playbackOptions -q -min`;
++ }
++    select -r  $ctrlr $target;
++    mtbAim_bh_parentConstrainAndKeyTarget;
++    int $startRange = `playbackOptions -q -min`;
+     int $stopRange = `playbackOptions -q -max`;
+ 
+ 
+-	select -r $target;
+-	 for ($kc = $startRange; $kc < ($stopRange+1); $kc++) 
+-           
+-    	    {
+-			currentTime -edit $kc -update yes ;//go to that key time
+-			
+-			
+-			
+-			//print "key ";
+-			//print $keyList[$kc];
+-			//print "::::";						
+-			setKeyframe;
+-	}
+-		
+-	
+-	currentTime -edit $startRange;  
+-	
+-	bh_deleteParentConstraintAndKeyTarget;
+-	//select -r $ctrlr;
+-	select -r $target;  
+-	filterCurve; // do a Euller filter as this can cause gimbal..	
+-	print ($target+" has been keyed to match "+$ctrlr);
++    select -r $target;
++     for ($kc = $startRange; $kc < ($stopRange+1); $kc++)
++
++            {
++            currentTime -edit $kc -update yes ;//go to that key time
++
++
++
++            //print "key ";
++            //print $keyList[$kc];
++            //print "::::";
++            setKeyframe;
++    }
++
++
++    currentTime -edit $startRange;
++
++    mtbAim_bh_deleteParentConstraintAndKeyTarget;
++    //select -r $ctrlr;
++    select -r $target;
++    filterCurve; // do a Euller filter as this can cause gimbal..
++    print ($target+" has been keyed to match "+$ctrlr);
+ 
+ }
+ select -r $sels;
+-} 
+-
+-
+-
+-
+-	 global proc bh_bakeCtrlAllFrames()
+-{
+-
+-	
+-	string $sels[]=`ls -sl`;
+-	
+-	for ($each in $sels)
+-	{
+-	
+-	string $obj=$each;
+-	
+-	
+-	
+-	//string $obj=$sels[0];
+-	string $target;
+-	string $ctrlr;
++}
++
++
++
++
++     global proc mtbAim_bh_bakeCtrlAllFrames()
++{
++python("import maya_toolkit.tools.bh_aim_tools_v1_1.runtime as _a; _a.require_active()");
++
++string $pairBlendNodesFound[];
++
++
++    string $sels[]=`ls -sl`;
++
++    for ($each in $sels)
++    {
++
++    string $obj=$each;
++
++
++
++    //string $obj=$sels[0];
++    string $target;
++    string $ctrlr;
+ 
+ if (`objExists ($obj+".ctrl")`)
+-	{
+-	  string $control[]=`listConnections ($obj+".ctrl")`;
+-	$target=$each;
+-	$ctrlr=$control[0];	
+-	}
++    {
++      string $control[]=`listConnections ($obj+".ctrl")`;
++    $target=$each;
++    $ctrlr=$control[0];
++    }
+ 
+  else
+  {error "Please Select the Aim Locator to Bake from";
+- }	
+-
+-	int $startRange = `playbackOptions -q -min`;
+-    int $stopRange = `playbackOptions -q -max`;	
+-	// CACHING STUFF FOR MAYA 2019 - MAY be more stable to disable it while baking.. TEST!!
+-	int $cacheDisableFlag=0;
+-	float $mayaVersion =`getApplicationVersionAsFloat`;
++ }
++
++    int $startRange = `playbackOptions -q -min`;
++    int $stopRange = `playbackOptions -q -max`;
++    // CACHING STUFF FOR MAYA 2019 - MAY be more stable to disable it while baking.. TEST!!
++    int $cacheDisableFlag=0;
++    float $mayaVersion =`getApplicationVersionAsFloat`;
+     string $mayaVer=`about -version`;
+ 
+-if ($mayaVersion>2018)// (2019 or newer has the new caching. 
+-	{
+-	    int $cacheState = `evaluator -q  -name "cache"`;
++if ($mayaVersion>2018)// (2019 or newer has the new caching.
++    {
++        int $cacheState = `evaluator -q  -name "cache"`;
+         if ($cacheState==1)
+         {//print "cache is on";
+         evaluator -name "cache" -enable 0;//turn cache off temporailly
+         // store a variable to keep track of the fact that it was disabled here..
+         $cacheDisableFlag=1;
+             }
+-	}
+-	
+-	
+-	
+-	
+-	select -r $ctrlr;
+-	 for ($kc = $startRange; $kc < ($stopRange+1); $kc++) 
+-           
+-    	    {
+-			currentTime -edit $kc -update yes ;//go to that key time	
+-			$pairBlendNodesFound=`listConnections -s 0 -type "pairBlend" $ctrlr`;
+-			if (`size $pairBlendNodesFound`>0) // there is a pair blend node on the controller so make sure it's set to 1
+-			{
+-			string $pairBlndAttr=`connectionInfo -sourceFromDestination ($pairBlendNodesFound[0]+".weight")`;
+-			setAttr $pairBlndAttr 1;
+-			
+-			}
+-					
+-
+-			
+-			//setKeyframe;
+-			SetKeyRotate;
+-	}
+-	filterCurve; // do a Euller filter as this can cause gimbal..	
+-	
+-	currentTime -edit $startRange  ;
+-
+-	//after baking has completed.. 
+-	if ($cacheDisableFlag==1)
+-	{evaluator -name "cache" -enable 1;// turn it back on .. 
+-	$cacheDisableFlag=0;
+-	    }
+-		
+-
+-	delete $target;
+-	print ($ctrlr+" has been keyed to match "+$target);
+-}
+-
+-} +    }
++
++
++
++
++    select -r $ctrlr;
++     for ($kc = $startRange; $kc < ($stopRange+1); $kc++)
++
++            {
++            currentTime -edit $kc -update yes ;//go to that key time
++            $pairBlendNodesFound=`listConnections -s 0 -type "pairBlend" $ctrlr`;
++            if (`size $pairBlendNodesFound`>0) // there is a pair blend node on the controller so make sure it's set to 1
++            {
++            string $pairBlndAttr=`connectionInfo -sourceFromDestination ($pairBlendNodesFound[0]+".weight")`;
++            setAttr $pairBlndAttr 1;
++
++            }
++
++
++
++            //setKeyframe;
++            SetKeyRotate;
++    }
++    filterCurve; // do a Euller filter as this can cause gimbal..
++
++    currentTime -edit $startRange  ;
++
++    //after baking has completed..
++    if ($cacheDisableFlag==1)
++    {evaluator -name "cache" -enable 1;// turn it back on ..
++    $cacheDisableFlag=0;
++        }
++
++
++    python("import maya_toolkit.tools.bh_aim_tools_v1_1.runtime as _a; _a.delete_locator()");
++    print ($ctrlr+" has been keyed to match "+$target);
++}
++
++}
++global proc int mtbAim_read_keys_only() { global int $mtbAim_keysOnly; return $mtbAim_keysOnly; }
