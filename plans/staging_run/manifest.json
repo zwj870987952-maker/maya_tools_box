@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T16:49:35.677890+08:00",
+  "updated_at": "2026-09-30T16:53:06.601599+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -13,12 +13,12 @@
     "heartbeat_transition_verified": true,
     "last_completed_tool": "01_animation/anim_layer_v4_0",
     "last_usage": {
-      "five_hour_used_percent": 5.0,
-      "weekly_used_percent": 42.0,
-      "recorded_at": "2026-09-30T16:16:04.350399+08:00",
+      "five_hour_used_percent": 20.0,
+      "weekly_used_percent": 44.0,
+      "recorded_at": "2026-09-30T16:53:04.467882+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/anim_layer_v4_0"
+    "current_tool": "01_animation/anim_mirror_helper_v1_1"
   },
   "entry_repairs": [
     {
@@ -817,7 +817,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Intact six-file suite and all global signatures retained; self-contained full/NoUI loaders, typed MEL calls, inventory/dry-run, framework result/Undo, export collision guard and UI gateway; original source and callbacks unchanged.",
-      "prepared_at": "2026-09-30T16:52:55.528793+08:00"
+      "prepared_at": "2026-09-30T16:52:55.528793+08:00",
+      "source_commit": "550e47ef194a82bcb5b3ea3966d380d1fc93d917"
     },
     {
       "source_path": "01_animation/anim_mirror_helper_v1_1",
@@ -836,7 +837,7 @@
       "license_files": [
         "Anim_Mirror_Helper_v1_1_studio_lic/License.txt"
       ],
-      "status": "pending",
+      "status": "working",
       "candidate_complete": false,
       "offline_checks": [],
       "maya_acceptance": {
