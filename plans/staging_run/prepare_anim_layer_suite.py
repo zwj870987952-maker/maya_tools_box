@@ -52,7 +52,7 @@ def main():
             params = ', '.join(p['type'] + ' ' + p['name'] for p in proc['parameters']) or '无'
             rows.append('| `{}` | `{}` | `{}` | {} | {} |'.format(name, params, proc['return_type'], proc['line'], '、'.join(effects) or '未标记；仍须检查依赖过程'))
         rows.append('')
-    (docs / 'anim_layer_v4_0_procedures.md').write_text('\n'.join(rows) + '\n', encoding='utf-8')
+    (docs / 'anim_layer_v4_0_procedures.md').write_text('\n'.join(rows).rstrip() + '\n', encoding='utf-8')
     files = sorted(p for folder in (RC / 'maya_toolkit', RC / 'docs', RC / 'tests')
                    for p in folder.rglob('*') if p.is_file() and '__pycache__' not in p.parts)
     description = {
