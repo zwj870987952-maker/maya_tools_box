@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T14:46:51.902602+08:00",
+  "updated_at": "2026-09-30T14:50:34.890466+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -13,10 +13,11 @@
     "heartbeat_transition_verified": true,
     "last_completed_tool": "03_transforms_modeling/reset_pivot",
     "last_usage": {
-      "five_hour_used_percent": 45,
-      "weekly_used_percent": 37,
-      "note": "2026-09-30 snapshot; reread after each tool"
-    }
+      "five_hour_used_percent": 50,
+      "weekly_used_percent": 38,
+      "note": "2026-09-30 read after reset_pivot checkpoint; next run must reread"
+    },
+    "current_tool": "01_animation/anim_filters"
   },
   "entry_repairs": [
     {
@@ -243,7 +244,7 @@
         "animFilters-v1.0-maya17/scripts/animFilters/animFilters.py"
       ],
       "license_files": [],
-      "status": "pending",
+      "status": "working",
       "candidate_complete": false,
       "offline_checks": [],
       "maya_acceptance": {
@@ -3727,7 +3728,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_commit": "6b0818b3cce79fee56737f43cdd512247bcd00c3"
     },
     {
       "source_path": "03_transforms_modeling/rotation_aligner",
