@@ -1,0 +1,304 @@
+{
+  "tool_id": "animirror_v2_0",
+  "entry": "runtime.mel",
+  "raw_files": [
+    {
+      "path": "upstream/AniMirror(Drag&Drop Install).mel",
+      "sha256": "0e935a4670e87541be6178ab33474a4785e95441ad36f54be850897d41fc220f"
+    },
+    {
+      "path": "upstream/AniMirror- Mirror Animation Tool.pdf",
+      "sha256": "1ad02692b547493190d02901d8d21249e4c72c3429cfdd7b96c879c14a028cd9"
+    }
+  ],
+  "original_procedures": [
+    "aniMirror_menu",
+    "globals_variables",
+    "change_options_mirror",
+    "mirror_animation",
+    "transform_connect_operator",
+    "rotate_connect_operator",
+    "delete_all_created",
+    "fast_bake",
+    "define_frames_range"
+  ],
+  "runtime_procedures": [
+    "mtbAV2_aniMirror_menu",
+    "mtbAV2_globals_variables",
+    "mtbAV2_change_options_mirror",
+    "mtbAV2_mirror_animation",
+    "mtbAV2_transform_connect_operator",
+    "mtbAV2_rotate_connect_operator",
+    "mtbAV2_delete_all_created",
+    "mtbAV2_fast_bake",
+    "mtbAV2_define_frames_range"
+  ],
+  "globals": [
+    "centerJoint",
+    "centerObject",
+    "finishFrame",
+    "iRo",
+    "iTo",
+    "ind",
+    "mirrorObject",
+    "operatorRotate",
+    "operatorTrans",
+    "referenceObject",
+    "selectedTimeField",
+    "startFrame"
+  ],
+  "controls": [
+    "AniMirror",
+    "TranslationsCheckbox",
+    "RotationsCheckbox",
+    "XAxisTransRadio",
+    "YAxisTransRadio",
+    "ZAxisTransRadio",
+    "XAxisRotCheckbox",
+    "YAxisRotCheckbox",
+    "ZAxisRotCheckbox",
+    "MirrorRealButton",
+    "UndoMirrorButton",
+    "BakeMirrorButton",
+    "MirrorBakeButton"
+  ],
+  "original_audit": {
+    "file": "E:\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\animirror_v2_0\\release_candidate\\maya_toolkit\\tools\\animirror_v2_0\\embedded_original.mel",
+    "sha256": "d3dfbbccf7ed90730380f48d509b4b8e3a3e6a4dffac69e14c187b532ddc6404",
+    "bytes": 13223,
+    "lexical_decoding": "utf-8-sig",
+    "procedures": [
+      {
+        "name": "aniMirror_menu",
+        "global_scope": false,
+        "return_type": "void",
+        "parameters": [],
+        "line": 3,
+        "end_line": 55
+      },
+      {
+        "name": "globals_variables",
+        "global_scope": false,
+        "return_type": "void",
+        "parameters": [],
+        "line": 57,
+        "end_line": 71
+      },
+      {
+        "name": "change_options_mirror",
+        "global_scope": false,
+        "return_type": "void",
+        "parameters": [],
+        "line": 73,
+        "end_line": 83
+      },
+      {
+        "name": "mirror_animation",
+        "global_scope": false,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "withBake",
+            "type": "int"
+          }
+        ],
+        "line": 85,
+        "end_line": 163
+      },
+      {
+        "name": "transform_connect_operator",
+        "global_scope": false,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mirrorJoint",
+            "type": "string"
+          },
+          {
+            "name": "referenceJoint",
+            "type": "string"
+          }
+        ],
+        "line": 165,
+        "end_line": 206
+      },
+      {
+        "name": "rotate_connect_operator",
+        "global_scope": false,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mirrorJoint",
+            "type": "string"
+          },
+          {
+            "name": "referenceJoint",
+            "type": "string"
+          }
+        ],
+        "line": 210,
+        "end_line": 255
+      },
+      {
+        "name": "delete_all_created",
+        "global_scope": false,
+        "return_type": "void",
+        "parameters": [],
+        "line": 257,
+        "end_line": 266
+      },
+      {
+        "name": "fast_bake",
+        "global_scope": false,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "defineFrames",
+            "type": "int"
+          }
+        ],
+        "line": 268,
+        "end_line": 285
+      },
+      {
+        "name": "define_frames_range",
+        "global_scope": false,
+        "return_type": "void",
+        "parameters": [],
+        "line": 288,
+        "end_line": 305
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "1:aniMirror_menu();",
+      "56:globals_variables();"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority"
+  },
+  "runtime_audit": {
+    "file": "E:\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\animirror_v2_0\\release_candidate\\maya_toolkit\\tools\\animirror_v2_0\\runtime.mel",
+    "sha256": "9e8f2c951bddba488d33b9a21a52b1a5ad7b80fba8da6f7236237e4796030e73",
+    "bytes": 14557,
+    "lexical_decoding": "utf-8-sig",
+    "procedures": [
+      {
+        "name": "mtbAV2_aniMirror_menu",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 2,
+        "end_line": 54
+      },
+      {
+        "name": "mtbAV2_globals_variables",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 56,
+        "end_line": 70
+      },
+      {
+        "name": "mtbAV2_change_options_mirror",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 72,
+        "end_line": 82
+      },
+      {
+        "name": "mtbAV2_mirror_animation",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "withBake",
+            "type": "int"
+          }
+        ],
+        "line": 84,
+        "end_line": 162
+      },
+      {
+        "name": "mtbAV2_transform_connect_operator",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mirrorJoint",
+            "type": "string"
+          },
+          {
+            "name": "referenceJoint",
+            "type": "string"
+          }
+        ],
+        "line": 164,
+        "end_line": 205
+      },
+      {
+        "name": "mtbAV2_rotate_connect_operator",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mirrorJoint",
+            "type": "string"
+          },
+          {
+            "name": "referenceJoint",
+            "type": "string"
+          }
+        ],
+        "line": 209,
+        "end_line": 254
+      },
+      {
+        "name": "mtbAV2_delete_all_created",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 256,
+        "end_line": 264
+      },
+      {
+        "name": "mtbAV2_fast_bake",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "defineFrames",
+            "type": "int"
+          }
+        ],
+        "line": 266,
+        "end_line": 283
+      },
+      {
+        "name": "mtbAV2_define_frames_range",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 286,
+        "end_line": 303
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority"
+  },
+  "guide": "upstream/AniMirror- Mirror Animation Tool.pdf",
+  "guide_pages_reviewed": [
+    1,
+    2
+  ],
+  "source_license": "No standalone redistribution license found; author contact in bundled guide; retain privately",
+  "label_plane_mapping": {
+    "XZ": "mirrorXY",
+    "YX": "mirrorYZ",
+    "ZY": "mirrorXZ"
+  },
+  "status": "working; API, safety guards, tests and acceptance not yet complete"
+}

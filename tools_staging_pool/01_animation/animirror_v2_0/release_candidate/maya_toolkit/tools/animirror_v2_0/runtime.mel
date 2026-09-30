@@ -1,0 +1,304 @@
+
+global proc mtbAV2_aniMirror_menu()
+{
+if (`window -exists mtbAV2_AniMirror`) deleteUI mtbAV2_AniMirror;
+window -s 0
+-w 280 -h 400
+-title "mtbAV2_AniMirror v2.00"
+-iconName "mtbAV2_AniMirror"
+//-dockStation
+-bgc 0.265 0.265 0.265
+-nestedDockingEnabled true mtbAV2_AniMirror;
+showWindow mtbAV2_AniMirror;
+window -e -resizeToFitChildren 1 -w 280 -h 250 -s 0 mtbAV2_AniMirror;
+
+frameLayout -la "center" -lv 1 -cll 0 -label "                 Animation Mirror Tool" -w 270 -backgroundColor 0.5 0.2 0.2 -backgroundShade 0;
+columnLayout -bgc 0.242 0.207 0.3 -co both 0 -rs 2 -ann "ThisCreateCol""ThisCreateCol";
+
+    columnLayout  -co both 5 -columnWidth 250  -adjustableColumn 0 -columnAlign "center" -rs 5 -ann "InfoTextCol""InfoTextCol";
+        text -h 2 "  ";
+        text -align "center" -h 10 "                  1. Select centeral object";
+        text -h 10 "                  2. Add reference object";
+        text -h 10 "                  3. Add object for mirror";
+        text -h 2 " ";
+        separator -w 270;
+        setParent ..;
+
+
+rowLayout -columnAttach 1 "left" 5  -numberOfColumns 6 -ann "TranslationModeRow""TranslationModeRow";
+        checkBox -label "Translations" -en 1 -v 1 -w 100 -cc "mtbAV2_change_options_mirror()" -ann "mtbAV2_TranslationsCheckbox""mtbAV2_TranslationsCheckbox";
+        radioCollection;
+            radioButton -sl -label "XZ" -ann "mtbAV2_XAxisTransRadio""mtbAV2_XAxisTransRadio";
+            radioButton -label "YX" -ann "mtbAV2_YAxisTransRadio""mtbAV2_YAxisTransRadio";
+            radioButton -label "ZY" -ann "mtbAV2_ZAxisTransRadio""mtbAV2_ZAxisTransRadio";
+        setParent ..;
+
+rowLayout -columnAttach 1 "left" 5  -numberOfColumns 6 -ann "RotateModeRow""RotateModeRow";
+        checkBox -label "Rotations" -en 1 -v 1 -w 100 -cc "mtbAV2_change_options_mirror()" -ann "mtbAV2_RotationsCheckbox""mtbAV2_RotationsCheckbox";
+        checkBox -label "X" -en 1 -v 0 -ann "mtbAV2_XAxisRotCheckbox""mtbAV2_XAxisRotCheckbox";
+        checkBox -label "Y" -en 1 -v 1 -ann "mtbAV2_YAxisRotCheckbox""mtbAV2_YAxisRotCheckbox";
+        checkBox -label "Z" -en 1 -v 1 -ann "mtbAV2_ZAxisRotCheckbox""mtbAV2_ZAxisRotCheckbox";
+        setParent ..;
+
+
+rowLayout -columnAttach 1 "left" 5  -numberOfColumns 6  -ann "MirrorRealRow""MirrorRealRow";
+        button -en 1 -h 30 -w 120 -enableBackground 1 -bgc 0.25 0.5 0.4 -label "Interactive Mirror" -c "mtbAV2_mirror_animation(0);" -ann "mtbAV2_MirrorRealButton""mtbAV2_MirrorRealButton";
+        button -en 1 -h 30 -w 70 -enableBackground 1 -bgc 0.65 0.5 0.4 -label "Undo" -c "mtbAV2_delete_all_created()" -ann "mtbAV2_UndoMirrorButton""mtbAV2_UndoMirrorButton";
+        button -en 1 -h 30 -w 70 -enableBackground 1 -bgc 1 0.5 0.4 -label "Bake" -c "mtbAV2_fast_bake(1)" -ann "mtbAV2_BakeMirrorButton""mtbAV2_BakeMirrorButton";
+        setParent ..;
+
+rowLayout -columnAttach 1 "left" 5  -numberOfColumns 6  -ann "MirrorBakeRow""MirrorBakeRow";
+        button -en 1 -h 30 -w 264 -enableBackground 1 -bgc 0.25 0.5 0.4 -label "Mirror with Bake" -c "mtbAV2_mirror_animation(1)" -ann "mtbAV2_MirrorBakeButton""mtbAV2_MirrorBakeButton";
+        setParent ..;
+
+}
+
+global proc mtbAV2_globals_variables()
+{
+    global string $mtbAV2_centerJoint[];
+    global string $mtbAV2_operatorTrans[];
+    global string $mtbAV2_operatorRotate[];
+    global string $mtbAV2_mirrorObject[];
+    global int $mtbAV2_ind = 0;
+    global int $mtbAV2_iTo;
+
+    global int $mtbAV2_iRo;
+
+
+    clear $mtbAV2_centerJoint $mtbAV2_operatorTrans $mtbAV2_operatorRotate $mtbAV2_mirrorObject;
+    $mtbAV2_ind = 0; $mtbAV2_iTo = 0; $mtbAV2_iRo = 0;
+}
+
+global proc mtbAV2_change_options_mirror()
+{
+    if (`checkBox -q -v mtbAV2_TranslationsCheckbox`)
+    {radioButton -e -en 1 mtbAV2_XAxisTransRadio; radioButton -e -en 1 mtbAV2_YAxisTransRadio;radioButton -e -en 1 mtbAV2_ZAxisTransRadio;}
+    else {radioButton -e -en 0 mtbAV2_XAxisTransRadio; radioButton -e -en 0 mtbAV2_YAxisTransRadio; radioButton -e -en 0 mtbAV2_ZAxisTransRadio;}
+
+    if (`checkBox -q -v mtbAV2_RotationsCheckbox`)
+    {checkBox -e -en 1 mtbAV2_XAxisRotCheckbox; checkBox -e -en 1 mtbAV2_YAxisRotCheckbox; checkBox -e -en 1 mtbAV2_ZAxisRotCheckbox;}
+    else {checkBox -e -en 0 mtbAV2_XAxisRotCheckbox; checkBox -e -en 0 mtbAV2_YAxisRotCheckbox; checkBox -e -en 0 mtbAV2_ZAxisRotCheckbox;}
+
+}
+
+global proc mtbAV2_mirror_animation(int $withBake)
+{
+    global string $mtbAV2_centerObject[];
+    global string $mtbAV2_referenceObject[];
+    global string $mtbAV2_mirrorObject[];
+    global string $mtbAV2_centerJoint[];
+    global int $mtbAV2_ind;
+
+        $doTransforms = `checkBox -q -v mtbAV2_TranslationsCheckbox`;
+        $doRotations = `checkBox -q -v mtbAV2_RotationsCheckbox`;
+
+        $selected = `ls -selection`; //записываем выделенные объекты
+
+        if (size($selected) < 3) error "Select at least two objects for mirror animation";
+
+        $mtbAV2_centerObject[$mtbAV2_ind] = $selected[0];
+        $mtbAV2_referenceObject[$mtbAV2_ind] = $selected[1]; //Присваиваем первый выделенный объект центральным
+        $mtbAV2_mirrorObject[$mtbAV2_ind] = $selected[2];
+
+
+        if (`checkBox -q -v mtbAV2_RotationsCheckbox`)
+        {
+            $referenceObjectRotate = `xform -q -os -ro $mtbAV2_referenceObject[$mtbAV2_ind]`;
+            if (`checkBox -q -v mtbAV2_XAxisRotCheckbox`) $valX = -1; else $valX = 1;
+            if (`checkBox -q -v mtbAV2_YAxisRotCheckbox`) $valY = -1; else $valY = 1;
+            if (`checkBox -q -v mtbAV2_ZAxisRotCheckbox`) $valZ = -1; else $valZ = 1;
+            xform -os -ro ($referenceObjectRotate[0]*$valX) ($referenceObjectRotate[1]*$valY) ($referenceObjectRotate[2]*$valZ) $mtbAV2_mirrorObject[$mtbAV2_ind];
+        }
+
+    //Creating joints hierarchy----
+        select -cl;
+        $mtbAV2_centerJoint[$mtbAV2_ind] = `joint -rad 1`;
+        setAttr ($mtbAV2_centerJoint[$mtbAV2_ind] + ".visibility") 0;
+
+    //Center joint constrain
+        parentConstraint -weight 1 $mtbAV2_centerObject[$mtbAV2_ind] $mtbAV2_centerJoint[$mtbAV2_ind]; //parent for snap trans and rotations
+
+    //Reference joint
+        select -cl;
+        select $mtbAV2_centerJoint[$mtbAV2_ind]; //select for continue hierarchy
+        $referenceJoint = `joint -rad 1`; //create ref joint in hierarchy
+
+        pointConstraint -weight 1 $mtbAV2_referenceObject[$mtbAV2_ind] $referenceJoint;
+        orientConstraint -weight 1 $mtbAV2_referenceObject[$mtbAV2_ind] $referenceJoint;
+        delete -cn $referenceJoint;
+        makeIdentity -apply true -t 0 -r 1 -s 0 -n 0 -pn 1 $referenceJoint;
+
+      string $mirrorJoint[];
+    //Mirror joint
+        if (`checkBox -q -v mtbAV2_TranslationsCheckbox`)
+        {
+            if (`radioButton -q -sl mtbAV2_XAxisTransRadio`) $mirrorJoint = `mirrorJoint -mirrorXY -mirrorBehavior $referenceJoint`;
+            if (`radioButton -q -sl mtbAV2_YAxisTransRadio`) $mirrorJoint = `mirrorJoint -mirrorYZ -mirrorBehavior $referenceJoint`;
+            if (`radioButton -q -sl mtbAV2_ZAxisTransRadio`) $mirrorJoint = `mirrorJoint -mirrorXZ -mirrorBehavior $referenceJoint`;
+        }else $mirrorJoint = `mirrorJoint -mirrorYZ -mirrorBehavior $referenceJoint`;
+
+    //Reference joint constrain after mirror (nessasary)
+        pointConstraint -weight 1 $mtbAV2_referenceObject[$mtbAV2_ind] $referenceJoint;
+        orientConstraint -weight 1 $mtbAV2_referenceObject[$mtbAV2_ind] $referenceJoint;
+
+        if ($doRotations == 1)
+        {
+            orientConstraint -weight 1 $mtbAV2_mirrorObject[$mtbAV2_ind] $mirrorJoint;
+            delete -cn $mirrorJoint;
+            makeIdentity -apply true -t 0 -r 1 -s 0 -n 0 -pn 1 $mirrorJoint;
+            orientConstraint -weight 1 $mirrorJoint $mtbAV2_mirrorObject[$mtbAV2_ind];
+            mtbAV2_rotate_connect_operator($mirrorJoint[0], $referenceJoint);
+        }
+
+        if ($doTransforms == 1)
+        {
+            pointConstraint -weight 1 $mirrorJoint $mtbAV2_mirrorObject[$mtbAV2_ind];
+            mtbAV2_transform_connect_operator($mirrorJoint[0], $referenceJoint);
+
+
+        }
+    $mtbAV2_ind = $mtbAV2_ind + 1;
+    if ($withBake == 1) mtbAV2_fast_bake(1);
+}
+
+global proc mtbAV2_transform_connect_operator(string $mirrorJoint, string $referenceJoint)
+{
+    global int $mtbAV2_iTo;
+    global string $mtbAV2_operatorTrans[];
+
+    $transX = `radioButton -q -sl mtbAV2_XAxisTransRadio`;
+    $transY = `radioButton -q -sl mtbAV2_YAxisTransRadio`;
+    $transZ = `radioButton -q -sl mtbAV2_ZAxisTransRadio`;
+
+    $constPoint = `pointConstraint -weight 1 $referenceJoint $mirrorJoint`;
+
+    if ($transX == 1)
+    {
+        $mtbAV2_operatorTrans[$mtbAV2_iTo] = `shadingNode -asUtility floatMath`;
+        setAttr ($mtbAV2_operatorTrans[$mtbAV2_iTo] + ".floatB") -1;
+        setAttr ($mtbAV2_operatorTrans[$mtbAV2_iTo] + ".operation") 2;
+
+        connectAttr -f ($constPoint[0] + ".constraintTranslateX") ($mtbAV2_operatorTrans[$mtbAV2_iTo] + ".floatA");
+        connectAttr -f ($mtbAV2_operatorTrans[$mtbAV2_iTo] + ".outFloat") ($mirrorJoint + ".translateX");
+        $mtbAV2_iTo = $mtbAV2_iTo + 1;
+    }
+    if ($transY == 1)
+    {
+        $mtbAV2_operatorTrans[$mtbAV2_iTo] = `shadingNode -asUtility floatMath`;
+        setAttr ($mtbAV2_operatorTrans[$mtbAV2_iTo] + ".floatB") -1;
+        setAttr ($mtbAV2_operatorTrans[$mtbAV2_iTo] + ".operation") 2;
+
+        connectAttr -f ($constPoint[0] + ".constraintTranslateY") ($mtbAV2_operatorTrans[$mtbAV2_iTo] + ".floatA");
+        connectAttr -f ($mtbAV2_operatorTrans[$mtbAV2_iTo] + ".outFloat") ($mirrorJoint + ".translateY");
+        $mtbAV2_iTo = $mtbAV2_iTo + 1;
+    }
+    if ($transZ == 1)
+    {
+        $mtbAV2_operatorTrans[$mtbAV2_iTo] = `shadingNode -asUtility floatMath`;
+        setAttr ($mtbAV2_operatorTrans[$mtbAV2_iTo] + ".floatB") -1;
+        setAttr ($mtbAV2_operatorTrans[$mtbAV2_iTo] + ".operation") 2;
+
+        connectAttr -f ($constPoint[0] + ".constraintTranslateZ") ($mtbAV2_operatorTrans[$mtbAV2_iTo] + ".floatA");
+        connectAttr -f ($mtbAV2_operatorTrans[$mtbAV2_iTo] + ".outFloat") ($mirrorJoint + ".translateZ");
+        $mtbAV2_iTo = $mtbAV2_iTo + 1;
+    }
+}
+
+
+
+global proc mtbAV2_rotate_connect_operator(string $mirrorJoint, string $referenceJoint)
+{
+    global int $mtbAV2_iRo;
+    global string $mtbAV2_operatorRotate[];
+
+    $rotateX = `checkBox -q -v mtbAV2_XAxisRotCheckbox`;
+    $rotateY = `checkBox -q -v mtbAV2_YAxisRotCheckbox`;
+    $rotateZ = `checkBox -q -v mtbAV2_ZAxisRotCheckbox`;
+
+    if ($rotateX == 1)
+    {
+        $mtbAV2_operatorRotate[$mtbAV2_iRo] = `shadingNode -asUtility floatMath`;
+        setAttr ($mtbAV2_operatorRotate[$mtbAV2_iRo] + ".floatB") -1;
+        setAttr ($mtbAV2_operatorRotate[$mtbAV2_iRo] + ".operation") 2;
+
+
+        connectAttr -f ($referenceJoint + ".rotateX") ($mtbAV2_operatorRotate[$mtbAV2_iRo] + ".floatA");
+        connectAttr -f ($mtbAV2_operatorRotate[$mtbAV2_iRo] + ".outFloat") ($mirrorJoint + ".rotateX");
+        $mtbAV2_iRo = $mtbAV2_iRo + 1;
+    }else connectAttr -f ($referenceJoint + ".rotateX") ($mirrorJoint + ".rotateX");
+
+
+    if ($rotateY == 1)
+    {
+        $mtbAV2_operatorRotate[$mtbAV2_iRo] = `shadingNode -asUtility floatMath`;
+        setAttr ($mtbAV2_operatorRotate[$mtbAV2_iRo] + ".floatB") -1;
+        setAttr ($mtbAV2_operatorRotate[$mtbAV2_iRo] + ".operation") 2;
+
+        connectAttr -f ($referenceJoint + ".rotateY") ($mtbAV2_operatorRotate[$mtbAV2_iRo] + ".floatA");
+        connectAttr -f ($mtbAV2_operatorRotate[$mtbAV2_iRo] + ".outFloat") ($mirrorJoint + ".rotateY");
+        $mtbAV2_iRo = $mtbAV2_iRo + 1;
+    }else connectAttr -f ($referenceJoint + ".rotateY") ($mirrorJoint + ".rotateY");
+
+
+    if ($rotateZ == 1)
+    {
+        $mtbAV2_operatorRotate[$mtbAV2_iRo] = `shadingNode -asUtility floatMath`;
+        setAttr ($mtbAV2_operatorRotate[$mtbAV2_iRo] + ".floatB") -1;
+        setAttr ($mtbAV2_operatorRotate[$mtbAV2_iRo] + ".operation") 2;
+
+        connectAttr -f ($referenceJoint + ".rotateZ") ($mtbAV2_operatorRotate[$mtbAV2_iRo] + ".floatA");
+        connectAttr -f ($mtbAV2_operatorRotate[$mtbAV2_iRo] + ".outFloat") ($mirrorJoint + ".rotateZ");
+        $mtbAV2_iRo = $mtbAV2_iRo + 1;
+    }else connectAttr -f ($referenceJoint + ".rotateZ") ($mirrorJoint + ".rotateZ");
+
+}
+
+global proc mtbAV2_delete_all_created()
+{
+    global string $mtbAV2_centerJoint[];
+    global string $mtbAV2_operatorTrans[];
+    global string $mtbAV2_operatorRotate[];
+    if (catch (`delete $mtbAV2_centerJoint $mtbAV2_operatorTrans $mtbAV2_operatorRotate`)) warning -n "Some temporary objects have been removed from the scene";
+    //delete $mtbAV2_centerJoint $mtbAV2_operatorTrans $mtbAV2_operatorRotate;
+
+}
+//----------------------------------------
+global proc mtbAV2_fast_bake(int $defineFrames)
+{
+    global string $mtbAV2_mirrorObject[];
+
+    select -r $mtbAV2_mirrorObject;
+
+    global string $gPlayBackSlider;
+    global float $mtbAV2_startFrame; global float $mtbAV2_finishFrame;
+
+    if ($defineFrames == 1) mtbAV2_define_frames_range();
+
+    refresh -suspend 1; //do not refresh viewport
+    bakeResults -simulation 0 -t ($mtbAV2_startFrame + ":" + $mtbAV2_finishFrame) -sampleBy 1 -disableImplicitControl true -preserveOutsideKeys true -sparseAnimCurveBake false -removeBakedAttributeFromLayer false -bakeOnOverrideLayer false -minimizeRotation true;
+    delete -sc; //delete static curves for baked object
+    filterCurve;
+    refresh -suspend 0;
+    mtbAV2_delete_all_created();
+}
+
+//-----------------------------------------------------------
+global proc mtbAV2_define_frames_range()
+{
+    global string $gPlayBackSlider;
+    global float $mtbAV2_startFrame; global float $mtbAV2_finishFrame;
+    global int $mtbAV2_selectedTimeField;
+    float $selectedFrames[]=`timeControl -q -ra $gPlayBackSlider`;
+
+    if(($selectedFrames[1]-$selectedFrames[0])<=1)
+        {    $mtbAV2_startFrame = `playbackOptions  -q -min`;
+                 $mtbAV2_finishFrame = `playbackOptions  -q -max`;
+                 $mtbAV2_selectedTimeField = 0;
+        } else
+            {
+                $mtbAV2_startFrame = $selectedFrames[0];
+                $mtbAV2_finishFrame = $selectedFrames[1];
+                $mtbAV2_selectedTimeField = 1;
+            }
+}
+//-----------------------------------------------------------

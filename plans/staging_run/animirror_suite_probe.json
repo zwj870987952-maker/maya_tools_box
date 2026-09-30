@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "plans/staging_run/probe_animirror_suite.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "{\"compiled_procedures\": [\"mtbAV2_aniMirror_menu\", \"mtbAV2_globals_variables\", \"mtbAV2_change_options_mirror\", \"mtbAV2_mirror_animation\", \"mtbAV2_transform_connect_operator\", \"mtbAV2_rotate_connect_operator\", \"mtbAV2_delete_all_created\", \"mtbAV2_fast_bake\", \"mtbAV2_define_frames_range\"], \"runtime_mel_sha256\": \"9e8f2c951bddba488d33b9a21a52b1a5ad7b80fba8da6f7236237e4796030e73\", \"scene_unchanged\": true, \"ui_created\": false, \"gui_acceptance\": false}\r\n{\"probe\": \"real_scene_with_only_ui_query_stubs\", \"initial_translate\": [-3.0, 2.0, 1.0], \"animated_translate\": [-5.0, 2.0, 1.0], \"constraints_before_clear\": [\"joint1_parentConstraint1\", \"joint2_orientConstraint1\", \"joint2_pointConstraint1\", \"joint3_pointConstraint1\", \"mirrorTarget_orientConstraint1\", \"mirrorTarget_pointConstraint1\"], \"constraints_after_clear\": [], \"joints_after_clear\": [], \"floatmath_after_clear\": [], \"gui_acceptance\": false}\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "a2011baab626f52bd6dae28eff6694bfb6db07d3170c54c131654bd4fb800b45",
+  "runtime_source_sha256": "a2011baab626f52bd6dae28eff6694bfb6db07d3170c54c131654bd4fb800b45"
+}

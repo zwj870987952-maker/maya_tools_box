@@ -92,3 +92,13 @@
 - 5 项普通 Python 检查通过，12 项 Maya2025 隔离实节点检查通过：约束偏移、数值/小数帧/自定义向量、默认/智能烘焙与 Undo、外部约束集合保持、重命名与同名替身 UUID 防护、类型化 JSON/旧姿态、无副作用预检、文件保护和异常恢复。首次旧姿态 fixture 硬编码 source 失败，Maya 实际创建 source1；修正为实际返回节点名后通过，未把最初失败记成通过。
 - 临时正式布局下离线检查及真实 ToolRegistry 注册/面板入口查询通过；正式库没有写入。Python/runtime 指纹与 mayapy 报告匹配，晋级预览 applied=false；candidate_complete=true、prepared_unverified，真实 GUI/复杂绑定/旧分隔符歧义姿态仍待真人。
 - 收尾最新读数为 5 小时已用 84%、周已用 54%，继续读取并保存下一项检查点。没有兑换重置卡，没有改长期规则或同步 Obsidian。
+
+- 动画重定向提交 34b9bbe，后续检查点 abfb349。提交后额度已用 88%/55%，继续 AniMirror v2.0。
+
+## 2026-09-30：AniMirror 工作中，额度等待检查点
+
+- AniMirror 原安装器顶层写 Shelf，未执行；唯一嵌入命令完整提取为 9 过程及原布局，原 MEL/PDF 两文件字节保留。两页 PDF 文本和图示均已读取，未修改 PDF。
+- 私有 MEL 过程/变量/控件名前缀及无顶层开窗载入已准备；修复 withBake 清理后 ind 增一的顺序。契约改用原 translation_axis，避免把 UI 标签/mirrorJoint 选项误解为最终位移平面。
+- 初次编译探针 passed；加入真实隔离场景探针后遇到 floatMath 不可用。确认本机 lookdevKit.mll，并在隔离进程显式加载；随后修正探针对 XY/negX 的错误几何预期。最终所有9过程来源/编译、原算法 X 镜像动态采样和清理检查 passed。UI 查询是固定值 shim，未验收 GUI/其他轴/旋转/中心变换/bake；没有把探索报告当完整候选指纹证据。
+- 此项仍 working、candidate_complete=false。API、持久化 UUID 所有权/Undo、标准界面回调、晋级及真人验收资料未完成，不计入9项完成数量。下次先读 animirror_v2_0_notes.md 和 diff 接续。
+- 两次额度读失败未按0推断；之后恢复读到 92%、93%、94%、最终95%已用（剩5%），周已用56%。为避免复杂工具中途触达硬限额，保存未完成项并启用同聊天30分钟 heartbeat；工具返回 ACTIVE。自动定时触发/续跑仍未实测，不声称完全无人值守；重置卡未兑换，守护未启动。

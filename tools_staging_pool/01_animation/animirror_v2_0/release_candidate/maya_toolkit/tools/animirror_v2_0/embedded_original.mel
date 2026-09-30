@@ -1,0 +1,309 @@
+aniMirror_menu();
+
+proc aniMirror_menu()
+{
+if (`window -exists AniMirror`) deleteUI AniMirror;
+window -s 0
+-w 280 -h 400
+-title "AniMirror v2.00"
+-iconName "AniMirror"
+//-dockStation
+-bgc 0.265 0.265 0.265
+-nestedDockingEnabled true AniMirror;
+showWindow AniMirror;
+window -e -resizeToFitChildren 1 -w 280 -h 250 -s 0 AniMirror;
+
+frameLayout -la "center" -lv 1 -cll 0 -label "                 Animation Mirror Tool" -w 270 -backgroundColor 0.5 0.2 0.2 -backgroundShade 0;
+columnLayout -bgc 0.242 0.207 0.3 -co both 0 -rs 2 -ann "ThisCreateCol""ThisCreateCol";
+
+    columnLayout  -co both 5 -columnWidth 250  -adjustableColumn 0 -columnAlign "center" -rs 5 -ann "InfoTextCol""InfoTextCol";
+        text -h 2 "  ";
+        text -align "center" -h 10 "                  1. Select centeral object";
+        text -h 10 "                  2. Add reference object";
+        text -h 10 "                  3. Add object for mirror";
+        text -h 2 " ";
+        separator -w 270;
+        setParent ..;
+
+
+rowLayout -columnAttach 1 "left" 5  -numberOfColumns 6 -ann "TranslationModeRow""TranslationModeRow";
+        checkBox -label "Translations" -en 1 -v 1 -w 100 -cc "change_options_mirror()" -ann "TranslationsCheckbox""TranslationsCheckbox";
+        radioCollection;
+            radioButton -sl -label "XZ" -ann "XAxisTransRadio""XAxisTransRadio";
+            radioButton -label "YX" -ann "YAxisTransRadio""YAxisTransRadio";
+            radioButton -label "ZY" -ann "ZAxisTransRadio""ZAxisTransRadio";
+        setParent ..;         
+              
+rowLayout -columnAttach 1 "left" 5  -numberOfColumns 6 -ann "RotateModeRow""RotateModeRow";
+        checkBox -label "Rotations" -en 1 -v 1 -w 100 -cc "change_options_mirror()" -ann "RotationsCheckbox""RotationsCheckbox";
+        checkBox -label "X" -en 1 -v 0 -ann "XAxisRotCheckbox""XAxisRotCheckbox";
+        checkBox -label "Y" -en 1 -v 1 -ann "YAxisRotCheckbox""YAxisRotCheckbox";
+        checkBox -label "Z" -en 1 -v 1 -ann "ZAxisRotCheckbox""ZAxisRotCheckbox";
+        setParent ..;
+              
+        
+rowLayout -columnAttach 1 "left" 5  -numberOfColumns 6  -ann "MirrorRealRow""MirrorRealRow";
+        button -en 1 -h 30 -w 120 -enableBackground 1 -bgc 0.25 0.5 0.4 -label "Interactive Mirror" -c "mirror_animation(0);" -ann "MirrorRealButton""MirrorRealButton";
+        button -en 1 -h 30 -w 70 -enableBackground 1 -bgc 0.65 0.5 0.4 -label "Undo" -c "delete_all_created()" -ann "UndoMirrorButton""UndoMirrorButton";
+        button -en 1 -h 30 -w 70 -enableBackground 1 -bgc 1 0.5 0.4 -label "Bake" -c "fast_bake(1)" -ann "BakeMirrorButton""BakeMirrorButton";
+        setParent ..;
+        
+rowLayout -columnAttach 1 "left" 5  -numberOfColumns 6  -ann "MirrorBakeRow""MirrorBakeRow";
+        button -en 1 -h 30 -w 264 -enableBackground 1 -bgc 0.25 0.5 0.4 -label "Mirror with Bake" -c "mirror_animation(1)" -ann "MirrorBakeButton""MirrorBakeButton";
+        setParent ..;       
+
+}
+globals_variables();
+proc globals_variables()
+{
+    global string $centerJoint[];
+    global string $operatorTrans[];
+    global string $operatorRotate[];
+    global string $mirrorObject[];
+    global int $ind = 0;
+    global int $iTo;
+
+    global int $iRo;
+
+    
+    clear $centerJoint $operatorTrans $operatorRotate $mirrorObject;
+    $ind = 0; $iTo = 0; $iRo = 0;
+}
+
+proc change_options_mirror()
+{
+    if (`checkBox -q -v TranslationsCheckbox`)
+    {radioButton -e -en 1 XAxisTransRadio; radioButton -e -en 1 YAxisTransRadio;radioButton -e -en 1 ZAxisTransRadio;}
+    else {radioButton -e -en 0 XAxisTransRadio; radioButton -e -en 0 YAxisTransRadio; radioButton -e -en 0 ZAxisTransRadio;}
+    
+    if (`checkBox -q -v RotationsCheckbox`)
+    {checkBox -e -en 1 XAxisRotCheckbox; checkBox -e -en 1 YAxisRotCheckbox; checkBox -e -en 1 ZAxisRotCheckbox;}
+    else {checkBox -e -en 0 XAxisRotCheckbox; checkBox -e -en 0 YAxisRotCheckbox; checkBox -e -en 0 ZAxisRotCheckbox;}
+        
+}
+
+proc mirror_animation(int $withBake)
+{
+    global string $centerObject[];
+    global string $referenceObject[];
+    global string $mirrorObject[];
+    global string $centerJoint[];
+    global int $ind;
+    
+        $doTransforms = `checkBox -q -v TranslationsCheckbox`;
+        $doRotations = `checkBox -q -v RotationsCheckbox`;
+        
+	    $selected = `ls -selection`; //записываем выделенные объекты
+	    
+        if (size($selected) < 3) error "Select at least two objects for mirror animation";
+        
+        $centerObject[$ind] = $selected[0];
+        $referenceObject[$ind] = $selected[1]; //Присваиваем первый выделенный объект центральным
+        $mirrorObject[$ind] = $selected[2];
+        
+        
+        if (`checkBox -q -v RotationsCheckbox`)
+        {
+            $referenceObjectRotate = `xform -q -os -ro $referenceObject[$ind]`;
+            if (`checkBox -q -v XAxisRotCheckbox`) $valX = -1; else $valX = 1;
+            if (`checkBox -q -v YAxisRotCheckbox`) $valY = -1; else $valY = 1;
+            if (`checkBox -q -v ZAxisRotCheckbox`) $valZ = -1; else $valZ = 1;
+            xform -os -ro ($referenceObjectRotate[0]*$valX) ($referenceObjectRotate[1]*$valY) ($referenceObjectRotate[2]*$valZ) $mirrorObject[$ind];
+        }
+ 
+    //Creating joints hierarchy----
+        select -cl;
+        $centerJoint[$ind] = `joint -rad 1`;
+        setAttr ($centerJoint[$ind] + ".visibility") 0; 
+    
+    //Center joint constrain
+        parentConstraint -weight 1 $centerObject[$ind] $centerJoint[$ind]; //parent for snap trans and rotations
+    
+    //Reference joint
+        select -cl;
+        select $centerJoint[$ind]; //select for continue hierarchy
+        $referenceJoint = `joint -rad 1`; //create ref joint in hierarchy
+               
+        pointConstraint -weight 1 $referenceObject[$ind] $referenceJoint;
+        orientConstraint -weight 1 $referenceObject[$ind] $referenceJoint;
+        delete -cn $referenceJoint;
+        makeIdentity -apply true -t 0 -r 1 -s 0 -n 0 -pn 1 $referenceJoint;
+        
+      string $mirrorJoint[]; 
+    //Mirror joint
+        if (`checkBox -q -v TranslationsCheckbox`)
+        {
+            if (`radioButton -q -sl XAxisTransRadio`) $mirrorJoint = `mirrorJoint -mirrorXY -mirrorBehavior $referenceJoint`;
+            if (`radioButton -q -sl YAxisTransRadio`) $mirrorJoint = `mirrorJoint -mirrorYZ -mirrorBehavior $referenceJoint`;
+            if (`radioButton -q -sl ZAxisTransRadio`) $mirrorJoint = `mirrorJoint -mirrorXZ -mirrorBehavior $referenceJoint`;
+        }else $mirrorJoint = `mirrorJoint -mirrorYZ -mirrorBehavior $referenceJoint`;
+        
+    //Reference joint constrain after mirror (nessasary)
+        pointConstraint -weight 1 $referenceObject[$ind] $referenceJoint;
+        orientConstraint -weight 1 $referenceObject[$ind] $referenceJoint;
+
+        if ($doRotations == 1)
+        {
+            orientConstraint -weight 1 $mirrorObject[$ind] $mirrorJoint;
+            delete -cn $mirrorJoint;
+            makeIdentity -apply true -t 0 -r 1 -s 0 -n 0 -pn 1 $mirrorJoint;
+            orientConstraint -weight 1 $mirrorJoint $mirrorObject[$ind];
+            rotate_connect_operator($mirrorJoint[0], $referenceJoint);
+        }
+        
+        if ($doTransforms == 1)
+        {
+            pointConstraint -weight 1 $mirrorJoint $mirrorObject[$ind];
+            transform_connect_operator($mirrorJoint[0], $referenceJoint);
+
+            
+        }
+    if ($withBake == 1) fast_bake(1);    
+    $ind = $ind + 1;
+}
+
+proc transform_connect_operator(string $mirrorJoint, string $referenceJoint)
+{    
+    global int $iTo;
+    global string $operatorTrans[];
+    
+    $transX = `radioButton -q -sl XAxisTransRadio`;
+    $transY = `radioButton -q -sl YAxisTransRadio`;
+    $transZ = `radioButton -q -sl ZAxisTransRadio`;
+    
+    $constPoint = `pointConstraint -weight 1 $referenceJoint $mirrorJoint`;
+    
+    if ($transX == 1)
+    {
+        $operatorTrans[$iTo] = `shadingNode -asUtility floatMath`;
+        setAttr ($operatorTrans[$iTo] + ".floatB") -1;
+        setAttr ($operatorTrans[$iTo] + ".operation") 2;
+        
+        connectAttr -f ($constPoint[0] + ".constraintTranslateX") ($operatorTrans[$iTo] + ".floatA");
+        connectAttr -f ($operatorTrans[$iTo] + ".outFloat") ($mirrorJoint + ".translateX");
+        $iTo = $iTo + 1;
+    }
+    if ($transY == 1)
+    {
+        $operatorTrans[$iTo] = `shadingNode -asUtility floatMath`;
+        setAttr ($operatorTrans[$iTo] + ".floatB") -1;
+        setAttr ($operatorTrans[$iTo] + ".operation") 2;
+        
+        connectAttr -f ($constPoint[0] + ".constraintTranslateY") ($operatorTrans[$iTo] + ".floatA");
+        connectAttr -f ($operatorTrans[$iTo] + ".outFloat") ($mirrorJoint + ".translateY");
+        $iTo = $iTo + 1; 
+    }
+    if ($transZ == 1)
+    {
+        $operatorTrans[$iTo] = `shadingNode -asUtility floatMath`;
+        setAttr ($operatorTrans[$iTo] + ".floatB") -1;
+        setAttr ($operatorTrans[$iTo] + ".operation") 2;
+        
+        connectAttr -f ($constPoint[0] + ".constraintTranslateZ") ($operatorTrans[$iTo] + ".floatA");
+        connectAttr -f ($operatorTrans[$iTo] + ".outFloat") ($mirrorJoint + ".translateZ");
+        $iTo = $iTo + 1;  
+    }     
+}
+
+
+
+proc rotate_connect_operator(string $mirrorJoint, string $referenceJoint)
+{
+    global int $iRo;
+    global string $operatorRotate[];
+    
+    $rotateX = `checkBox -q -v XAxisRotCheckbox`;
+    $rotateY = `checkBox -q -v YAxisRotCheckbox`;
+    $rotateZ = `checkBox -q -v ZAxisRotCheckbox`;
+
+    if ($rotateX == 1)
+    {
+        $operatorRotate[$iRo] = `shadingNode -asUtility floatMath`;
+        setAttr ($operatorRotate[$iRo] + ".floatB") -1;
+        setAttr ($operatorRotate[$iRo] + ".operation") 2;
+        
+        
+        connectAttr -f ($referenceJoint + ".rotateX") ($operatorRotate[$iRo] + ".floatA");
+        connectAttr -f ($operatorRotate[$iRo] + ".outFloat") ($mirrorJoint + ".rotateX");
+        $iRo = $iRo + 1;        
+    }else connectAttr -f ($referenceJoint + ".rotateX") ($mirrorJoint + ".rotateX");
+
+    
+    if ($rotateY == 1)
+    {
+        $operatorRotate[$iRo] = `shadingNode -asUtility floatMath`;
+        setAttr ($operatorRotate[$iRo] + ".floatB") -1;
+        setAttr ($operatorRotate[$iRo] + ".operation") 2;
+        
+        connectAttr -f ($referenceJoint + ".rotateY") ($operatorRotate[$iRo] + ".floatA");
+        connectAttr -f ($operatorRotate[$iRo] + ".outFloat") ($mirrorJoint + ".rotateY");
+        $iRo = $iRo + 1;         
+    }else connectAttr -f ($referenceJoint + ".rotateY") ($mirrorJoint + ".rotateY");
+    
+    
+    if ($rotateZ == 1)
+    {
+        $operatorRotate[$iRo] = `shadingNode -asUtility floatMath`;
+        setAttr ($operatorRotate[$iRo] + ".floatB") -1;
+        setAttr ($operatorRotate[$iRo] + ".operation") 2;
+        
+        connectAttr -f ($referenceJoint + ".rotateZ") ($operatorRotate[$iRo] + ".floatA");
+        connectAttr -f ($operatorRotate[$iRo] + ".outFloat") ($mirrorJoint + ".rotateZ");
+        $iRo = $iRo + 1;          
+    }else connectAttr -f ($referenceJoint + ".rotateZ") ($mirrorJoint + ".rotateZ");
+
+}
+
+proc delete_all_created()
+{
+    global string $centerJoint[];
+    global string $operatorTrans[];
+    global string $operatorRotate[]; 
+    if (catch (`delete $centerJoint $operatorTrans $operatorRotate`)) warning -n "Some temporary objects have been removed from the scene"; 
+    //delete $centerJoint $operatorTrans $operatorRotate;
+    globals_variables();
+  
+}
+//----------------------------------------
+proc fast_bake(int $defineFrames)
+{
+    global string $mirrorObject[];
+    
+    select -r $mirrorObject;
+    
+    global string $gPlayBackSlider;
+    global float $startFrame; global float $finishFrame;
+    
+    if ($defineFrames == 1) define_frames_range();
+    
+    refresh -suspend 1; //do not refresh viewport
+    bakeResults -simulation 0 -t ($startFrame + ":" + $finishFrame) -sampleBy 1 -disableImplicitControl true -preserveOutsideKeys true -sparseAnimCurveBake false -removeBakedAttributeFromLayer false -bakeOnOverrideLayer false -minimizeRotation true;
+    delete -sc; //delete static curves for baked object
+    filterCurve;
+    refresh -suspend 0;
+    delete_all_created();
+}
+
+//-----------------------------------------------------------
+proc define_frames_range()
+{
+    global string $gPlayBackSlider;  
+    global float $startFrame; global float $finishFrame;
+    global int $selectedTimeField;
+    float $selectedFrames[]=`timeControl -q -ra $gPlayBackSlider`;
+    
+    if(($selectedFrames[1]-$selectedFrames[0])<=1)
+        {    $startFrame = `playbackOptions  -q -min`;
+    	         $finishFrame = `playbackOptions  -q -max`;
+    	         $selectedTimeField = 0;
+        } else 
+    	    {
+    	        $startFrame = $selectedFrames[0]; 
+    	        $finishFrame = $selectedFrames[1];
+    	        $selectedTimeField = 1;
+    	    }
+}
+//-----------------------------------------------------------
+
+
+

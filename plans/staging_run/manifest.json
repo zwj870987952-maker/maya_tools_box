@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T18:27:15.175592+08:00",
+  "updated_at": "2026-09-30T18:41:14.145535+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
-    "state": "working",
+    "state": "waiting_for_quota",
     "heartbeat_id": "automation",
-    "heartbeat_status": "PAUSED",
+    "heartbeat_status": "ACTIVE",
     "heartbeat_verified": false,
     "reset_guard": "not_started_requires_authorization",
     "obsidian_sync": "disabled_for_this_run",
@@ -13,10 +13,10 @@
     "heartbeat_transition_verified": true,
     "last_completed_tool": "01_animation/animation_retarget",
     "last_usage": {
-      "five_hour_used_percent": 88.0,
-      "weekly_used_percent": 55.0,
-      "recorded_at": "2026-09-30T18:27:12.192800+08:00",
-      "note": "Caller supplied actual read; reread on next run"
+      "five_hour_used_percent": 95,
+      "weekly_used_percent": 56,
+      "recorded_at": "2026-09-30T18:41:11.335669+08:00",
+      "note": "Actual tool read before checkpoint; 5 percent primary remaining. Partial complex item saved before hard limit."
     },
     "current_tool": "01_animation/animirror_v2_0"
   },
@@ -1292,7 +1292,12 @@
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Incomplete candidate; do not count as processed or promote",
+        "lookdevKit/floatMath must be explicitly loaded by user; preflight should query only",
+        "GUI/rotation/other axes/center transforms/bake pending",
+        "UUID deletion protection and persistent Undo-aware ownership not implemented"
+      ],
       "entry_review": {
         "evidence": "Only source file contains shelf installer and embedded aniMirror_menu code; this is an installer, not a safe read-only runtime entry.",
         "kind": "installer_with_embedded_tool",
@@ -1307,7 +1312,11 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "6f4e046c2fd43ec768e975a0ad078c67d385ab35d4e02a3fbd247e98c3585ef0"
+      "source_tree_sha256": "6f4e046c2fd43ec768e975a0ad078c67d385ab35d4e02a3fbd247e98c3585ef0",
+      "candidate_path": "tools_staging_pool/01_animation/animirror_v2_0/release_candidate",
+      "work_notes": "plans/staging_run/animirror_v2_0_notes.md",
+      "exploratory_probe": "plans/staging_run/animirror_suite_probe.json",
+      "change_summary": "Original MEL/PDF archived, all 9 embedded procedures extracted and namespaced, strict axis-based JSON contract drafted. Isolated compile and actual X-translation mirror/cleanup with UI query stubs passed. API/ownership/Undo/UI/promotion/acceptance incomplete."
     },
     {
       "source_path": "01_animation/back2origin_v05_gaiv3",
