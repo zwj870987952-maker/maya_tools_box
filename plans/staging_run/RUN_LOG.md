@@ -189,3 +189,12 @@
 - UUID缓存路径/Owner场景记录/SHA+sidecar校验，清键前验明目标/文件；临时文件后替换、已有文件覆盖需显式允许，旧cache属性不接管。文件/目录/clipboard不能由场景Undo撤销，真实说明/人工步骤齐备。
 - 普通Python3项、Maya2025隔离6项通过，真实随机/首选/范围/zero通道/Undo/预检/故障、预设文件覆盖及animImportExport .anim导出导入/SHA修改拒绝；正式布局注册和报告指纹匹配。未创建Qt，实际渐变/层/Use cache GUI不算通过。
 - 收尾真实额度5小时已用1%、周71%，窗口resetsAt从1790791927变1790810074，自然刷新；四卡仍available，无消费/购买。上一窗口从2%/57%到至少83%/70%，未观测完整0→100窗口，不能据此声称精确满额周消耗。工作继续、heartbeat暂停、正式库/长期规范/生成知识库未改。
+
+- CgShake候选提交bfd16ec，进入copy_animation。
+
+## 2026-10-01：动画复制完整候选，累计19/109
+
+- 原优化文件完整字节归档，六采样/帧门控/match/numeric算法AST只加guard，其余一致；完整五Qt类/列表delegate/圆点/右键/拖拽/录入编辑/配置保留，场景/文件按钮标准API。修复列表clear删除C++item后复用旧wrapper，先缓存modes再新建条目。
+- 每pair Owner/token network与source/target message+UUID、helper/follow/target constraint UUID持久记录。私有组/四集合，只删自己的资源，后代/输出/改接/外部固定名保护；约束先脱离目标保护空transform，临时失败资源及时记UUID，blend可能保留。cleanup独立标准动作，列表清空不改场景。
+- 普通Python3项、Maya2025隔离9项通过：真实frame整数键/初始偏移/Undo，numeric逐整数/custom标量，持续constraint/repeat/cleanup，frame→constraint→numeric，持久重命名/保存重载、同叶名两pair批量、只读/外部对象、配置覆盖与错误返回失败/guard/Undo。正式布局注册/报告指纹匹配。
+- 未实例化Qt，圆点/右键/拖拽/编辑/文件对话框和nonuniform scale/层/制作rig/旧Python待真人；完整知识/两测试/验收/注册晋级预制，prepared_unverified。实际收尾5小时8%/周72%已用，heartbeat暂停，无卡/正式库/同步变更。

@@ -1,0 +1,62 @@
+{
+  "tool_id": "copy_animation",
+  "raw_files": [
+    {
+      "path": "upstream/复制动画_修复优化版.py",
+      "sha256": "93b5909b1c653766c9ba8698238dc4ca8b3555ec469b8432f258c0b9b93b0f9b"
+    }
+  ],
+  "original_classes": [
+    "UndoChunk",
+    "CustomListWidgetItem",
+    "CustomItemDelegate",
+    "CustomListWidget",
+    "EditDialog",
+    "AutoAlignUI"
+  ],
+  "algorithm_methods": [
+    "_attribute_has_key",
+    "_channel_has_key",
+    "_match_and_key",
+    "apply_channel_modes",
+    "_numeric_attributes",
+    "copy_numeric_values"
+  ],
+  "original_ui_methods": [
+    "__init__",
+    "_build_ui",
+    "_connect_signals",
+    "_items",
+    "_items_to_process",
+    "add_selection",
+    "clear_list",
+    "edit_list",
+    "_ensure_locator_group",
+    "_delete_item_locators",
+    "_create_locators_for_item",
+    "create_locators_for_all",
+    "_delete_item_constraints",
+    "_create_channel_constraints",
+    "execute_alignment",
+    "_attribute_has_key",
+    "_channel_has_key",
+    "_match_and_key",
+    "apply_channel_modes",
+    "_numeric_attributes",
+    "copy_numeric_values",
+    "save_data",
+    "load_data",
+    "_set_selected_items_mode",
+    "show_context_menu",
+    "select_objects"
+  ],
+  "source_license": "User supplied revised script, no license file supplied; private preparation",
+  "changes": [
+    "Full native list/delegate/modes/editor/config UI",
+    "Original six sampling/key/numeric algorithm AST preserved",
+    "Scene UUID pair record/helper/constraint ownership and private sets",
+    "Standard API read-only preflight/Undo and state finally",
+    "Explicit config file overwrite",
+    "Edit-list clones modes before deleting C++ items"
+  ]
+}

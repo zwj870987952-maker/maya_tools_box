@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/copy_animation/release_candidate/tests/test_copy_animation_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_batch_duplicate_leaf_constraint_identity_and_cleanup (__main__.MayaTests.test_batch_duplicate_leaf_constraint_identity_and_cleanup) ... ok\r\ntest_config_roundtrip_overwrite_and_gui_refusal (__main__.MayaTests.test_config_roundtrip_overwrite_and_gui_refusal) ... ok\r\ntest_constraints_maintain_offset_repeat_cleanup_empty_target (__main__.MayaTests.test_constraints_maintain_offset_repeat_cleanup_empty_target) ... ok\r\ntest_error_recorded_failed_and_state_guard_undo (__main__.MayaTests.test_error_recorded_failed_and_state_guard_undo) ... ����: CopyAnimationTool_copy_animation\nok\r\ntest_frame_constraint_numeric_mode_transition (__main__.MayaTests.test_frame_constraint_numeric_mode_transition) ... ok\r\ntest_frame_key_gating_offset_undo_and_cleanup (__main__.MayaTests.test_frame_key_gating_offset_undo_and_cleanup) ... ����: CopyAnimationTool_copy_animation\nok\r\ntest_numeric_every_integer_and_matching_custom_scalar (__main__.MayaTests.test_numeric_every_integer_and_matching_custom_scalar) ... ok\r\ntest_readonly_lock_foreign_group_set_and_child_protection (__main__.MayaTests.test_readonly_lock_foreign_group_set_and_child_protection) ... ok\r\ntest_rename_save_reload_record_and_rebuild (__main__.MayaTests.test_rename_save_reload_record_and_rebuild) ... �ļ���ȡ����ʱ��Ϊ  0.0051 �롣\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 9 tests in 0.213s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "3b6d0e202811f9fbdcf65a9f3ade7dce68196fef6edde0a6c7d0b192f1052c5f",
+  "runtime_source_sha256": "c2432f2442e8a807aaff2ba8f82aaaebd0300f2c3b1994fbcb50815238f4831b"
+}

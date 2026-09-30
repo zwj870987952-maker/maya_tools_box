@@ -1,0 +1,88 @@
+{
+  "tool_id": "copy_animation",
+  "registration": {
+    "module": "copy_animation",
+    "class_name": "CopyAnimationTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/copy_animation.md",
+      "target": "docs/tools/copy_animation.md"
+    },
+    {
+      "source": "docs/tools/copy_animation_changes.diff",
+      "target": "docs/tools/copy_animation_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/copy_animation/__init__.py",
+      "target": "maya_toolkit/tools/copy_animation/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/copy_animation/algorithms.py",
+      "target": "maya_toolkit/tools/copy_animation/algorithms.py"
+    },
+    {
+      "source": "maya_toolkit/tools/copy_animation/bridge.py",
+      "target": "maya_toolkit/tools/copy_animation/bridge.py"
+    },
+    {
+      "source": "maya_toolkit/tools/copy_animation/catalog.json",
+      "target": "maya_toolkit/tools/copy_animation/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/copy_animation/contracts.py",
+      "target": "maya_toolkit/tools/copy_animation/contracts.py"
+    },
+    {
+      "source": "maya_toolkit/tools/copy_animation/native_ui.py",
+      "target": "maya_toolkit/tools/copy_animation/native_ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/copy_animation/runtime.py",
+      "target": "maya_toolkit/tools/copy_animation/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/copy_animation/scene.py",
+      "target": "maya_toolkit/tools/copy_animation/scene.py"
+    },
+    {
+      "source": "maya_toolkit/tools/copy_animation/tool.py",
+      "target": "maya_toolkit/tools/copy_animation/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/copy_animation/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/copy_animation/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/copy_animation/upstream/复制动画_修复优化版.py",
+      "target": "maya_toolkit/tools/copy_animation/upstream/复制动画_修复优化版.py"
+    },
+    {
+      "source": "tests/test_copy_animation.py",
+      "target": "tests/test_copy_animation.py"
+    },
+    {
+      "source": "tests/test_copy_animation_maya.py",
+      "target": "tests/test_copy_animation_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/复制动画_修复优化版.py",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya cmds/matchTransform/constraints/key APIs",
+    "PySide2/6/shiboken real GUI for original widget",
+    "Existing framework/core Undo"
+  ],
+  "source": "../复制动画_修复优化版.py",
+  "change_summary": "Full original frame/constraint/numeric/none modes and native list/config UI, preserved sampling algorithm, owned UUID persistent pair helpers/sets/constraints and standard API.",
+  "verification_limitations": [
+    "Real GUI/mode indicators/editor pending",
+    "Frame mode only samples integer frames containing source keys",
+    "Numeric keys every integer frame, scalar matching user attrs only",
+    "Constraint and helper nodes intentionally persist until explicit cleanup",
+    "Complex rig/nonuniform scale/layers pending"
+  ],
+  "acceptance_required": true
+}

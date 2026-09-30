@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T02:14:38.298980+08:00",
+  "updated_at": "2026-10-01T02:48:59.475158+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/cg_shake_py3",
+    "last_completed_tool": "01_animation/copy_animation",
     "last_usage": {
-      "five_hour_used_percent": 83.0,
-      "weekly_used_percent": 70.0,
-      "recorded_at": "2026-10-01T01:50:32.164467+08:00",
+      "five_hour_used_percent": 1.0,
+      "weekly_used_percent": 71.0,
+      "recorded_at": "2026-10-01T02:16:52.049145+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/cg_shake_py3"
+    "current_tool": "01_animation/copy_animation"
   },
   "entry_repairs": [
     {
@@ -2585,7 +2585,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Full original UI/gradient/images, positive uniform shake on first object, explicit samples and seed, standard API/Undo with guarded cache/preset file paths and UUID/SHA restore.",
-      "prepared_at": "2026-10-01T02:14:38.613922+08:00"
+      "prepared_at": "2026-10-01T02:14:38.613922+08:00",
+      "source_commit": "bfd16ec0bc002e116efef888cf9d6f9d70ded14e"
     },
     {
       "source_path": "01_animation/copy_animation",
@@ -2596,20 +2597,84 @@
       "entry_candidates": [
         "复制动画_修复优化版.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "复制动画_修复优化版.py"
       ],
       "license_files": [],
       "entry_sha256": "93b5909b1c653766c9ba8698238dc4ca8b3555ec469b8432f258c0b9b93b0f9b",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_contract_config_and_no_maya_inventory (__main__.OfflineTests.test_contract_config_and_no_maya_inventory) ... ok\r\ntest_file_preflight_does_not_create_directory (__main__.OfflineTests.test_file_preflight_does_not_create_directory) ... ok\r\ntest_source_and_algorithm_ast_preserved (__main__.OfflineTests.test_source_and_algorithm_ast_preserved) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.008s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"copy_animation\",\r\n  \"candidate_sha256\": \"251fe291ec711ef9d6f9d12d5200096d5609f9cd9b259439db29677323f1196d\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\copy_animation.md\",\r\n    \"docs\\\\tools\\\\copy_animation_changes.diff\",\r\n    \"maya_toolkit\\\\tools\\\\copy_animation\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\copy_animation\\\\algorithms.py\",\r\n    \"maya_toolkit\\\\tools\\\\copy_animation\\\\bridge.py\",\r\n    \"maya_toolkit\\\\tools\\\\copy_animation\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\copy_animation\\\\contracts.py\",\r\n    \"maya_toolkit\\\\tools\\\\copy_animation\\\\native_ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\copy_animation\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\copy_animation\\\\scene.py\",\r\n    \"maya_toolkit\\\\tools\\\\copy_animation\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\copy_animation\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\copy_animation\\\\upstream\\\\\\u590d\\u5236\\u52a8\\u753b_\\u4fee\\u590d\\u4f18\\u5316\\u7248.py\",\r\n    \"tests\\\\test_copy_animation.py\",\r\n    \"tests\\\\test_copy_animation_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/copy_animation/release_candidate/tests/test_copy_animation_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_batch_duplicate_leaf_constraint_identity_and_cleanup (__main__.MayaTests.test_batch_duplicate_leaf_constraint_identity_and_cleanup) ... ok\r\ntest_config_roundtrip_overwrite_and_gui_refusal (__main__.MayaTests.test_config_roundtrip_overwrite_and_gui_refusal) ... ok\r\ntest_constraints_maintain_offset_repeat_cleanup_empty_target (__main__.MayaTests.test_constraints_maintain_offset_repeat_cleanup_empty_target) ... ok\r\ntest_error_recorded_failed_and_state_guard_undo (__main__.MayaTests.test_error_recorded_failed_and_state_guard_undo) ... ����: CopyAnimationTool_copy_animation\nok\r\ntest_frame_constraint_numeric_mode_transition (__main__.MayaTests.test_frame_constraint_numeric_mode_transition) ... ok\r\ntest_frame_key_gating_offset_undo_and_cleanup (__main__.MayaTests.test_frame_key_gating_offset_undo_and_cleanup) ... ����: CopyAnimationTool_copy_animation\nok\r\ntest_numeric_every_integer_and_matching_custom_scalar (__main__.MayaTests.test_numeric_every_integer_and_matching_custom_scalar) ... ok\r\ntest_readonly_lock_foreign_group_set_and_child_protection (__main__.MayaTests.test_readonly_lock_foreign_group_set_and_child_protection) ... ok\r\ntest_rename_save_reload_record_and_rebuild (__main__.MayaTests.test_rename_save_reload_record_and_rebuild) ... �ļ���ȡ����ʱ��Ϊ  0.0051 �롣\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 9 tests in 0.213s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "3b6d0e202811f9fbdcf65a9f3ade7dce68196fef6edde0a6c7d0b192f1052c5f",
+          "runtime_source_sha256": "c2432f2442e8a807aaff2ba8f82aaaebd0300f2c3b1994fbcb50815238f4831b"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "原Qt圆点/右键/拖拽/列表编辑/文件对话框未真人验收；nonuniform scale/jointOrient/动画层/制作rig和旧版本未知"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "251fe291ec711ef9d6f9d12d5200096d5609f9cd9b259439db29677323f1196d",
+          "returncode": 0,
+          "output": "test_contract_config_and_no_maya_inventory (__main__.OfflineTests.test_contract_config_and_no_maya_inventory) ... ok\r\ntest_file_preflight_does_not_create_directory (__main__.OfflineTests.test_file_preflight_does_not_create_directory) ... ok\r\ntest_source_and_algorithm_ast_preserved (__main__.OfflineTests.test_source_and_algorithm_ast_preserved) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.009s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real GUI/mode indicators/editor pending",
+        "Frame mode only samples integer frames containing source keys",
+        "Numeric keys every integer frame, scalar matching user attrs only",
+        "Constraint and helper nodes intentionally persist until explicit cleanup",
+        "Complex rig/nonuniform scale/layers pending"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -2618,7 +2683,46 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "21cd0e9f819e45092322c06301145f468190eab7394e887878e771c0589f91f4"
+      "source_tree_sha256": "b0b4f2ce49828609b900507f6a7e8684f5f0ecbb07cca788cc5e3689a2d92758",
+      "candidate_path": "tools_staging_pool/01_animation/copy_animation/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/copy_animation/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "copy_animation",
+        "candidate_sha256": "251fe291ec711ef9d6f9d12d5200096d5609f9cd9b259439db29677323f1196d",
+        "applied": false,
+        "files": [
+          "docs\\tools\\copy_animation.md",
+          "docs\\tools\\copy_animation_changes.diff",
+          "maya_toolkit\\tools\\copy_animation\\__init__.py",
+          "maya_toolkit\\tools\\copy_animation\\algorithms.py",
+          "maya_toolkit\\tools\\copy_animation\\bridge.py",
+          "maya_toolkit\\tools\\copy_animation\\catalog.json",
+          "maya_toolkit\\tools\\copy_animation\\contracts.py",
+          "maya_toolkit\\tools\\copy_animation\\native_ui.py",
+          "maya_toolkit\\tools\\copy_animation\\runtime.py",
+          "maya_toolkit\\tools\\copy_animation\\scene.py",
+          "maya_toolkit\\tools\\copy_animation\\tool.py",
+          "maya_toolkit\\tools\\copy_animation\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\copy_animation\\upstream\\复制动画_修复优化版.py",
+          "tests\\test_copy_animation.py",
+          "tests\\test_copy_animation_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/复制动画_修复优化版.py",
+        "catalog.json"
+      ],
+      "external_dependencies": [
+        "Maya cmds/matchTransform/constraints/key APIs",
+        "PySide2/6/shiboken real GUI for original widget",
+        "Existing framework/core Undo"
+      ],
+      "source_preserved": true,
+      "change_summary": "Full original frame/constraint/numeric/none modes and native list/config UI, preserved sampling algorithm, owned UUID persistent pair helpers/sets/constraints and standard API.",
+      "prepared_at": "2026-10-01T02:48:59.774305+08:00"
     },
     {
       "source_path": "01_animation/directional_cycle_tool_v1_1",
