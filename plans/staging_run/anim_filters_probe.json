@@ -1,0 +1,10 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "plans\\staging_run\\probe_anim_filters_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "{\"original_apply\": [{\"attribute\": \"translateX\", \"times\": [0.0, 1.0, 2.0, 3.0, 4.0], \"values\": [-3.0, 100.0, 5.0, 200.0, 7.0]}, {\"attribute\": \"rotateX\", \"times\": [0.0, 1.0, 2.0, 3.0, 4.0], \"values\": [-3.0000000000000004, 100.0, 5.0, 200.0, 7.0]}], \"numpy_available\": true, \"scipy_available\": false}\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "8e79aa105ed9ee4d2f98e991e3b0d681dc993b536965d63dcc4d19d2e8a19a39"
+}

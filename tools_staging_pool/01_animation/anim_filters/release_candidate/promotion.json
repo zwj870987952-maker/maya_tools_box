@@ -1,0 +1,89 @@
+{
+  "tool_id": "anim_filters",
+  "registration": {
+    "module": "anim_filters",
+    "class_name": "AnimFiltersTool"
+  },
+  "files": [
+    {
+      "source": "maya_toolkit/tools/anim_filters/__init__.py",
+      "target": "maya_toolkit/tools/anim_filters/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_filters/algorithms.py",
+      "target": "maya_toolkit/tools/anim_filters/algorithms.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_filters/LICENSE.txt",
+      "target": "maya_toolkit/tools/anim_filters/LICENSE.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_filters/operations.py",
+      "target": "maya_toolkit/tools/anim_filters/operations.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_filters/preview.py",
+      "target": "maya_toolkit/tools/anim_filters/preview.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_filters/tool.py",
+      "target": "maya_toolkit/tools/anim_filters/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_filters/ui.py",
+      "target": "maya_toolkit/tools/anim_filters/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_filters/upstream/icons/animFilters.png",
+      "target": "maya_toolkit/tools/anim_filters/upstream/icons/animFilters.png"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_filters/upstream/readme.txt",
+      "target": "maya_toolkit/tools/anim_filters/upstream/readme.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_filters/upstream/scripts/animFilters/__init__.py",
+      "target": "maya_toolkit/tools/anim_filters/upstream/scripts/animFilters/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_filters/upstream/scripts/animFilters/animFilters.py",
+      "target": "maya_toolkit/tools/anim_filters/upstream/scripts/animFilters/animFilters.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_filters/upstream/scripts/animFilters/animFilters.ui",
+      "target": "maya_toolkit/tools/anim_filters/upstream/scripts/animFilters/animFilters.ui"
+    },
+    {
+      "source": "docs/tools/anim_filters.md",
+      "target": "docs/tools/anim_filters.md"
+    },
+    {
+      "source": "tests/test_anim_filters.py",
+      "target": "tests/test_anim_filters.py"
+    },
+    {
+      "source": "tests/test_anim_filters_maya.py",
+      "target": "tests/test_anim_filters_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/scripts/animFilters/animFilters.ui",
+    "upstream/icons/animFilters.png",
+    "upstream/readme.txt",
+    "LICENSE.txt"
+  ],
+  "dependencies": [
+    "maya.cmds",
+    "existing maya_toolkit framework/core",
+    "NumPy and SciPy matching target Maya interpreter for Butterworth/Median",
+    "PySide6 or PySide2 for UI"
+  ],
+  "source": "../animFilters-v1.0-maya17",
+  "change_summary": "All three upstream filters and live preview retained; commands make writes undoable; guarded preview restoration; fix recursion/NumPy sample count/padding/Nyquist boundaries; complete GPL upstream assets included.",
+  "verification_limitations": [
+    "SciPy absent in current offline and Maya2025 interpreters",
+    "Standalone Qt creation crashed; actual GUI pending",
+    "Python3 loader; Python2 unverified"
+  ],
+  "acceptance_required": true
+}

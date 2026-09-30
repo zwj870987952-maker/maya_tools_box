@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T14:50:34.890466+08:00",
+  "updated_at": "2026-09-30T15:18:40.100793+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,7 +11,7 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "03_transforms_modeling/reset_pivot",
+    "last_completed_tool": "01_animation/anim_filters",
     "last_usage": {
       "five_hour_used_percent": 50,
       "weekly_used_percent": 38,
@@ -244,14 +244,52 @@
         "animFilters-v1.0-maya17/scripts/animFilters/animFilters.py"
       ],
       "license_files": [],
-      "status": "working",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..s........\r\n----------------------------------------------------------------------\r\nRan 11 tests in 0.169s\r\n\r\nOK (skipped=1)\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"anim_filters\",\r\n  \"candidate_sha256\": \"986efff7800c609916b79999ed53360820e988a4ca70fe66f1aaafe282c86185\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"maya_toolkit\\\\tools\\\\anim_filters\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_filters\\\\algorithms.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_filters\\\\LICENSE.txt\",\r\n    \"maya_toolkit\\\\tools\\\\anim_filters\\\\operations.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_filters\\\\preview.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_filters\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_filters\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_filters\\\\upstream\\\\icons\\\\animFilters.png\",\r\n    \"maya_toolkit\\\\tools\\\\anim_filters\\\\upstream\\\\readme.txt\",\r\n    \"maya_toolkit\\\\tools\\\\anim_filters\\\\upstream\\\\scripts\\\\animFilters\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_filters\\\\upstream\\\\scripts\\\\animFilters\\\\animFilters.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_filters\\\\upstream\\\\scripts\\\\animFilters\\\\animFilters.ui\",\r\n    \"docs\\\\tools\\\\anim_filters.md\",\r\n    \"tests\\\\test_anim_filters.py\",\r\n    \"tests\\\\test_anim_filters_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool\\01_animation\\anim_filters\\release_candidate\\tests\\test_anim_filters_maya.py",
+          "returncode": 1,
+          "passed": false,
+          "output": "test_adaptive_apply_preserves_outside_keys_and_one_step_undo (__main__.AnimFiltersMayaTests.test_adaptive_apply_preserves_outside_keys_and_one_step_undo) ... ����: AnimFiltersTool_anim_filters\nok\r\ntest_adaptive_dry_run_preserves_full_curve_and_undo_queue (__main__.AnimFiltersMayaTests.test_adaptive_dry_run_preserves_full_curve_and_undo_queue) ... ok\r\ntest_endpoint_write_matches_upstream_for_translation_and_rotation (__main__.AnimFiltersMayaTests.test_endpoint_write_matches_upstream_for_translation_and_rotation) ... ok\r\ntest_preview_refresh_cancel_and_apply_remain_undoable (__main__.AnimFiltersMayaTests.test_preview_refresh_cancel_and_apply_remain_undoable) ... ����: AnimFiltersPreview_4512231ca3f641bd90079c6a46df4844\n����: AnimFiltersPreview_4be3c4690976474eb40dcb5cb44f4f98\n����: AnimFiltersPreview_fe9c9dd7b411466bb2b1ab2798919424\nok\r\ntest_preview_refuses_to_undo_unrelated_edits (__main__.AnimFiltersMayaTests.test_preview_refuses_to_undo_unrelated_edits) ... ����: \n����: AnimFiltersPreview_503baf1948a5455195fc583863a0f460\nok\r\ntest_qt_resource_loads_and_sliders_cancel_without_settings_writes (__main__.AnimFiltersMayaTests.test_qt_resource_loads_and_sliders_cancel_without_settings_writes) ... skipped 'Qt smoke requires its own explicitly enabled process; this standalone runtime crashed creating Qt widgets'\r\ntest_scientific_dependencies_in_target_maya (__main__.AnimFiltersMayaTests.test_scientific_dependencies_in_target_maya) ... FAIL\r\n\r\n======================================================================\r\nFAIL: test_scientific_dependencies_in_target_maya (__main__.AnimFiltersMayaTests.test_scientific_dependencies_in_target_maya)\r\n----------------------------------------------------------------------\r\nTraceback (most recent call last):\r\n  File \"E:\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\anim_filters\\release_candidate\\tests\\test_anim_filters_maya.py\", line 142, in test_scientific_dependencies_in_target_maya\r\n    self.assertIsNotNone(importlib.util.find_spec(\"scipy\"), \"SciPy is absent from this Maya interpreter; Butterworth/Median require a compatible installation and retest\")\r\nAssertionError: unexpectedly None : SciPy is absent from this Maya interpreter; Butterworth/Median require a compatible installation and retest\r\n\r\n----------------------------------------------------------------------\r\nRan 7 tests in 0.246s\r\n\r\nFAILED (failures=1, skipped=1)\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "6d5efa1a9e752d8c37b63abaf6ea77d9a9caf83cc4b50dda70e3219ae9f703b2"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "SciPy absent in current offline and Maya2025 interpreters",
+        "Standalone Qt creation crashed; actual GUI pending",
+        "Python3 loader; Python2 unverified"
+      ],
       "entry_review": {
         "evidence": "Source defines main(); old .mel name absent; Python package and scipy/PySide2 dependencies require adaptation.",
         "kind": "python_package_function",
@@ -265,7 +303,50 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "candidate_path": "tools_staging_pool/01_animation/anim_filters/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/anim_filters/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "anim_filters",
+        "candidate_sha256": "986efff7800c609916b79999ed53360820e988a4ca70fe66f1aaafe282c86185",
+        "applied": false,
+        "files": [
+          "maya_toolkit\\tools\\anim_filters\\__init__.py",
+          "maya_toolkit\\tools\\anim_filters\\algorithms.py",
+          "maya_toolkit\\tools\\anim_filters\\LICENSE.txt",
+          "maya_toolkit\\tools\\anim_filters\\operations.py",
+          "maya_toolkit\\tools\\anim_filters\\preview.py",
+          "maya_toolkit\\tools\\anim_filters\\tool.py",
+          "maya_toolkit\\tools\\anim_filters\\ui.py",
+          "maya_toolkit\\tools\\anim_filters\\upstream\\icons\\animFilters.png",
+          "maya_toolkit\\tools\\anim_filters\\upstream\\readme.txt",
+          "maya_toolkit\\tools\\anim_filters\\upstream\\scripts\\animFilters\\__init__.py",
+          "maya_toolkit\\tools\\anim_filters\\upstream\\scripts\\animFilters\\animFilters.py",
+          "maya_toolkit\\tools\\anim_filters\\upstream\\scripts\\animFilters\\animFilters.ui",
+          "docs\\tools\\anim_filters.md",
+          "tests\\test_anim_filters.py",
+          "tests\\test_anim_filters_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/scripts/animFilters/animFilters.ui",
+        "upstream/icons/animFilters.png",
+        "upstream/readme.txt",
+        "LICENSE.txt"
+      ],
+      "external_dependencies": [
+        "maya.cmds",
+        "existing maya_toolkit framework/core",
+        "NumPy and SciPy matching target Maya interpreter for Butterworth/Median",
+        "PySide6 or PySide2 for UI"
+      ],
+      "source_preserved": true,
+      "change_summary": "All three upstream filters and live preview retained; commands make writes undoable; guarded preview restoration; fix recursion/NumPy sample count/padding/Nyquist boundaries; complete GPL upstream assets included.",
+      "prepared_at": "2026-09-30T15:18:38.784496+08:00",
+      "source_tree_sha256": "b5f1bded9f5e108c66233842821a23000d2119039ffc5685af1bb3f5887fee83"
     },
     {
       "source_path": "01_animation/anim_layer_bookmark_trimmer",
@@ -300,7 +381,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "3905fc35a23a5318f6c60a90f12daea61eb53490f6c420b4e568d3ad8a565391"
     },
     {
       "source_path": "01_animation/anim_layer_key_runner",
@@ -333,7 +415,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "788189f2abbe73e9c4a5b9deb2cfb68e1ca5496ceb8e49151c4474daddce676f"
     },
     {
       "source_path": "01_animation/anim_layer_keyframe_bookmark",
@@ -365,7 +448,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "b943d7663d518f3efc61d70edef0ee0533024877ccb9bf2f49796c08e66f75e5"
     },
     {
       "source_path": "01_animation/anim_layer_v4_0",
@@ -406,7 +490,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "2793dde2b4f323a1d1b41d01cc5455d361a63f91c0fd1e82aff2bf435d6b9f9a"
     },
     {
       "source_path": "01_animation/anim_mirror_helper_v1_1",
@@ -446,7 +531,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "b346109c0291127d036b4f87511e6f69dabc572a724c56dd69e7da6c0c5fa3fe"
     },
     {
       "source_path": "01_animation/anim_polish_premium_v1_23",
@@ -499,7 +585,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 3,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "4ab14aa53c38d2dc68f6564471155ae5f29d2b3fbf5fcca6250ebda397fefc40"
     },
     {
       "source_path": "01_animation/animation_retarget",
@@ -531,7 +618,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "91da5d69d4626f6c6b3977adb605bde39d017cb131bc5ca8df3c2c7e79cde60d"
     },
     {
       "source_path": "01_animation/animirror_v2_0",
@@ -568,7 +656,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "6f4e046c2fd43ec768e975a0ad078c67d385ab35d4e02a3fbd247e98c3585ef0"
     },
     {
       "source_path": "01_animation/back2origin_v05_gaiv3",
@@ -600,7 +689,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "a049638682975bccdf861bb206c96d4032e4ace8a6fb77175741ac7ad465ce19"
     },
     {
       "source_path": "01_animation/bh_aim_tools_v1_1",
@@ -639,7 +729,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "97a33d5cf3a028d65a36fce9063bd7c7b811ea61502db8f80ea0523cb5acd925"
     },
     {
       "source_path": "01_animation/bh_local_nudge",
@@ -676,7 +767,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "18be13dd7f1ff1ac52be6ea38ac9497494578f93e0a5bb019b8a015ce93d1486"
     },
     {
       "source_path": "01_animation/bh_speedlines",
@@ -709,7 +801,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "3fe348cc0399d816e450484e9ba42032762e7bf5d371166c781324d7daf753d2"
     },
     {
       "source_path": "01_animation/bh_wave_it",
@@ -741,7 +834,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "9814f1bc488b1a244ad05bd6efdfca6169be2eb9782103f0892f38539f8e8a16"
     },
     {
       "source_path": "01_animation/brs_loc_transfer",
@@ -773,7 +867,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "85218eab724a6604399c7e097a41614c047e7689fdc3a7538c8fbdcf0355ac79"
     },
     {
       "source_path": "01_animation/brs_smooth_mocap",
@@ -805,7 +900,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "8618f8dcb106a68be7d992fd79b71a3d63cffbcadb8fdd6ad214c76b65b4cc69"
     },
     {
       "source_path": "01_animation/cg_shake_py3",
@@ -838,7 +934,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "1f081176783c8d5b7666fcaf2c22df1999fcb89688035dec1ee43e87f98335c5"
     },
     {
       "source_path": "01_animation/copy_animation",
@@ -870,7 +967,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "21cd0e9f819e45092322c06301145f468190eab7394e887878e771c0589f91f4"
     },
     {
       "source_path": "01_animation/directional_cycle_tool_v1_1",
@@ -905,7 +1003,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "f9daea3522dad174e3acb8b584a2e3d461ba5539c45c880b052d4be6d5df043e"
     },
     {
       "source_path": "01_animation/dof_control_v1_0",
@@ -942,7 +1041,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "f4b148605d7cf77d38d62a67bd043973d3355112228ef2b1a3160b8e3a69f5f0"
     },
     {
       "source_path": "01_animation/eblabs_screenspace",
@@ -1077,7 +1177,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "bd55c65b2850356e5102a69b7e364aa3b271ed308e2046d8117efde481ed4358"
     },
     {
       "source_path": "01_animation/eblabs_whiskey",
@@ -1204,7 +1305,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "3ce0b62a6914104045a1b9311dd2faf9aee3a74a3f88c6687cef7ff2a0c61d7e"
     },
     {
       "source_path": "01_animation/fd_multi_space",
@@ -1243,7 +1345,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 3,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "241e818bfcb1b73373699af403c0dfa7d3887edf149b04b139fc14559e5511ae"
     },
     {
       "source_path": "01_animation/gimbal_lock_fix",
@@ -1275,7 +1378,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "9687445bb44f018780b3bad67fec5019997ff0dfc8a7d6229e59b4600c0379ea"
     },
     {
       "source_path": "01_animation/ik_fk_switch",
@@ -1308,7 +1412,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "c4e744a605aec38ef4a2887b3af130712e14daba5af9b02d6a2ad8915da64e2c"
     },
     {
       "source_path": "01_animation/jop_retarget_anim_v09",
@@ -1344,7 +1449,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "d518775b82f8fb3e883560f9e4673d1f532ac5c8aa8d27e3786d4db441c6e2a5"
     },
     {
       "source_path": "01_animation/keyframe_overlap_v2_0",
@@ -1379,7 +1485,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "b22f2b8da8fe5e2577cd851caf9ff02ed6b1bd228b28788deba160f81f75a3e7"
     },
     {
       "source_path": "01_animation/kf_animrig_ikfk",
@@ -1411,7 +1518,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "a8e7aca1a2d68cfded4ece33a2e521095b63822e33c6680d45e87e25974fce6f"
     },
     {
       "source_path": "01_animation/lock_to_world",
@@ -1444,7 +1552,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 2,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "06d49925df448616bf37ca4f816510cd081a06e457a771817d5e6b04ba5874ba"
     },
     {
       "source_path": "01_animation/maya_keyframe_reduction",
@@ -1488,7 +1597,8 @@
         "parse_errors": 2,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "5846157c4d65caa406ef0e1531aa62f242669bfd02b4e733ddb6d5fb6cd24db5"
     },
     {
       "source_path": "01_animation/maya_timeline_marker",
@@ -1529,7 +1639,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "34049b3babee00819653cd487c714bc8324f7b5fef6513775e955541eaebcfb6"
     },
     {
       "source_path": "01_animation/mov_playblast_v11",
@@ -1562,7 +1673,8 @@
         "parse_errors": 1,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "835eaa1095ae18fc6fd885d01815b2d6f42bf0e8482d6ba2b6563b420b973849"
     },
     {
       "source_path": "01_animation/overslapper_v1_03",
@@ -1604,7 +1716,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "3c5485cb6202d9090d50aa919b27062d899d83eacf06c9942ac6651c9dc23eea"
     },
     {
       "source_path": "01_animation/physics_tools",
@@ -1641,7 +1754,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "2a464e07ce3131ff32f327aa0aba521acf48b8924569542b3c05762bc4104c01"
     },
     {
       "source_path": "01_animation/pose_matcher",
@@ -1673,7 +1787,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "8500af10d005a14711eacb2674c7319ca01151f5a3fcdd8db97c412aa0ea0148"
     },
     {
       "source_path": "01_animation/pose_transfer_remote",
@@ -1705,7 +1820,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "5b2c9675201fb93e7511847b4356cd98d1146ba698f3649fbaa2dc1866d0dac1"
     },
     {
       "source_path": "01_animation/retime_tools",
@@ -1762,7 +1878,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "59a57295c5c9a322f52127649a7491a0ba31bc47b89d462f737a50dbf929f961"
     },
     {
       "source_path": "01_animation/root_motion_bake",
@@ -1794,7 +1911,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "e84c3b0c245489f08d3f1fbef1cb2e37ebbc527b81eda2c52fea364b1bb0f013"
     },
     {
       "source_path": "01_animation/shape_animation_tool",
@@ -1871,7 +1989,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 12,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "98aecafdc69eb0b6a163e5108966891aad24a90e3942fe476e866aad74667d80"
     },
     {
       "source_path": "01_animation/shift_animation_v3_2",
@@ -1911,7 +2030,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "3fd93f2a65fba3985664ac36b7f207b929394dcc44bfa166b5046258b71285fe"
     },
     {
       "source_path": "01_animation/spring_magic_v3_5a",
@@ -1951,7 +2071,8 @@
         "parse_errors": 1,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "8f7db8b586a17d113224a4626354ae7bc20d29e6545f02b58268759a0256064a"
     },
     {
       "source_path": "01_animation/stagger_gui",
@@ -1984,7 +2105,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "ed2734e6a92a6a1e1aa1bc4663980068d2c0a60449955268dff9adc801ec002b"
     },
     {
       "source_path": "01_animation/stagger_offset",
@@ -2017,7 +2139,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 2,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "999ff5e2ccee34a49e6699d95d5688ada52a98bd20887d6ce5fcded6e2e58702"
     },
     {
       "source_path": "01_animation/sword_anim_polishing_tool_v4",
@@ -2061,7 +2184,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "5e8f01d1a46ecb5f3047cf92c1540e420d9814661a780f0803a9a68dbe45970e"
     },
     {
       "source_path": "01_animation/tb_anim_tools",
@@ -2093,7 +2217,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "12461205567ff6807de81085e871f2facfc6a7c86ad0a52788e681c398bc4bfd"
     },
     {
       "source_path": "01_animation/timeline_enhanced",
@@ -2126,7 +2251,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "faf8cf8c1c33d98421e1ce1de68d636c731a1d69341f9a87d3957109875d103d"
     },
     {
       "source_path": "01_animation/tweener_v1_0_2",
@@ -2171,7 +2297,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "e8f8e635219b4cf548ee9802be0e8b770142996b57c265380578a767a4f86973"
     },
     {
       "source_path": "01_animation/velocity_calculator",
@@ -2203,7 +2330,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "c08e4dc7603e32f9061a37fa2467f034365a8b3f95f2a67d43add69429873c94"
     },
     {
       "source_path": "01_animation/w_retarget_tool",
@@ -2235,7 +2363,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "c30e07ae4107c9027c93ce0042602e6b9e9716d02e5363017eb476589f326fd3"
     },
     {
       "source_path": "02_rigging_hierarchy/base_overrig_v9_0",
@@ -2270,7 +2399,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "dd85842c915580ec5ca2fd21b94d2ec223d8f6edd7f3f34cc21c0c4561052046"
     },
     {
       "source_path": "02_rigging_hierarchy/batch_skin_bind",
@@ -2303,7 +2433,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "8b4ddb1a71168956d1c4a389ffd5afe53b1e9b62032dec42b7e58642c4a14e87"
     },
     {
       "source_path": "02_rigging_hierarchy/bb_tools",
@@ -2388,7 +2519,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "df0f841cee7553cbbae915d9df2fc1a9986183805c38dd7d969b49dd087b1ed7"
     },
     {
       "source_path": "02_rigging_hierarchy/constraint_manager_v6",
@@ -2421,7 +2553,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "9faa4cc7fe8faba54a0e7f7db87ac487d4975cc3bde0675fe2225af77318cd68"
     },
     {
       "source_path": "02_rigging_hierarchy/hierarchy_analyzer",
@@ -2453,7 +2586,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "7c95dad0e31bdbe00b5978b50aabd0180c4b5a251e455159e55de704c8ce728d"
     },
     {
       "source_path": "02_rigging_hierarchy/joint_optimal_pro_v4_1",
@@ -2493,7 +2627,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "1d999449dc84ef6e1d5dbea220d2421a917a264ff5a1830384f151256e6a6538"
     },
     {
       "source_path": "02_rigging_hierarchy/rdm_tools_v2",
@@ -2622,7 +2757,8 @@
         "parse_errors": 35,
         "possible_top_level_calls": 16,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "b3c399547844be869fe8945c6f117b5c1cdf3d8a3636923a45bdb0dde8a36c38"
     },
     {
       "source_path": "02_rigging_hierarchy/relationship_tools_v19",
@@ -2654,7 +2790,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "fe7cb031356c3a2565a223d19c1aa6882f9ab281ebbf6dc57760108b507b7358"
     },
     {
       "source_path": "02_rigging_hierarchy/reparent_pro_v1_5_1",
@@ -2691,7 +2828,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "c7f70c2887ab91790f85ac184301a6e4de7eafad346cb1245a98a2e53f517b46"
     },
     {
       "source_path": "02_rigging_hierarchy/segment_scale_fix",
@@ -2724,7 +2862,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "c47fa80bc73db1ce65619334634436a2b952ede37ee3998b10e277c518f3a778"
     },
     {
       "source_path": "02_rigging_hierarchy/skeleton_generator",
@@ -2756,7 +2895,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "ca8bc000b9e9051cce97698d5145a6048bfb448a275acacae3435870a66a9529"
     },
     {
       "source_path": "02_rigging_hierarchy/skin_info_and_super_connect",
@@ -2791,7 +2931,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "d9ea429df347d9e275461075eca1bebfb74f965f5b24781133fd745315f98d97"
     },
     {
       "source_path": "02_rigging_hierarchy/skin_magic",
@@ -2823,7 +2964,8 @@
         "parse_errors": 1,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "a9b27a06abec0a5a7dcc300bb79d22d908e774918e2feb19c9c4d4f570ad5d3b"
     },
     {
       "source_path": "02_rigging_hierarchy/skin_weight_transfer",
@@ -2855,7 +2997,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "02d81c1ea8dafdc1c8e522ea194ecf46c220cc5a226b786fda670965974ec391"
     },
     {
       "source_path": "03_transforms_modeling/camera_f_fix",
@@ -2887,7 +3030,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "548824ea8f3f8fc422d793ef5ea4e8e860249b16e19425f88e30b197a04e86c6"
     },
     {
       "source_path": "03_transforms_modeling/cvwrap_weightdriver",
@@ -3287,7 +3431,8 @@
         "parse_errors": 2,
         "possible_top_level_calls": 6,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "e1e09a998885be71adecf3ef92d4a2a08a6d0a9647b72fbdeb858a42711d4243"
     },
     {
       "source_path": "03_transforms_modeling/eblabs_world_space_tools",
@@ -3436,7 +3581,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 2,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "544dfc36fc5857fb177b4a9c78e669b12635836c4d67e15b3c820ce59dc18caa"
     },
     {
       "source_path": "03_transforms_modeling/fcm_hider",
@@ -3473,7 +3619,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "adcff283c95ba6fd13989fa4d57711876f8219ed02329002f23da8e8f606d17c"
     },
     {
       "source_path": "03_transforms_modeling/gpu_cache_to_mesh",
@@ -3505,7 +3652,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "9fa6c527698ff9efadaf9a4ad6b204459d1e39a307df77f0a6b46fd89472828c"
     },
     {
       "source_path": "03_transforms_modeling/isolate_selected",
@@ -3537,7 +3685,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "ae9d0cd5c880e971e1a2a846c2a14c81efe2e950ffe3bc65a7c47c980a418c55"
     },
     {
       "source_path": "03_transforms_modeling/mirror_tool",
@@ -3569,7 +3718,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "ab1159f02dcf43577947bfa4f58a38b74e5d198372bbb16584d137f3a927eb7f"
     },
     {
       "source_path": "03_transforms_modeling/no_highlight_v2",
@@ -3601,7 +3751,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "5646e3a994b40304bbd461b891bf4dc8eb19fe5e26a9f26c17185cab04c987e3"
     },
     {
       "source_path": "03_transforms_modeling/quaternion_tool",
@@ -3633,7 +3784,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "855cd4ff04d8b0b1bf34beebc24e5d1656945dd9f89a2ab60732b9beb745d44e"
     },
     {
       "source_path": "03_transforms_modeling/reset_pivot",
@@ -3729,7 +3881,8 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_commit": "6b0818b3cce79fee56737f43cdd512247bcd00c3"
+      "source_commit": "6b0818b3cce79fee56737f43cdd512247bcd00c3",
+      "source_tree_sha256": "1bb894a70f51fd36a8a27fc2d7ea77c8d1004d1ff4597d73552acfcfee9334ed"
     },
     {
       "source_path": "03_transforms_modeling/rotation_aligner",
@@ -3761,7 +3914,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "85558bdcb7a15079225b648e17b9dd342d3c2df7bd1e4b278f30a8b5e24ecab4"
     },
     {
       "source_path": "03_transforms_modeling/smart_mesh",
@@ -3798,7 +3952,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "6dd3d9568412faa02c3327e98216c0630241eb25740b39c902ff7220f6a2bbcd"
     },
     {
       "source_path": "03_transforms_modeling/unlock_freeze",
@@ -3830,7 +3985,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "8dade2f2496856f90ae11606eadb0932eb04c14d51bd4b1f71e8520f000e6a84"
     },
     {
       "source_path": "03_transforms_modeling/uv_set_renamer",
@@ -3862,7 +4018,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "189ef8bce3558d0f3b6b532887b01bd6462ffac57b2111d741281f81adce3943"
     },
     {
       "source_path": "03_transforms_modeling/world_transform_v4",
@@ -3894,7 +4051,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "0931c36b5013a9575d2d2e21c962291f12847ffcd4678dc5c7285fca690463aa"
     },
     {
       "source_path": "04_pipeline_io/abc_batch_exporter",
@@ -3927,7 +4085,8 @@
         "parse_errors": 2,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "1b01ae1ee6d85ff1552139d75cb77f51fff05111e88655a87403212e2c5fd54f"
     },
     {
       "source_path": "04_pipeline_io/asset_it_v1_2",
@@ -3978,7 +4137,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 16,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "fed6feb8ff88d03a666bc25586a16d0d818edb46296231b8f4e6da0547b59e04"
     },
     {
       "source_path": "04_pipeline_io/batch_importer_v3",
@@ -4010,7 +4170,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "f17aba49716785314806edb58f843acfc28a276c2dddd107f00946ed89fba3ff"
     },
     {
       "source_path": "04_pipeline_io/batch_processor_v3",
@@ -4042,7 +4203,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "aa9c8e7c26ec7f90b50b9de2165f79eb6e1ab8188dd82b6554004f0838f45d6e"
     },
     {
       "source_path": "04_pipeline_io/clean_invalid_paths",
@@ -4074,7 +4236,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "057ec6bac7c83ce0e0bb62509f0fd3f6af5adf7804de99b9c2fdf4073353980b"
     },
     {
       "source_path": "04_pipeline_io/fbx_batch_exporter_v7",
@@ -4107,7 +4270,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 2,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "ca978e3a73125486c4ad1a22cc56732cf83878a02cf35c34d01c87494c60e472"
     },
     {
       "source_path": "04_pipeline_io/per_frame_bs_fbx",
@@ -4139,7 +4303,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "8007368e59703c1d895dcd237be289091734f269c45e2c08f6995d979b4d5fea"
     },
     {
       "source_path": "04_pipeline_io/replace_references",
@@ -4173,7 +4338,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "7d33c02450d08a5343a73c86c5b64e033ecd43c03635b0a4995ea62c093ec023"
     },
     {
       "source_path": "04_pipeline_io/vessel_fbx_exporter",
@@ -4205,7 +4371,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "6a833b7cac343679d17a311ddb21d4adf513a4f2f3abe31cb7e1211112ad90a3"
     },
     {
       "source_path": "05_ue_pipeline/ue_bone_exporter",
@@ -4241,7 +4408,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "02e64bb6e3f645f9ef38ad2d2876c45b75681238d2f3a42e313d47ce03565bad"
     },
     {
       "source_path": "05_ue_pipeline/ue_context_menu",
@@ -4273,7 +4441,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "513b7028ec42bf2934a8dfabf262a3b8fb245671925ab87e5a852dacb0cb1b1b"
     },
     {
       "source_path": "05_ue_pipeline/ue_fbx_auto_import",
@@ -4306,7 +4475,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 2,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "6cf3ffc8b84e03f9adec39bbacc515958450b11a41c096d448206047e3d2be7b"
     },
     {
       "source_path": "05_ue_pipeline/ue_reference_checker",
@@ -4338,7 +4508,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "e8c225958677e0dc0fa55652e56aa8649ea4dee90a744a21e3370541148d4b3e"
     },
     {
       "source_path": "05_ue_pipeline/ue_source_finder",
@@ -4370,7 +4541,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "ee9787591ed03c786577954458329bd17e4323b5b474c2543a398248c6b4064d"
     },
     {
       "source_path": "06_diagnostics_security/clean_junk_nodes",
@@ -4402,7 +4574,8 @@
         "parse_errors": 1,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "f89ce6f71cd2c3c07d0263286dc205775b4a754d48e7812d012844f157b4d229"
     },
     {
       "source_path": "06_diagnostics_security/scene_virus_cleaner",
@@ -4434,7 +4607,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "b51583a58c8fd2f84a29d09e68478375d56bf139f3ebd44513d788678ae25e77"
     },
     {
       "source_path": "06_diagnostics_security/undo_checkpoint",
@@ -4470,7 +4644,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "4d8ae995b455e2334d99e3fd361f1f0b3115aa13cc15bca561e4a6894449eadc"
     },
     {
       "source_path": "07_subsystems_suites/animbot_copy",
@@ -4520,7 +4695,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "62719c8a8a8f79158679eaed5162f8abd4bebc3c93edcd24c6f513f86ea40dac"
     },
     {
       "source_path": "07_subsystems_suites/getools_overlappy",
@@ -4560,7 +4736,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "fee9173564dbadbf2c90e38f02bf11309c7fe340ceb6ee0d9b5c6bc5278e3f0a"
     },
     {
       "source_path": "07_subsystems_suites/malcolm341_mega_pack",
@@ -4597,7 +4774,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "b2cf6c3eebe50d2c4ce040007c275cbbc045c7f1c88ec957ed12ee50b05bad88"
     },
     {
       "source_path": "07_subsystems_suites/maya_blueprint_toolbox",
@@ -4646,7 +4824,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "7493e25c74e1a153076147a04998f04caa4b159ae660a1be1dcb7323fa9a6e6d"
     },
     {
       "source_path": "07_subsystems_suites/smart_assistant",
@@ -4693,7 +4872,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "81f0c9f25404b9d2767d7e4766fae99f9fbab7a7ea371892aec116ac8e30bbf5"
     },
     {
       "source_path": "07_subsystems_suites/studiolibrary_patch",
@@ -4736,7 +4916,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 3,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "5928ecaea01eeee5750df533b3bd8877b3d0e148a0a2ce7bf15494ad2ca6231d"
     },
     {
       "source_path": "07_subsystems_suites/the_key_machine",
@@ -4789,7 +4970,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "931a68edad7bd521cf41ea573f03ed0209c51256a1b5b8681d55e78e8b6173b5"
     },
     {
       "source_path": "08_utilities_system/floating_toolbar",
@@ -4822,7 +5004,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "6026b0b40d4cd86d3283df7ccfb8e3bb28edcdecc619e7f0a5bd0fe541eb28e8"
     },
     {
       "source_path": "08_utilities_system/ks_node_outliner_v2_2",
@@ -4869,7 +5052,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "d406fcc22ab011f1ce9b9c5cdc45cfa1003fe404bfb86570b40a25a380d2eaed"
     },
     {
       "source_path": "08_utilities_system/ks_save_timer_v1_3_0",
@@ -4942,7 +5126,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "1f7c3a2f09e435ce728e6fa702bcea15fb747c53070f003e8c9b1a6ab149960a"
     },
     {
       "source_path": "08_utilities_system/maya_process_finder",
@@ -4975,7 +5160,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "6e112247d312accd66fbc91b3feff5ee55cbb14bf6cb5ebd0d9ad81c981da38d"
     },
     {
       "source_path": "08_utilities_system/maya_tabs_v1_3a",
@@ -5007,7 +5193,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "2aa671997131432662ca0d87c37f8b90c8457a4516731774aa3fbd58ae767760"
     },
     {
       "source_path": "08_utilities_system/perform_file_drop_action",
@@ -5039,7 +5226,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "397c640a730d22abfe5503b5526a6d84fa62181fa8959aac77f12c787e9da33e"
     },
     {
       "source_path": "08_utilities_system/shelf_manager",
@@ -5071,7 +5259,8 @@
         "parse_errors": 0,
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
-      }
+      },
+      "source_tree_sha256": "b7f29ceb1439d8cf4ceb02f0f84fca91480b9f71c2360cd56f593f704bfaf89c"
     }
   ]
 }

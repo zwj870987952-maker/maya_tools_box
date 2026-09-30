@@ -46,6 +46,30 @@ def main():
             record["entry"] = entry
             exists = True
         item = old.get(folder, {}).copy()
+        digest = hashlib.sha256()
+        for source in files:
+            digest.update(source.relative_to(unit).as_posix().encode("utf-8") + b"\0")
+            with source.open("rb") as stream:
+                for chunk in iter(lambda: stream.read(65536), b""):
+                    digest.update(chunk)
+        tree_hash = digest.hexdigest()
+        if item.get("source_tree_sha256") and item["source_tree_sha256"] != tree_hash and item.get("candidate_complete"):
+            item["status"] = "pending"
+            item["candidate_complete"] = False
+            item.setdefault("issues", []).append("Original source/resources changed; candidate must be reviewed again")
+        item["source_tree_sha256"] = tree_hash
+        if item.get("candidate_complete") and item.get("promotion", {}).get("candidate_sha256"):
+            from promote_candidate import fingerprint
+            candidate = ROOT / item["candidate_path"]
+            try:
+                description = json.loads((candidate / "promotion.json").read_text(encoding="utf-8"))
+                current_candidate_hash = fingerprint(candidate, description)
+            except (OSError, ValueError, KeyError):
+                current_candidate_hash = None
+            if current_candidate_hash != item["promotion"]["candidate_sha256"]:
+                item["status"] = "pending"
+                item["candidate_complete"] = False
+                item.setdefault("issues", []).append("Candidate changed or assets disappeared after checks; rerun verification")
         item.update({"source_path": folder, "name": record.get("name", unit.name), "category": record.get("category", folder.split("/")[0]), "entry": entry, "entry_exists": exists, "entry_candidates": matches, "source_file_count": len(files), "source_files": [p.relative_to(unit).as_posix() for p in files if p.suffix.lower() in (".py", ".mel", ".cpp", ".h", ".cs", ".uplugin")], "license_files": [p.relative_to(unit).as_posix() for p in files if "license" in p.name.lower() or "licence" in p.name.lower() or "copyright" in p.name.lower()]})
         if exists:
             new_hash = hashlib.sha256((unit / entry).read_bytes()).hexdigest()

@@ -1,0 +1,10 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool\\01_animation\\anim_filters\\release_candidate\\tests\\test_anim_filters_maya.py",
+  "returncode": 3221226505,
+  "passed": false,
+  "output": "test_adaptive_apply_preserves_outside_keys_and_one_step_undo (__main__.AnimFiltersMayaTests.test_adaptive_apply_preserves_outside_keys_and_one_step_undo) ... ����: AnimFiltersTool_anim_filters\nok\r\ntest_adaptive_dry_run_preserves_full_curve_and_undo_queue (__main__.AnimFiltersMayaTests.test_adaptive_dry_run_preserves_full_curve_and_undo_queue) ... ok\r\ntest_endpoint_write_matches_upstream_for_translation_and_rotation (__main__.AnimFiltersMayaTests.test_endpoint_write_matches_upstream_for_translation_and_rotation) ... ok\r\ntest_preview_refresh_cancel_and_apply_remain_undoable (__main__.AnimFiltersMayaTests.test_preview_refresh_cancel_and_apply_remain_undoable) ... ����: AnimFiltersPreview_fc23defd58634714b370f30783b19b1d\n����: AnimFiltersPreview_9901973c174d4cb78cc1dcab17099964\n����: AnimFiltersPreview_d2c6fc8c6ee843a88faf315cefb77ec8\nok\r\ntest_preview_refuses_to_undo_unrelated_edits (__main__.AnimFiltersMayaTests.test_preview_refuses_to_undo_unrelated_edits) ... ����: \n����: AnimFiltersPreview_ec50319adc13470fb81aadf905d7ef17\nok\r\ntest_qt_resource_loads_and_sliders_cancel_without_settings_writes (__main__.AnimFiltersMayaTests.test_qt_resource_loads_and_sliders_cancel_without_settings_writes) ... ",
+  "gui_acceptance": false,
+  "python_source_sha256": "6b80d72893b0f0c8400144d185673734fc56fcedcde5dabadd9c083bbd7e28d4"
+}
