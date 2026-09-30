@@ -583,7 +583,7 @@ def apply_multikey_ease_interval(curve, start_time, stop_time, strength=0.5, bia
     在保持端点（起始与结束帧）数值和时间绝对不变的前提下，
     对区间内的所有多个内部关键帧整体应用 S 曲线缓入缓出 (Smootherstep S-Curve) 重塑。
     支持通过 bias 滑杆调控权重偏向中间、起点或终点。
-    
+
     参数:
         curve (str): 动画曲线节点名
         start_time (float): 起始端点时间

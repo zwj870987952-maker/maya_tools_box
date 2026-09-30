@@ -57,6 +57,7 @@ def main():
                     cmds.setKeyframe(curves, time=(kf, kf), insert=True)
                 except Exception:
                     pass''', '''                cmds.setKeyframe(curves, time=(kf, kf), insert=True)''')
+    operations = '\n'.join(line.rstrip() for line in operations.splitlines()).rstrip() + '\n'
     (PACKAGE / 'operations.py').write_text(operations, encoding='utf-8')
     native_ui = 'import sys\nimport maya.cmds as cmds\nfrom .operations import *\n\n' + ''.join(lines[ui.lineno-1:ui.end_lineno])
     native_ui = native_ui.replace('• 🎛️ 曲线优化：端点绝对锁定，提供平滑去噪、冗余简化、多帧S曲线缓动与端点缓入缓出。', '• 🎛️ 曲线优化：保留端点值；切线可能影响范围外插值。支持平滑、简化与缓动。')

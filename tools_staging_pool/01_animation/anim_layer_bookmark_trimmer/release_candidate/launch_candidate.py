@@ -24,4 +24,3 @@ def load_tool():
 
 if __name__ == "__main__":
     load_tool().show_ui()
-
