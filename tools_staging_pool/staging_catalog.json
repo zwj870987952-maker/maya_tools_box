@@ -3,8 +3,10 @@
     "category": "01_animation",
     "folder": "01_animation/anim_filters",
     "name": "动画曲线过滤器套件 (animFilters)",
-    "entry": "animFilters.mel",
-    "desc": "欧拉角跳变与动画曲线噪点平滑过滤"
+    "entry": "animFilters-v1.0-maya17/scripts/animFilters/animFilters.py",
+    "desc": "欧拉角跳变与动画曲线噪点平滑过滤",
+    "entry_kind": "python_package_function",
+    "entry_notes": "Source defines main(); old .mel name absent; Python package and scipy/PySide2 dependencies require adaptation."
   },
   {
     "category": "01_animation",
@@ -31,22 +33,28 @@
     "category": "01_animation",
     "folder": "01_animation/anim_layer_v4_0",
     "name": "动画层综合控制面板 v4.0",
-    "entry": "anim_layer.mel",
-    "desc": "动画层批量关键帧与显示管理增强面板"
+    "entry": "anim_layer_v4_0/layerEditor.mel",
+    "desc": "动画层批量关键帧与显示管理增强面板",
+    "entry_kind": "mel_with_top_level_ui",
+    "entry_notes": "Actual layerEditor.mel exists; final top-level block creates and updates the layer editor; sourcing is not read-only."
   },
   {
     "category": "01_animation",
     "folder": "01_animation/anim_mirror_helper_v1_1",
     "name": "角色动画镜像助手 v1.1 (Studio版)",
-    "entry": "Anim_Mirror_Helper.py",
-    "desc": "角色姿态与控制器动画快速镜像"
+    "entry": "Anim_Mirror_Helper_v1_1_studio_lic/mirror_walk_tool_code.mel",
+    "desc": "角色姿态与控制器动画快速镜像",
+    "entry_kind": "mel_procedure_with_resources",
+    "entry_notes": "Installer shelf command sources this file then calls Mirror_tool_menue and supplies icon path."
   },
   {
     "category": "01_animation",
     "folder": "01_animation/anim_polish_premium_v1_23",
     "name": "AnimPolish PREMIUM 角色动画修帧曲线抛光神器 v1.23",
-    "entry": "AnimPolish.py",
-    "desc": "提取 v1.23 最新付费版，淘汰根目录的 v1.19 Basic 旧版，附带说明文档"
+    "entry": "animPolish/ui.py",
+    "desc": "提取 v1.23 最新付费版，淘汰根目录的 v1.19 Basic 旧版，附带说明文档",
+    "entry_kind": "python_package_function",
+    "entry_notes": "Bundled README explicitly imports animPolish.ui and calls ui(dock=1/0); original source/readme license attribution retained."
   },
   {
     "category": "01_animation",
@@ -59,8 +67,10 @@
     "category": "01_animation",
     "folder": "01_animation/animirror_v2_0",
     "name": "AniMirror 动画镜像工具 v2.0",
-    "entry": "AniMirror.py",
-    "desc": "独立 Qt 界面动画姿态与序列帧镜像工具"
+    "entry": "AniMirror(Drag&Drop Install).mel",
+    "desc": "独立 Qt 界面动画姿态与序列帧镜像工具",
+    "entry_kind": "installer_with_embedded_tool",
+    "entry_notes": "Only source file contains shelf installer and embedded aniMirror_menu code; this is an installer, not a safe read-only runtime entry."
   },
   {
     "category": "01_animation",
@@ -73,21 +83,25 @@
     "category": "01_animation",
     "folder": "01_animation/bh_aim_tools_v1_1",
     "name": "Aim 朝向与视线注视对齐工具 v1.1",
-    "entry": "bh_aimTools.py",
-    "desc": "Brian Horgan 开发的眼部注视与空间朝向辅助工具"
+    "entry": "bh_aimTools_v1.1/bh_aimTools.mel",
+    "desc": "Brian Horgan 开发的眼部注视与空间朝向辅助工具",
+    "entry_kind": "mel_with_top_level_ui",
+    "entry_notes": "Source installation comment specifies source bh_aimTools.mel to launch GUI; original and Chinese variants retained, primary selects original."
   },
   {
     "category": "01_animation",
     "folder": "01_animation/bh_local_nudge",
     "name": "局部微调位移旋转工具 (bh_localNudge)",
-    "entry": "bh_localNudge.py",
-    "desc": "在局部/屏幕/父级坐标系下微调动画控制器位移与旋转"
+    "entry": "bh_localNudge/bh_localNudge.mel",
+    "desc": "在局部/屏幕/父级坐标系下微调动画控制器位移与旋转",
+    "entry_kind": "mel_procedure",
+    "entry_notes": "Actual MEL declares global proc bh_localNudge; old Python filename absent."
   },
   {
     "category": "01_animation",
     "folder": "01_animation/bh_speedlines",
     "name": "动漫二次元动画速度线生成器",
-    "entry": "bh_speedLines.mel",
+    "entry": "bh_speedLines(速度线)/bh_speedLines.mel",
     "desc": "生成跟随角色动态的视效速度线与冲击波特效网格"
   },
   {
@@ -136,29 +150,33 @@
     "category": "01_animation",
     "folder": "01_animation/dof_control_v1_0",
     "name": "dofControl 摄像机景深聚焦交互控制工具 v1.0",
-    "entry": "dofControl.py",
-    "desc": "在视口中以 Locator 快速驱动摄像机焦点与景深模糊范围"
+    "entry": "dofControl.mel",
+    "desc": "在视口中以 Locator 快速驱动摄像机焦点与景深模糊范围",
+    "entry_kind": "mel_scene_operation",
+    "entry_notes": "Source declares global proc dofControl, creates cube/nodes and connects camera attributes; not a Python UI tool."
   },
   {
     "category": "01_animation",
     "folder": "01_animation/eblabs_screenspace",
     "name": "EB Labs 视口屏幕空间操控套件 (ScreenSpace)",
-    "entry": "ScreenSpace.py",
+    "entry": "ScreenSpace/ScreenSpace.py",
     "desc": "直接在摄像机平面屏幕坐标系下锁定并拖拽控制器"
   },
   {
     "category": "01_animation",
     "folder": "01_animation/eblabs_whiskey",
     "name": "EB Labs Whiskey 动画姿态与时间轴快照",
-    "entry": "Whiskey.py",
+    "entry": "Whiskey/Whiskey.py",
     "desc": "EB Labs 出品的高效姿态捕获与动画对比套件"
   },
   {
     "category": "01_animation",
     "folder": "01_animation/fd_multi_space",
     "name": "多空间无缝切换与吸附工具 (FD Multi-Space)",
-    "entry": "FD_MULTI-SPACE.py",
-    "desc": "支持角色控制器世界/局部/任意道具层级空间实时无缝切换吸附"
+    "entry": "FD_Multi_Space_tool_GUI.py",
+    "desc": "支持角色控制器世界/局部/任意道具层级空间实时无缝切换吸附",
+    "entry_kind": "python_with_import_ui_side_effect",
+    "entry_notes": "Defines create_main_ui and invokes it at module scope; dispatches reference and no-reference sibling modules."
   },
   {
     "category": "01_animation",
@@ -206,14 +224,14 @@
     "category": "01_animation",
     "folder": "01_animation/maya_keyframe_reduction",
     "name": "Maya 关键帧智能精简工具 (Keyframe Reduction)",
-    "entry": "scripts/keyframeReduction.py",
+    "entry": "maya-keyframe-reduction-master/scripts/keyframeReduction/classes/keyframeReduction.py",
     "desc": "开源关键帧容差精简算法，批量去除动捕和烘焙冗余帧"
   },
   {
     "category": "01_animation",
     "folder": "01_animation/maya_timeline_marker",
     "name": "时间滑块颜色书签与事件标记插件 (Timeline Marker)",
-    "entry": "scripts/timelineMarker/ui.py",
+    "entry": "maya-timeline-marker-master/scripts/timelineMarker/ui.py",
     "desc": "完整开源工程，在时间轴上创建彩色便签、区域标记与热键跳转"
   },
   {
@@ -227,15 +245,19 @@
     "category": "01_animation",
     "folder": "01_animation/overslapper_v1_03",
     "name": "OverSlapper 弹性重叠与惯性延迟工具 v1.03",
-    "entry": "overslapper.py",
-    "desc": "在动画曲线上快速应用弹簧、惯性与阶梯延迟效果"
+    "entry": "overslapper_v1_03/overslapper/overslapper_tool.py",
+    "desc": "在动画曲线上快速应用弹簧、惯性与阶梯延迟效果",
+    "entry_kind": "python_ui_class",
+    "entry_notes": "Installer imports overslapper_tool, instantiates overslapper_UI and calls show; installer itself is not runtime business entry."
   },
   {
     "category": "01_animation",
     "folder": "01_animation/physics_tools",
     "name": "Maya 动画物理动力学辅助工具箱",
-    "entry": "PhysicsTools.mel",
-    "desc": "布娃娃/重力/次级惯性动力学物理模拟解算，过滤29个教学视频"
+    "entry": "PhysicsTools_v1.8.mel",
+    "desc": "布娃娃/重力/次级惯性动力学物理模拟解算，过滤29个教学视频",
+    "entry_kind": "mel_procedure",
+    "entry_notes": "Versioned source declares global proc PhysicsToolsWin; includes dynamics/bake operations and embedded commands."
   },
   {
     "category": "01_animation",
@@ -255,7 +277,7 @@
     "category": "01_animation",
     "folder": "01_animation/retime_tools",
     "name": "RetimeTools 时间节奏与关键帧重配工具",
-    "entry": "RetimeTools.py",
+    "entry": "RetimeTools/RetimeTools.py",
     "desc": "解压汉化版与原版，支持以滑块自由伸缩整体动作节奏"
   },
   {
@@ -269,28 +291,32 @@
     "category": "01_animation",
     "folder": "01_animation/shape_animation_tool",
     "name": "形状动画形态微调工具 (Shape Animation)",
-    "entry": "ShapeAnimationTool.py",
-    "desc": "排除视频，保留原版与汉化版完整代码与手册"
+    "entry": "sat【修型插件】/sat_2022_py3【汉化版】/__init__.py",
+    "desc": "排除视频，保留原版与汉化版完整代码与手册",
+    "entry_kind": "versioned_package_with_import_side_effect",
+    "entry_notes": "Versioned package initializer instantiates MainWindow, shows it, connects signals and starts. Other Python2 variants retained. Decompiled-source markers and import side effects are recorded; no compatibility or licensing inference."
   },
   {
     "category": "01_animation",
     "folder": "01_animation/shift_animation_v3_2",
     "name": "关键帧平移与波浪式偏移工具 v3.2",
-    "entry": "Shift_animation.mel",
-    "desc": "批量阶梯式平移关键帧，制作波浪跟随动画"
+    "entry": "Shift_animation_v3_2/barnev_Shift_animation_code.mel",
+    "desc": "批量阶梯式平移关键帧，制作波浪跟随动画",
+    "entry_kind": "mel_procedure",
+    "entry_notes": "Actual source declares SHIFTING_animation_menue; sibling drag-drop file is installer."
   },
   {
     "category": "01_animation",
     "folder": "01_animation/spring_magic_v3_5a",
     "name": "经典物理弹簧骨骼计算器 v3.5a (SpringMagic)",
-    "entry": "springmagic.py",
+    "entry": "springmagic/springMagic.py",
     "desc": "经典弹簧骨骼动力学插件，为头发、飘带、尾巴自动生成逼真摆动"
   },
   {
     "category": "01_animation",
     "folder": "01_animation/stagger_gui",
     "name": "Stagger 关键帧阶梯偏移图形化面板 (GUI版)",
-    "entry": "ui.py",
+    "entry": "stagger/ui.py",
     "desc": "相比池中单脚本命令行版，增加独立 SVG 图标与 Qt 面板，清理 macOS 垃圾后入池"
   },
   {
@@ -304,8 +330,10 @@
     "category": "01_animation",
     "folder": "01_animation/sword_anim_polishing_tool_v4",
     "name": "武器与刀剑轨迹修帧抛光神器 v4",
-    "entry": "Sword_Anim_Polishing_Tool_v4.mel",
-    "desc": "排除视频，保留 mel 脚本与位图组件，精准平滑武器剑尖运动轨迹"
+    "entry": "sword_anim_polish_tool.mel",
+    "desc": "排除视频，保留 mel 脚本与位图组件，精准平滑武器剑尖运动轨迹",
+    "entry_kind": "mel_procedure_with_resources",
+    "entry_notes": "Declares sword_anim_polish_tool(string script_path); requires misc resources and a correct script directory."
   },
   {
     "category": "01_animation",
@@ -360,8 +388,10 @@
     "category": "02_rigging_hierarchy",
     "folder": "02_rigging_hierarchy/bb_tools",
     "name": "bb_Tools 绑定与控制器综合工具集",
-    "entry": "bb_ctrlTool.mel",
-    "desc": "包含属性批量控制、毛囊生成、控制器造型库与蒙皮权重清单"
+    "entry": "bb_Tools/bb_Tools.mel",
+    "desc": "包含属性批量控制、毛囊生成、控制器造型库与蒙皮权重清单",
+    "entry_kind": "mel_suite_entry",
+    "entry_notes": "Suite main declares bb_Tools and builds buttons pointing to Script/bb_ctrlTool.mel and other subtools. Two same-name ctrl files exist; select whole-suite entry instead of guessing a duplicate subtool."
   },
   {
     "category": "02_rigging_hierarchy",
@@ -381,8 +411,10 @@
     "category": "02_rigging_hierarchy",
     "folder": "02_rigging_hierarchy/joint_optimal_pro_v4_1",
     "name": "骨骼朝向与轴向优化神器 (Joint Optimal Pro v4.1)",
-    "entry": "Joint_Optimal_Pro.mel",
-    "desc": "专业纠正骨骼旋转轴 (Rotate Axis) 与关节定向 (Joint Orient)，带完整 PDF 说明"
+    "entry": "Joint_Optimal_Pro_Application_v4.1/barnev_Joint_Optimal_Pro_Application_code.mel",
+    "desc": "专业纠正骨骼旋转轴 (Rotate Axis) 与关节定向 (Joint Orient)，带完整 PDF 说明",
+    "entry_kind": "mel_procedure",
+    "entry_notes": "Actual source declares JOPA_skeleton_tools_menue; sibling drag-drop file installs tool."
   },
   {
     "category": "02_rigging_hierarchy",
@@ -402,8 +434,10 @@
     "category": "02_rigging_hierarchy",
     "folder": "02_rigging_hierarchy/reparent_pro_v1_5_1",
     "name": "reParent Pro 高级层级重构与父子切换器 v1.5.1",
-    "entry": "reParent_Pro_v1.5.1.mel",
-    "desc": "无损维持当前位移旋转情况下动态重构 DAG 父子从属关系"
+    "entry": "reParent_Pro_v1.5.1/reParentPro _v1.5.1.mel",
+    "desc": "无损维持当前位移旋转情况下动态重构 DAG 父子从属关系",
+    "entry_kind": "mel_source_callable_pending",
+    "entry_notes": "Actual versioned source filename includes a space; no file with original catalog basename exists. Callable requires further per-tool review."
   },
   {
     "category": "02_rigging_hierarchy",
@@ -423,14 +457,14 @@
     "category": "02_rigging_hierarchy",
     "folder": "02_rigging_hierarchy/skin_info_and_super_connect",
     "name": "SkinInfo v1.92 权重导入导出与 SuperConnect 约束管理器",
-    "entry": "skinInfo_V1.92.mel",
+    "entry": "Export - Import SkinCluster/skinInfo_V1.92.mel",
     "desc": "淘汰旧版 1.7/1.8/1.91，打包最新的 skinInfo_V1.92 与 Super_Connect 约束链接器"
   },
   {
     "category": "02_rigging_hierarchy",
     "folder": "02_rigging_hierarchy/skin_magic",
     "name": "SkinMagic 蒙皮权重平滑与魔法笔刷",
-    "entry": "SkinMagic.py",
+    "entry": "SkinMagic/skinMagic.py",
     "desc": "图形化蒙皮权重调节器，快速分配、镜像与就近吸附顶点权重"
   },
   {
@@ -451,22 +485,24 @@
     "category": "03_transforms_modeling",
     "folder": "03_transforms_modeling/cvwrap_weightdriver",
     "name": "cvWrap 拓扑包裹与 weightDriver RBF 权重驱动修形套件",
-    "entry": "scripts/cvwrap/bindui.py",
+    "entry": "cvwrap/bindui.py",
     "desc": "整合 cvwrap 与 weightDriver 高性能修形变形算法与 mgear animbits 模块"
   },
   {
     "category": "03_transforms_modeling",
     "folder": "03_transforms_modeling/eblabs_world_space_tools",
     "name": "EB Labs 世界空间坐标对齐与矩阵传递 (WorldSpaceTools)",
-    "entry": "WorldSpaceTools.py",
+    "entry": "WorldSpaceTools/WorldSpaceTools.py",
     "desc": "在任意复合层级和空间下无缝传递世界坐标矩阵"
   },
   {
     "category": "03_transforms_modeling",
     "folder": "03_transforms_modeling/fcm_hider",
     "name": "FCM 视口层级元素快速隐藏/隔离器",
-    "entry": "FCM_Hider.mel",
-    "desc": "一键快速切换骨骼、曲线、多边形等视口组件的可见性"
+    "entry": "FCM_Hider Install/Drag_and_drop_Install_FCM_Hider.mel",
+    "desc": "一键快速切换骨骼、曲线、多边形等视口组件的可见性",
+    "entry_kind": "installer_with_embedded_tool",
+    "entry_notes": "Only MEL source is installer; contains sysFile and shelfButton writes and embedded tool code. Do not execute as an unattended validation step."
   },
   {
     "category": "03_transforms_modeling",
@@ -521,8 +557,10 @@
     "category": "03_transforms_modeling",
     "folder": "03_transforms_modeling/smart_mesh",
     "name": "SmartMesh 智能多边形网格操作工具",
-    "entry": "mel_SmartMesh.mel",
-    "desc": "快速合并、清理、法线统一与重合面检测脚本"
+    "entry": "dpSmartMeshTools.mel",
+    "desc": "快速合并、清理、法线统一与重合面检测脚本",
+    "entry_kind": "mel_procedure",
+    "entry_notes": "Source header documents source dpSmartMeshTools.mel; dpSmartMeshTools; original expected basename absent."
   },
   {
     "category": "03_transforms_modeling",
@@ -682,8 +720,10 @@
     "category": "07_subsystems_suites",
     "folder": "07_subsystems_suites/malcolm341_mega_pack",
     "name": "Malcolm341 Maya 高级实用脚本合集 (MegaPack 2023)",
-    "entry": "install.mel",
-    "desc": "汇集了大量影视游戏一线制作加速脚本与架上工具"
+    "entry": "malcolm341_mega_pack_20230114/shelf_malcolm341_mega_pack.mel",
+    "desc": "汇集了大量影视游戏一线制作加速脚本与架上工具",
+    "entry_kind": "mel_shelf_suite",
+    "entry_notes": "Actual source declares shelf_malcolm341_mega_pack and creates shelf buttons; installation changes UI configuration and is not a no-op test."
   },
   {
     "category": "07_subsystems_suites",
@@ -724,15 +764,17 @@
     "category": "08_utilities_system",
     "folder": "08_utilities_system/ks_node_outliner_v2_2",
     "name": "KS NodeOutliner 节点分类大纲增强管理器 v2.2.0",
-    "entry": "ks_nodeOutliner/ksNodeOutliner.py",
+    "entry": "KS_NodeOutliner-2.2.0/ks_nodeOutliner/ksNodeOutliner.py",
     "desc": "解压 KS_NodeOutliner-2.2.0.zip，按节点类型过滤与大纲容器聚合展示"
   },
   {
     "category": "08_utilities_system",
     "folder": "08_utilities_system/ks_save_timer_v1_3_0",
     "name": "KS SaveTimer 智能工程自动保存与版本递增 (原版+汉化版)",
-    "entry": "KS_SaveTimer.py",
-    "desc": "包含原版与汉化版完整代码与手册，定期提醒与多重备份"
+    "entry": "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/runApp/runMaya.py",
+    "desc": "包含原版与汉化版完整代码与手册，定期提醒与多重备份",
+    "entry_kind": "python_package_function",
+    "entry_notes": "Bundled launch text imports ks_saveTimer.runApp.runMaya and defers openSaveTimer_maya_embed. Original variant selected; Chinese and Nuke variants retained."
   },
   {
     "category": "08_utilities_system",

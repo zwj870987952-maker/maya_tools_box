@@ -1,0 +1,19 @@
+{
+  "tool_id": "reset_pivot",
+  "change_summary": "Seven original actions; separate UI/API, UUID-safe reparent, finally parent restoration, read-only validation, structured results and promotion safeguards.",
+  "registration": {"module": "reset_pivot", "class_name": "ResetPivotTool"},
+  "files": [
+    {"source": "maya_toolkit/tools/reset_pivot/__init__.py", "target": "maya_toolkit/tools/reset_pivot/__init__.py"},
+    {"source": "maya_toolkit/tools/reset_pivot/tool.py", "target": "maya_toolkit/tools/reset_pivot/tool.py"},
+    {"source": "maya_toolkit/tools/reset_pivot/operations.py", "target": "maya_toolkit/tools/reset_pivot/operations.py"},
+    {"source": "maya_toolkit/tools/reset_pivot/ui.py", "target": "maya_toolkit/tools/reset_pivot/ui.py"},
+    {"source": "docs/tools/reset_pivot.md", "target": "docs/tools/reset_pivot.md"},
+    {"source": "tests/test_reset_pivot.py", "target": "tests/test_reset_pivot.py"},
+    {"source": "tests/test_reset_pivot_maya.py", "target": "tests/test_reset_pivot_maya.py"}
+  ],
+  "source": "../maya_reset_pivot.py",
+  "resources": [],
+  "dependencies": ["maya.cmds", "maya_toolkit.framework.BaseMayaTool", "maya_toolkit.framework.ToolResult"],
+  "panel": "现有面板读取 ToolRegistry；注册 ResetPivotTool 后调用 show_ui，无需替换面板文件。",
+  "acceptance_required": true
+}
