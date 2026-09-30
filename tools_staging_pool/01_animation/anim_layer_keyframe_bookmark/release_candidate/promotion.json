@@ -1,0 +1,73 @@
+{
+  "tool_id": "anim_layer_keyframe_bookmark",
+  "registration": {
+    "module": "anim_layer_keyframe_bookmark",
+    "class_name": "AnimLayerKeyframeBookmarkTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/anim_layer_keyframe_bookmark.md",
+      "target": "docs/tools/anim_layer_keyframe_bookmark.md"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_keyframe_bookmark/__init__.py",
+      "target": "maya_toolkit/tools/anim_layer_keyframe_bookmark/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_keyframe_bookmark/layer_queries.py",
+      "target": "maya_toolkit/tools/anim_layer_keyframe_bookmark/layer_queries.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_keyframe_bookmark/native_ui.py",
+      "target": "maya_toolkit/tools/anim_layer_keyframe_bookmark/native_ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_keyframe_bookmark/palettes.py",
+      "target": "maya_toolkit/tools/anim_layer_keyframe_bookmark/palettes.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_keyframe_bookmark/tool.py",
+      "target": "maya_toolkit/tools/anim_layer_keyframe_bookmark/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_keyframe_bookmark/ui.py",
+      "target": "maya_toolkit/tools/anim_layer_keyframe_bookmark/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_keyframe_bookmark/upstream/anim_layer_keyframe_bookmark.py",
+      "target": "maya_toolkit/tools/anim_layer_keyframe_bookmark/upstream/anim_layer_keyframe_bookmark.py"
+    },
+    {
+      "source": "maya_toolkit/tools/anim_layer_keyframe_bookmark/upstream/README.md",
+      "target": "maya_toolkit/tools/anim_layer_keyframe_bookmark/upstream/README.md"
+    },
+    {
+      "source": "tests/test_anim_layer_keyframe_bookmark.py",
+      "target": "tests/test_anim_layer_keyframe_bookmark.py"
+    },
+    {
+      "source": "tests/test_anim_layer_keyframe_bookmark_maya.py",
+      "target": "tests/test_anim_layer_keyframe_bookmark_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/anim_layer_keyframe_bookmark.py",
+    "upstream/README.md",
+    "palettes.py"
+  ],
+  "dependencies": [
+    "maya.cmds",
+    "timeSliderBookmark plugin explicitly loaded",
+    "existing maya_toolkit framework/core",
+    "Python 3"
+  ],
+  "source": "../anim_layer_keyframe_bookmark.py",
+  "change_summary": "Retain palettes/native controls/original archive; exact layer-frame lookup, structured generate/clear/inspect API, read-only creation/deletion preview, explicit plugin setup, deletion guards, Undo and partial-failure evidence.",
+  "verification_limitations": [
+    "Actual Maya GUI/bookmark display pending",
+    "Other Maya versions/Python 2 unverified",
+    "generate clear_existing and clear action delete ALL scene bookmarks",
+    "plugin writeRequires setting is not restored by Maya Undo"
+  ],
+  "acceptance_required": true
+}

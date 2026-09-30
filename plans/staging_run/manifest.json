@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T15:59:53.539552+08:00",
+  "updated_at": "2026-09-30T16:14:12.073128+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,7 +11,7 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/anim_layer_key_runner",
+    "last_completed_tool": "01_animation/anim_layer_keyframe_bookmark",
     "last_usage": {
       "five_hour_used_percent": 71.0,
       "weekly_used_percent": 41.0,
@@ -587,14 +587,53 @@
       ],
       "license_files": [],
       "entry_sha256": "f00732f3be6016050c3daf0ab4ca084f28f9c52bb8eda3b00851f886092cba2c",
-      "status": "working",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_verified_offline",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_all_four_palettes_alternate_including_wraparound (__main__.OfflineTests.test_all_four_palettes_alternate_including_wraparound) ... ok\r\ntest_interval_plan_preserves_subframes_and_original_rounded_display_name (__main__.OfflineTests.test_interval_plan_preserves_subframes_and_original_rounded_display_name) ... ok\r\ntest_invalid_interval_inputs_rejected (__main__.OfflineTests.test_invalid_interval_inputs_rejected) ... ok\r\ntest_invalid_parameters_rejected (__main__.OfflineTests.test_invalid_parameters_rejected) ... ok\r\ntest_native_three_actions_override_original_callbacks (__main__.OfflineTests.test_native_three_actions_override_original_callbacks) ... ok\r\ntest_palettes_exact_original_and_archive_byte_identical (__main__.OfflineTests.test_palettes_exact_original_and_archive_byte_identical) ... ok\r\ntest_runtime_has_no_staging_dependency_or_plugin_autoload_in_preflight (__main__.OfflineTests.test_runtime_has_no_staging_dependency_or_plugin_autoload_in_preflight) ... ok\r\ntest_schema_matches_supported_parameters_and_protocols (__main__.OfflineTests.test_schema_matches_supported_parameters_and_protocols) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.005s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"anim_layer_keyframe_bookmark\",\r\n  \"candidate_sha256\": \"d7ae158ac9b114865916339b485b0688c6812c41a7d351a91b3f8d31ced4f94f\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\anim_layer_keyframe_bookmark.md\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_keyframe_bookmark\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_keyframe_bookmark\\\\layer_queries.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_keyframe_bookmark\\\\native_ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_keyframe_bookmark\\\\palettes.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_keyframe_bookmark\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_keyframe_bookmark\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_keyframe_bookmark\\\\upstream\\\\anim_layer_keyframe_bookmark.py\",\r\n    \"maya_toolkit\\\\tools\\\\anim_layer_keyframe_bookmark\\\\upstream\\\\README.md\",\r\n    \"tests\\\\test_anim_layer_keyframe_bookmark.py\",\r\n    \"tests\\\\test_anim_layer_keyframe_bookmark_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool\\01_animation\\anim_layer_keyframe_bookmark\\release_candidate\\tests\\test_anim_layer_keyframe_bookmark_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_clear_existing_and_clear_action_undo_entire_scene_bookmarks (__main__.MayaTests.test_clear_existing_and_clear_action_undo_entire_scene_bookmarks) ... ����: AnimLayerKeyframeBookmarkTool_anim_layer_keyframe_bookmark\n����: AnimLayerKeyframeBookmarkTool_anim_layer_keyframe_bookmark\nok\r\ntest_dry_run_previews_intervals_deletion_colors_without_scene_writes (__main__.MayaTests.test_dry_run_previews_intervals_deletion_colors_without_scene_writes) ... ok\r\ntest_four_palettes_generate_alternate_with_single_undo (__main__.MayaTests.test_four_palettes_generate_alternate_with_single_undo) ... ����: AnimLayerKeyframeBookmarkTool_anim_layer_keyframe_bookmark\n����: AnimLayerKeyframeBookmarkTool_anim_layer_keyframe_bookmark\n����: AnimLayerKeyframeBookmarkTool_anim_layer_keyframe_bookmark\n����: AnimLayerKeyframeBookmarkTool_anim_layer_keyframe_bookmark\nok\r\ntest_inspect_empty_animation_and_generation_count_cap (__main__.MayaTests.test_inspect_empty_animation_and_generation_count_cap) ... ok\r\ntest_layer_specific_and_all_keyframes_do_not_cross_layers (__main__.MayaTests.test_layer_specific_and_all_keyframes_do_not_cross_layers) ... ok\r\ntest_locked_bookmark_rejects_before_any_creation_or_deletion (__main__.MayaTests.test_locked_bookmark_rejects_before_any_creation_or_deletion) ... ok\r\ntest_partial_attribute_failure_reports_created_node_and_can_undo (__main__.MayaTests.test_partial_attribute_failure_reports_created_node_and_can_undo) ... ����: AnimLayerKeyframeBookmarkTool_anim_layer_keyframe_bookmark\nok\r\ntest_plugin_not_loaded_query_fails_without_loading_or_writing (__main__.MayaTests.test_plugin_not_loaded_query_fails_without_loading_or_writing) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.325s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "d91bc067cd326480ba744df42b1b715221a6589434ed2ab9b4cfe2d0e6368909"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Actual Maya GUI/bookmark display pending",
+        "Other Maya versions/Python 2 unverified",
+        "generate clear_existing and clear action delete ALL scene bookmarks",
+        "plugin writeRequires setting is not restored by Maya Undo"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -603,7 +642,44 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "b943d7663d518f3efc61d70edef0ee0533024877ccb9bf2f49796c08e66f75e5"
+      "source_tree_sha256": "b943d7663d518f3efc61d70edef0ee0533024877ccb9bf2f49796c08e66f75e5",
+      "candidate_path": "tools_staging_pool/01_animation/anim_layer_keyframe_bookmark/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/anim_layer_keyframe_bookmark/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "anim_layer_keyframe_bookmark",
+        "candidate_sha256": "d7ae158ac9b114865916339b485b0688c6812c41a7d351a91b3f8d31ced4f94f",
+        "applied": false,
+        "files": [
+          "docs\\tools\\anim_layer_keyframe_bookmark.md",
+          "maya_toolkit\\tools\\anim_layer_keyframe_bookmark\\__init__.py",
+          "maya_toolkit\\tools\\anim_layer_keyframe_bookmark\\layer_queries.py",
+          "maya_toolkit\\tools\\anim_layer_keyframe_bookmark\\native_ui.py",
+          "maya_toolkit\\tools\\anim_layer_keyframe_bookmark\\palettes.py",
+          "maya_toolkit\\tools\\anim_layer_keyframe_bookmark\\tool.py",
+          "maya_toolkit\\tools\\anim_layer_keyframe_bookmark\\ui.py",
+          "maya_toolkit\\tools\\anim_layer_keyframe_bookmark\\upstream\\anim_layer_keyframe_bookmark.py",
+          "maya_toolkit\\tools\\anim_layer_keyframe_bookmark\\upstream\\README.md",
+          "tests\\test_anim_layer_keyframe_bookmark.py",
+          "tests\\test_anim_layer_keyframe_bookmark_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/anim_layer_keyframe_bookmark.py",
+        "upstream/README.md",
+        "palettes.py"
+      ],
+      "external_dependencies": [
+        "maya.cmds",
+        "timeSliderBookmark plugin explicitly loaded",
+        "existing maya_toolkit framework/core",
+        "Python 3"
+      ],
+      "source_preserved": true,
+      "change_summary": "Retain palettes/native controls/original archive; exact layer-frame lookup, structured generate/clear/inspect API, read-only creation/deletion preview, explicit plugin setup, deletion guards, Undo and partial-failure evidence.",
+      "prepared_at": "2026-09-30T16:14:09.988645+08:00"
     },
     {
       "source_path": "01_animation/anim_layer_v4_0",
