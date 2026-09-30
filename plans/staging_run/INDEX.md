@@ -1,13 +1,13 @@
 # 待整理工具池执行进度
 
-更新时间：2026-09-30T15:18:40.100793+08:00
+更新时间：2026-09-30T15:22:44.191152+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
 | 工具 | 状态 | 入口存在 | 候选完整 | Maya 验收 |
 | --- | --- | --- | --- | --- |
 | `01_animation/anim_filters` | prepared_unverified | True | True | not_run |
-| `01_animation/anim_layer_bookmark_trimmer` | pending | True | False | not_run |
+| `01_animation/anim_layer_bookmark_trimmer` | working | True | False | not_run |
 | `01_animation/anim_layer_key_runner` | pending | True | False | not_run |
 | `01_animation/anim_layer_keyframe_bookmark` | pending | True | False | not_run |
 | `01_animation/anim_layer_v4_0` | pending | True | False | not_run |

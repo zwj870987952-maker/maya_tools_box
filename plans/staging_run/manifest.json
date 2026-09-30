@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T15:18:40.100793+08:00",
+  "updated_at": "2026-09-30T15:22:44.191152+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -13,11 +13,12 @@
     "heartbeat_transition_verified": true,
     "last_completed_tool": "01_animation/anim_filters",
     "last_usage": {
-      "five_hour_used_percent": 50,
-      "weekly_used_percent": 38,
-      "note": "2026-09-30 read after reset_pivot checkpoint; next run must reread"
+      "five_hour_used_percent": 59.0,
+      "weekly_used_percent": 39.0,
+      "recorded_at": "2026-09-30T15:21:35.420970+08:00",
+      "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/anim_filters"
+    "current_tool": "01_animation/anim_layer_bookmark_trimmer"
   },
   "entry_repairs": [
     {
@@ -346,7 +347,8 @@
       "source_preserved": true,
       "change_summary": "All three upstream filters and live preview retained; commands make writes undoable; guarded preview restoration; fix recursion/NumPy sample count/padding/Nyquist boundaries; complete GPL upstream assets included.",
       "prepared_at": "2026-09-30T15:18:38.784496+08:00",
-      "source_tree_sha256": "b5f1bded9f5e108c66233842821a23000d2119039ffc5685af1bb3f5887fee83"
+      "source_tree_sha256": "b5f1bded9f5e108c66233842821a23000d2119039ffc5685af1bb3f5887fee83",
+      "source_commit": "c59809585507d7a736beb594e39cd1f1c412cf1a"
     },
     {
       "source_path": "01_animation/anim_layer_bookmark_trimmer",
@@ -366,7 +368,7 @@
       ],
       "license_files": [],
       "entry_sha256": "2bcb241573a5f0e230b54e1b2be701cd577cd6a9e0919da921ef6032c5bfc653",
-      "status": "pending",
+      "status": "working",
       "candidate_complete": false,
       "offline_checks": [],
       "maya_acceptance": {
