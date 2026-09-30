@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T17:56:18.608456+08:00",
+  "updated_at": "2026-09-30T17:59:52.892195+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -13,12 +13,12 @@
     "heartbeat_transition_verified": true,
     "last_completed_tool": "01_animation/anim_polish_premium_v1_23",
     "last_usage": {
-      "five_hour_used_percent": 37.0,
-      "weekly_used_percent": 47.0,
-      "recorded_at": "2026-09-30T17:18:50.067786+08:00",
+      "five_hour_used_percent": 70.0,
+      "weekly_used_percent": 52.0,
+      "recorded_at": "2026-09-30T17:59:50.413396+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/anim_polish_premium_v1_23"
+    "current_tool": "01_animation/animation_retarget"
   },
   "entry_repairs": [
     {
@@ -1149,7 +1149,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Entire original 19-file bundle and 160 signatures retained; private runtime namespace and narrow fixes, JSON settings/clipboard outside code, guarded cache I/O, framework API/UI/provenance and promotion metadata.",
-      "prepared_at": "2026-09-30T17:56:16.934133+08:00"
+      "prepared_at": "2026-09-30T17:56:16.934133+08:00",
+      "source_commit": "03faa9ddb7d8678f6adb4116ebff5c079fb48374"
     },
     {
       "source_path": "01_animation/animation_retarget",
@@ -1166,7 +1167,7 @@
       ],
       "license_files": [],
       "entry_sha256": "a16c733ff17fc935cb4124f6ac2e682657c9d0770486d6c622624047b2d1cf41",
-      "status": "pending",
+      "status": "working",
       "candidate_complete": false,
       "offline_checks": [],
       "maya_acceptance": {

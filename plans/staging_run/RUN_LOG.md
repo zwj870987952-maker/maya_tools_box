@@ -81,3 +81,5 @@
 - 6 项离线检查通过，临时未来正式布局同样 6 项通过；Maya2025 isolated 15 项通过，含 Wrap/Grow/Iron/preview 真节点+Undo、Sculpt start/abort、三个 apply 模式的真实 cluster/keys/Undo、字符串属性 JSON/Undo、相机临时导出及防覆盖、namespace 全模块 import/reload、异常恢复。设置 UI 控件/Subdue MEL 是 stub；Sculpt apply 的 prefix/延后排序是 stub；sort 原算法在 chunk 结束后手动执行排队回调验证，未验收真实 GUI idle。
 - candidate_complete=true，prepared_unverified；完整 UI、绘画、Subdue cache、Alembic/Sticky/P2P编辑/缓存附着仍待真人复验。晋级预览 applied=false，长期规范/正式工具库/注册/生成知识库未改。
 - 首次收尾额度读取暂时失败，未当作额度为零；提交前后重读，再记录实际检查点。
+
+- AnimPolish 提交 03faa9d；收尾读数恢复成功为 5 小时已用 70%、周已用 52%；heartbeat 继续暂停，无重置卡兑换。下一项 animation_retarget 已标 working。
