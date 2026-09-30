@@ -1,0 +1,87 @@
+{
+  "tool_id": "back2origin_v05_gaiv3",
+  "registration": {
+    "module": "back2origin_v05_gaiv3",
+    "class_name": "Back2OriginTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/back2origin_changes.diff",
+      "target": "docs/tools/back2origin_changes.diff"
+    },
+    {
+      "source": "docs/tools/back2origin_v05_gaiv3.md",
+      "target": "docs/tools/back2origin_v05_gaiv3.md"
+    },
+    {
+      "source": "maya_toolkit/tools/back2origin_v05_gaiv3/__init__.py",
+      "target": "maya_toolkit/tools/back2origin_v05_gaiv3/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/back2origin_v05_gaiv3/algorithms.py",
+      "target": "maya_toolkit/tools/back2origin_v05_gaiv3/algorithms.py"
+    },
+    {
+      "source": "maya_toolkit/tools/back2origin_v05_gaiv3/catalog.json",
+      "target": "maya_toolkit/tools/back2origin_v05_gaiv3/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/back2origin_v05_gaiv3/contracts.py",
+      "target": "maya_toolkit/tools/back2origin_v05_gaiv3/contracts.py"
+    },
+    {
+      "source": "maya_toolkit/tools/back2origin_v05_gaiv3/engine.py",
+      "target": "maya_toolkit/tools/back2origin_v05_gaiv3/engine.py"
+    },
+    {
+      "source": "maya_toolkit/tools/back2origin_v05_gaiv3/native_ui.py",
+      "target": "maya_toolkit/tools/back2origin_v05_gaiv3/native_ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/back2origin_v05_gaiv3/reverse.py",
+      "target": "maya_toolkit/tools/back2origin_v05_gaiv3/reverse.py"
+    },
+    {
+      "source": "maya_toolkit/tools/back2origin_v05_gaiv3/tool.py",
+      "target": "maya_toolkit/tools/back2origin_v05_gaiv3/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/back2origin_v05_gaiv3/ui.py",
+      "target": "maya_toolkit/tools/back2origin_v05_gaiv3/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/back2origin_v05_gaiv3/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/back2origin_v05_gaiv3/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/back2origin_v05_gaiv3/upstream/Back2Origin_v05_gaiv3.py",
+      "target": "maya_toolkit/tools/back2origin_v05_gaiv3/upstream/Back2Origin_v05_gaiv3.py"
+    },
+    {
+      "source": "tests/test_back2origin_v05_gaiv3.py",
+      "target": "tests/test_back2origin_v05_gaiv3.py"
+    },
+    {
+      "source": "tests/test_back2origin_v05_gaiv3_maya.py",
+      "target": "tests/test_back2origin_v05_gaiv3_maya.py"
+    }
+  ],
+  "resources": [
+    "catalog.json",
+    "upstream/Back2Origin_v05_gaiv3.py"
+  ],
+  "dependencies": [
+    "Maya Python3",
+    "Native Maya GUI for window",
+    "Existing maya_toolkit framework/core Undo"
+  ],
+  "source": "../Back2Origin_v05_gaiv3.py",
+  "change_summary": "Complete original forward helpers, reverse loops and native UI; no import-time installation, typed API, read-only scene/channel preflight, reliable Undo and runtime state restoration, unambiguous controller discovery.",
+  "verification_limitations": [
+    "Real GUI and production rig acceptance pending",
+    "Nonidentity parents/global transforms and root motion game-engine suitability require human review",
+    "X/Z local and world-space conventions preserved; reverse is not a general mathematical inverse",
+    "Original thinning can remove existing translate keys on unselected axes"
+  ],
+  "acceptance_required": true
+}

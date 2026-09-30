@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T22:19:51.498805+08:00",
+  "updated_at": "2026-09-30T22:44:30.415892+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,7 +11,7 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/animirror_v2_0",
+    "last_completed_tool": "01_animation/back2origin_v05_gaiv3",
     "last_usage": {
       "five_hour_used_percent": 33.0,
       "weekly_used_percent": 62.0,
@@ -1429,20 +1429,83 @@
       "entry_candidates": [
         "Back2Origin_v05_gaiv3.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "Back2Origin_v05_gaiv3.py"
       ],
       "license_files": [],
       "entry_sha256": "692b510197ebb098c59eb99cc7255c698a3abe3e941ccd98fd3e38c83a8cabbf",
-      "status": "working",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_contract_rejects_bad_types_axes_step_and_ranges (__main__.OfflineTests.test_contract_rejects_bad_types_axes_step_and_ranges) ... ok\r\ntest_import_no_installer_or_window_and_full_ui (__main__.OfflineTests.test_import_no_installer_or_window_and_full_ui) ... ok\r\ntest_inventory_and_schema_without_maya (__main__.OfflineTests.test_inventory_and_schema_without_maya) ... ok\r\ntest_original_eight_algorithm_bodies_identical (__main__.OfflineTests.test_original_eight_algorithm_bodies_identical) ... ok\r\ntest_raw_preserved_and_full_function_inventory (__main__.OfflineTests.test_raw_preserved_and_full_function_inventory) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.009s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"back2origin_v05_gaiv3\",\r\n  \"candidate_sha256\": \"fbc559b678857c9566ca9d262e67b93d1fcdddb24c78ab20a855e295a7c4e80c\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\back2origin_changes.diff\",\r\n    \"docs\\\\tools\\\\back2origin_v05_gaiv3.md\",\r\n    \"maya_toolkit\\\\tools\\\\back2origin_v05_gaiv3\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\back2origin_v05_gaiv3\\\\algorithms.py\",\r\n    \"maya_toolkit\\\\tools\\\\back2origin_v05_gaiv3\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\back2origin_v05_gaiv3\\\\contracts.py\",\r\n    \"maya_toolkit\\\\tools\\\\back2origin_v05_gaiv3\\\\engine.py\",\r\n    \"maya_toolkit\\\\tools\\\\back2origin_v05_gaiv3\\\\native_ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\back2origin_v05_gaiv3\\\\reverse.py\",\r\n    \"maya_toolkit\\\\tools\\\\back2origin_v05_gaiv3\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\back2origin_v05_gaiv3\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\back2origin_v05_gaiv3\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\back2origin_v05_gaiv3\\\\upstream\\\\Back2Origin_v05_gaiv3.py\",\r\n    \"tests\\\\test_back2origin_v05_gaiv3.py\",\r\n    \"tests\\\\test_back2origin_v05_gaiv3_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/back2origin_v05_gaiv3/release_candidate/tests/test_back2origin_v05_gaiv3_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_discovery_uses_long_paths_nested_namespaces_and_reports_ambiguity (__main__.MayaTests.test_discovery_uses_long_paths_nested_namespaces_and_reports_ambiguity) ... ok\r\ntest_dry_run_scene_and_runtime_unchanged (__main__.MayaTests.test_dry_run_scene_and_runtime_unchanged) ... ok\r\ntest_exception_runtime_restore_and_undo_partial_keys (__main__.MayaTests.test_exception_runtime_restore_and_undo_partial_keys) ... ����: Back2OriginTool_back2origin_v05_gaiv3\nok\r\ntest_forward_real_world_positions_root_keys_and_single_undo (__main__.MayaTests.test_forward_real_world_positions_root_keys_and_single_undo) ... ����: Back2OriginTool_back2origin_v05_gaiv3\nok\r\ntest_native_module_import_complete_no_window_and_installer_refused (__main__.MayaTests.test_native_module_import_complete_no_window_and_installer_refused) ... ok\r\ntest_optional_global_in_place_and_playback_range_default (__main__.MayaTests.test_optional_global_in_place_and_playback_range_default) ... ok\r\ntest_preflight_lock_driver_duplicates_invalid_and_batch_gui (__main__.MayaTests.test_preflight_lock_driver_duplicates_invalid_and_batch_gui) ... ok\r\ntest_reference_target_actual_file_preflight (__main__.MayaTests.test_reference_target_actual_file_preflight) ... �ļ���ȡ����ʱ��Ϊ  0.0033 �롣\nok\r\ntest_reverse_overwrites_root_and_preserves_control_world_positions (__main__.MayaTests.test_reverse_overwrites_root_and_preserves_control_world_positions) ... ����: Back2OriginTool_back2origin_v05_gaiv3\nok\r\ntest_thinning_absolute_modulus_also_cuts_unselected_translate_axis (__main__.MayaTests.test_thinning_absolute_modulus_also_cuts_unselected_translate_axis) ... ����: Back2OriginTool_back2origin_v05_gaiv3\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 10 tests in 0.098s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "14b205f9acede859caa0d92daeac7b50a49d0a6c2853a967fc93d9f02b02b813",
+          "runtime_source_sha256": "71d870f654afc94675dbc6c0c7aeea6e59d5856f2d49917b9e2b9d0b6ba1748e"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya native GUI, production rig world/local conventions and game-engine root motion require human acceptance"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "fbc559b678857c9566ca9d262e67b93d1fcdddb24c78ab20a855e295a7c4e80c",
+          "returncode": 0,
+          "output": "test_contract_rejects_bad_types_axes_step_and_ranges (__main__.OfflineTests.test_contract_rejects_bad_types_axes_step_and_ranges) ... ok\r\ntest_import_no_installer_or_window_and_full_ui (__main__.OfflineTests.test_import_no_installer_or_window_and_full_ui) ... ok\r\ntest_inventory_and_schema_without_maya (__main__.OfflineTests.test_inventory_and_schema_without_maya) ... ok\r\ntest_original_eight_algorithm_bodies_identical (__main__.OfflineTests.test_original_eight_algorithm_bodies_identical) ... ok\r\ntest_raw_preserved_and_full_function_inventory (__main__.OfflineTests.test_raw_preserved_and_full_function_inventory) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.009s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real GUI and production rig acceptance pending",
+        "Nonidentity parents/global transforms and root motion game-engine suitability require human review",
+        "X/Z local and world-space conventions preserved; reverse is not a general mathematical inverse",
+        "Original thinning can remove existing translate keys on unselected axes"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -1451,7 +1514,46 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "a049638682975bccdf861bb206c96d4032e4ace8a6fb77175741ac7ad465ce19"
+      "source_tree_sha256": "ac001b44e1c7c93961ac25acfa347d854814e16ccc646056ffe377447841a423",
+      "candidate_path": "tools_staging_pool/01_animation/back2origin_v05_gaiv3/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/back2origin_v05_gaiv3/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "back2origin_v05_gaiv3",
+        "candidate_sha256": "fbc559b678857c9566ca9d262e67b93d1fcdddb24c78ab20a855e295a7c4e80c",
+        "applied": false,
+        "files": [
+          "docs\\tools\\back2origin_changes.diff",
+          "docs\\tools\\back2origin_v05_gaiv3.md",
+          "maya_toolkit\\tools\\back2origin_v05_gaiv3\\__init__.py",
+          "maya_toolkit\\tools\\back2origin_v05_gaiv3\\algorithms.py",
+          "maya_toolkit\\tools\\back2origin_v05_gaiv3\\catalog.json",
+          "maya_toolkit\\tools\\back2origin_v05_gaiv3\\contracts.py",
+          "maya_toolkit\\tools\\back2origin_v05_gaiv3\\engine.py",
+          "maya_toolkit\\tools\\back2origin_v05_gaiv3\\native_ui.py",
+          "maya_toolkit\\tools\\back2origin_v05_gaiv3\\reverse.py",
+          "maya_toolkit\\tools\\back2origin_v05_gaiv3\\tool.py",
+          "maya_toolkit\\tools\\back2origin_v05_gaiv3\\ui.py",
+          "maya_toolkit\\tools\\back2origin_v05_gaiv3\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\back2origin_v05_gaiv3\\upstream\\Back2Origin_v05_gaiv3.py",
+          "tests\\test_back2origin_v05_gaiv3.py",
+          "tests\\test_back2origin_v05_gaiv3_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "catalog.json",
+        "upstream/Back2Origin_v05_gaiv3.py"
+      ],
+      "external_dependencies": [
+        "Maya Python3",
+        "Native Maya GUI for window",
+        "Existing maya_toolkit framework/core Undo"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete original forward helpers, reverse loops and native UI; no import-time installation, typed API, read-only scene/channel preflight, reliable Undo and runtime state restoration, unambiguous controller discovery.",
+      "prepared_at": "2026-09-30T22:44:31.765231+08:00"
     },
     {
       "source_path": "01_animation/bh_aim_tools_v1_1",

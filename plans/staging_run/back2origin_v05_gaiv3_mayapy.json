@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/back2origin_v05_gaiv3/release_candidate/tests/test_back2origin_v05_gaiv3_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_discovery_uses_long_paths_nested_namespaces_and_reports_ambiguity (__main__.MayaTests.test_discovery_uses_long_paths_nested_namespaces_and_reports_ambiguity) ... ok\r\ntest_dry_run_scene_and_runtime_unchanged (__main__.MayaTests.test_dry_run_scene_and_runtime_unchanged) ... ok\r\ntest_exception_runtime_restore_and_undo_partial_keys (__main__.MayaTests.test_exception_runtime_restore_and_undo_partial_keys) ... ����: Back2OriginTool_back2origin_v05_gaiv3\nok\r\ntest_forward_real_world_positions_root_keys_and_single_undo (__main__.MayaTests.test_forward_real_world_positions_root_keys_and_single_undo) ... ����: Back2OriginTool_back2origin_v05_gaiv3\nok\r\ntest_native_module_import_complete_no_window_and_installer_refused (__main__.MayaTests.test_native_module_import_complete_no_window_and_installer_refused) ... ok\r\ntest_optional_global_in_place_and_playback_range_default (__main__.MayaTests.test_optional_global_in_place_and_playback_range_default) ... ok\r\ntest_preflight_lock_driver_duplicates_invalid_and_batch_gui (__main__.MayaTests.test_preflight_lock_driver_duplicates_invalid_and_batch_gui) ... ok\r\ntest_reference_target_actual_file_preflight (__main__.MayaTests.test_reference_target_actual_file_preflight) ... �ļ���ȡ����ʱ��Ϊ  0.0033 �롣\nok\r\ntest_reverse_overwrites_root_and_preserves_control_world_positions (__main__.MayaTests.test_reverse_overwrites_root_and_preserves_control_world_positions) ... ����: Back2OriginTool_back2origin_v05_gaiv3\nok\r\ntest_thinning_absolute_modulus_also_cuts_unselected_translate_axis (__main__.MayaTests.test_thinning_absolute_modulus_also_cuts_unselected_translate_axis) ... ����: Back2OriginTool_back2origin_v05_gaiv3\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 10 tests in 0.098s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "14b205f9acede859caa0d92daeac7b50a49d0a6c2853a967fc93d9f02b02b813",
+  "runtime_source_sha256": "71d870f654afc94675dbc6c0c7aeea6e59d5856f2d49917b9e2b9d0b6ba1748e"
+}

@@ -116,3 +116,12 @@
 - 普通 Python 五项及 Maya2025 隔离十四项通过，涵盖真实三轴/旋转、累计 bake/filterCurve、单次 Undo、失败保护、重命名同名替身、组件选择及保存重载。没有创建 GUI；复杂中心/绑定、实际高亮范围、其他版本与原指南的生产骨架支持待真人。
 - 完整专项知识说明、资源/Schema/注册晋级清单与真人验收已预制；本项原资源和 upstream 加 -text Git 属性，防止自动换行转换破坏字节归档哈希。原资源内容未编辑。早期探索探针历史保留，当前编译探针不再绕过标准 API。
 - 修正 record_candidate 不覆盖已观察到的 heartbeat 验证事实；本轮 heartbeat 已实际恢复且保持 PAUSED。正式库/长期规范/生成知识库未改，不运行同步，不消费卡或购买额度。
+
+- AniMirror 候选提交 e109a1a，检查点0ddbb18；收尾实时额度33%/62%已用，继续 Back2Origin。
+
+## 2026-09-30：Back2Origin 完整候选，累计 11/109
+
+- 原文件36函数完整归档，原八个核心算法AST一致，完整反向循环独立参数化；原生界面/帮助/发现/namespace保留，移除导入复制/开窗，安装函数明确禁用。独立UI名称、callable回调及标准ToolResult/Undo，不写正式库。
+- 原世界root→局部global数值、反向覆盖root、absolute frame modulus 和 cutKey全部translate行为保留且写入说明；帧步长>1检查所有可能被删键的轴，拒绝引用/锁定/非animCurve驱动、重复角色和不明确对象。执行finally恢复eval/refresh/time/selection/四个播放范围。
+- 5项普通Python及10项Maya2025隔离实节点通过，涵盖真实正向/反向、世界位置、键与Undo、未选轴删键、范围外键、缺省范围/缺global、引用/驱动预检、发现和失败恢复；原生GUI/生产rig/引擎结果待真人。首次Undo fixture用currentTime采样在工具之上增加动作而失败，改为worldMatrix/time只读采样后通过。
+- 当前候选包含完整知识说明、两测试、验收及注册晋级清单；Git属性防止换行转换破坏原件/candidate哈希。继续保持heartbeat暂停，不兑换卡、不购买、不运行Obsidian同步。
