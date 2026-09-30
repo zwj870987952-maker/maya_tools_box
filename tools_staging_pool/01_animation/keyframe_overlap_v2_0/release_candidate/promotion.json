@@ -1,0 +1,99 @@
+{
+  "tool_id": "keyframe_overlap",
+  "registration": {
+    "module": "keyframe_overlap",
+    "class_name": "KeyframeOverlapTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/keyframe_overlap.md",
+      "target": "docs/tools/keyframe_overlap.md"
+    },
+    {
+      "source": "docs/tools/keyframe_overlap_changes.diff",
+      "target": "docs/tools/keyframe_overlap_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_overlap/__init__.py",
+      "target": "maya_toolkit/tools/keyframe_overlap/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_overlap/catalog.json",
+      "target": "maya_toolkit/tools/keyframe_overlap/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_overlap/native.py",
+      "target": "maya_toolkit/tools/keyframe_overlap/native.py"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_overlap/proxy.py",
+      "target": "maya_toolkit/tools/keyframe_overlap/proxy.py"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_overlap/runtime.py",
+      "target": "maya_toolkit/tools/keyframe_overlap/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_overlap/tool.py",
+      "target": "maya_toolkit/tools/keyframe_overlap/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_overlap/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/keyframe_overlap/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_overlap/upstream/__Init__.py",
+      "target": "maya_toolkit/tools/keyframe_overlap/upstream/__Init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_overlap/upstream/dex3d_gumroad.url",
+      "target": "maya_toolkit/tools/keyframe_overlap/upstream/dex3d_gumroad.url"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_overlap/upstream/Install.mel",
+      "target": "maya_toolkit/tools/keyframe_overlap/upstream/Install.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_overlap/upstream/Install.py",
+      "target": "maya_toolkit/tools/keyframe_overlap/upstream/Install.py"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_overlap/upstream/KeyframeOverlap.png",
+      "target": "maya_toolkit/tools/keyframe_overlap/upstream/KeyframeOverlap.png"
+    },
+    {
+      "source": "maya_toolkit/tools/keyframe_overlap/upstream/KeyframeOverlap.py",
+      "target": "maya_toolkit/tools/keyframe_overlap/upstream/KeyframeOverlap.py"
+    },
+    {
+      "source": "tests/test_keyframe_overlap.py",
+      "target": "tests/test_keyframe_overlap.py"
+    },
+    {
+      "source": "tests/test_keyframe_overlap_maya.py",
+      "target": "tests/test_keyframe_overlap_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/__Init__.py",
+    "upstream/dex3d_gumroad.url",
+    "upstream/Install.mel",
+    "upstream/Install.py",
+    "upstream/KeyframeOverlap.png",
+    "upstream/KeyframeOverlap.py",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya classic particles, constraints, pairBlend and native cmds UI",
+    "BaseMayaTool/Undo"
+  ],
+  "source": "../KFOverlap/KeyframeOverlap.py",
+  "change_summary": "Complete original particle-delay/locator editing/constraint/bake optimizer/UI with persistent owner messages and guarded Undo; remote exec/config writes isolated; session presets.",
+  "verification_limitations": [
+    "Real GUI and production particle/scale motion quality pending",
+    "Original-machine restriction; no independent redistribution license",
+    "Preset persistence changes to process memory; no external runtime file writes",
+    "Simulation evaluations can affect external dynamics; isolate backup scenes"
+  ],
+  "acceptance_required": true
+}

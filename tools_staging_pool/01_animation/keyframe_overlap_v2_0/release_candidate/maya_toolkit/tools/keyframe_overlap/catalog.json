@@ -1,0 +1,70 @@
+{
+  "methods": {
+    "scene": [
+      "get_fps",
+      "get_timeline"
+    ],
+    "util": [
+      "return_none_func",
+      "get_space_locator",
+      "match_transform",
+      "get_object_size"
+    ],
+    "loc_delay_system": [
+      "__init__",
+      "del_prefix",
+      "set_locator_hierarchy",
+      "remove_locator_hierarchy",
+      "update_groups",
+      "kf_overlap",
+      "kf_bake_animation",
+      "keyframe_optimizer"
+    ],
+    "kf_overlap": [
+      "__init__",
+      "get_captured_param",
+      "save_preset",
+      "load_preset",
+      "rename_preset",
+      "delete_preset",
+      "field_to_slider",
+      "exec_script",
+      "update_usr_cfg",
+      "support",
+      "init_win",
+      "win_layout",
+      "init_layout_func",
+      "show_win",
+      "init_dock",
+      "show_ui",
+      "update_ui"
+    ]
+  },
+  "raw_files": [
+    {
+      "path": "upstream/__Init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/dex3d_gumroad.url",
+      "sha256": "ad9c6dbcc1be5591823a19ef71a50fb93d3e0883f9acbf07946df2e8648b29f2"
+    },
+    {
+      "path": "upstream/Install.mel",
+      "sha256": "d119623a108dc0c79a27daea2d5efb0e0f7703348e8932ab97799bd997481fbb"
+    },
+    {
+      "path": "upstream/Install.py",
+      "sha256": "cebfc97a88f14902e2058538a1b7bcb9f83852a3aa0346ca06465fddead7572e"
+    },
+    {
+      "path": "upstream/KeyframeOverlap.png",
+      "sha256": "e3df9c4d0761aedf0178de03f9d02f8017e55372e1c423dd23f053e19b6c6e65"
+    },
+    {
+      "path": "upstream/KeyframeOverlap.py",
+      "sha256": "310c9c6c07170ae73d7c6eec1d24e689593c37314cc9cc48b9c816a7f2791a23"
+    }
+  ],
+  "license": "Burased Uttha (DEX3D), original-machine restriction preserved. No independent license; local private only."
+}

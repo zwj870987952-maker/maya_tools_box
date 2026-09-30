@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T06:02:45.103721+08:00",
+  "updated_at": "2026-10-01T06:20:23.919568+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/jop_retarget_anim_v09",
+    "last_completed_tool": "01_animation/keyframe_overlap_v2_0",
     "last_usage": {
-      "five_hour_used_percent": 63.0,
-      "weekly_used_percent": 80.0,
-      "recorded_at": "2026-10-01T05:45:39.625568+08:00",
+      "five_hour_used_percent": 71.0,
+      "weekly_used_percent": 82.0,
+      "recorded_at": "2026-10-01T06:03:39.402860+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/jop_retarget_anim_v09"
+    "current_tool": "01_animation/keyframe_overlap_v2_0"
   },
   "entry_repairs": [
     {
@@ -4602,7 +4602,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete native matrix retarget/UI, frozen-pivot matrix capture via equivalent read-only API, structured UUID/context snapshot and guarded scene/key/plugin lifetime.",
-      "prepared_at": "2026-10-01T06:02:43.497457+08:00"
+      "prepared_at": "2026-10-01T06:02:43.497457+08:00",
+      "source_commit": "0546e5d3ce2ee9399e66248deb9dffa5368fa1a0"
     },
     {
       "source_path": "01_animation/keyframe_overlap_v2_0",
@@ -4613,7 +4614,7 @@
       "entry_candidates": [
         "KFOverlap/KeyframeOverlap.py"
       ],
-      "source_file_count": 6,
+      "source_file_count": 7,
       "source_files": [
         "KFOverlap/__Init__.py",
         "KFOverlap/Install.mel",
@@ -4622,14 +4623,77 @@
       ],
       "license_files": [],
       "entry_sha256": "310c9c6c07170ae73d7c6eec1d24e689593c37314cc9cc48b9c816a7f2791a23",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_all_source_resources_algorithm_and_ui (__main__.OfflineTests.test_all_source_resources_algorithm_and_ui) ... ok\r\ntest_schema_and_lazy_maya (__main__.OfflineTests.test_schema_and_lazy_maya) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.010s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"keyframe_overlap\",\r\n  \"candidate_sha256\": \"3a157a3dd61d6ba3220914938d50250e343d620834e01116e2bb1013c3f851ba\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\keyframe_overlap.md\",\r\n    \"docs\\\\tools\\\\keyframe_overlap_changes.diff\",\r\n    \"maya_toolkit\\\\tools\\\\keyframe_overlap\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\keyframe_overlap\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\keyframe_overlap\\\\native.py\",\r\n    \"maya_toolkit\\\\tools\\\\keyframe_overlap\\\\proxy.py\",\r\n    \"maya_toolkit\\\\tools\\\\keyframe_overlap\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\keyframe_overlap\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\keyframe_overlap\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\keyframe_overlap\\\\upstream\\\\__Init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\keyframe_overlap\\\\upstream\\\\dex3d_gumroad.url\",\r\n    \"maya_toolkit\\\\tools\\\\keyframe_overlap\\\\upstream\\\\Install.mel\",\r\n    \"maya_toolkit\\\\tools\\\\keyframe_overlap\\\\upstream\\\\Install.py\",\r\n    \"maya_toolkit\\\\tools\\\\keyframe_overlap\\\\upstream\\\\KeyframeOverlap.png\",\r\n    \"maya_toolkit\\\\tools\\\\keyframe_overlap\\\\upstream\\\\KeyframeOverlap.py\",\r\n    \"tests\\\\test_keyframe_overlap.py\",\r\n    \"tests\\\\test_keyframe_overlap_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/keyframe_overlap_v2_0/release_candidate/tests/test_keyframe_overlap_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_create_editable_graph_bake_and_undo (__main__.MayaTests.test_create_editable_graph_bake_and_undo) ... ����: KeyframeOverlapTool_keyframe_overlap\n����: KeyframeOverlapTool_keyframe_overlap\n����: KeyframeOverlapTool_keyframe_overlap\nok\r\ntest_readonly_guards_and_native_write_guard (__main__.MayaTests.test_readonly_guards_and_native_write_guard) ... ok\r\ntest_rename_reload_dry_scope_and_failure_finally (__main__.MayaTests.test_rename_reload_dry_scope_and_failure_finally) ... ����: control_orientConstraint1 (����Լ��): ����ȫ��������תͨ�������ɸ�Լ������ʱ����ʹ�á��޷�ת����\n�ļ���ȡ����ʱ��Ϊ  0.01 �롣\n����: KeyframeOverlapTool_keyframe_overlap\n����: KeyframeOverlapTool_keyframe_overlap\nok\r\ntest_rotation_modes_sparse_optimizer_real_frame_indices (__main__.MayaTests.test_rotation_modes_sparse_optimizer_real_frame_indices) ... ����: control_orientConstraint1 (����Լ��): ����ȫ��������תͨ�������ɸ�Լ������ʱ����ʹ�á��޷�ת����\n����: KeyframeOverlapTool_keyframe_overlap\n����: KeyframeOverlapTool_keyframe_overlap\n����: control_orientConstraint1 (����Լ��): ����ȫ��������תͨ�������ɸ�Լ������ʱ����ʹ�á��޷�ת����\n����: KeyframeOverlapTool_keyframe_overlap\n����: KeyframeOverlapTool_keyframe_overlap\n����: control_orientConstraint1 (����Լ��): ����ȫ��������תͨ�������ɸ�Լ������ʱ����ʹ�á��޷�ת����\n����: KeyframeOverlapTool_keyframe_overlap\n����: KeyframeOverlapTool_keyframe_overlap\n����: KeyframeOverlapTool_keyframe_overlap\n����: KeyframeOverlapTool_keyframe_overlap\n����: KeyframeOverlapTool_keyframe_overlap\n����: KeyframeOverlapTool_keyframe_overlap\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 2.284s\r\n\r\nOK\r\nInitialize Locator Delay Script\r\nconvert dynamic 3 to weight 0.7\r\nsimulation result fps: 24, goal_sm: 3.2, sample: 2\r\nInitialize Locator Delay Script\r\ncontrol_translateZ1 7.0 -1\r\n[10, 13, 16]\r\ncontrol_translateY1 7.0 -1\r\n[10, 13, 16]\r\ncontrol_translateX1 7.0 -1\r\n[10, 13, 16]\r\nInitialize Locator Delay Script\r\nconvert dynamic 3.0 to weight 0.7\r\nsimulation result fps: 24, goal_sm: 3.2, sample: 2\r\nInitialize Locator Delay Script\r\nrenamed_rotateY 7.0 -1\r\n[10, 13, 16]\r\nrenamed_rotateZ 7.0 -1\r\n[10, 13, 16]\r\nInitialize Locator Delay Script\r\nInitialize Locator Delay Script\r\nconvert dynamic 3.0 to weight 0.7\r\nsimulation result fps: 24, goal_sm: 3.2, sample: 2\r\nInitialize Locator Delay Script\r\ncontrol_rotateZ1 7.0 -1\r\n[10, 13, 16]\r\ncontrol_rotateY1 7.0 -1\r\n[10, 13, 16]\r\nInitialize Locator Delay Script\r\nconvert dynamic 3.0 to weight 0.7\r\nsimulation result fps: 24, goal_sm: 3.2, sample: 2\r\nInitialize Locator Delay Script\r\ncontrol_rotateZ1 7.0 -1\r\n[10, 13, 16]\r\ncontrol_rotateX1 7.0 -1\r\n[10, 13, 16]\r\nInitialize Locator Delay Script\r\nconvert dynamic 3.0 to weight 0.7\r\nsimulation result fps: 24, goal_sm: 3.2, sample: 2\r\nInitialize Locator Delay Script\r\ncontrol_rotateX1 7.0 -1\r\n[10, 13, 16]\r\ncontrol_rotateY1 7.0 -1\r\n[10, 13, 16]\r\nInitialize Locator Delay Script\r\nconvert dynamic 3.0 to weight 0.7\r\nsimulation result fps: 24, goal_sm: 3.2, sample: 2\r\nInitialize Locator Delay Script\r\ncontrol_translateZ1 7.0 -1\r\n[10, 13, 16]\r\ncontrol_translateX1 7.0 -1\r\n[10, 13, 16]\r\nInitialize Locator Delay Script\r\nconvert dynamic 3.0 to weight 0.7\r\nsimulation result fps: 24, goal_sm: 3.2, sample: 2\r\nInitialize Locator Delay Script\r\ncontrol_translateY1 7.0 -1\r\n[10, 13, 16]\r\nInitialize Locator Delay Script\r\nconvert dynamic 3.0 to weight 0.7\r\nsimulation result fps: 24, goal_sm: 3.2, sample: 2\r\nInitialize Locator Delay Script\r\ncontrol_translateZ1 7.0 -1\r\n[10, 13, 16]\r\ncontrol_translateY1 7.0 -1\r\n[10, 13, 16]\r\ncontrol_translateX1 7.0 -1\r\n[10, 13, 16]\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "92e15e70aba82085a8d3a6d0a6815cab6fd4675550265fcf972ec8743c321b18",
+          "runtime_source_sha256": "c95e38e34c710ea855714d89fe1114041b9f93dd70efdc5adc9165237be47ba2"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real native Maya GUI and production simulation motion quality pending"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "3a157a3dd61d6ba3220914938d50250e343d620834e01116e2bb1013c3f851ba",
+          "returncode": 0,
+          "output": "test_all_source_resources_algorithm_and_ui (__main__.OfflineTests.test_all_source_resources_algorithm_and_ui) ... ok\r\ntest_schema_and_lazy_maya (__main__.OfflineTests.test_schema_and_lazy_maya) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.009s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real GUI and production particle/scale motion quality pending",
+        "Original-machine restriction; no independent redistribution license",
+        "Preset persistence changes to process memory; no external runtime file writes",
+        "Simulation evaluations can affect external dynamics; isolate backup scenes"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 3,
@@ -4638,7 +4702,52 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "b22f2b8da8fe5e2577cd851caf9ff02ed6b1bd228b28788deba160f81f75a3e7"
+      "source_tree_sha256": "0777d0cbcae5a3dc82c484245e4ade06f7a9ef9259271f84ce68a84407ca2773",
+      "candidate_path": "tools_staging_pool/01_animation/keyframe_overlap_v2_0/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/keyframe_overlap_v2_0/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "keyframe_overlap",
+        "candidate_sha256": "3a157a3dd61d6ba3220914938d50250e343d620834e01116e2bb1013c3f851ba",
+        "applied": false,
+        "files": [
+          "docs\\tools\\keyframe_overlap.md",
+          "docs\\tools\\keyframe_overlap_changes.diff",
+          "maya_toolkit\\tools\\keyframe_overlap\\__init__.py",
+          "maya_toolkit\\tools\\keyframe_overlap\\catalog.json",
+          "maya_toolkit\\tools\\keyframe_overlap\\native.py",
+          "maya_toolkit\\tools\\keyframe_overlap\\proxy.py",
+          "maya_toolkit\\tools\\keyframe_overlap\\runtime.py",
+          "maya_toolkit\\tools\\keyframe_overlap\\tool.py",
+          "maya_toolkit\\tools\\keyframe_overlap\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\keyframe_overlap\\upstream\\__Init__.py",
+          "maya_toolkit\\tools\\keyframe_overlap\\upstream\\dex3d_gumroad.url",
+          "maya_toolkit\\tools\\keyframe_overlap\\upstream\\Install.mel",
+          "maya_toolkit\\tools\\keyframe_overlap\\upstream\\Install.py",
+          "maya_toolkit\\tools\\keyframe_overlap\\upstream\\KeyframeOverlap.png",
+          "maya_toolkit\\tools\\keyframe_overlap\\upstream\\KeyframeOverlap.py",
+          "tests\\test_keyframe_overlap.py",
+          "tests\\test_keyframe_overlap_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/__Init__.py",
+        "upstream/dex3d_gumroad.url",
+        "upstream/Install.mel",
+        "upstream/Install.py",
+        "upstream/KeyframeOverlap.png",
+        "upstream/KeyframeOverlap.py",
+        "catalog.json"
+      ],
+      "external_dependencies": [
+        "Maya classic particles, constraints, pairBlend and native cmds UI",
+        "BaseMayaTool/Undo"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete original particle-delay/locator editing/constraint/bake optimizer/UI with persistent owner messages and guarded Undo; remote exec/config writes isolated; session presets.",
+      "prepared_at": "2026-10-01T06:20:22.177933+08:00"
     },
     {
       "source_path": "01_animation/kf_animrig_ikfk",

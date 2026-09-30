@@ -260,3 +260,10 @@
 - 标准Undo与私有助手身份/外部输出保护，finally清理助手和恢复AutoKey/选择/时间/namespace，插件按需加载可卸载才清理且不属场景Undo。失败不自动局部回滚。动态pivot子通道漏检在首轮测试发现后修复；引用fixture原工作文件自引用未加载改为另名工作场景，真实同UUID/reference上下文检查通过。
 - 普通Python2项、隔离Maya2025五组、临时正式布局注册/面板/Schema及指纹通过：六顺序父级变换回放+Undo、只读dry/capture、多控制器dense/frozen原DG等价、JSON/改名保存重载/原UI业务桥/新目标、真实引用保护/明确本地映射、共享/锁/动画pivot/单位/额外旋转/奇异矩阵和第二键故障cleanup-finally/Undo。真人GUI/复杂父级scale/生产rig待验prepared_unverified；完整验收/晋级备齐。
 - 实际收尾5小时71%/周82%已用，继续下一项；heartbeat暂停，无卡/购买/Obsidian同步/转正。
+## 2026-10-01：Keyframe Overlap完整候选，累计28/109
+
+- DEX3D原6资源/4类31方法完整字节与UI/算法保留，原用户机器检查及placeholder逻辑保留、无独立license私有不发布。隔离原support/安装器下载exec；cfg/APPDATA/presets自动写改完整会话preset流程，持久化变化明确记录。
+- 六rotation/position模式、classic particle goal延迟、红editable locator、四组/跟随/结果约束/端点键、回烘焙与线性误差选点优化完整；原变量at未定义查询修复，optimizer按实际帧而非0索引删键，position offset属性修为tx/ty/tz，低fps sampleBy最小1。范围外键与子帧/圈数/质量不承诺。
+- 随机私有前缀+owner network/controls-members消息/成员owner，不删外部原前缀/同名图/已有约束；标准API/Undo/privateguard、曲线共享/复合输入/引用锁/外部后代和输出检查，手工编辑helper仅直接本地不共享curve，半成品需Undo。Maya listConnections默认把shape返回transform导致成员漏检，已显式shapes=True；带shape控制器listHistory遗漏TR曲线，补直接曲线连接检查。
+- 普通Python2项、Maya2025隔离四组、正式临时布局注册/面板/Schema和匹配指纹全通过；真实六模式粒子/constraint/bake、红locator编辑、10..16优化严格10/13/16、Create Undo/Redo+BakeUndo、同kfo用户物体保留、rename/saveReload、只读dry、锁/共享/外部约束/后代拒绝、注入bake失败AutoKey/evaluation/refresh恢复。非真人GUI、复杂制作rig/动力学视觉和缓存待验prepared_unverified。
+- 实际收尾5小时78%/周83%已用，继续下一项；heartbeat暂停，无重置卡/购买/同步/转正。
