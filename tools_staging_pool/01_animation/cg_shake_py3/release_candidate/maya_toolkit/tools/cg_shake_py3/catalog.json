@@ -1,0 +1,59 @@
+{
+  "tool_id": "cg_shake_py3",
+  "original_methods": [
+    "__init__",
+    "attemptPluginLoad",
+    "convertPathToPySideObject",
+    "setUI",
+    "savePreset",
+    "loadPreset",
+    "populatePresets",
+    "checkDocumentation",
+    "overwriteWarning",
+    "clearAnimationLayer",
+    "applyShake",
+    "setWidgetStyleSheet",
+    "cacheObject",
+    "restoreCache"
+  ],
+  "raw_files": [
+    {
+      "path": "upstream/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/cgshake.py",
+      "sha256": "47afe51346c5d75c280fbc21fc5bb4cf675ea8369aa5058eabb4d45b6e72a21d"
+    },
+    {
+      "path": "upstream/images/icon.png",
+      "sha256": "8c1e4c455f19b9c168d7d88df037575e92318a733f20e3906b68c9c3da0bb039"
+    },
+    {
+      "path": "upstream/images/romboBack.png",
+      "sha256": "8f913b4224e53daf90b2984df065e0e98df2b481e21e47a2f449d651f8ff66e2"
+    },
+    {
+      "path": "upstream/images/squareBack.png",
+      "sha256": "3a6bf7a3abe32df8e24b9fc964660ba692fa5358e62430e150ddd8f4bcc1e80f"
+    },
+    {
+      "path": "upstream/images/vignetteFrame.png",
+      "sha256": "c703aedc70fdb8780683d256c5a33f0fc43e6a541a4833cf8c89dd429191f43a"
+    },
+    {
+      "path": "upstream/加载方式.txt",
+      "sha256": "b50c3c8341aeffd716ed5d00c9a8eaebb89f1c78e29b2591d2ac60e868131d18"
+    }
+  ],
+  "source_license": "CgShake1.5 source supplied; no license file provided, private preparation",
+  "changes": [
+    "Project PySide2/PySide6 binding, deferred parent, no six dependency",
+    "Full native gradient/layout/images/style",
+    "Explicit first-object algorithm and per-frame falloff samples",
+    "Single standard Undo and state finally",
+    "Private per-object UUID cache with SHA sidecar and overwrite opt-in",
+    "No plugin auto load; no missing-directory startup crash",
+    "File writes via explicit API, preset path sanitization"
+  ]
+}

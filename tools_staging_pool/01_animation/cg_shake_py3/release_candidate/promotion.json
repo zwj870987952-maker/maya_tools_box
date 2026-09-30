@@ -1,0 +1,135 @@
+{
+  "tool_id": "cg_shake_py3",
+  "registration": {
+    "module": "cg_shake_py3",
+    "class_name": "CgShakeTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/cg_shake_py3.md",
+      "target": "docs/tools/cg_shake_py3.md"
+    },
+    {
+      "source": "docs/tools/cg_shake_py3_changes.diff",
+      "target": "docs/tools/cg_shake_py3_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/cg_shake_py3/__init__.py",
+      "target": "maya_toolkit/tools/cg_shake_py3/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/cg_shake_py3/bridge.py",
+      "target": "maya_toolkit/tools/cg_shake_py3/bridge.py"
+    },
+    {
+      "source": "maya_toolkit/tools/cg_shake_py3/catalog.json",
+      "target": "maya_toolkit/tools/cg_shake_py3/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/cg_shake_py3/contracts.py",
+      "target": "maya_toolkit/tools/cg_shake_py3/contracts.py"
+    },
+    {
+      "source": "maya_toolkit/tools/cg_shake_py3/files.py",
+      "target": "maya_toolkit/tools/cg_shake_py3/files.py"
+    },
+    {
+      "source": "maya_toolkit/tools/cg_shake_py3/images/icon.png",
+      "target": "maya_toolkit/tools/cg_shake_py3/images/icon.png"
+    },
+    {
+      "source": "maya_toolkit/tools/cg_shake_py3/images/romboBack.png",
+      "target": "maya_toolkit/tools/cg_shake_py3/images/romboBack.png"
+    },
+    {
+      "source": "maya_toolkit/tools/cg_shake_py3/images/squareBack.png",
+      "target": "maya_toolkit/tools/cg_shake_py3/images/squareBack.png"
+    },
+    {
+      "source": "maya_toolkit/tools/cg_shake_py3/images/vignetteFrame.png",
+      "target": "maya_toolkit/tools/cg_shake_py3/images/vignetteFrame.png"
+    },
+    {
+      "source": "maya_toolkit/tools/cg_shake_py3/native_ui.py",
+      "target": "maya_toolkit/tools/cg_shake_py3/native_ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/cg_shake_py3/runtime.py",
+      "target": "maya_toolkit/tools/cg_shake_py3/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/cg_shake_py3/tool.py",
+      "target": "maya_toolkit/tools/cg_shake_py3/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/cg_shake_py3/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/cg_shake_py3/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/cg_shake_py3/upstream/__init__.py",
+      "target": "maya_toolkit/tools/cg_shake_py3/upstream/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/cg_shake_py3/upstream/cgshake.py",
+      "target": "maya_toolkit/tools/cg_shake_py3/upstream/cgshake.py"
+    },
+    {
+      "source": "maya_toolkit/tools/cg_shake_py3/upstream/images/icon.png",
+      "target": "maya_toolkit/tools/cg_shake_py3/upstream/images/icon.png"
+    },
+    {
+      "source": "maya_toolkit/tools/cg_shake_py3/upstream/images/romboBack.png",
+      "target": "maya_toolkit/tools/cg_shake_py3/upstream/images/romboBack.png"
+    },
+    {
+      "source": "maya_toolkit/tools/cg_shake_py3/upstream/images/squareBack.png",
+      "target": "maya_toolkit/tools/cg_shake_py3/upstream/images/squareBack.png"
+    },
+    {
+      "source": "maya_toolkit/tools/cg_shake_py3/upstream/images/vignetteFrame.png",
+      "target": "maya_toolkit/tools/cg_shake_py3/upstream/images/vignetteFrame.png"
+    },
+    {
+      "source": "maya_toolkit/tools/cg_shake_py3/upstream/加载方式.txt",
+      "target": "maya_toolkit/tools/cg_shake_py3/upstream/加载方式.txt"
+    },
+    {
+      "source": "tests/test_cg_shake_py3.py",
+      "target": "tests/test_cg_shake_py3.py"
+    },
+    {
+      "source": "tests/test_cg_shake_py3_maya.py",
+      "target": "tests/test_cg_shake_py3_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/__init__.py",
+    "upstream/cgshake.py",
+    "upstream/images/icon.png",
+    "upstream/images/romboBack.png",
+    "upstream/images/squareBack.png",
+    "upstream/images/vignetteFrame.png",
+    "upstream/加载方式.txt",
+    "images/icon.png",
+    "images/romboBack.png",
+    "images/squareBack.png",
+    "images/vignetteFrame.png",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya cmds/key APIs",
+    "animImportExport manually loaded for .anim cache",
+    "Project Qt binding/shiboken and real GUI native gradient for UI",
+    "Existing framework/core Undo"
+  ],
+  "source": "../CgShake_py3/cgshake.py",
+  "change_summary": "Full original UI/gradient/images, positive uniform shake on first object, explicit samples and seed, standard API/Undo with guarded cache/preset file paths and UUID/SHA restore.",
+  "verification_limitations": [
+    "Native Qt/gradient/animation-layer scope pending",
+    "Cache/preset files cannot be undone by scene Undo",
+    "Original overwrite/restore clear object keys without time range",
+    "Default UI gradient sampled natively; API requires explicit weights",
+    "Plugin-loaded cache/restore and per-object target hash required"
+  ],
+  "acceptance_required": true
+}

@@ -179,3 +179,13 @@
 - 标准smooth_keys与smooth_mocap参数/Schema/只读计划/Undo，新参数UI显式确认。修复叶joint None、非joint后代/单时间键定位器缺失，明确跳过；Mocap明确约束启用，回烘后仅owned约束/locator安全清理，blend旧动画载体可能保留。
 - 普通Python3项及Maya2025隔离6项通过，真实原平均值/快照/端点/键选择与Undo，两轮locator平滑将中值6回烘为2/3、成功清理/Undo、静态后代/strength1、只读/锁/故障双guard恢复。正式布局注册预览和全部证据哈希匹配。
 - 真正Graph Editor/动捕资产/jointOrient/大角度旋转/复杂层和视觉质量未验收，prepared_unverified；完整依赖/知识/两测试/注册晋级和人工清单齐备。保持heartbeat暂停、待整理池、不消费卡/不改正式库/不跑同步。
+
+- Smooth Mocap候选提交f39c54b，收尾实际83%/70%已用，进入cg_shake_py3。
+
+## 2026-10-01：CgShake完整候选，累计18/109
+
+- 原14方法对应完整Qt布局/原生gradient/四图/预设/Cache/Restore/Overwrite/Use cache，七原文件字节保留。复用core.ui_base绑定PySide2/6，延迟主窗口，Frame最低1，缺预设目录开窗不崩，原样式漏PNG后缀修复；不自动载插件。
+- 原仅第一选择、两循环快照、六次正向uniform及六TR setAttr/非零amount打键保留；GUI原gradient求值，API显式每帧权重，无伪造插值。全对象清键/层作用域明确，标准Undo包住原chunk外overwrite/restore，finally时间/选择/四播放范围与guard。
+- UUID缓存路径/Owner场景记录/SHA+sidecar校验，清键前验明目标/文件；临时文件后替换、已有文件覆盖需显式允许，旧cache属性不接管。文件/目录/clipboard不能由场景Undo撤销，真实说明/人工步骤齐备。
+- 普通Python3项、Maya2025隔离6项通过，真实随机/首选/范围/zero通道/Undo/预检/故障、预设文件覆盖及animImportExport .anim导出导入/SHA修改拒绝；正式布局注册和报告指纹匹配。未创建Qt，实际渐变/层/Use cache GUI不算通过。
+- 收尾真实额度5小时已用1%、周71%，窗口resetsAt从1790791927变1790810074，自然刷新；四卡仍available，无消费/购买。上一窗口从2%/57%到至少83%/70%，未观测完整0→100窗口，不能据此声称精确满额周消耗。工作继续、heartbeat暂停、正式库/长期规范/生成知识库未改。

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T01:48:18.507054+08:00",
+  "updated_at": "2026-10-01T02:14:38.298980+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/brs_smooth_mocap",
+    "last_completed_tool": "01_animation/cg_shake_py3",
     "last_usage": {
-      "five_hour_used_percent": 80.0,
-      "weekly_used_percent": 69.0,
-      "recorded_at": "2026-10-01T01:26:47.602922+08:00",
+      "five_hour_used_percent": 83.0,
+      "weekly_used_percent": 70.0,
+      "recorded_at": "2026-10-01T01:50:32.164467+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/brs_smooth_mocap"
+    "current_tool": "01_animation/cg_shake_py3"
   },
   "entry_repairs": [
     {
@@ -2427,7 +2427,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Original three-neighbor averaging/strength-minus-one passes and locator-driven mocap bake; full private backend bundled, explicit root/curve API, read-only plans and owned cleanup.",
-      "prepared_at": "2026-10-01T01:48:18.963593+08:00"
+      "prepared_at": "2026-10-01T01:48:18.963593+08:00",
+      "source_commit": "f39c54befaa09109e636fa030f0baf1489771580"
     },
     {
       "source_path": "01_animation/cg_shake_py3",
@@ -2438,21 +2439,85 @@
       "entry_candidates": [
         "CgShake_py3/cgshake.py"
       ],
-      "source_file_count": 7,
+      "source_file_count": 8,
       "source_files": [
         "CgShake_py3/__init__.py",
         "CgShake_py3/cgshake.py"
       ],
       "license_files": [],
       "entry_sha256": "47afe51346c5d75c280fbc21fc5bb4cf675ea8369aa5058eabb4d45b6e72a21d",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_complete_source_images_and_native_surface (__main__.OfflineTests.test_complete_source_images_and_native_surface) ... ok\r\ntest_readonly_file_plan_and_no_maya_inventory (__main__.OfflineTests.test_readonly_file_plan_and_no_maya_inventory) ... ok\r\ntest_strict_contract_and_preset_triplets (__main__.OfflineTests.test_strict_contract_and_preset_triplets) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.005s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"cg_shake_py3\",\r\n  \"candidate_sha256\": \"5e124c612eef4ed926b4e6a8c924ffc6affdf573fe0f54d9a5be84114133f425\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\cg_shake_py3.md\",\r\n    \"docs\\\\tools\\\\cg_shake_py3_changes.diff\",\r\n    \"maya_toolkit\\\\tools\\\\cg_shake_py3\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\cg_shake_py3\\\\bridge.py\",\r\n    \"maya_toolkit\\\\tools\\\\cg_shake_py3\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\cg_shake_py3\\\\contracts.py\",\r\n    \"maya_toolkit\\\\tools\\\\cg_shake_py3\\\\files.py\",\r\n    \"maya_toolkit\\\\tools\\\\cg_shake_py3\\\\images\\\\icon.png\",\r\n    \"maya_toolkit\\\\tools\\\\cg_shake_py3\\\\images\\\\romboBack.png\",\r\n    \"maya_toolkit\\\\tools\\\\cg_shake_py3\\\\images\\\\squareBack.png\",\r\n    \"maya_toolkit\\\\tools\\\\cg_shake_py3\\\\images\\\\vignetteFrame.png\",\r\n    \"maya_toolkit\\\\tools\\\\cg_shake_py3\\\\native_ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\cg_shake_py3\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\cg_shake_py3\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\cg_shake_py3\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\cg_shake_py3\\\\upstream\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\cg_shake_py3\\\\upstream\\\\cgshake.py\",\r\n    \"maya_toolkit\\\\tools\\\\cg_shake_py3\\\\upstream\\\\images\\\\icon.png\",\r\n    \"maya_toolkit\\\\tools\\\\cg_shake_py3\\\\upstream\\\\images\\\\romboBack.png\",\r\n    \"maya_toolkit\\\\tools\\\\cg_shake_py3\\\\upstream\\\\images\\\\squareBack.png\",\r\n    \"maya_toolkit\\\\tools\\\\cg_shake_py3\\\\upstream\\\\images\\\\vignetteFrame.png\",\r\n    \"maya_toolkit\\\\tools\\\\cg_shake_py3\\\\upstream\\\\\\u52a0\\u8f7d\\u65b9\\u5f0f.txt\",\r\n    \"tests\\\\test_cg_shake_py3.py\",\r\n    \"tests\\\\test_cg_shake_py3_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/cg_shake_py3/release_candidate/tests/test_cg_shake_py3_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_clear_overwrite_and_preset_files (__main__.MayaTests.test_clear_overwrite_and_preset_files) ... ok\r\ntest_failure_restores_time_selection_ranges_guard_and_undo (__main__.MayaTests.test_failure_restores_time_selection_ranges_guard_and_undo) ... ����: CgShakeTool_cg_shake_py3\nok\r\ntest_fractional_range_truncation_step_and_zero_channels (__main__.MayaTests.test_fractional_range_truncation_step_and_zero_channels) ... ok\r\ntest_positive_uniform_six_draw_order_first_only_undo (__main__.MayaTests.test_positive_uniform_six_draw_order_first_only_undo) ... ����: CgShakeTool_cg_shake_py3\nok\r\ntest_readonly_inputs_locks_and_gui_refusal (__main__.MayaTests.test_readonly_inputs_locks_and_gui_refusal) ... ok\r\ntest_real_anim_export_import_cache_hash_and_undo_files_remain (__main__.MayaTests.test_real_anim_export_import_cache_hash_and_undo_files_remain) ... �ļ���ȡ����ʱ��Ϊ  0.0025 �롣\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.073s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "73cfa66048d590e46ab91ffd9ea0121564dffad296b2c341249ac6e3e525d041",
+          "runtime_source_sha256": "a5e91290924f1c31793e917d6d05aecf8909b74a6a93a1cf59536bf911c6eba4"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "原Qt/原生渐变/预设交互/实际动画层清键作用域/Use cache完整GUI未真人验收；仅隔离API和临时.anim导入导出通过"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "5e124c612eef4ed926b4e6a8c924ffc6affdf573fe0f54d9a5be84114133f425",
+          "returncode": 0,
+          "output": "test_complete_source_images_and_native_surface (__main__.OfflineTests.test_complete_source_images_and_native_surface) ... ok\r\ntest_readonly_file_plan_and_no_maya_inventory (__main__.OfflineTests.test_readonly_file_plan_and_no_maya_inventory) ... ok\r\ntest_strict_contract_and_preset_triplets (__main__.OfflineTests.test_strict_contract_and_preset_triplets) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.005s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Native Qt/gradient/animation-layer scope pending",
+        "Cache/preset files cannot be undone by scene Undo",
+        "Original overwrite/restore clear object keys without time range",
+        "Default UI gradient sampled natively; API requires explicit weights",
+        "Plugin-loaded cache/restore and per-object target hash required"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 2,
@@ -2461,7 +2526,66 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "1f081176783c8d5b7666fcaf2c22df1999fcb89688035dec1ee43e87f98335c5"
+      "source_tree_sha256": "ef821e0b8481a8bb800bd5ecb3e7c14d6bdbabeeadc3e3adcf681bd61dcc9321",
+      "candidate_path": "tools_staging_pool/01_animation/cg_shake_py3/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/cg_shake_py3/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "cg_shake_py3",
+        "candidate_sha256": "5e124c612eef4ed926b4e6a8c924ffc6affdf573fe0f54d9a5be84114133f425",
+        "applied": false,
+        "files": [
+          "docs\\tools\\cg_shake_py3.md",
+          "docs\\tools\\cg_shake_py3_changes.diff",
+          "maya_toolkit\\tools\\cg_shake_py3\\__init__.py",
+          "maya_toolkit\\tools\\cg_shake_py3\\bridge.py",
+          "maya_toolkit\\tools\\cg_shake_py3\\catalog.json",
+          "maya_toolkit\\tools\\cg_shake_py3\\contracts.py",
+          "maya_toolkit\\tools\\cg_shake_py3\\files.py",
+          "maya_toolkit\\tools\\cg_shake_py3\\images\\icon.png",
+          "maya_toolkit\\tools\\cg_shake_py3\\images\\romboBack.png",
+          "maya_toolkit\\tools\\cg_shake_py3\\images\\squareBack.png",
+          "maya_toolkit\\tools\\cg_shake_py3\\images\\vignetteFrame.png",
+          "maya_toolkit\\tools\\cg_shake_py3\\native_ui.py",
+          "maya_toolkit\\tools\\cg_shake_py3\\runtime.py",
+          "maya_toolkit\\tools\\cg_shake_py3\\tool.py",
+          "maya_toolkit\\tools\\cg_shake_py3\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\cg_shake_py3\\upstream\\__init__.py",
+          "maya_toolkit\\tools\\cg_shake_py3\\upstream\\cgshake.py",
+          "maya_toolkit\\tools\\cg_shake_py3\\upstream\\images\\icon.png",
+          "maya_toolkit\\tools\\cg_shake_py3\\upstream\\images\\romboBack.png",
+          "maya_toolkit\\tools\\cg_shake_py3\\upstream\\images\\squareBack.png",
+          "maya_toolkit\\tools\\cg_shake_py3\\upstream\\images\\vignetteFrame.png",
+          "maya_toolkit\\tools\\cg_shake_py3\\upstream\\加载方式.txt",
+          "tests\\test_cg_shake_py3.py",
+          "tests\\test_cg_shake_py3_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/__init__.py",
+        "upstream/cgshake.py",
+        "upstream/images/icon.png",
+        "upstream/images/romboBack.png",
+        "upstream/images/squareBack.png",
+        "upstream/images/vignetteFrame.png",
+        "upstream/加载方式.txt",
+        "images/icon.png",
+        "images/romboBack.png",
+        "images/squareBack.png",
+        "images/vignetteFrame.png",
+        "catalog.json"
+      ],
+      "external_dependencies": [
+        "Maya cmds/key APIs",
+        "animImportExport manually loaded for .anim cache",
+        "Project Qt binding/shiboken and real GUI native gradient for UI",
+        "Existing framework/core Undo"
+      ],
+      "source_preserved": true,
+      "change_summary": "Full original UI/gradient/images, positive uniform shake on first object, explicit samples and seed, standard API/Undo with guarded cache/preset file paths and UUID/SHA restore.",
+      "prepared_at": "2026-10-01T02:14:38.613922+08:00"
     },
     {
       "source_path": "01_animation/copy_animation",

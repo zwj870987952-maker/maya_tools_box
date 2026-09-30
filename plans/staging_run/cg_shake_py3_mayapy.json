@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/cg_shake_py3/release_candidate/tests/test_cg_shake_py3_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_clear_overwrite_and_preset_files (__main__.MayaTests.test_clear_overwrite_and_preset_files) ... ok\r\ntest_failure_restores_time_selection_ranges_guard_and_undo (__main__.MayaTests.test_failure_restores_time_selection_ranges_guard_and_undo) ... ����: CgShakeTool_cg_shake_py3\nok\r\ntest_fractional_range_truncation_step_and_zero_channels (__main__.MayaTests.test_fractional_range_truncation_step_and_zero_channels) ... ok\r\ntest_positive_uniform_six_draw_order_first_only_undo (__main__.MayaTests.test_positive_uniform_six_draw_order_first_only_undo) ... ����: CgShakeTool_cg_shake_py3\nok\r\ntest_readonly_inputs_locks_and_gui_refusal (__main__.MayaTests.test_readonly_inputs_locks_and_gui_refusal) ... ok\r\ntest_real_anim_export_import_cache_hash_and_undo_files_remain (__main__.MayaTests.test_real_anim_export_import_cache_hash_and_undo_files_remain) ... �ļ���ȡ����ʱ��Ϊ  0.0025 �롣\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.073s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "73cfa66048d590e46ab91ffd9ea0121564dffad296b2c341249ac6e3e525d041",
+  "runtime_source_sha256": "a5e91290924f1c31793e917d6d05aecf8909b74a6a93a1cf59536bf911c6eba4"
+}
