@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/mov_playblast_v11/release_candidate/tests/test_mov_playblast_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_capture_transaction_shim_failure_restores_view_and_reports_partial (__main__.MayaTests.test_capture_transaction_shim_failure_restores_view_and_reports_partial) ... ok\r\ntest_lazy_native_import_batch_refusal_and_helpers_guard (__main__.MayaTests.test_lazy_native_import_batch_refusal_and_helpers_guard) ... ok\r\ntest_qt_branch_with_shim_audio_and_post_conversion (__main__.MayaTests.test_qt_branch_with_shim_audio_and_post_conversion) ... ok\r\ntest_real_ffmpeg_movies_mp4_gif_hold_audio_and_settings (__main__.MayaTests.test_real_ffmpeg_movies_mp4_gif_hold_audio_and_settings) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 1.706s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "a95c818fc39701373b941d548e07c38a0b30d6e530ab87630c284a34ceab650d",
+  "runtime_source_sha256": "88f071f1184f09eb15570de6ee85873e0b3ee057fd005b67046201f6977e7e0c"
+}

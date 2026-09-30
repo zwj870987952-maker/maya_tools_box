@@ -1,0 +1,91 @@
+{
+  "tool_id": "mov_playblast",
+  "registration": {
+    "module": "mov_playblast",
+    "class_name": "MovPlayblastTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/mov_playblast.md",
+      "target": "docs/tools/mov_playblast.md"
+    },
+    {
+      "source": "docs/tools/mov_playblast_changes.diff",
+      "target": "docs/tools/mov_playblast_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/mov_playblast/__init__.py",
+      "target": "maya_toolkit/tools/mov_playblast/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/mov_playblast/catalog.json",
+      "target": "maya_toolkit/tools/mov_playblast/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/mov_playblast/media.py",
+      "target": "maya_toolkit/tools/mov_playblast/media.py"
+    },
+    {
+      "source": "maya_toolkit/tools/mov_playblast/native.py",
+      "target": "maya_toolkit/tools/mov_playblast/native.py"
+    },
+    {
+      "source": "maya_toolkit/tools/mov_playblast/runtime.py",
+      "target": "maya_toolkit/tools/mov_playblast/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/mov_playblast/tool.py",
+      "target": "maya_toolkit/tools/mov_playblast/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/mov_playblast/ui_bridge.py",
+      "target": "maya_toolkit/tools/mov_playblast/ui_bridge.py"
+    },
+    {
+      "source": "maya_toolkit/tools/mov_playblast/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/mov_playblast/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/mov_playblast/upstream/mov拍屏v11.py.original",
+      "target": "maya_toolkit/tools/mov_playblast/upstream/mov拍屏v11.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/mov_playblast/upstream/mov拍屏v11_alt.py.original",
+      "target": "maya_toolkit/tools/mov_playblast/upstream/mov拍屏v11_alt.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/mov_playblast/upstream/检查安装.bat",
+      "target": "maya_toolkit/tools/mov_playblast/upstream/检查安装.bat"
+    },
+    {
+      "source": "tests/test_mov_playblast.py",
+      "target": "tests/test_mov_playblast.py"
+    },
+    {
+      "source": "tests/test_mov_playblast_maya.py",
+      "target": "tests/test_mov_playblast_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/mov拍屏v11.py.original",
+    "upstream/mov拍屏v11_alt.py.original",
+    "upstream/检查安装.bat",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya Python3 cmds/API2",
+    "Real viewport/QuickTime-H264 support for capture",
+    "FFmpeg libx264/aac/gif; explicit executable or PATH, no install/download",
+    "Output filesystem hardlinks for atomic no-overwrite publication"
+  ],
+  "source": "../mov拍屏v11.py",
+  "change_summary": "Full source UI and original helpers archived/adapted; images/Qt multi-camera capture, audio offset, sequence hold, incremental MOV/MP4/GIF, standard dry/API and explicit external output protection, checked shell-free FFmpeg and finally view state, session/JSON settings.",
+  "verification_limitations": [
+    "Real Maya viewport/native GUI/QuickTime playback unverified",
+    "Output files/overwrites cannot Maya Undo; partial published outputs reported",
+    "hold extends to complete groups only in image mode; QT hold refused",
+    "Settings changed from automatic Documents writes to session plus explicit JSON I/O",
+    "Multi-camera suffix sanitized and UUID-qualified; output directory must already exist"
+  ],
+  "acceptance_required": true
+}

@@ -302,3 +302,12 @@
 - 标准Schema/只读预检/Undo、恶劣原metadata保留拒绝、整数/颜色/数据量保护。保存并链旧MEL press/release，清理只恢复仍属自身的hook并保留后来外部handler；自有菜单/4API callbacks包含Undo/Redo只读刷新，原版仍运行拒绝重叠；会话GUI/插件不属场景Undo。
 - 普通Python3项、Maya2025隔离4组、临时正式布局注册/面板/Schema、静态与全部指纹匹配通过：真实fileInfo/精确Undo/Redo、中文引号路径换行、原格式、ma/mb临时保存重开、全部命令桥、dry/inspect无副作用、坏数据/Undo关闭拒绝、命令后注入故障Undo恢复。hook所有权测试timeControl是shim、API callbacks是真实注册/Undo事件；未构造Qt GUI，绝不当时间轴验收。
 - 首轮自有API2插件误用MArgList.length，修为len后全部四组通过；不是原算法通过证明。真人Qt覆层/tooltip/拖动/高DPI/声音/其他插件共存仍待验prepared_unverified，完整知识/验收/晋级已备；正式库/core/同步未动。本项实际收尾5小时6%/周87%已用，继续下一项mov_playblast_v11，heartbeat保持暂停。
+
+## 2026-10-01：多相机MOV拍屏完整候选，累计33/109
+
+- 原v11.1全43类方法/7函数、主UTF8/alt GB18030两个原Python与bat共3资源字节保留；原始自动开UI/拖放安装器不执行，私有窗口/设置窗口、完整单多相机/当前view/正交/音频/缩放/增序/覆盖/MP4/GIF/几拍一UI。未附独立license，只本地不发布。
+- 参数化API保持高JPG→MOV/低QT-H264两路径与原libx264/yuv420p/MP4 crf23-AAC/GIF-lanczos；负帧排序，hold取每组首帧、末尾补齐原语义；源图片只读复制，自有完整序列修原hold残留图像导致帧数计算混乱。QT明确不支持hold，音频显式有效性检查、节点offset-start+手工偏移，高低均送FFmpeg（低手工偏移原未生效，记录行为改变）；奇数尺寸pad、相机UUID清洗后缀也明确记录。
+- 全输出组MOV/MP4/GIF预检覆盖/增序，临时目录解析父级验证/所有权登记、同卷hardlink原子无覆盖创建或显式覆盖并核对签名再replace；FFmpeg shell=False/隐藏窗口/超时/返回码/error完整，坏图像转码不会误认旧目标为成功。finally逐项尝试恢复panel camera/时间/选择/AutoKey、清自有临时目录；已发布前相机遇后续失败不会删，ToolResult.fail.data列出部分文件，文件不能MayaUndo。
+- 原Documents自动settings读写改会话+明确JSON进出，UI保存提示本次会话、导出/导入按钮，刷新不reload旧v9；打开输出仅已有目录。内部原capture/rename/cleanup helpers保留但仅标准事务自有目录允许，不能通过kwargs访问外部目录；标准capture用参数化完整流水线。未写Documents/shelf/userSetup/正式库、未装依赖。
+- 本机真实FFmpeg6.1可用。普通Python3项、Maya2025隔离4组、临时正式布局注册/面板/Schema及全部指纹通过：真实JPEG/音频生成、MOV逐帧PNG验证hold首帧重复与尾补齐、MP4/GIF/audio输出、坏JPEG真实FFmpeg非零保持旧目标、JSON覆盖/进出、dry无文件/scene写入、真实camera/audio/time/selection配合高/低拍屏shim、第二相机失败部分文件报告与finally。modelPanel/playblast是明确shim，不宣称viewport/Qt图像或声音同步实测。
+- 真实GUI/viewport/本机QuickTime codec/生产相机和音画品质仍待验prepared_unverified；完整知识/验收/晋级齐备。实际收尾5小时14%/周88%已用，继续下一项overslapper_v1_03；heartbeat暂停，无用卡/购买/同步/转正。

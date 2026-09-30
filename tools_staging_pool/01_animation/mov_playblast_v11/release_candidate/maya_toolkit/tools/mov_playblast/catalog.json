@@ -1,0 +1,75 @@
+{
+  "raw_files": [
+    {
+      "path": "upstream/mov拍屏v11.py.original",
+      "source": "mov拍屏v11.py",
+      "sha256": "62903b70faaa9b0057e6d10eeef9db478c8571312255b7db59c1f7b69e08f652"
+    },
+    {
+      "path": "upstream/mov拍屏v11_alt.py.original",
+      "source": "mov拍屏v11_alt.py",
+      "sha256": "539b9b3cf9db3bf260bb9b1f0216b8eb93b783d4fc3d3b30e2ca4627ea749d55"
+    },
+    {
+      "path": "upstream/检查安装.bat",
+      "source": "检查安装.bat",
+      "sha256": "a80b323256424fc46e765ac189c53809f6416006f647bc58dcf601b93306dc42"
+    }
+  ],
+  "functions": [
+    "get_settings_file_path",
+    "save_ffmpeg_settings",
+    "load_ffmpeg_settings",
+    "auto_detect_ffmpeg",
+    "manual_select_ffmpeg",
+    "onMayaDroppedPythonFile",
+    "get_ffmpeg_path"
+  ],
+  "methods": [
+    "__init__",
+    "initialize_ui",
+    "adjust_window_size",
+    "toggle_audio_options",
+    "browse_path",
+    "get_camera_list",
+    "get_selected_camera",
+    "on_scale_change",
+    "convert_to_mp4",
+    "capture_action",
+    "qt_playblast_action",
+    "check_and_convert_to_mp4",
+    "incremented_filename",
+    "playblast_camera",
+    "playblast_current_camera",
+    "rename_images",
+    "get_audio_file",
+    "convert_images_to_video",
+    "convert_mov_to_gif",
+    "open_default_player",
+    "cleanup_temp_dir",
+    "switch_camera_mode",
+    "select_all_cameras",
+    "invert_camera_selection",
+    "get_selected_cameras",
+    "get_camera_display_name",
+    "get_camera_suffix",
+    "get_gif_output_path",
+    "test_ffmpeg_path",
+    "get_current_ffmpeg_path",
+    "save_ffmpeg_settings",
+    "open_settings_directory",
+    "open_ffmpeg_settings",
+    "apply_settings_to_window",
+    "on_settings_ffmpeg_mode_change",
+    "settings_auto_detect_local_ffmpeg",
+    "settings_browse_ffmpeg_path",
+    "settings_reset_ffmpeg",
+    "settings_save_and_close",
+    "refresh_plugin",
+    "refresh_filename",
+    "refresh_path",
+    "open_current_path"
+  ],
+  "license": "User personal script; no independent redistribution license supplied. Local only; no publication.",
+  "alternate_encoding": "mov拍屏v11_alt.py GB18030 bytes retained, UTF8 primary is executable source"
+}

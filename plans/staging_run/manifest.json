@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T07:31:33.006667+08:00",
+  "updated_at": "2026-10-01T07:53:24.473900+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/maya_timeline_marker",
+    "last_completed_tool": "01_animation/mov_playblast_v11",
     "last_usage": {
-      "five_hour_used_percent": 0,
-      "weekly_used_percent": 86,
-      "recorded_at": "2026-10-01T07:16:21.872698+08:00",
-      "note": "Actual usage tool read after natural refresh; no reset used"
+      "five_hour_used_percent": 7.0,
+      "weekly_used_percent": 87.0,
+      "recorded_at": "2026-10-01T07:33:35.493999+08:00",
+      "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/maya_timeline_marker",
+    "current_tool": "01_animation/mov_playblast_v11",
     "resume_note": "Timeline Marker source review only; no candidate changes. Resume this item after actual remaining >95%, weekly allowed and no other writer."
   },
   "entry_repairs": [
@@ -5541,7 +5541,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Full upstream archive/functions/timeline overlay/menu/color/comment/range movement; Python3 lazy Qt, same fileInfo format via undoable private command, strict schema/read-only load/dry, atomic collision-safe remap and callback ownership cleanup.",
-      "prepared_at": "2026-10-01T07:30:10.513519+08:00"
+      "prepared_at": "2026-10-01T07:30:10.513519+08:00",
+      "source_commit": "e5180a3c9f8620860ace06a1c14528b92ecdf9c3"
     },
     {
       "source_path": "01_animation/mov_playblast_v11",
@@ -5552,21 +5553,85 @@
       "entry_candidates": [
         "mov拍屏v11.py"
       ],
-      "source_file_count": 3,
+      "source_file_count": 4,
       "source_files": [
         "mov拍屏v11.py",
         "mov拍屏v11_alt.py"
       ],
       "license_files": [],
       "entry_sha256": "62903b70faaa9b0057e6d10eeef9db478c8571312255b7db59c1f7b69e08f652",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_atomic_conflicts_increment_all_extensions_and_ownership (__main__.OfflineTests.test_atomic_conflicts_increment_all_extensions_and_ownership) ... ok\r\ntest_complete_source_methods_lazy_and_schema (__main__.OfflineTests.test_complete_source_methods_lazy_and_schema) ... ok\r\ntest_hold_sort_and_readonly_original_images (__main__.OfflineTests.test_hold_sort_and_readonly_original_images) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.025s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"mov_playblast\",\r\n  \"candidate_sha256\": \"9f53725e29acd91b09e6d75966b47a642246340e533d89c24478d030187c17af\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\mov_playblast.md\",\r\n    \"docs\\\\tools\\\\mov_playblast_changes.diff\",\r\n    \"maya_toolkit\\\\tools\\\\mov_playblast\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\mov_playblast\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\mov_playblast\\\\media.py\",\r\n    \"maya_toolkit\\\\tools\\\\mov_playblast\\\\native.py\",\r\n    \"maya_toolkit\\\\tools\\\\mov_playblast\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\mov_playblast\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\mov_playblast\\\\ui_bridge.py\",\r\n    \"maya_toolkit\\\\tools\\\\mov_playblast\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\mov_playblast\\\\upstream\\\\mov\\u62cd\\u5c4fv11.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\mov_playblast\\\\upstream\\\\mov\\u62cd\\u5c4fv11_alt.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\mov_playblast\\\\upstream\\\\\\u68c0\\u67e5\\u5b89\\u88c5.bat\",\r\n    \"tests\\\\test_mov_playblast.py\",\r\n    \"tests\\\\test_mov_playblast_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/mov_playblast_v11/release_candidate/tests/test_mov_playblast_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_capture_transaction_shim_failure_restores_view_and_reports_partial (__main__.MayaTests.test_capture_transaction_shim_failure_restores_view_and_reports_partial) ... ok\r\ntest_lazy_native_import_batch_refusal_and_helpers_guard (__main__.MayaTests.test_lazy_native_import_batch_refusal_and_helpers_guard) ... ok\r\ntest_qt_branch_with_shim_audio_and_post_conversion (__main__.MayaTests.test_qt_branch_with_shim_audio_and_post_conversion) ... ok\r\ntest_real_ffmpeg_movies_mp4_gif_hold_audio_and_settings (__main__.MayaTests.test_real_ffmpeg_movies_mp4_gif_hold_audio_and_settings) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 1.706s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "a95c818fc39701373b941d548e07c38a0b30d6e530ab87630c284a34ceab650d",
+          "runtime_source_sha256": "88f071f1184f09eb15570de6ee85873e0b3ee057fd005b67046201f6977e7e0c"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya viewport/native GUI/QuickTime codec and production audio sync not exercised; modelPanel/playblast are explicit shims while FFmpeg and Maya scene data are real."
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "9f53725e29acd91b09e6d75966b47a642246340e533d89c24478d030187c17af",
+          "returncode": 0,
+          "output": "test_atomic_conflicts_increment_all_extensions_and_ownership (__main__.OfflineTests.test_atomic_conflicts_increment_all_extensions_and_ownership) ... ok\r\ntest_complete_source_methods_lazy_and_schema (__main__.OfflineTests.test_complete_source_methods_lazy_and_schema) ... ok\r\ntest_hold_sort_and_readonly_original_images (__main__.OfflineTests.test_hold_sort_and_readonly_original_images) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.029s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya viewport/native GUI/QuickTime playback unverified",
+        "Output files/overwrites cannot Maya Undo; partial published outputs reported",
+        "hold extends to complete groups only in image mode; QT hold refused",
+        "Settings changed from automatic Documents writes to session plus explicit JSON I/O",
+        "Multi-camera suffix sanitized and UUID-qualified; output directory must already exist"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 2,
@@ -5575,7 +5640,49 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "835eaa1095ae18fc6fd885d01815b2d6f42bf0e8482d6ba2b6563b420b973849"
+      "source_tree_sha256": "c5ae9030c19df3d118185f00b98cecfffb4f5e0f4b510a735c8af571b713ec78",
+      "candidate_path": "tools_staging_pool/01_animation/mov_playblast_v11/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/mov_playblast_v11/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "mov_playblast",
+        "candidate_sha256": "9f53725e29acd91b09e6d75966b47a642246340e533d89c24478d030187c17af",
+        "applied": false,
+        "files": [
+          "docs\\tools\\mov_playblast.md",
+          "docs\\tools\\mov_playblast_changes.diff",
+          "maya_toolkit\\tools\\mov_playblast\\__init__.py",
+          "maya_toolkit\\tools\\mov_playblast\\catalog.json",
+          "maya_toolkit\\tools\\mov_playblast\\media.py",
+          "maya_toolkit\\tools\\mov_playblast\\native.py",
+          "maya_toolkit\\tools\\mov_playblast\\runtime.py",
+          "maya_toolkit\\tools\\mov_playblast\\tool.py",
+          "maya_toolkit\\tools\\mov_playblast\\ui_bridge.py",
+          "maya_toolkit\\tools\\mov_playblast\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\mov_playblast\\upstream\\mov拍屏v11.py.original",
+          "maya_toolkit\\tools\\mov_playblast\\upstream\\mov拍屏v11_alt.py.original",
+          "maya_toolkit\\tools\\mov_playblast\\upstream\\检查安装.bat",
+          "tests\\test_mov_playblast.py",
+          "tests\\test_mov_playblast_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/mov拍屏v11.py.original",
+        "upstream/mov拍屏v11_alt.py.original",
+        "upstream/检查安装.bat",
+        "catalog.json"
+      ],
+      "external_dependencies": [
+        "Maya Python3 cmds/API2",
+        "Real viewport/QuickTime-H264 support for capture",
+        "FFmpeg libx264/aac/gif; explicit executable or PATH, no install/download",
+        "Output filesystem hardlinks for atomic no-overwrite publication"
+      ],
+      "source_preserved": true,
+      "change_summary": "Full source UI and original helpers archived/adapted; images/Qt multi-camera capture, audio offset, sequence hold, incremental MOV/MP4/GIF, standard dry/API and explicit external output protection, checked shell-free FFmpeg and finally view state, session/JSON settings.",
+      "prepared_at": "2026-10-01T07:52:00.289063+08:00"
     },
     {
       "source_path": "01_animation/overslapper_v1_03",
