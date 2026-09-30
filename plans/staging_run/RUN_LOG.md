@@ -135,3 +135,12 @@
 - 原轴启发式、maintainOffset、SetKeyRotate、pairBlend与filterCurve保留；Maya混合节点/属性可能保留，明确返回survivors，不自动删除承载旧动画的节点。执行finally恢复cache/eval/refresh/time/range/selection，create/bake成功选择结果。
 - 4普通Python及9隔离Maya2025检查通过：真实流程/键/朝向/烘焙/Undo、UUID/重载/批量同叶名、外部约束/后代/改接、失败恢复和来源保护。首次Aim后新增控制器键生成外部pairBlend被正确拒绝；改为Aim前旧键。批量fixture歧义短名改确定长路径。GUI、生产rig、动画层和复杂blend仍待真人。
 - 专项说明、两测试、晋级注册与验收齐备；Git属性保存原资源实际字节。正式工具库、长期规则及knowledge未改，heartbeat继续暂停，卡未消费。
+
+- bh_aimTools候选提交a67f18a，收尾实时额度53%/65%已用；下一项bh_local_nudge。
+
+## 2026-09-30：bh_localNudge完整候选，累计13/109
+
+- 五原MEL过程和完整原生窗口/12按钮保留，三原资源按字节归档；无顶层开窗，私有过程/控件，场景按钮标准API。参数amount/ctrl/alt替代业务UI依赖，保持属性加减、CTRL半值/ALT四分之一、Right负X/Left正X。
+- 只读通道预检与Undo，实际after查询，恢复组件选择；不改原动画/autoKey行为。原算法不显式打键：隔离autoKey关闭时已有动画通道微调不改变键，时间切换后按原曲线恢复，写入说明与真人步骤。
+- 四普通Python及七隔离Maya2025检查通过，含真正MEL数值/旋转/四modifier组合/多对象/父级局部语义、Undo、预检/组件、动画/故障恢复。GUI、真实按键/autoKey/非默认单位/其他平台待真人。
+- 完整说明、两测试、资源、Schema/注册晋级清单和验收已预制，仅待整理池有业务代码变动；heartbeat保持暂停，无卡消费或知识同步。

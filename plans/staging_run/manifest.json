@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T23:26:15.670831+08:00",
+  "updated_at": "2026-09-30T23:42:24.727908+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/bh_aim_tools_v1_1",
+    "last_completed_tool": "01_animation/bh_local_nudge",
     "last_usage": {
-      "five_hour_used_percent": 43.0,
-      "weekly_used_percent": 64.0,
-      "recorded_at": "2026-09-30T22:48:40.376477+08:00",
+      "five_hour_used_percent": 53.0,
+      "weekly_used_percent": 65.0,
+      "recorded_at": "2026-09-30T23:28:15.284774+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/bh_aim_tools_v1_1"
+    "current_tool": "01_animation/bh_local_nudge"
   },
   "entry_repairs": [
     {
@@ -1702,7 +1702,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete locator attach/aim/bake suite and original UI with arguments, UUID ownership/preflight, guarded cleanup, explicit key deletion and runtime state recovery; original purchased resources privately preserved.",
-      "prepared_at": "2026-09-30T23:26:17.880104+08:00"
+      "prepared_at": "2026-09-30T23:26:17.880104+08:00",
+      "source_commit": "a67f18aaa1a072671c49647a871a0e5ec489def2"
     },
     {
       "source_path": "01_animation/bh_local_nudge",
@@ -1713,19 +1714,81 @@
       "entry_candidates": [
         "bh_localNudge/bh_localNudge.mel"
       ],
-      "source_file_count": 3,
+      "source_file_count": 4,
       "source_files": [
         "bh_localNudge/bh_localNudge.mel"
       ],
       "license_files": [],
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_all_resources_preserved (__main__.OfflineTests.test_all_resources_preserved) ... ok\r\ntest_complete_original_ui_and_guarded_parameterized_algorithm (__main__.OfflineTests.test_complete_original_ui_and_guarded_parameterized_algorithm) ... ok\r\ntest_contract_bad_types_amount_axes_modifiers (__main__.OfflineTests.test_contract_bad_types_amount_axes_modifiers) ... ok\r\ntest_schema_inventory_without_maya (__main__.OfflineTests.test_schema_inventory_without_maya) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.003s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"bh_local_nudge\",\r\n  \"candidate_sha256\": \"5c77bdd25fd0e7f5ca8b9f5d1bd48029b7ca5fdf06e74bc44a142178869f11ba\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\bh_local_nudge.md\",\r\n    \"docs\\\\tools\\\\bh_local_nudge_changes.diff\",\r\n    \"maya_toolkit\\\\tools\\\\bh_local_nudge\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_local_nudge\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\bh_local_nudge\\\\contracts.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_local_nudge\\\\runtime.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bh_local_nudge\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_local_nudge\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_local_nudge\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_local_nudge\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\bh_local_nudge\\\\upstream\\\\bh_localNudge.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bh_local_nudge\\\\upstream\\\\bhLocalNudge.png\",\r\n    \"maya_toolkit\\\\tools\\\\bh_local_nudge\\\\upstream\\\\READ ME.txt\",\r\n    \"tests\\\\test_bh_local_nudge.py\",\r\n    \"tests\\\\test_bh_local_nudge_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/bh_local_nudge/release_candidate/tests/test_bh_local_nudge_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_animated_value_does_not_create_or_change_keys_with_autokey_off (__main__.MayaTests.test_animated_value_does_not_create_or_change_keys_with_autokey_off) ... ok\r\ntest_bulk_parent_transformed_local_attribute_not_world_vector (__main__.MayaTests.test_bulk_parent_transformed_local_attribute_not_world_vector) ... ����: LocalNudgeTool_bh_local_nudge\nok\r\ntest_dry_run_readonly_and_component_selection_restored (__main__.MayaTests.test_dry_run_readonly_and_component_selection_restored) ... ok\r\ntest_failure_restores_selection_and_undo_partial_write (__main__.MayaTests.test_failure_restores_selection_and_undo_partial_write) ... ����: LocalNudgeTool_bh_local_nudge\nok\r\ntest_preflight_lock_nonanim_driver_duplicates_and_missing (__main__.MayaTests.test_preflight_lock_nonanim_driver_duplicates_and_missing) ... ok\r\ntest_source_all_five_and_internal_guard_batch_ui (__main__.MayaTests.test_source_all_five_and_internal_guard_batch_ui) ... ����: ��ͨ�� LocalNudgeTool.run() �����ڲ�д��������\n# Traceback (most recent call last):\n#   File \"<maya console>\", line 1, in <module>\n#   File \"E:\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\bh_local_nudge\\release_candidate\\maya_toolkit\\tools\\bh_local_nudge\\runtime.py\", line 10, in require_active\n#     raise RuntimeError('��ͨ�� LocalNudgeTool.run() �����ڲ�д��������')\n# RuntimeError: ��ͨ�� LocalNudgeTool.run() �����ڲ�д��������\nok\r\ntest_translate_rotate_actual_original_modifiers_and_undo (__main__.MayaTests.test_translate_rotate_actual_original_modifiers_and_undo) ... ����: LocalNudgeTool_bh_local_nudge\n����: LocalNudgeTool_bh_local_nudge\n����: LocalNudgeTool_bh_local_nudge\n����: LocalNudgeTool_bh_local_nudge\n����: LocalNudgeTool_bh_local_nudge\n����: LocalNudgeTool_bh_local_nudge\n����: LocalNudgeTool_bh_local_nudge\n����: LocalNudgeTool_bh_local_nudge\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 7 tests in 0.035s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "7c5622bf0ccff30fd082eec42074694b3d0b2368b084b746b69ecbda4732d68b",
+          "runtime_source_sha256": "721f0010b33d2c5db096d1993db628b00624a3f830ad4aa4cbc5e3866bc4a7aa"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real native GUI/modifier keys, autoKey and nondefault units need human acceptance"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "5c77bdd25fd0e7f5ca8b9f5d1bd48029b7ca5fdf06e74bc44a142178869f11ba",
+          "returncode": 0,
+          "output": "test_all_resources_preserved (__main__.OfflineTests.test_all_resources_preserved) ... ok\r\ntest_complete_original_ui_and_guarded_parameterized_algorithm (__main__.OfflineTests.test_complete_original_ui_and_guarded_parameterized_algorithm) ... ok\r\ntest_contract_bad_types_amount_axes_modifiers (__main__.OfflineTests.test_contract_bad_types_amount_axes_modifiers) ... ok\r\ntest_schema_inventory_without_maya (__main__.OfflineTests.test_schema_inventory_without_maya) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.002s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Native GUI and actual modifier key state pending",
+        "Animation/autokey/layer behavior needs actual Maya acceptance",
+        "Uses current Maya linear/angular units; original Degrees print label is not a unit conversion"
+      ],
       "entry_review": {
         "evidence": "Actual MEL declares global proc bh_localNudge; old Python filename absent.",
         "kind": "mel_procedure",
@@ -1740,7 +1803,49 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "18be13dd7f1ff1ac52be6ea38ac9497494578f93e0a5bb019b8a015ce93d1486"
+      "source_tree_sha256": "e5847b52b23edfe650a94d7f1d7fe7abc8a4c915139d4c67e8d4aa0cde718716",
+      "candidate_path": "tools_staging_pool/01_animation/bh_local_nudge/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/bh_local_nudge/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "bh_local_nudge",
+        "candidate_sha256": "5c77bdd25fd0e7f5ca8b9f5d1bd48029b7ca5fdf06e74bc44a142178869f11ba",
+        "applied": false,
+        "files": [
+          "docs\\tools\\bh_local_nudge.md",
+          "docs\\tools\\bh_local_nudge_changes.diff",
+          "maya_toolkit\\tools\\bh_local_nudge\\__init__.py",
+          "maya_toolkit\\tools\\bh_local_nudge\\catalog.json",
+          "maya_toolkit\\tools\\bh_local_nudge\\contracts.py",
+          "maya_toolkit\\tools\\bh_local_nudge\\runtime.mel",
+          "maya_toolkit\\tools\\bh_local_nudge\\runtime.py",
+          "maya_toolkit\\tools\\bh_local_nudge\\tool.py",
+          "maya_toolkit\\tools\\bh_local_nudge\\ui.py",
+          "maya_toolkit\\tools\\bh_local_nudge\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\bh_local_nudge\\upstream\\bh_localNudge.mel",
+          "maya_toolkit\\tools\\bh_local_nudge\\upstream\\bhLocalNudge.png",
+          "maya_toolkit\\tools\\bh_local_nudge\\upstream\\READ ME.txt",
+          "tests\\test_bh_local_nudge.py",
+          "tests\\test_bh_local_nudge_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/bh_localNudge.mel",
+        "upstream/bhLocalNudge.png",
+        "upstream/READ ME.txt",
+        "runtime.mel",
+        "catalog.json"
+      ],
+      "external_dependencies": [
+        "Maya Python3/native MEL",
+        "Actual Maya GUI for original window",
+        "Existing maya_toolkit framework/core Undo"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete original five-procedure native UI and local translation/rotation arithmetic with explicit arguments/modifiers, standard ToolResult/Undo and read-only channel preflight.",
+      "prepared_at": "2026-09-30T23:42:26.865712+08:00"
     },
     {
       "source_path": "01_animation/bh_speedlines",

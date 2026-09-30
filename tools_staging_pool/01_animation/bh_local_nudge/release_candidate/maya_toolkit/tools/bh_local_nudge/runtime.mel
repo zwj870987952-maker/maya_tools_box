@@ -1,0 +1,167 @@
+
+// mtbLN_bh_localNudge - a GUI for making small, percise changes to local translation/rotation values on selected controller(s)
+// V1.03 180518
+// added modifier keys.. CTRL for half values, ALT for quarter..
+
+global proc mtbLN_bh_localNudge()
+{
+
+
+if (`window -exists mtbLN_localNudgeUI`)
+    deleteUI mtbLN_localNudgeUI;
+
+     string $window = `window -tlb 1 -title "mtbLN_bh_localNudge" mtbLN_localNudgeUI`;
+
+     columnLayout -adj 1  mtbLN_mainCol;
+     rowColumnLayout  -numberOfColumns 1;
+
+
+     floatSliderGrp  -field 0
+    // -cal 1 "left"
+      -minValue 0.001 -maxValue 1.0
+        -fieldMinValue 0.001 -fieldMaxValue 1.0
+        -value .01
+        -step 0.001
+         -cat 2 "left" 0
+        -cc mtbLN_bh_printNudgeVal
+        "mtbLN_NudgeVal"
+        ;
+
+
+
+
+
+
+        rowColumnLayout   -numberOfColumns 2;
+
+
+    button -label "Up" -w 80 -command "python(\"import maya_toolkit.tools.bh_local_nudge.ui as _u; _u.dispatch('translate','Y','positive')\");" mtbLN_nudgePosY;
+    button -label "Down" -w 60 -command "python(\"import maya_toolkit.tools.bh_local_nudge.ui as _u; _u.dispatch('translate','Y','negative')\");" mtbLN_nudgeNegY;
+
+
+
+
+      button -label "Right" -w 80 -command "python(\"import maya_toolkit.tools.bh_local_nudge.ui as _u; _u.dispatch('translate','X','negative')\");" mtbLN_nudgeNegX;
+    button -label "Left" -w 80 -command "python(\"import maya_toolkit.tools.bh_local_nudge.ui as _u; _u.dispatch('translate','X','positive')\");" mtbLN_nudgePosX;
+
+
+
+    button -label "Forward" -w 80 -command "python(\"import maya_toolkit.tools.bh_local_nudge.ui as _u; _u.dispatch('translate','Z','positive')\");" mtbLN_nudgePosZ;
+   button -label "Back" -w 80 -command "python(\"import maya_toolkit.tools.bh_local_nudge.ui as _u; _u.dispatch('translate','Z','negative')\");" mtbLN_nudgeNegZ;
+      setParent mtbLN_mainCol;
+   rowColumnLayout  -numberOfColumns 1;
+
+        floatSliderGrp  -field 0
+    // -cal 1 "left"
+      -minValue 0.01 -maxValue 5.0
+        -fieldMinValue 0.001 -fieldMaxValue 1.0
+        -value 1.0
+        -step 0.01
+         -cat 2 "left" 0
+        -cc mtbLN_bh_printRotNudgeVal
+        "mtbLN_RotVal"
+        ;
+        rowColumnLayout  -numberOfColumns 2;
+
+        button -label "+X" -w 80 -command "python(\"import maya_toolkit.tools.bh_local_nudge.ui as _u; _u.dispatch('rotate','X','positive')\");" mtbLN_nudgeRotX;
+     button -label "-X" -w 80 -command "python(\"import maya_toolkit.tools.bh_local_nudge.ui as _u; _u.dispatch('rotate','X','negative')\");" mtbLN_nudgeRotNegX;
+
+   button -label "+Y" -w 80 -command "python(\"import maya_toolkit.tools.bh_local_nudge.ui as _u; _u.dispatch('rotate','Y','positive')\");" mtbLN_nudgeRotY;
+     button -label "-Y" -w 80 -command "python(\"import maya_toolkit.tools.bh_local_nudge.ui as _u; _u.dispatch('rotate','Y','negative')\");" mtbLN_nudgeRotNegY;
+
+     button -label "+Z" -w 80 -command "python(\"import maya_toolkit.tools.bh_local_nudge.ui as _u; _u.dispatch('rotate','Z','positive')\");" mtbLN_nudgeRotZ;
+     button -label "-Z" -w 80 -command "python(\"import maya_toolkit.tools.bh_local_nudge.ui as _u; _u.dispatch('rotate','Z','negative')\");" mtbLN_nudgeRotNegZ;
+
+
+    showWindow $window;
+
+    window -edit -widthHeight 170 182 mtbLN_localNudgeUI;
+
+  }
+
+
+
+  global proc mtbLN_bh_localNudgeIt(string $direction, string $plusMinus)
+{
+python("import maya_toolkit.tools.bh_local_nudge.runtime as _r; _r.require_active()");
+global float $mtbLN_amount;
+global int $mtbLN_mods;
+
+
+int $mods = $mtbLN_mods;
+ string $sel[]=`ls -sl`;
+
+
+
+
+ for ($each in $sel)
+ {
+    float $curPos=`getAttr ($each+".translate"+$direction)`;
+    float $val=$mtbLN_amount;
+    if ($mods / 4 % 2)// was CTRL held when the command was run? if so half the value..
+    {$val=($val/2);
+    }
+    if ($mods / 8 % 2)// was ALT held when the command was run? if so quarter the value..
+    {$val=($val/4);
+    }
+
+
+
+    float $newPos;
+    if ($plusMinus =="positive")
+      {$newPos =($curPos+$val);
+
+      }
+      else
+      {
+          $newPos=($curPos-$val);
+      }
+   setAttr ($each+".translate"+$direction) $newPos;
+     }
+
+ }
+
+   global proc mtbLN_bh_localNudgeRotIt(string $direction, string $plusMinus)
+{
+python("import maya_toolkit.tools.bh_local_nudge.runtime as _r; _r.require_active()");
+global float $mtbLN_amount;
+global int $mtbLN_mods;
+
+    int $mods = $mtbLN_mods;
+ string $sel[]=`ls -sl`;
+ for ($each in $sel)
+ {
+    float $curPos=`getAttr ($each+".rotate"+$direction)`;
+    float $val=$mtbLN_amount;
+    if ($mods / 4 % 2)// was CTRL held when the command was run? if so half the value..
+    {$val=($val/2);
+    }
+    if ($mods / 8 % 2)// was ALT held when the command was run? if so quarter the value..
+    {$val=($val/4);
+    }
+
+    float $newPos;
+    if ($plusMinus =="positive")
+      {$newPos =($curPos+$val);
+
+      }
+      else
+      {
+          $newPos=($curPos-$val);
+      }
+   setAttr ($each+".rotate"+$direction) $newPos;
+     }
+
+ }
+
+  global proc mtbLN_bh_printNudgeVal()
+ {
+     float $val=`floatSliderGrp -q -v mtbLN_NudgeVal`;
+     print ("Nudge Move Value = "+$val);
+ }
+
+ global proc mtbLN_bh_printRotNudgeVal()
+ {
+     float $val=`floatSliderGrp -q -v mtbLN_RotVal`;
+     print ("Nudge Rotation Value = "+$val+" Degrees");
+ }

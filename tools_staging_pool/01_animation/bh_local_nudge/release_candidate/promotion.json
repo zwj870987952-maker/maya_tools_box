@@ -1,0 +1,89 @@
+{
+  "tool_id": "bh_local_nudge",
+  "registration": {
+    "module": "bh_local_nudge",
+    "class_name": "LocalNudgeTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/bh_local_nudge.md",
+      "target": "docs/tools/bh_local_nudge.md"
+    },
+    {
+      "source": "docs/tools/bh_local_nudge_changes.diff",
+      "target": "docs/tools/bh_local_nudge_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_local_nudge/__init__.py",
+      "target": "maya_toolkit/tools/bh_local_nudge/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_local_nudge/catalog.json",
+      "target": "maya_toolkit/tools/bh_local_nudge/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_local_nudge/contracts.py",
+      "target": "maya_toolkit/tools/bh_local_nudge/contracts.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_local_nudge/runtime.mel",
+      "target": "maya_toolkit/tools/bh_local_nudge/runtime.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_local_nudge/runtime.py",
+      "target": "maya_toolkit/tools/bh_local_nudge/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_local_nudge/tool.py",
+      "target": "maya_toolkit/tools/bh_local_nudge/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_local_nudge/ui.py",
+      "target": "maya_toolkit/tools/bh_local_nudge/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_local_nudge/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/bh_local_nudge/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_local_nudge/upstream/bh_localNudge.mel",
+      "target": "maya_toolkit/tools/bh_local_nudge/upstream/bh_localNudge.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_local_nudge/upstream/bhLocalNudge.png",
+      "target": "maya_toolkit/tools/bh_local_nudge/upstream/bhLocalNudge.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_local_nudge/upstream/READ ME.txt",
+      "target": "maya_toolkit/tools/bh_local_nudge/upstream/READ ME.txt"
+    },
+    {
+      "source": "tests/test_bh_local_nudge.py",
+      "target": "tests/test_bh_local_nudge.py"
+    },
+    {
+      "source": "tests/test_bh_local_nudge_maya.py",
+      "target": "tests/test_bh_local_nudge_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/bh_localNudge.mel",
+    "upstream/bhLocalNudge.png",
+    "upstream/READ ME.txt",
+    "runtime.mel",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya Python3/native MEL",
+    "Actual Maya GUI for original window",
+    "Existing maya_toolkit framework/core Undo"
+  ],
+  "source": "../bh_localNudge/bh_localNudge.mel",
+  "change_summary": "Complete original five-procedure native UI and local translation/rotation arithmetic with explicit arguments/modifiers, standard ToolResult/Undo and read-only channel preflight.",
+  "verification_limitations": [
+    "Native GUI and actual modifier key state pending",
+    "Animation/autokey/layer behavior needs actual Maya acceptance",
+    "Uses current Maya linear/angular units; original Degrees print label is not a unit conversion"
+  ],
+  "acceptance_required": true
+}
