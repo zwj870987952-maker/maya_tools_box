@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/maya_timeline_marker/release_candidate/tests/test_timeline_marker_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_callback_ownership_protocol_without_qt (__main__.MayaTests.test_callback_ownership_protocol_without_qt) ... ����: TimelineMarkerTool_timeline_marker\n����: Markerж�ر����������õ�releaseCommand\nok\r\ntest_malformed_metadata_strict_validation_and_failure_undo (__main__.MayaTests.test_malformed_metadata_strict_validation_and_failure_undo) ... ����: TimelineMarkerTool_timeline_marker\nok\r\ntest_old_format_saved_scene_and_colliding_remap (__main__.MayaTests.test_old_format_saved_scene_and_colliding_remap) ... ����: TimelineMarkerTool_timeline_marker\n�ļ���ȡ����ʱ��Ϊ  0.0032 �롣\n����: TimelineMarkerTool_timeline_marker\n�ļ���ȡ����ʱ��Ϊ  0.0025 �롣\n����: TimelineMarkerTool_timeline_marker\nok\r\ntest_readonly_undo_redo_and_complete_commands (__main__.MayaTests.test_readonly_undo_redo_and_complete_commands) ... ����: TimelineMarkerTool_timeline_marker\n����: TimelineMarkerTool_timeline_marker\n����: TimelineMarkerTool_timeline_marker\n����: TimelineMarkerTool_timeline_marker\n����: TimelineMarkerTool_timeline_marker\n����: TimelineMarkerTool_timeline_marker\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.145s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "96ddd72168b573fa0b1db28769ccd6e230cc10b19441c5c73ee8838e6439e9de",
+  "runtime_source_sha256": "a7d4770d82b56355bc534a75578171c365b7fd76d8afe71c0d3cc1fe1e6e566d"
+}

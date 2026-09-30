@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "plans/staging_run/probe_marker_fileinfo.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "ENCODED '{\"frames\": [1], \"colors\": [[0, 255, 0]], \"comments\": [\"quote \\\\\" slash \\\\\\\\ newline\\\\n����\"]}' QUERY '{\\\\\"frames\\\\\": [1], \\\\\"colors\\\\\": [[0, 255, 0]], \\\\\"comments\\\\\": [\\\\\"quote \\\\\\\\\\\\\" slash \\\\\\\\\\\\\\\\ newline\\\\\\\\n����\\\\\"]}'\r\nBEFORE_UNDO ['after'] True\r\nNON_UNDOABLE û�������ɳ��������\r\n\r\nAFTER_UNDO ['after']\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "edf368a91ec27cf9dbf2481108e28919e5a958365154676267887dce8ddd3791",
+  "runtime_source_sha256": "edf368a91ec27cf9dbf2481108e28919e5a958365154676267887dce8ddd3791"
+}

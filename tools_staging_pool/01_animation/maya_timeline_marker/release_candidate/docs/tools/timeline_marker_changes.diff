@@ -1,0 +1,976 @@
+--- upstream/__init__.py
++++ native/__init__.py
+@@ -1,3 +1,4 @@
++# Robert Joosten Timeline Marker 2.0.2; GPL-3.0-or-later. Adapted for Maya Toolkit. See upstream/LICENSE.
+ """			
+ Create coloured markers on top of Maya's native timeline. Comments can be 
+ added to each marker that appear as tool tips.
+@@ -43,10 +44,16 @@
+     timelineMarker.set(frames, colors, comments)
+     
+ """
+-from .ui import install
+ from .hotkey import *
+ from .commands import *
++__author__ = 'Robert Joosten'
++__version__ = '2.0.2'
++__email__ = 'rwm.joosten@gmail.com'
+ 
+-__author__    = "Robert Joosten"
+-__version__   = "2.0.2"
+-__email__     = "rwm.joosten@gmail.com"
++def install():
++    from ..runtime import run_api
++    return run_api(action='open_ui')
++
++def uninstall():
++    from ..runtime import run_api
++    return run_api(action='close_ui')
+--- upstream/commands.py
++++ native/commands.py
+@@ -1,60 +1,20 @@
++# Robert Joosten Timeline Marker 2.0.2; GPL-3.0-or-later. Adapted for Maya Toolkit. See upstream/LICENSE.
+ from . import decorators
+ 
++@decorators.getTimelineMarker
++def add(timelineMarker, frame, color, comment=''):
++    return timelineMarker.add(frame, color, comment)
+ 
+ @decorators.getTimelineMarker
+-def add(timelineMarker, frame, color, comment=""):
+-    """
+-    Use this function to add markers with the provided arguments. If a marker
+-    already exists on the provided frame number, the old data will be 
+-    overwritten.
++def remove(timelineMarker, frames):
++    from ..runtime import run_api
++    return run_api(action='remove', frames=frames if isinstance(frames, list) else [frames])
+ 
+-    :param TimelineMarker timelineMarker: decorator handles this argument
+-    :param str frame: Frame number
+-    :param str color: Color list [R, G, B], values between 0-255
+-    :param str comment: Comment
+-    """
+-    timelineMarker.add(frame, color, comment)
+-    
+-    
+-@decorators.getTimelineMarker
+-def remove(timelineMarker, frames):
+-    """
+-    Use this function to remove markers with the provided arguments.
+-
+-    :param TimelineMarker timelineMarker: decorator handles this argument
+-    :param int/list frames: Frame numbers
+-    """
+-    if not type(frames) == list:
+-        frames = [frames]
+-    
+-    for frame in frames:
+-        timelineMarker.remove(frame)
+-        
+-        
+ @decorators.getTimelineMarker
+ def clear(timelineMarker):
+-    """
+-    Use this function to remove all markers.
+-
+-    :param TimelineMarker timelineMarker: decorator handles this argument
+-    """
+-    timelineMarker.clear()
+-        
+-        
+-# ---------------------------------------------------------------------------- 
+-
++    return timelineMarker.clear()
+ 
+ @decorators.getTimelineMarker
+ def set(timelineMarker, frames=[], colors=[], comments=[]):
+-    """
+-    Use this function to overwrite the entire marker data set with the 
+-    provided arguments. All existing markers will be removed.
+-
+-    :param TimelineMarker timelineMarker: decorator handles this argument
+-    :param list frames: Frame numbers
+-    :param list colors: Color list [R, G, B], values between 0-255
+-    :param list comments: Comments
+-    """
+-    timelineMarker.clear()
+-    for frame, color, comment in zip(frames, colors, comments):
+-        timelineMarker.add(frame, color, comment)
++    from ..runtime import run_api
++    return run_api(action='set', frames=frames, colors=colors, comments=comments)
+--- upstream/decorators.py
++++ native/decorators.py
+@@ -1,23 +1,10 @@
++# Robert Joosten Timeline Marker 2.0.2; GPL-3.0-or-later. Adapted for Maya Toolkit. See upstream/LICENSE.
+ from functools import wraps
+-from . import ui
+ 
+ def getTimelineMarker(func):
+-    """
+-    This decorator will only run the function if the timeline marker can be 
+-    found, if this is not the case an error will be raised. The timeline 
+-    marker will be parsed as the first argument into the function provided.
+-    
+-    :raises ValueError: if timeline marker doesn't exist
+-    """
++    from ..runtime import CommandsAdapter
++
+     @wraps(func)
+     def wrapper(*args, **kwargs):
+-        # get timeline marker
+-        timelineMarker = ui.TIMELINE_MARKER
+-        
+-        # validate timeline marker
+-        if not timelineMarker:
+-            raise ValueError("Timeline Marker not installed!")
+-            
+-        # run function
+-        return func(timelineMarker, *args, **kwargs)
+-    return wrapper+        return func(CommandsAdapter(), *args, **kwargs)
++    return wrapper
+--- upstream/hotkey.py
++++ native/hotkey.py
+@@ -1,22 +1,15 @@
++# Robert Joosten Timeline Marker 2.0.2; GPL-3.0-or-later. Adapted for Maya Toolkit. See upstream/LICENSE.
+ from . import decorators
+-
+ 
+ @decorators.getTimelineMarker
+ def hotkey(timelineMarker, action):
+-    """
+-    Use this function to setup hotkeys that interact with the timeline marker.
+-    There are 3 actions available ( "add", "remove", "clear" ).
+-    
+-    * Add - Add markers at the selected time.
+-    * Remove - Remove markers at the selected time.
+-    * Clear - Remove all markers.
+-
+-    :param TimelineMarker timelineMarker: decorator handles this argument
+-    :param str action: Hotkey action
+-    """
+-    if action == "add":
+-        timelineMarker.addFromUI()
+-    elif action == "remove":                        
+-        timelineMarker.removeFromUI()
+-    elif action == "clear":                         
+-        timelineMarker.clear()
++    from ..runtime import widget
++    if action not in ('add', 'remove', 'clear'):
++        raise ValueError('未知hotkey action')
++    if widget() is None:
++        raise ValueError('先打开候选Timeline Marker')
++    if action == 'add':
++        return timelineMarker.addFromUI()
++    if action == 'remove':
++        return timelineMarker.removeFromUI()
++    return timelineMarker.clear()
+--- upstream/ui.py
++++ native/ui.py
+@@ -1,93 +1,41 @@
++# Robert Joosten Timeline Marker 2.0.2; GPL-3.0-or-later. Adapted for Maya Toolkit. See upstream/LICENSE.
++from .. import gui_bridge as bridge
+ import json
+ from maya import OpenMaya, OpenMayaUI, cmds, mel
+ from . import utils
+-
+-
+-# ----------------------------------------------------------------------------
+-
+-
+ global TIMELINE_MARKER
+ TIMELINE_MARKER = None
+ 
+-
+-# ----------------------------------------------------------------------------
+-    
+-    
+ class TimelineMarker(utils.QWidget):
++
+     def __init__(self):
+-        # get parent
+         utils.QWidget.__init__(self)
+-        
+-        # variables
+-        self.setObjectName("timelineMarker") 
+-        
+-        # variables
++        self.setObjectName('mtkTimelineMarkerCandidate')
+         self.start = None
+-        self.end   = None
++        self.end = None
+         self.total = None
+-        self.step  = None
+-        
++        self.step = None
+         self.frames = []
+         self.colors = []
+         self.comments = []
+-        
+         self.newID = None
+         self.openID = None
+-
+         self._range = None
+-
+-        # set menu
+         self.menu = TimelineMarkerMenu(self)
+-
+-        # initialize
+-        self.readFromCurrentScene()
+-        self.addCallbacks()
+-
+-    # ------------------------------------------------------------------------
+-        
++        try:
++            self.readFromCurrentScene()
++            self.addCallbacks()
++        except Exception:
++            self.removeCallbacks()
++            self.menu.deleteLater()
++            raise
++
+     def readFromCurrentScene(self, *args):
+-        """
+-        Marker data can be stored in the Maya's scenes themselves, the 
+-        fileInfo command is used for this and the data is stored under the 
+-        "timelineMarker" argument. This data can be decoded with json and 
+-        split it the frames, colours and comments.
+-        """
+-        # variable
+-        data = {}
+-        
+-        # read from file
+-        stored = cmds.fileInfo("timelineMarkers", query=True)
+-
+-        if stored:      
+-            data = json.loads(stored[0].replace('\\"', '"'))
+-        
+-        # extract data 
+-        self.frames = data.get( "frames" ) or []
+-        self.colors = data.get( "colors" ) or [] 
+-        self.comments = data.get( "comments" ) or []
+-
+-        # update ui
+-        self.update()
+-        
++        return bridge.read(self)
++
+     def saveToCurrentScene(self):
+-        """
+-        Get all the marker information ( frames, comments and colors ) and 
+-        store this with the fileInfo command in the maya file. Data is 
+-        stored under the "timelineMarker" argument.
+-        """
+-        # encode data
+-        data = {
+-            "frames":self.frames,
+-            "colors":self.colors,
+-            "comments":self.comments,
+-        }
+-        encoded = json.dumps(data)
+-        
+-        # store data
+-        cmds.fileInfo("timelineMarkers", encoded)
+-        
+-    # ------------------------------------------------------------------------
+-    
++        return bridge.write(self, action='set', frames=self.frames, colors=self.colors, comments=self.comments)
++
+     def getDataFromFrame(self, frame):
+         """
+         Get data from frame, this includes the index within the lists, the
+@@ -101,216 +49,57 @@
+             index = self.frames.index(frame)
+             color = self.colors[index]
+             comment = self.comments[index]
+-            
+-            return index, frame, color, comment
+-        return -1, frame, None, None
+-        
+-    # ------------------------------------------------------------------------
+-        
++            return (index, frame, color, comment)
++        return (-1, frame, None, None)
++
+     def paintEvent(self, event):
+         self.draw()
+-        
++
+     def event(self, event):
+-        """
+-        Subclass the event function in order to capture the ToolTip event. 
+-        The hovered frame is calculated and checked to see if it is marked 
+-        and commented, if so the toolTip will show.
+-        """
++        if self.total is None or not self.step or self.start is None:
++            return utils.QWidget.event(self, event)
++        '\n        Subclass the event function in order to capture the ToolTip event. \n        The hovered frame is calculated and checked to see if it is marked \n        and commented, if so the toolTip will show.\n        '
+         if event.type() == utils.QEvent.ToolTip:
+-            utils.QToolTip.hideText() 
+-            
+-            # find frame at mouse pointer
+-            frame = int(((event.x()-(self.total*0.005))/self.step)+self.start)
+-            
+-            # get comment for frame
++            utils.QToolTip.hideText()
++            frame = int((event.x() - self.total * 0.005) / self.step + self.start)
+             _, _, _, comment = self.getDataFromFrame(frame)
+-            
+-            # show tooltip
+-            utils.QToolTip.showText(event.globalPos(), comment, self)
+-            
++            utils.QToolTip.showText(event.globalPos(), comment or '', self)
+         return utils.QWidget.event(self, event)
+-        
+-    # ------------------------------------------------------------------------
+-        
++
+     def addFromUI(self):
+-        """
+-        Get the frame, color and comments arguments from the UI and add
+-        marker(s).
+-        """
+-        # get info from menu
+-        color = self.menu.colorA.property("rgb")
+-        comment = self.menu.commentL.text()
+-        
+-        # get selected frames
+-        for f in utils.getTimelineRange():
+-            self.add(f, color, comment)
+-
+-        # reset menu
+-        self.menu.commentL.setText("")
++        frames = utils.getTimelineRange()
++        if not frames:
++            return
++        result = bridge.write(self, action='add', frames=frames, color=list(self.menu.colorA.property('rgb')), comment=self.menu.commentL.text())
++        self.menu.commentL.setText('')
++        return result
+ 
+     def add(self, frame, color, comment):
+-        """
+-        Add a marker based on the provided arguments. If the frames are 
+-        already marked this information will be overwritten.
+-        
+-        :param int frame: Frame number
+-        :param list color: Color list ( RGB )
+-        :param str comment: Tooltip comment
+-        """
+-        index, _, _, _ = self.getDataFromFrame(frame)
+-        
+-        # add new marker
+-        if index == -1:
+-            self.frames.append(frame)
+-            self.colors.append(color)
+-            self.comments.append(comment)
+-            
+-        # overwrite existing marker
+-        else:
+-            self.colors[index] = color
+-            self.comments[index] = comment
+-
+-        self.update()
+-
+-    # ------------------------------------------------------------------------
+-        
++        return bridge.write(self, action='add', frames=[frame], color=color, comment=comment)
++
+     def removeFromUI(self):
+-        """
+-        Get the frame, color and comments arguments from the UI and remove
+-        marker(s).
+-        """
+-        for f in utils.getTimelineRange():
+-            self.remove(f)
++        frames = utils.getTimelineRange()
++        if frames:
++            return bridge.write(self, action='remove', frames=frames)
+ 
+     def remove(self, frame):
+-        """
+-        Remove a marker based on the provided arguments.
+-        
+-        :param int frame: Frame number
+-        """
+-        # check if frame exists
+-        index, _, _, _ = self.getDataFromFrame(frame)
+-        if index == -1:
+-            return
+-            
+-        # remove data
+-        self.frames.pop(index)
+-        self.colors.pop(index)
+-        self.comments.pop(index)
+-        
+-        self.update()
+-        
+-    # ------------------------------------------------------------------------
+-        
++        return bridge.write(self, action='remove', frames=[frame])
++
+     def clear(self):
+-        """
+-        Remove all markers.
+-        """
+-        self.frames = []
+-        self.colors = []
+-        self.comments = []
+-
+-        self.update()
+-
+-    # ------------------------------------------------------------------------
++        return bridge.write(self, action='clear')
+ 
+     def pressCommand(self, *args):
+-        """
+-        Press callback on the timeline, this callback registers the current
+-        selected frames, if the user settings determine that the frame range
+-        is not important ( no automated shifting of markers ), no range will 
+-        be stored.
+-        """
+-        # variable
++        self._range = None
++        '\n        Press callback on the timeline, this callback registers the current\n        selected frames, if the user settings determine that the frame range\n        is not important ( no automated shifting of markers ), no range will \n        be stored.\n        '
+         timeline = utils.getMayaTimeline()
+-
+-        # restore sound scrub
+         cmds.timeControl(timeline, edit=True, beginScrub=True)
+-
+-        # get visible range
+-        rangeVisible = cmds.timeControl(
+-            timeline,
+-            q=True, 
+-            rangeVisible=True
+-        )
+-        
+-        # check if range needs to be stored
++        rangeVisible = cmds.timeControl(timeline, q=True, rangeVisible=True)
+         if not rangeVisible or not self.menu.moveA.isChecked():
+             return
+-
+-        # save range
+         self._range = utils.getTimelineRange()
+ 
+     def releaseCommand(self, *args):
+-        """
+-        Release callback on the timeline, together with the press command the
+-        difference can be extracted and the markers can be moved accordingly. 
+-        Theuser settings will be checked if the moving of markers is 
+-        appropriate.
+-        """
+-        # variable
+-        timeline = utils.getMayaTimeline()
+-
+-        # restore sound scrub
+-        cmds.timeControl(timeline, edit=True, endScrub=True)
+-
+-        # check if markers need to be shifted
+-        if not self._range or not self.menu.moveA.isChecked():
+-            return
+-
+-        # get begin and end range
+-        beginRange = self._range[:]
+-        endRange = utils.getTimelineRange()
+-
+-        # reset stored range
+-        self._range = None
+-
+-        # check data
+-        beginLength = len(beginRange)
+-        endLenght = len(endRange)
+-        
+-        rangeVisible = cmds.timeControl(
+-            timeline,
+-            q=True, 
+-            rangeVisible=True
+-        )
+-
+-        if (beginLength == 1 and endLenght != 1) or not rangeVisible:
+-            return
+-
+-        # find frames
+-        matchingFrames = [
+-            frame for frame in beginRange 
+-            if frame in self.frames
+-        ]
+-
+-        # remap frames
+-        for frame in matchingFrames:
+-            if beginLength == 1:
+-                remappedFrame = endRange[0]
+-            else:
+-                remappedFrame = utils.remap(
+-                    frame,
+-                    beginRange[0], 
+-                    beginRange[-1], 
+-                    endRange[0],
+-                    endRange[-1]
+-                )
+-
+-            # continue if frame is the same
+-            if frame == remappedFrame:
+-                continue
+-
+-            # remove existing data on new frame number
+-            self.remove(remappedFrame)
+-
+-            # update frame number
+-            index = self.frames.index(frame)
+-            self.frames[index] = remappedFrame
+-
+-        self.update()
+-
+-    # ------------------------------------------------------------------------
++        return bridge.release(self)
+ 
+     def draw(self):
+         """
+@@ -318,142 +107,57 @@
+         timeline. This function will be called by the update and paintEvent 
+         function.
+         """
+-        
+-        # get animation range
+         self.start = cmds.playbackOptions(query=True, min=True)
+-        self.end   = cmds.playbackOptions(query=True, max=True)
+-        
+-        # calculate frame width
++        self.end = cmds.playbackOptions(query=True, max=True)
+         self.total = self.width()
+-        self.step = (self.total - (self.total*0.01)) / (self.end-self.start+1)
+-
+-        # validate marker information
+-        if not self.frames or not self.colors: 
+-            return
+-        
+-        # setup painter and pen
++        self.step = (self.total - self.total * 0.01) / (self.end - self.start + 1)
++        if not self.frames or not self.colors:
++            return
+         painter = utils.QPainter(self)
+         pen = utils.QPen()
+-        pen.setWidth(self.step)
+-            
+-        # draw Lines for each frame
++        pen.setWidthF(self.step)
+         for f, c in zip(self.frames, self.colors):
+             pen.setColor(utils.QColor(c[0], c[1], c[2], 50))
+-        
+-            # calculate line position
+-            pos = (f-self.start+0.5) * self.step + (self.total*0.005)
++            pos = (f - self.start + 0.5) * self.step + self.total * 0.005
+             line = utils.QLineF(utils.QPointF(pos, 0), utils.QPointF(pos, 100))
+-            
+-            painter.setPen( pen )
+-            painter.drawLine( line )
+-            
+-    # ------------------------------------------------------------------------
+-            
++            painter.setPen(pen)
++            painter.drawLine(line)
++
+     def addCallbacks(self):
+-        """
+-        Add callbacks that will clear all marker information on the timeline 
+-        every time a new file is created or a file is opened. It also adds 
+-        callback to determine if the markers are sliding.
+-        """
+-        # after new scene
+-        self.newID = OpenMaya.MSceneMessage.addCallback(
+-            OpenMaya.MSceneMessage.kAfterNew, 
+-            self.readFromCurrentScene
+-        )
+-        
+-        # after open scene
+-        self.openID = OpenMaya.MSceneMessage.addCallback(
+-            OpenMaya.MSceneMessage.kAfterOpen, 
+-            self.readFromCurrentScene
+-        )
+-
+-        # timeline press callbacks
+-        cmds.timeControl(
+-            utils.getMayaTimeline(), 
+-            edit=True, 
+-            pressCommand=self.pressCommand,
+-            releaseCommand=self.releaseCommand,
+-        )
+-        
++        return bridge.add_callbacks(self)
++
+     def removeCallbacks(self):
+-        """
+-        Remove Callbacks.
+-        """
+-        # remove api callbacks
+-        for id_ in [self.newID, self.openID]:
+-            if not id_:
+-                continue
+-                
+-            OpenMaya.MMessage.removeCallback(id_)
+-
+-        # remove timeline callbacks
+-        cmds.timeControl(
+-            utils.getMayaTimeline(), 
+-            edit=True, 
+-            pressCommand="", 
+-            releaseCommand=""
+-        )
+-        
+-    # ------------------------------------------------------------------------
+-    
++        return bridge.remove_callbacks(self)
++
+     def update(self):
+-        """
+-        Subclass update to simultaneously store all of the marker data into
+-        the current scene.
+-        """
+-        self.saveToCurrentScene()
+-        utils.QWidget.update(self)
+-        
++        return utils.QWidget.update(self)
++
+     def deleteLater(self):
+-        """
+-        Subclass the deleteLater function to first remove the callback, 
+-        this callback shouldn't be floating around and should be deleted
+-        with the widget.
+-        """
+         self.removeCallbacks()
+-        utils.QWidget.deleteLater(self)
+-
+-        
++        self.menu.deleteLater()
++        return utils.QWidget.deleteLater(self)
++
+ class TimelineMarkerMenu(object):
+-    def __init__(self, parent):    
+-        # variable
++
++    def __init__(self, parent):
+         self.menu = utils.getTimelineMenu()
+         self._buttons = []
+-        
+-        # separator
+         self.separatorA1 = self.addSeparator()
+-        
+-        # comment field
+-        pText = "marker comment"
++        pText = 'marker comment'
+         self.commentA, self.commentL = self.addCommentField(pText)
+-
+-        # color picker
+         self.colorA = self.addColorPicker()
+-
+-        # separator
+-        self.separatorA2 = self.addSeparator()    
+-
+-        # add, remove, clear markers
+-        aText = "Add Marker"
+-        rText = "Delete Selected Marker"
+-        cText = "Delete All Markers"
+-        
++        self.separatorA2 = self.addSeparator()
++        aText = 'Add Marker'
++        rText = 'Delete Selected Marker'
++        cText = 'Delete All Markers'
+         self.addA = self.addButton(aText, parent.addFromUI)
+         self.removeA = self.addButton(rText, parent.removeFromUI)
+         self.clearA = self.addButton(cText, parent.clear)
+-
+-        # separator
+         self.separatorA3 = self.addSeparator()
+-
+-        # move markers
+-        self.moveA = self.addButton(
+-            "Move With Time Control", 
+-        )
++        self.moveA = self.addButton('Move With Time Control')
+         self.moveA.setCheckable(True)
+         self.moveA.setChecked(False)
+-        
+-    # ------------------------------------------------------------------------
+-    
++
+     @property
+     def buttons(self):
+         """
+@@ -463,9 +167,7 @@
+         :rtype: list
+         """
+         return self._buttons
+-        
+-    # ------------------------------------------------------------------------
+-    
++
+     def addCommentField(self, placeholderText):
+         """
+         Add comment field QAction to the menu.
+@@ -476,14 +178,12 @@
+         """
+         edit = utils.QLineEdit(self.menu)
+         edit.setPlaceholderText(placeholderText)
+-        
+         button = utils.QWidgetAction(self.menu)
+         button.setDefaultWidget(edit)
+-        
+         self.menu.addAction(button)
+-        self.buttons.append(button) 
+-        return button, edit
+-        
++        self.buttons.append(button)
++        return (button, edit)
++
+     def addColorPicker(self):
+         """
+         Add color picker QAction to the menu.
+@@ -491,17 +191,13 @@
+         :return: Color picker
+         :rtype: QAction
+         """
+-        button = self.addButton("Pick Color", self.picker)
+-        button.setProperty("rgb", [0, 255, 0])
+-        
++        button = self.addButton('Pick Color', self.picker)
++        button.setProperty('rgb', [0, 255, 0])
+         pixmap = utils.QPixmap(12, 12)
+         pixmap.fill(utils.QColor(0, 255, 0))
+-        
+         button.setIcon(utils.QIcon(pixmap))
+         return button
+-        
+-    # ------------------------------------------------------------------------
+-    
++
+     def addSeparator(self):
+         """
+         Add separator QAction to the menu.
+@@ -510,12 +206,11 @@
+         :rtype: QAction
+         """
+         separator = utils.QAction(self.menu)
+-        separator.setSeparator( True )
+-        
++        separator.setSeparator(True)
+         self.menu.addAction(separator)
+         self.buttons.append(separator)
+         return separator
+-        
++
+     def addButton(self, text, command=None):
+         """
+         Add button QAction to the menu.
+@@ -527,70 +222,36 @@
+         """
+         button = utils.QAction(self.menu)
+         button.setText(text)
+-        
+         if command:
+             button.triggered.connect(command)
+-        
+-        self.menu.addAction(button) 
+-        self.buttons.append(button)        
++        self.menu.addAction(button)
++        self.buttons.append(button)
+         return button
+-       
+-    # ------------------------------------------------------------------------
+-        
+-    def picker( self ):
++
++    def picker(self):
+         """
+         The picker will change the color of the button and will store the 
+         rgb values in a property, this property will be read when a marker is 
+         added via the menu.
+         """
+-        rgbL = self.colorA.property("rgb")
++        rgbL = self.colorA.property('rgb')
+         rgbQt = utils.QColor(rgbL[0], rgbL[1], rgbL[2])
+-        
+         dialog = utils.QColorDialog.getColor(rgbQt, self.menu)
+         if not dialog.isValid():
+             return
+-            
+         rgb = [dialog.red(), dialog.green(), dialog.blue()]
+-
+         pixmap = utils.QPixmap(12, 12)
+         pixmap.fill(utils.QColor(rgb[0], rgb[1], rgb[2]))
+-        
+-        self.colorA.setProperty("rgb", rgb)
++        self.colorA.setProperty('rgb', rgb)
+         self.colorA.setIcon(utils.QIcon(pixmap))
+-            
+-    # ------------------------------------------------------------------------
+-        
++
+     def deleteLater(self):
+-        """
+-        Remove all marker related QActions from the timeline menu.
+-        """
+-        for button in self.buttons:
+-            button.deleteLater()
+-            
+-            
++        return bridge.delete_menu(self)
++
+ def install():
+-    """
+-    Add the marker functionality to Maya's native timeline menu. 
+-    
+-    :raises RuntimeError: When the timeline marker is already installed.
+-    """
+-    global TIMELINE_MARKER
+-    
+-    # validate timeline marker
+-    if TIMELINE_MARKER:
+-        raise RuntimeError("Timeline marker is already installed!")
+-    
+-    # get parent
+-    parent = utils.getTimeline()
+-    layout = parent.layout()
+-    
+-    # create layout if non exists
+-    if not layout:
+-        layout = utils.QVBoxLayout(parent)
+-        layout.setContentsMargins(0, 0, 0, 0)
+-        parent.setLayout(layout)
+-    
+-    # create timeline marker
+-    TIMELINE_MARKER = TimelineMarker()
+-    TIMELINE_MARKER.setParent(parent)
+-    layout.addWidget(TIMELINE_MARKER)
++    import sys
++    return bridge.install(sys.modules[__name__])
++
++def uninstall():
++    import sys
++    return bridge.uninstall(sys.modules[__name__])
+--- upstream/utils.py
++++ native/utils.py
+@@ -1,25 +1,16 @@
++# Robert Joosten Timeline Marker 2.0.2; GPL-3.0-or-later. Adapted for Maya Toolkit. See upstream/LICENSE.
+ import json
+ from maya import OpenMaya, OpenMayaUI, cmds, mel
+-
+-
+-# ----------------------------------------------------------------------------
+-
+-
+-# import pyside, do qt version check for maya 2017 >
+-qtVersion = cmds.about(qtVersion=True)
+-if qtVersion.startswith("4") or type(qtVersion) not in [str, unicode]:
+-    from PySide.QtGui import *
+-    from PySide.QtCore import *
+-    import shiboken
+-else:
++try:
++    from PySide6.QtGui import *
++    from PySide6.QtCore import *
++    from PySide6.QtWidgets import *
++    import shiboken6 as shiboken
++except ImportError:
+     from PySide2.QtGui import *
+     from PySide2.QtCore import *
+     from PySide2.QtWidgets import *
+     import shiboken2 as shiboken
+-    
+-            
+-# ----------------------------------------------------------------------------
+-
+ 
+ def mayaToQT(name):
+     """
+@@ -30,16 +21,12 @@
+     :rtype: QWidget
+     """
+     ptr = OpenMayaUI.MQtUtil.findControl(name)
+-    if ptr is None:         
+-        ptr = OpenMayaUI.MQtUtil.findLayout(name)    
+-    if ptr is None:         
++    if ptr is None:
++        ptr = OpenMayaUI.MQtUtil.findLayout(name)
++    if ptr is None:
+         ptr = OpenMayaUI.MQtUtil.findMenuItem(name)
+-    if ptr is not None:     
+-        return shiboken.wrapInstance(long(ptr), QWidget)
+-
+-        
+-# ----------------------------------------------------------------------------
+-
++    if ptr is not None:
++        return shiboken.wrapInstance(int(ptr), QWidget)
+ 
+ def getMayaTimeline():
+     """
+@@ -48,9 +35,8 @@
+     :return: Object name of Maya's timeline
+     :rtype: str
+     """
+-    return mel.eval("$tmpVar=$gPlayBackSlider")
++    return mel.eval('$tmpVar=$gPlayBackSlider')
+ 
+-    
+ def getTimeline():
+     """
+     Get the QWidget of Maya's timeline. For versions 2016.5 and later the 
+@@ -59,17 +45,12 @@
+     :return: QWidget of Maya's timeline
+     :rtype: QWidget
+     """
+-    # convert name to widget
+     qtTimeline = mayaToQT(getMayaTimeline())
+-    
+-    # return child for Maya 2016.5 > 
+     for child in qtTimeline.children():
+         if type(child) == QWidget:
+             return child
+-    
+     return qtTimeline
+ 
+-    
+ def getTimelineMenu():
+     """
+     Get the QWidget of Maya's timeline menu. An initialization mel function
+@@ -79,27 +60,16 @@
+     :return: QWidget of Maya's timeline menu
+     :rtype: QWidget
+     """
+-    # initialize timeline menu
+-    mel.eval("updateTimeSliderMenu TimeSliderMenu;")
+-    
+-    # get time slider menu
+-    qtTimelineMenu = mayaToQT("TimeSliderMenu")
++    mel.eval('updateTimeSliderMenu TimeSliderMenu;')
++    qtTimelineMenu = mayaToQT('TimeSliderMenu')
+     return qtTimelineMenu
+-    
+-    
++
+ def getTimelineRange():
+-    """
+-    Read the current timeline selection and convert it into a range list.
+-
+-    :return: Frame range of timeline selection
+-    :rtype: list
+-    """
+-    r = cmds.timeControl(getMayaTimeline(), query=True, ra=True )
+-    return range(int(r[0]), int(r[1]))
+-
+-    
+-# ----------------------------------------------------------------------------
+-
++    r = cmds.timeControl(getMayaTimeline(), query=True, ra=True)
++    start, end = (int(r[0]), int(r[1]))
++    if end < start or end - start > 20000:
++        raise ValueError('timeline selection范围超限')
++    return list(range(start, end))
+ 
+ def remap(value, oMin, oMax, nMin, nMax):
+     """
+@@ -114,4 +84,4 @@
+     :return: remapped value
+     :rtype: int
+     """
+-    return int((((value - oMin) * (nMax - nMin)) / (oMax - oMin)) + nMin)
++    return int((value - oMin) * (nMax - nMin) / (oMax - oMin) + nMin)

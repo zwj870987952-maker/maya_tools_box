@@ -1,0 +1,345 @@
+{
+  "tool_id": "timeline_marker",
+  "registration": {
+    "module": "timeline_marker",
+    "class_name": "TimelineMarkerTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/timeline_marker.md",
+      "target": "docs/tools/timeline_marker.md"
+    },
+    {
+      "source": "docs/tools/timeline_marker_changes.diff",
+      "target": "docs/tools/timeline_marker_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/__init__.py",
+      "target": "maya_toolkit/tools/timeline_marker/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/catalog.json",
+      "target": "maya_toolkit/tools/timeline_marker/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/gui_bridge.py",
+      "target": "maya_toolkit/tools/timeline_marker/gui_bridge.py"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/model.py",
+      "target": "maya_toolkit/tools/timeline_marker/model.py"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/native/__init__.py",
+      "target": "maya_toolkit/tools/timeline_marker/native/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/native/commands.py",
+      "target": "maya_toolkit/tools/timeline_marker/native/commands.py"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/native/decorators.py",
+      "target": "maya_toolkit/tools/timeline_marker/native/decorators.py"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/native/hotkey.py",
+      "target": "maya_toolkit/tools/timeline_marker/native/hotkey.py"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/native/ui.py",
+      "target": "maya_toolkit/tools/timeline_marker/native/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/native/utils.py",
+      "target": "maya_toolkit/tools/timeline_marker/native/utils.py"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/runtime.py",
+      "target": "maya_toolkit/tools/timeline_marker/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/tool.py",
+      "target": "maya_toolkit/tools/timeline_marker/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/undo_plugin.py",
+      "target": "maya_toolkit/tools/timeline_marker/undo_plugin.py"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/.gitignore",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/.gitignore"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/.buildinfo",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/.buildinfo"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/.nojekyll",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/.nojekyll"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_images/timelineMarkerExample.gif",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_images/timelineMarkerExample.gif"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_sources/index.rst.txt",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_sources/index.rst.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_sources/modules.rst.txt",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_sources/modules.rst.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_sources/timelineMarker.commands.rst.txt",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_sources/timelineMarker.commands.rst.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_sources/timelineMarker.decorators.rst.txt",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_sources/timelineMarker.decorators.rst.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_sources/timelineMarker.hotkey.rst.txt",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_sources/timelineMarker.hotkey.rst.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_sources/timelineMarker.rst.txt",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_sources/timelineMarker.rst.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_sources/timelineMarker.ui.rst.txt",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_sources/timelineMarker.ui.rst.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_sources/timelineMarker.utils.rst.txt",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_sources/timelineMarker.utils.rst.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/ajax-loader.gif",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/ajax-loader.gif"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/basic.css",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/basic.css"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/classic.css",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/classic.css"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/comment-bright.png",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/comment-bright.png"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/comment-close.png",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/comment-close.png"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/comment.png",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/comment.png"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/down-pressed.png",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/down-pressed.png"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/down.png",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/down.png"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/file.png",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/file.png"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/minus.png",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/minus.png"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/plus.png",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/plus.png"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/pygments.css",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/pygments.css"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/up-pressed.png",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/up-pressed.png"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/up.png",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/_static/up.png"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/genindex.html",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/genindex.html"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/index.html",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/index.html"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/modules.html",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/modules.html"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/objects.inv",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/objects.inv"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/py-modindex.html",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/py-modindex.html"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/search.html",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/search.html"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/timelineMarker.commands.html",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/timelineMarker.commands.html"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/timelineMarker.decorators.html",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/timelineMarker.decorators.html"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/timelineMarker.hotkey.html",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/timelineMarker.hotkey.html"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/timelineMarker.html",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/timelineMarker.html"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/timelineMarker.ui.html",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/timelineMarker.ui.html"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/docs/timelineMarker.utils.html",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/docs/timelineMarker.utils.html"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/LICENSE",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/LICENSE"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/README.md",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/README.md"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/scripts/timelineMarker/__init__.py.original",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/scripts/timelineMarker/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/scripts/timelineMarker/commands.py.original",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/scripts/timelineMarker/commands.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/scripts/timelineMarker/decorators.py.original",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/scripts/timelineMarker/decorators.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/scripts/timelineMarker/hotkey.py.original",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/scripts/timelineMarker/hotkey.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/scripts/timelineMarker/ui.py.original",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/scripts/timelineMarker/ui.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/scripts/timelineMarker/utils.py.original",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/scripts/timelineMarker/utils.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/scripts/userSetup.py.original",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/scripts/userSetup.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/timelineMarker.mel",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/timelineMarker.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_marker/upstream/timelineMarker.mod",
+      "target": "maya_toolkit/tools/timeline_marker/upstream/timelineMarker.mod"
+    },
+    {
+      "source": "tests/test_timeline_marker.py",
+      "target": "tests/test_timeline_marker.py"
+    },
+    {
+      "source": "tests/test_timeline_marker_maya.py",
+      "target": "tests/test_timeline_marker_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/.gitignore",
+    "upstream/docs/.buildinfo",
+    "upstream/docs/.nojekyll",
+    "upstream/docs/_images/timelineMarkerExample.gif",
+    "upstream/docs/_sources/index.rst.txt",
+    "upstream/docs/_sources/modules.rst.txt",
+    "upstream/docs/_sources/timelineMarker.commands.rst.txt",
+    "upstream/docs/_sources/timelineMarker.decorators.rst.txt",
+    "upstream/docs/_sources/timelineMarker.hotkey.rst.txt",
+    "upstream/docs/_sources/timelineMarker.rst.txt",
+    "upstream/docs/_sources/timelineMarker.ui.rst.txt",
+    "upstream/docs/_sources/timelineMarker.utils.rst.txt",
+    "upstream/docs/_static/ajax-loader.gif",
+    "upstream/docs/_static/basic.css",
+    "upstream/docs/_static/classic.css",
+    "upstream/docs/_static/comment-bright.png",
+    "upstream/docs/_static/comment-close.png",
+    "upstream/docs/_static/comment.png",
+    "upstream/docs/_static/down-pressed.png",
+    "upstream/docs/_static/down.png",
+    "upstream/docs/_static/file.png",
+    "upstream/docs/_static/minus.png",
+    "upstream/docs/_static/plus.png",
+    "upstream/docs/_static/pygments.css",
+    "upstream/docs/_static/up-pressed.png",
+    "upstream/docs/_static/up.png",
+    "upstream/docs/genindex.html",
+    "upstream/docs/index.html",
+    "upstream/docs/modules.html",
+    "upstream/docs/objects.inv",
+    "upstream/docs/py-modindex.html",
+    "upstream/docs/search.html",
+    "upstream/docs/timelineMarker.commands.html",
+    "upstream/docs/timelineMarker.decorators.html",
+    "upstream/docs/timelineMarker.hotkey.html",
+    "upstream/docs/timelineMarker.html",
+    "upstream/docs/timelineMarker.ui.html",
+    "upstream/docs/timelineMarker.utils.html",
+    "upstream/LICENSE",
+    "upstream/README.md",
+    "upstream/scripts/timelineMarker/__init__.py.original",
+    "upstream/scripts/timelineMarker/commands.py.original",
+    "upstream/scripts/timelineMarker/decorators.py.original",
+    "upstream/scripts/timelineMarker/hotkey.py.original",
+    "upstream/scripts/timelineMarker/ui.py.original",
+    "upstream/scripts/timelineMarker/utils.py.original",
+    "upstream/scripts/userSetup.py.original",
+    "upstream/timelineMarker.mel",
+    "upstream/timelineMarker.mod",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya cmds/OpenMaya API1+API2 and Python3",
+    "PySide6/shiboken6 or PySide2/shiboken2 for genuine GUI",
+    "Privately loaded undo_plugin command; no autoload or userSetup install",
+    "BaseMayaTool/Undo"
+  ],
+  "source": "../maya-timeline-marker-master/scripts/timelineMarker/ui.py",
+  "change_summary": "Full upstream archive/functions/timeline overlay/menu/color/comment/range movement; Python3 lazy Qt, same fileInfo format via undoable private command, strict schema/read-only load/dry, atomic collision-safe remap and callback ownership cleanup.",
+  "verification_limitations": [
+    "Real native timeline GUI/Qt event dispatch and sound scrubbing pending",
+    "UI/session/plugin callbacks are not scene Undo; plugin remains loaded while command Undo history exists",
+    "Integer-only markers; remap truncates toward zero and later source wins collisions",
+    "Malformed existing metadata refused; no automatic repair/overwrite",
+    "Existing original timelineMarker widget must be closed first; Python callable timeline hooks refused"
+  ],
+  "acceptance_required": true
+}

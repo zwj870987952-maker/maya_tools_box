@@ -293,3 +293,12 @@
 - Keyframe Reduction候选完整提交8f61c8df89c4dd274d9af4d5430d3834e5e780df；提交后一次读数5小时94%已用，后续实际读数96%已用/周86%已用（5小时剩余4%）。已低于6%阈值，保存31/109完整候选后结束整理回合。
 - 下一项maya_timeline_marker仅阅读原源码，未写候选、未运行原UI、不计完成，保留working供恢复。进入waiting_for_quota，启用同聊天30分钟heartbeat；续跑必须重新扫描/核验额度与单写者。
 - 不消费重置卡、不购买额度，未同步Obsidian、未迁入正式库；真人Maya验收仍待进行。
+
+## 2026-10-01：自然刷新续跑与Timeline Marker完整候选，累计32/109
+
+- 续跑检查初读5小时98%已用/周86%已用，核验同聊天ACTIVE heartbeat等待。刷新时间后一次额度接口读取失败，重试实际5小时0%已用/周86%已用、ordinaryUsageAllowed=true，未推测刷新；无其他写入、工作树干净，暂停同一heartbeat后恢复，未用卡。
+- Robert Joosten 2.0.2整仓49资源与GPL-3.0-or-later Copyright(C)2015/GPLv3全文字节保留；两类26方法/13原函数全Python3转换，完整原生覆层/右键菜单/RGB/注释/tooltip/选区移动/原命令和hotkey，GUI延迟PySide6/2。原Python2归档.py.original，不执行MEL安装器/userSetup，也不安装hotkeys。
+- Maya2025隔离探针确认fileInfo不入Undo；候选保留timelineMarkers三数组JSON格式，私有MPxCommand保存精确原值或缺失状态、真实Undo/Redo；插件只在正式写时加载且不autoload、不在有Undo记录时卸载。修MEL转义串完整解码、读/paint/update不写、set长度严格、范围移动冻结源数据避免目标碰撞删待移动源，保留int向零截断/后源覆盖目标语义。API数据写入不要求GUI已装，这是原行为变化。
+- 标准Schema/只读预检/Undo、恶劣原metadata保留拒绝、整数/颜色/数据量保护。保存并链旧MEL press/release，清理只恢复仍属自身的hook并保留后来外部handler；自有菜单/4API callbacks包含Undo/Redo只读刷新，原版仍运行拒绝重叠；会话GUI/插件不属场景Undo。
+- 普通Python3项、Maya2025隔离4组、临时正式布局注册/面板/Schema、静态与全部指纹匹配通过：真实fileInfo/精确Undo/Redo、中文引号路径换行、原格式、ma/mb临时保存重开、全部命令桥、dry/inspect无副作用、坏数据/Undo关闭拒绝、命令后注入故障Undo恢复。hook所有权测试timeControl是shim、API callbacks是真实注册/Undo事件；未构造Qt GUI，绝不当时间轴验收。
+- 首轮自有API2插件误用MArgList.length，修为len后全部四组通过；不是原算法通过证明。真人Qt覆层/tooltip/拖动/高DPI/声音/其他插件共存仍待验prepared_unverified，完整知识/验收/晋级已备；正式库/core/同步未动。本项实际收尾5小时6%/周87%已用，继续下一项mov_playblast_v11，heartbeat保持暂停。
