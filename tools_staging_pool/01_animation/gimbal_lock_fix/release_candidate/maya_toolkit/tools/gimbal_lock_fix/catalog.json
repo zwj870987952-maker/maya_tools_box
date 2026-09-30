@@ -1,0 +1,29 @@
+{
+  "raw_files": [
+    {
+      "path": "upstream/maya_animation_gimbal_fix.py",
+      "sha256": "075af7354f539cf11d8f6ef919fcc3e161d9637bafdd432786e4c6b8e14bffca"
+    }
+  ],
+  "source_methods": [
+    "__init__",
+    "euler_to_quaternion",
+    "quaternion_to_euler",
+    "quaternion_slerp",
+    "get_animation_data",
+    "detect_gimbal_issues",
+    "fix_animation_curves",
+    "_apply_fixed_rotations"
+  ],
+  "source_ui": "create_gimbal_fix_ui",
+  "license": "User supplied script, author header Claude; no separate license supplied",
+  "changes": [
+    "Full native algorithm/UI retained",
+    "Read-only time-context sampling",
+    "Quaternion→Euler reorderIt for non-XYZ orientation",
+    "Copy second quaternion before shortest-path sign flip",
+    "Angular fallback curve type",
+    "Standard GUI API callbacks/Undo",
+    "Disabled original unused preserve checkbox; accurate range/algorithm help"
+  ]
+}

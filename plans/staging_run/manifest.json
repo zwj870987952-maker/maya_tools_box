@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T05:11:22.259521+08:00",
+  "updated_at": "2026-10-01T05:20:56.189824+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/fd_multi_space",
+    "last_completed_tool": "01_animation/gimbal_lock_fix",
     "last_usage": {
-      "five_hour_used_percent": 44.0,
-      "weekly_used_percent": 77.0,
-      "recorded_at": "2026-10-01T04:56:46.572940+08:00",
+      "five_hour_used_percent": 50.0,
+      "weekly_used_percent": 78.0,
+      "recorded_at": "2026-10-01T05:13:07.396498+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/fd_multi_space"
+    "current_tool": "01_animation/gimbal_lock_fix"
   },
   "entry_repairs": [
     {
@@ -4185,7 +4185,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Both complete original local-group/existing-parent algorithms and three-step UI, explicit weight aliases/no force, persistent UUID provenance and guarded multi-target constraints.",
-      "prepared_at": "2026-10-01T05:11:20.680628+08:00"
+      "prepared_at": "2026-10-01T05:11:20.680628+08:00",
+      "source_commit": "9bb754316a216203e30d4673c1916e83280b8bc2"
     },
     {
       "source_path": "01_animation/gimbal_lock_fix",
@@ -4196,20 +4197,83 @@
       "entry_candidates": [
         "maya_animation_gimbal_fix.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "maya_animation_gimbal_fix.py"
       ],
       "license_files": [],
       "entry_sha256": "075af7354f539cf11d8f6ef919fcc3e161d9637bafdd432786e4c6b8e14bffca",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_full_source_and_native_algorithm_ui (__main__.OfflineTests.test_full_source_and_native_algorithm_ui) ... ok\r\ntest_schema_types_and_lazy_import (__main__.OfflineTests.test_schema_types_and_lazy_import) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.003s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"gimbal_lock_fix\",\r\n  \"candidate_sha256\": \"23b2efc099e29ed8c396ea4e405e90a88828f6851cb5b96ec0de0f03b004a0a7\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\gimbal_lock_fix.md\",\r\n    \"docs\\\\tools\\\\gimbal_lock_fix_changes.diff\",\r\n    \"maya_toolkit\\\\tools\\\\gimbal_lock_fix\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\gimbal_lock_fix\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\gimbal_lock_fix\\\\native.py\",\r\n    \"maya_toolkit\\\\tools\\\\gimbal_lock_fix\\\\proxy.py\",\r\n    \"maya_toolkit\\\\tools\\\\gimbal_lock_fix\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\gimbal_lock_fix\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\gimbal_lock_fix\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\gimbal_lock_fix\\\\upstream\\\\maya_animation_gimbal_fix.py\",\r\n    \"tests\\\\test_gimbal_lock_fix.py\",\r\n    \"tests\\\\test_gimbal_lock_fix_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/gimbal_lock_fix/release_candidate/tests/test_gimbal_lock_fix_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_all_six_orders_preserve_key_orientations_and_undo (__main__.MayaTests.test_all_six_orders_preserve_key_orientations_and_undo) ... ����: GimbalFixTool_gimbal_lock_fix\n����: GimbalFixTool_gimbal_lock_fix\n����: GimbalFixTool_gimbal_lock_fix\n����: GimbalFixTool_gimbal_lock_fix\n����: GimbalFixTool_gimbal_lock_fix\n����: GimbalFixTool_gimbal_lock_fix\nok\r\ntest_density_subframe_range_and_native_gui_bridge (__main__.MayaTests.test_density_subframe_range_and_native_gui_bridge) ... ����: GimbalFixTool_gimbal_lock_fix\n����: GimbalFixTool_gimbal_lock_fix\nok\r\ntest_partial_failure_undo_and_finally (__main__.MayaTests.test_partial_failure_undo_and_finally) ... ����: GimbalFixTool_gimbal_lock_fix\nok\r\ntest_readonly_detect_and_dry_and_real_angle_threshold (__main__.MayaTests.test_readonly_detect_and_dry_and_real_angle_threshold) ... ok\r\ntest_slerp_does_not_mutate_cached_quaternion_and_scope_guards (__main__.MayaTests.test_slerp_does_not_mutate_cached_quaternion_and_scope_guards) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.039s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "545490e668eb3bdbdc514136bb1da4d2528e6a4d8f14563413d2d64cf64a8e4d",
+          "runtime_source_sha256": "6d9e9a01d1cc2efc1227d20aa0ad40576f59846b0ec5349a4b21ba9bf4e8930c"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real GUI and visual gimbal/long-spin/production animation need human acceptance"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "23b2efc099e29ed8c396ea4e405e90a88828f6851cb5b96ec0de0f03b004a0a7",
+          "returncode": 0,
+          "output": "test_full_source_and_native_algorithm_ui (__main__.OfflineTests.test_full_source_and_native_algorithm_ui) ... ok\r\ntest_schema_types_and_lazy_import (__main__.OfflineTests.test_schema_types_and_lazy_import) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.003s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI/production gimbal effect pending",
+        "Canonical quaternion conversion does not guarantee elimination of all gimbal/long-spin issues",
+        "Direct angular rotation curves and degree units only; layers/constraints/animated order unsupported",
+        "Global spline tangents affect entire curves outside chosen key range"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -4218,7 +4282,43 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "9687445bb44f018780b3bad67fec5019997ff0dfc8a7d6229e59b4600c0379ea"
+      "source_tree_sha256": "a57d36571477930b8315ac4b8003499140acf94e3f314052250589786cbb0833",
+      "candidate_path": "tools_staging_pool/01_animation/gimbal_lock_fix/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/gimbal_lock_fix/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "gimbal_lock_fix",
+        "candidate_sha256": "23b2efc099e29ed8c396ea4e405e90a88828f6851cb5b96ec0de0f03b004a0a7",
+        "applied": false,
+        "files": [
+          "docs\\tools\\gimbal_lock_fix.md",
+          "docs\\tools\\gimbal_lock_fix_changes.diff",
+          "maya_toolkit\\tools\\gimbal_lock_fix\\__init__.py",
+          "maya_toolkit\\tools\\gimbal_lock_fix\\catalog.json",
+          "maya_toolkit\\tools\\gimbal_lock_fix\\native.py",
+          "maya_toolkit\\tools\\gimbal_lock_fix\\proxy.py",
+          "maya_toolkit\\tools\\gimbal_lock_fix\\runtime.py",
+          "maya_toolkit\\tools\\gimbal_lock_fix\\tool.py",
+          "maya_toolkit\\tools\\gimbal_lock_fix\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\gimbal_lock_fix\\upstream\\maya_animation_gimbal_fix.py",
+          "tests\\test_gimbal_lock_fix.py",
+          "tests\\test_gimbal_lock_fix_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/maya_animation_gimbal_fix.py",
+        "catalog.json"
+      ],
+      "external_dependencies": [
+        "Maya cmds and OpenMaya API1",
+        "Existing BaseMayaTool/Undo",
+        "Maya GUI for native panel"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete quaternion detection/interpolation/native UI, correct non-XYZ reconstruction and cache sign mutation, guarded direct rotation curves and read-only detection.",
+      "prepared_at": "2026-10-01T05:20:54.590871+08:00"
     },
     {
       "source_path": "01_animation/ik_fk_switch",

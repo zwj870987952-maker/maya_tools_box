@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/gimbal_lock_fix/release_candidate/tests/test_gimbal_lock_fix_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_all_six_orders_preserve_key_orientations_and_undo (__main__.MayaTests.test_all_six_orders_preserve_key_orientations_and_undo) ... ����: GimbalFixTool_gimbal_lock_fix\n����: GimbalFixTool_gimbal_lock_fix\n����: GimbalFixTool_gimbal_lock_fix\n����: GimbalFixTool_gimbal_lock_fix\n����: GimbalFixTool_gimbal_lock_fix\n����: GimbalFixTool_gimbal_lock_fix\nok\r\ntest_density_subframe_range_and_native_gui_bridge (__main__.MayaTests.test_density_subframe_range_and_native_gui_bridge) ... ����: GimbalFixTool_gimbal_lock_fix\n����: GimbalFixTool_gimbal_lock_fix\nok\r\ntest_partial_failure_undo_and_finally (__main__.MayaTests.test_partial_failure_undo_and_finally) ... ����: GimbalFixTool_gimbal_lock_fix\nok\r\ntest_readonly_detect_and_dry_and_real_angle_threshold (__main__.MayaTests.test_readonly_detect_and_dry_and_real_angle_threshold) ... ok\r\ntest_slerp_does_not_mutate_cached_quaternion_and_scope_guards (__main__.MayaTests.test_slerp_does_not_mutate_cached_quaternion_and_scope_guards) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.039s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "545490e668eb3bdbdc514136bb1da4d2528e6a4d8f14563413d2d64cf64a8e4d",
+  "runtime_source_sha256": "6d9e9a01d1cc2efc1227d20aa0ad40576f59846b0ec5349a4b21ba9bf4e8930c"
+}

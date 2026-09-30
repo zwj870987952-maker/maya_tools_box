@@ -1,0 +1,75 @@
+{
+  "tool_id": "gimbal_lock_fix",
+  "registration": {
+    "module": "gimbal_lock_fix",
+    "class_name": "GimbalFixTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/gimbal_lock_fix.md",
+      "target": "docs/tools/gimbal_lock_fix.md"
+    },
+    {
+      "source": "docs/tools/gimbal_lock_fix_changes.diff",
+      "target": "docs/tools/gimbal_lock_fix_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/gimbal_lock_fix/__init__.py",
+      "target": "maya_toolkit/tools/gimbal_lock_fix/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/gimbal_lock_fix/catalog.json",
+      "target": "maya_toolkit/tools/gimbal_lock_fix/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/gimbal_lock_fix/native.py",
+      "target": "maya_toolkit/tools/gimbal_lock_fix/native.py"
+    },
+    {
+      "source": "maya_toolkit/tools/gimbal_lock_fix/proxy.py",
+      "target": "maya_toolkit/tools/gimbal_lock_fix/proxy.py"
+    },
+    {
+      "source": "maya_toolkit/tools/gimbal_lock_fix/runtime.py",
+      "target": "maya_toolkit/tools/gimbal_lock_fix/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/gimbal_lock_fix/tool.py",
+      "target": "maya_toolkit/tools/gimbal_lock_fix/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/gimbal_lock_fix/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/gimbal_lock_fix/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/gimbal_lock_fix/upstream/maya_animation_gimbal_fix.py",
+      "target": "maya_toolkit/tools/gimbal_lock_fix/upstream/maya_animation_gimbal_fix.py"
+    },
+    {
+      "source": "tests/test_gimbal_lock_fix.py",
+      "target": "tests/test_gimbal_lock_fix.py"
+    },
+    {
+      "source": "tests/test_gimbal_lock_fix_maya.py",
+      "target": "tests/test_gimbal_lock_fix_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/maya_animation_gimbal_fix.py",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya cmds and OpenMaya API1",
+    "Existing BaseMayaTool/Undo",
+    "Maya GUI for native panel"
+  ],
+  "source": "../maya_animation_gimbal_fix.py",
+  "change_summary": "Complete quaternion detection/interpolation/native UI, correct non-XYZ reconstruction and cache sign mutation, guarded direct rotation curves and read-only detection.",
+  "verification_limitations": [
+    "Real Maya GUI/production gimbal effect pending",
+    "Canonical quaternion conversion does not guarantee elimination of all gimbal/long-spin issues",
+    "Direct angular rotation curves and degree units only; layers/constraints/animated order unsupported",
+    "Global spline tangents affect entire curves outside chosen key range"
+  ],
+  "acceptance_required": true
+}
