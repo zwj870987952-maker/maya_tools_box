@@ -1,0 +1,65 @@
+{
+  "tool_id": "brs_smooth_mocap",
+  "original_functions": [
+    "formatPath",
+    "valueAverage",
+    "BRSSmoothKeys",
+    "BRSSmoothMocap"
+  ],
+  "raw_files": [
+    {
+      "path": "upstream/BRSSmoothMocap.py",
+      "sha256": "e838f029c700fd6ceb55b23f255a4c3055453e4bf2dd74e3f72af5ba48dad5ba"
+    },
+    {
+      "path": "backend/catalog.json",
+      "sha256": "05a5375d8802c91697938a9b30c283053513f9cfb33c4cc6ee393f1638c12072"
+    },
+    {
+      "path": "backend/contracts.py",
+      "sha256": "de01878f631a6c74892a92b368868d99b389a44b68a1b5f5a1a7868c5a64208a"
+    },
+    {
+      "path": "backend/legacy.py",
+      "sha256": "aa607948184e1380494a199738ce62fbd09f7bb91cb01a704c75ba4600cff3fc"
+    },
+    {
+      "path": "backend/runtime.py",
+      "sha256": "db9537c1cbb811add7db95f4fa61855e1889b9e4cfc51860f16a4592fc93bced"
+    },
+    {
+      "path": "backend/scene.py",
+      "sha256": "c2b9e3bdd541e1edae9ad66aaba40cf2ada09a66b6283c6f251175ad5c5062df"
+    },
+    {
+      "path": "backend/tool.py",
+      "sha256": "f76b4f1e5b6507e33cd8fde86f47605449ce2ca2e017c1fcca71a551038cb0b5"
+    },
+    {
+      "path": "backend/ui.py",
+      "sha256": "3b58e22a3151355dc36d275265e0eaf60adec5cd2df15d5f974b7a0cb4af3a92"
+    },
+    {
+      "path": "backend/__init__.py",
+      "sha256": "2b6f40e2964dde66335b9a505b3e46c982d12f1ef1db64d5fab10db5ae82b7fb"
+    },
+    {
+      "path": "backend/upstream/.gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": "backend/upstream/BRSLocTransfer.py",
+      "sha256": "90129ce76b042749b86fb006afa482d41ae5ad2943cb7b555e82064347368d28"
+    }
+  ],
+  "private_backend_origin": "brs_loc_transfer candidate snapshot in this package; independent Owner/helper names; no staging path dependency at runtime",
+  "source_license": "Original author family BRS; no independent redistribution license supplied; private preparation",
+  "changes": [
+    "Remove scripts-directory exec/import-time dialog/scene operations",
+    "Exact valueAverage AST retained with guard",
+    "Explicit joint-only hierarchy and eligible locators; leaf/one-key cases guarded",
+    "Original smoothStrength-1 passes and six-channel bake",
+    "Owned constraints detached/cleaned after bake",
+    "Private full fixed locator dependency and explicit UI options"
+  ]
+}

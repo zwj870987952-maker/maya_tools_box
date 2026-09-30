@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T01:25:15.616132+08:00",
+  "updated_at": "2026-10-01T01:48:18.507054+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/brs_loc_transfer",
+    "last_completed_tool": "01_animation/brs_smooth_mocap",
     "last_usage": {
-      "five_hour_used_percent": 74.0,
-      "weekly_used_percent": 68.0,
-      "recorded_at": "2026-10-01T01:00:12.872645+08:00",
+      "five_hour_used_percent": 80.0,
+      "weekly_used_percent": 69.0,
+      "recorded_at": "2026-10-01T01:26:47.602922+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/brs_loc_transfer"
+    "current_tool": "01_animation/brs_smooth_mocap"
   },
   "entry_repairs": [
     {
@@ -2272,7 +2272,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete original locator transfer/redirection bake algorithms and native layout, owned UUID helpers and strict channel preflight, no downloaded code or import-time scene writes.",
-      "prepared_at": "2026-10-01T01:25:16.176160+08:00"
+      "prepared_at": "2026-10-01T01:25:16.176160+08:00",
+      "source_commit": "c2775574ccc7e7e1086ddc49938dd315e8e5ab0c"
     },
     {
       "source_path": "01_animation/brs_smooth_mocap",
@@ -2283,20 +2284,83 @@
       "entry_candidates": [
         "BRSSmoothMocap.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "BRSSmoothMocap.py"
       ],
       "license_files": [],
       "entry_sha256": "e838f029c700fd6ceb55b23f255a4c3055453e4bf2dd74e3f72af5ba48dad5ba",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_exact_original_average_ast (__main__.OfflineTests.test_exact_original_average_ast) ... ok\r\ntest_raw_and_bundled_resources (__main__.OfflineTests.test_raw_and_bundled_resources) ... ok\r\ntest_schema_contract_and_no_maya_inventory (__main__.OfflineTests.test_schema_contract_and_no_maya_inventory) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.009s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"brs_smooth_mocap\",\r\n  \"candidate_sha256\": \"00ff70eab1ac8ecac45d206a11b7fef03c0694c80ef22af71edde9ee08c10f65\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\brs_smooth_mocap.md\",\r\n    \"docs\\\\tools\\\\brs_smooth_mocap_changes.diff\",\r\n    \"maya_toolkit\\\\tools\\\\brs_smooth_mocap\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_smooth_mocap\\\\algorithms.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_smooth_mocap\\\\backend\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_smooth_mocap\\\\backend\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\brs_smooth_mocap\\\\backend\\\\contracts.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_smooth_mocap\\\\backend\\\\legacy.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_smooth_mocap\\\\backend\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_smooth_mocap\\\\backend\\\\scene.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_smooth_mocap\\\\backend\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_smooth_mocap\\\\backend\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_smooth_mocap\\\\backend\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\brs_smooth_mocap\\\\backend\\\\upstream\\\\BRSLocTransfer.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_smooth_mocap\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\brs_smooth_mocap\\\\contracts.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_smooth_mocap\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_smooth_mocap\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_smooth_mocap\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\brs_smooth_mocap\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\brs_smooth_mocap\\\\upstream\\\\BRSSmoothMocap.py\",\r\n    \"tests\\\\test_brs_smooth_mocap.py\",\r\n    \"tests\\\\test_brs_smooth_mocap_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/brs_smooth_mocap/release_candidate/tests/test_brs_smooth_mocap_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_explicit_all_keys_endpoints_and_snapshot (__main__.MayaTests.test_explicit_all_keys_endpoints_and_snapshot) ... ok\r\ntest_failure_restores_state_and_both_guards (__main__.MayaTests.test_failure_restores_state_and_both_guards) ... Initialized VP2.0 renderer {\n  Version : 2016.11.62.12. Feature Level 4.\n  Adapter : NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2\n  Vendor ID: 4318. Device ID : 10243\n  Driver : .\n  API : OpenGL V.4.6.\n  Max texture size : 32768 * 32768.\n  Max texture coords : 8\n  Shader versions supported (Vertex: 4, Geometry: 4, Pixel 4).\n  Shader compiler profile : (Best card profile)\n  Active stereo support available : 0\n  GPU Memory Limit : 16380 MB.\n  CPU Memory Limit : 59937.7 MB.\n}\nOpenCL evaluator is attempting to initialize OpenCL.\nDetected 2 OpenCL Platforms: \n 0: NVIDIA Corporation. NVIDIA CUDA. OpenCL 3.0 CUDA 13.3.80.\n Supported extensions: cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_fp64 cl_khr_3d_image_writes cl_khr_byte_addressable_store cl_khr_icd cl_khr_gl_sharing cl_nv_compiler_options cl_nv_device_attribute_query cl_nv_pragma_unroll cl_nv_d3d10_sharing cl_khr_d3d10_sharing cl_nv_d3d11_sharing cl_nv_copy_opts cl_nv_create_buffer cl_khr_int64_base_atomics cl_khr_int64_extended_atomics cl_khr_device_uuid cl_khr_pci_bus_info cl_khr_external_semaphore cl_khr_external_memory cl_khr_external_semaphore_win32 cl_khr_external_memory_win32 cl_khr_semaphore \n Selected matching OpenCL Platform: NVIDIA Corporation NVIDIA CUDA OpenCL 3.0 CUDA 13.3.80.\n 1: Advanced Micro Devices, Inc.. AMD Accelerated Parallel Processing. OpenCL 2.1 AMD-APP (3617.0).\n Supported extensions: cl_khr_icd cl_khr_d3d10_sharing cl_khr_d3d11_sharing cl_khr_dx9_media_sharing cl_amd_event_callback cl_amd_offline_devices  \nOpenCL evaluator choosing OpenCL platform NVIDIA Corporation.\nOpenCL evaluator is unable to find a GPU device that can share VBOs with OpenGL.\nok\r\ntest_leaf_joint_and_static_children_are_handled (__main__.MayaTests.test_leaf_joint_and_static_children_are_handled) ... ok\r\ntest_mocap_strength_minus_one_real_bake_cleanup_undo (__main__.MayaTests.test_mocap_strength_minus_one_real_bake_cleanup_undo) ... ����: SmoothMocapTool_brs_smooth_mocap\nok\r\ntest_readonly_missing_locked_curves_and_ui_refusal (__main__.MayaTests.test_readonly_missing_locked_curves_and_ui_refusal) ... ok\r\ntest_selected_keys_actual_average_and_undo (__main__.MayaTests.test_selected_keys_actual_average_and_undo) ... ����: SmoothMocapTool_brs_smooth_mocap\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.588s\r\n\r\nOK\r\nCreate Anim Locator ['root']\r\nCreate Anim Locator ['root']\r\nCreate Anim Locator ['root']\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "c1bdc23a2a5022dcecd4a6f0fc5ce5f8e48eec3fc37c96a1447cc5a61d089beb",
+          "runtime_source_sha256": "5e03f07271c25465722e36bc0e24fa2d20292e53d8a3b4ed73573faa80ed068b"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "实际GUI/Graph Editor交互、制作动捕/骨架jointOrient/旋转大角度/复杂层未真人验收，平均和bake不保证视觉质量或原键密度"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "00ff70eab1ac8ecac45d206a11b7fef03c0694c80ef22af71edde9ee08c10f65",
+          "returncode": 0,
+          "output": "test_exact_original_average_ast (__main__.OfflineTests.test_exact_original_average_ast) ... ok\r\ntest_raw_and_bundled_resources (__main__.OfflineTests.test_raw_and_bundled_resources) ... ok\r\ntest_schema_contract_and_no_maya_inventory (__main__.OfflineTests.test_schema_contract_and_no_maya_inventory) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.003s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Actual GUI/Graph Editor/mocap assets pending",
+        "Key timing/rounding/filterCurve/bake follow old BRS semantics",
+        "Selected-key smoothing preserves selected endpoints, not weighted time intervals",
+        "Private dependency copy is fixed, not automatically synced"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -2305,7 +2369,65 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "8618f8dcb106a68be7d992fd79b71a3d63cffbcadb8fdd6ad214c76b65b4cc69"
+      "source_tree_sha256": "d743c8e5d44883301a5325d23e39aaa01c85c1f54543a190fdb41d93fe4aafba",
+      "candidate_path": "tools_staging_pool/01_animation/brs_smooth_mocap/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/brs_smooth_mocap/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "brs_smooth_mocap",
+        "candidate_sha256": "00ff70eab1ac8ecac45d206a11b7fef03c0694c80ef22af71edde9ee08c10f65",
+        "applied": false,
+        "files": [
+          "docs\\tools\\brs_smooth_mocap.md",
+          "docs\\tools\\brs_smooth_mocap_changes.diff",
+          "maya_toolkit\\tools\\brs_smooth_mocap\\__init__.py",
+          "maya_toolkit\\tools\\brs_smooth_mocap\\algorithms.py",
+          "maya_toolkit\\tools\\brs_smooth_mocap\\backend\\__init__.py",
+          "maya_toolkit\\tools\\brs_smooth_mocap\\backend\\catalog.json",
+          "maya_toolkit\\tools\\brs_smooth_mocap\\backend\\contracts.py",
+          "maya_toolkit\\tools\\brs_smooth_mocap\\backend\\legacy.py",
+          "maya_toolkit\\tools\\brs_smooth_mocap\\backend\\runtime.py",
+          "maya_toolkit\\tools\\brs_smooth_mocap\\backend\\scene.py",
+          "maya_toolkit\\tools\\brs_smooth_mocap\\backend\\tool.py",
+          "maya_toolkit\\tools\\brs_smooth_mocap\\backend\\ui.py",
+          "maya_toolkit\\tools\\brs_smooth_mocap\\backend\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\brs_smooth_mocap\\backend\\upstream\\BRSLocTransfer.py",
+          "maya_toolkit\\tools\\brs_smooth_mocap\\catalog.json",
+          "maya_toolkit\\tools\\brs_smooth_mocap\\contracts.py",
+          "maya_toolkit\\tools\\brs_smooth_mocap\\runtime.py",
+          "maya_toolkit\\tools\\brs_smooth_mocap\\tool.py",
+          "maya_toolkit\\tools\\brs_smooth_mocap\\ui.py",
+          "maya_toolkit\\tools\\brs_smooth_mocap\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\brs_smooth_mocap\\upstream\\BRSSmoothMocap.py",
+          "tests\\test_brs_smooth_mocap.py",
+          "tests\\test_brs_smooth_mocap_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/BRSSmoothMocap.py",
+        "backend/catalog.json",
+        "backend/contracts.py",
+        "backend/legacy.py",
+        "backend/runtime.py",
+        "backend/scene.py",
+        "backend/tool.py",
+        "backend/ui.py",
+        "backend/__init__.py",
+        "backend/upstream/.gitattributes",
+        "backend/upstream/BRSLocTransfer.py",
+        "catalog.json"
+      ],
+      "external_dependencies": [
+        "Maya Python3/cmds animation APIs",
+        "Bundled private BRS locator backend",
+        "Actual GUI for explicit options/confirm and Graph Editor selected keys",
+        "Existing framework/core Undo"
+      ],
+      "source_preserved": true,
+      "change_summary": "Original three-neighbor averaging/strength-minus-one passes and locator-driven mocap bake; full private backend bundled, explicit root/curve API, read-only plans and owned cleanup.",
+      "prepared_at": "2026-10-01T01:48:18.963593+08:00"
     },
     {
       "source_path": "01_animation/cg_shake_py3",

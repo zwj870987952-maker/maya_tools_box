@@ -170,3 +170,12 @@
 - 普通Python3项、Maya2025隔离8项、临时正式布局注册检查与哈希匹配通过；涵盖真实创建/回写/编辑/annotation/密度/timeline/breakdown/Undo/重命名/保存重载/故障与保护。
 - guide路径实际完成但简单平移观测group.tx=10、locator第1帧worldX仍0，原先缓存世界动画→移组→回写流程保留，不能当作整体动画重定向通过。输出警告/知识/人工清单均明确，此项prepared_unverified，制作意图待真人确认后再修/转正。
 - 完整两测试/专项说明/资源/Schema/注册晋级资料齐备；正式库未改，heartbeat暂停，无卡消费/同步。多次额度读暂时失败未按0猜测，收尾成功实际80%/69%已用。
+
+- BRS Locator Transfer候选提交c277557，进入brs_smooth_mocap。
+
+## 2026-10-01：BRS Smooth Mocap完整候选，累计17/109
+
+- 原单文件完整字节归档，valueAverage AST除guard外一致；原三邻点快照/端点保持/strength-1循环及locator→六TR bake保留。完整固定BRS locator后端含原来源随包，独立Owner/辅助名，不依赖另一个待整理包或scripts目录；移除scripts exec/导入确认执行/关别的窗口。
+- 标准smooth_keys与smooth_mocap参数/Schema/只读计划/Undo，新参数UI显式确认。修复叶joint None、非joint后代/单时间键定位器缺失，明确跳过；Mocap明确约束启用，回烘后仅owned约束/locator安全清理，blend旧动画载体可能保留。
+- 普通Python3项及Maya2025隔离6项通过，真实原平均值/快照/端点/键选择与Undo，两轮locator平滑将中值6回烘为2/3、成功清理/Undo、静态后代/strength1、只读/锁/故障双guard恢复。正式布局注册预览和全部证据哈希匹配。
+- 真正Graph Editor/动捕资产/jointOrient/大角度旋转/复杂层和视觉质量未验收，prepared_unverified；完整依赖/知识/两测试/注册晋级和人工清单齐备。保持heartbeat暂停、待整理池、不消费卡/不改正式库/不跑同步。

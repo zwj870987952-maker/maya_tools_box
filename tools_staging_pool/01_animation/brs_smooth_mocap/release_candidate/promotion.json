@@ -1,0 +1,130 @@
+{
+  "tool_id": "brs_smooth_mocap",
+  "registration": {
+    "module": "brs_smooth_mocap",
+    "class_name": "SmoothMocapTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/brs_smooth_mocap.md",
+      "target": "docs/tools/brs_smooth_mocap.md"
+    },
+    {
+      "source": "docs/tools/brs_smooth_mocap_changes.diff",
+      "target": "docs/tools/brs_smooth_mocap_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_smooth_mocap/__init__.py",
+      "target": "maya_toolkit/tools/brs_smooth_mocap/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_smooth_mocap/algorithms.py",
+      "target": "maya_toolkit/tools/brs_smooth_mocap/algorithms.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_smooth_mocap/backend/__init__.py",
+      "target": "maya_toolkit/tools/brs_smooth_mocap/backend/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_smooth_mocap/backend/catalog.json",
+      "target": "maya_toolkit/tools/brs_smooth_mocap/backend/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_smooth_mocap/backend/contracts.py",
+      "target": "maya_toolkit/tools/brs_smooth_mocap/backend/contracts.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_smooth_mocap/backend/legacy.py",
+      "target": "maya_toolkit/tools/brs_smooth_mocap/backend/legacy.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_smooth_mocap/backend/runtime.py",
+      "target": "maya_toolkit/tools/brs_smooth_mocap/backend/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_smooth_mocap/backend/scene.py",
+      "target": "maya_toolkit/tools/brs_smooth_mocap/backend/scene.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_smooth_mocap/backend/tool.py",
+      "target": "maya_toolkit/tools/brs_smooth_mocap/backend/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_smooth_mocap/backend/ui.py",
+      "target": "maya_toolkit/tools/brs_smooth_mocap/backend/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_smooth_mocap/backend/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/brs_smooth_mocap/backend/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_smooth_mocap/backend/upstream/BRSLocTransfer.py",
+      "target": "maya_toolkit/tools/brs_smooth_mocap/backend/upstream/BRSLocTransfer.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_smooth_mocap/catalog.json",
+      "target": "maya_toolkit/tools/brs_smooth_mocap/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_smooth_mocap/contracts.py",
+      "target": "maya_toolkit/tools/brs_smooth_mocap/contracts.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_smooth_mocap/runtime.py",
+      "target": "maya_toolkit/tools/brs_smooth_mocap/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_smooth_mocap/tool.py",
+      "target": "maya_toolkit/tools/brs_smooth_mocap/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_smooth_mocap/ui.py",
+      "target": "maya_toolkit/tools/brs_smooth_mocap/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_smooth_mocap/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/brs_smooth_mocap/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/brs_smooth_mocap/upstream/BRSSmoothMocap.py",
+      "target": "maya_toolkit/tools/brs_smooth_mocap/upstream/BRSSmoothMocap.py"
+    },
+    {
+      "source": "tests/test_brs_smooth_mocap.py",
+      "target": "tests/test_brs_smooth_mocap.py"
+    },
+    {
+      "source": "tests/test_brs_smooth_mocap_maya.py",
+      "target": "tests/test_brs_smooth_mocap_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/BRSSmoothMocap.py",
+    "backend/catalog.json",
+    "backend/contracts.py",
+    "backend/legacy.py",
+    "backend/runtime.py",
+    "backend/scene.py",
+    "backend/tool.py",
+    "backend/ui.py",
+    "backend/__init__.py",
+    "backend/upstream/.gitattributes",
+    "backend/upstream/BRSLocTransfer.py",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya Python3/cmds animation APIs",
+    "Bundled private BRS locator backend",
+    "Actual GUI for explicit options/confirm and Graph Editor selected keys",
+    "Existing framework/core Undo"
+  ],
+  "source": "../BRSSmoothMocap.py",
+  "change_summary": "Original three-neighbor averaging/strength-minus-one passes and locator-driven mocap bake; full private backend bundled, explicit root/curve API, read-only plans and owned cleanup.",
+  "verification_limitations": [
+    "Actual GUI/Graph Editor/mocap assets pending",
+    "Key timing/rounding/filterCurve/bake follow old BRS semantics",
+    "Selected-key smoothing preserves selected endpoints, not weighted time intervals",
+    "Private dependency copy is fixed, not automatically synced"
+  ],
+  "acceptance_required": true
+}
