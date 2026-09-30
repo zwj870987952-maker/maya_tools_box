@@ -1,0 +1,80 @@
+--- upstream/dofControl.mel
++++ runtime.mel
+@@ -22,15 +22,16 @@
+ // Main
+ //
+ 
+-global proc dofControl ()
++global proc string[] mtbDOF_build (string $objList[], string $prefix)
+ {
+-	string $objList[] = `ls -sl -ca -dag`;
++	python("from maya_toolkit.tools.dof_control_v1_0.runtime import require_active; require_active()");
++    string $result[];
+ 	print $objList;
+ 
+ 	if ( !size( $objList ) )
+ 	{
+ 		print "No camera node(s) selected\n";
+-		return;
++		return $result;
+ 	}
+ 
+ 	// iterate through list of camera shapes
+@@ -46,7 +47,7 @@
+ 
+ 		// create polyCube for DOF area display
+ 		string $cube[] = `polyCube -sx 1 -sy 1 -sz 1 -ch off`;
+-		$cube[0] = `rename $cube[0] ( $camTransNode[0] + "dofArea#" )`;
++		$cube[0] = `rename $cube[0] ( $prefix + "Area#" )`;
+ 		setAttr -lock true ( $cube[0] + ".tx" );
+ 		setAttr -lock true ( $cube[0] + ".ty" );
+ 		setAttr -lock true ( $cube[0] + ".rx" );
+@@ -54,31 +55,36 @@
+ 		setAttr -lock true ( $cube[0] + ".rz" );
+ 		setAttr ( $cube[0] + ".tz" ) ( -$oldFocusDistance );
+ 		setAttr ( $cube[0] + ".sz" ) $oldFStop;
+-		setAttr ( $cube[0] + ".castsShadows" ) 0;
+-		setAttr ( $cube[0] + ".primaryVisibility" ) 0;
+-		setAttr ( $cube[0] + ".visibleInReflections" ) 0;
+-		setAttr ( $cube[0] + ".visibleInRefractions" ) 0;
++		string $cubeShape[] = `listRelatives -shapes -fullPath $cube[0]`;
++		setAttr ( $cubeShape[0] + ".castsShadows" ) 0;
++		setAttr ( $cubeShape[0] + ".primaryVisibility" ) 0;
++		setAttr ( $cubeShape[0] + ".visibleInReflections" ) 0;
++		setAttr ( $cubeShape[0] + ".visibleInRefractions" ) 0;
+ 
+ 		// parent polyCube to camera
+ 		parent -r $cube[0] $camTransNode[0];
+ 
+ 		// create 'reverse' node
+-		string $revNode = `createNode "reverse"`;
++		string $revNode = `createNode -name ($prefix + "Reverse#") "reverse"`;
+ 
+ 		// create 'add' node
+-		string $addNode = `createNode "addDoubleLinear"`;
++		string $addNode = `createNode -name ($prefix + "Add#") "addDoubleLinear"`;
+ 		setAttr ( $addNode + ".input2" ) 1;
+ 
+ 		// make connections
+-		connectAttr -f ( $cube[0] + ".translateZ" ) ( $addNode + ".input1" );
+-		connectAttr -f ( $addNode + ".output" ) ( $revNode + ".inputX" );
+-		connectAttr -f ( $revNode + ".outputX" ) ( $objList[$objCnt] + ".focusDistance" );
++		connectAttr ( $cube[0] + ".translateZ" ) ( $addNode + ".input1" );
++		connectAttr ( $addNode + ".output" ) ( $revNode + ".inputX" );
++		connectAttr ( $revNode + ".outputX" ) ( $objList[$objCnt] + ".focusDistance" );
+ 
+-		connectAttr -f ( $cube[0] + ".scaleZ" ) ( $objList[$objCnt] + ".fStop" );
++		connectAttr ( $cube[0] + ".scaleZ" ) ( $objList[$objCnt] + ".fStop" );
+ 
+-		connectAttr -f ( $cube[0] + ".tz" ) ( $cube[0] + ".sx" );
+-		connectAttr -f ( $cube[0] + ".tz" ) ( $cube[0] + ".sy" );
++		connectAttr ( $cube[0] + ".tz" ) ( $cube[0] + ".sx" );
++		connectAttr ( $cube[0] + ".tz" ) ( $cube[0] + ".sy" );
++		$result[size($result)] = $cube[0];
++		$result[size($result)] = $revNode;
++		$result[size($result)] = $addNode;
+ 	}
++    return $result;
+ }
+ 
+ // end of script

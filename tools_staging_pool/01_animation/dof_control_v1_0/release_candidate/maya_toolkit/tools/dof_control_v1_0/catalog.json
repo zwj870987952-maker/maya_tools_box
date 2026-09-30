@@ -1,0 +1,27 @@
+{
+  "tool_id": "dof_control_v1_0",
+  "original_procedures": [
+    "dofControl"
+  ],
+  "runtime_procedures": [
+    "mtbDOF_build"
+  ],
+  "raw_files": [
+    {
+      "path": "upstream/dofControl.mel",
+      "sha256": "cf65be8570edaa38a52f0a81478dcda0c8ff985946c7e21995e158582dea6603"
+    },
+    {
+      "path": "upstream/dofControl.xpm",
+      "sha256": "d5c075ce9030e8bbdd733e3420c3fadf85bc6bd2106041f8bb982e3a2743cad9"
+    }
+  ],
+  "license": "Original header: freely distributed; modify at own risk; Dirk Bialluch, 2000",
+  "changes": [
+    "Explicit camera shape array and private guarded MEL procedure",
+    "Unique helpers, actual shape render flags, no forced connection overwrite",
+    "Owned UUID/message records and cleanup/restore",
+    "Original reverse(add(tz,1)) and fStop/negative XY scales preserved",
+    "Native source has no UI; lightweight standard action UI added"
+  ]
+}

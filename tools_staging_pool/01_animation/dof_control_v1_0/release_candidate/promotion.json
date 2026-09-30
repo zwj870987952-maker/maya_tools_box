@@ -1,0 +1,87 @@
+{
+  "tool_id": "dof_control_v1_0",
+  "registration": {
+    "module": "dof_control_v1_0",
+    "class_name": "DofControlTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/dof_control_changes.diff",
+      "target": "docs/tools/dof_control_changes.diff"
+    },
+    {
+      "source": "docs/tools/dof_control_v1_0.md",
+      "target": "docs/tools/dof_control_v1_0.md"
+    },
+    {
+      "source": "maya_toolkit/tools/dof_control_v1_0/__init__.py",
+      "target": "maya_toolkit/tools/dof_control_v1_0/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/dof_control_v1_0/catalog.json",
+      "target": "maya_toolkit/tools/dof_control_v1_0/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/dof_control_v1_0/contracts.py",
+      "target": "maya_toolkit/tools/dof_control_v1_0/contracts.py"
+    },
+    {
+      "source": "maya_toolkit/tools/dof_control_v1_0/runtime.mel",
+      "target": "maya_toolkit/tools/dof_control_v1_0/runtime.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/dof_control_v1_0/runtime.py",
+      "target": "maya_toolkit/tools/dof_control_v1_0/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/dof_control_v1_0/scene.py",
+      "target": "maya_toolkit/tools/dof_control_v1_0/scene.py"
+    },
+    {
+      "source": "maya_toolkit/tools/dof_control_v1_0/tool.py",
+      "target": "maya_toolkit/tools/dof_control_v1_0/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/dof_control_v1_0/ui.py",
+      "target": "maya_toolkit/tools/dof_control_v1_0/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/dof_control_v1_0/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/dof_control_v1_0/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/dof_control_v1_0/upstream/dofControl.mel",
+      "target": "maya_toolkit/tools/dof_control_v1_0/upstream/dofControl.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/dof_control_v1_0/upstream/dofControl.xpm",
+      "target": "maya_toolkit/tools/dof_control_v1_0/upstream/dofControl.xpm"
+    },
+    {
+      "source": "tests/test_dof_control_v1_0.py",
+      "target": "tests/test_dof_control_v1_0.py"
+    },
+    {
+      "source": "tests/test_dof_control_v1_0_maya.py",
+      "target": "tests/test_dof_control_v1_0_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/dofControl.mel",
+    "upstream/dofControl.xpm",
+    "runtime.mel",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya cmds/MEL polyCube/reverse/addDoubleLinear and implicit unitConversion",
+    "Existing framework/core Undo"
+  ],
+  "source": "../dofControl.mel",
+  "change_summary": "Full original DOF cube/node graph and XPM, explicit camera preflight, owned persistent cleanup restoring old focus/fStop, standard UI/Schema/Undo.",
+  "verification_limitations": [
+    "Real viewport/template and render engine DOF pending",
+    "DepthOfField remains unchanged; scaleZ is fStop, not physical focus range",
+    "Camera units/scale and render-engine interpretation require manual check"
+  ],
+  "acceptance_required": true
+}

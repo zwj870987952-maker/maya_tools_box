@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T03:29:04.238607+08:00",
+  "updated_at": "2026-10-01T03:47:04.729800+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/directional_cycle_tool_v1_1",
+    "last_completed_tool": "01_animation/dof_control_v1_0",
     "last_usage": {
-      "five_hour_used_percent": 8.0,
-      "weekly_used_percent": 72.0,
-      "recorded_at": "2026-10-01T02:50:55.722741+08:00",
+      "five_hour_used_percent": 19.0,
+      "weekly_used_percent": 74.0,
+      "recorded_at": "2026-10-01T03:30:36.912991+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/directional_cycle_tool_v1_1"
+    "current_tool": "01_animation/dof_control_v1_0"
   },
   "entry_repairs": [
     {
@@ -2871,7 +2871,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Full original left/right/back, pelvis/feet time reversal and correction/counter-rotation algorithms and native dockable UI, unique owned layers/helpers, complete temporary constraint cleanup and standard API.",
-      "prepared_at": "2026-10-01T03:29:04.559112+08:00"
+      "prepared_at": "2026-10-01T03:29:04.559112+08:00",
+      "source_commit": "115d41a72c8de560cdc5e9df08368ed4f2a0c41a"
     },
     {
       "source_path": "01_animation/dof_control_v1_0",
@@ -2882,19 +2883,81 @@
       "entry_candidates": [
         "dofControl.mel"
       ],
-      "source_file_count": 2,
+      "source_file_count": 3,
       "source_files": [
         "dofControl.mel"
       ],
       "license_files": [],
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_complete_mel_and_resources (__main__.OfflineTests.test_complete_mel_and_resources) ... ok\r\ntest_contract_and_lazy_inventory (__main__.OfflineTests.test_contract_and_lazy_inventory) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"dof_control_v1_0\",\r\n  \"candidate_sha256\": \"14033e44634724c48c7600088de1d5b2fae5553b6313da672a9ffb17dec7c75d\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\dof_control_changes.diff\",\r\n    \"docs\\\\tools\\\\dof_control_v1_0.md\",\r\n    \"maya_toolkit\\\\tools\\\\dof_control_v1_0\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\dof_control_v1_0\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\dof_control_v1_0\\\\contracts.py\",\r\n    \"maya_toolkit\\\\tools\\\\dof_control_v1_0\\\\runtime.mel\",\r\n    \"maya_toolkit\\\\tools\\\\dof_control_v1_0\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\dof_control_v1_0\\\\scene.py\",\r\n    \"maya_toolkit\\\\tools\\\\dof_control_v1_0\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\dof_control_v1_0\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\dof_control_v1_0\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\dof_control_v1_0\\\\upstream\\\\dofControl.mel\",\r\n    \"maya_toolkit\\\\tools\\\\dof_control_v1_0\\\\upstream\\\\dofControl.xpm\",\r\n    \"tests\\\\test_dof_control_v1_0.py\",\r\n    \"tests\\\\test_dof_control_v1_0_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/dof_control_v1_0/release_candidate/tests/test_dof_control_v1_0_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_actual_graph_focus_fstop_shape_flags_and_cleanup_restore (__main__.MayaTests.test_actual_graph_focus_fstop_shape_flags_and_cleanup_restore) ... |testCam1|testCamShape1\ntestCam1����: DofControlTool_dof_control_v1_0\n����: DofControlTool_dof_control_v1_0\nok\r\ntest_batch_camera_shapes_namespaces_unique_graph_and_template_undo (__main__.MayaTests.test_batch_camera_shapes_namespaces_unique_graph_and_template_undo) ... |testCam1|testCamShape1\ntestCam1|rig:camera2|rig:cameraShape2\nrig:camera2����: DofControlTool_dof_control_v1_0\nok\r\ntest_dry_run_locked_animated_duplicate_and_guard (__main__.MayaTests.test_dry_run_locked_animated_duplicate_and_guard) ... |testCam1|testCamShape1\ntestCam1ok\r\ntest_foreign_child_and_extra_graph_use_refuse_no_write (__main__.MayaTests.test_foreign_child_and_extra_graph_use_refuse_no_write) ... |testCam1|testCamShape1\ntestCam1ok\r\ntest_mid_creation_failure_preserves_record_and_undo (__main__.MayaTests.test_mid_creation_failure_preserves_record_and_undo) ... ����: DofControlTool_dof_control_v1_0\nok\r\ntest_rename_save_reload_and_undo_entire_create (__main__.MayaTests.test_rename_save_reload_and_undo_entire_create) ... |testCam1|testCamShape1\ntestCam1����: DofControlTool_dof_control_v1_0\n|testCam1|testCamShape1\ntestCam1�ļ���ȡ����ʱ��Ϊ  0.0039 �롣\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.086s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "617d509b49a2c200f8107c121dac7ffc76a1d125a695fd7ec9b413a3c810671f",
+          "runtime_source_sha256": "05c667f72e6a18276071d71d5f770a18d8c4fc801beb430ee6449f18fd4b89b2"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "真实Viewport/模板UI/renderer景深及其他单位尚未人工验收"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "14033e44634724c48c7600088de1d5b2fae5553b6313da672a9ffb17dec7c75d",
+          "returncode": 0,
+          "output": "test_complete_mel_and_resources (__main__.OfflineTests.test_complete_mel_and_resources) ... ok\r\ntest_contract_and_lazy_inventory (__main__.OfflineTests.test_contract_and_lazy_inventory) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real viewport/template and render engine DOF pending",
+        "DepthOfField remains unchanged; scaleZ is fStop, not physical focus range",
+        "Camera units/scale and render-engine interpretation require manual check"
+      ],
       "entry_review": {
         "evidence": "Source declares global proc dofControl, creates cube/nodes and connects camera attributes; not a Python UI tool.",
         "kind": "mel_scene_operation",
@@ -2909,7 +2972,47 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "f4b148605d7cf77d38d62a67bd043973d3355112228ef2b1a3160b8e3a69f5f0"
+      "source_tree_sha256": "7f088b22c51900d938fdd6a565023a9de4633343cdb4eeba75828006b3fba6bb",
+      "candidate_path": "tools_staging_pool/01_animation/dof_control_v1_0/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/dof_control_v1_0/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "dof_control_v1_0",
+        "candidate_sha256": "14033e44634724c48c7600088de1d5b2fae5553b6313da672a9ffb17dec7c75d",
+        "applied": false,
+        "files": [
+          "docs\\tools\\dof_control_changes.diff",
+          "docs\\tools\\dof_control_v1_0.md",
+          "maya_toolkit\\tools\\dof_control_v1_0\\__init__.py",
+          "maya_toolkit\\tools\\dof_control_v1_0\\catalog.json",
+          "maya_toolkit\\tools\\dof_control_v1_0\\contracts.py",
+          "maya_toolkit\\tools\\dof_control_v1_0\\runtime.mel",
+          "maya_toolkit\\tools\\dof_control_v1_0\\runtime.py",
+          "maya_toolkit\\tools\\dof_control_v1_0\\scene.py",
+          "maya_toolkit\\tools\\dof_control_v1_0\\tool.py",
+          "maya_toolkit\\tools\\dof_control_v1_0\\ui.py",
+          "maya_toolkit\\tools\\dof_control_v1_0\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\dof_control_v1_0\\upstream\\dofControl.mel",
+          "maya_toolkit\\tools\\dof_control_v1_0\\upstream\\dofControl.xpm",
+          "tests\\test_dof_control_v1_0.py",
+          "tests\\test_dof_control_v1_0_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/dofControl.mel",
+        "upstream/dofControl.xpm",
+        "runtime.mel",
+        "catalog.json"
+      ],
+      "external_dependencies": [
+        "Maya cmds/MEL polyCube/reverse/addDoubleLinear and implicit unitConversion",
+        "Existing framework/core Undo"
+      ],
+      "source_preserved": true,
+      "change_summary": "Full original DOF cube/node graph and XPM, explicit camera preflight, owned persistent cleanup restoring old focus/fStop, standard UI/Schema/Undo.",
+      "prepared_at": "2026-10-01T03:47:05.048499+08:00"
     },
     {
       "source_path": "01_animation/eblabs_screenspace",

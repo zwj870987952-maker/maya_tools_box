@@ -205,3 +205,12 @@
 - per-cycle Owner/token network/UUID/message、唯一owned方向/骨盆层和helper，原Left/Right/Back不覆盖；清理先脱离目标约束防空控制器误删，外部子节点/输出/层成员保护。默认保留输出层/network/旧动画载体，remove_layers显式，失败含record UUID/Undo，finally时间/选择/旧层标记/guard恢复。全对象bake作用域、固定世界head aim、原pelvis层公式、back角色/参数差异均明确。
 - 普通Python3项、Maya2025隔离7项、临时正式布局注册/面板/Schema检查及指纹通过。实际左右脚轨迹/后退键反转/三足correction-counter路径与back双层/完整cleanup/命名隔离/重命名保存重载/故障Undo；捕获节点UUID改显式逐节点ls查询，层root内部连接允许，未创建Qt。
 - 真正GUI/制作循环rig/脚滑移/固定瞄准点/复杂层/非均匀缩放和其他版本待人工，prepared_unverified；完整候选/知识/两测试/注册晋级/验收齐备。收尾真实5小时19%、周74%已用，heartbeat仍暂停，无卡消费/正式库/同步。
+
+- Directional Cycle完整候选提交115d41a，进入dof_control_v1_0。
+
+## 2026-10-01：DOF Control完整候选，累计21/109
+
+- 原MEL与XPM字节保留/Dirk Bialluch自由分发声明，完整polyCube/addDoubleLinear/reverse/隐式unitConversion图与负XY缩放保留，真实shape渲染flags，私有guard过程/明确camera数组/唯一辅助名/无force覆盖。原无UI，新增标准create/template/cleanup/记录列表入口。
+- camera UUID/message、Owner/token network记录原focusDistance/fStop、cube与全资源真实UUID、实际相机源plug。全批只读预检拒绝原动画/驱动/锁/引用/实例/重复记录；清理仅自己的图且恢复创建前数值，外部后代/输入/输出/改接/缺失保护，材质集合membership自动断开但不删除集合。时间/选择/guard恢复，故障record可追溯/Undo。
+- 普通Python2项、Maya2025隔离6项、临时正式布局注册/面板/Schema及报告指纹通过：厘米focus=-tz/fStop=sz/四renderflag/DepthOfField保持、真实值编辑/cleanup原值恢复/Undo-redo、双相机namespace/模板Undo、原动画拒绝/外部保护、重命名保存重载和部分失败Undo。
+- 原ScaleZ实际fStop而非物理焦深范围明确；真实GUI/Viewport/template/renderer/非厘米单位/相机缩放待验收，prepared_unverified。完整知识/两测试/晋级/验收齐备，收尾真实5小时23%/周74%已用，工作继续、heartbeat暂停、无卡/正式库/同步。
