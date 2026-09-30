@@ -1,0 +1,596 @@
+// mtbSL_bh_speedLines v1.02 19-11-2020
+
+
+
+// added depth slider for the drawing plane
+// added about menu
+// now the smooth curve and simplify curve procs do a center pivot on the curve(s) too
+// make geo proc now freezes rotation on the geo relative to the camera so that it can be moved easily in camera space..
+// fixed key vis so it doesn't key the shape node too
+// put in ScriptJob to toggle the Draw mode off if the user hits Enter or switches tool while drawing IN EP MODE ONLY
+
+// added option to use EP tool instead of Pencil
+// add the 'simplify curve proc'
+// simplify geo now works with multiple selected meshes
+// various UI tweaks
+// made camera field non-editable so that it doesn't steal focus (makes Undoing more fluid when using tools)
+// made the 'flip' command work with multiple meshes
+// set up good default settings for geometry creation
+// added option to create high-res geo
+// improved Draw button so that it's a toggle rather than 2 separate buttons, also changes color to make it clear when in drawing mode
+// added option to key visibility for 2 frames
+// added an option to set up a display layer for geo and have new drawn geo added to it on create
+// took out the simplify geo happening by default when converting..
+
+
+
+
+global proc mtbSL_bh_speedLines()
+{
+python("import maya_toolkit.tools.bh_speedlines.runtime as _r; _r.require_active()");
+
+    mtbSL_bh_setUpConvertPrefs;
+    mtbSL_bh_speedLinesUI;
+}
+
+
+
+
+global proc mtbSL_bh_setUpConvertPrefs()
+{
+python("import maya_toolkit.tools.bh_speedlines.runtime as _r; _r.require_active()");
+// set this to get Quad meshes from conversion.. // these settings should give good results in the majority of cases..
+
+nurbsToPolygonsPref  -f 0 -pt 1 -pc 100 -chr 0.1 -ft 0.01 -mel 0.001 -d 0.1 -ut 1 -un 3 -vt 1 -vn 3 -uch 0 -ucr 0 -cht 0.2 -es 0  -mrt 0  ;
+
+}
+
+
+global proc mtbSL_bh_speedLinesUI()
+{
+
+string $version = "1.02 Nov 19 2020";
+
+if (`window -exists mtbSL_bh_speedLinesUI`)
+        deleteUI mtbSL_bh_speedLinesUI;
+
+        window -toolbox 1 -width 200 -t "mtbSL_bh_speedLinesUI" -mxb 0 -mnb 0 -menuBar 1 -closeCommand "python(\"import maya_toolkit.tools.bh_speedlines.ui as _u; _u.on_close()\");" mtbSL_bh_speedLinesUI;
+
+        menu -l "Options" -to 1 mtbSL_bhSpeedLinesOptionsMenu;
+        menuItem -l "Hold Visibility for 2 frames when Keying" -cb 0  mtbSL_bhsl_vis2s;
+        menuItem -l "Put Drawn Geo on a Display Layer" -cb 0  mtbSL_bhsl_layerSwitch;
+        menuItem -l "Create High Detail Geometry" -cb 0  mtbSL_bhsl_detailSwitch;
+        menuItem -l "Use EP curve tool when Drawing (more mouse-friendly) " -cb 0  mtbSL_bhsl_toolMode;
+        menu -l "  About" -to 1 mtbSL_bhslaboutMenu5;
+        menuItem -l $version   -c mtbSL_goToG9Site mtbSL_aboutlabe500;
+
+
+
+         columnLayout -adj 1 -rowSpacing 0 -columnWidth 10 mtbSL_MainTools;
+
+        floatField -vis false -v 0 mtbSL_bhSL_depthField;// creating an invisible float field to store the depth in
+
+                    floatSliderGrp  //-label "DrawDepth"
+                                    -field 0
+                                    -minValue -50 -maxValue 50
+
+                                    -value 0
+                                    -step 0.001
+                                    -cw2 1 100
+                                    -cat 1 "left" 0
+                                    -cat 2 "left" 0
+                                    -dc "python(\"import maya_toolkit.tools.bh_speedlines.ui as _u; _u.dispatch('draw_depth')\");"
+                                    -cc "python(\"import maya_toolkit.tools.bh_speedlines.ui as _u; _u.dispatch('reset_depth')\");"
+                                    //-parent ROW_bh_camZoom_03
+                                    "mtbSL_bhSL_drawDepthSlider";
+             //separator -w 20 -style "in";
+              rowColumnLayout -numberOfColumns 2
+              -columnWidth 1 100;
+
+        setParent ..;
+
+
+             rowColumnLayout -numberOfColumns 2
+             -columnWidth 1 100
+          -columnWidth 2 100;
+
+        button -label "Choose Camera >" -ann " Choose the Camera to draw in " -backgroundColor .3 .3 .3 -command "mtbSL_bh_camList_SL_UI" mtbSL_but2;
+        textField  -editable false -backgroundColor .1 .1 .1  -text "persp" mtbSL_bh_SL_cameraField;  // PUTTING IN PERSP BY DEFAULT FOR SPEED OF TESTING..
+
+                      setParent ..;
+
+                      rowColumnLayout -numberOfColumns 1;
+              separator -h 5 -style "in";
+                  setParent ..;
+
+                      rowColumnLayout -numberOfColumns 2
+              -columnWidth 1 100
+              -columnWidth 2 100;
+
+
+
+
+        button -label "Make Geometry" -ann "Select any TWO curves and run to create geometry from them" -command "python(\"import maya_toolkit.tools.bh_speedlines.ui as _u; _u.dispatch('geometry')\");" mtbSL_but6;
+
+        //button -label "Exit Draw Mode" -command "mtbSL_bh_exitDraw" mtbSL_but4;
+        button -label "Flip" -ann "Flip the Normals of the selected mesh(es) " -command "python(\"import maya_toolkit.tools.bh_speedlines.ui as _u; _u.dispatch('flip')\");" mtbSL_but7;
+
+        button -label "Simplify" -ann "This will reduce the detail of selected Geometry OR Curve objects.." -command "python(\"import maya_toolkit.tools.bh_speedlines.ui as _u; _u.dispatch('simplify')\");" mtbSL_but8;
+
+        //button -label "" -command bhDummy "bhTestButton";
+
+        button -label "Key Vis" -ann "Keyframes the visibility of the selected mesh(es) to be on on current frame and off on previous/next frames - see options to set this to 2 frames" -command "python(\"import maya_toolkit.tools.bh_speedlines.ui as _u; _u.dispatch('key_visibility')\");" mtbSL_but9;
+
+
+
+
+        setParent ..;
+        separator -h 5 -style "in";
+        button -label "Smooth Curve" -bgc .5 .7 .7 -command "python(\"import maya_toolkit.tools.bh_speedlines.ui as _u; _u.dispatch('smooth')\");" mtbSL_but5;
+        separator -h 5 -style "in";
+        button -label "Enter Drawing Mode" -bgc .2 .2 .2 -command "python(\"import maya_toolkit.tools.bh_speedlines.ui as _u; _u.dispatch('toggle_draw')\");" "mtbSL_bh_toggleDrawMode";
+        separator -h 5 -style "in";
+
+
+            //intField  -editable false -backgroundColor .1 .1 .1   bh_SL_scriptNumField;
+showWindow mtbSL_bh_speedLinesUI;
+}
+
+
+
+// procs to change the depth of the draw field..
+
+global proc mtbSL_bhSL_drawDepth()
+{
+python("import maya_toolkit.tools.bh_speedlines.runtime as _r; _r.require_active()");
+
+// show the draw plane
+    if (`objExists "mtbSL_SL_Draw_Plane"`)
+    {
+       setAttr ("mtbSL_SL_Draw_Plane.visibility") 1;
+
+       float $depthOffsetVal=`floatField -q -v  mtbSL_bhSL_depthField`;
+       float $sliderVal=`floatSliderGrp -q -v  mtbSL_bhSL_drawDepthSlider`;
+
+       float $newDepth=($depthOffsetVal+$sliderVal);
+
+       // need to make sure the draw plane doesn't come nearer than the clipping plane..
+       string $cameraToUse =`textField -q -text mtbSL_bh_SL_cameraField`;
+        string $camShap[] =`listRelatives -s $cameraToUse`;
+
+        float $nearClipPlaneVal=`getAttr ($camShap[0]+".nearClipPlane")`*-1;
+       if ($newDepth>$nearClipPlaneVal) $newDepth=($nearClipPlaneVal*1.01);
+
+       setAttr ("mtbSL_SL_Draw_Plane.tz") $newDepth;
+    }
+
+
+    }
+
+global proc mtbSL_bhSL_drawDepthReset()
+{
+python("import maya_toolkit.tools.bh_speedlines.runtime as _r; _r.require_active()");
+
+// reset the slider..
+
+
+
+// hide the draw plane
+if (`objExists "mtbSL_SL_Draw_Plane"`)
+    {
+       setAttr ("mtbSL_SL_Draw_Plane.visibility") 0;
+
+       string $cameraToUse =`textField -q -text mtbSL_bh_SL_cameraField`;
+
+       // store the offset in the insible float field
+    float $longCurDepth =`getAttr ("mtbSL_SL_Draw_Plane.tz")`;
+    float $curDepth= mtbSL_bhSLcutDecimals ($longCurDepth);
+    floatField -e -v $curDepth mtbSL_bhSL_depthField;
+
+    print ("Draw plane depth set to "+$curDepth);
+    }
+floatSliderGrp -e -v 0 "mtbSL_bhSL_drawDepthSlider";
+}
+
+
+global proc float mtbSL_bhSLcutDecimals(float $number)
+  {
+  return (float(int($number*100))/100);
+  }
+
+
+
+
+
+
+global proc mtbSL_bh_toggleDrawMode()
+{
+python("import maya_toolkit.tools.bh_speedlines.runtime as _r; _r.require_active()");
+
+    string $curMode =`button -q -label "mtbSL_bh_toggleDrawMode"`;
+    if ($curMode=="Enter Drawing Mode")
+    {
+        button -e -label "Exit Drawing Mode"-bgc .7 .7 .7  "mtbSL_bh_toggleDrawMode";
+        mtbSL_bh_drawPlane;
+
+    }
+     if ($curMode=="Exit Drawing Mode")
+    {
+        button -e -label "Enter Drawing Mode" -bgc .2 .2 .2 "mtbSL_bh_toggleDrawMode";
+        mtbSL_bh_exitDraw;
+
+    }
+
+
+}
+
+
+/////////////////////////////////////////////////////////////////////////
+
+
+
+// SELECT CAMERA PROCS..
+
+
+// add list of scene cameras to text scroll list
+global proc mtbSL_bhUpdateWin (){
+    string    $cams[] = `listCameras`;                //create an array of all the cameras in the scene
+
+
+    textScrollList -e -ra "mtbSL_bhScrollList";            //clear the scroll list before adding new stuff
+
+    //the list is now empty
+    for ($each in $cams)
+    {
+
+
+
+         string $foundShapeNode=`match "Shape" $each`; // sometimes the shape node for a shot cam is found..
+        if ($foundShapeNode=="")
+        {
+        textScrollList    -edit      -append    $each    "mtbSL_bhScrollList";
+        }
+        if ($foundShapeNode=="Shape")
+        {
+        string $camTransform[] = `listRelatives  -p $each`;
+        textScrollList    -edit      -append    $camTransform[0]    "mtbSL_bhScrollList";
+        }
+    }
+}
+
+// proc for updating the hidden text field with the correct name of the camera based on animator selection
+global proc mtbSL_bh_scrollWinUpdateSel (){
+    string    $cameraSel[] = `textScrollList
+            -query
+            -selectItem
+            "mtbSL_bhScrollList"`;
+
+
+
+   textField -e -text $cameraSel[0] mtbSL_bh_SL_cameraField;
+
+
+   deleteUI "mtbSL_bh_camList_SL_UI";
+}
+
+
+global proc mtbSL_bh_camList_SL_UI (){
+
+    if (`window -ex "mtbSL_bh_camList_SL_UI"`)                    //does the window already exist?
+        deleteUI "mtbSL_bh_camList_SL_UI";                        //if it does, kill it
+
+    //define the window
+    window                                         //create a window
+        -title "Camera List"                 //give it a title
+        -toolbox 1
+        -rtf true
+        -menuBar 1
+        -w 150 -h 200
+    //set width and height
+        //-cc   bhCloseCamSelectWin
+        "mtbSL_bh_camList_SL_UI";                                //give the window a unique name
+        columnLayout -w 150;                        //create a column
+
+            text -l "" -h 10;
+            text "  Please Select Camera  ";
+            text -l "" -h 10;
+                            //text spacer
+            textScrollList                        //set up the scroll list
+                -h 200
+                -w 250
+                -ams false                        //disallow multiple selections
+                -sc "mtbSL_bh_scrollWinUpdateSel"            //the command used when an item is selected
+                "mtbSL_bhScrollList";                    //the control is given a unique, explicit name
+            //textField -w 240 "scTextField";        //text field also gets a unique name
+            //text -l "" -h 10;                    //text spacer
+
+    mtbSL_bhUpdateWin;                                    //call a general purpose window update
+
+    showWindow "mtbSL_bh_camList_SL_UI";                        //tell Maya to draw the window
+}
+
+////////////////////////////////////////////////////////
+
+
+global proc mtbSL_bh_drawPlane()
+{
+python("import maya_toolkit.tools.bh_speedlines.runtime as _r; _r.require_active()");
+
+string $cameraToUse =`textField -q -text mtbSL_bh_SL_cameraField`;
+    if ($cameraToUse=="")
+    {error "Please Choose Camera first!";
+    }
+
+    if (!`objExists $cameraToUse`)
+    {
+        error ("Camera  "+$cameraToUse+" Does not exist, please use the Choose Camera button first!");
+    }
+
+
+if (`objExists "mtbSL_SL_Draw_Plane"`)
+{
+   python("import maya_toolkit.tools.bh_speedlines.runtime as _r; _r.remove_plane_only()");
+}
+string $drawPlane=`plane -n "mtbSL_SL_Draw_Plane"`;
+
+
+parent  $drawPlane $cameraToUse;
+// zero out the rotation of the plane
+setAttr ($drawPlane+".rx") 0;
+
+setAttr ($drawPlane+".ry") 0;
+setAttr ($drawPlane+".rz") 0;
+//reset x and y coords
+setAttr ($drawPlane+".tx") 0;
+setAttr ($drawPlane+".ty") 0;
+
+setAttr ($drawPlane+".visibility") 0;
+
+float $depthOffsetVal=`floatField -q -v  mtbSL_bhSL_depthField`;
+
+if ($depthOffsetVal!=0)
+{setAttr ($drawPlane+".tz") $depthOffsetVal;
+}
+
+makeLive $drawPlane;
+
+int $altToolMode= `menuItem -query -cb  mtbSL_bhsl_toolMode`;
+
+    if ($altToolMode==1)
+        {
+        EPCurveTool;
+        print "Draw Mode Enabled - using EP Tool instead of Pencil";
+
+        // putting in an experimental option here to track took changes  toggles off if the user exits the tool or hits enter
+        // The adapter registers a parented, owned ToolChanged job after setup.
+        // store the scriptJob int in a hidden field in the GUI so we can delete it later..
+        //intField -e -v $scriptNum bh_SL_scriptNumField;
+
+        }
+    else {
+        PencilCurveTool;
+        print "Draw Mode Enabled";
+
+
+        }
+
+}
+
+
+global proc mtbSL_bh_exitDraw()
+{
+python("import maya_toolkit.tools.bh_speedlines.runtime as _r; _r.require_active()");
+
+    if (`objExists "mtbSL_SL_Draw_Plane"`)
+    {
+       python("import maya_toolkit.tools.bh_speedlines.runtime as _r; _r.remove_plane_only()");
+    }
+
+
+setToolTo moveSuperContext;
+print "Exited Draw Mode";
+}
+
+
+global proc mtbSL_bh_exitEPDrawMode()
+{
+python("import maya_toolkit.tools.bh_speedlines.runtime as _r; _r.require_active()");
+
+    if (`objExists "mtbSL_SL_Draw_Plane"`)
+    {
+       python("import maya_toolkit.tools.bh_speedlines.runtime as _r; _r.remove_plane_only()");
+    }
+
+
+button -e -label "Enter Drawing Mode" -bgc .2 .2 .2 "mtbSL_bh_toggleDrawMode";
+
+print "Exited Draw Mode";
+}
+
+
+
+
+
+global proc mtbSL_bh_smoothCurves(){
+python("import maya_toolkit.tools.bh_speedlines.runtime as _r; _r.require_active()");
+
+
+ SmoothHairCurves;
+
+ string $sel[]=`ls -sl`;
+ for ($each in $sel)
+ {
+ select -r $each;
+    CenterPivot;
+ }
+ select -r $sel;
+
+}
+
+global proc mtbSL_bh_geoFrom2Curves()
+{
+python("import maya_toolkit.tools.bh_speedlines.runtime as _r; _r.require_active()");
+
+global string $mtbSL_camera;
+global int $mtbSL_consumeCurves;
+
+
+    string $sel[]=`ls -sl`;
+    if (`size $sel`!=2)
+    {
+        error "Please Select 2 Curves";
+
+    }
+
+    // check is the 'high detail geometry option enabled
+       int $highRes= `mtbSL_read_option "detail"`;
+       if ($highRes==1)
+           {
+               nurbsToPolygonsPref   -pc 500;
+           }
+       else {
+           nurbsToPolygonsPref   -pc 100;
+       }
+
+    string $newLoftGeo[]=`loft -ch 0 -polygon 1 -ar 1 -c 0 -rsn false -name "DrawnGeo"`;
+    select -r $newLoftGeo;
+    CenterPivot;
+    displaySmoothness -divisionsU 3 -divisionsV 3 -pointsWire 16 -pointsShaded 4 -polygonObject 3;
+
+
+    // check here should the new geo go on a display layer ?
+    int $onLayer= `mtbSL_read_option "layer"`;
+    if ($onLayer==1)
+    {
+    //string $origSel[]=`ls -sl`;
+        // does the layer exist ??
+        if (!`objExists ("mtbSL_bh_DrawnGeoL")`)
+        {
+        //select -cl;
+        string $drawnGeoLayer= `createDisplayLayer -name "mtbSL_bh_DrawnGeoL"`;
+        }
+
+    //select -r $origSel;
+    editDisplayLayerMembers -noRecurse "mtbSL_bh_DrawnGeoL" `ls -selection`;
+
+
+
+    }
+       // parent the geo temporarily to the camera to freeze its rotation..
+    string $cameraToUse =$mtbSL_camera;
+
+    if (`objExists $cameraToUse`)
+    {
+       parent $newLoftGeo[0] $cameraToUse;
+       //freeze rotation channels
+       makeIdentity -apply true  -r 1 ;
+       parent -w $newLoftGeo[0] ;
+
+    }
+
+    //mtbSL_bh_simplify;
+    if ($mtbSL_consumeCurves) delete $sel;
+
+    print "Drawn Geometry Created Successfully";
+}
+
+global proc mtbSL_bh_reverseNormals()
+{
+python("import maya_toolkit.tools.bh_speedlines.runtime as _r; _r.require_active()");
+
+    string $sel[]=`ls -sl`;
+    for ($eachMesh in $sel)
+    { select -r $eachMesh;
+    polyNormal -normalMode 0 -userNormalMode 0 -ch 0;
+    print ("Flipped the Normals for "+$eachMesh);
+    }
+    select -r $sel;
+}
+
+
+global proc mtbSL_bh_simplify()
+{
+python("import maya_toolkit.tools.bh_speedlines.runtime as _r; _r.require_active()");
+
+    string $sel[]=`ls -sl`;
+    for ($each in $sel)
+    {
+        string $shape[] =`listRelatives -s $each`;
+        string $nodeType =`nodeType $shape`;
+
+        if ($nodeType=="mesh")
+            {   select -r $each;
+                mtbSL_bh_simplifyGEO;
+            }
+         if ($nodeType=="nurbsCurve")
+            {   select -r $each;
+                CenterPivot;
+                mtbSL_bh_simplifyCurve;
+            }
+
+     select -r $sel;// restore original selection
+
+    }
+
+}
+global proc mtbSL_bh_simplifyGEO()
+    {
+python("import maya_toolkit.tools.bh_speedlines.runtime as _r; _r.require_active()");
+
+        string $sel[]=`ls -sl`;
+
+        polyReduce  -ver 1 -trm 0 -shp 0 -keepBorder 1 -keepMapBorder 1 -keepColorBorder 1 -keepFaceGroupBorder 1 -keepHardEdge 1 -keepCreaseEdge 1 -keepBorderWeight 0.5 -keepMapBorderWeight 0.5 -keepColorBorderWeight 0.5 -keepFaceGroupBorderWeight 0.5 -keepHardEdgeWeight 0.5 -keepCreaseEdgeWeight 0.5   -sx 0 -sy 1 -sz 0 -sw 0 -preserveTopology 1 -keepQuadsWeight 1  -cachingReduce 1 -ch 0 -p 50 -vct 0 -tct 0 -replaceOriginal 1 ;
+        print ("Simplified Geometry : " +$sel[0]);
+    }
+
+global proc mtbSL_bh_keyVisibility()
+{
+python("import maya_toolkit.tools.bh_speedlines.runtime as _r; _r.require_active()");
+
+    string $sel[]=`ls -sl`;
+    int $currentTime =`currentTime -q`;
+
+    int $on2S= `mtbSL_read_option "hold_two"`;
+
+    for ($each in $sel)
+    {
+    setKeyframe  -s 0 -v 1 -at "visibility"  -time $currentTime $each; // NB! using the -shapes flag to make sure shape vis is NOT keyed
+    setKeyframe  -s 0 -v 0 -at "visibility"  -time ($currentTime-1) $each;
+    setKeyframe  -s 0 -v $on2S -at "visibility"  -time ($currentTime+1) $each;
+
+        if ($on2S==1)// key the visibility on 2s so add one more key set to off 2 frames from current time..
+        {
+            setKeyframe  -s 0 -v 0 -at "visibility"  -time ($currentTime+2) $each;
+        }
+    }
+
+
+
+}
+
+
+
+global proc mtbSL_bh_simplifyCurve()
+{
+python("import maya_toolkit.tools.bh_speedlines.runtime as _r; _r.require_active()");
+
+    string $thisCurve[]=`ls -sl`;
+
+
+
+    string $thisCurveShape[] =`listRelatives -s $thisCurve[0]`;
+    //print $thisCurveShape;
+    int $cvs=`getAttr ($thisCurveShape[0]+".spans")`;
+    int $newcvCount=$cvs/2; // half the CV count - will round down due to discarding decimal place..
+    // now rebuild the curve
+
+   rebuildCurve -ch 0 -rpo 1 -rt 0 -end 1 -kr 0 -kcp 0 -kep 1 -kt 0 -s $newcvCount -d 2 -tol 0.0001 $thisCurve[0];
+   print ("Simplified Curve : " +$thisCurve[0]);
+}
+
+ global proc mtbSL_goToG9Site ()
+        {
+            launch -web "http://www.graphite9.com/";
+        }
+
+global proc int mtbSL_read_option(string $name) { global int $mtbSL_options[]; if ($name == "detail") return $mtbSL_options[0]; if ($name == "layer") return $mtbSL_options[1]; if ($name == "hold_two") return $mtbSL_options[2]; error "Unknown speedlines option"; return 0; }

@@ -144,3 +144,10 @@
 - 只读通道预检与Undo，实际after查询，恢复组件选择；不改原动画/autoKey行为。原算法不显式打键：隔离autoKey关闭时已有动画通道微调不改变键，时间切换后按原曲线恢复，写入说明与真人步骤。
 - 四普通Python及七隔离Maya2025检查通过，含真正MEL数值/旋转/四modifier组合/多对象/父级局部语义、Undo、预检/组件、动画/故障恢复。GUI、真实按键/autoKey/非默认单位/其他平台待真人。
 - 完整说明、两测试、资源、Schema/注册晋级清单和验收已预制，仅待整理池有业务代码变动；heartbeat保持暂停，无卡消费或知识同步。
+
+## 2026-10-01：bh_speedLines 完整候选，累计14/109
+
+- 八原资源完整按字节归档；21原过程/原窗口保留，加typed option reader共22，移除顶层开窗/偏好修改。原loft/转换、polyReduce/rebuild/SmoothHairCurves/polyNormal、整数时间visibility、Pencil/EP/深度流程保留，按钮走标准API。默认消耗曲线与可选保留、原16转换偏好finally恢复写明，不自动赋纹理/安装。
+- owned plane/shapes/live/context UUID记录，外部同名/子对象/消费者拒绝；只按已保存ID清理自身parented EP ToolChanged和Undo job，关闭窗口/Undo deferred路径预制。平面重命名仍可stop，深度固定名操作拒绝。Undo/Redo不宣称自动复原GUI上下文和任务。
+- 4普通Python及9 Maya2025隔离检查通过，实际几何/曲线/法线/可见性键/偏好/Undo/层、guard/故障恢复与headless owned-plane fixture；正式布局及注册预览通过，指纹匹配。headless没有currentCtx，清理跳过GUI上下文命令；转换偏好恢复异常仍尝试恢复时间/选择并关闭guard。
+- 实际polyReduce显示已有历史导致ch=0被忽略，说明中保留此限制。鼠标绘画/start_draw、滑条、EP/Pencil、ToolChanged/关闭/deferred Undo均未运行真实GUI，仍prepared_unverified；完整人工步骤和知识说明齐备，正式库未改。

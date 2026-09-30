@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-30T23:42:24.727908+08:00",
+  "updated_at": "2026-10-01T00:33:52.996158+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/bh_local_nudge",
+    "last_completed_tool": "01_animation/bh_speedlines",
     "last_usage": {
-      "five_hour_used_percent": 53.0,
-      "weekly_used_percent": 65.0,
-      "recorded_at": "2026-09-30T23:28:15.284774+08:00",
+      "five_hour_used_percent": 57.0,
+      "weekly_used_percent": 66.0,
+      "recorded_at": "2026-09-30T23:47:37.248688+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/bh_local_nudge"
+    "current_tool": "01_animation/bh_speedlines"
   },
   "entry_repairs": [
     {
@@ -1845,7 +1845,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete original five-procedure native UI and local translation/rotation arithmetic with explicit arguments/modifiers, standard ToolResult/Undo and read-only channel preflight.",
-      "prepared_at": "2026-09-30T23:42:26.865712+08:00"
+      "prepared_at": "2026-09-30T23:42:26.865712+08:00",
+      "source_commit": "7930d64b464fbc20132e4e182004a05a7ad2eca9"
     },
     {
       "source_path": "01_animation/bh_speedlines",
@@ -1856,21 +1857,85 @@
       "entry_candidates": [
         "bh_speedLines(速度线)/bh_speedLines.mel"
       ],
-      "source_file_count": 8,
+      "source_file_count": 9,
       "source_files": [
         "bh_speedLines(速度线)/bh_speedLines.mel",
         "bh_speedLines(速度线)/bh_speedLines汉化版.mel"
       ],
       "license_files": [],
       "entry_sha256": "31ed94ade6821eff17a4e525b005a46466844fb042ef8243fe3842c602bd6816",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_all_eight_resources_preserved (__main__.OfflineTests.test_all_eight_resources_preserved) ... ok\r\ntest_contract_rejects_bad_boolean_camera_objects_and_depth (__main__.OfflineTests.test_contract_rejects_bad_boolean_camera_objects_and_depth) ... ok\r\ntest_full_suite_ui_and_definition_only (__main__.OfflineTests.test_full_suite_ui_and_definition_only) ... ok\r\ntest_schema_inventory_without_maya (__main__.OfflineTests.test_schema_inventory_without_maya) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.012s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"bh_speedlines\",\r\n  \"candidate_sha256\": \"02e5d480a0ffdb5646d9ed57517456c72fb33866a39e5411578c46681f003ae1\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\bh_speedlines.md\",\r\n    \"docs\\\\tools\\\\bh_speedlines_changes.diff\",\r\n    \"maya_toolkit\\\\tools\\\\bh_speedlines\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_speedlines\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\bh_speedlines\\\\contracts.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_speedlines\\\\runtime.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bh_speedlines\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_speedlines\\\\scene.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_speedlines\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_speedlines\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\bh_speedlines\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\bh_speedlines\\\\upstream\\\\bh_speedLines.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bh_speedlines\\\\upstream\\\\bh_speedLinesICON.png\",\r\n    \"maya_toolkit\\\\tools\\\\bh_speedlines\\\\upstream\\\\bh_speedLines\\u6c49\\u5316\\u7248.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bh_speedlines\\\\upstream\\\\ReadMe.txt\",\r\n    \"maya_toolkit\\\\tools\\\\bh_speedlines\\\\upstream\\\\sampleTextures\\\\speedGradientV1.png\",\r\n    \"maya_toolkit\\\\tools\\\\bh_speedlines\\\\upstream\\\\sampleTextures\\\\speedGradientV2.png\",\r\n    \"maya_toolkit\\\\tools\\\\bh_speedlines\\\\upstream\\\\sampleTextures\\\\speedGradientV3.png\",\r\n    \"maya_toolkit\\\\tools\\\\bh_speedlines\\\\upstream\\\\sampleTextures\\\\speedGradientV4.png\",\r\n    \"tests\\\\test_bh_speedlines.py\",\r\n    \"tests\\\\test_bh_speedlines_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/bh_speedlines/release_candidate/tests/test_bh_speedlines_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_complete_source_origins_no_ui_prefs_and_guard (__main__.MayaTests.test_complete_source_origins_no_ui_prefs_and_guard) ... ����: �ڲ�д�������̽����� SpeedLinesTool.run()\n# Traceback (most recent call last):\n#   File \"<maya console>\", line 1, in <module>\n#   File \"E:\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\bh_speedlines\\release_candidate\\maya_toolkit\\tools\\bh_speedlines\\runtime.py\", line 13, in require_active\n#     raise RuntimeError('�ڲ�д�������̽����� SpeedLinesTool.run()')\n# RuntimeError: �ڲ�д�������̽����� SpeedLinesTool.run()\nok\r\ntest_curve_simplify_and_stock_smooth_actual (__main__.MayaTests.test_curve_simplify_and_stock_smooth_actual) ... Simplified Curve : curve1����: SpeedLinesTool_bh_speedlines\nsetAttr curve1.cv[0:10] 0 0 0 1 0.167600738 0 2 0.1811101304 0 3 0.02810770416 0 4 -0.1507368157 0 5 -0.1909946024 0 6 -0.05686824674 0 7 0.1190089219 0 8 0.1391490466 0 9 -0.103869917 0 10 -0.5440211109 0;\n����: SpeedLinesTool_bh_speedlines\nok\r\ntest_flip_and_mesh_simplify_real_topology_undo (__main__.MayaTests.test_flip_and_mesh_simplify_real_topology_undo) ... ����: file: E:/GitHub/maya_tools_box/tools_staging_pool/01_animation/bh_speedlines/release_candidate/maya_toolkit/tools/bh_speedlines/runtime.mel line 504: ���ڸ������ʷ�����ã���Ϊĳ��ѡ����Ŀ������ʷ��\nFlipped the Normals for pPlane1����: SpeedLinesTool_bh_speedlines\n����: file: E:/GitHub/maya_tools_box/tools_staging_pool/01_animation/bh_speedlines/release_candidate/maya_toolkit/tools/bh_speedlines/runtime.mel line 542: ���ڸ������ʷ�����ã���Ϊĳ��ѡ����Ŀ������ʷ��\nSimplified Geometry : pSphere1����: SpeedLinesTool_bh_speedlines\nok\r\ntest_geometry_actual_mesh_consumes_curves_prefs_restore_and_undo (__main__.MayaTests.test_geometry_actual_mesh_consumes_curves_prefs_restore_and_undo) ... Drawn Geometry Created Successfully����: SpeedLinesTool_bh_speedlines\nok\r\ntest_geometry_preserve_curves_owned_layer_and_foreign_collision (__main__.MayaTests.test_geometry_preserve_curves_owned_layer_and_foreign_collision) ... Drawn Geometry Created Successfully����: SpeedLinesTool_bh_speedlines\nok\r\ntest_plane_fixed_name_refusal_owned_cleanup_external_child_and_no_gui (__main__.MayaTests.test_plane_fixed_name_refusal_owned_cleanup_external_child_and_no_gui) ... ok\r\ntest_readonly_preflight_and_geometry_failure_restore_prefs_selection_time (__main__.MayaTests.test_readonly_preflight_and_geometry_failure_restore_prefs_selection_time) ... ok\r\ntest_restore_error_does_not_leave_internal_write_guard_active (__main__.MayaTests.test_restore_error_does_not_leave_internal_write_guard_active) ... Drawn Geometry Created Successfullyok\r\ntest_visibility_one_two_frames_integer_cast_no_shape_keys_undo (__main__.MayaTests.test_visibility_one_two_frames_integer_cast_no_shape_keys_undo) ... ����: SpeedLinesTool_bh_speedlines\n����: SpeedLinesTool_bh_speedlines\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 9 tests in 0.085s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "3228c24d2e48213cd017edf242f6b57c9574f371d737c820d1c69f5364b1e30a",
+          "runtime_source_sha256": "7f084d978bcc8e5bec0939a827f6ffa3f25657125ce1964ae4ee616966159983"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "真实GUI鼠标绘画、深度/EP/Pencil、ToolChanged/关闭/deferred Undo回调及生产场景尚未人工验收，headless plane fixture不等于start_draw通过"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "02e5d480a0ffdb5646d9ed57517456c72fb33866a39e5411578c46681f003ae1",
+          "returncode": 0,
+          "output": "test_all_eight_resources_preserved (__main__.OfflineTests.test_all_eight_resources_preserved) ... ok\r\ntest_contract_rejects_bad_boolean_camera_objects_and_depth (__main__.OfflineTests.test_contract_rejects_bad_boolean_camera_objects_and_depth) ... ok\r\ntest_full_suite_ui_and_definition_only (__main__.OfflineTests.test_full_suite_ui_and_definition_only) ... ok\r\ntest_schema_inventory_without_maya (__main__.OfflineTests.test_schema_inventory_without_maya) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.011s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real GUI drawing, mouse/EP/Pencil contexts and close/scriptJob callbacks pending",
+        "Original key visibility truncates fractional current time and writes surrounding frames",
+        "Geometry consumes selected curves by default; simplify modifies topology/pivots",
+        "Texture samples are resources, not automatically assigned materials",
+        "Legacy SmoothHairCurves and drawing contexts need actual Maya acceptance"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 0,
@@ -1879,7 +1944,60 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "3fe348cc0399d816e450484e9ba42032762e7bf5d371166c781324d7daf753d2"
+      "source_tree_sha256": "09597213306f5898e2be7f57c32d85c1455e6938ac15774fcee70aa5fb8a2b03",
+      "candidate_path": "tools_staging_pool/01_animation/bh_speedlines/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/bh_speedlines/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "bh_speedlines",
+        "candidate_sha256": "02e5d480a0ffdb5646d9ed57517456c72fb33866a39e5411578c46681f003ae1",
+        "applied": false,
+        "files": [
+          "docs\\tools\\bh_speedlines.md",
+          "docs\\tools\\bh_speedlines_changes.diff",
+          "maya_toolkit\\tools\\bh_speedlines\\__init__.py",
+          "maya_toolkit\\tools\\bh_speedlines\\catalog.json",
+          "maya_toolkit\\tools\\bh_speedlines\\contracts.py",
+          "maya_toolkit\\tools\\bh_speedlines\\runtime.mel",
+          "maya_toolkit\\tools\\bh_speedlines\\runtime.py",
+          "maya_toolkit\\tools\\bh_speedlines\\scene.py",
+          "maya_toolkit\\tools\\bh_speedlines\\tool.py",
+          "maya_toolkit\\tools\\bh_speedlines\\ui.py",
+          "maya_toolkit\\tools\\bh_speedlines\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\bh_speedlines\\upstream\\bh_speedLines.mel",
+          "maya_toolkit\\tools\\bh_speedlines\\upstream\\bh_speedLinesICON.png",
+          "maya_toolkit\\tools\\bh_speedlines\\upstream\\bh_speedLines汉化版.mel",
+          "maya_toolkit\\tools\\bh_speedlines\\upstream\\ReadMe.txt",
+          "maya_toolkit\\tools\\bh_speedlines\\upstream\\sampleTextures\\speedGradientV1.png",
+          "maya_toolkit\\tools\\bh_speedlines\\upstream\\sampleTextures\\speedGradientV2.png",
+          "maya_toolkit\\tools\\bh_speedlines\\upstream\\sampleTextures\\speedGradientV3.png",
+          "maya_toolkit\\tools\\bh_speedlines\\upstream\\sampleTextures\\speedGradientV4.png",
+          "tests\\test_bh_speedlines.py",
+          "tests\\test_bh_speedlines_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/bh_speedLines.mel",
+        "upstream/bh_speedLinesICON.png",
+        "upstream/bh_speedLines汉化版.mel",
+        "upstream/ReadMe.txt",
+        "upstream/sampleTextures/speedGradientV1.png",
+        "upstream/sampleTextures/speedGradientV2.png",
+        "upstream/sampleTextures/speedGradientV3.png",
+        "upstream/sampleTextures/speedGradientV4.png",
+        "runtime.mel",
+        "catalog.json"
+      ],
+      "external_dependencies": [
+        "Maya Python3/native MEL runtime commands",
+        "Actual GUI/model panel for interactive drawing",
+        "Existing maya_toolkit framework/core Undo"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete original speedline geometry/curve/visibility/drawing suite and resources; explicit arguments, standard API, preference restoration and owned live-plane/scriptJob cleanup.",
+      "prepared_at": "2026-10-01T00:33:53.740981+08:00"
     },
     {
       "source_path": "01_animation/bh_wave_it",

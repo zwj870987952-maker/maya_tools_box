@@ -1,0 +1,120 @@
+{
+  "tool_id": "bh_speedlines",
+  "registration": {
+    "module": "bh_speedlines",
+    "class_name": "SpeedLinesTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/bh_speedlines.md",
+      "target": "docs/tools/bh_speedlines.md"
+    },
+    {
+      "source": "docs/tools/bh_speedlines_changes.diff",
+      "target": "docs/tools/bh_speedlines_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_speedlines/__init__.py",
+      "target": "maya_toolkit/tools/bh_speedlines/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_speedlines/catalog.json",
+      "target": "maya_toolkit/tools/bh_speedlines/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_speedlines/contracts.py",
+      "target": "maya_toolkit/tools/bh_speedlines/contracts.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_speedlines/runtime.mel",
+      "target": "maya_toolkit/tools/bh_speedlines/runtime.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_speedlines/runtime.py",
+      "target": "maya_toolkit/tools/bh_speedlines/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_speedlines/scene.py",
+      "target": "maya_toolkit/tools/bh_speedlines/scene.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_speedlines/tool.py",
+      "target": "maya_toolkit/tools/bh_speedlines/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_speedlines/ui.py",
+      "target": "maya_toolkit/tools/bh_speedlines/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_speedlines/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/bh_speedlines/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_speedlines/upstream/bh_speedLines.mel",
+      "target": "maya_toolkit/tools/bh_speedlines/upstream/bh_speedLines.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_speedlines/upstream/bh_speedLinesICON.png",
+      "target": "maya_toolkit/tools/bh_speedlines/upstream/bh_speedLinesICON.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_speedlines/upstream/bh_speedLines汉化版.mel",
+      "target": "maya_toolkit/tools/bh_speedlines/upstream/bh_speedLines汉化版.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_speedlines/upstream/ReadMe.txt",
+      "target": "maya_toolkit/tools/bh_speedlines/upstream/ReadMe.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_speedlines/upstream/sampleTextures/speedGradientV1.png",
+      "target": "maya_toolkit/tools/bh_speedlines/upstream/sampleTextures/speedGradientV1.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_speedlines/upstream/sampleTextures/speedGradientV2.png",
+      "target": "maya_toolkit/tools/bh_speedlines/upstream/sampleTextures/speedGradientV2.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_speedlines/upstream/sampleTextures/speedGradientV3.png",
+      "target": "maya_toolkit/tools/bh_speedlines/upstream/sampleTextures/speedGradientV3.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bh_speedlines/upstream/sampleTextures/speedGradientV4.png",
+      "target": "maya_toolkit/tools/bh_speedlines/upstream/sampleTextures/speedGradientV4.png"
+    },
+    {
+      "source": "tests/test_bh_speedlines.py",
+      "target": "tests/test_bh_speedlines.py"
+    },
+    {
+      "source": "tests/test_bh_speedlines_maya.py",
+      "target": "tests/test_bh_speedlines_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/bh_speedLines.mel",
+    "upstream/bh_speedLinesICON.png",
+    "upstream/bh_speedLines汉化版.mel",
+    "upstream/ReadMe.txt",
+    "upstream/sampleTextures/speedGradientV1.png",
+    "upstream/sampleTextures/speedGradientV2.png",
+    "upstream/sampleTextures/speedGradientV3.png",
+    "upstream/sampleTextures/speedGradientV4.png",
+    "runtime.mel",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya Python3/native MEL runtime commands",
+    "Actual GUI/model panel for interactive drawing",
+    "Existing maya_toolkit framework/core Undo"
+  ],
+  "source": "../bh_speedLines(速度线)/bh_speedLines.mel",
+  "change_summary": "Complete original speedline geometry/curve/visibility/drawing suite and resources; explicit arguments, standard API, preference restoration and owned live-plane/scriptJob cleanup.",
+  "verification_limitations": [
+    "Real GUI drawing, mouse/EP/Pencil contexts and close/scriptJob callbacks pending",
+    "Original key visibility truncates fractional current time and writes surrounding frames",
+    "Geometry consumes selected curves by default; simplify modifies topology/pivots",
+    "Texture samples are resources, not automatically assigned materials",
+    "Legacy SmoothHairCurves and drawing contexts need actual Maya acceptance"
+  ],
+  "acceptance_required": true
+}
