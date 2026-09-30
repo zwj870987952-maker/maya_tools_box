@@ -1,0 +1,2221 @@
+{
+  "tool_id": "eblabs_whiskey",
+  "classes": [
+    "window",
+    "Prefs",
+    "Functions",
+    "widget_base",
+    "widget_tween",
+    "widget_snapshot",
+    "widget_extras",
+    "widget_tools",
+    "widget_worldSpace",
+    "widget_classic",
+    "widget_curveOptions",
+    "widget_principles",
+    "button_toggleSwitch",
+    "button_textToggle",
+    "slider_base",
+    "slider_tween",
+    "slider_snapshot",
+    "slider_worldSpace",
+    "slider_inOut",
+    "slider_PosePusher",
+    "slider_multiply",
+    "Hotkeys"
+  ],
+  "methods": [
+    {
+      "class": "window",
+      "method": "load",
+      "signature": "cls",
+      "line": 29
+    },
+    {
+      "class": "window",
+      "method": "resizeUI",
+      "signature": "cls, *args, **kwargs",
+      "line": 58
+    },
+    {
+      "class": "window",
+      "method": "resizeUI_deferred",
+      "signature": "cls, *args, **kwargs",
+      "line": 63
+    },
+    {
+      "class": "window",
+      "method": "addWidgets",
+      "signature": "cls, *args, **kwargs",
+      "line": 71
+    },
+    {
+      "class": "window",
+      "method": "getDefaultWidgetData",
+      "signature": "cls, *args, **kwargs",
+      "line": 106
+    },
+    {
+      "class": "window",
+      "method": "resetPrefs",
+      "signature": "cls, *args, **kwargs",
+      "line": 111
+    },
+    {
+      "class": "window",
+      "method": "getParent",
+      "signature": "cls",
+      "line": 118
+    },
+    {
+      "class": "window",
+      "method": "addItem",
+      "signature": "cls, addItem, *args, **kwargs",
+      "line": 122
+    },
+    {
+      "class": "window",
+      "method": "storePrefs",
+      "signature": "cls, *args, **kwargs",
+      "line": 128
+    },
+    {
+      "class": "Prefs",
+      "method": "listProfiles",
+      "signature": "cls",
+      "line": 135
+    },
+    {
+      "class": "Prefs",
+      "method": "getPrefsPath",
+      "signature": "cls",
+      "line": 146
+    },
+    {
+      "class": "Prefs",
+      "method": "removeProfile",
+      "signature": "cls, profile=False",
+      "line": 150
+    },
+    {
+      "class": "Prefs",
+      "method": "getActiveProfile",
+      "signature": "cls",
+      "line": 162
+    },
+    {
+      "class": "Prefs",
+      "method": "setProfileData",
+      "signature": "cls, profile=False, profileData={}",
+      "line": 176
+    },
+    {
+      "class": "Prefs",
+      "method": "getProfileData",
+      "signature": "cls, profile=False",
+      "line": 196
+    },
+    {
+      "class": "Prefs",
+      "method": "getPrefsKey",
+      "signature": "cls, key, *args, **kwargs",
+      "line": 210
+    },
+    {
+      "class": "Prefs",
+      "method": "setPrefsKey",
+      "signature": "cls, key, value, *args, **kwargs",
+      "line": 232
+    },
+    {
+      "class": "Prefs",
+      "method": "savePrefs",
+      "signature": "cls, *args, **kwargs",
+      "line": 244
+    },
+    {
+      "class": "Prefs",
+      "method": "loadPrefs",
+      "signature": "cls, *args, **kwargs",
+      "line": 255
+    },
+    {
+      "class": "Prefs",
+      "method": "writeDataToFile",
+      "signature": "cls, filePath, dictionary",
+      "line": 266
+    },
+    {
+      "class": "Prefs",
+      "method": "loadDataFromFile",
+      "signature": "cls, filename, *args, **kwargs",
+      "line": 276
+    },
+    {
+      "class": "Functions",
+      "method": "quickUndo",
+      "signature": "cls, *args, **kwargs",
+      "line": 295
+    },
+    {
+      "class": "Functions",
+      "method": "quickUndo_wrapped",
+      "signature": "cls, *args, **kwargs",
+      "line": 300
+    },
+    {
+      "class": "Functions",
+      "method": "quickRedo",
+      "signature": "cls, *args, **kwargs",
+      "line": 310
+    },
+    {
+      "class": "Functions",
+      "method": "quickRedo_wrapped",
+      "signature": "cls, *args, **kwargs",
+      "line": 315
+    },
+    {
+      "class": "Functions",
+      "method": "smashBaker",
+      "signature": "cls, selected, startTime, endTime, *args, **kwargs",
+      "line": 325
+    },
+    {
+      "class": "Functions",
+      "method": "queryTimeRange",
+      "signature": "cls, *args, **kwargs",
+      "line": 391
+    },
+    {
+      "class": "Functions",
+      "method": "getHighlightedRange",
+      "signature": "cls, *args, **kwargs",
+      "line": 407
+    },
+    {
+      "class": "Functions",
+      "method": "removeProfile",
+      "signature": "cls, profile, *args, **kwargs",
+      "line": 417
+    },
+    {
+      "class": "Functions",
+      "method": "getProfiles",
+      "signature": "cls",
+      "line": 426
+    },
+    {
+      "class": "Functions",
+      "method": "setActiveProfile",
+      "signature": "cls, profile",
+      "line": 431
+    },
+    {
+      "class": "Functions",
+      "method": "getActiveProfile",
+      "signature": "cls",
+      "line": 435
+    },
+    {
+      "class": "Functions",
+      "method": "setProfilesData",
+      "signature": "cls, data",
+      "line": 444
+    },
+    {
+      "class": "Functions",
+      "method": "getProfilesData",
+      "signature": "cls",
+      "line": 448
+    },
+    {
+      "class": "Functions",
+      "method": "groupDuplicates",
+      "signature": "cls, values, *args, **kwargs",
+      "line": 460
+    },
+    {
+      "class": "Functions",
+      "method": "cleanSubframeKeys",
+      "signature": "cls, *args, **kwargs",
+      "line": 466
+    },
+    {
+      "class": "Functions",
+      "method": "getAnimCurvesForAttribute",
+      "signature": "cls, attribute, *args, **kwargs",
+      "line": 523
+    },
+    {
+      "class": "Functions",
+      "method": "removeBoringKeys",
+      "signature": "cls, *args, **kwargs",
+      "line": 570
+    },
+    {
+      "class": "Functions",
+      "method": "removeBoringKeysPrompt",
+      "signature": "cls, message",
+      "line": 670
+    },
+    {
+      "class": "Functions",
+      "method": "getAttributeType",
+      "signature": "cls, controlObject, attribute",
+      "line": 721
+    },
+    {
+      "class": "Functions",
+      "method": "findMatchingObjectsInNamespace",
+      "signature": "cls, *args, **kwargs",
+      "line": 732
+    },
+    {
+      "class": "Functions",
+      "method": "getNamespaces",
+      "signature": "cls, *args, **kwargs",
+      "line": 749
+    },
+    {
+      "class": "Functions",
+      "method": "setKeyType",
+      "signature": "cls, keyType, *args, **kwargs",
+      "line": 765
+    },
+    {
+      "class": "Functions",
+      "method": "listAttributes",
+      "signature": "cls, node, *args, **kwargs",
+      "line": 785
+    },
+    {
+      "class": "Functions",
+      "method": "getRelativePosition",
+      "signature": "cls, node, attribute, time, *args, **kwargs",
+      "line": 807
+    },
+    {
+      "class": "Functions",
+      "method": "isOnKey",
+      "signature": "cls, node, attribute, time",
+      "line": 833
+    },
+    {
+      "class": "Functions",
+      "method": "getKeyFrameAtOffsetInfo",
+      "signature": "cls, node, attribute, offset, *args, **kwargs",
+      "line": 841
+    },
+    {
+      "class": "Functions",
+      "method": "getBoundingBoxSize",
+      "signature": "node, *args, **kwargs",
+      "line": 862
+    },
+    {
+      "class": "Functions",
+      "method": "getAverageBoundingBoxSize",
+      "signature": "cls, nodes, *args, **kwargs",
+      "line": 878
+    },
+    {
+      "class": "Functions",
+      "method": "getActiveCamera",
+      "signature": "cls, *args, **kwargs",
+      "line": 890
+    },
+    {
+      "class": "Functions",
+      "method": "setVersion",
+      "signature": "cls, version",
+      "line": 912
+    },
+    {
+      "class": "Functions",
+      "method": "getVersion",
+      "signature": "cls",
+      "line": 916
+    },
+    {
+      "class": "Functions",
+      "method": "loadDataFromFile",
+      "signature": "cls, filename, *args, **kwargs",
+      "line": 920
+    },
+    {
+      "class": "Functions",
+      "method": "writeDataToFile",
+      "signature": "cls, filePath, dictionary",
+      "line": 932
+    },
+    {
+      "class": "Functions",
+      "method": "clearPrefs",
+      "signature": "cls, *args, **kwargs",
+      "line": 942
+    },
+    {
+      "class": "Functions",
+      "method": "retreivePrefs",
+      "signature": "cls, *args, **kwargs",
+      "line": 953
+    },
+    {
+      "class": "Functions",
+      "method": "storePrefs",
+      "signature": "cls, widgetData, *args, **kwargs",
+      "line": 972
+    },
+    {
+      "class": "Functions",
+      "method": "storePrefs_deferred",
+      "signature": "cls, widgetData, *args, **kwargs",
+      "line": 977
+    },
+    {
+      "class": "Functions",
+      "method": "worldToLocalPoint",
+      "signature": "cls, point, node",
+      "line": 1020
+    },
+    {
+      "class": "Functions",
+      "method": "decompMatrix",
+      "signature": "cls, node, matrix",
+      "line": 1028
+    },
+    {
+      "class": "Functions",
+      "method": "rekeyOnKeys",
+      "signature": "cls, *args, **kwargs",
+      "line": 1042
+    },
+    {
+      "class": "Functions",
+      "method": "getSpecialKeyTickTimes",
+      "signature": "cls, *args, **kwargs",
+      "line": 1106
+    },
+    {
+      "class": "Functions",
+      "method": "setKeyframe",
+      "signature": "cls, *args, **kwargs",
+      "line": 1134
+    },
+    {
+      "class": "Functions",
+      "method": "validateText",
+      "signature": "cls, text, *args, **kwargs",
+      "line": 1158
+    },
+    {
+      "class": "Functions",
+      "method": "getStringFromUser",
+      "signature": "cls",
+      "line": 1173
+    },
+    {
+      "class": "Functions",
+      "method": "getDescription",
+      "signature": "cls",
+      "line": 1184
+    },
+    {
+      "class": "Functions",
+      "method": "clamp",
+      "signature": "cls, n, minn, maxn",
+      "line": 1195
+    },
+    {
+      "class": "Functions",
+      "method": "getSelectedChannels",
+      "signature": "cls, selection=False",
+      "line": 1199
+    },
+    {
+      "class": "Functions",
+      "method": "suspendUI",
+      "signature": "cls, state, *args, **kwargs",
+      "line": 1211
+    },
+    {
+      "class": "Functions",
+      "method": "suspendUI_wrapped",
+      "signature": "cls, state",
+      "line": 1222
+    },
+    {
+      "class": "widget_base",
+      "method": "__init__",
+      "signature": "self, *args, **kwargs",
+      "line": 1268
+    },
+    {
+      "class": "widget_base",
+      "method": "clearInstances",
+      "signature": "cls",
+      "line": 1308
+    },
+    {
+      "class": "widget_base",
+      "method": "multiplierChangeUpdateText",
+      "signature": "self, *args, **kwargs",
+      "line": 1311
+    },
+    {
+      "class": "widget_base",
+      "method": "setTextLabel",
+      "signature": "self, element, text, *args, **kwargs",
+      "line": 1322
+    },
+    {
+      "class": "widget_base",
+      "method": "addItem",
+      "signature": "cls, addItem, *args, **kwargs",
+      "line": 1326
+    },
+    {
+      "class": "widget_base",
+      "method": "getWidgetParent",
+      "signature": "cls, *args, **kwargs",
+      "line": 1348
+    },
+    {
+      "class": "widget_base",
+      "method": "setWidgetParent",
+      "signature": "cls, parent, *args, **kwargs",
+      "line": 1357
+    },
+    {
+      "class": "widget_base",
+      "method": "addPostCommand",
+      "signature": "self, command, *args, **kwargs",
+      "line": 1360
+    },
+    {
+      "class": "widget_base",
+      "method": "clearPostCommands",
+      "signature": "self, *args, **kwargs",
+      "line": 1369
+    },
+    {
+      "class": "widget_base",
+      "method": "onPost",
+      "signature": "self, *args, **kwargs",
+      "line": 1372
+    },
+    {
+      "class": "widget_base",
+      "method": "addPreCommand",
+      "signature": "self, command, *args, **kwargs",
+      "line": 1381
+    },
+    {
+      "class": "widget_base",
+      "method": "clearPreCommands",
+      "signature": "self, *args, **kwargs",
+      "line": 1390
+    },
+    {
+      "class": "widget_base",
+      "method": "onPre",
+      "signature": "self, *args, **kwargs",
+      "line": 1393
+    },
+    {
+      "class": "widget_base",
+      "method": "addChangeCommand",
+      "signature": "self, command, *args, **kwargs",
+      "line": 1402
+    },
+    {
+      "class": "widget_base",
+      "method": "clearChangeCommands",
+      "signature": "self, *args, **kwargs",
+      "line": 1411
+    },
+    {
+      "class": "widget_base",
+      "method": "onChange",
+      "signature": "self, debug=False, *args, **kwargs",
+      "line": 1414
+    },
+    {
+      "class": "widget_base",
+      "method": "rekeyOnKeys",
+      "signature": "self, *args, **kwargs",
+      "line": 1425
+    },
+    {
+      "class": "widget_base",
+      "method": "setKeyframe",
+      "signature": "self, *args, **kwargs",
+      "line": 1432
+    },
+    {
+      "class": "widget_base",
+      "method": "setKeysPopupMenu",
+      "signature": "self, *args, **kwargs",
+      "line": 1439
+    },
+    {
+      "class": "widget_base",
+      "method": "expandMainContainer",
+      "signature": "self, *args, **kwargs",
+      "line": 1452
+    },
+    {
+      "class": "widget_base",
+      "method": "moveWidget",
+      "signature": "self, direction, *args, **kwargs",
+      "line": 1457
+    },
+    {
+      "class": "widget_base",
+      "method": "collapseMainContainer",
+      "signature": "self, *args, **kwargs",
+      "line": 1469
+    },
+    {
+      "class": "widget_base",
+      "method": "getWidgetExpandedState",
+      "signature": "self, *args, **kwargs",
+      "line": 1474
+    },
+    {
+      "class": "widget_base",
+      "method": "getInstanceIndex",
+      "signature": "self, *args, **kwargs",
+      "line": 1478
+    },
+    {
+      "class": "widget_base",
+      "method": "widgetMenu",
+      "signature": "self, *args, **kwargs",
+      "line": 1482
+    },
+    {
+      "class": "widget_base",
+      "method": "toggleStoreWindowPosition",
+      "signature": "self, *args, **kwargs",
+      "line": 1528
+    },
+    {
+      "class": "widget_base",
+      "method": "profilesMenuPostCommand",
+      "signature": "self, *args, **kwargs",
+      "line": 1532
+    },
+    {
+      "class": "widget_base",
+      "method": "switchToProfile",
+      "signature": "self, profile, *args, **kwargs",
+      "line": 1549
+    },
+    {
+      "class": "widget_base",
+      "method": "switchToProfile_deferred",
+      "signature": "self, profile, *args, **kwargs",
+      "line": 1553
+    },
+    {
+      "class": "widget_base",
+      "method": "addWidgetsFromPrefs",
+      "signature": "cls, *args, **kwargs",
+      "line": 1560
+    },
+    {
+      "class": "widget_base",
+      "method": "getDefaultWidgetData",
+      "signature": "cls, *args, **kwargs",
+      "line": 1596
+    },
+    {
+      "class": "widget_base",
+      "method": "clearWidgets",
+      "signature": "cls, *args, **kwargs",
+      "line": 1659
+    },
+    {
+      "class": "widget_base",
+      "method": "removeProfile",
+      "signature": "self, profile, *args, **kwargs",
+      "line": 1666
+    },
+    {
+      "class": "widget_base",
+      "method": "createNewProfile",
+      "signature": "self, *args, **kwargs",
+      "line": 1670
+    },
+    {
+      "class": "widget_base",
+      "method": "cleanSubframeKeys",
+      "signature": "self, *args, **kwargs",
+      "line": 1678
+    },
+    {
+      "class": "widget_base",
+      "method": "removeBoringKeys",
+      "signature": "self, *args, **kwargs",
+      "line": 1682
+    },
+    {
+      "class": "widget_base",
+      "method": "getMainContainer",
+      "signature": "self, *args, **kwargs",
+      "line": 1689
+    },
+    {
+      "class": "widget_base",
+      "method": "removeWidget",
+      "signature": "self, *args, **kwargs",
+      "line": 1692
+    },
+    {
+      "class": "widget_base",
+      "method": "removeWidget_deferred",
+      "signature": "self, storePrefs, *args, **kwargs",
+      "line": 1699
+    },
+    {
+      "class": "widget_base",
+      "method": "getCurrentState",
+      "signature": "cls, *args, **kwargs",
+      "line": 1715
+    },
+    {
+      "class": "widget_base",
+      "method": "getState",
+      "signature": "self",
+      "line": 1727
+    },
+    {
+      "class": "widget_base",
+      "method": "setState",
+      "signature": "self, stateData",
+      "line": 1733
+    },
+    {
+      "class": "widget_base",
+      "method": "getType",
+      "signature": "self",
+      "line": 1739
+    },
+    {
+      "class": "widget_base",
+      "method": "printInfo",
+      "signature": "cls, *args, **kwargs",
+      "line": 1743
+    },
+    {
+      "class": "widget_base",
+      "method": "storePrefs",
+      "signature": "cls, *args, **kwargs",
+      "line": 1752
+    },
+    {
+      "class": "widget_base",
+      "method": "setInstances",
+      "signature": "cls, instances",
+      "line": 1760
+    },
+    {
+      "class": "widget_base",
+      "method": "getInstances",
+      "signature": "cls",
+      "line": 1764
+    },
+    {
+      "class": "widget_base",
+      "method": "setDescription",
+      "signature": "self, description",
+      "line": 1767
+    },
+    {
+      "class": "widget_base",
+      "method": "getDescription",
+      "signature": "self",
+      "line": 1782
+    },
+    {
+      "class": "widget_base",
+      "method": "getLayout",
+      "signature": "self",
+      "line": 1790
+    },
+    {
+      "class": "widget_base",
+      "method": "getLayoutWidth",
+      "signature": "self",
+      "line": 1793
+    },
+    {
+      "class": "widget_base",
+      "method": "setLayoutWidth",
+      "signature": "self, w",
+      "line": 1796
+    },
+    {
+      "class": "widget_base",
+      "method": "getSelected",
+      "signature": "self",
+      "line": 1799
+    },
+    {
+      "class": "widget_base",
+      "method": "getSelectedChannels",
+      "signature": "self, *args, **kwargs",
+      "line": 1807
+    },
+    {
+      "class": "widget_base",
+      "method": "setWidgetType",
+      "signature": "self, widgetType",
+      "line": 1815
+    },
+    {
+      "class": "widget_base",
+      "method": "pinSelectionPopupMenu",
+      "signature": "self, *args, **kwargs",
+      "line": 1818
+    },
+    {
+      "class": "widget_base",
+      "method": "storeHighlightedChannels",
+      "signature": "self, *args, **kwargs",
+      "line": 1849
+    },
+    {
+      "class": "widget_base",
+      "method": "modifySelectionBuffer",
+      "signature": "self, action, *args, **kwargs",
+      "line": 1854
+    },
+    {
+      "class": "widget_base",
+      "method": "onPinSelectionButton",
+      "signature": "self, state, *args, **kwargs",
+      "line": 1870
+    },
+    {
+      "class": "widget_base",
+      "method": "selectObjects",
+      "signature": "self, *args, **kwargs",
+      "line": 1897
+    },
+    {
+      "class": "widget_base",
+      "method": "setPinState",
+      "signature": "self, state",
+      "line": 1920
+    },
+    {
+      "class": "widget_base",
+      "method": "getPinState",
+      "signature": "self",
+      "line": 1923
+    },
+    {
+      "class": "widget_base",
+      "method": "setBufferSelection",
+      "signature": "self, selection",
+      "line": 1931
+    },
+    {
+      "class": "widget_base",
+      "method": "getBufferSelection",
+      "signature": "self",
+      "line": 1935
+    },
+    {
+      "class": "widget_base",
+      "method": "setBufferChannels",
+      "signature": "self, selection",
+      "line": 1943
+    },
+    {
+      "class": "widget_base",
+      "method": "getBufferChannels",
+      "signature": "self",
+      "line": 1946
+    },
+    {
+      "class": "widget_base",
+      "method": "onDescriptionChange",
+      "signature": "self, description, *args, **kwargs",
+      "line": 1954
+    },
+    {
+      "class": "widget_tween",
+      "method": "__init__",
+      "signature": "self, *args, **kwargs",
+      "line": 1961
+    },
+    {
+      "class": "widget_tween",
+      "method": "setState",
+      "signature": "self, stateData",
+      "line": 1982
+    },
+    {
+      "class": "widget_tween",
+      "method": "setUseAllLayersState",
+      "signature": "self, state",
+      "line": 2003
+    },
+    {
+      "class": "widget_tween",
+      "method": "getUseAllLayersState",
+      "signature": "self",
+      "line": 2006
+    },
+    {
+      "class": "widget_tween",
+      "method": "setupUI",
+      "signature": "self",
+      "line": 2014
+    },
+    {
+      "class": "widget_tween",
+      "method": "getState",
+      "signature": "self",
+      "line": 2215
+    },
+    {
+      "class": "widget_tween",
+      "method": "onToggleLayersButton",
+      "signature": "self, state, *args, **kwargs",
+      "line": 2223
+    },
+    {
+      "class": "widget_snapshot",
+      "method": "__init__",
+      "signature": "self, *args, **kwargs",
+      "line": 2233
+    },
+    {
+      "class": "widget_snapshot",
+      "method": "setInitialSliderState",
+      "signature": "self",
+      "line": 2255
+    },
+    {
+      "class": "widget_snapshot",
+      "method": "setState",
+      "signature": "self, stateData",
+      "line": 2264
+    },
+    {
+      "class": "widget_snapshot",
+      "method": "getState",
+      "signature": "self",
+      "line": 2280
+    },
+    {
+      "class": "widget_snapshot",
+      "method": "setDataBuffer",
+      "signature": "self, data",
+      "line": 2287
+    },
+    {
+      "class": "widget_snapshot",
+      "method": "getDataBuffer",
+      "signature": "self",
+      "line": 2293
+    },
+    {
+      "class": "widget_snapshot",
+      "method": "setupUI",
+      "signature": "self",
+      "line": 2301
+    },
+    {
+      "class": "widget_snapshot",
+      "method": "onPinSelectionButton",
+      "signature": "self, state, *args, **kwargs",
+      "line": 2367
+    },
+    {
+      "class": "widget_extras",
+      "method": "__init__",
+      "signature": "self, *args, **kwargs",
+      "line": 2393
+    },
+    {
+      "class": "widget_extras",
+      "method": "setState",
+      "signature": "self, stateData",
+      "line": 2414
+    },
+    {
+      "class": "widget_extras",
+      "method": "setupUI",
+      "signature": "self",
+      "line": 2430
+    },
+    {
+      "class": "widget_extras",
+      "method": "getState",
+      "signature": "self",
+      "line": 2572
+    },
+    {
+      "class": "widget_tools",
+      "method": "__init__",
+      "signature": "self, *args, **kwargs",
+      "line": 2582
+    },
+    {
+      "class": "widget_tools",
+      "method": "setState",
+      "signature": "self, stateData",
+      "line": 2604
+    },
+    {
+      "class": "widget_tools",
+      "method": "setupUI",
+      "signature": "self",
+      "line": 2607
+    },
+    {
+      "class": "widget_tools",
+      "method": "onCollapseButtonPress",
+      "signature": "self, *args, **kwargs",
+      "line": 2674
+    },
+    {
+      "class": "widget_tools",
+      "method": "smashBakeButton",
+      "signature": "self, *args, **kwargs",
+      "line": 2678
+    },
+    {
+      "class": "widget_tools",
+      "method": "smashBakeOptionsPopup",
+      "signature": "self, *args, **kwargs",
+      "line": 2689
+    },
+    {
+      "class": "widget_tools",
+      "method": "refreshTimeRange",
+      "signature": "self, *args, **kwargs",
+      "line": 2697
+    },
+    {
+      "class": "widget_worldSpace",
+      "method": "__init__",
+      "signature": "self, *args, **kwargs",
+      "line": 2708
+    },
+    {
+      "class": "widget_worldSpace",
+      "method": "setState",
+      "signature": "self, stateData",
+      "line": 2729
+    },
+    {
+      "class": "widget_worldSpace",
+      "method": "setupUI",
+      "signature": "self",
+      "line": 2745
+    },
+    {
+      "class": "widget_worldSpace",
+      "method": "getState",
+      "signature": "self",
+      "line": 2825
+    },
+    {
+      "class": "widget_classic",
+      "method": "__init__",
+      "signature": "self, *args, **kwargs",
+      "line": 2835
+    },
+    {
+      "class": "widget_classic",
+      "method": "setState",
+      "signature": "self, stateData",
+      "line": 2856
+    },
+    {
+      "class": "widget_classic",
+      "method": "setUseAllLayersState",
+      "signature": "self, state",
+      "line": 2877
+    },
+    {
+      "class": "widget_classic",
+      "method": "getUseAllLayersState",
+      "signature": "self",
+      "line": 2880
+    },
+    {
+      "class": "widget_classic",
+      "method": "setupUI",
+      "signature": "self",
+      "line": 2888
+    },
+    {
+      "class": "widget_classic",
+      "method": "getState",
+      "signature": "self",
+      "line": 3211
+    },
+    {
+      "class": "widget_classic",
+      "method": "onToggleLayersButton",
+      "signature": "self, state, *args, **kwargs",
+      "line": 3219
+    },
+    {
+      "class": "widget_curveOptions",
+      "method": "__init__",
+      "signature": "self, *args, **kwargs",
+      "line": 3229
+    },
+    {
+      "class": "widget_curveOptions",
+      "method": "setupUI",
+      "signature": "self",
+      "line": 3250
+    },
+    {
+      "class": "widget_curveOptions",
+      "method": "onCollapseButtonPress",
+      "signature": "self, *args, **kwargs",
+      "line": 3326
+    },
+    {
+      "class": "widget_principles",
+      "method": "__init__",
+      "signature": "self, *args, **kwargs",
+      "line": 3332
+    },
+    {
+      "class": "widget_principles",
+      "method": "setupUI",
+      "signature": "self",
+      "line": 3353
+    },
+    {
+      "class": "button_toggleSwitch",
+      "method": "__init__",
+      "signature": "self, *args, **kwargs",
+      "line": 3419
+    },
+    {
+      "class": "button_toggleSwitch",
+      "method": "pressButton",
+      "signature": "self, ADescription, BDescription, ACommand, BCommand, *args, **kwargs",
+      "line": 3458
+    },
+    {
+      "class": "button_toggleSwitch",
+      "method": "overrideDescription",
+      "signature": "self, description, *args, **kwargs",
+      "line": 3478
+    },
+    {
+      "class": "button_toggleSwitch",
+      "method": "setState",
+      "signature": "self, state, *args, **kwargs",
+      "line": 3481
+    },
+    {
+      "class": "button_toggleSwitch",
+      "method": "getState",
+      "signature": "self, *args, **kwargs",
+      "line": 3484
+    },
+    {
+      "class": "button_toggleSwitch",
+      "method": "getLayout",
+      "signature": "self, *args, **kwargs",
+      "line": 3487
+    },
+    {
+      "class": "button_textToggle",
+      "method": "__init__",
+      "signature": "self, *args, **kwargs",
+      "line": 3493
+    },
+    {
+      "class": "button_textToggle",
+      "method": "onCollapseButtonPress",
+      "signature": "self, collapseCommand, *args, **kwargs",
+      "line": 3543
+    },
+    {
+      "class": "button_textToggle",
+      "method": "onButtonPress",
+      "signature": "self, *args, **kwargs",
+      "line": 3550
+    },
+    {
+      "class": "button_textToggle",
+      "method": "onTextChange",
+      "signature": "self, *args, **kwargs",
+      "line": 3555
+    },
+    {
+      "class": "button_textToggle",
+      "method": "getLayout",
+      "signature": "self, *args, **kwargs",
+      "line": 3569
+    },
+    {
+      "class": "button_textToggle",
+      "method": "getDescription",
+      "signature": "self",
+      "line": 3572
+    },
+    {
+      "class": "button_textToggle",
+      "method": "overrideDescription",
+      "signature": "self, description, *args, **kwargs",
+      "line": 3575
+    },
+    {
+      "class": "button_textToggle",
+      "method": "validateText",
+      "signature": "cls, text, *args, **kwargs",
+      "line": 3584
+    },
+    {
+      "class": "slider_base",
+      "method": "__init__",
+      "signature": "self, *args, **kwargs",
+      "line": 3602
+    },
+    {
+      "class": "slider_base",
+      "method": "clearInstances",
+      "signature": "cls",
+      "line": 3628
+    },
+    {
+      "class": "slider_base",
+      "method": "setSliderState",
+      "signature": "self, state, *args, **kwargs",
+      "line": 3631
+    },
+    {
+      "class": "slider_base",
+      "method": "multiplierPopupMenu",
+      "signature": "self, *args, **kwargs",
+      "line": 3634
+    },
+    {
+      "class": "slider_base",
+      "method": "increaseMultiplier",
+      "signature": "self, *args, **kwargs",
+      "line": 3647
+    },
+    {
+      "class": "slider_base",
+      "method": "decreaseMultiplier",
+      "signature": "self, *args, **kwargs",
+      "line": 3652
+    },
+    {
+      "class": "slider_base",
+      "method": "resetMultiplier",
+      "signature": "self, value, *args, **kwargs",
+      "line": 3657
+    },
+    {
+      "class": "slider_base",
+      "method": "setMultiplier",
+      "signature": "self, value, *args, **kwargs",
+      "line": 3660
+    },
+    {
+      "class": "slider_base",
+      "method": "getMultiplier",
+      "signature": "self, *args, **kwargs",
+      "line": 3663
+    },
+    {
+      "class": "slider_base",
+      "method": "useSetValueCommand",
+      "signature": "self, *args, **kwargs",
+      "line": 3671
+    },
+    {
+      "class": "slider_base",
+      "method": "presetCommand",
+      "signature": "self, value, *args, **kwargs",
+      "line": 3679
+    },
+    {
+      "class": "slider_base",
+      "method": "getBufferSelection",
+      "signature": "self",
+      "line": 3687
+    },
+    {
+      "class": "slider_base",
+      "method": "setBufferSelection",
+      "signature": "self, selection",
+      "line": 3695
+    },
+    {
+      "class": "slider_base",
+      "method": "getSelectedChannels",
+      "signature": "self, *args, **kwargs",
+      "line": 3699
+    },
+    {
+      "class": "slider_base",
+      "method": "getSelected",
+      "signature": "self",
+      "line": 3706
+    },
+    {
+      "class": "slider_base",
+      "method": "setBufferChannels",
+      "signature": "self, selection",
+      "line": 3714
+    },
+    {
+      "class": "slider_base",
+      "method": "getBufferChannels",
+      "signature": "self",
+      "line": 3717
+    },
+    {
+      "class": "slider_base",
+      "method": "setPinState",
+      "signature": "self, state",
+      "line": 3725
+    },
+    {
+      "class": "slider_base",
+      "method": "getPinState",
+      "signature": "self",
+      "line": 3728
+    },
+    {
+      "class": "slider_base",
+      "method": "setUseAllLayersState",
+      "signature": "self, state",
+      "line": 3736
+    },
+    {
+      "class": "slider_base",
+      "method": "getUseAllLayersState",
+      "signature": "self",
+      "line": 3739
+    },
+    {
+      "class": "slider_base",
+      "method": "addPostCommand",
+      "signature": "self, command, *args, **kwargs",
+      "line": 3747
+    },
+    {
+      "class": "slider_base",
+      "method": "clearPostCommands",
+      "signature": "self, *args, **kwargs",
+      "line": 3756
+    },
+    {
+      "class": "slider_base",
+      "method": "onPost",
+      "signature": "self, *args, **kwargs",
+      "line": 3759
+    },
+    {
+      "class": "slider_base",
+      "method": "addPreCommand",
+      "signature": "self, command, *args, **kwargs",
+      "line": 3768
+    },
+    {
+      "class": "slider_base",
+      "method": "clearPreCommands",
+      "signature": "self, *args, **kwargs",
+      "line": 3777
+    },
+    {
+      "class": "slider_base",
+      "method": "onPre",
+      "signature": "self, *args, **kwargs",
+      "line": 3780
+    },
+    {
+      "class": "slider_base",
+      "method": "addChangeCommand",
+      "signature": "self, command, *args, **kwargs",
+      "line": 3789
+    },
+    {
+      "class": "slider_base",
+      "method": "clearChangeCommands",
+      "signature": "self, *args, **kwargs",
+      "line": 3798
+    },
+    {
+      "class": "slider_base",
+      "method": "onChange",
+      "signature": "self, debug=False, *args, **kwargs",
+      "line": 3801
+    },
+    {
+      "class": "slider_base",
+      "method": "addMultiplierChangeCommand",
+      "signature": "self, command, *args, **kwargs",
+      "line": 3812
+    },
+    {
+      "class": "slider_base",
+      "method": "clearMultiplierChangeCommands",
+      "signature": "self, *args, **kwargs",
+      "line": 3821
+    },
+    {
+      "class": "slider_base",
+      "method": "onMultiplierChange",
+      "signature": "self, debug=False, *args, **kwargs",
+      "line": 3824
+    },
+    {
+      "class": "slider_base",
+      "method": "addMultiplierPostCommand",
+      "signature": "self, command, *args, **kwargs",
+      "line": 3836
+    },
+    {
+      "class": "slider_base",
+      "method": "clearMultiplierPostCommands",
+      "signature": "self, *args, **kwargs",
+      "line": 3845
+    },
+    {
+      "class": "slider_base",
+      "method": "onMultiplierPost",
+      "signature": "self, debug=False, *args, **kwargs",
+      "line": 3848
+    },
+    {
+      "class": "slider_base",
+      "method": "getSliderType",
+      "signature": "self",
+      "line": 3860
+    },
+    {
+      "class": "slider_base",
+      "method": "getLayout",
+      "signature": "self",
+      "line": 3863
+    },
+    {
+      "class": "slider_base",
+      "method": "collectData",
+      "signature": "self",
+      "line": 3866
+    },
+    {
+      "class": "slider_base",
+      "method": "clearData",
+      "signature": "self",
+      "line": 3872
+    },
+    {
+      "class": "slider_base",
+      "method": "getSliderValue",
+      "signature": "self",
+      "line": 3875
+    },
+    {
+      "class": "slider_base",
+      "method": "slider_exec",
+      "signature": "self, *args, **kwargs",
+      "line": 3882
+    },
+    {
+      "class": "slider_base",
+      "method": "slider_realtime_modifiers",
+      "signature": "self, *args, **kwargs",
+      "line": 3945
+    },
+    {
+      "class": "slider_base",
+      "method": "slider_realtime",
+      "signature": "self, *args, **kwargs",
+      "line": 3959
+    },
+    {
+      "class": "slider_base",
+      "method": "slider_realtime_finish_modifiers",
+      "signature": "self, *args, **kwargs",
+      "line": 3971
+    },
+    {
+      "class": "slider_base",
+      "method": "editMultiplier_realtime",
+      "signature": "self, *args, **kwargs",
+      "line": 3978
+    },
+    {
+      "class": "slider_base",
+      "method": "editMultiplier_finish",
+      "signature": "self, *args, **kwargs",
+      "line": 3983
+    },
+    {
+      "class": "slider_base",
+      "method": "slider_realtime_finish",
+      "signature": "self, *args, **kwargs",
+      "line": 3987
+    },
+    {
+      "class": "slider_base",
+      "method": "slider_realtime_standard",
+      "signature": "self, *args, **kwargs",
+      "line": 3990
+    },
+    {
+      "class": "slider_base",
+      "method": "slider_realtime_finish_standard",
+      "signature": "self, *args, **kwargs",
+      "line": 4017
+    },
+    {
+      "class": "slider_base",
+      "method": "keyAll",
+      "signature": "self, *args, **kwargs",
+      "line": 4028
+    },
+    {
+      "class": "slider_base",
+      "method": "resetSlider",
+      "signature": "self",
+      "line": 4033
+    },
+    {
+      "class": "slider_base",
+      "method": "setSliderType",
+      "signature": "self, sliderType",
+      "line": 4036
+    },
+    {
+      "class": "slider_tween",
+      "method": "__init__",
+      "signature": "self, *args, **kwargs",
+      "line": 4042
+    },
+    {
+      "class": "slider_tween",
+      "method": "collectData",
+      "signature": "self",
+      "line": 4049
+    },
+    {
+      "class": "slider_tween",
+      "method": "slider_realtime",
+      "signature": "self, *args, **kwargs",
+      "line": 4113
+    },
+    {
+      "class": "slider_tween",
+      "method": "slider_realtime_finish",
+      "signature": "self, *args, **kwargs",
+      "line": 4128
+    },
+    {
+      "class": "slider_tween",
+      "method": "slider_realtime_layers",
+      "signature": "self, *args, **kwargs",
+      "line": 4134
+    },
+    {
+      "class": "slider_tween",
+      "method": "slider_realtime_finish_layers",
+      "signature": "self, *args, **kwargs",
+      "line": 4161
+    },
+    {
+      "class": "slider_tween",
+      "method": "collectData_layers",
+      "signature": "self",
+      "line": 4172
+    },
+    {
+      "class": "slider_tween",
+      "method": "slider_exec_layers",
+      "signature": "self, *args, **kwargs",
+      "line": 4239
+    },
+    {
+      "class": "slider_snapshot",
+      "method": "__init__",
+      "signature": "self, *args, **kwargs",
+      "line": 4307
+    },
+    {
+      "class": "slider_snapshot",
+      "method": "collectData",
+      "signature": "self",
+      "line": 4315
+    },
+    {
+      "class": "slider_snapshot",
+      "method": "collectSnapshotData",
+      "signature": "self",
+      "line": 4374
+    },
+    {
+      "class": "slider_snapshot",
+      "method": "setSnapshotData",
+      "signature": "self, data",
+      "line": 4424
+    },
+    {
+      "class": "slider_snapshot",
+      "method": "getSnapshotData",
+      "signature": "self",
+      "line": 4427
+    },
+    {
+      "class": "slider_worldSpace",
+      "method": "__init__",
+      "signature": "self, *args, **kwargs",
+      "line": 4438
+    },
+    {
+      "class": "slider_worldSpace",
+      "method": "collectData",
+      "signature": "self",
+      "line": 4445
+    },
+    {
+      "class": "slider_inOut",
+      "method": "__init__",
+      "signature": "self, *args, **kwargs",
+      "line": 4529
+    },
+    {
+      "class": "slider_inOut",
+      "method": "collectData",
+      "signature": "self",
+      "line": 4538
+    },
+    {
+      "class": "slider_PosePusher",
+      "method": "__init__",
+      "signature": "self, *args, **kwargs",
+      "line": 4614
+    },
+    {
+      "class": "slider_PosePusher",
+      "method": "collectData",
+      "signature": "self",
+      "line": 4623
+    },
+    {
+      "class": "slider_multiply",
+      "method": "__init__",
+      "signature": "self, *args, **kwargs",
+      "line": 4704
+    },
+    {
+      "class": "slider_multiply",
+      "method": "collectData",
+      "signature": "self",
+      "line": 4713
+    },
+    {
+      "class": "slider_multiply",
+      "method": "slider_realtime",
+      "signature": "self, *args, **kwargs",
+      "line": 4778
+    },
+    {
+      "class": "slider_multiply",
+      "method": "slider_realtime_finish",
+      "signature": "self, *args, **kwargs",
+      "line": 4797
+    },
+    {
+      "class": "Hotkeys",
+      "method": "autoInbetween",
+      "signature": "cls",
+      "line": 4807
+    },
+    {
+      "class": "Hotkeys",
+      "method": "inbetween",
+      "signature": "cls, valueVar, useSetValue=False, fromCurrentValue=False",
+      "line": 4811
+    },
+    {
+      "class": "Hotkeys",
+      "method": "collectData",
+      "signature": "cls",
+      "line": 4867
+    }
+  ],
+  "wrapped_scene_methods": [
+    "Functions.smashBaker",
+    "Functions.cleanSubframeKeys",
+    "Functions.removeBoringKeys",
+    "Functions.setKeyType",
+    "Functions.rekeyOnKeys",
+    "Functions.setKeyframe",
+    "slider_base.slider_exec",
+    "slider_base.slider_realtime_standard",
+    "slider_base.slider_realtime_finish_standard",
+    "slider_base.keyAll",
+    "slider_tween.slider_realtime_layers",
+    "slider_tween.slider_realtime_finish_layers",
+    "slider_tween.collectData_layers",
+    "slider_tween.slider_exec_layers",
+    "Hotkeys.inbetween"
+  ],
+  "raw_files": [
+    {
+      "path": "upstream/eblabs_hub/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/data/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/data/eblabs.data",
+      "sha256": "ea65387be5e62be26db7a9870c818125302b9ba5cb05865999d9daa5bd8c7c97"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/data/PackageData.py",
+      "sha256": "07d07ac282071d5d87cfb5c2492bc9109251923e45bcbcfd3eb34a1542e3dba6"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/images/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/images/eblabs_package_manager.png",
+      "sha256": "8b1b9b5f12f40f4a023171aea29b7e87be537ed4672db143e26236829ef2068a"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/images/eblabs_package_manager_Editor.png",
+      "sha256": "10874c64df0b6f3153eb44e53c230a153c7af45b2567f65a26e28978bfc0a3cd"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Data_Widgets.py",
+      "sha256": "57b4f906d9985a2e687e8ec3ee706538db6aaeef65441d66bb0cc75591621671"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/eblabs_drag_drop_install.py",
+      "sha256": "07e5269fe9a459869d55075671d5aae0aa649691dbc2b75c3f13304d31ee263c"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/PackageManager.py",
+      "sha256": "a2cb92eb25db86740b43164d8060cd8c395e3c0e44f51e6e8545088f6b8559eb"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Plugin.py",
+      "sha256": "bbe743df370e6689687db3c882245911c4befb205fb7e08751ec75032123cc24"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Plugin_Manager.py",
+      "sha256": "c3e8dc2a6ac841d1e530aa890cada99c2d519304b9d03d1ebed8a8b3eeff7f8e"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Plugins/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Utils/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Utils/Maya.py",
+      "sha256": "3f7b713f69fa9062edb7d08ecd8a0951e050bdf80057e0a29e729afbaaf6b67d"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Utils/Misc.py",
+      "sha256": "b0a332e511dcbe8373c76ac9fd445e596c6b0fe85f20c3d33ac5a0148e848e1a"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Utils/PixoShop.py",
+      "sha256": "8f81269c31b55983f4ef7b20c7453259bde38b95ebdff2b85b528f4d37f3c330"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Utils/Prefs.py",
+      "sha256": "4322c1abdd0d7f18300ebefec6ff921777d9b58844e93b75d800c7d046c1db48"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Utils/Qt.py",
+      "sha256": "f0b80c3ba77eec8cdc566e25435c090eb79b30cb6f68e2dfec1454f5f917295b"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Utils/Scandir.py",
+      "sha256": "dd1988dc4bf9453541a5d50c9d3ad3d4d81a6e83360120a8a768e216e86834ba"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/scripts/Utils/Templates.py",
+      "sha256": "ffb33126130e1166566ffd69677c70398664bea7f176c13290e913e0559dc5af"
+    },
+    {
+      "path": "upstream/eblabs_hub/PackageManager/versions/eblabs_PackageManager_0.6.9.h.eblabs",
+      "sha256": "93841b225c0ded2af562be8474afdf5d698d67d0277aeb8e50576cd858a9194b"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/data/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/data/eblabs.data",
+      "sha256": "ec6e6d6a75f8507a2e7220dca0a3e9d112014aab0698f5a578e75572bec8d494"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/images/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/images/clear.fill.svg",
+      "sha256": "aa41584189a53b6fca1b134216f3ab3cf73dd736006cbc294021cf9eabba587b"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/images/IconProvider.py",
+      "sha256": "797f7829036acd4085b5ff15741101cc1a84ed07b9fbaaef8b4a1403231249e7"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/images/more_vert.svg",
+      "sha256": "aa14b4757a7d3927eae3aa6f8f369fc68268fe1d7bbebd1030009bd43fccc8be"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/images/placeholder.jpg",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/images/test.png",
+      "sha256": "89e90c02636125cc721d2cfd75bc02bd3e3d165f6becbc5b2fd59f209a6d5c34"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/images/world.svg",
+      "sha256": "edb4c085eac48db1d408023fdc9f23c57d1f75be66444f80adf34408be76bf9e"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/BasicTool_Widgets.py",
+      "sha256": "2b4e046052f1f3f59349e758a09cd888be96618dac1a2098fd78ca92c4dbeb58"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/ColorModule.py",
+      "sha256": "dd1b874608e2f21b8d9681c477e1df51ba6495ddaacf33b6736ebcf8f8fa864d"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/ColorPaletteManager.py",
+      "sha256": "4590edca15ca7bad69096776bb2a549af81e2b1ad1c0335598942f7bbb3ef300"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/ColorTemplates/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/ColorTemplates/material-theme_default.json",
+      "sha256": "ec1ec45ad473d9add127c9e66044885593a9f4da96a7838d100c9ef51a512267"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/DevTool.py",
+      "sha256": "d73c0b7b738878f4b4b32809c907584c6293a8178dc3414827c73e866fbc2560"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/DPIHandler.py",
+      "sha256": "45f6ffa52375c32f43322c4d42e7071956d93ffe8539a79e84c3cbbd21d55eca"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/blend/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/blend/blend.py",
+      "sha256": "14eece4bab50f8b3c524a894588844f2a49945e78d00b4af4c115bfc948f0357"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/hct/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/hct/cam16.py",
+      "sha256": "4968348bec818acc8ede95b5a9ebf283661ac98b6c0ba2f4793b5e051a380f5e"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/hct/hct.py",
+      "sha256": "d97f5c3f24a0e3f43117493cca248f4505be320f1de2d34a34e1deeec161ce53"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/hct/viewing_conditions.py",
+      "sha256": "73069db4bd07b4d9d38da244831a6093d90c90569b8e305d8e41e0265ac554cc"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/palettes/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/palettes/core_palette.py",
+      "sha256": "56d0f39f74018c1f09b359c19396244c6f7e9f70f2fafe13b22ec1f8db7c1782"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/palettes/tonal_palette.py",
+      "sha256": "2c420513544774b317bd137571b1d0fcda2c70661fa8b13b7aadbef32f6a8a39"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/lab_point_provider.py",
+      "sha256": "18dfc9b45653660ad79c502cb788db7a1562c54e66cf9d101d79c3dd3a9bff13"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_celebi.py",
+      "sha256": "cd631a1edc0a90d9c2df20fbc9261121a91106ac20dcd0f0f4c765c120d508c2"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_map.py",
+      "sha256": "e2b89390416a52e9f565dc3f1d769e1205c69a3c27826e803494e01a1211c3e5"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_wsmeans.py",
+      "sha256": "a0031870266e6b4dc0f36d52227daacbcff98a2064b385bb633d9fa67558d4a0"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_wu.py",
+      "sha256": "bfabb66ca6f8ca091e7e8d541b5e1f7aea5300e66be7b6d518df11d524a3f1ce"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/scheme/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/scheme/scheme.py",
+      "sha256": "3a4b8a39992ae61040a3ddc03752b8dd04e622b28e71450c0eaa60ae811edef5"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/score/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/score/score.py",
+      "sha256": "2bc8efafdabe7961b11a12ebab0760ee18892571cd72c09235258babc605e050"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/utils/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/utils/color_utils.py",
+      "sha256": "6c4bf8ad5cd4373317f43cac2c698918a9b94c79d0125df87959b9ec3f4fc051"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/utils/image_utils.py",
+      "sha256": "cf4245ea0495702cbbf95bfbea1ba548f5d27335aec21caa22511c72cb948d74"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/utils/math_utils.py",
+      "sha256": "e8686426f915505d6636043ba04ba416cd9e51d9c6063a6a7dddb75ba984b3c6"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/utils/string_utils.py",
+      "sha256": "5cf61c53e5ff59db56cd29990f7ecaa5cbf86b41dcc64c14841e234217e3a39a"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/HTC/utils/theme_utils.py",
+      "sha256": "ca8fede1459cae5dcafd28978c05be376cef46e5acc4d05708adaaefe442ba92"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/IconProvider.py",
+      "sha256": "797f7829036acd4085b5ff15741101cc1a84ed07b9fbaaef8b4a1403231249e7"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/LicenseManager.py",
+      "sha256": "6e7bbbff7630b7a78d50009f5a606e250836b70f19515601226c8b4e2dbed929"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/LicenseManager_27.py",
+      "sha256": "a9e42990452a9f4b0287093496a527477bfa680758e57bbaaf1735e08e95e6af"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/MaterialDesign.py",
+      "sha256": "01584a6a5c2ca7aefd7e7f09fbdc3faec82c7e37f06685f35cb45a70791c07d4"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/PixoShop.py",
+      "sha256": "8f81269c31b55983f4ef7b20c7453259bde38b95ebdff2b85b528f4d37f3c330"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/Prefs.py",
+      "sha256": "4322c1abdd0d7f18300ebefec6ff921777d9b58844e93b75d800c7d046c1db48"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/Prefs_27.py",
+      "sha256": "fd0ccf3ec064019e02a7cbbdeb26e4128c0fb9c55d1164cc7108d43e9347fc9c"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/Qt.py",
+      "sha256": "f0b80c3ba77eec8cdc566e25435c090eb79b30cb6f68e2dfec1454f5f917295b"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/__init__.py",
+      "sha256": "c256ff27ea57350ef582a064c9c398ae631a00f2608590edebe3b86e7becb5f4"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/_version.py",
+      "sha256": "de78e06c2d46471ec8e7dd9f4517805352926c712912e2991c49a8d5a02bd72e"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/animation.py",
+      "sha256": "613f13c7a4f590c96ff3b208893085e4113248c8cb5e33bd53a711d32fabade0"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/codicon-charmap.json",
+      "sha256": "41d77e67ccd91f6306f8450973c05bf4e392eee082930d12db2e1a0d95890740"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/codicon.ttf",
+      "sha256": "3b7e8ba26aadc209c21eb70c08fe583435de7b63bcbd64abcd3c5ee51120e9ab"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/elusiveicons-webfont-charmap.json",
+      "sha256": "f5b192a1ad7ac07ac47ca74feaa70a00a9b8a63749c0d2c64ed47d01ceadc9be"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/elusiveicons-webfont.ttf",
+      "sha256": "29b93f3fe666bf73dcc857869aee47532f710c0a16959c6275dc5bc2e3be4c9e"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome4.7-webfont-charmap.json",
+      "sha256": "36840a99b70806d9d4bba92fa2b6f42fa02e2d60632adc7d641f09b66215856c"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome4.7-webfont.ttf",
+      "sha256": "aa58f33f239a0fb02f5c7a6c45c043d7a9ac9a093335806694ecd6d4edc0d6a8"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-brands-webfont-charmap.json",
+      "sha256": "1e0057ba782f72807e52e7ae0bdcff3eee55ecf639ca656d14e6c6312713ea3c"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-brands-webfont.ttf",
+      "sha256": "cda59d6efffa685830fd95b55f64ae9cb51279cd34b2410b69f84c7ec30157d9"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-regular-webfont-charmap.json",
+      "sha256": "e95c14f91be3ec1efbd54752b5a8f2a9f24977cef1644791633b937a4c02d396"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-regular-webfont.ttf",
+      "sha256": "fb5143dfe010d47b0fdedd36e4bac1ac8ff2e39b9f20b64891a88a7a219422f5"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-solid-webfont-charmap.json",
+      "sha256": "5c7ebc9366e844a7367d3faf52b5aee3e6722c5282409f4798e22375871e1b36"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-solid-webfont.ttf",
+      "sha256": "4c5431bc1b2abf8aed5c614f2f32120d666bdda640cb1a7678d70e08cdd4323f"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons5-webfont-charmap.json",
+      "sha256": "079227fd7b6e112a028a6864786c2ef858ddc39039f949f63cded287334fb6a8"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons5-webfont.ttf",
+      "sha256": "f89ca374a7545105f70a6345919083f9011badade1ff17f5e99f97853e7c33da"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons6-webfont-charmap.json",
+      "sha256": "ba43d95ea09e7fc4bc80cbf6acb5ba8234da1a062fa14fe2a5e633f89636d5b6"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons6-webfont.ttf",
+      "sha256": "fbe4f53935ef33c3e6807aedc2afa884492bef1d2273bc33f419424ec530f97b"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/phosphor-charmap.json",
+      "sha256": "e8819671935d0b6ff163c077c930038f7e529132e0989e4be2f87ae2c5b121aa"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/phosphor.ttf",
+      "sha256": "351874de64758f3b7fb405cd078ac0ed5ffb9717fb5b9b10013ac03d4c13680b"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/remixicon-charmap.json",
+      "sha256": "6e345883f07c595036008fc047b61c6db865866e10e69a881ab5b82f4952f2e0"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/remixicon.ttf",
+      "sha256": "0ac8bc3ccea26ed47e96844ef26675969c669714d723c081101e51799d501520"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/icon_browser.py",
+      "sha256": "d5ce020859f8b042efbe527bbf085a5a3247fa0f8abf385f342329cbbcfd33f2"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/iconic_font.py",
+      "sha256": "289efb6cbcc0361500135633931de1b8012d1b0f6de15f41516ab06a01e09153"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/styles.py",
+      "sha256": "e8be989f9bc3676d48219d046541786c9f2beaf85703358d09d46402bcd60ce8"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/tests/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/tests/test_icon_browser.py",
+      "sha256": "1f942b8357b54aff3c5e3970e59fb3399979a1eee3595f6e794102476ce8d4b4"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/qtawesome/tests/test_qtawesome.py",
+      "sha256": "5f1cd1558a07d6f1ebe9abe6f42b2122b7844a6862949e5b7a8e77bc17e4e9f0"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/Scandir.py",
+      "sha256": "dd1988dc4bf9453541a5d50c9d3ad3d4d81a6e83360120a8a768e216e86834ba"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/SceneCallbacks.py",
+      "sha256": "82a1a4f08332892a3f444b35a0046b04f3cadaa963f1ab9d1e27982a5eb86fbb"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/scripts/SharedSettings.py",
+      "sha256": "77ec4d9d8c50b53ef37a07d218ff0401034b6343b8029267a3e181cab62e4bdd"
+    },
+    {
+      "path": "upstream/eblabs_hub/UXFramework/versions/eblabs_UXFramework_0.0.h.eblabs",
+      "sha256": "9e189fde1e9f816349b54f9d45c10030a67580a6e924d9129e0566902f23f996"
+    },
+    {
+      "path": "upstream/eblabs_hub/Whiskey/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/eblabs_hub/Whiskey/data/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/Whiskey/data/eblabs.data",
+      "sha256": "19e824a3d3324a56caf0a7e548252a06c392f10cab1c7b1bc3a3588618de0638"
+    },
+    {
+      "path": "upstream/eblabs_hub/Whiskey/data/PackageData.py",
+      "sha256": "07d07ac282071d5d87cfb5c2492bc9109251923e45bcbcfd3eb34a1542e3dba6"
+    },
+    {
+      "path": "upstream/eblabs_hub/Whiskey/images/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/Whiskey/images/IconProvider.py",
+      "sha256": "797f7829036acd4085b5ff15741101cc1a84ed07b9fbaaef8b4a1403231249e7"
+    },
+    {
+      "path": "upstream/eblabs_hub/Whiskey/images/whiskey_slider.png",
+      "sha256": "3c1331a821b4f89e01d31aab12ecab3a5d40840b8b2e5d7dd322e644b0d73e28"
+    },
+    {
+      "path": "upstream/eblabs_hub/Whiskey/images/whisKEYPro.png",
+      "sha256": "3c1331a821b4f89e01d31aab12ecab3a5d40840b8b2e5d7dd322e644b0d73e28"
+    },
+    {
+      "path": "upstream/eblabs_hub/Whiskey/scripts/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/Whiskey/scripts/Core.py",
+      "sha256": "2fa7302d33db8334f5f688523faa46b0dcd5f8ba054bcdf511b862fa33c61d82"
+    },
+    {
+      "path": "upstream/eblabs_hub/Whiskey/scripts/LicenseManager.py",
+      "sha256": "6e7bbbff7630b7a78d50009f5a606e250836b70f19515601226c8b4e2dbed929"
+    },
+    {
+      "path": "upstream/eblabs_hub/Whiskey/scripts/Plugin.py",
+      "sha256": "bbe743df370e6689687db3c882245911c4befb205fb7e08751ec75032123cc24"
+    },
+    {
+      "path": "upstream/eblabs_hub/Whiskey/scripts/Plugins/__init__.py",
+      "sha256": "7a0e5a5c1b99113a2636618fcd9cb8162234be022994d3f3f2e9897a99ee5308"
+    },
+    {
+      "path": "upstream/eblabs_hub/Whiskey/scripts/Plugins/Widget_Whiskey.py",
+      "sha256": "8028d6d4d54a6620baa2d21ad43f9fbf5108dde3306b5a2d8e093d33730ce80b"
+    },
+    {
+      "path": "upstream/eblabs_hub/Whiskey/scripts/Qt.py",
+      "sha256": "f0b80c3ba77eec8cdc566e25435c090eb79b30cb6f68e2dfec1454f5f917295b"
+    },
+    {
+      "path": "upstream/eblabs_hub/Whiskey/scripts/WhiskeyPro.py",
+      "sha256": "cbe643dc5371723e8caaea4da93c272b8d6b92c43ab4a328c5ef6f5e74fc17c1"
+    },
+    {
+      "path": "upstream/eblabs_hub/Whiskey/versions/eblabs_Whiskey_1.5.4.h.eblabs",
+      "sha256": "de223ce1bc2c3a51b0b92355d70d093ce16a145bbeea785752c4a0d824440e7d"
+    },
+    {
+      "path": "upstream/eblabs_prefs/eblabs_HUB_Main.prefs",
+      "sha256": "7663b90c8c97922079a6b7e3e458bc3a039782437ed7bdee351f85e32e0a16e3"
+    },
+    {
+      "path": "upstream/eblabs_prefs/PackageManager.prefs",
+      "sha256": "956bb7bda50fc4a6f3fb760973876f5f6f3082db719915a00b07b3990bdffabb"
+    },
+    {
+      "path": "upstream/eblabs_prefs/whiskey.prefs",
+      "sha256": "b11b33fb34dadd15b6ed7e90edc19a753a693fce110ab4ab11f8622d34ce18b6"
+    },
+    {
+      "path": "upstream/Whiskey.py",
+      "sha256": "0b8cf1785b4ba57db72dff7e1fe02d293d36477cdccd9e1979b9f7479412e177"
+    },
+    {
+      "path": "upstream/上面那个PY文件拖进maya就安装好了",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "upstream/记得先把Whiskey文件夹放到规范路径",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "license": "Eric Bates / EB Labs proprietary supplied package; private local preparation, no independent redistribution grant. Original license managers unchanged/unused by standalone source adapter.",
+  "changes": [
+    "Complete original native Python classes/methods and formulas",
+    "Metadata read from bundled JSON instead of missing hybrid compiled PackageData",
+    "Maya command adapter for scope/reference guards",
+    "Standard callback Undo/results and finally; remove native long-lived nested chunks/global Undo-off/isolation",
+    "Session preferences; explicit JSON import/export for persistence, no original prefs path writes",
+    "Complete native window and all slider/widget types"
+  ]
+}

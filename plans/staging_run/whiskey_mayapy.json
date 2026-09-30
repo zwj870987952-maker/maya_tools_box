@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/eblabs_whiskey/release_candidate/tests/test_eblabs_whiskey_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_native_tween_hotkey_world_pose_multiply_and_undo (__main__.MayaTests.test_native_tween_hotkey_world_pose_multiply_and_undo) ... ����: WhiskeyTool_eblabs_whiskey\n����: WhiskeyTool_eblabs_whiskey\n����: WhiskeyTool_eblabs_whiskey\n����: WhiskeyTool_eblabs_whiskey\n����: WhiskeyTool_eblabs_whiskey\n����: WhiskeyTool_eblabs_whiskey\n����: WhiskeyTool_eblabs_whiskey\nok\r\ntest_preflight_shared_curve_reference_and_dry (__main__.MayaTests.test_preflight_shared_curve_reference_and_dry) ... �ļ���ȡ����ʱ��Ϊ  0.0016 �롣\nok\r\ntest_real_animation_layer_and_autokey (__main__.MayaTests.test_real_animation_layer_and_autokey) ... ����: WhiskeyTool_eblabs_whiskey\n����: WhiskeyTool_eblabs_whiskey\nok\r\ntest_session_profiles_explicit_files_and_tangent (__main__.MayaTests.test_session_profiles_explicit_files_and_tangent) ... ����: WhiskeyTool_eblabs_whiskey\nok\r\ntest_smash_bake_native_callback_failure_and_state (__main__.MayaTests.test_smash_bake_native_callback_failure_and_state) ... ����: WhiskeyTool_eblabs_whiskey\n����: WhiskeyTool_eblabs_whiskey\nok\r\ntest_snapshot_and_explicit_camera_inout (__main__.MayaTests.test_snapshot_and_explicit_camera_inout) ... ����: WhiskeyTool_eblabs_whiskey\n����: WhiskeyTool_eblabs_whiskey\nok\r\ntest_subframe_constant_cleanup_keying_and_rekey (__main__.MayaTests.test_subframe_constant_cleanup_keying_and_rekey) ... ����: WhiskeyTool_eblabs_whiskey\n����: WhiskeyTool_eblabs_whiskey\n����: WhiskeyTool_eblabs_whiskey\n����: WhiskeyTool_eblabs_whiskey\n����: WhiskeyTool_eblabs_whiskey\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 7 tests in 0.143s\r\n\r\nOK\r\nebLabs_whisKEY:Clean Subframe Keys Info: {'keysCleaned': 1}\r\nebLabs_whisKEY:Remove Boring Keys Info: {'keysRemoved': 0}\r\nebLabs_whisKEY:Remove Boring Keys Info: {'keysRemoved': 0}\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "abca563b201d6b13afcd43ba1faef6762e8a3811011b5bcf7c3027de8f3d416e",
+  "runtime_source_sha256": "b5e7bd40c264c1c245c0650857edb0197fb0cb32e6aca11d12eb6318030adde8"
+}

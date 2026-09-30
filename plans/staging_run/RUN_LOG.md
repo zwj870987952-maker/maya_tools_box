@@ -223,3 +223,11 @@
 - 私有procedure/control名，按钮标准API，明确camera/target/orientation；只读验证，owned network UUID/message/source/control/rig映射、唯一helper名、外部后代/输入/输出/锁保护，清理仅owned约束/helper且保护空target，必要pairBlend/target曲线/buffer与来源record保留。去除全Maya窗口/pane隐藏，finally时间/选择/namespace/guard。零距离明确错误；已有焦距/许可逻辑不改。
 - 普通Python2项、Maya2025隔离6项、临时正式布局注册/面板/Schema与全指纹通过，实际0.4/-1归一化/屏幕编辑后的目标移动/nearClip、TR稀疏Smart及逐帧Full Bake/Undo、namespace、改名保存重载和后代保护、部分失败Undo。曾因测试在动作后额外currentTime导致只Undo切帧，改为只读带time取值后整组Undo通过，不当作算法缺陷。
 - 真正GUI/生产camera/非均匀父级scale/镜头穿越/复杂rig/层与视觉效果待人工，prepared_unverified；clip/buffer/key时序切线影响、原Hub缺模块仅归档/版权私用、完整验收/晋级齐备。manifest原子替换一次WinError5，立即重试scan成功再记录，并非持续权限障碍。收尾实际5小时31%/周75%已用，继续工作、heartbeat暂停，无卡/正式库/同步/公开发布。
+
+## 2026-10-01：EB Labs Whiskey完整候选，累计23/109
+
+- 完整4930行原WhiskeyPro源码22类/272方法及133原资源逐字节归档，完整原生widget/slider/profile/固定选择/倍率，私有窗口/独立JSON元数据；不运行缺失hybrid Hub安装器/版本模块、原许可管理器不改，私有版权资源不公开。
+- 保留全部原补间/世界矩阵/快照/InOut/PosePusher/Multiply/清理/Smash/切线业务；15直接写入方法标准回调ticket/Tool.run，Undo保持开启、取消隐藏面板/隔离、每回调chunk替代跨事件长chunk。只读/UUID写范围/引用锁/共享曲线保护，finally时间(未变不强制求值)/选择/namespace/AutoKey/层flags；API原AutoKey开时显式补键，偏好会话保存+显式JSON导入导出，独占创建/覆盖授权，无全局prefs自动写入。
+- 修复源包围盒缺cls、Multiply不存在层方法→合成值标准分支、无曲线层通道索引、Maya2025曲线keyValue禁止setAttr→等值keyframe；采集吞错进ToolResult，拒绝Smash上游删除兜底。文档说明Smash全通道/断输入、match-last全对象删键、子帧shape遍历/负数取整、全局切线无法保证Undo、每拖拽回调独立撤销。
+- 普通Python2项、Maya2025隔离7项、临时正式布局注册/面板/Schema与全指纹通过。真实原native tween/world/PosePusher/multiply/Hotkeys/层曲线、真正animLayer与AutoKey补键Undo、快照/明确camera InOut、共享输出/锁/文件引用拒绝、子帧/常量/彩key/rekey、Smash采样/Undo、原回调/注入故障finally、会话profiles/JSON/切线。没有构造真实GUI；界面/生产rig/复杂图 prepared_unverified，完整验收/晋级齐备。
+- 收尾额度接口连续两次暂不可读，第三次实际5小时44%/周77%已用，未推测错误为额度耗尽；保存并继续下一项，heartbeat暂停，未用卡/购买/同步/转正。
