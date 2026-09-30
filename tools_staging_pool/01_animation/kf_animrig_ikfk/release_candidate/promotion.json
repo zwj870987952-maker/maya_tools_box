@@ -1,0 +1,87 @@
+{
+  "tool_id": "kf_animrig_ikfk",
+  "registration": {
+    "module": "kf_animrig_ikfk",
+    "class_name": "KFAnimRigTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/kf_animrig_ikfk.md",
+      "target": "docs/tools/kf_animrig_ikfk.md"
+    },
+    {
+      "source": "docs/tools/kf_animrig_ikfk_changes.diff",
+      "target": "docs/tools/kf_animrig_ikfk_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/kf_animrig_ikfk/__init__.py",
+      "target": "maya_toolkit/tools/kf_animrig_ikfk/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/kf_animrig_ikfk/catalog.json",
+      "target": "maya_toolkit/tools/kf_animrig_ikfk/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/kf_animrig_ikfk/native.mel",
+      "target": "maya_toolkit/tools/kf_animrig_ikfk/native.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/kf_animrig_ikfk/runtime.py",
+      "target": "maya_toolkit/tools/kf_animrig_ikfk/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/kf_animrig_ikfk/tool.py",
+      "target": "maya_toolkit/tools/kf_animrig_ikfk/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/kf_animrig_ikfk/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/kf_animrig_ikfk/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/kf_animrig_ikfk/upstream/1.jpg",
+      "target": "maya_toolkit/tools/kf_animrig_ikfk/upstream/1.jpg"
+    },
+    {
+      "source": "maya_toolkit/tools/kf_animrig_ikfk/upstream/2.jpg",
+      "target": "maya_toolkit/tools/kf_animrig_ikfk/upstream/2.jpg"
+    },
+    {
+      "source": "maya_toolkit/tools/kf_animrig_ikfk/upstream/3.jpg",
+      "target": "maya_toolkit/tools/kf_animrig_ikfk/upstream/3.jpg"
+    },
+    {
+      "source": "maya_toolkit/tools/kf_animrig_ikfk/upstream/kfAnimRig_IKFK.mel",
+      "target": "maya_toolkit/tools/kf_animrig_ikfk/upstream/kfAnimRig_IKFK.mel"
+    },
+    {
+      "source": "tests/test_kf_animrig_ikfk.py",
+      "target": "tests/test_kf_animrig_ikfk.py"
+    },
+    {
+      "source": "tests/test_kf_animrig_ikfk_maya.py",
+      "target": "tests/test_kf_animrig_ikfk_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/1.jpg",
+    "upstream/2.jpg",
+    "upstream/3.jpg",
+    "upstream/kfAnimRig_IKFK.mel",
+    "catalog.json",
+    "native.mel"
+  ],
+  "dependencies": [
+    "Maya MEL/cmds",
+    "Kiel Figgins referenced KF Auto Rig exact nodes/attributes; original rigs not supplied",
+    "BaseMayaTool/Undo"
+  ],
+  "source": "../kfAnimRig_IKFK.mel",
+  "change_summary": "Complete seven original MEL procedures and native UI, private procedure names, guarded target writes/helper deletes, explicit reference consent, Python timeline with finally state restoration.",
+  "verification_limitations": [
+    "Real original KF rigs and GUI acceptance absent",
+    "Hand/leg/dog/advanced spline exact production behavior pending",
+    "Does not switch pinner IKFK automatically; native matching only",
+    "Original bake requires keyed channels for AutoKey; explicit candidate keys written destination scope"
+  ],
+  "acceptance_required": true
+}

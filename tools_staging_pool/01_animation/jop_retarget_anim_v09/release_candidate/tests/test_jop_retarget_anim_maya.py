@@ -25,6 +25,9 @@ class MayaTests(unittest.TestCase):
         cmds.autoKeyframe(state=False)
         self.parent = cmds.createNode('transform', name='space')
         self.node = cmds.createNode('transform', name='control', parent=self.parent)
+        circle = cmds.circle(constructionHistory=False)[0]
+        cmds.parent(cmds.listRelatives(circle, shapes=True, fullPath=True)[0], self.node, shape=True, relative=True)
+        cmds.delete(circle)
         for frame, values in ((1, (1, 2, 3, 10, 20, 30)), (3, (4, 5, 6, 50, 60, 70)), (5, (-1, 7, 9, 100, -20, 80))):
             for attr, value in zip(('tx', 'ty', 'tz', 'rx', 'ry', 'rz'), values):
                 cmds.setKeyframe(self.node, attribute=attr, time=frame, value=value)

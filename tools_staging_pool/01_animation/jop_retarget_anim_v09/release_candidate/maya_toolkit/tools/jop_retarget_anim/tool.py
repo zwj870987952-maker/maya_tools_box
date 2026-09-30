@@ -89,6 +89,9 @@ def plan(**kwargs):
                 raise ValueError('目标offsetParentMatrix须identity')
             if not cmds.undoInfo(query=True, state=True) or cmds.lockNode(node, query=True, lock=True)[0] or cmds.referenceQuery(node, isNodeReferenced=True) and not args['allow_reference_edits']:
                 raise ValueError('Undo关闭/对象锁/引用编辑未允许')
+            for compound in ('translate', 'rotate'):
+                if any(not cmds.nodeType(driver).startswith('animCurve') for driver in cmds.listConnections(node + '.' + compound, source=True, destination=False) or []):
+                    raise ValueError('复合通道有外部驱动')
             for attr in ('tx', 'ty', 'tz', 'rx', 'ry', 'rz'):
                 plug = node + '.' + attr
                 if cmds.getAttr(plug, lock=True):
@@ -96,7 +99,9 @@ def plan(**kwargs):
                 for source in cmds.listConnections(plug, source=True, destination=False) or []:
                     if not cmds.nodeType(source).startswith('animCurve'):
                         raise ValueError('目标通道有外部驱动: ' + plug)
-            for curve in cmds.ls(cmds.listHistory(node, pruneDagObjects=True) or [], type='animCurve') or []:
+            curves = set(cmds.listConnections(node, source=True, destination=False, type='animCurve') or [])
+            curves.update(cmds.ls(cmds.listHistory(node, pruneDagObjects=True) or [], type='animCurve') or [])
+            for curve in curves:
                 if cmds.lockNode(curve, query=True, lock=True)[0] or cmds.referenceQuery(curve, isNodeReferenced=True):
                     raise ValueError('目标动画曲线引用/锁定')
                 if any((cmds.ls(n, long=True) or [''])[0] != node for n in cmds.listConnections(curve + '.output', source=False, destination=True) or []):

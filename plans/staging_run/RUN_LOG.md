@@ -267,3 +267,11 @@
 - 随机私有前缀+owner network/controls-members消息/成员owner，不删外部原前缀/同名图/已有约束；标准API/Undo/privateguard、曲线共享/复合输入/引用锁/外部后代和输出检查，手工编辑helper仅直接本地不共享curve，半成品需Undo。Maya listConnections默认把shape返回transform导致成员漏检，已显式shapes=True；带shape控制器listHistory遗漏TR曲线，补直接曲线连接检查。
 - 普通Python2项、Maya2025隔离四组、正式临时布局注册/面板/Schema和匹配指纹全通过；真实六模式粒子/constraint/bake、红locator编辑、10..16优化严格10/13/16、Create Undo/Redo+BakeUndo、同kfo用户物体保留、rename/saveReload、只读dry、锁/共享/外部约束/后代拒绝、注入bake失败AutoKey/evaluation/refresh恢复。非真人GUI、复杂制作rig/动力学视觉和缓存待验prepared_unverified。
 - 实际收尾5小时78%/周83%已用，继续下一项；heartbeat暂停，无重置卡/购买/同步/转正。
+## 2026-10-01：KF AnimRig IK/FK完整候选，累计29/109
+
+- Kiel Figgins 3.02完整七MEL过程/原匹配与说明UI/4原资源保留，手臂/普通腿/狗腿/高级样条算法与stretch/Pole/右手rotateAxis补偿全分支备齐，未附独立license私有不发布。过程/窗口私有名，错误Ten(0)菜单改无参数，MEL定义延迟至执行，dry/inspect只读。
+- Schema/明确引用编辑/同reference node依赖/准确KF命名/degree-cm/Undo/停止播放/锁曲线共享保护，真实MEL写节点与setAttr属性范围guard、delete仅此次新节点及新后代/外部输出保护；暂关AutoKey，finally清新助手、恢复时间/选择/namespace/AutoKey。源rig未提供，不将同名临时fixture当完整原资产验收。
+- 原timeline改标准Python范围循环调用完整原match，每帧显式键预检目标，补原AutoKey未键通道；这是行为变化，仍不切pinner/IKFK。新目标动画曲线/自动blend不冒险当垃圾删除，复杂狗腿/样条残留需真人核验。
+- 普通Python2项+完整MEL编译与引用手臂2组mayapy+临时正式布局注册/面板/Schema/指纹通过：实际Hand位置/旋转/Pole、单帧/逐帧1/2/3和Undo、dry/引用默认拒绝、AutoKey/时间/选择/助手清理、注入helper属性失败finally/Undo。真实GUI、原rig、反向FK stretch/腿狗腿样条尚未运行，prepared_unverified。
+- 顺带按第28项发现的Maya带shape listHistory遗漏TR曲线，补第27项JOP直接曲线连接和compound驱动检查，fixture增加实际curve shape，五组重新通过并刷新全部匹配报告。JOP计数不重复。
+- 实际收尾5小时83%/周83%已用，继续下一项；heartbeat暂停，无卡/购买/同步/转正。

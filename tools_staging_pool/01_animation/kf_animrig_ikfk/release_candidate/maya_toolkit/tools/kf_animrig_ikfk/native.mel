@@ -1,0 +1,1505 @@
+global proc mtbKF_checkNodes(string $nodes[])
+{ python("from maya_toolkit.tools.kf_animrig_ikfk import runtime as r; r.check_nodes('" + stringArrayToString($nodes, ",") + "')"); }
+global proc mtbKF_checkSelection()
+{ string $nodes[] = `ls -sl`; mtbKF_checkNodes($nodes); }
+global proc mtbKF_checkAttr(string $plug)
+{ python("from maya_toolkit.tools.kf_animrig_ikfk import runtime as r; r.check_attr('" + $plug + "')"); }
+global proc mtbKF_delete(string $nodes[])
+{ python("from maya_toolkit.tools.kf_animrig_ikfk import runtime as r; r.delete_helpers('" + stringArrayToString($nodes, ",") + "')"); }
+//////////////////////////////////////////////////////
+//Rig IKFK
+//////////////////////////
+//Written by Kiel Figgins
+//www.3dfiggins.com
+//////////////////////////
+//Small interface for matching the IK and FK in the KF Auto Rigs when referenced inside an animation file
+//////////////////////////
+//Version History
+//////////////////////////
+//3.02 (08-14-2019) - Condensed UI, added instructions window
+//3.01 (08-09-2019) - Reworked for newer rig workflow, added reference check, baking over time, error clean up
+//2.03 (08-15-2017) - Adjusted R Hand IK -180 rotateAxisX
+//2.02 (02-14-2013) - Added Dog Leg Support
+//2.01 (02-01-2013) - Added Tentacle support
+//1.06 (01-21-2013) - Fixed FK > IK naming error, added Foot matching, corrected pole matching
+//1.05 (12-09-2011) - Conformed UI
+//1.04 (09-20-2010) - fixed scalar naming issue
+//1.03 (03-20-2010) - Determines which side the arm is
+//1.02 (03-05-2010) - Added in matching for FK to IK with stretch
+//1.01 (03-02-2010) - Added button annonotations
+//1.00 (02-25-2010) - Orginal version
+//////////////////////////
+//Coming Soon
+/*
+-set keys on controls? maybe for bake
+-note if elbow is twisted more , backwards, or on more then one axis
+*/
+
+
+global proc mtbKF_kfAnimRig_IKFK()
+{
+
+if (`window -q -ex mtbKF_RigMatchWin`)
+        {
+        showWindow mtbKF_RigMatchWin ;
+        return ;
+        }
+
+window -w 260 -h 210 -t "IKFK" -tlb true mtbKF_RigMatchWin ;
+formLayout mtbKF_mainSaveForm ;
+
+//UI pieces
+button -l "Instructions" -w 150 -ann "Opens Instrcutions UI" -c ("mtbKF_kfARI_Instruct();") mtbKF_btnARI_Instruct;
+
+button -l "Match IK to FK *" -w 150 -ann "Matches IK limb to FK Limb" -c ("mtbKF_matchIKtoFK();") mtbKF_btnARI_ik;
+popupMenu();
+    menuItem -l "Bake IK to FK for current time range" -c ("mtbKF_matchTimeline(0);");
+    menuItem -l "- - - - - - - - " -c ("mtbKF_matchTimeline(0);");
+    menuItem -l "Match IK to FK for Adv Spline Setup" -c ("mtbKF_matchIKtoFKTen();");
+
+button -l "Match FK to IK *" -w 150 -ann "Matches FK limb to IK Limb" -c ("mtbKF_matchFKtoIK();") mtbKF_btnARI_fk;
+popupMenu();
+    menuItem -l "Bake FK to IK for current time range" -c ("mtbKF_matchTimeline(1);");
+    menuItem -l "- - - - - - - - " -c ("mtbKF_matchTimeline(0);");
+    menuItem -l "Match FK to IK for Adv Spline Setup" -c ("mtbKF_matchFKtoIKTen();");
+
+//UI FormLayout
+formLayout -e
+
+    -af mtbKF_btnARI_Instruct "top" 4
+        -an mtbKF_btnARI_Instruct "bottom"
+        -af mtbKF_btnARI_Instruct "left" 5
+        -an mtbKF_btnARI_Instruct "right"
+
+        -ac mtbKF_btnARI_ik "top" 4 mtbKF_btnARI_Instruct
+        -an mtbKF_btnARI_ik "bottom"
+        -af mtbKF_btnARI_ik "left" 5
+        -an mtbKF_btnARI_ik "right"
+
+        -ac mtbKF_btnARI_fk "top" 4 mtbKF_btnARI_ik
+        -an mtbKF_btnARI_fk "bottom"
+        -af mtbKF_btnARI_fk "left" 5
+        -an mtbKF_btnARI_fk "right"
+
+        mtbKF_mainSaveForm ;
+
+    showWindow mtbKF_RigMatchWin;
+
+    //Resize the main window
+    window -e -widthHeight 160 85 mtbKF_RigMatchWin;
+
+}//end of proc mtbKF_kfAnimRig_IKFK()
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+global proc mtbKF_matchTimeline(int $which)
+{
+python("from maya_toolkit.tools.kf_animrig_ikfk import runtime as r; r.invoke_timeline(" + $which + ")"); return;
+
+    int $ready = 0;
+
+    //select IK hand control
+    string $userHand[] = `ls -sl`;
+
+
+    if(`size($userHand)`)
+    {
+        //Rig Ref
+        int $rigRef = `referenceQuery -inr $userHand[0]`;
+        if(!$rigRef)
+        {print "FAIL: Rig not referenced, please reference the rig into the scene";}
+        else
+        {
+            if(`match "_Hand" $userHand[0]` == "_Hand"){$ready = 1;}
+            if(`match "_Foot" $userHand[0]` == "_Foot" && `attributeExists "shinRoll" $userHand[0]` == 0){$ready = 1;}
+            if(`match "_Foot" $userHand[0]` == "_Foot" && `attributeExists "shinRoll" $userHand[0]` == 1){$ready = 1;}
+        }//end of ref
+    }//end of check
+
+
+    if($ready == 1)
+    {
+        autoKeyframe -state true;
+
+        $n = `playbackOptions -q -min`;
+        $x = `playbackOptions -q -max`;
+
+        int $counter;
+        int $sizer = ($x - $n);
+        for ($counter = 0; $counter <= $sizer; $counter++)
+        {
+            currentTime ($n + $counter);
+            select $userHand;
+            if($which == 0){mtbKF_matchIKtoFK();}
+            if($which == 1){mtbKF_matchFKtoIK();}
+        }//end of loop through time range
+    }//end of ready check
+}//end of proc
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Match IK to FK
+global proc mtbKF_matchIKtoFK()
+{
+if(!python("from maya_toolkit.tools.kf_animrig_ikfk import runtime as r; r.is_active()")){python("r.invoke(\"match_ik_to_fk\")"); return;}
+
+    //select IK hand control
+    string $userHand[] = `ls -sl`;
+
+    ///////////////////////////////////////////////////////////////////////////
+    //Work
+    int $handFail = 0;
+    int $foot1Fail = 0;
+    int $foot2Fail = 0;
+
+
+    if(`size($userHand)`)
+    {
+        ///////////////////////////////////
+        //Rig Ref
+        int $rigRef = `referenceQuery -inr $userHand[0]`;
+        if(!$rigRef)
+        {print "FAIL: Rig not referenced, please reference the rig into the scene\n";}
+        else
+        {
+
+        ///////////////////////////////////
+        //Verify - hand control
+        if(`match "_Hand" $userHand[0]` == "_Hand")
+        {
+            //Find out just the name space
+            string $justName = `match "[^:]*$" $userHand[0]`;
+            $nameSpace = `substituteAllString $userHand[0] (":" + $justName) ""`;
+
+            //Define IK Control
+            select $userHand;
+            string $ikCtrl[] = `ls -sl`;
+
+            //Determine Which Side
+            string $justName = `match "[^:]*$" $userHand[0]`;
+            string $sdd = `substituteAllString $userHand[0] ($nameSpace + ":CTRL_") ""`;
+            string $sider = `substituteAllString $sdd "_Hand" ""`;
+
+            //Define Pole Control
+            select ($nameSpace + ":CTRL_" + $sider + "_ElbowPole");
+            string $ikPole[] = `ls -sl`;
+
+            //Define FK Controls
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Shoulder");
+            string $fkShoulder[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Elbow");
+            string $fkElbow[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Wrist");
+            string $fkWrist[] = `ls -sl`;
+
+            //Define FK Wrist Position/Rotation, match IK ctrl to it
+            float $fkwristPos[] = `xform -q -ws -rp $fkWrist[0]`;
+            mtbKF_checkNodes($ikCtrl); move -ws -rpr $fkwristPos[0] $fkwristPos[1] $fkwristPos[2] $ikCtrl;
+
+            float $fkwristrot[]=`xform -q -ws -rotation $fkWrist[0]`;
+            mtbKF_checkNodes($ikCtrl); xform -ws -rotation $fkwristrot[0] $fkwristrot[1] $fkwristrot[2] $ikCtrl;
+
+            if(`getAttr ($ikCtrl[0] + ".rotateAxisX")` == -180)
+            {
+                select $ikCtrl;
+                mtbKF_checkSelection(); rotate -r -os -180 0 0 ;
+            }
+
+            float $posShoulder[] = `xform -q -ws -rp $fkShoulder`;
+            float $posElbow[] = `xform -q -ws -rp $fkElbow`;
+            float $posWrist[] = `xform -q -ws -rp $fkWrist`;
+
+            //Pole Finder - Proper
+            group -empty;
+            string $hip[] = `ls -sl`;
+
+            group -empty;
+            string $kneeHip[] = `ls -sl`;
+
+            group -empty;
+            string $ankle[] = `ls -sl`;
+
+            group -empty;
+            string $ankleKnee[] = `ls -sl`;
+
+            group -empty;
+            string $poleFind[] = `ls -sl`;
+
+            parent $kneeHip $hip;
+            parent $ankleKnee $ankle;
+            pointConstraint $kneeHip $ankleKnee $poleFind;
+
+mtbKF_checkNodes($hip);
+            parentConstraint $fkShoulder $hip;
+mtbKF_checkNodes($ankle);
+            parentConstraint $fkElbow $ankle;
+
+            string $delme[] = `pointConstraint $fkElbow $kneeHip`;
+            mtbKF_delete($delme);
+
+            mtbKF_checkAttr(($kneeHip[0] + ".tx")); setAttr ($kneeHip[0] + ".tx") ((`getAttr ($kneeHip[0] + ".tx")`) * 2);
+
+            string $delme[] = `pointConstraint $fkWrist $ankleKnee`;
+            mtbKF_delete($delme);
+
+            mtbKF_checkAttr(($ankleKnee[0] + ".tx")); setAttr ($ankleKnee[0] + ".tx") ((`getAttr ($ankleKnee[0] + ".tx")`) * -2);
+
+            float $posVert[] = `xform -q -ws -rp $poleFind`;
+
+            mtbKF_checkNodes($ikPole); move -ws -rpr $posVert[0] $posVert[1] $posVert[2] $ikPole;
+
+            mtbKF_delete($hip); mtbKF_delete($ankle); mtbKF_delete($poleFind);
+
+            select $ikCtrl;
+
+            print ("\nSUCCESS: IK matched to FK for " + $nameSpace + "\n");
+
+            $handFail = 1;
+        }
+        else
+        {
+            $handFail = 0;
+        }//end of verifying if _Hand is in name
+
+
+
+        ///////////////////////////////////
+        //Verify - foot control
+        if(`match "_Foot" $userHand[0]` == "_Foot" && `attributeExists "shinRoll" $userHand[0]` == 0)
+        {
+            //Find out just the name space
+            string $justName = `match "[^:]*$" $userHand[0]`;
+            $nameSpace = `substituteAllString $userHand[0] (":" + $justName) ""`;
+
+            //Define IK Control
+            select $userHand;
+            string $ikCtrl[] = `ls -sl`;
+
+            //Determine Which Side
+            string $justName = `match "[^:]*$" $userHand[0]`;
+            string $sdd = `substituteAllString $userHand[0] ($nameSpace + ":CTRL_") ""`;
+            string $sider = `substituteAllString $sdd "_Foot" ""`;
+
+            //Define Pole Control
+            select ($nameSpace + ":CTRL_" + $sider + "_KneePole");
+            string $ikPole[] = `ls -sl`;
+
+            //Define FK Controls
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Hip");
+            string $fkShoulder[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Knee");
+            string $fkElbow[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Ankle");
+            string $fkWrist[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Toe");
+            string $fkToe[] = `ls -sl`;
+
+            //Define FK Wrist Position/Rotation, match IK ctrl to it
+            float $fkwristPos[] = `xform -q -ws -rp $fkWrist[0]`;
+            mtbKF_checkNodes($ikCtrl); move -ws -rpr $fkwristPos[0] $fkwristPos[1] $fkwristPos[2] $ikCtrl;
+
+            float $fkwristrot[]=`xform -q -ws -rotation $fkWrist[0]`;
+            mtbKF_checkNodes($ikCtrl); xform -ws -rotation $fkwristrot[0] $fkwristrot[1] $fkwristrot[2] $ikCtrl;
+
+            float $posShoulder[] = `xform -q -ws -rp $fkShoulder`;
+            float $posElbow[] = `xform -q -ws -rp $fkElbow`;
+            float $posWrist[] = `xform -q -ws -rp $fkWrist`;
+            float $posToe[] = `xform -q -ws -rp $fkToe`;
+
+            //Pole Finder - Proper
+            group -empty;
+            string $hip[] = `ls -sl`;
+
+            group -empty;
+            string $kneeHip[] = `ls -sl`;
+
+
+            group -empty;
+            string $ankle[] = `ls -sl`;
+
+            group -empty;
+            string $ankleKnee[] = `ls -sl`;
+
+            group -empty;
+            string $poleFind[] = `ls -sl`;
+
+            parent $kneeHip $hip;
+            parent $ankleKnee $ankle;
+            pointConstraint $kneeHip $ankleKnee $poleFind;
+
+mtbKF_checkNodes($hip);
+            parentConstraint $fkShoulder $hip;
+mtbKF_checkNodes($ankle);
+            parentConstraint $fkElbow $ankle;
+
+            string $delme[] = `pointConstraint $fkElbow $kneeHip`;
+            mtbKF_delete($delme);
+
+            mtbKF_checkAttr(($kneeHip[0] + ".tx")); setAttr ($kneeHip[0] + ".tx") ((`getAttr ($kneeHip[0] + ".tx")`) * 2);
+
+            string $delme[] = `pointConstraint $fkWrist $ankleKnee`;
+            mtbKF_delete($delme);
+
+            mtbKF_checkAttr(($ankleKnee[0] + ".tx")); setAttr ($ankleKnee[0] + ".tx") ((`getAttr ($ankleKnee[0] + ".tx")`) * -2);
+
+            float $posVert[] = `xform -q -ws -rp $poleFind`;
+
+            mtbKF_checkNodes($ikPole); move -ws -rpr $posVert[0] $posVert[1] $posVert[2] $ikPole;
+
+            mtbKF_delete($hip); mtbKF_delete($ankle); mtbKF_delete($poleFind);
+
+            //Set All foot channels back to 0
+            mtbKF_checkAttr(($ikCtrl[0] + ".toeX")); setAttr ($ikCtrl[0] + ".toeX") (`getAttr ($fkToe[0] + ".rx")`);
+            mtbKF_checkAttr(($ikCtrl[0] + ".toeY")); setAttr ($ikCtrl[0] + ".toeY") (`getAttr ($fkToe[0] + ".ry")`);
+            mtbKF_checkAttr(($ikCtrl[0] + ".toeZ")); setAttr ($ikCtrl[0] + ".toeZ") (`getAttr ($fkToe[0] + ".rz")`);
+
+            mtbKF_checkAttr(($ikCtrl[0] + ".toeRoll")); setAttr ($ikCtrl[0] + ".toeRoll") 0;
+
+            mtbKF_checkAttr(($ikCtrl[0] + ".ankleX")); setAttr ($ikCtrl[0] + ".ankleX") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".ankleY")); setAttr ($ikCtrl[0] + ".ankleY") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".ankleZ")); setAttr ($ikCtrl[0] + ".ankleZ") 0;
+
+            mtbKF_checkAttr(($ikCtrl[0] + ".ballX")); setAttr ($ikCtrl[0] + ".ballX") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".ballY")); setAttr ($ikCtrl[0] + ".ballY") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".ballZ")); setAttr ($ikCtrl[0] + ".ballZ") 0;
+
+            mtbKF_checkAttr(($ikCtrl[0] + ".toeTipX")); setAttr ($ikCtrl[0] + ".toeTipX") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".toeTipY")); setAttr ($ikCtrl[0] + ".toeTipY") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".toeTipZ")); setAttr ($ikCtrl[0] + ".toeTipZ") 0;
+
+            mtbKF_checkAttr(($ikCtrl[0] + ".outerX")); setAttr ($ikCtrl[0] + ".outerX") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".outerY")); setAttr ($ikCtrl[0] + ".outerY") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".outerZ")); setAttr ($ikCtrl[0] + ".outerZ") 0;
+
+            mtbKF_checkAttr(($ikCtrl[0] + ".innerX")); setAttr ($ikCtrl[0] + ".innerX") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".innerY")); setAttr ($ikCtrl[0] + ".innerY") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".innerZ")); setAttr ($ikCtrl[0] + ".innerZ") 0;
+
+            mtbKF_checkAttr(($ikCtrl[0] + ".heelX")); setAttr ($ikCtrl[0] + ".heelX") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".heelY")); setAttr ($ikCtrl[0] + ".heelY") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".heelZ")); setAttr ($ikCtrl[0] + ".heelZ") 0;
+
+            mtbKF_checkAttr(($ikCtrl[0] + ".heelTipX")); setAttr ($ikCtrl[0] + ".heelTipX") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".heelTipY")); setAttr ($ikCtrl[0] + ".heelTipY") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".heelTipZ")); setAttr ($ikCtrl[0] + ".heelTipZ") 0;
+
+            //Force Fix on R side
+            if(
+            `match "_R_" $userHand[0]` == "_R_" &&
+            `match "_Foot" $userHand[0]` == "_Foot")
+            {
+                select $ikCtrl;
+                mtbKF_checkSelection(); rotate -r -os -180 0 0 ;
+            }//end of r foot
+
+            select $ikCtrl;
+
+            print ("\nSUCCESS:IK matched to FK for " + $nameSpace + "\n");
+
+            $foot1Fail = 1;
+        }
+        else
+        {
+            $foot1Fail = 0;
+        }//end of verifying if _Hand is in name
+
+
+
+
+
+        ///////////////////////////////////
+        //Verify - foot control
+        if(`match "_Foot" $userHand[0]` == "_Foot" && `attributeExists "shinRoll" $userHand[0]` == 1)
+        {
+            //Find out just the name space
+            string $justName = `match "[^:]*$" $userHand[0]`;
+            $nameSpace = `substituteAllString $userHand[0] (":" + $justName) ""`;
+
+            //Define IK Control
+            select $userHand;
+            string $ikCtrl[] = `ls -sl`;
+
+            //Determine Which Side
+            string $justName = `match "[^:]*$" $userHand[0]`;
+            string $sdd = `substituteAllString $userHand[0] ($nameSpace + ":CTRL_") ""`;
+            string $sider = `substituteAllString $sdd "_Foot" ""`;
+
+            //Define IK / Pole Controls
+            select ($nameSpace + ":CTRL_" + $sider + "_KneePole");
+            string $ikPole[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_" + $sider + "_Ind_KneePole");
+            string $ikIndPole[] = `ls -sl`;
+
+            //Damn guess/check because Logan's Bee was built wrong
+            if(`objExists ($nameSpace + ":CTRL_" + $sider + "_Iso_Trans_IK")` == 1)
+            {select ($nameSpace + ":CTRL_" + $sider + "_Iso_Trans_IK");}
+
+            if(`objExists ($nameSpace + ":CTRL_" + $sider + "Iso_IK")` == 1)
+            {select ($nameSpace + ":CTRL_" + $sider + "Iso_IK");}
+
+            string $ikIndCtrl[] = `ls -sl`;
+
+            //Define FK Controls
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Hip");
+            string $fkShoulder[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Knee");
+            string $fkElbow[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Shin");
+            string $fkShin[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Ankle");
+            string $fkWrist[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Toe");
+            string $fkToe[] = `ls -sl`;
+
+            //Set Ind Trans Control
+            float $posVert[] = `xform -q -ws -rp $fkShin`;
+
+            mtbKF_checkNodes($ikPole); move -ws -rpr $posVert[0] $posVert[1] $posVert[2] $ikPole;
+
+
+            //Define FK Wrist Position/Rotation, match IK ctrl to it
+
+            //Apparently R side IKFK ankle is messed up
+            if(`objExists ($nameSpace + ":rig_" + $sider + "_Foot_IKFK_Match")` == 1)
+            {
+                float $fkwristPos[] = `xform -q -ws -rp ($nameSpace + ":rig_" + $sider + "_Foot_IKFK_Match")`;
+                mtbKF_checkNodes($ikCtrl); move -ws -rpr $fkwristPos[0] $fkwristPos[1] $fkwristPos[2] $ikCtrl;
+
+                float $fkwristrot[]=`xform -q -ws -rotation ($nameSpace + ":rig_" + $sider + "_Foot_IKFK_Match")`;
+                mtbKF_checkNodes($ikCtrl); xform -ws -rotation $fkwristrot[0] $fkwristrot[1] $fkwristrot[2] $ikCtrl;
+            }
+            else
+            {
+                float $fkwristPos[] = `xform -q -ws -rp $fkWrist[0]`;
+                mtbKF_checkNodes($ikCtrl); move -ws -rpr $fkwristPos[0] $fkwristPos[1] $fkwristPos[2] $ikCtrl;
+
+                float $fkwristrot[]=`xform -q -ws -rotation $fkWrist[0]`;
+                mtbKF_checkNodes($ikCtrl); xform -ws -rotation $fkwristrot[0] $fkwristrot[1] $fkwristrot[2] $ikCtrl;
+            }
+
+            float $posShoulder[] = `xform -q -ws -rp $fkShoulder`;
+            float $posElbow[] = `xform -q -ws -rp $fkElbow`;
+            float $posShin[] = `xform -q -ws -rp $fkShin`;
+            float $posWrist[] = `xform -q -ws -rp $fkWrist`;
+            float $posToe[] = `xform -q -ws -rp $fkToe`;
+
+            //Pole Finder (Main) - Proper
+            group -empty;
+            string $hipm[] = `ls -sl`;
+
+            group -empty;
+            string $kneeHipm[] = `ls -sl`;
+
+            group -empty;
+            string $anklem[] = `ls -sl`;
+
+            group -empty;
+            string $ankleKneem[] = `ls -sl`;
+
+            group -empty;
+            string $poleFindm[] = `ls -sl`;
+
+            parent $kneeHipm $hipm;
+            parent $ankleKneem $anklem;
+            pointConstraint $kneeHipm $ankleKneem $poleFindm;
+
+mtbKF_checkNodes($hipm);
+            parentConstraint $fkElbow $hipm;
+mtbKF_checkNodes($anklem);
+            parentConstraint $fkShin $anklem;
+
+            string $delme[] = `pointConstraint $fkShin $kneeHipm`;
+            mtbKF_delete($delme);
+
+            mtbKF_checkAttr(($kneeHipm[0] + ".tx")); setAttr ($kneeHipm[0] + ".tx") ((`getAttr ($kneeHipm[0] + ".tx")`) * 2);
+
+            string $delme[] = `pointConstraint $fkWrist $ankleKneem`;
+            mtbKF_delete($delme);
+
+            mtbKF_checkAttr(($ankleKneem[0] + ".tx")); setAttr ($ankleKneem[0] + ".tx") ((`getAttr ($ankleKneem[0] + ".tx")`) * -2);
+
+            float $posVertm[] = `xform -q -ws -rp $poleFindm`;
+
+            //Pole Finder - Proper
+            group -empty;
+            string $hip[] = `ls -sl`;
+
+            group -empty;
+            string $kneeHip[] = `ls -sl`;
+
+            group -empty;
+            string $ankle[] = `ls -sl`;
+
+            group -empty;
+            string $ankleKnee[] = `ls -sl`;
+
+            group -empty;
+            string $poleFind[] = `ls -sl`;
+
+            parent $kneeHip $hip;
+            parent $ankleKnee $ankle;
+            pointConstraint $kneeHip $ankleKnee $poleFind;
+
+mtbKF_checkNodes($hip);
+            parentConstraint $fkShoulder $hip;
+mtbKF_checkNodes($ankle);
+            parentConstraint $fkElbow $ankle;
+
+            string $delme[] = `pointConstraint $fkElbow $kneeHip`;
+            mtbKF_delete($delme);
+
+            mtbKF_checkAttr(($kneeHip[0] + ".tx")); setAttr ($kneeHip[0] + ".tx") ((`getAttr ($kneeHip[0] + ".tx")`) * 2);
+
+            string $delme[] = `pointConstraint $fkShin $ankleKnee`;
+            mtbKF_delete($delme);
+
+            mtbKF_checkAttr(($ankleKnee[0] + ".tx")); setAttr ($ankleKnee[0] + ".tx") ((`getAttr ($ankleKnee[0] + ".tx")`) * -2);
+
+            float $posVert[] = `xform -q -ws -rp $poleFind`;
+
+
+            //////
+            //Actually Place poles
+            int $whichPole = `getAttr ($userHand[0] + ".whichPole")`;
+
+            if($whichPole == 1)
+            {mtbKF_checkNodes($ikPole); move -ws -rpr $posVert[0] $posVert[1] $posVert[2] $ikPole;}
+            else
+            {mtbKF_checkNodes($ikPole); move -ws -rpr $posVertm[0] $posVertm[1] $posVertm[2] $ikPole;}
+
+            mtbKF_delete($hipm); mtbKF_delete($anklem); mtbKF_delete($poleFindm);
+
+
+            mtbKF_checkNodes($ikIndPole); move -ws -rpr $posVert[0] $posVert[1] $posVert[2] $ikIndPole;
+            mtbKF_delete($hip); mtbKF_delete($ankle); mtbKF_delete($poleFind);
+
+            //Set Ind Trans Control
+            float $posVert[] = `xform -q -ws -rp $fkShin`;
+
+            mtbKF_checkNodes($ikIndCtrl); move -ws -rpr $posVert[0] $posVert[1] $posVert[2] $ikIndCtrl;
+
+
+            //Set All foot channels back to 0
+            mtbKF_checkAttr(($ikCtrl[0] + ".toeX")); setAttr ($ikCtrl[0] + ".toeX") (`getAttr ($fkToe[0] + ".rx")`);
+            mtbKF_checkAttr(($ikCtrl[0] + ".toeY")); setAttr ($ikCtrl[0] + ".toeY") (`getAttr ($fkToe[0] + ".ry")`);
+            mtbKF_checkAttr(($ikCtrl[0] + ".toeZ")); setAttr ($ikCtrl[0] + ".toeZ") (`getAttr ($fkToe[0] + ".rz")`);
+
+            mtbKF_checkAttr(($ikCtrl[0] + ".toeRoll")); setAttr ($ikCtrl[0] + ".toeRoll") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".shinRoll")); setAttr ($ikCtrl[0] + ".shinRoll") 0;
+
+            mtbKF_checkAttr(($ikCtrl[0] + ".ankleX")); setAttr ($ikCtrl[0] + ".ankleX") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".ankleY")); setAttr ($ikCtrl[0] + ".ankleY") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".ankleZ")); setAttr ($ikCtrl[0] + ".ankleZ") 0;
+
+            mtbKF_checkAttr(($ikCtrl[0] + ".ballX")); setAttr ($ikCtrl[0] + ".ballX") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".ballY")); setAttr ($ikCtrl[0] + ".ballY") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".ballZ")); setAttr ($ikCtrl[0] + ".ballZ") 0;
+
+            mtbKF_checkAttr(($ikCtrl[0] + ".toeTipX")); setAttr ($ikCtrl[0] + ".toeTipX") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".toeTipY")); setAttr ($ikCtrl[0] + ".toeTipY") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".toeTipZ")); setAttr ($ikCtrl[0] + ".toeTipZ") 0;
+
+            mtbKF_checkAttr(($ikCtrl[0] + ".outerX")); setAttr ($ikCtrl[0] + ".outerX") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".outerY")); setAttr ($ikCtrl[0] + ".outerY") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".outerZ")); setAttr ($ikCtrl[0] + ".outerZ") 0;
+
+            mtbKF_checkAttr(($ikCtrl[0] + ".innerX")); setAttr ($ikCtrl[0] + ".innerX") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".innerY")); setAttr ($ikCtrl[0] + ".innerY") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".innerZ")); setAttr ($ikCtrl[0] + ".innerZ") 0;
+
+            mtbKF_checkAttr(($ikCtrl[0] + ".heelX")); setAttr ($ikCtrl[0] + ".heelX") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".heelY")); setAttr ($ikCtrl[0] + ".heelY") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".heelZ")); setAttr ($ikCtrl[0] + ".heelZ") 0;
+
+            mtbKF_checkAttr(($ikCtrl[0] + ".heelTipX")); setAttr ($ikCtrl[0] + ".heelTipX") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".heelTipY")); setAttr ($ikCtrl[0] + ".heelTipY") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".heelTipZ")); setAttr ($ikCtrl[0] + ".heelTipZ") 0;
+
+            mtbKF_checkAttr(($ikCtrl[0] + ".limbLen")); setAttr ($ikCtrl[0] + ".limbLen") 1;
+            mtbKF_checkAttr(($ikCtrl[0] + ".upperLen")); setAttr ($ikCtrl[0] + ".upperLen") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".midLen")); setAttr ($ikCtrl[0] + ".midLen") 0;
+            mtbKF_checkAttr(($ikCtrl[0] + ".lowLen")); setAttr ($ikCtrl[0] + ".lowLen") 0;
+
+
+            select $ikCtrl;
+
+            print ("\nSUCCESS:IK matched to FK for " + $nameSpace + "\n");
+
+            $foot2Fail = 1;
+        }
+        else
+        {
+            $foot2Fail = 0;
+        }//end of verifying if _Hand is in name
+
+        int $printFail = ($handFail + $foot1Fail + $foot2Fail);
+        if($printFail == 0){print ("\nFAIL: Control not a *_Hand / *_Foot control\n");}
+
+        }//end of if referenced
+
+
+
+    }//end of if single control selected
+    else
+    {
+        print ("\nFAIL: Please select the IK Hand Control\n");
+    }
+
+}//end of global proc mtbKF_matchIKtoFK
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Match FK to IK
+global proc mtbKF_matchFKtoIK()
+{
+if(!python("from maya_toolkit.tools.kf_animrig_ikfk import runtime as r; r.is_active()")){python("r.invoke(\"match_fk_to_ik\")"); return;}
+
+    //select IK hand control
+    string $userHand[] = `ls -sl`;
+
+    ///////////////////////////////////////////////////////////////////////////
+    //Work
+    int $handFail = 0;
+    int $foot1Fail = 0;
+    int $foot2Fail = 0;
+
+    if(`size($userHand)`)
+    {
+        ///////////////////////////////////
+        //Rig Ref
+        int $rigRef = `referenceQuery -inr $userHand[0]`;
+        if(!$rigRef)
+        {print "FAIL: Rig not referenced, please reference the rig into the scene\n";}
+        else
+        {
+
+
+        ///////////////////////////////////
+        //Verify - Hand Control
+        if(`match "_Hand" $userHand[0]` == "_Hand")
+        {
+
+            //Find out just the name space
+            string $justName = `match "[^:]*$" $userHand[0]`;
+            $nameSpace = `substituteAllString $userHand[0] (":" + $justName) ""`;
+
+            //Define IK Control
+            select $userHand;
+            string $ikCtrl[] = `ls -sl`;
+
+            //Determine Which Side
+            string $justName = `match "[^:]*$" $userHand[0]`;
+            string $sdd = `substituteAllString $userHand[0] ($nameSpace + ":CTRL_") ""`;
+            string $sider = `substituteAllString $sdd "_Hand" ""`;
+
+            //Define Pole Control
+            select ($nameSpace + ":CTRL_" + $sider + "_ElbowPole");
+            string $ikPole[] = `ls -sl`;
+
+            //Define FK Controls
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Shoulder");
+            string $fkShoulderCtrl[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Elbow");
+            string $fkElbowCtrl[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Wrist");
+            string $fkWristCtrl[] = `ls -sl`;
+
+
+
+            //IK
+            select ($nameSpace + ":rig_" + $sider + "_Shoulder_IK");
+            string $ikShoulder[] = `ls -sl`;
+            pickWalk -d down;
+            string $ikElbow[] = `ls -sl`;
+            pickWalk -d down;
+            string $ikWrist[] = `ls -sl`;
+
+            ///////////////////////////////////////////
+            //Shoulder
+            select $ikShoulder;
+                string $ikJoint[] = `ls -sl`;
+            select $fkShoulderCtrl;
+                string $Ctrl[] = `ls -sl`;
+
+            select $Ctrl;
+            duplicate -po $Ctrl;
+            string $Dup[] = `ls -sl`;
+
+            //unlock rotates
+            mtbKF_checkAttr(($Dup[0] + ".rx")); setAttr ($Dup[0] + ".rx") -l 0;
+            mtbKF_checkAttr(($Dup[0] + ".ry")); setAttr ($Dup[0] + ".ry") -l 0;
+            mtbKF_checkAttr(($Dup[0] + ".rz")); setAttr ($Dup[0] + ".rz") -l 0;
+
+            orientConstraint $ikJoint $Dup;
+
+            if (`getAttr -l ($Ctrl[0] + ".rx")` != 1){mtbKF_checkAttr(($Ctrl[0] + ".rx")); setAttr ($Ctrl[0] + ".rx") (`getAttr ($Dup[0] + ".rx")`);}
+            if (`getAttr -l ($Ctrl[0] + ".ry")` != 1){mtbKF_checkAttr(($Ctrl[0] + ".ry")); setAttr ($Ctrl[0] + ".ry") (`getAttr ($Dup[0] + ".ry")`);}
+            if (`getAttr -l ($Ctrl[0] + ".rz")` != 1){mtbKF_checkAttr(($Ctrl[0] + ".rz")); setAttr ($Ctrl[0] + ".rz") (`getAttr ($Dup[0] + ".rz")`);}
+
+            mtbKF_delete($Dup);
+
+            ////////////////////////////////////////
+            //Elbow
+            select $ikElbow;
+                string $ikJoint[] = `ls -sl`;
+
+            select $fkElbowCtrl;
+                string $Ctrl[] = `ls -sl`;
+
+            select $Ctrl;
+            duplicate -po $Ctrl;
+            string $Dup[] = `ls -sl`;
+
+            //unlock rotates
+            mtbKF_checkAttr(($Dup[0] + ".rx")); setAttr ($Dup[0] + ".rx") -l 0;
+            mtbKF_checkAttr(($Dup[0] + ".ry")); setAttr ($Dup[0] + ".ry") -l 0;
+            mtbKF_checkAttr(($Dup[0] + ".rz")); setAttr ($Dup[0] + ".rz") -l 0;
+
+            orientConstraint $ikJoint $Dup;
+
+            if (`getAttr -l ($Ctrl[0] + ".rx")` != 1){mtbKF_checkAttr(($Ctrl[0] + ".rx")); setAttr ($Ctrl[0] + ".rx") (`getAttr ($Dup[0] + ".rx")`);}
+            if (`getAttr -l ($Ctrl[0] + ".ry")` != 1){mtbKF_checkAttr(($Ctrl[0] + ".ry")); setAttr ($Ctrl[0] + ".ry") (`getAttr ($Dup[0] + ".ry")`);}
+            if (`getAttr -l ($Ctrl[0] + ".rz")` != 1){mtbKF_checkAttr(($Ctrl[0] + ".rz")); setAttr ($Ctrl[0] + ".rz") (`getAttr ($Dup[0] + ".rz")`);}
+
+            mtbKF_delete($Dup);
+
+            ////////////////////////////////////////
+            //Wrist
+            select $ikWrist;
+                string $ikJoint[] = `ls -sl`;
+
+            select $fkWristCtrl;
+                string $Ctrl[] = `ls -sl`;
+
+            select $Ctrl;
+            duplicate -po $Ctrl;
+            string $Dup[] = `ls -sl`;
+
+            //unlock rotates
+            mtbKF_checkAttr(($Dup[0] + ".rx")); setAttr ($Dup[0] + ".rx") -l 0;
+            mtbKF_checkAttr(($Dup[0] + ".ry")); setAttr ($Dup[0] + ".ry") -l 0;
+            mtbKF_checkAttr(($Dup[0] + ".rz")); setAttr ($Dup[0] + ".rz") -l 0;
+
+            orientConstraint $ikJoint $Dup;
+
+            if (`getAttr -l ($Ctrl[0] + ".rx")` != 1){mtbKF_checkAttr(($Ctrl[0] + ".rx")); setAttr ($Ctrl[0] + ".rx") (`getAttr ($Dup[0] + ".rx")`);}
+            if (`getAttr -l ($Ctrl[0] + ".ry")` != 1){mtbKF_checkAttr(($Ctrl[0] + ".ry")); setAttr ($Ctrl[0] + ".ry") (`getAttr ($Dup[0] + ".ry")`);}
+            if (`getAttr -l ($Ctrl[0] + ".rz")` != 1){mtbKF_checkAttr(($Ctrl[0] + ".rz")); setAttr ($Ctrl[0] + ".rz") (`getAttr ($Dup[0] + ".rz")`);}
+
+            mtbKF_delete($Dup);
+
+
+            //////////////////////////////////////////////////////////////////////
+            //For Scaling
+
+            //Define FK Controls
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Shoulder");
+            string $fkShoulder[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Elbow");
+            string $fkElbow[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Wrist");
+            string $fkWrist[] = `ls -sl`;
+
+            ////////////////////////////////////////////
+            //define joints
+            $rigName = `substituteAllString $justName "CTRL" "rig"`;
+            $rigName = `substituteAllString $rigName "Hand" "Elbow_IK"`;
+            select ($nameSpace + ":" + $rigName);
+            string $ikElbowJoint[] = `ls -sl`;
+
+            $rigName = `substituteAllString $justName "CTRL" "rig"`;
+            $rigName = `substituteAllString $rigName "Hand" "Wrist_IK"`;
+            select ($nameSpace + ":" + $rigName);
+            string $ikWristJoint[] = `ls -sl`;
+
+
+            //define orgs
+            $rigName = `substituteAllString $justName "CTRL" "rig"`;
+            $rigName = `substituteAllString $rigName "_Hand" "_elbow_Org_MD"`;
+            $rigName = `substituteAllString $rigName "_elbow" "_elbow"`;
+
+            select ($nameSpace + ":" + $rigName);
+            string $elbowOrgMD[] = `ls -sl`;
+
+            $rigName = `substituteAllString $justName "CTRL" "rig"`;
+            $rigName = `substituteAllString $rigName "_Hand" "_wrist_Org_MD"`;
+            $rigName = `substituteAllString $rigName "_wrist" "_wrist"`;
+
+            select ($nameSpace + ":" + $rigName);
+            string $wristOrgMD[] = `ls -sl`;
+
+            //get values
+            float $orgWristTX = `getAttr ($wristOrgMD[0] + ".input1X")`;
+            float $orgElbowTX = `getAttr ($elbowOrgMD[0] + ".input1X")`;
+
+            float $curIKElbowTX = `getAttr ($ikElbowJoint[0] + ".tx")`;
+            float $curIKWristTX = `getAttr ($ikWristJoint[0] + ".tx")`;
+
+            //Set Values
+            mtbKF_checkAttr(($fkElbow[0] + ".stretch")); setAttr ($fkElbow[0] + ".stretch") (($curIKElbowTX - $orgElbowTX)*2);
+            mtbKF_checkAttr(($fkWrist[0] + ".stretch")); setAttr ($fkWrist[0] + ".stretch") (($curIKWristTX - $orgWristTX)*3.333);
+
+
+            ///////////////////////////////////////////
+            //Complete
+            select $ikCtrl;
+
+            print ("\nSUCCESS: FK matched to IK for " + $nameSpace + "\n");
+
+            $handFail = 1;
+        }
+        else
+        {
+            $handFail = 0;
+        }//end of verifying if _Hand is in name
+
+
+
+
+
+
+
+
+        ///////////////////////////////////
+        //Verify - Foot control
+        if(`match "_Foot" $userHand[0]` == "_Foot" && `attributeExists "shinRoll" $userHand[0]` == 0)
+        {
+
+            //Find out just the name space
+            string $justName = `match "[^:]*$" $userHand[0]`;
+            $nameSpace = `substituteAllString $userHand[0] (":" + $justName) ""`;
+
+            //Define IK Control
+            select $userHand;
+            string $ikCtrl[] = `ls -sl`;
+
+            //Determine Which Side
+            string $justName = `match "[^:]*$" $userHand[0]`;
+            string $sdd = `substituteAllString $userHand[0] ($nameSpace + ":CTRL_") ""`;
+            string $sider = `substituteAllString $sdd "_Foot" ""`;
+
+            //Define Pole Control
+            select ($nameSpace + ":CTRL_" + $sider + "_KneePole");
+            string $ikPole[] = `ls -sl`;
+
+            //Define FK Controls
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Hip");
+            string $fkShoulderCtrl[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Knee");
+            string $fkElbowCtrl[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Ankle");
+            string $fkWristCtrl[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Toe");
+            string $fkToeCtrl[] = `ls -sl`;
+
+
+
+            //IK
+            select ($nameSpace + ":rig_" + $sider + "_Hip_IK");
+            string $ikShoulder[] = `ls -sl`;
+            pickWalk -d down;
+            string $ikElbow[] = `ls -sl`;
+            pickWalk -d down;
+            string $ikWrist[] = `ls -sl`;
+
+            ///////////////////////////////////////////
+            //Shoulder
+            select $ikShoulder;
+                string $ikJoint[] = `ls -sl`;
+            select $fkShoulderCtrl;
+                string $Ctrl[] = `ls -sl`;
+
+            select $Ctrl;
+            duplicate -po $Ctrl;
+            string $Dup[] = `ls -sl`;
+
+            //unlock rotates
+            mtbKF_checkAttr(($Dup[0] + ".rx")); setAttr ($Dup[0] + ".rx") -l 0;
+            mtbKF_checkAttr(($Dup[0] + ".ry")); setAttr ($Dup[0] + ".ry") -l 0;
+            mtbKF_checkAttr(($Dup[0] + ".rz")); setAttr ($Dup[0] + ".rz") -l 0;
+
+            orientConstraint $ikJoint $Dup;
+
+            if (`getAttr -l ($Ctrl[0] + ".rx")` != 1){mtbKF_checkAttr(($Ctrl[0] + ".rx")); setAttr ($Ctrl[0] + ".rx") (`getAttr ($Dup[0] + ".rx")`);}
+            if (`getAttr -l ($Ctrl[0] + ".ry")` != 1){mtbKF_checkAttr(($Ctrl[0] + ".ry")); setAttr ($Ctrl[0] + ".ry") (`getAttr ($Dup[0] + ".ry")`);}
+            if (`getAttr -l ($Ctrl[0] + ".rz")` != 1){mtbKF_checkAttr(($Ctrl[0] + ".rz")); setAttr ($Ctrl[0] + ".rz") (`getAttr ($Dup[0] + ".rz")`);}
+
+            mtbKF_delete($Dup);
+
+            ////////////////////////////////////////
+            //Elbow
+            select $ikElbow;
+                string $ikJoint[] = `ls -sl`;
+
+            select $fkElbowCtrl;
+                string $Ctrl[] = `ls -sl`;
+
+            select $Ctrl;
+            duplicate -po $Ctrl;
+            string $Dup[] = `ls -sl`;
+
+            //unlock rotates
+            mtbKF_checkAttr(($Dup[0] + ".rx")); setAttr ($Dup[0] + ".rx") -l 0;
+            mtbKF_checkAttr(($Dup[0] + ".ry")); setAttr ($Dup[0] + ".ry") -l 0;
+            mtbKF_checkAttr(($Dup[0] + ".rz")); setAttr ($Dup[0] + ".rz") -l 0;
+
+            orientConstraint $ikJoint $Dup;
+
+            if (`getAttr -l ($Ctrl[0] + ".rx")` != 1){mtbKF_checkAttr(($Ctrl[0] + ".rx")); setAttr ($Ctrl[0] + ".rx") (`getAttr ($Dup[0] + ".rx")`);}
+            if (`getAttr -l ($Ctrl[0] + ".ry")` != 1){mtbKF_checkAttr(($Ctrl[0] + ".ry")); setAttr ($Ctrl[0] + ".ry") (`getAttr ($Dup[0] + ".ry")`);}
+            if (`getAttr -l ($Ctrl[0] + ".rz")` != 1){mtbKF_checkAttr(($Ctrl[0] + ".rz")); setAttr ($Ctrl[0] + ".rz") (`getAttr ($Dup[0] + ".rz")`);}
+
+            mtbKF_delete($Dup);
+
+            ////////////////////////////////////////
+            //Wrist
+            select $ikWrist;
+                string $ikJoint[] = `ls -sl`;
+
+            select $fkWristCtrl;
+                string $Ctrl[] = `ls -sl`;
+
+            select $Ctrl;
+            duplicate -po $Ctrl;
+            string $Dup[] = `ls -sl`;
+
+            //unlock rotates
+            mtbKF_checkAttr(($Dup[0] + ".rx")); setAttr ($Dup[0] + ".rx") -l 0;
+            mtbKF_checkAttr(($Dup[0] + ".ry")); setAttr ($Dup[0] + ".ry") -l 0;
+            mtbKF_checkAttr(($Dup[0] + ".rz")); setAttr ($Dup[0] + ".rz") -l 0;
+
+            orientConstraint $ikJoint $Dup;
+
+            if (`getAttr -l ($Ctrl[0] + ".rx")` != 1){mtbKF_checkAttr(($Ctrl[0] + ".rx")); setAttr ($Ctrl[0] + ".rx") (`getAttr ($Dup[0] + ".rx")`);}
+            if (`getAttr -l ($Ctrl[0] + ".ry")` != 1){mtbKF_checkAttr(($Ctrl[0] + ".ry")); setAttr ($Ctrl[0] + ".ry") (`getAttr ($Dup[0] + ".ry")`);}
+            if (`getAttr -l ($Ctrl[0] + ".rz")` != 1){mtbKF_checkAttr(($Ctrl[0] + ".rz")); setAttr ($Ctrl[0] + ".rz") (`getAttr ($Dup[0] + ".rz")`);}
+
+            mtbKF_delete($Dup);
+
+
+            //////////////////////////////////////////////////////////////////////
+            //For Scaling
+
+            //Define FK Controls
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Hip");
+            string $fkShoulder[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Knee");
+            string $fkElbow[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Ankle");
+            string $fkWrist[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Toe");
+            string $fkToe[] = `ls -sl`;
+
+            mtbKF_checkAttr(($fkToe[0] + ".rx")); setAttr ($fkToe[0] + ".rx") (`getAttr ($nameSpace + ":" + $sider + "Leg_Toe.rx")`);
+            mtbKF_checkAttr(($fkToe[0] + ".ry")); setAttr ($fkToe[0] + ".ry") (`getAttr ($nameSpace + ":" + $sider + "Leg_Toe.ry")`);
+            mtbKF_checkAttr(($fkToe[0] + ".rz")); setAttr ($fkToe[0] + ".rz") (`getAttr ($nameSpace + ":" + $sider + "Leg_Toe.rz")`);
+
+            ////////////////////////////////////////////
+            //define joints
+            $rigName = `substituteAllString $justName "CTRL" "rig"`;
+            $rigName = `substituteAllString $rigName "Foot" "Knee_IK"`;
+            select ($nameSpace + ":" + $rigName);
+            string $ikElbowJoint[] = `ls -sl`;
+
+            $rigName = `substituteAllString $justName "CTRL" "rig"`;
+            $rigName = `substituteAllString $rigName "Foot" "Ankle_IK"`;
+            select ($nameSpace + ":" + $rigName);
+            string $ikWristJoint[] = `ls -sl`;
+
+
+            //define orgs
+            $rigName = `substituteAllString $justName "CTRL" "rig"`;
+            $rigName = `substituteAllString $rigName "_Foot" "__Leg_elbow_Org_MD"`;
+            $rigName = `substituteAllString $rigName "_elbow" "_elbow"`;
+
+            select ($nameSpace + ":" + $rigName);
+            string $elbowOrgMD[] = `ls -sl`;
+
+            $rigName = `substituteAllString $justName "CTRL" "rig"`;
+            $rigName = `substituteAllString $rigName "_Foot" "__Leg_wrist_Org_MD"`;
+            $rigName = `substituteAllString $rigName "_wrist" "_wrist"`;
+
+            select ($nameSpace + ":" + $rigName);
+            string $wristOrgMD[] = `ls -sl`;
+
+            //get values
+            float $orgWristTX = `getAttr ($wristOrgMD[0] + ".input1X")`;
+            float $orgElbowTX = `getAttr ($elbowOrgMD[0] + ".input1X")`;
+
+            float $curIKElbowTX = `getAttr ($ikElbowJoint[0] + ".tx")`;
+            float $curIKWristTX = `getAttr ($ikWristJoint[0] + ".tx")`;
+
+            //Set Values
+            mtbKF_checkAttr(($fkElbow[0] + ".stretch")); setAttr ($fkElbow[0] + ".stretch") (($curIKElbowTX - $orgElbowTX)*2);
+            mtbKF_checkAttr(($fkWrist[0] + ".stretch")); setAttr ($fkWrist[0] + ".stretch") (($curIKWristTX - $orgWristTX)*3.333);
+
+
+            ///////////////////////////////////////////
+            //Complete
+            select $ikCtrl;
+
+            print ("\nSUCCESS: FK matched to IK for " + $nameSpace + "\n");
+
+            $foot1Fail = 1;
+        }
+        else
+        {
+            $foot1Fail = 0;
+        }//end of verifying if _Hand is in name
+
+
+
+
+
+
+
+
+
+        ///////////////////////////////////
+        //Verify - foot control
+        if(`match "_Foot" $userHand[0]` == "_Foot" && `attributeExists "shinRoll" $userHand[0]` == 1)
+        {
+            //Find out just the name space
+            string $justName = `match "[^:]*$" $userHand[0]`;
+            $nameSpace = `substituteAllString $userHand[0] (":" + $justName) ""`;
+
+            //Define IK Control
+            select $userHand;
+            string $ikCtrl[] = `ls -sl`;
+
+            //Determine Which Side
+            string $justName = `match "[^:]*$" $userHand[0]`;
+            string $sdd = `substituteAllString $userHand[0] ($nameSpace + ":CTRL_") ""`;
+            string $sider = `substituteAllString $sdd "_Foot" ""`;
+
+            //Define FK Controls
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Hip");
+            string $fkShoulder[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Knee");
+            string $fkElbow[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Shin");
+            string $fkShin[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Ankle");
+            string $fkWrist[] = `ls -sl`;
+
+            select ($nameSpace + ":CTRL_FK_" + $sider + "_Toe");
+            string $fkToe[] = `ls -sl`;
+
+            //Define IK Joints
+            select ($nameSpace + ":rig_" + $sider + "_Ind_Hip_IK");
+            string $ikHip[] = `ls -sl`;
+
+            select ($nameSpace + ":rig_" + $sider + "_Ind_Knee_IK");
+            string $ikKnee[] = `ls -sl`;
+
+            select ($nameSpace + ":rig_" + $sider + "_Shin_FKNull");
+            string $ikShin[] = `ls -sl`;
+
+            select ($nameSpace + ":rig_" + $sider + "_Ankle_IK");
+            string $ikAnkle[] = `ls -sl`;
+
+            select ($nameSpace + ":rig_" + $sider + "_Toe_IK");
+            string $ikToe[] = `ls -sl`;
+
+
+            //Create constraints to align
+mtbKF_checkNodes($fkShoulder);
+            string $delme[] = `parentConstraint $ikHip $fkShoulder`;
+            mtbKF_delete($delme);
+
+mtbKF_checkNodes($fkElbow);
+            string $delme[] = `parentConstraint $ikKnee $fkElbow`;
+            mtbKF_delete($delme);
+
+mtbKF_checkNodes($fkShin);
+            string $delme[] = `parentConstraint $ikShin $fkShin`;
+            mtbKF_delete($delme);
+
+mtbKF_checkNodes($fkWrist);
+            string $delme[] = `parentConstraint $ikAnkle $fkWrist`;
+            mtbKF_delete($delme);
+
+mtbKF_checkNodes($fkToe);
+            string $delme[] = `parentConstraint $ikToe $fkToe`;
+            mtbKF_delete($delme);
+
+
+            select $ikCtrl;
+
+            print ("\nSUCCESS: FK matched to IK for " + $nameSpace + "\n");
+
+            $foot2Fail = 1;
+        }
+        else
+        {
+            $foot2Fail = 0;
+        }//end of verifying if _Hand is in name
+
+
+        int $printFail = ($handFail + $foot1Fail + $foot2Fail);
+        if($printFail == 0){print ("\nFAIL: Control not a *_Hand / *_Foot control\n");}
+
+
+        }//end of if referenced
+
+
+
+
+
+
+
+
+
+
+    }//end of if single control selected
+    else
+    {
+        print ("\nFAIL: Please select the IK Hand Control\n");
+    }
+
+}//end of global proc mtbKF_matchFKtoIK
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Match IK to FK
+global proc mtbKF_matchIKtoFKTen()
+{
+if(!python("from maya_toolkit.tools.kf_animrig_ikfk import runtime as r; r.is_active()")){python("r.invoke(\"spline_ik_to_fk\")"); return;}
+
+    //select Pinner control
+    string $userPinner[] = `ls -sl`;
+
+    ///////////////////////////////////////////////////////////////////////////
+    //Work
+    if(`size($userPinner)`)
+    {
+        ///////////////////////////////////
+        //Verify - Pinner control
+        if(`match "_Pinner" $userPinner[0]` == "_Pinner")
+        {
+            //Find out just the name space
+            string $justName = `match "[^:]*$" $userPinner[0]`;
+            $nameSpace = `substituteAllString $userPinner[0] $justName ""`;
+
+
+int $jointNum = `getAttr ($userPinner[0] + ".jointNum")`;
+
+string $noctrl = `substituteAllString $justName "CTRL_" "" `;
+string $namer = `substituteAllString $noctrl "_Pinner" "" `;
+
+
+select ($nameSpace + $namer + "_IKcurve");
+string $clusPath[] = `ls -sl`;
+
+
+int $counterClus;
+int $sizerClus = `getAttr ($clusPath[0] + ".spans")`;
+int $degreeC = `getAttr ($clusPath[0] + ".degree")`;
+int $sizerClus;
+
+string $objShapes[] = `listRelatives -shapes $clusPath[0]`;
+
+//2 = closed, 0 = Open
+int $closedRad = `getAttr ($objShapes[0] + ".form")`;
+
+if($closedRad == 0)
+{$sizerClus = ($sizerClus + $degreeC);}
+else
+{$sizerClus = $sizerClus;}//end of if curve is closed
+
+
+//create base ep curve
+curve -d 1 -p 0 0 0 -p -1 0 0 -k 0 -k 1 ;
+string $baseCurve[] =`ls -sl`;
+
+rebuildCurve -ch 1 -rpo 1 -rt 0 -end 1 -kr 0 -kcp 0 -kep 1 -kt 0 -s ($jointNum - 2) -d 3 -tol 0.01 $baseCurve;
+
+
+int $counter;
+int $sizer = $jointNum;
+
+for ($counter = 0; $counter <= $sizer; $counter++)
+{
+    float $pos[] = `xform -q -ws -rp  ($nameSpace + "CTRL_" + $namer + "_" + $counter)`;
+
+    select -r ($baseCurve[0] + ".cv[" + $counter + "]") ;
+    mtbKF_checkSelection(); move -ws $pos[0] $pos[1] $pos[2] ;
+}//end of aligning cvs to fk
+
+int $spanNum = `getAttr ($clusPath[0] + ".spans")`;
+rebuildCurve -ch 1 -rpo 1 -rt 0 -end 1 -kr 0 -kcp 0 -kep 1 -kt 0 -s $spanNum -d 3 -tol 0.01 $baseCurve;
+
+
+int $counter;
+int $sizer = $sizerClus;
+
+for ($counter = 0; $counter < $sizer; $counter++)
+{
+
+//$counter = 0;
+float $pos[] = `xform -q -ws -t ($baseCurve[0] + ".cv[" + $counter + "]")`;
+
+    select -r ($nameSpace + "CTRL_" + $namer + "_Clus_" + $counter) ;
+    mtbKF_checkSelection(); move -ws $pos[0] $pos[1] $pos[2] ;
+
+}//end of align IK to cvs
+
+
+mtbKF_delete($baseCurve);
+
+select $userPinner;
+
+
+
+}//end of verify pinner
+else
+{print "\nFAIL: Please Select the *_Pinner of the tentacle";}
+
+}//end of verify only pinner selected
+else
+{print "\nFAIL: Please Select the *_Pinner of the tentacle";}
+
+}//end of global proc
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Match FK to IK
+global proc mtbKF_matchFKtoIKTen()
+{
+if(!python("from maya_toolkit.tools.kf_animrig_ikfk import runtime as r; r.is_active()")){python("r.invoke(\"spline_fk_to_ik\")"); return;}
+
+    //select Pinner control
+    string $userPinner[] = `ls -sl`;
+
+    ///////////////////////////////////////////////////////////////////////////
+    //Work
+    if(`size($userPinner)`)
+    {
+        ///////////////////////////////////
+        //Verify - Pinner control
+        if(`match "_Pinner" $userPinner[0]` == "_Pinner")
+        {
+            //Find out just the name space
+            string $justName = `match "[^:]*$" $userPinner[0]`;
+            $nameSpace = `substituteAllString $userPinner[0] $justName ""`;
+
+
+int $jointNum = `getAttr ($userPinner[0] + ".jointNum")`;
+
+string $noctrl = `substituteAllString $justName "CTRL_" "" `;
+string $namer = `substituteAllString $noctrl "_Pinner" "" `;
+
+
+//Set FK Back to Default
+mtbKF_checkAttr(($nameSpace + "CTRL_" + $namer + "_0.allRotX")); setAttr ($nameSpace + "CTRL_" + $namer + "_0.allRotX") 0;
+mtbKF_checkAttr(($nameSpace + "CTRL_" + $namer + "_0.allRotY")); setAttr ($nameSpace + "CTRL_" + $namer + "_0.allRotY") 0;
+mtbKF_checkAttr(($nameSpace + "CTRL_" + $namer + "_0.allRotZ")); setAttr ($nameSpace + "CTRL_" + $namer + "_0.allRotZ") 0;
+mtbKF_checkAttr(($nameSpace + "CTRL_" + $namer + "_0.allLength")); setAttr ($nameSpace + "CTRL_" + $namer + "_0.allLength") 1;
+
+
+
+int $counter;
+int $sizer = $jointNum;
+
+for ($counter = 0; $counter <= $sizer; $counter++)
+{
+mtbKF_checkAttr(($nameSpace + "CTRL_" + $namer + "_" + $counter + ".sx")); setAttr ($nameSpace + "CTRL_" + $namer + "_" + $counter + ".sx") 1;
+mtbKF_checkAttr(($nameSpace + "CTRL_" + $namer + "_" + $counter + ".sy")); setAttr ($nameSpace + "CTRL_" + $namer + "_" + $counter + ".sy") 1;
+mtbKF_checkAttr(($nameSpace + "CTRL_" + $namer + "_" + $counter + ".sz")); setAttr ($nameSpace + "CTRL_" + $namer + "_" + $counter + ".sz") 1;
+
+
+select ($nameSpace + "CTRL_" + $namer + "_" + $counter);
+string $alignObjKF[] = `ls -sl`;
+
+select ($nameSpace + "rig_IK_" + $namer + "_" + $counter);
+string $alignGoalKF[] = `ls -sl`;
+
+
+    int $txVal = `getAttr -se ($alignObjKF[0] + ".tx")`;
+    int $tyVal = `getAttr -se ($alignObjKF[0] + ".ty")`;
+    int $tzVal = `getAttr -se ($alignObjKF[0] + ".tz")`;
+    int $rxVal = `getAttr -se ($alignObjKF[0] + ".rx")`;
+    int $ryVal = `getAttr -se ($alignObjKF[0] + ".ry")`;
+    int $rzVal = `getAttr -se ($alignObjKF[0] + ".rz")`;
+
+
+    string $skiptx = "";
+    string $skipty = "";
+    string $skiptz = "";
+    string $skiprx = "";
+    string $skipry = "";
+    string $skiprz = "";
+
+mtbKF_checkNodes($alignObjKF);
+    string $delme[] = `eval ("parentConstraint " + $skiptx + $skipty + $skiptz + $skiprx + $skipry + $skiprz + "-weight 1 " + $alignGoalKF[0] + " " + $alignObjKF[0] + ";")`;
+
+    //gather attrs
+    float $theTx = `getAttr ($alignObjKF[0] + ".tx")`;
+    float $theTy = `getAttr ($alignObjKF[0] + ".ty")`;
+    float $theTz = `getAttr ($alignObjKF[0] + ".tz")`;
+    float $theRx = `getAttr ($alignObjKF[0] + ".rx")`;
+    float $theRy = `getAttr ($alignObjKF[0] + ".ry")`;
+    float $theRz = `getAttr ($alignObjKF[0] + ".rz")`;
+
+    mtbKF_delete($delme);
+
+    //set attrs
+    if($txVal){mtbKF_checkAttr(($alignObjKF[0] + ".tx")); setAttr ($alignObjKF[0] + ".tx") $theTx;}
+    if($tyVal){mtbKF_checkAttr(($alignObjKF[0] + ".ty")); setAttr ($alignObjKF[0] + ".ty") $theTy;}
+    if($tzVal){mtbKF_checkAttr(($alignObjKF[0] + ".tz")); setAttr ($alignObjKF[0] + ".tz") $theTz;}
+    if($rxVal){mtbKF_checkAttr(($alignObjKF[0] + ".rx")); setAttr ($alignObjKF[0] + ".rx") $theRx;}
+    if($ryVal){mtbKF_checkAttr(($alignObjKF[0] + ".ry")); setAttr ($alignObjKF[0] + ".ry") $theRy;}
+    if($rzVal){mtbKF_checkAttr(($alignObjKF[0] + ".rz")); setAttr ($alignObjKF[0] + ".rz") $theRz;}
+
+}
+
+
+
+
+}//end of verify pinner
+else
+{print "\nFAIL: Please Select the *_Pinner of the tentacle";}
+
+}//end of verify only pinner selected
+else
+{print "\nFAIL: Please Select the *_Pinner of the tentacle";}
+
+}//end of global proc
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////
+//Instructions
+
+
+global proc mtbKF_kfARI_Instruct()
+{
+
+if (`window -q -ex mtbKF_InstructionsWin`)
+        {
+        showWindow mtbKF_InstructionsWin ;
+        return ;
+        }
+
+
+window -w 850 -h 500 -t "IKFK Instructions" mtbKF_InstructionsWin ;
+formLayout mtbKF_mainSaveForm ;
+
+//UI pieces
+scrollField -w 100 -h 100 -wordWrap true -tx
+
+(
+"IKFK Matching for AnimRigs - by Kiel Figgins - KielFiggins22@gmail.com - 3dFiggins.com"
++ "\n\n" +
+"For instructions with screenshots, visit 3dFiggins.com/Store/Support/IKFK"
++ "\n\n" +
+"IKFK Matching"
++ "\n" +
+"-----------------------------------------------------"
++ "\n" +
+"1. Reference in an AnimRig (steps covered in the Quick Start Guide on 3dFiggins.com/Store/Support/QuickStart)"
++ "\n" +
+"2. Animate the arm or leg in either IK or FK"
++ "\n" +
+"3. Select the IK Hand (CTRL_L__Hand for example) or IK Foot control (CTRL_L__Foot for example)"
++ "\n" +
+"**Note that if your limb is in FK, you'll need to temporarly set it back to FK to select this control**"
++ "\n" +
+"4. In the IKFK UI, click the button you wish to perform, to either match the IK limb to the FK or vice versa"
++ "\n\n\n" +
+"IKFK Matching and Baking"
++ "\n" +
+"-----------------------------------------------------"
++ "\n" +
+"1. If you'd like to bake the animation from IK to FK or vice versa, follow the steps for IKFK Matching"
++ "\n" +
+"2. Right click on the button (Match IK to FK*  or   Match FK to IK*) and select the Bake command from the pop up options"
++ "\n" +
+"**Note that you'll need keys on the controls you're baking too and you'll also need to set the pinner value for IKFK as the script won't set this automatically**"
++ "\n\n\n" +
+"IKFK Matching on Adv Spline FK Setup"
++ "\n" +
+"-----------------------------------------------------"
++ "\n" +
+"1. Some rigs have an Adv Spline FK Setup that can also blend from from IK to FK or vice versa, these setups are typically found on tails or long FK chains"
++ "\n" +
+"2. Follow the steps for IKFK Matching"
++ "\n" +
+"3. Select the Adv Spline FK Pinner"
++ "\n" +
+"4. Right click on the button (Match IK to FK*  or   Match FK to IK*) and select the Adv FK command from the pop up options"
++ "\n" +
+"**Note that you'll need keys on the controls you're baking too and you'll also need to set the pinner value for IKFK as the script won't set this automatically**"
+
+)
+
+-ed 0 mtbKF_scrollInstructions;
+
+//UI FormLayout
+formLayout -e
+
+        -af mtbKF_scrollInstructions "top" 5
+        -af mtbKF_scrollInstructions "bottom" 5
+        -af mtbKF_scrollInstructions "left" 5
+        -af mtbKF_scrollInstructions "right" 5
+
+        mtbKF_mainSaveForm ;
+
+    showWindow mtbKF_InstructionsWin;
+
+    //Resize the main window
+    window -e -widthHeight 925 525 mtbKF_InstructionsWin;
+
+}//end of proc
