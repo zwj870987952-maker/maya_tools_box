@@ -1,0 +1,5667 @@
+{
+  "files": [
+    {
+      "path": "barnev_Joint_Optimal_Pro_Application_code.mel",
+      "sha256": "7089b8ef8f9eecc4460a1d5899f2d81005208a8fe8805f29cbc3c0f640af5c23"
+    },
+    {
+      "path": "drag_and_drop_THIS_FILE_on_maya_window_for_install_Joint_Optimal_Pro_Application.mel",
+      "sha256": "48a973895dcff9f4bdba55f670880451f08c43b4939f4b3ac62814980a59de7a"
+    },
+    {
+      "path": "ico/create_joint_tools.png",
+      "sha256": "84667c697bd82c4ee3fde8b34c766b5cbdad1f56680d7583a8fbe1d185a5c0fb"
+    },
+    {
+      "path": "JointOptimalProApplication_Guide.pdf",
+      "sha256": "5e62b070e28edac3c914f2521096ad11a70e6b337d7f3f2f0e01c0c16baa89ef"
+    },
+    {
+      "path": "License.txt",
+      "sha256": "dd90a09b24e82b8f79ef260864d827a12da142da4fafb15c0854a274fa1b05bc"
+    },
+    {
+      "path": "READ_ME.TXT",
+      "sha256": "7b148a80c0fbadf8eaf0660b80b648de79f8e33159626ae70e90645ecd6d79fc"
+    }
+  ],
+  "procedures": {
+    "JOPA_skeleton_tools_menue": {
+      "name": "JOPA_skeleton_tools_menue",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 32,
+      "end_line": 560,
+      "direct_effects": [
+        "delete",
+        "parent",
+        "system",
+        "selectPref",
+        "undoInfo",
+        "window"
+      ],
+      "ui_references": [
+        {
+          "line": 30,
+          "text": "JOPA_skeleton_tools_menue()"
+        }
+      ]
+    },
+    "JOPA_4_1_f16154a48b6bb7af40bdec525973aa99": {
+      "name": "JOPA_4_1_f16154a48b6bb7af40bdec525973aa99",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "on_off",
+          "type": "int"
+        }
+      ],
+      "line": 561,
+      "end_line": 569,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 233,
+          "text": "-command \" JOPA_4_1_f16154a48b6bb7af40bdec525973aa99(1)\""
+        },
+        {
+          "line": 237,
+          "text": "-command \" JOPA_4_1_f16154a48b6bb7af40bdec525973aa99(0)\""
+        }
+      ]
+    },
+    "JOPA_4_1_5ca4dc00d401eb19d3b3eaf8ceb68c51": {
+      "name": "JOPA_4_1_5ca4dc00d401eb19d3b3eaf8ceb68c51",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mod",
+          "type": "int"
+        }
+      ],
+      "line": 570,
+      "end_line": 646,
+      "direct_effects": [
+        "delete",
+        "parent",
+        "setAttr",
+        "connectAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 77,
+          "text": "button   -w ($btnn_w/3) -h $mid_button_h -command \"repeatLast -ac \\\" JOPA_4_1_5ca4dc00d401eb19d3b3eaf8ceb68c51(0);\\\" -acl \\\" add joint in chain \\\";JOPA_4_1_5ca4dc00d401eb19d3b3eaf8ceb68c51(1);\" -annotation \" add 1 joint \" \" + \";"
+        }
+      ]
+    },
+    "JOPA_4_1_9d2772351e5b1bd29134402e8ccbbda0": {
+      "name": "JOPA_4_1_9d2772351e5b1bd29134402e8ccbbda0",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 647,
+      "end_line": 699,
+      "direct_effects": [
+        "delete",
+        "parent",
+        "setAttr",
+        "connectAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 78,
+          "text": "button   -w ($btnn_w/3) -h $mid_button_h -command \"repeatLast -ac \\\" JOPA_4_1_9d2772351e5b1bd29134402e8ccbbda0();\\\" -acl \\\" remove joint from chain \\\";JOPA_4_1_9d2772351e5b1bd29134402e8ccbbda0();\" -annotation \" remove 1 joint \" \" - \";"
+        }
+      ]
+    },
+    "JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e": {
+      "name": "JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "mod",
+          "type": "string"
+        }
+      ],
+      "line": 700,
+      "end_line": 742,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": [
+        {
+          "line": 100,
+          "text": "-command \"$SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod=\\\"T\\\"; repeatLast -ac \\\" JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);\\\" -acl \\\" create by 3 T form \\\" ; JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);\""
+        },
+        {
+          "line": 103,
+          "text": "-command \"$SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod=\\\"-T\\\"; repeatLast -ac \\\" JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);\\\" -acl \\\" create by 3 -T form \\\" ; JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);\""
+        },
+        {
+          "line": 106,
+          "text": "-command \"$SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod=\\\"L\\\"; repeatLast -ac \\\" JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);\\\" -acl \\\" create by 3 L form \\\" ; JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);\""
+        },
+        {
+          "line": 109,
+          "text": "-command \"$SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod=\\\"V\\\"; repeatLast -ac \\\" JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);\\\" -acl \\\" create by 3 V form \\\" ; JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);\""
+        }
+      ]
+    },
+    "JOPA_4_1_52cb8fd96018b22c9d21d83beb0fbc31": {
+      "name": "JOPA_4_1_52cb8fd96018b22c9d21d83beb0fbc31",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "degree",
+          "type": "int"
+        }
+      ],
+      "line": 743,
+      "end_line": 795,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_b9629ebf4695f6ad1940993b73361ead": {
+      "name": "JOPA_4_1_b9629ebf4695f6ad1940993b73361ead",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "coeff",
+          "type": "int"
+        }
+      ],
+      "line": 796,
+      "end_line": 826,
+      "direct_effects": [
+        "delete",
+        "setAttr",
+        "connectAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 161,
+          "text": "button  -h $mid_button_h  -w ($btnn_w) -command \"repeatLast -ac \\\" JOPA_4_1_b9629ebf4695f6ad1940993b73361ead(10)\\\" -acl \\\"Smooth position \\\"; JOPA_4_1_b9629ebf4695f6ad1940993b73361ead(10)\" -annotation \"smooth positions selected \" \"Smooth position\";"
+        },
+        {
+          "line": 163,
+          "text": "button   -h $mid_button_h  -w ($btnn_w+1)  -command \"repeatLast -ac \\\" JOPA_4_1_b9629ebf4695f6ad1940993b73361ead(100)\\\" -acl \\\" Straight position \\\"; JOPA_4_1_b9629ebf4695f6ad1940993b73361ead(100)\" -annotation \"arrange in a straight line selected\" \"Straight position\";"
+        }
+      ]
+    },
+    "JOPA_4_1_a8aee5f7819058e898a22052bd3773a1": {
+      "name": "JOPA_4_1_a8aee5f7819058e898a22052bd3773a1",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 827,
+      "end_line": 853,
+      "direct_effects": [
+        "delete",
+        "setAttr",
+        "connectAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 166,
+          "text": "button -h $small_button_h -w ($btnn_w)-command \"repeatLast -ac \\\" JOPA_4_1_a8aee5f7819058e898a22052bd3773a1\\\" -acl \\\"align distribution \\\"; JOPA_4_1_a8aee5f7819058e898a22052bd3773a1 \" -annotation \"align distance distribution\" \"align distribution\";"
+        }
+      ]
+    },
+    "JOPA_4_1_0cb8b5d4e384a1ba8b59ac35529bc7eb": {
+      "name": "JOPA_4_1_0cb8b5d4e384a1ba8b59ac35529bc7eb",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "coeff",
+          "type": "float"
+        }
+      ],
+      "line": 854,
+      "end_line": 893,
+      "direct_effects": [
+        "delete",
+        "setAttr",
+        "connectAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 165,
+          "text": "button  -h $mid_button_h -w ($btnn_w/2) -command \"repeatLast -ac \\\" JOPA_4_1_0cb8b5d4e384a1ba8b59ac35529bc7eb(-0.2)\\\" -acl \\\" align object position \\\"; JOPA_4_1_0cb8b5d4e384a1ba8b59ac35529bc7eb(-0.2)\" -annotation \"move to the first selected object\" \"<<<<\";"
+        },
+        {
+          "line": 167,
+          "text": "button   -h $mid_button_h -w ($btnn_w/2) -command \"repeatLast -ac \\\" JOPA_4_1_0cb8b5d4e384a1ba8b59ac35529bc7eb(0.2)\\\" -acl \\\" align object position \\\";JOPA_4_1_0cb8b5d4e384a1ba8b59ac35529bc7eb(0.2)\" -annotation \"move to the last selected object \" \">>>>\";"
+        }
+      ]
+    },
+    "JOPA_4_1_266cf15f213f144bd5577f55c93329d0": {
+      "name": "JOPA_4_1_266cf15f213f144bd5577f55c93329d0",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "pos",
+          "type": "int"
+        }
+      ],
+      "line": 894,
+      "end_line": 911,
+      "direct_effects": [
+        "system"
+      ],
+      "ui_references": [
+        {
+          "line": 172,
+          "text": "-w ($btnn_w/3 -1) -command \"JOPA_4_1_266cf15f213f144bd5577f55c93329d0(0)\" \"<\";"
+        },
+        {
+          "line": 175,
+          "text": "-w ($btnn_w/3 -1) -command \"JOPA_4_1_266cf15f213f144bd5577f55c93329d0(1)\" \"0\";"
+        },
+        {
+          "line": 178,
+          "text": "-w ($btnn_w/3 -1) -command \"JOPA_4_1_266cf15f213f144bd5577f55c93329d0(2)\" \">\";"
+        }
+      ]
+    },
+    "JOPA_4_1_2db96bd9c47870bc6534b47731f587ae": {
+      "name": "JOPA_4_1_2db96bd9c47870bc6534b47731f587ae",
+      "global_scope": true,
+      "return_type": "float",
+      "parameters": [
+        {
+          "name": "joints",
+          "type": "string[]"
+        },
+        {
+          "name": "div",
+          "type": "float"
+        }
+      ],
+      "line": 912,
+      "end_line": 924,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 277,
+          "text": "-c \"repeatLast -ac \\\"JOPA_4_1_2db96bd9c47870bc6534b47731f587ae(`ls-sl`,6) \\\" -acl \\\" set size by lenght \\\"; JOPA_4_1_2db96bd9c47870bc6534b47731f587ae(`ls-sl`,6)\""
+        }
+      ]
+    },
+    "JOPA_4_1_d6b9c21beb7156b6229e41d3d9f7ef3c": {
+      "name": "JOPA_4_1_d6b9c21beb7156b6229e41d3d9f7ef3c",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 925,
+      "end_line": 979,
+      "direct_effects": [
+        "delete",
+        "parent",
+        "setAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 185,
+          "text": "-command \"repeatLast -ac \\\" JOPA_4_1_d6b9c21beb7156b6229e41d3d9f7ef3c\\\" -acl \\\" align on plane \\\";JOPA_4_1_d6b9c21beb7156b6229e41d3d9f7ef3c()\" -annotation \"align the plane selected joints manually \""
+        }
+      ]
+    },
+    "JOPA_4_1_3ee4702003ee8d11faa99588f53763ed": {
+      "name": "JOPA_4_1_3ee4702003ee8d11faa99588f53763ed",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 980,
+      "end_line": 1007,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": [
+        {
+          "line": 180,
+          "text": "button  -h $mid_button_h  -w ($btnn_w)-command \"repeatLast -ac \\\" JOPA_4_1_3ee4702003ee8d11faa99588f53763ed\\\" -acl \\\" align on plane \\\";JOPA_4_1_3ee4702003ee8d11faa99588f53763ed()\" -annotation \"align the plane selected joints\" \"align plane\";"
+        }
+      ]
+    },
+    "JOPA_4_1_ee610d2367958b592a8726aa94ff0ff1": {
+      "name": "JOPA_4_1_ee610d2367958b592a8726aa94ff0ff1",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "w_axis",
+          "type": "string"
+        },
+        {
+          "name": "abs_mode",
+          "type": "int"
+        }
+      ],
+      "line": 1008,
+      "end_line": 1038,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": [
+        {
+          "line": 191,
+          "text": "button  -h ($mid_button_h-2)  -w ($btnn_w/2) -command \" JOPA_4_1_ee610d2367958b592a8726aa94ff0ff1(\\\"x\\\",`checkBox -q -v abs_mode`);\" -annotation \"align the world plane X projection\" \"align X\";"
+        },
+        {
+          "line": 192,
+          "text": "button  -h ($mid_button_h-2)  -w ($btnn_w/2) -command \" JOPA_4_1_ee610d2367958b592a8726aa94ff0ff1(\\\"y\\\",`checkBox -q -v abs_mode`);\" -annotation \"align the world plane Y projection\" \"align Y\";"
+        },
+        {
+          "line": 193,
+          "text": "button  -h ($mid_button_h-2)  -w ($btnn_w/2) -command \" JOPA_4_1_ee610d2367958b592a8726aa94ff0ff1(\\\"z\\\",`checkBox -q -v abs_mode`);\" -annotation \"align the world plane Z projection\" \"align Z\";"
+        }
+      ]
+    },
+    "JOPA_4_1_911ce829ffadd631db0afd6c10b8a9c1": {
+      "name": "JOPA_4_1_911ce829ffadd631db0afd6c10b8a9c1",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1039,
+      "end_line": 1047,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 336,
+          "text": "button  -h $mid_button_h -w $btnn_w  -command \"JOPA_4_1_911ce829ffadd631db0afd6c10b8a9c1()\" -annotation \"multiply mirror tool\" \"MultiMirror\";"
+        }
+      ]
+    },
+    "JOPA_4_1_7c23beeb22741f0c0bad91ebefb06e18": {
+      "name": "JOPA_4_1_7c23beeb22741f0c0bad91ebefb06e18",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1048,
+      "end_line": 1062,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 324,
+          "text": "button  -h $mid_button_h  -w ($btnn_w*0.9) -command \" JOPA_4_1_7c23beeb22741f0c0bad91ebefb06e18()\" -annotation \"correcting joint rotate manually\"  \"correct manually\";"
+        },
+        {
+          "line": 326,
+          "text": "button   -h $mid_button_h -w ($btnn_w/2) -command \"JOPA_4_1_7c23beeb22741f0c0bad91ebefb06e18();JOPA_4_1_39488f9fb9b49f3b387fe78ea9cda2f0();JOPA_4_1_cc20e95399a3b6da44eb78e45451d764(13); JOPA_4_1_6de8028af587b467034457b4d6349f89(1.5) \" -annotation \" - proportion_rotate - for delete - use DELETE MANIP button\"  \"prop\";"
+        }
+      ]
+    },
+    "JOPA_4_1_39488f9fb9b49f3b387fe78ea9cda2f0": {
+      "name": "JOPA_4_1_39488f9fb9b49f3b387fe78ea9cda2f0",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1063,
+      "end_line": 1098,
+      "direct_effects": [
+        "setAttr",
+        "connectAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 326,
+          "text": "button   -h $mid_button_h -w ($btnn_w/2) -command \"JOPA_4_1_7c23beeb22741f0c0bad91ebefb06e18();JOPA_4_1_39488f9fb9b49f3b387fe78ea9cda2f0();JOPA_4_1_cc20e95399a3b6da44eb78e45451d764(13); JOPA_4_1_6de8028af587b467034457b4d6349f89(1.5) \" -annotation \" - proportion_rotate - for delete - use DELETE MANIP button\"  \"prop\";"
+        }
+      ]
+    },
+    "JOPA_4_1_a724b4b2abdd9e942758573c2c47afe6": {
+      "name": "JOPA_4_1_a724b4b2abdd9e942758573c2c47afe6",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "limit",
+          "type": "int"
+        }
+      ],
+      "line": 1099,
+      "end_line": 1105,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 71,
+          "text": "button -h $mid_button_h -w $btnn_w -command \" repeatLast -ac \\\" JOPA_4_1_a724b4b2abdd9e942758573c2c47afe6(100) \\\" -acl \\\"create joints \\\"; JOPA_4_1_a724b4b2abdd9e942758573c2c47afe6(100);\" -annotation \"create joints on selected  - not more than 100\" \"joint\";"
+        }
+      ]
+    },
+    "JOPA_4_1_52c981703a2cf84e5e60002e83f3fa52": {
+      "name": "JOPA_4_1_52c981703a2cf84e5e60002e83f3fa52",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "rx",
+          "type": "float"
+        },
+        {
+          "name": "ry",
+          "type": "float"
+        },
+        {
+          "name": "rz",
+          "type": "float"
+        }
+      ],
+      "line": 1106,
+      "end_line": 1117,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": [
+        {
+          "line": 321,
+          "text": "button -h $small_button_h -w ($btnn_w/3) -command \"JOPA_4_1_52c981703a2cf84e5e60002e83f3fa52(90, 0, 0);\" -annotation \"rotate Õ\"  \"rX 90\";"
+        },
+        {
+          "line": 322,
+          "text": "button -h $small_button_h -w ($btnn_w/3) -command \"JOPA_4_1_52c981703a2cf84e5e60002e83f3fa52(0, 90, 0);\" -annotation \"rotate Y\"  \"rY 90\";"
+        },
+        {
+          "line": 323,
+          "text": "button -h $small_button_h -w ($btnn_w/3) -command \"JOPA_4_1_52c981703a2cf84e5e60002e83f3fa52(0, 0, 90);\" -annotation \"rotate Z\"  \"rZ 90\";"
+        }
+      ]
+    },
+    "JOPA_4_1_d3cdf2488e5fc40a8060f5da3e93637a": {
+      "name": "JOPA_4_1_d3cdf2488e5fc40a8060f5da3e93637a",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 1118,
+      "end_line": 1137,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 74,
+          "text": "button   -h $mid_button_h -w $btnn_w -command \"repeatLast -ac \\\"select (`JOPA_4_1_d3cdf2488e5fc40a8060f5da3e93637a`)\\\" -acl \\\"create joints and parent \\\"; select (`JOPA_4_1_d3cdf2488e5fc40a8060f5da3e93637a`)\"  -ann \"create joints inside selected \" \"inside joints\";"
+        }
+      ]
+    },
+    "JOPA_4_1_773705e2fd3f8e12d1cd931401dc396e": {
+      "name": "JOPA_4_1_773705e2fd3f8e12d1cd931401dc396e",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "axis",
+          "type": "string"
+        }
+      ],
+      "line": 1138,
+      "end_line": 1163,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": [
+        {
+          "line": 311,
+          "text": "button -w ($btnn_w*1.5)  -h $mid_button_h -p \"child_bttn\" -command \"repeatLast -ac \\\" JOPA_4_1_773705e2fd3f8e12d1cd931401dc396e($minus_MM + $barnev_skeleton_menue_axis)\\\" -acl \\\" orient joint on parent\\\"; JOPA_4_1_773705e2fd3f8e12d1cd931401dc396e($minus_MM + $barnev_skeleton_menue_axis);\" -annotation \"orient the bone by the selected axis from the parent\"  \"orient joint from parent\";"
+        }
+      ]
+    },
+    "JOPA_4_1_13f03d6a42bbd197e6eb294d298faacd": {
+      "name": "JOPA_4_1_13f03d6a42bbd197e6eb294d298faacd",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 1164,
+      "end_line": 1193,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_ad3e5fee1a27e33794ab15e8350f4b53": {
+      "name": "JOPA_4_1_ad3e5fee1a27e33794ab15e8350f4b53",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "add",
+          "type": "int"
+        }
+      ],
+      "line": 1194,
+      "end_line": 1241,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": [
+        {
+          "line": 82,
+          "text": "-command \"repeatLast -ac \\\" JOPA_4_1_ad3e5fee1a27e33794ab15e8350f4b53(1);\\\" -acl \\\" add joint on selected curve \\\";JOPA_4_1_ad3e5fee1a27e33794ab15e8350f4b53(1);\""
+        },
+        {
+          "line": 86,
+          "text": "-command \"repeatLast -ac \\\" JOPA_4_1_ad3e5fee1a27e33794ab15e8350f4b53(0);\\\" -acl \\\" remove joint from selected curve chain \\\";JOPA_4_1_ad3e5fee1a27e33794ab15e8350f4b53(0);\""
+        }
+      ]
+    },
+    "JOPA_4_1_972cbf131f510c941b6fca958a7d0c69": {
+      "name": "JOPA_4_1_972cbf131f510c941b6fca958a7d0c69",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [],
+      "line": 1242,
+      "end_line": 1250,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 198,
+          "text": "-command \"JOPA_4_1_972cbf131f510c941b6fca958a7d0c69()\""
+        }
+      ]
+    },
+    "JOPA_4_1_e79dd31d96c9498499196fdfdddd4698": {
+      "name": "JOPA_4_1_e79dd31d96c9498499196fdfdddd4698",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1251,
+      "end_line": 1289,
+      "direct_effects": [
+        "parent",
+        "window"
+      ],
+      "ui_references": [
+        {
+          "line": 242,
+          "text": "-command \" JOPA_4_1_e79dd31d96c9498499196fdfdddd4698()\""
+        }
+      ]
+    },
+    "JOPA_4_1_a0656c7a9e8e5e98ead5c90575dbfb28": {
+      "name": "JOPA_4_1_a0656c7a9e8e5e98ead5c90575dbfb28",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 1290,
+      "end_line": 1348,
+      "direct_effects": [
+        "delete",
+        "parent",
+        "eval",
+        "optionVar"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_9e849622a64e61725d0526208e8aee88": {
+      "name": "JOPA_4_1_9e849622a64e61725d0526208e8aee88",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1349,
+      "end_line": 1382,
+      "direct_effects": [
+        "parent",
+        "optionVar",
+        "undoInfo",
+        "window"
+      ],
+      "ui_references": [
+        {
+          "line": 342,
+          "text": "-command \"JOPA_4_1_9e849622a64e61725d0526208e8aee88\""
+        }
+      ]
+    },
+    "JOPA_4_1_72356eaf232b169651a82383ba9e7e57": {
+      "name": "JOPA_4_1_72356eaf232b169651a82383ba9e7e57",
+      "global_scope": true,
+      "return_type": "vector[]",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        }
+      ],
+      "line": 1383,
+      "end_line": 1395,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_a5d8b0122c186b9a25fc1b6d3ff9b430": {
+      "name": "JOPA_4_1_a5d8b0122c186b9a25fc1b6d3ff9b430",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        },
+        {
+          "name": "lenght_coeff",
+          "type": "float"
+        },
+        {
+          "name": "distribution_coeff",
+          "type": "float"
+        }
+      ],
+      "line": 1396,
+      "end_line": 1412,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_8aba008b6f6ae60b66a902e6ab3eed1c": {
+      "name": "JOPA_4_1_8aba008b6f6ae60b66a902e6ab3eed1c",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        },
+        {
+          "name": "lenght_coeff",
+          "type": "float"
+        },
+        {
+          "name": "distribution_coeff",
+          "type": "float"
+        }
+      ],
+      "line": 1413,
+      "end_line": 1435,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_a358a7c27f7a7b80712d695138ed032e": {
+      "name": "JOPA_4_1_a358a7c27f7a7b80712d695138ed032e",
+      "global_scope": true,
+      "return_type": "float",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        },
+        {
+          "name": "average",
+          "type": "int"
+        }
+      ],
+      "line": 1436,
+      "end_line": 1444,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_05c4f6d59fdd2a71f23116d9d4f892c2": {
+      "name": "JOPA_4_1_05c4f6d59fdd2a71f23116d9d4f892c2",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "pos_A",
+          "type": "float[]"
+        },
+        {
+          "name": "pos_B",
+          "type": "float[]"
+        },
+        {
+          "name": "pos_C",
+          "type": "float[]"
+        }
+      ],
+      "line": 1445,
+      "end_line": 1463,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_f9ccf45626df05475e8ab66b6f511dd6": {
+      "name": "JOPA_4_1_f9ccf45626df05475e8ab66b6f511dd6",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        }
+      ],
+      "line": 1464,
+      "end_line": 1479,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_b370e1f695c58fe83552587a1fd52907": {
+      "name": "JOPA_4_1_b370e1f695c58fe83552587a1fd52907",
+      "global_scope": true,
+      "return_type": "int",
+      "parameters": [
+        {
+          "name": "coords",
+          "type": "vector[]"
+        }
+      ],
+      "line": 1480,
+      "end_line": 1492,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_e3bea614176fbceebe7c7aae67e953b0": {
+      "name": "JOPA_4_1_e3bea614176fbceebe7c7aae67e953b0",
+      "global_scope": true,
+      "return_type": "vector",
+      "parameters": [
+        {
+          "name": "coords",
+          "type": "vector[]"
+        }
+      ],
+      "line": 1493,
+      "end_line": 1501,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_d0a0b515ba819d3c77adb0bbe48cfd1d": {
+      "name": "JOPA_4_1_d0a0b515ba819d3c77adb0bbe48cfd1d",
+      "global_scope": true,
+      "return_type": "int",
+      "parameters": [
+        {
+          "name": "massive",
+          "type": "float[]"
+        },
+        {
+          "name": "min_max",
+          "type": "int"
+        }
+      ],
+      "line": 1502,
+      "end_line": 1532,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_4d4e630bb3f78b918b505c8ebfcbb814": {
+      "name": "JOPA_4_1_4d4e630bb3f78b918b505c8ebfcbb814",
+      "global_scope": true,
+      "return_type": "float",
+      "parameters": [
+        {
+          "name": "A",
+          "type": "float[]"
+        },
+        {
+          "name": "B",
+          "type": "float[]"
+        },
+        {
+          "name": "C",
+          "type": "float[]"
+        },
+        {
+          "name": "RAD",
+          "type": "int"
+        }
+      ],
+      "line": 1533,
+      "end_line": 1541,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_72d9b297f109729673f6fe9d719defbd": {
+      "name": "JOPA_4_1_72d9b297f109729673f6fe9d719defbd",
+      "global_scope": true,
+      "return_type": "vector[]",
+      "parameters": [
+        {
+          "name": "base_object",
+          "type": "string"
+        },
+        {
+          "name": "coords",
+          "type": "string"
+        }
+      ],
+      "line": 1542,
+      "end_line": 1599,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_329067de90245bf18aa04dd0b6c95e8b": {
+      "name": "JOPA_4_1_329067de90245bf18aa04dd0b6c95e8b",
+      "global_scope": true,
+      "return_type": "vector[]",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        }
+      ],
+      "line": 1600,
+      "end_line": 1610,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_054bd1354cce44fe1809d56e47e98bd1": {
+      "name": "JOPA_4_1_054bd1354cce44fe1809d56e47e98bd1",
+      "global_scope": true,
+      "return_type": "vector[]",
+      "parameters": [
+        {
+          "name": "base_object",
+          "type": "string"
+        },
+        {
+          "name": "coords",
+          "type": "vector[]"
+        }
+      ],
+      "line": 1611,
+      "end_line": 1634,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_f36a2b49955bde470eba9a552b27050a": {
+      "name": "JOPA_4_1_f36a2b49955bde470eba9a552b27050a",
+      "global_scope": true,
+      "return_type": "vector[]",
+      "parameters": [
+        {
+          "name": "base_object",
+          "type": "string"
+        },
+        {
+          "name": "coords",
+          "type": "vector[]"
+        }
+      ],
+      "line": 1635,
+      "end_line": 1657,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_f71c299bf7b53f7243b078a9990e581c": {
+      "name": "JOPA_4_1_f71c299bf7b53f7243b078a9990e581c",
+      "global_scope": true,
+      "return_type": "float",
+      "parameters": [
+        {
+          "name": "input",
+          "type": "float"
+        }
+      ],
+      "line": 1658,
+      "end_line": 1681,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_bbdcb7aa2a9fb9f578c6918e969707df": {
+      "name": "JOPA_4_1_bbdcb7aa2a9fb9f578c6918e969707df",
+      "global_scope": true,
+      "return_type": "matrix",
+      "parameters": [
+        {
+          "name": "input_float",
+          "type": "float[]"
+        }
+      ],
+      "line": 1682,
+      "end_line": 1690,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_67e18bc2c5d60ae22ef30973f2f543ec": {
+      "name": "JOPA_4_1_67e18bc2c5d60ae22ef30973f2f543ec",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "input_matrix",
+          "type": "float[]"
+        }
+      ],
+      "line": 1691,
+      "end_line": 1740,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_6d2bbf47e863c2f0037cf0467b97cef6": {
+      "name": "JOPA_4_1_6d2bbf47e863c2f0037cf0467b97cef6",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [],
+      "line": 1750,
+      "end_line": 1757,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 68,
+          "text": "button -h $mid_button_h -w $btnn_w -command \"repeatLast -ac \\\"JOPA_4_1_6d2bbf47e863c2f0037cf0467b97cef6\\\" -acl \\\"create joints \\\";JOPA_4_1_6d2bbf47e863c2f0037cf0467b97cef6;\" -annotation \"create a joint in the center of the selected vertices\" \"joint on center\";"
+        }
+      ]
+    },
+    "JOPA_4_1_94c81da260931e06d6e51c78e142796f": {
+      "name": "JOPA_4_1_94c81da260931e06d6e51c78e142796f",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "toggler_items",
+          "type": "string[]"
+        },
+        {
+          "name": "nodename",
+          "type": "string"
+        }
+      ],
+      "line": 1758,
+      "end_line": 1768,
+      "direct_effects": [
+        "connectAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_6c03bcf1c4cd077aea727f60dfb001f6": {
+      "name": "JOPA_4_1_6c03bcf1c4cd077aea727f60dfb001f6",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "mode",
+          "type": "int"
+        },
+        {
+          "name": "nodename_mask",
+          "type": "string"
+        }
+      ],
+      "line": 1769,
+      "end_line": 1817,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_feece4078c8aeb0c08bb278bcaf1bd05": {
+      "name": "JOPA_4_1_feece4078c8aeb0c08bb278bcaf1bd05",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "num",
+          "type": "int"
+        },
+        {
+          "name": "indexses",
+          "type": "int[]"
+        }
+      ],
+      "line": 1818,
+      "end_line": 1832,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 373,
+          "text": "palettePort -e -rgbValue 0 0.6 0.6 0.6 -cc (\"JOPA_4_1_feece4078c8aeb0c08bb278bcaf1bd05(`palettePort -q -setCurCell \" + $colorPalette + \"`, \" + $index_val_string + \")\") $colorPalette;"
+        }
+      ]
+    },
+    "JOPA_4_1_cf7d60c10a2e981ece1b4edc00bb807f": {
+      "name": "JOPA_4_1_cf7d60c10a2e981ece1b4edc00bb807f",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "rebike_animation",
+          "type": "int"
+        }
+      ],
+      "line": 1833,
+      "end_line": 1867,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0": {
+      "name": "JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 1868,
+      "end_line": 1898,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_f2d5a2798ed7cfee36eb77ee8a281ed8": {
+      "name": "JOPA_4_1_f2d5a2798ed7cfee36eb77ee8a281ed8",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 1899,
+      "end_line": 1932,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_a8d1933a966541e62d79a2fcbf6e4ea4": {
+      "name": "JOPA_4_1_a8d1933a966541e62d79a2fcbf6e4ea4",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "interpolation",
+          "type": "int"
+        }
+      ],
+      "line": 1933,
+      "end_line": 1948,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_83a9015d514ecd1326a1648b28396ba2": {
+      "name": "JOPA_4_1_83a9015d514ecd1326a1648b28396ba2",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "coords",
+          "type": "vector[]"
+        },
+        {
+          "name": "interp",
+          "type": "int"
+        }
+      ],
+      "line": 1949,
+      "end_line": 1963,
+      "direct_effects": [
+        "eval"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_b059868e801453725e5c31a1938f0210": {
+      "name": "JOPA_4_1_b059868e801453725e5c31a1938f0210",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "p1",
+          "type": "float[]"
+        },
+        {
+          "name": "p2",
+          "type": "float[]"
+        },
+        {
+          "name": "p3",
+          "type": "float[]"
+        },
+        {
+          "name": "degree",
+          "type": "int"
+        },
+        {
+          "name": "spans",
+          "type": "int"
+        }
+      ],
+      "line": 1964,
+      "end_line": 1979,
+      "direct_effects": [
+        "delete",
+        "setAttr",
+        "connectAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_e6d1cc62e700198ddfd8906d663761ba": {
+      "name": "JOPA_4_1_e6d1cc62e700198ddfd8906d663761ba",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 1980,
+      "end_line": 1990,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_f0209cb5b5931bdfa7ae6801db19a0f8": {
+      "name": "JOPA_4_1_f0209cb5b5931bdfa7ae6801db19a0f8",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 1991,
+      "end_line": 2018,
+      "direct_effects": [
+        "delete",
+        "parent"
+      ],
+      "ui_references": [
+        {
+          "line": 144,
+          "text": "button  -h $mid_button_h -w ($btnn_w ) -command \"repeatLast -ac \\\"$objects=JOPA_4_1_f0209cb5b5931bdfa7ae6801db19a0f8();select -cl;select ($objects);\\\" -acl \\\"parent sequent \\\"; $objects=JOPA_4_1_f0209cb5b5931bdfa7ae6801db19a0f8();select -cl;select ($objects);\" -annotation \"sequentially parent selected objects from first to last\" \"parent sequent\";"
+        }
+      ]
+    },
+    "JOPA_4_1_32a3829df17c3736d9757e423eeaf0e3": {
+      "name": "JOPA_4_1_32a3829df17c3736d9757e423eeaf0e3",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "string[]"
+        },
+        {
+          "name": "object",
+          "type": "string[]"
+        }
+      ],
+      "line": 2019,
+      "end_line": 2038,
+      "direct_effects": [
+        "parent"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_4666e1e44291e7950c6d8b3906bbb9c7": {
+      "name": "JOPA_4_1_4666e1e44291e7950c6d8b3906bbb9c7",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "string[]"
+        },
+        {
+          "name": "object",
+          "type": "string[]"
+        },
+        {
+          "name": "reset_scale",
+          "type": "int"
+        }
+      ],
+      "line": 2039,
+      "end_line": 2065,
+      "direct_effects": [
+        "parent"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_95a1a70cbaa809195c99a215410318c8": {
+      "name": "JOPA_4_1_95a1a70cbaa809195c99a215410318c8",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "scale_mod",
+          "type": "int"
+        }
+      ],
+      "line": 2066,
+      "end_line": 2075,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 148,
+          "text": "-command  \"undoInfo -ock -cn \\\"true_parent\\\";JOPA_4_1_95a1a70cbaa809195c99a215410318c8(1);undoInfo -cck;\""
+        }
+      ]
+    },
+    "JOPA_4_1_f4a01868ca61fbc2847abcd1b618cc24": {
+      "name": "JOPA_4_1_f4a01868ca61fbc2847abcd1b618cc24",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 2076,
+      "end_line": 2089,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 218,
+          "text": "-command \"repeatLast -ac \\\" JOPA_4_1_f4a01868ca61fbc2847abcd1b618cc24();\\\" -acl \\\" swap selection order \\\";JOPA_4_1_f4a01868ca61fbc2847abcd1b618cc24()\""
+        }
+      ]
+    },
+    "JOPA_4_1_e706e982298fe9e8f94ae04b06b5d6b2": {
+      "name": "JOPA_4_1_e706e982298fe9e8f94ae04b06b5d6b2",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "prefix",
+          "type": "string"
+        }
+      ],
+      "line": 2090,
+      "end_line": 2104,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_3cee12804dcac45527d4bfcfcb7c7431": {
+      "name": "JOPA_4_1_3cee12804dcac45527d4bfcfcb7c7431",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "prefix",
+          "type": "string"
+        },
+        {
+          "name": "postfix",
+          "type": "string"
+        }
+      ],
+      "line": 2105,
+      "end_line": 2119,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 541,
+          "text": "-c \"JOPA_4_1_3cee12804dcac45527d4bfcfcb7c7431(`textField -q -tx prefix_text_field` , `textField -q -tx postfix_text_field`); \""
+        }
+      ]
+    },
+    "JOPA_4_1_c9088e941b7677113499bb19ad80f9bf": {
+      "name": "JOPA_4_1_c9088e941b7677113499bb19ad80f9bf",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "prefix",
+          "type": "string"
+        },
+        {
+          "name": "name_massive",
+          "type": "string[]"
+        }
+      ],
+      "line": 2120,
+      "end_line": 2138,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_ade4e354383a28fcefcaf5ce40e6639d": {
+      "name": "JOPA_4_1_ade4e354383a28fcefcaf5ce40e6639d",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2139,
+      "end_line": 2147,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_975573a52a98abc101c2b805675f922b": {
+      "name": "JOPA_4_1_975573a52a98abc101c2b805675f922b",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "lock",
+          "type": "int"
+        }
+      ],
+      "line": 2148,
+      "end_line": 2156,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 248,
+          "text": "button -w ($btnn_w/2) -h $small_button_h -command \"repeatLast -ac \\\" JOPA_4_1_975573a52a98abc101c2b805675f922b(0)\\\" -acl \\\" segment scale compensate OFF\\\"; JOPA_4_1_975573a52a98abc101c2b805675f922b(0)\" -annotation \" off segment scale compensate \" \"OFF\";"
+        },
+        {
+          "line": 249,
+          "text": "button -w ($btnn_w/2) -h $small_button_h -command \"repeatLast -ac \\\" JOPA_4_1_975573a52a98abc101c2b805675f922b(1)\\\" -acl \\\" segment scale compensate ON\\\"; JOPA_4_1_975573a52a98abc101c2b805675f922b(1)\" -annotation \"  on segment scale compensate \" \"ON\";"
+        }
+      ]
+    },
+    "JOPA_4_1_8c16c9163e07a819fc2186f2d338a280": {
+      "name": "JOPA_4_1_8c16c9163e07a819fc2186f2d338a280",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "show",
+          "type": "int"
+        }
+      ],
+      "line": 2157,
+      "end_line": 2169,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 255,
+          "text": "button  -w ($btnn_w/2) -h $small_button_h -command \"repeatLast -ac \\\"JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(1) \\\" -acl \\\" show local axis\\\"; JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(1)\" -annotation \"show local axis\" \"show\";"
+        },
+        {
+          "line": 256,
+          "text": "button -w ($btnn_w/2) -h $small_button_h -command \" repeatLast -ac \\\" JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(0)\\\" -acl \\\" hide local axis\\\"; JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(0)\"  -annotation \"hide local axis\" \"hide\";"
+        }
+      ]
+    },
+    "JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e": {
+      "name": "JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "scale_on",
+          "type": "float"
+        }
+      ],
+      "line": 2170,
+      "end_line": 2192,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 264,
+          "text": "-c \"repeatLast -ac \\\"JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(0.5) \\\" -acl \\\" scale size 0.5 \\\"; JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(0.5)\""
+        },
+        {
+          "line": 267,
+          "text": "-c \"repeatLast -ac \\\"JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(0.9) \\\" -acl \\\" scale size 0.9 \\\"; JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(0.9)\""
+        },
+        {
+          "line": 270,
+          "text": "-c \"repeatLast -ac \\\"JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(1.1) \\\" -acl \\\" scale size 1.1 \\\"; JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(1.1)\""
+        },
+        {
+          "line": 273,
+          "text": "-c \"repeatLast -ac \\\"JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(1.5) \\\" -acl \\\" scale size 1.5 \\\"; JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(1.5)\""
+        }
+      ]
+    },
+    "JOPA_4_1_bd56535e7e051ab809c6591e7c585696": {
+      "name": "JOPA_4_1_bd56535e7e051ab809c6591e7c585696",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        },
+        {
+          "name": "lock",
+          "type": "int"
+        }
+      ],
+      "line": 2193,
+      "end_line": 2207,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_38212629cf9ce2087192134a449b78d6": {
+      "name": "JOPA_4_1_38212629cf9ce2087192134a449b78d6",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "tx",
+          "type": "int"
+        },
+        {
+          "name": "ty",
+          "type": "int"
+        },
+        {
+          "name": "tz",
+          "type": "int"
+        },
+        {
+          "name": "rx",
+          "type": "int"
+        },
+        {
+          "name": "ry",
+          "type": "int"
+        },
+        {
+          "name": "rz",
+          "type": "int"
+        },
+        {
+          "name": "sx",
+          "type": "int"
+        },
+        {
+          "name": "sy",
+          "type": "int"
+        },
+        {
+          "name": "sz",
+          "type": "int"
+        },
+        {
+          "name": "viz",
+          "type": "int"
+        }
+      ],
+      "line": 2208,
+      "end_line": 2227,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_aa074854107180f09880ea0e8edd43f8": {
+      "name": "JOPA_4_1_aa074854107180f09880ea0e8edd43f8",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2228,
+      "end_line": 2235,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_90a059e9200ad500213586e0ecabdd0d": {
+      "name": "JOPA_4_1_90a059e9200ad500213586e0ecabdd0d",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        },
+        {
+          "name": "t_lock",
+          "type": "int"
+        },
+        {
+          "name": "r_lock",
+          "type": "int"
+        },
+        {
+          "name": "s_lock",
+          "type": "int"
+        },
+        {
+          "name": "v_lock",
+          "type": "int"
+        }
+      ],
+      "line": 2236,
+      "end_line": 2307,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_34cdd1e4469c2d3c695448db824d2ecb": {
+      "name": "JOPA_4_1_34cdd1e4469c2d3c695448db824d2ecb",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "on",
+          "type": "int"
+        }
+      ],
+      "line": 2308,
+      "end_line": 2316,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_cc20e95399a3b6da44eb78e45451d764": {
+      "name": "JOPA_4_1_cc20e95399a3b6da44eb78e45451d764",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "color",
+          "type": "int"
+        }
+      ],
+      "line": 2317,
+      "end_line": 2327,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 326,
+          "text": "button   -h $mid_button_h -w ($btnn_w/2) -command \"JOPA_4_1_7c23beeb22741f0c0bad91ebefb06e18();JOPA_4_1_39488f9fb9b49f3b387fe78ea9cda2f0();JOPA_4_1_cc20e95399a3b6da44eb78e45451d764(13); JOPA_4_1_6de8028af587b467034457b4d6349f89(1.5) \" -annotation \" - proportion_rotate - for delete - use DELETE MANIP button\"  \"prop\";"
+        }
+      ]
+    },
+    "JOPA_4_1_92de112c5c170c44ad9daf4d48b1acdd": {
+      "name": "JOPA_4_1_92de112c5c170c44ad9daf4d48b1acdd",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "rad",
+          "type": "float"
+        }
+      ],
+      "line": 2328,
+      "end_line": 2335,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_1b2691cd3c4740f4f00465c7e94c0373": {
+      "name": "JOPA_4_1_1b2691cd3c4740f4f00465c7e94c0373",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "jnts",
+          "type": "string[]"
+        },
+        {
+          "name": "rad",
+          "type": "float"
+        }
+      ],
+      "line": 2336,
+      "end_line": 2355,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_29941243f77aa0343e79460d48136072": {
+      "name": "JOPA_4_1_29941243f77aa0343e79460d48136072",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "local_scale",
+          "type": "float"
+        }
+      ],
+      "line": 2356,
+      "end_line": 2368,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_e9a3d5ffe283044f2485219b12ac5f73": {
+      "name": "JOPA_4_1_e9a3d5ffe283044f2485219b12ac5f73",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "objs",
+          "type": "string[]"
+        },
+        {
+          "name": "vis",
+          "type": "int"
+        }
+      ],
+      "line": 2369,
+      "end_line": 2376,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_15760bd5ac6225f582185bab24346a67": {
+      "name": "JOPA_4_1_15760bd5ac6225f582185bab24346a67",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "subScale",
+          "type": "float"
+        }
+      ],
+      "line": 2377,
+      "end_line": 2395,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 280,
+          "text": "-c \"repeatLast -ac \\\"JOPA_4_1_15760bd5ac6225f582185bab24346a67(0.5) \\\" -acl \\\" set size by camera dist \\\"; JOPA_4_1_15760bd5ac6225f582185bab24346a67(0.5)\""
+        }
+      ]
+    },
+    "JOPA_4_1_6de8028af587b467034457b4d6349f89": {
+      "name": "JOPA_4_1_6de8028af587b467034457b4d6349f89",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "subScale",
+          "type": "float"
+        }
+      ],
+      "line": 2396,
+      "end_line": 2415,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 326,
+          "text": "button   -h $mid_button_h -w ($btnn_w/2) -command \"JOPA_4_1_7c23beeb22741f0c0bad91ebefb06e18();JOPA_4_1_39488f9fb9b49f3b387fe78ea9cda2f0();JOPA_4_1_cc20e95399a3b6da44eb78e45451d764(13); JOPA_4_1_6de8028af587b467034457b4d6349f89(1.5) \" -annotation \" - proportion_rotate - for delete - use DELETE MANIP button\"  \"prop\";"
+        }
+      ]
+    },
+    "JOPA_4_1_3f2307b9993ee7d97577d190465f37c9": {
+      "name": "JOPA_4_1_3f2307b9993ee7d97577d190465f37c9",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        },
+        {
+          "name": "normalised",
+          "type": "int"
+        }
+      ],
+      "line": 2416,
+      "end_line": 2434,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_4a0278149f801323f33f7bb9e4ee597d": {
+      "name": "JOPA_4_1_4a0278149f801323f33f7bb9e4ee597d",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "target_massiv",
+          "type": "string[]"
+        },
+        {
+          "name": "object_massiv",
+          "type": "string[]"
+        }
+      ],
+      "line": 2435,
+      "end_line": 2474,
+      "direct_effects": [
+        "eval"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_ac2021d0d7ff3ecfad4dbca9f9f88248": {
+      "name": "JOPA_4_1_ac2021d0d7ff3ecfad4dbca9f9f88248",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "target_massiv",
+          "type": "string[]"
+        },
+        {
+          "name": "object_massiv",
+          "type": "string[]"
+        }
+      ],
+      "line": 2475,
+      "end_line": 2502,
+      "direct_effects": [
+        "eval"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_8598296823aa3af15686cb0d78f1615d": {
+      "name": "JOPA_4_1_8598296823aa3af15686cb0d78f1615d",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "selection",
+          "type": "string"
+        }
+      ],
+      "line": 2503,
+      "end_line": 2557,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_17431451b1be026fdeee93b86579c6b6": {
+      "name": "JOPA_4_1_17431451b1be026fdeee93b86579c6b6",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "target_massiv",
+          "type": "string[]"
+        },
+        {
+          "name": "object_massiv",
+          "type": "string[]"
+        }
+      ],
+      "line": 2558,
+      "end_line": 2622,
+      "direct_effects": [
+        "eval"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_5fce4865a9fd47748e6796c1be9d64b2": {
+      "name": "JOPA_4_1_5fce4865a9fd47748e6796c1be9d64b2",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2623,
+      "end_line": 2627,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_3323b46f97bc12510f86536ae21ff525": {
+      "name": "JOPA_4_1_3323b46f97bc12510f86536ae21ff525",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2628,
+      "end_line": 2632,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_ac692345fba3e827ad5d6e26de39ba07": {
+      "name": "JOPA_4_1_ac692345fba3e827ad5d6e26de39ba07",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2633,
+      "end_line": 2637,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_de88efca2929f0080ae1d45ff5db42d4": {
+      "name": "JOPA_4_1_de88efca2929f0080ae1d45ff5db42d4",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2638,
+      "end_line": 2661,
+      "direct_effects": [
+        "bakeResults"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_d1b73d0512bac8d20998bdbab9b3aed7": {
+      "name": "JOPA_4_1_d1b73d0512bac8d20998bdbab9b3aed7",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "string[]"
+        },
+        {
+          "name": "object",
+          "type": "string[]"
+        }
+      ],
+      "line": 2662,
+      "end_line": 2670,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_3a25eaad774c71ebdcb06ee4d2b25ce3": {
+      "name": "JOPA_4_1_3a25eaad774c71ebdcb06ee4d2b25ce3",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2671,
+      "end_line": 2686,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 252,
+          "text": "button -w ($btnn_w) -h $mid_button_h  -command \"repeatLast -ac \\\" JOPA_4_1_3a25eaad774c71ebdcb06ee4d2b25ce3\\\" -acl \\\" null joint orient \\\"; JOPA_4_1_3a25eaad774c71ebdcb06ee4d2b25ce3\"  -annotation \"zero joint orient selected\" \"null joint orient\";"
+        }
+      ]
+    },
+    "JOPA_4_1_9a3ce25cfdbc96f0053e2e03715d7f2b": {
+      "name": "JOPA_4_1_9a3ce25cfdbc96f0053e2e03715d7f2b",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2687,
+      "end_line": 2699,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 253,
+          "text": "button -w ($btnn_w) -h $mid_button_h  -command \"repeatLast -ac \\\" JOPA_4_1_9a3ce25cfdbc96f0053e2e03715d7f2b\\\" -acl \\\" null joint rotate\\\"; JOPA_4_1_9a3ce25cfdbc96f0053e2e03715d7f2b;\" -annotation \"zero rotates selected\" \"null joint rotate\";"
+        }
+      ]
+    },
+    "JOPA_4_1_09f1edc0a69a4931b08e1bcc40e94a55": {
+      "name": "JOPA_4_1_09f1edc0a69a4931b08e1bcc40e94a55",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2700,
+      "end_line": 2717,
+      "direct_effects": [
+        "cutKey"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_c7822f1f10b007a6803735c105e40799": {
+      "name": "JOPA_4_1_c7822f1f10b007a6803735c105e40799",
+      "global_scope": true,
+      "return_type": "float",
+      "parameters": [
+        {
+          "name": "obj1",
+          "type": "string"
+        },
+        {
+          "name": "obj2",
+          "type": "string"
+        }
+      ],
+      "line": 2718,
+      "end_line": 2726,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_f17bdd4811ed4c79ad676fdc4d5a1414": {
+      "name": "JOPA_4_1_f17bdd4811ed4c79ad676fdc4d5a1414",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2727,
+      "end_line": 2737,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 554,
+          "text": "-ann \"search and replace from selected\" -c \" catchQuiet(`JOPA_4_1_f17bdd4811ed4c79ad676fdc4d5a1414`); \" -l \"remove namespaces\";"
+        }
+      ]
+    },
+    "JOPA_4_1_5e702211108f11813c411c94f8b1b380": {
+      "name": "JOPA_4_1_5e702211108f11813c411c94f8b1b380",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "transfrm",
+          "type": "string"
+        }
+      ],
+      "line": 2738,
+      "end_line": 2745,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_1ed150b12535ee196bee8b74a6bf5f5c": {
+      "name": "JOPA_4_1_1ed150b12535ee196bee8b74a6bf5f5c",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        },
+        {
+          "name": "obj_type",
+          "type": "string"
+        }
+      ],
+      "line": 2746,
+      "end_line": 2780,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 214,
+          "text": "button  -h ($mid_button_h-2) -w ($btnn_w*1.5)-command \"SelectHierarchy; $sel_joints=JOPA_4_1_1ed150b12535ee196bee8b74a6bf5f5c(`ls-sl`, \\\"joint\\\");select $sel_joints;\" -annotation \"hierarchically selects joints only\" \"select joints hierarchy\";"
+        },
+        {
+          "line": 513,
+          "text": "button  -h $mid_button_h -w ($btnn_w*1.5)  -command \"SelectHierarchy; $sel_joints=JOPA_4_1_1ed150b12535ee196bee8b74a6bf5f5c(`ls-sl`, \\\"joint\\\");select $sel_joints;\" -annotation \"hierarchically selects joints only\" \"select joints hierarchy\";"
+        }
+      ]
+    },
+    "JOPA_4_1_ce7b9a074764f1b06f64dfc666cf4813": {
+      "name": "JOPA_4_1_ce7b9a074764f1b06f64dfc666cf4813",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        },
+        {
+          "name": "side_from",
+          "type": "string"
+        },
+        {
+          "name": "side_to",
+          "type": "string"
+        }
+      ],
+      "line": 2781,
+      "end_line": 2793,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_c954f3ebe8232ef721ae19221935b64e": {
+      "name": "JOPA_4_1_c954f3ebe8232ef721ae19221935b64e",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "take_name",
+          "type": "string"
+        }
+      ],
+      "line": 2794,
+      "end_line": 2800,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_95d47209f5832c068ce7614b82201089": {
+      "name": "JOPA_4_1_95d47209f5832c068ce7614b82201089",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2801,
+      "end_line": 2828,
+      "direct_effects": [
+        "delete",
+        "setAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 245,
+          "text": "button -w ($btnn_w)  -h $mid_button_h  -command \" JOPA_4_1_95d47209f5832c068ce7614b82201089;\" -annotation \"make rotations selected joint like after an euler filter\"  \"Rotate like Euler\";"
+        },
+        {
+          "line": 303,
+          "text": "button  -w ($btnn_w )-h $mid_button_h  -command \"repeatLast -ac \\\" JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1(); JOPA_4_1_a9acebc46d5277d92e6d954501ac53c7( $barnev_skeleton_menue_axis , $SAO_napr, $minus_up); JOPA_4_1_95d47209f5832c068ce7614b82201089;\t\\\" -acl \\\" orient joint null rotate\\\";JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1(); JOPA_4_1_a9acebc46d5277d92e6d954501ac53c7( $barnev_skeleton_menue_axis , $SAO_napr, $minus_up); JOPA_4_1_95d47209f5832c068ce7614b82201089;\t\" -annotation \"improved version of the standard system. Well oriented along the axes\"  \"true orient\";"
+        }
+      ]
+    },
+    "JOPA_4_1_2edf2909df70a7e657b4b646868a0b9c": {
+      "name": "JOPA_4_1_2edf2909df70a7e657b4b646868a0b9c",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 2829,
+      "end_line": 2843,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_a9acebc46d5277d92e6d954501ac53c7": {
+      "name": "JOPA_4_1_a9acebc46d5277d92e6d954501ac53c7",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "axis",
+          "type": "string"
+        },
+        {
+          "name": "sao_napr",
+          "type": "string"
+        },
+        {
+          "name": "ch_up",
+          "type": "string"
+        }
+      ],
+      "line": 2844,
+      "end_line": 2900,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": [
+        {
+          "line": 303,
+          "text": "button  -w ($btnn_w )-h $mid_button_h  -command \"repeatLast -ac \\\" JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1(); JOPA_4_1_a9acebc46d5277d92e6d954501ac53c7( $barnev_skeleton_menue_axis , $SAO_napr, $minus_up); JOPA_4_1_95d47209f5832c068ce7614b82201089;\t\\\" -acl \\\" orient joint null rotate\\\";JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1(); JOPA_4_1_a9acebc46d5277d92e6d954501ac53c7( $barnev_skeleton_menue_axis , $SAO_napr, $minus_up); JOPA_4_1_95d47209f5832c068ce7614b82201089;\t\" -annotation \"improved version of the standard system. Well oriented along the axes\"  \"true orient\";"
+        }
+      ]
+    },
+    "JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1": {
+      "name": "JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2901,
+      "end_line": 2921,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": [
+        {
+          "line": 124,
+          "text": "button  -h $mid_button_h  -w ($btnn_w*1.4) -command \"repeatLast -ac \\\"JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1();\\\" -acl \\\"freeze transform joints();\\\"; JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1();\"  -annotation \"freeze ROTATE AND JOINT ORIENT. On complex bifurcated chains it is better not to use\" \"Freeze rotate and orient\";"
+        },
+        {
+          "line": 303,
+          "text": "button  -w ($btnn_w )-h $mid_button_h  -command \"repeatLast -ac \\\" JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1(); JOPA_4_1_a9acebc46d5277d92e6d954501ac53c7( $barnev_skeleton_menue_axis , $SAO_napr, $minus_up); JOPA_4_1_95d47209f5832c068ce7614b82201089;\t\\\" -acl \\\" orient joint null rotate\\\";JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1(); JOPA_4_1_a9acebc46d5277d92e6d954501ac53c7( $barnev_skeleton_menue_axis , $SAO_napr, $minus_up); JOPA_4_1_95d47209f5832c068ce7614b82201089;\t\" -annotation \"improved version of the standard system. Well oriented along the axes\"  \"true orient\";"
+        }
+      ]
+    },
+    "JOPA_4_1_c81811a11b8f20fafe4877c444b7b2a7": {
+      "name": "JOPA_4_1_c81811a11b8f20fafe4877c444b7b2a7",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 2922,
+      "end_line": 2938,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 520,
+          "text": "-h $mid_button_h -w ($btnn_w)  -c \"select (`JOPA_4_1_c81811a11b8f20fafe4877c444b7b2a7`);sets -n name_Duplicates\" \"find duplicates\";"
+        }
+      ]
+    },
+    "JOPA_4_1_e34225338b41391d68d09634ca599397": {
+      "name": "JOPA_4_1_e34225338b41391d68d09634ca599397",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "return_scene_like_first",
+          "type": "int"
+        }
+      ],
+      "line": 2939,
+      "end_line": 2965,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_ab8c8018d47d542b750e72df0fa0b3ee": {
+      "name": "JOPA_4_1_ab8c8018d47d542b750e72df0fa0b3ee",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 2966,
+      "end_line": 2976,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_cf07169f94f84aada068ef575331b875": {
+      "name": "JOPA_4_1_cf07169f94f84aada068ef575331b875",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "mod",
+          "type": "string"
+        }
+      ],
+      "line": 2977,
+      "end_line": 3067,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 211,
+          "text": "button  -h ($mid_button_h-2) -w ($btnn_w*1.5) -command \"JOPA_4_1_cf07169f94f84aada068ef575331b875(\\\"forward\\\")\" -annotation \"hierarchically selects a piece of chain between selected joints\" \"select between\";"
+        },
+        {
+          "line": 516,
+          "text": "button  -h $mid_button_h -w ($btnn_w) -command \"JOPA_4_1_cf07169f94f84aada068ef575331b875(\\\"forward\\\")\" -annotation \"hierarchically selects a piece of chain between selected joints\" \"select between\";"
+        }
+      ]
+    },
+    "JOPA_4_1_0bec9b327a3b7f3839a0d58cf92ce02c": {
+      "name": "JOPA_4_1_0bec9b327a3b7f3839a0d58cf92ce02c",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 3068,
+      "end_line": 3084,
+      "direct_effects": [
+        "delete",
+        "parent"
+      ],
+      "ui_references": [
+        {
+          "line": 133,
+          "text": "button  -h $mid_button_h -w ($btnn_w*1.4) -command \"repeatLast -ac \\\"JOPA_4_1_0bec9b327a3b7f3839a0d58cf92ce02c\\\" -acl \\\"freeze rotate \\\"; JOPA_4_1_0bec9b327a3b7f3839a0d58cf92ce02c()\"  -annotation \"- zero Rotate on selected joints and transfer to Joint Orient\" \"Rotate>Orient\";"
+        }
+      ]
+    },
+    "JOPA_4_1_0f1ac522d0b034408fd36bd87fb46cb3": {
+      "name": "JOPA_4_1_0f1ac522d0b034408fd36bd87fb46cb3",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 3085,
+      "end_line": 3098,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": [
+        {
+          "line": 130,
+          "text": "button  -h $mid_button_h -w ($btnn_w*1.4) -command \"repeatLast -ac \\\" JOPA_4_1_0f1ac522d0b034408fd36bd87fb46cb3\\\" -acl \\\" joint orient \\\"; JOPA_4_1_0f1ac522d0b034408fd36bd87fb46cb3()\"  -annotation \"Zero joint orient only for selected bones. With their transfer to rotate\" \"Orient->Rotate\";"
+        }
+      ]
+    },
+    "JOPA_4_1_a2b81a3977941c0eac1cda769570172c": {
+      "name": "JOPA_4_1_a2b81a3977941c0eac1cda769570172c",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 3099,
+      "end_line": 3134,
+      "direct_effects": [
+        "delete",
+        "parent"
+      ],
+      "ui_references": [
+        {
+          "line": 151,
+          "text": "button  -h $mid_button_h  -w ($btnn_w ) -command  \"undoInfo -ock -cn \\\"JOPA_4_1_a2b81a3977941c0eac1cda769570172c\\\";JOPA_4_1_a2b81a3977941c0eac1cda769570172c();undoInfo -cck;\" -annotation \"true unparent while maintaining selection\" \"true unparent\";"
+        }
+      ]
+    },
+    "JOPA_4_1_18250f0751da33452100ea861e8e386a": {
+      "name": "JOPA_4_1_18250f0751da33452100ea861e8e386a",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "axis",
+          "type": "string"
+        }
+      ],
+      "line": 3135,
+      "end_line": 3225,
+      "direct_effects": [
+        "delete",
+        "eval"
+      ],
+      "ui_references": [
+        {
+          "line": 312,
+          "text": "button -w ($btnn_w*1.5)  -h $mid_button_h -p \"child_bttn\" -command \"repeatLast -ac \\\" JOPA_4_1_18250f0751da33452100ea861e8e386a($minus_MM + $barnev_skeleton_menue_axis)\\\" -acl \\\" orient joint on parent\\\"; JOPA_4_1_18250f0751da33452100ea861e8e386a($minus_MM +  $barnev_skeleton_menue_axis);\" -annotation \"orient the bone chosen for the child\"  \"orient joint on child\";"
+        }
+      ]
+    },
+    "JOPA_4_1_ee505820b9f32e5106abbdfa4f840186": {
+      "name": "JOPA_4_1_ee505820b9f32e5106abbdfa4f840186",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "axis",
+          "type": "string"
+        }
+      ],
+      "line": 3226,
+      "end_line": 3289,
+      "direct_effects": [
+        "delete",
+        "eval"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_18df331e107c49828a5c6e6e0b53d687": {
+      "name": "JOPA_4_1_18df331e107c49828a5c6e6e0b53d687",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 3290,
+      "end_line": 3314,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_ede435b7fff94dfd41b52ef93374d3ee": {
+      "name": "JOPA_4_1_ede435b7fff94dfd41b52ef93374d3ee",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 3315,
+      "end_line": 3342,
+      "direct_effects": [
+        "delete",
+        "connectAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 112,
+          "text": "-command \" repeatLast -ac \\\"  JOPA_4_1_ede435b7fff94dfd41b52ef93374d3ee();\\\" -acl \\\" place center by 3 \\\" ;  JOPA_4_1_ede435b7fff94dfd41b52ef93374d3ee()\""
+        }
+      ]
+    },
+    "JOPA_4_1_20a28b95c1b8b4dd29397ab332dbc667": {
+      "name": "JOPA_4_1_20a28b95c1b8b4dd29397ab332dbc667",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [],
+      "line": 3343,
+      "end_line": 3352,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "find": {
+      "name": "find",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "procedure",
+          "type": "string"
+        }
+      ],
+      "line": 3353,
+      "end_line": 3359,
+      "direct_effects": [
+        "system"
+      ],
+      "ui_references": [
+        {
+          "line": 519,
+          "text": "button  -annotation \" find duplicates from selected joints and create set with them\""
+        },
+        {
+          "line": 520,
+          "text": "-h $mid_button_h -w ($btnn_w)  -c \"select (`JOPA_4_1_c81811a11b8f20fafe4877c444b7b2a7`);sets -n name_Duplicates\" \"find duplicates\";"
+        },
+        {
+          "line": 521,
+          "text": "text -label \" - finds the same names on selected\" -annotation \"finds the same names on selected objects\";"
+        }
+      ]
+    },
+    "JOPA_4_1_0bb35ddf616d7cd6bdc38d3dd23af1bf": {
+      "name": "JOPA_4_1_0bb35ddf616d7cd6bdc38d3dd23af1bf",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [],
+      "line": 3360,
+      "end_line": 3374,
+      "direct_effects": [
+        "optionVar"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_933d4aecbe9d9d0ce9a6591c5b2e3770": {
+      "name": "JOPA_4_1_933d4aecbe9d9d0ce9a6591c5b2e3770",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "jnt",
+          "type": "string"
+        }
+      ],
+      "line": 3375,
+      "end_line": 3393,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_e849743d83b9357359884fec322c28ec": {
+      "name": "JOPA_4_1_e849743d83b9357359884fec322c28ec",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "curve",
+          "type": "string"
+        },
+        {
+          "name": "objects",
+          "type": "string[]"
+        }
+      ],
+      "line": 3394,
+      "end_line": 3421,
+      "direct_effects": [
+        "delete",
+        "connectAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_33737a5f897286cfa410615445094c2a": {
+      "name": "JOPA_4_1_33737a5f897286cfa410615445094c2a",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "side_from",
+          "type": "string"
+        },
+        {
+          "name": "side_to",
+          "type": "string"
+        },
+        {
+          "name": "rule",
+          "type": "string"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        }
+      ],
+      "line": 3422,
+      "end_line": 3442,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_b785f6145105d03029da5b3e19367cbd": {
+      "name": "JOPA_4_1_b785f6145105d03029da5b3e19367cbd",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "p1",
+          "type": "float[]"
+        },
+        {
+          "name": "p2",
+          "type": "float[]"
+        },
+        {
+          "name": "normalize",
+          "type": "int"
+        }
+      ],
+      "line": 3443,
+      "end_line": 3449,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_9cf10c253bb06da91bcfe3836a7e5f36": {
+      "name": "JOPA_4_1_9cf10c253bb06da91bcfe3836a7e5f36",
+      "global_scope": true,
+      "return_type": "float",
+      "parameters": [
+        {
+          "name": "pos1",
+          "type": "float[]"
+        },
+        {
+          "name": "pos2",
+          "type": "float[]"
+        }
+      ],
+      "line": 3450,
+      "end_line": 3455,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_6f6ae5b84133776f167ce9bbf3409540": {
+      "name": "JOPA_4_1_6f6ae5b84133776f167ce9bbf3409540",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "point1",
+          "type": "float[]"
+        },
+        {
+          "name": "point2",
+          "type": "float[]"
+        },
+        {
+          "name": "point3",
+          "type": "float[]"
+        }
+      ],
+      "line": 3456,
+      "end_line": 3463,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_3a5adc63366ca7a6c7ff1a4a0eb042a1": {
+      "name": "JOPA_4_1_3a5adc63366ca7a6c7ff1a4a0eb042a1",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "point1",
+          "type": "float[]"
+        },
+        {
+          "name": "point2",
+          "type": "float[]"
+        },
+        {
+          "name": "distance",
+          "type": "float"
+        }
+      ],
+      "line": 3464,
+      "end_line": 3474,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_476390711655739e4d4919b7f7336b00": {
+      "name": "JOPA_4_1_476390711655739e4d4919b7f7336b00",
+      "global_scope": true,
+      "return_type": "float",
+      "parameters": [
+        {
+          "name": "pos_A",
+          "type": "float[]"
+        },
+        {
+          "name": "pos_B",
+          "type": "float[]"
+        },
+        {
+          "name": "pos_C",
+          "type": "float[]"
+        }
+      ],
+      "line": 3475,
+      "end_line": 3487,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_1d56f8884d88d7b022ffa48bc52b3755": {
+      "name": "JOPA_4_1_1d56f8884d88d7b022ffa48bc52b3755",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "name_massive",
+          "type": "string[]"
+        },
+        {
+          "name": "float_massive",
+          "type": "float[]"
+        }
+      ],
+      "line": 3488,
+      "end_line": 3500,
+      "direct_effects": [
+        "eval",
+        "python"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_65107bc37ea4a0d842be293fd78287a9": {
+      "name": "JOPA_4_1_65107bc37ea4a0d842be293fd78287a9",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "attribname",
+          "type": "string"
+        },
+        {
+          "name": "object",
+          "type": "string"
+        }
+      ],
+      "line": 3501,
+      "end_line": 3506,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_e8f0c3b3e6300189aca31ae83320ec92": {
+      "name": "JOPA_4_1_e8f0c3b3e6300189aca31ae83320ec92",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "node_name_mask",
+          "type": "string"
+        }
+      ],
+      "line": 3507,
+      "end_line": 3522,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_9a8d2e62249cad27916aacc736478655": {
+      "name": "JOPA_4_1_9a8d2e62249cad27916aacc736478655",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 3523,
+      "end_line": 3537,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_0a10c57fddb9b8e3dc07486c3a9a5eed": {
+      "name": "JOPA_4_1_0a10c57fddb9b8e3dc07486c3a9a5eed",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 3538,
+      "end_line": 3568,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_a7e0d73da2a8798cbe2f405b170f6598": {
+      "name": "JOPA_4_1_a7e0d73da2a8798cbe2f405b170f6598",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 3569,
+      "end_line": 3578,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_526c020cd7c9a859fd08d49719a4fddf": {
+      "name": "JOPA_4_1_526c020cd7c9a859fd08d49719a4fddf",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        }
+      ],
+      "line": 3579,
+      "end_line": 3599,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_c99bdb5a898efbfb1d4fa2221eba881b": {
+      "name": "JOPA_4_1_c99bdb5a898efbfb1d4fa2221eba881b",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "target_massiv",
+          "type": "string[]"
+        },
+        {
+          "name": "object_massiv",
+          "type": "string[]"
+        }
+      ],
+      "line": 3600,
+      "end_line": 3635,
+      "direct_effects": [
+        "eval"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_5e8af8371c687e5c50d7ded5040ffe13": {
+      "name": "JOPA_4_1_5e8af8371c687e5c50d7ded5040ffe13",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "target_position",
+          "type": "string[]"
+        },
+        {
+          "name": "object_to_move",
+          "type": "string[]"
+        }
+      ],
+      "line": 3636,
+      "end_line": 3651,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_b360a99bae10f4014414d48a6e4f58bd": {
+      "name": "JOPA_4_1_b360a99bae10f4014414d48a6e4f58bd",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "string[]"
+        },
+        {
+          "name": "object",
+          "type": "string[]"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        }
+      ],
+      "line": 3652,
+      "end_line": 3671,
+      "direct_effects": [
+        "setAttr",
+        "connectAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_dd7661a2f1ff7e388148027fc411f9cb": {
+      "name": "JOPA_4_1_dd7661a2f1ff7e388148027fc411f9cb",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "string[]"
+        },
+        {
+          "name": "object",
+          "type": "string[]"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        }
+      ],
+      "line": 3672,
+      "end_line": 3691,
+      "direct_effects": [
+        "setAttr",
+        "connectAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_399e6ca23a24d0e48ed5cb872f4729dd": {
+      "name": "JOPA_4_1_399e6ca23a24d0e48ed5cb872f4729dd",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "shape",
+          "type": "string"
+        }
+      ],
+      "line": 3692,
+      "end_line": 3701,
+      "direct_effects": [
+        "parent"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_b3acc831f9f61a01a45fe7165ec12c62": {
+      "name": "JOPA_4_1_b3acc831f9f61a01a45fe7165ec12c62",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "full_name",
+          "type": "string"
+        },
+        {
+          "name": "side_from",
+          "type": "string"
+        },
+        {
+          "name": "side_to",
+          "type": "string"
+        }
+      ],
+      "line": 3702,
+      "end_line": 3725,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_5cca387e40527d14dd0862d275b6a5fc": {
+      "name": "JOPA_4_1_5cca387e40527d14dd0862d275b6a5fc",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "j_chain",
+          "type": "string[]"
+        },
+        {
+          "name": "axis",
+          "type": "string"
+        },
+        {
+          "name": "sao_napr",
+          "type": "string"
+        },
+        {
+          "name": "ch_up",
+          "type": "string"
+        }
+      ],
+      "line": 3726,
+      "end_line": 3830,
+      "direct_effects": [
+        "delete",
+        "setAttr",
+        "eval"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_18a895830f3c7ec611ca2fbd58e5730f": {
+      "name": "JOPA_4_1_18a895830f3c7ec611ca2fbd58e5730f",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "min_max",
+          "type": "int"
+        }
+      ],
+      "line": 3831,
+      "end_line": 3873,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_b0727bdb3ca55fb364a5d867d3297ff5": {
+      "name": "JOPA_4_1_b0727bdb3ca55fb364a5d867d3297ff5",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "string[]"
+        },
+        {
+          "name": "object",
+          "type": "string[]"
+        }
+      ],
+      "line": 3874,
+      "end_line": 3882,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_9542c11845a1e56080fc5b7a1c5e8a5b": {
+      "name": "JOPA_4_1_9542c11845a1e56080fc5b7a1c5e8a5b",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "get_string_for_revers",
+          "type": "string[]"
+        }
+      ],
+      "line": 3883,
+      "end_line": 3893,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_465f2c70f8e4bf417e93834f61ee4f6e": {
+      "name": "JOPA_4_1_465f2c70f8e4bf417e93834f61ee4f6e",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "stroka",
+          "type": "string"
+        },
+        {
+          "name": "poisk",
+          "type": "string"
+        }
+      ],
+      "line": 3894,
+      "end_line": 3909,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_606ff0264a96e1d3ce1e41778c87d876": {
+      "name": "JOPA_4_1_606ff0264a96e1d3ce1e41778c87d876",
+      "global_scope": true,
+      "return_type": "int",
+      "parameters": [
+        {
+          "name": "num",
+          "type": "float"
+        }
+      ],
+      "line": 3910,
+      "end_line": 3918,
+      "direct_effects": [],
+      "ui_references": []
+    }
+  },
+  "public": {
+    "JOPA_skeleton_tools_menue": {
+      "name": "JOPA_skeleton_tools_menue",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 32,
+      "end_line": 560,
+      "direct_effects": [
+        "delete",
+        "parent",
+        "system",
+        "selectPref",
+        "undoInfo",
+        "window"
+      ],
+      "ui_references": [
+        {
+          "line": 30,
+          "text": "JOPA_skeleton_tools_menue()"
+        }
+      ]
+    },
+    "JOPA_4_1_f16154a48b6bb7af40bdec525973aa99": {
+      "name": "JOPA_4_1_f16154a48b6bb7af40bdec525973aa99",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "on_off",
+          "type": "int"
+        }
+      ],
+      "line": 561,
+      "end_line": 569,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 233,
+          "text": "-command \" JOPA_4_1_f16154a48b6bb7af40bdec525973aa99(1)\""
+        },
+        {
+          "line": 237,
+          "text": "-command \" JOPA_4_1_f16154a48b6bb7af40bdec525973aa99(0)\""
+        }
+      ]
+    },
+    "JOPA_4_1_5ca4dc00d401eb19d3b3eaf8ceb68c51": {
+      "name": "JOPA_4_1_5ca4dc00d401eb19d3b3eaf8ceb68c51",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mod",
+          "type": "int"
+        }
+      ],
+      "line": 570,
+      "end_line": 646,
+      "direct_effects": [
+        "delete",
+        "parent",
+        "setAttr",
+        "connectAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 77,
+          "text": "button   -w ($btnn_w/3) -h $mid_button_h -command \"repeatLast -ac \\\" JOPA_4_1_5ca4dc00d401eb19d3b3eaf8ceb68c51(0);\\\" -acl \\\" add joint in chain \\\";JOPA_4_1_5ca4dc00d401eb19d3b3eaf8ceb68c51(1);\" -annotation \" add 1 joint \" \" + \";"
+        }
+      ]
+    },
+    "JOPA_4_1_9d2772351e5b1bd29134402e8ccbbda0": {
+      "name": "JOPA_4_1_9d2772351e5b1bd29134402e8ccbbda0",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 647,
+      "end_line": 699,
+      "direct_effects": [
+        "delete",
+        "parent",
+        "setAttr",
+        "connectAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 78,
+          "text": "button   -w ($btnn_w/3) -h $mid_button_h -command \"repeatLast -ac \\\" JOPA_4_1_9d2772351e5b1bd29134402e8ccbbda0();\\\" -acl \\\" remove joint from chain \\\";JOPA_4_1_9d2772351e5b1bd29134402e8ccbbda0();\" -annotation \" remove 1 joint \" \" - \";"
+        }
+      ]
+    },
+    "JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e": {
+      "name": "JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "mod",
+          "type": "string"
+        }
+      ],
+      "line": 700,
+      "end_line": 742,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": [
+        {
+          "line": 100,
+          "text": "-command \"$SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod=\\\"T\\\"; repeatLast -ac \\\" JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);\\\" -acl \\\" create by 3 T form \\\" ; JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);\""
+        },
+        {
+          "line": 103,
+          "text": "-command \"$SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod=\\\"-T\\\"; repeatLast -ac \\\" JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);\\\" -acl \\\" create by 3 -T form \\\" ; JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);\""
+        },
+        {
+          "line": 106,
+          "text": "-command \"$SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod=\\\"L\\\"; repeatLast -ac \\\" JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);\\\" -acl \\\" create by 3 L form \\\" ; JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);\""
+        },
+        {
+          "line": 109,
+          "text": "-command \"$SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod=\\\"V\\\"; repeatLast -ac \\\" JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);\\\" -acl \\\" create by 3 V form \\\" ; JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);\""
+        }
+      ]
+    },
+    "JOPA_4_1_52cb8fd96018b22c9d21d83beb0fbc31": {
+      "name": "JOPA_4_1_52cb8fd96018b22c9d21d83beb0fbc31",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "degree",
+          "type": "int"
+        }
+      ],
+      "line": 743,
+      "end_line": 795,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_b9629ebf4695f6ad1940993b73361ead": {
+      "name": "JOPA_4_1_b9629ebf4695f6ad1940993b73361ead",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "coeff",
+          "type": "int"
+        }
+      ],
+      "line": 796,
+      "end_line": 826,
+      "direct_effects": [
+        "delete",
+        "setAttr",
+        "connectAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 161,
+          "text": "button  -h $mid_button_h  -w ($btnn_w) -command \"repeatLast -ac \\\" JOPA_4_1_b9629ebf4695f6ad1940993b73361ead(10)\\\" -acl \\\"Smooth position \\\"; JOPA_4_1_b9629ebf4695f6ad1940993b73361ead(10)\" -annotation \"smooth positions selected \" \"Smooth position\";"
+        },
+        {
+          "line": 163,
+          "text": "button   -h $mid_button_h  -w ($btnn_w+1)  -command \"repeatLast -ac \\\" JOPA_4_1_b9629ebf4695f6ad1940993b73361ead(100)\\\" -acl \\\" Straight position \\\"; JOPA_4_1_b9629ebf4695f6ad1940993b73361ead(100)\" -annotation \"arrange in a straight line selected\" \"Straight position\";"
+        }
+      ]
+    },
+    "JOPA_4_1_a8aee5f7819058e898a22052bd3773a1": {
+      "name": "JOPA_4_1_a8aee5f7819058e898a22052bd3773a1",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 827,
+      "end_line": 853,
+      "direct_effects": [
+        "delete",
+        "setAttr",
+        "connectAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 166,
+          "text": "button -h $small_button_h -w ($btnn_w)-command \"repeatLast -ac \\\" JOPA_4_1_a8aee5f7819058e898a22052bd3773a1\\\" -acl \\\"align distribution \\\"; JOPA_4_1_a8aee5f7819058e898a22052bd3773a1 \" -annotation \"align distance distribution\" \"align distribution\";"
+        }
+      ]
+    },
+    "JOPA_4_1_0cb8b5d4e384a1ba8b59ac35529bc7eb": {
+      "name": "JOPA_4_1_0cb8b5d4e384a1ba8b59ac35529bc7eb",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "coeff",
+          "type": "float"
+        }
+      ],
+      "line": 854,
+      "end_line": 893,
+      "direct_effects": [
+        "delete",
+        "setAttr",
+        "connectAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 165,
+          "text": "button  -h $mid_button_h -w ($btnn_w/2) -command \"repeatLast -ac \\\" JOPA_4_1_0cb8b5d4e384a1ba8b59ac35529bc7eb(-0.2)\\\" -acl \\\" align object position \\\"; JOPA_4_1_0cb8b5d4e384a1ba8b59ac35529bc7eb(-0.2)\" -annotation \"move to the first selected object\" \"<<<<\";"
+        },
+        {
+          "line": 167,
+          "text": "button   -h $mid_button_h -w ($btnn_w/2) -command \"repeatLast -ac \\\" JOPA_4_1_0cb8b5d4e384a1ba8b59ac35529bc7eb(0.2)\\\" -acl \\\" align object position \\\";JOPA_4_1_0cb8b5d4e384a1ba8b59ac35529bc7eb(0.2)\" -annotation \"move to the last selected object \" \">>>>\";"
+        }
+      ]
+    },
+    "JOPA_4_1_266cf15f213f144bd5577f55c93329d0": {
+      "name": "JOPA_4_1_266cf15f213f144bd5577f55c93329d0",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "pos",
+          "type": "int"
+        }
+      ],
+      "line": 894,
+      "end_line": 911,
+      "direct_effects": [
+        "system"
+      ],
+      "ui_references": [
+        {
+          "line": 172,
+          "text": "-w ($btnn_w/3 -1) -command \"JOPA_4_1_266cf15f213f144bd5577f55c93329d0(0)\" \"<\";"
+        },
+        {
+          "line": 175,
+          "text": "-w ($btnn_w/3 -1) -command \"JOPA_4_1_266cf15f213f144bd5577f55c93329d0(1)\" \"0\";"
+        },
+        {
+          "line": 178,
+          "text": "-w ($btnn_w/3 -1) -command \"JOPA_4_1_266cf15f213f144bd5577f55c93329d0(2)\" \">\";"
+        }
+      ]
+    },
+    "JOPA_4_1_2db96bd9c47870bc6534b47731f587ae": {
+      "name": "JOPA_4_1_2db96bd9c47870bc6534b47731f587ae",
+      "global_scope": true,
+      "return_type": "float",
+      "parameters": [
+        {
+          "name": "joints",
+          "type": "string[]"
+        },
+        {
+          "name": "div",
+          "type": "float"
+        }
+      ],
+      "line": 912,
+      "end_line": 924,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 277,
+          "text": "-c \"repeatLast -ac \\\"JOPA_4_1_2db96bd9c47870bc6534b47731f587ae(`ls-sl`,6) \\\" -acl \\\" set size by lenght \\\"; JOPA_4_1_2db96bd9c47870bc6534b47731f587ae(`ls-sl`,6)\""
+        }
+      ]
+    },
+    "JOPA_4_1_d6b9c21beb7156b6229e41d3d9f7ef3c": {
+      "name": "JOPA_4_1_d6b9c21beb7156b6229e41d3d9f7ef3c",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 925,
+      "end_line": 979,
+      "direct_effects": [
+        "delete",
+        "parent",
+        "setAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 185,
+          "text": "-command \"repeatLast -ac \\\" JOPA_4_1_d6b9c21beb7156b6229e41d3d9f7ef3c\\\" -acl \\\" align on plane \\\";JOPA_4_1_d6b9c21beb7156b6229e41d3d9f7ef3c()\" -annotation \"align the plane selected joints manually \""
+        }
+      ]
+    },
+    "JOPA_4_1_3ee4702003ee8d11faa99588f53763ed": {
+      "name": "JOPA_4_1_3ee4702003ee8d11faa99588f53763ed",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 980,
+      "end_line": 1007,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": [
+        {
+          "line": 180,
+          "text": "button  -h $mid_button_h  -w ($btnn_w)-command \"repeatLast -ac \\\" JOPA_4_1_3ee4702003ee8d11faa99588f53763ed\\\" -acl \\\" align on plane \\\";JOPA_4_1_3ee4702003ee8d11faa99588f53763ed()\" -annotation \"align the plane selected joints\" \"align plane\";"
+        }
+      ]
+    },
+    "JOPA_4_1_ee610d2367958b592a8726aa94ff0ff1": {
+      "name": "JOPA_4_1_ee610d2367958b592a8726aa94ff0ff1",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "w_axis",
+          "type": "string"
+        },
+        {
+          "name": "abs_mode",
+          "type": "int"
+        }
+      ],
+      "line": 1008,
+      "end_line": 1038,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": [
+        {
+          "line": 191,
+          "text": "button  -h ($mid_button_h-2)  -w ($btnn_w/2) -command \" JOPA_4_1_ee610d2367958b592a8726aa94ff0ff1(\\\"x\\\",`checkBox -q -v abs_mode`);\" -annotation \"align the world plane X projection\" \"align X\";"
+        },
+        {
+          "line": 192,
+          "text": "button  -h ($mid_button_h-2)  -w ($btnn_w/2) -command \" JOPA_4_1_ee610d2367958b592a8726aa94ff0ff1(\\\"y\\\",`checkBox -q -v abs_mode`);\" -annotation \"align the world plane Y projection\" \"align Y\";"
+        },
+        {
+          "line": 193,
+          "text": "button  -h ($mid_button_h-2)  -w ($btnn_w/2) -command \" JOPA_4_1_ee610d2367958b592a8726aa94ff0ff1(\\\"z\\\",`checkBox -q -v abs_mode`);\" -annotation \"align the world plane Z projection\" \"align Z\";"
+        }
+      ]
+    },
+    "JOPA_4_1_911ce829ffadd631db0afd6c10b8a9c1": {
+      "name": "JOPA_4_1_911ce829ffadd631db0afd6c10b8a9c1",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1039,
+      "end_line": 1047,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 336,
+          "text": "button  -h $mid_button_h -w $btnn_w  -command \"JOPA_4_1_911ce829ffadd631db0afd6c10b8a9c1()\" -annotation \"multiply mirror tool\" \"MultiMirror\";"
+        }
+      ]
+    },
+    "JOPA_4_1_7c23beeb22741f0c0bad91ebefb06e18": {
+      "name": "JOPA_4_1_7c23beeb22741f0c0bad91ebefb06e18",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1048,
+      "end_line": 1062,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 324,
+          "text": "button  -h $mid_button_h  -w ($btnn_w*0.9) -command \" JOPA_4_1_7c23beeb22741f0c0bad91ebefb06e18()\" -annotation \"correcting joint rotate manually\"  \"correct manually\";"
+        },
+        {
+          "line": 326,
+          "text": "button   -h $mid_button_h -w ($btnn_w/2) -command \"JOPA_4_1_7c23beeb22741f0c0bad91ebefb06e18();JOPA_4_1_39488f9fb9b49f3b387fe78ea9cda2f0();JOPA_4_1_cc20e95399a3b6da44eb78e45451d764(13); JOPA_4_1_6de8028af587b467034457b4d6349f89(1.5) \" -annotation \" - proportion_rotate - for delete - use DELETE MANIP button\"  \"prop\";"
+        }
+      ]
+    },
+    "JOPA_4_1_39488f9fb9b49f3b387fe78ea9cda2f0": {
+      "name": "JOPA_4_1_39488f9fb9b49f3b387fe78ea9cda2f0",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1063,
+      "end_line": 1098,
+      "direct_effects": [
+        "setAttr",
+        "connectAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 326,
+          "text": "button   -h $mid_button_h -w ($btnn_w/2) -command \"JOPA_4_1_7c23beeb22741f0c0bad91ebefb06e18();JOPA_4_1_39488f9fb9b49f3b387fe78ea9cda2f0();JOPA_4_1_cc20e95399a3b6da44eb78e45451d764(13); JOPA_4_1_6de8028af587b467034457b4d6349f89(1.5) \" -annotation \" - proportion_rotate - for delete - use DELETE MANIP button\"  \"prop\";"
+        }
+      ]
+    },
+    "JOPA_4_1_a724b4b2abdd9e942758573c2c47afe6": {
+      "name": "JOPA_4_1_a724b4b2abdd9e942758573c2c47afe6",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "limit",
+          "type": "int"
+        }
+      ],
+      "line": 1099,
+      "end_line": 1105,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 71,
+          "text": "button -h $mid_button_h -w $btnn_w -command \" repeatLast -ac \\\" JOPA_4_1_a724b4b2abdd9e942758573c2c47afe6(100) \\\" -acl \\\"create joints \\\"; JOPA_4_1_a724b4b2abdd9e942758573c2c47afe6(100);\" -annotation \"create joints on selected  - not more than 100\" \"joint\";"
+        }
+      ]
+    },
+    "JOPA_4_1_52c981703a2cf84e5e60002e83f3fa52": {
+      "name": "JOPA_4_1_52c981703a2cf84e5e60002e83f3fa52",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "rx",
+          "type": "float"
+        },
+        {
+          "name": "ry",
+          "type": "float"
+        },
+        {
+          "name": "rz",
+          "type": "float"
+        }
+      ],
+      "line": 1106,
+      "end_line": 1117,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": [
+        {
+          "line": 321,
+          "text": "button -h $small_button_h -w ($btnn_w/3) -command \"JOPA_4_1_52c981703a2cf84e5e60002e83f3fa52(90, 0, 0);\" -annotation \"rotate Õ\"  \"rX 90\";"
+        },
+        {
+          "line": 322,
+          "text": "button -h $small_button_h -w ($btnn_w/3) -command \"JOPA_4_1_52c981703a2cf84e5e60002e83f3fa52(0, 90, 0);\" -annotation \"rotate Y\"  \"rY 90\";"
+        },
+        {
+          "line": 323,
+          "text": "button -h $small_button_h -w ($btnn_w/3) -command \"JOPA_4_1_52c981703a2cf84e5e60002e83f3fa52(0, 0, 90);\" -annotation \"rotate Z\"  \"rZ 90\";"
+        }
+      ]
+    },
+    "JOPA_4_1_d3cdf2488e5fc40a8060f5da3e93637a": {
+      "name": "JOPA_4_1_d3cdf2488e5fc40a8060f5da3e93637a",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 1118,
+      "end_line": 1137,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 74,
+          "text": "button   -h $mid_button_h -w $btnn_w -command \"repeatLast -ac \\\"select (`JOPA_4_1_d3cdf2488e5fc40a8060f5da3e93637a`)\\\" -acl \\\"create joints and parent \\\"; select (`JOPA_4_1_d3cdf2488e5fc40a8060f5da3e93637a`)\"  -ann \"create joints inside selected \" \"inside joints\";"
+        }
+      ]
+    },
+    "JOPA_4_1_773705e2fd3f8e12d1cd931401dc396e": {
+      "name": "JOPA_4_1_773705e2fd3f8e12d1cd931401dc396e",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "axis",
+          "type": "string"
+        }
+      ],
+      "line": 1138,
+      "end_line": 1163,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": [
+        {
+          "line": 311,
+          "text": "button -w ($btnn_w*1.5)  -h $mid_button_h -p \"child_bttn\" -command \"repeatLast -ac \\\" JOPA_4_1_773705e2fd3f8e12d1cd931401dc396e($minus_MM + $barnev_skeleton_menue_axis)\\\" -acl \\\" orient joint on parent\\\"; JOPA_4_1_773705e2fd3f8e12d1cd931401dc396e($minus_MM + $barnev_skeleton_menue_axis);\" -annotation \"orient the bone by the selected axis from the parent\"  \"orient joint from parent\";"
+        }
+      ]
+    },
+    "JOPA_4_1_13f03d6a42bbd197e6eb294d298faacd": {
+      "name": "JOPA_4_1_13f03d6a42bbd197e6eb294d298faacd",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 1164,
+      "end_line": 1193,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_ad3e5fee1a27e33794ab15e8350f4b53": {
+      "name": "JOPA_4_1_ad3e5fee1a27e33794ab15e8350f4b53",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "add",
+          "type": "int"
+        }
+      ],
+      "line": 1194,
+      "end_line": 1241,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": [
+        {
+          "line": 82,
+          "text": "-command \"repeatLast -ac \\\" JOPA_4_1_ad3e5fee1a27e33794ab15e8350f4b53(1);\\\" -acl \\\" add joint on selected curve \\\";JOPA_4_1_ad3e5fee1a27e33794ab15e8350f4b53(1);\""
+        },
+        {
+          "line": 86,
+          "text": "-command \"repeatLast -ac \\\" JOPA_4_1_ad3e5fee1a27e33794ab15e8350f4b53(0);\\\" -acl \\\" remove joint from selected curve chain \\\";JOPA_4_1_ad3e5fee1a27e33794ab15e8350f4b53(0);\""
+        }
+      ]
+    },
+    "JOPA_4_1_972cbf131f510c941b6fca958a7d0c69": {
+      "name": "JOPA_4_1_972cbf131f510c941b6fca958a7d0c69",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [],
+      "line": 1242,
+      "end_line": 1250,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 198,
+          "text": "-command \"JOPA_4_1_972cbf131f510c941b6fca958a7d0c69()\""
+        }
+      ]
+    },
+    "JOPA_4_1_e79dd31d96c9498499196fdfdddd4698": {
+      "name": "JOPA_4_1_e79dd31d96c9498499196fdfdddd4698",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1251,
+      "end_line": 1289,
+      "direct_effects": [
+        "parent",
+        "window"
+      ],
+      "ui_references": [
+        {
+          "line": 242,
+          "text": "-command \" JOPA_4_1_e79dd31d96c9498499196fdfdddd4698()\""
+        }
+      ]
+    },
+    "JOPA_4_1_a0656c7a9e8e5e98ead5c90575dbfb28": {
+      "name": "JOPA_4_1_a0656c7a9e8e5e98ead5c90575dbfb28",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 1290,
+      "end_line": 1348,
+      "direct_effects": [
+        "delete",
+        "parent",
+        "eval",
+        "optionVar"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_9e849622a64e61725d0526208e8aee88": {
+      "name": "JOPA_4_1_9e849622a64e61725d0526208e8aee88",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1349,
+      "end_line": 1382,
+      "direct_effects": [
+        "parent",
+        "optionVar",
+        "undoInfo",
+        "window"
+      ],
+      "ui_references": [
+        {
+          "line": 342,
+          "text": "-command \"JOPA_4_1_9e849622a64e61725d0526208e8aee88\""
+        }
+      ]
+    },
+    "JOPA_4_1_72356eaf232b169651a82383ba9e7e57": {
+      "name": "JOPA_4_1_72356eaf232b169651a82383ba9e7e57",
+      "global_scope": true,
+      "return_type": "vector[]",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        }
+      ],
+      "line": 1383,
+      "end_line": 1395,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_a5d8b0122c186b9a25fc1b6d3ff9b430": {
+      "name": "JOPA_4_1_a5d8b0122c186b9a25fc1b6d3ff9b430",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        },
+        {
+          "name": "lenght_coeff",
+          "type": "float"
+        },
+        {
+          "name": "distribution_coeff",
+          "type": "float"
+        }
+      ],
+      "line": 1396,
+      "end_line": 1412,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_8aba008b6f6ae60b66a902e6ab3eed1c": {
+      "name": "JOPA_4_1_8aba008b6f6ae60b66a902e6ab3eed1c",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        },
+        {
+          "name": "lenght_coeff",
+          "type": "float"
+        },
+        {
+          "name": "distribution_coeff",
+          "type": "float"
+        }
+      ],
+      "line": 1413,
+      "end_line": 1435,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_a358a7c27f7a7b80712d695138ed032e": {
+      "name": "JOPA_4_1_a358a7c27f7a7b80712d695138ed032e",
+      "global_scope": true,
+      "return_type": "float",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        },
+        {
+          "name": "average",
+          "type": "int"
+        }
+      ],
+      "line": 1436,
+      "end_line": 1444,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_05c4f6d59fdd2a71f23116d9d4f892c2": {
+      "name": "JOPA_4_1_05c4f6d59fdd2a71f23116d9d4f892c2",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "pos_A",
+          "type": "float[]"
+        },
+        {
+          "name": "pos_B",
+          "type": "float[]"
+        },
+        {
+          "name": "pos_C",
+          "type": "float[]"
+        }
+      ],
+      "line": 1445,
+      "end_line": 1463,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_f9ccf45626df05475e8ab66b6f511dd6": {
+      "name": "JOPA_4_1_f9ccf45626df05475e8ab66b6f511dd6",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        }
+      ],
+      "line": 1464,
+      "end_line": 1479,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_b370e1f695c58fe83552587a1fd52907": {
+      "name": "JOPA_4_1_b370e1f695c58fe83552587a1fd52907",
+      "global_scope": true,
+      "return_type": "int",
+      "parameters": [
+        {
+          "name": "coords",
+          "type": "vector[]"
+        }
+      ],
+      "line": 1480,
+      "end_line": 1492,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_e3bea614176fbceebe7c7aae67e953b0": {
+      "name": "JOPA_4_1_e3bea614176fbceebe7c7aae67e953b0",
+      "global_scope": true,
+      "return_type": "vector",
+      "parameters": [
+        {
+          "name": "coords",
+          "type": "vector[]"
+        }
+      ],
+      "line": 1493,
+      "end_line": 1501,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_d0a0b515ba819d3c77adb0bbe48cfd1d": {
+      "name": "JOPA_4_1_d0a0b515ba819d3c77adb0bbe48cfd1d",
+      "global_scope": true,
+      "return_type": "int",
+      "parameters": [
+        {
+          "name": "massive",
+          "type": "float[]"
+        },
+        {
+          "name": "min_max",
+          "type": "int"
+        }
+      ],
+      "line": 1502,
+      "end_line": 1532,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_4d4e630bb3f78b918b505c8ebfcbb814": {
+      "name": "JOPA_4_1_4d4e630bb3f78b918b505c8ebfcbb814",
+      "global_scope": true,
+      "return_type": "float",
+      "parameters": [
+        {
+          "name": "A",
+          "type": "float[]"
+        },
+        {
+          "name": "B",
+          "type": "float[]"
+        },
+        {
+          "name": "C",
+          "type": "float[]"
+        },
+        {
+          "name": "RAD",
+          "type": "int"
+        }
+      ],
+      "line": 1533,
+      "end_line": 1541,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_72d9b297f109729673f6fe9d719defbd": {
+      "name": "JOPA_4_1_72d9b297f109729673f6fe9d719defbd",
+      "global_scope": true,
+      "return_type": "vector[]",
+      "parameters": [
+        {
+          "name": "base_object",
+          "type": "string"
+        },
+        {
+          "name": "coords",
+          "type": "string"
+        }
+      ],
+      "line": 1542,
+      "end_line": 1599,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_329067de90245bf18aa04dd0b6c95e8b": {
+      "name": "JOPA_4_1_329067de90245bf18aa04dd0b6c95e8b",
+      "global_scope": true,
+      "return_type": "vector[]",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        }
+      ],
+      "line": 1600,
+      "end_line": 1610,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_054bd1354cce44fe1809d56e47e98bd1": {
+      "name": "JOPA_4_1_054bd1354cce44fe1809d56e47e98bd1",
+      "global_scope": true,
+      "return_type": "vector[]",
+      "parameters": [
+        {
+          "name": "base_object",
+          "type": "string"
+        },
+        {
+          "name": "coords",
+          "type": "vector[]"
+        }
+      ],
+      "line": 1611,
+      "end_line": 1634,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_f36a2b49955bde470eba9a552b27050a": {
+      "name": "JOPA_4_1_f36a2b49955bde470eba9a552b27050a",
+      "global_scope": true,
+      "return_type": "vector[]",
+      "parameters": [
+        {
+          "name": "base_object",
+          "type": "string"
+        },
+        {
+          "name": "coords",
+          "type": "vector[]"
+        }
+      ],
+      "line": 1635,
+      "end_line": 1657,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_f71c299bf7b53f7243b078a9990e581c": {
+      "name": "JOPA_4_1_f71c299bf7b53f7243b078a9990e581c",
+      "global_scope": true,
+      "return_type": "float",
+      "parameters": [
+        {
+          "name": "input",
+          "type": "float"
+        }
+      ],
+      "line": 1658,
+      "end_line": 1681,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_bbdcb7aa2a9fb9f578c6918e969707df": {
+      "name": "JOPA_4_1_bbdcb7aa2a9fb9f578c6918e969707df",
+      "global_scope": true,
+      "return_type": "matrix",
+      "parameters": [
+        {
+          "name": "input_float",
+          "type": "float[]"
+        }
+      ],
+      "line": 1682,
+      "end_line": 1690,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_67e18bc2c5d60ae22ef30973f2f543ec": {
+      "name": "JOPA_4_1_67e18bc2c5d60ae22ef30973f2f543ec",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "input_matrix",
+          "type": "float[]"
+        }
+      ],
+      "line": 1691,
+      "end_line": 1740,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_6d2bbf47e863c2f0037cf0467b97cef6": {
+      "name": "JOPA_4_1_6d2bbf47e863c2f0037cf0467b97cef6",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [],
+      "line": 1750,
+      "end_line": 1757,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 68,
+          "text": "button -h $mid_button_h -w $btnn_w -command \"repeatLast -ac \\\"JOPA_4_1_6d2bbf47e863c2f0037cf0467b97cef6\\\" -acl \\\"create joints \\\";JOPA_4_1_6d2bbf47e863c2f0037cf0467b97cef6;\" -annotation \"create a joint in the center of the selected vertices\" \"joint on center\";"
+        }
+      ]
+    },
+    "JOPA_4_1_94c81da260931e06d6e51c78e142796f": {
+      "name": "JOPA_4_1_94c81da260931e06d6e51c78e142796f",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "toggler_items",
+          "type": "string[]"
+        },
+        {
+          "name": "nodename",
+          "type": "string"
+        }
+      ],
+      "line": 1758,
+      "end_line": 1768,
+      "direct_effects": [
+        "connectAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_6c03bcf1c4cd077aea727f60dfb001f6": {
+      "name": "JOPA_4_1_6c03bcf1c4cd077aea727f60dfb001f6",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "mode",
+          "type": "int"
+        },
+        {
+          "name": "nodename_mask",
+          "type": "string"
+        }
+      ],
+      "line": 1769,
+      "end_line": 1817,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_feece4078c8aeb0c08bb278bcaf1bd05": {
+      "name": "JOPA_4_1_feece4078c8aeb0c08bb278bcaf1bd05",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "num",
+          "type": "int"
+        },
+        {
+          "name": "indexses",
+          "type": "int[]"
+        }
+      ],
+      "line": 1818,
+      "end_line": 1832,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 373,
+          "text": "palettePort -e -rgbValue 0 0.6 0.6 0.6 -cc (\"JOPA_4_1_feece4078c8aeb0c08bb278bcaf1bd05(`palettePort -q -setCurCell \" + $colorPalette + \"`, \" + $index_val_string + \")\") $colorPalette;"
+        }
+      ]
+    },
+    "JOPA_4_1_cf7d60c10a2e981ece1b4edc00bb807f": {
+      "name": "JOPA_4_1_cf7d60c10a2e981ece1b4edc00bb807f",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "rebike_animation",
+          "type": "int"
+        }
+      ],
+      "line": 1833,
+      "end_line": 1867,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0": {
+      "name": "JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 1868,
+      "end_line": 1898,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_f2d5a2798ed7cfee36eb77ee8a281ed8": {
+      "name": "JOPA_4_1_f2d5a2798ed7cfee36eb77ee8a281ed8",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 1899,
+      "end_line": 1932,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_a8d1933a966541e62d79a2fcbf6e4ea4": {
+      "name": "JOPA_4_1_a8d1933a966541e62d79a2fcbf6e4ea4",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "interpolation",
+          "type": "int"
+        }
+      ],
+      "line": 1933,
+      "end_line": 1948,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_83a9015d514ecd1326a1648b28396ba2": {
+      "name": "JOPA_4_1_83a9015d514ecd1326a1648b28396ba2",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "coords",
+          "type": "vector[]"
+        },
+        {
+          "name": "interp",
+          "type": "int"
+        }
+      ],
+      "line": 1949,
+      "end_line": 1963,
+      "direct_effects": [
+        "eval"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_b059868e801453725e5c31a1938f0210": {
+      "name": "JOPA_4_1_b059868e801453725e5c31a1938f0210",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "p1",
+          "type": "float[]"
+        },
+        {
+          "name": "p2",
+          "type": "float[]"
+        },
+        {
+          "name": "p3",
+          "type": "float[]"
+        },
+        {
+          "name": "degree",
+          "type": "int"
+        },
+        {
+          "name": "spans",
+          "type": "int"
+        }
+      ],
+      "line": 1964,
+      "end_line": 1979,
+      "direct_effects": [
+        "delete",
+        "setAttr",
+        "connectAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_e6d1cc62e700198ddfd8906d663761ba": {
+      "name": "JOPA_4_1_e6d1cc62e700198ddfd8906d663761ba",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 1980,
+      "end_line": 1990,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_f0209cb5b5931bdfa7ae6801db19a0f8": {
+      "name": "JOPA_4_1_f0209cb5b5931bdfa7ae6801db19a0f8",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 1991,
+      "end_line": 2018,
+      "direct_effects": [
+        "delete",
+        "parent"
+      ],
+      "ui_references": [
+        {
+          "line": 144,
+          "text": "button  -h $mid_button_h -w ($btnn_w ) -command \"repeatLast -ac \\\"$objects=JOPA_4_1_f0209cb5b5931bdfa7ae6801db19a0f8();select -cl;select ($objects);\\\" -acl \\\"parent sequent \\\"; $objects=JOPA_4_1_f0209cb5b5931bdfa7ae6801db19a0f8();select -cl;select ($objects);\" -annotation \"sequentially parent selected objects from first to last\" \"parent sequent\";"
+        }
+      ]
+    },
+    "JOPA_4_1_32a3829df17c3736d9757e423eeaf0e3": {
+      "name": "JOPA_4_1_32a3829df17c3736d9757e423eeaf0e3",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "string[]"
+        },
+        {
+          "name": "object",
+          "type": "string[]"
+        }
+      ],
+      "line": 2019,
+      "end_line": 2038,
+      "direct_effects": [
+        "parent"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_4666e1e44291e7950c6d8b3906bbb9c7": {
+      "name": "JOPA_4_1_4666e1e44291e7950c6d8b3906bbb9c7",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "string[]"
+        },
+        {
+          "name": "object",
+          "type": "string[]"
+        },
+        {
+          "name": "reset_scale",
+          "type": "int"
+        }
+      ],
+      "line": 2039,
+      "end_line": 2065,
+      "direct_effects": [
+        "parent"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_95a1a70cbaa809195c99a215410318c8": {
+      "name": "JOPA_4_1_95a1a70cbaa809195c99a215410318c8",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "scale_mod",
+          "type": "int"
+        }
+      ],
+      "line": 2066,
+      "end_line": 2075,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 148,
+          "text": "-command  \"undoInfo -ock -cn \\\"true_parent\\\";JOPA_4_1_95a1a70cbaa809195c99a215410318c8(1);undoInfo -cck;\""
+        }
+      ]
+    },
+    "JOPA_4_1_f4a01868ca61fbc2847abcd1b618cc24": {
+      "name": "JOPA_4_1_f4a01868ca61fbc2847abcd1b618cc24",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 2076,
+      "end_line": 2089,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 218,
+          "text": "-command \"repeatLast -ac \\\" JOPA_4_1_f4a01868ca61fbc2847abcd1b618cc24();\\\" -acl \\\" swap selection order \\\";JOPA_4_1_f4a01868ca61fbc2847abcd1b618cc24()\""
+        }
+      ]
+    },
+    "JOPA_4_1_e706e982298fe9e8f94ae04b06b5d6b2": {
+      "name": "JOPA_4_1_e706e982298fe9e8f94ae04b06b5d6b2",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "prefix",
+          "type": "string"
+        }
+      ],
+      "line": 2090,
+      "end_line": 2104,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_3cee12804dcac45527d4bfcfcb7c7431": {
+      "name": "JOPA_4_1_3cee12804dcac45527d4bfcfcb7c7431",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "prefix",
+          "type": "string"
+        },
+        {
+          "name": "postfix",
+          "type": "string"
+        }
+      ],
+      "line": 2105,
+      "end_line": 2119,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 541,
+          "text": "-c \"JOPA_4_1_3cee12804dcac45527d4bfcfcb7c7431(`textField -q -tx prefix_text_field` , `textField -q -tx postfix_text_field`); \""
+        }
+      ]
+    },
+    "JOPA_4_1_c9088e941b7677113499bb19ad80f9bf": {
+      "name": "JOPA_4_1_c9088e941b7677113499bb19ad80f9bf",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "prefix",
+          "type": "string"
+        },
+        {
+          "name": "name_massive",
+          "type": "string[]"
+        }
+      ],
+      "line": 2120,
+      "end_line": 2138,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_ade4e354383a28fcefcaf5ce40e6639d": {
+      "name": "JOPA_4_1_ade4e354383a28fcefcaf5ce40e6639d",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2139,
+      "end_line": 2147,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_975573a52a98abc101c2b805675f922b": {
+      "name": "JOPA_4_1_975573a52a98abc101c2b805675f922b",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "lock",
+          "type": "int"
+        }
+      ],
+      "line": 2148,
+      "end_line": 2156,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 248,
+          "text": "button -w ($btnn_w/2) -h $small_button_h -command \"repeatLast -ac \\\" JOPA_4_1_975573a52a98abc101c2b805675f922b(0)\\\" -acl \\\" segment scale compensate OFF\\\"; JOPA_4_1_975573a52a98abc101c2b805675f922b(0)\" -annotation \" off segment scale compensate \" \"OFF\";"
+        },
+        {
+          "line": 249,
+          "text": "button -w ($btnn_w/2) -h $small_button_h -command \"repeatLast -ac \\\" JOPA_4_1_975573a52a98abc101c2b805675f922b(1)\\\" -acl \\\" segment scale compensate ON\\\"; JOPA_4_1_975573a52a98abc101c2b805675f922b(1)\" -annotation \"  on segment scale compensate \" \"ON\";"
+        }
+      ]
+    },
+    "JOPA_4_1_8c16c9163e07a819fc2186f2d338a280": {
+      "name": "JOPA_4_1_8c16c9163e07a819fc2186f2d338a280",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "show",
+          "type": "int"
+        }
+      ],
+      "line": 2157,
+      "end_line": 2169,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 255,
+          "text": "button  -w ($btnn_w/2) -h $small_button_h -command \"repeatLast -ac \\\"JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(1) \\\" -acl \\\" show local axis\\\"; JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(1)\" -annotation \"show local axis\" \"show\";"
+        },
+        {
+          "line": 256,
+          "text": "button -w ($btnn_w/2) -h $small_button_h -command \" repeatLast -ac \\\" JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(0)\\\" -acl \\\" hide local axis\\\"; JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(0)\"  -annotation \"hide local axis\" \"hide\";"
+        }
+      ]
+    },
+    "JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e": {
+      "name": "JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "scale_on",
+          "type": "float"
+        }
+      ],
+      "line": 2170,
+      "end_line": 2192,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 264,
+          "text": "-c \"repeatLast -ac \\\"JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(0.5) \\\" -acl \\\" scale size 0.5 \\\"; JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(0.5)\""
+        },
+        {
+          "line": 267,
+          "text": "-c \"repeatLast -ac \\\"JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(0.9) \\\" -acl \\\" scale size 0.9 \\\"; JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(0.9)\""
+        },
+        {
+          "line": 270,
+          "text": "-c \"repeatLast -ac \\\"JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(1.1) \\\" -acl \\\" scale size 1.1 \\\"; JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(1.1)\""
+        },
+        {
+          "line": 273,
+          "text": "-c \"repeatLast -ac \\\"JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(1.5) \\\" -acl \\\" scale size 1.5 \\\"; JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(1.5)\""
+        }
+      ]
+    },
+    "JOPA_4_1_bd56535e7e051ab809c6591e7c585696": {
+      "name": "JOPA_4_1_bd56535e7e051ab809c6591e7c585696",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        },
+        {
+          "name": "lock",
+          "type": "int"
+        }
+      ],
+      "line": 2193,
+      "end_line": 2207,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_38212629cf9ce2087192134a449b78d6": {
+      "name": "JOPA_4_1_38212629cf9ce2087192134a449b78d6",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "tx",
+          "type": "int"
+        },
+        {
+          "name": "ty",
+          "type": "int"
+        },
+        {
+          "name": "tz",
+          "type": "int"
+        },
+        {
+          "name": "rx",
+          "type": "int"
+        },
+        {
+          "name": "ry",
+          "type": "int"
+        },
+        {
+          "name": "rz",
+          "type": "int"
+        },
+        {
+          "name": "sx",
+          "type": "int"
+        },
+        {
+          "name": "sy",
+          "type": "int"
+        },
+        {
+          "name": "sz",
+          "type": "int"
+        },
+        {
+          "name": "viz",
+          "type": "int"
+        }
+      ],
+      "line": 2208,
+      "end_line": 2227,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_aa074854107180f09880ea0e8edd43f8": {
+      "name": "JOPA_4_1_aa074854107180f09880ea0e8edd43f8",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2228,
+      "end_line": 2235,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_90a059e9200ad500213586e0ecabdd0d": {
+      "name": "JOPA_4_1_90a059e9200ad500213586e0ecabdd0d",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        },
+        {
+          "name": "t_lock",
+          "type": "int"
+        },
+        {
+          "name": "r_lock",
+          "type": "int"
+        },
+        {
+          "name": "s_lock",
+          "type": "int"
+        },
+        {
+          "name": "v_lock",
+          "type": "int"
+        }
+      ],
+      "line": 2236,
+      "end_line": 2307,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_34cdd1e4469c2d3c695448db824d2ecb": {
+      "name": "JOPA_4_1_34cdd1e4469c2d3c695448db824d2ecb",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "on",
+          "type": "int"
+        }
+      ],
+      "line": 2308,
+      "end_line": 2316,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_cc20e95399a3b6da44eb78e45451d764": {
+      "name": "JOPA_4_1_cc20e95399a3b6da44eb78e45451d764",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "color",
+          "type": "int"
+        }
+      ],
+      "line": 2317,
+      "end_line": 2327,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 326,
+          "text": "button   -h $mid_button_h -w ($btnn_w/2) -command \"JOPA_4_1_7c23beeb22741f0c0bad91ebefb06e18();JOPA_4_1_39488f9fb9b49f3b387fe78ea9cda2f0();JOPA_4_1_cc20e95399a3b6da44eb78e45451d764(13); JOPA_4_1_6de8028af587b467034457b4d6349f89(1.5) \" -annotation \" - proportion_rotate - for delete - use DELETE MANIP button\"  \"prop\";"
+        }
+      ]
+    },
+    "JOPA_4_1_92de112c5c170c44ad9daf4d48b1acdd": {
+      "name": "JOPA_4_1_92de112c5c170c44ad9daf4d48b1acdd",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "rad",
+          "type": "float"
+        }
+      ],
+      "line": 2328,
+      "end_line": 2335,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_1b2691cd3c4740f4f00465c7e94c0373": {
+      "name": "JOPA_4_1_1b2691cd3c4740f4f00465c7e94c0373",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "jnts",
+          "type": "string[]"
+        },
+        {
+          "name": "rad",
+          "type": "float"
+        }
+      ],
+      "line": 2336,
+      "end_line": 2355,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_29941243f77aa0343e79460d48136072": {
+      "name": "JOPA_4_1_29941243f77aa0343e79460d48136072",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "local_scale",
+          "type": "float"
+        }
+      ],
+      "line": 2356,
+      "end_line": 2368,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_e9a3d5ffe283044f2485219b12ac5f73": {
+      "name": "JOPA_4_1_e9a3d5ffe283044f2485219b12ac5f73",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "objs",
+          "type": "string[]"
+        },
+        {
+          "name": "vis",
+          "type": "int"
+        }
+      ],
+      "line": 2369,
+      "end_line": 2376,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_15760bd5ac6225f582185bab24346a67": {
+      "name": "JOPA_4_1_15760bd5ac6225f582185bab24346a67",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "subScale",
+          "type": "float"
+        }
+      ],
+      "line": 2377,
+      "end_line": 2395,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 280,
+          "text": "-c \"repeatLast -ac \\\"JOPA_4_1_15760bd5ac6225f582185bab24346a67(0.5) \\\" -acl \\\" set size by camera dist \\\"; JOPA_4_1_15760bd5ac6225f582185bab24346a67(0.5)\""
+        }
+      ]
+    },
+    "JOPA_4_1_6de8028af587b467034457b4d6349f89": {
+      "name": "JOPA_4_1_6de8028af587b467034457b4d6349f89",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "subScale",
+          "type": "float"
+        }
+      ],
+      "line": 2396,
+      "end_line": 2415,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 326,
+          "text": "button   -h $mid_button_h -w ($btnn_w/2) -command \"JOPA_4_1_7c23beeb22741f0c0bad91ebefb06e18();JOPA_4_1_39488f9fb9b49f3b387fe78ea9cda2f0();JOPA_4_1_cc20e95399a3b6da44eb78e45451d764(13); JOPA_4_1_6de8028af587b467034457b4d6349f89(1.5) \" -annotation \" - proportion_rotate - for delete - use DELETE MANIP button\"  \"prop\";"
+        }
+      ]
+    },
+    "JOPA_4_1_3f2307b9993ee7d97577d190465f37c9": {
+      "name": "JOPA_4_1_3f2307b9993ee7d97577d190465f37c9",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        },
+        {
+          "name": "normalised",
+          "type": "int"
+        }
+      ],
+      "line": 2416,
+      "end_line": 2434,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_4a0278149f801323f33f7bb9e4ee597d": {
+      "name": "JOPA_4_1_4a0278149f801323f33f7bb9e4ee597d",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "target_massiv",
+          "type": "string[]"
+        },
+        {
+          "name": "object_massiv",
+          "type": "string[]"
+        }
+      ],
+      "line": 2435,
+      "end_line": 2474,
+      "direct_effects": [
+        "eval"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_ac2021d0d7ff3ecfad4dbca9f9f88248": {
+      "name": "JOPA_4_1_ac2021d0d7ff3ecfad4dbca9f9f88248",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "target_massiv",
+          "type": "string[]"
+        },
+        {
+          "name": "object_massiv",
+          "type": "string[]"
+        }
+      ],
+      "line": 2475,
+      "end_line": 2502,
+      "direct_effects": [
+        "eval"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_8598296823aa3af15686cb0d78f1615d": {
+      "name": "JOPA_4_1_8598296823aa3af15686cb0d78f1615d",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "selection",
+          "type": "string"
+        }
+      ],
+      "line": 2503,
+      "end_line": 2557,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_17431451b1be026fdeee93b86579c6b6": {
+      "name": "JOPA_4_1_17431451b1be026fdeee93b86579c6b6",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "target_massiv",
+          "type": "string[]"
+        },
+        {
+          "name": "object_massiv",
+          "type": "string[]"
+        }
+      ],
+      "line": 2558,
+      "end_line": 2622,
+      "direct_effects": [
+        "eval"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_5fce4865a9fd47748e6796c1be9d64b2": {
+      "name": "JOPA_4_1_5fce4865a9fd47748e6796c1be9d64b2",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2623,
+      "end_line": 2627,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_3323b46f97bc12510f86536ae21ff525": {
+      "name": "JOPA_4_1_3323b46f97bc12510f86536ae21ff525",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2628,
+      "end_line": 2632,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_ac692345fba3e827ad5d6e26de39ba07": {
+      "name": "JOPA_4_1_ac692345fba3e827ad5d6e26de39ba07",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2633,
+      "end_line": 2637,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_de88efca2929f0080ae1d45ff5db42d4": {
+      "name": "JOPA_4_1_de88efca2929f0080ae1d45ff5db42d4",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2638,
+      "end_line": 2661,
+      "direct_effects": [
+        "bakeResults"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_d1b73d0512bac8d20998bdbab9b3aed7": {
+      "name": "JOPA_4_1_d1b73d0512bac8d20998bdbab9b3aed7",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "string[]"
+        },
+        {
+          "name": "object",
+          "type": "string[]"
+        }
+      ],
+      "line": 2662,
+      "end_line": 2670,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_3a25eaad774c71ebdcb06ee4d2b25ce3": {
+      "name": "JOPA_4_1_3a25eaad774c71ebdcb06ee4d2b25ce3",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2671,
+      "end_line": 2686,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 252,
+          "text": "button -w ($btnn_w) -h $mid_button_h  -command \"repeatLast -ac \\\" JOPA_4_1_3a25eaad774c71ebdcb06ee4d2b25ce3\\\" -acl \\\" null joint orient \\\"; JOPA_4_1_3a25eaad774c71ebdcb06ee4d2b25ce3\"  -annotation \"zero joint orient selected\" \"null joint orient\";"
+        }
+      ]
+    },
+    "JOPA_4_1_9a3ce25cfdbc96f0053e2e03715d7f2b": {
+      "name": "JOPA_4_1_9a3ce25cfdbc96f0053e2e03715d7f2b",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2687,
+      "end_line": 2699,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 253,
+          "text": "button -w ($btnn_w) -h $mid_button_h  -command \"repeatLast -ac \\\" JOPA_4_1_9a3ce25cfdbc96f0053e2e03715d7f2b\\\" -acl \\\" null joint rotate\\\"; JOPA_4_1_9a3ce25cfdbc96f0053e2e03715d7f2b;\" -annotation \"zero rotates selected\" \"null joint rotate\";"
+        }
+      ]
+    },
+    "JOPA_4_1_09f1edc0a69a4931b08e1bcc40e94a55": {
+      "name": "JOPA_4_1_09f1edc0a69a4931b08e1bcc40e94a55",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2700,
+      "end_line": 2717,
+      "direct_effects": [
+        "cutKey"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_c7822f1f10b007a6803735c105e40799": {
+      "name": "JOPA_4_1_c7822f1f10b007a6803735c105e40799",
+      "global_scope": true,
+      "return_type": "float",
+      "parameters": [
+        {
+          "name": "obj1",
+          "type": "string"
+        },
+        {
+          "name": "obj2",
+          "type": "string"
+        }
+      ],
+      "line": 2718,
+      "end_line": 2726,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_f17bdd4811ed4c79ad676fdc4d5a1414": {
+      "name": "JOPA_4_1_f17bdd4811ed4c79ad676fdc4d5a1414",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2727,
+      "end_line": 2737,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 554,
+          "text": "-ann \"search and replace from selected\" -c \" catchQuiet(`JOPA_4_1_f17bdd4811ed4c79ad676fdc4d5a1414`); \" -l \"remove namespaces\";"
+        }
+      ]
+    },
+    "JOPA_4_1_5e702211108f11813c411c94f8b1b380": {
+      "name": "JOPA_4_1_5e702211108f11813c411c94f8b1b380",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "transfrm",
+          "type": "string"
+        }
+      ],
+      "line": 2738,
+      "end_line": 2745,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_1ed150b12535ee196bee8b74a6bf5f5c": {
+      "name": "JOPA_4_1_1ed150b12535ee196bee8b74a6bf5f5c",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        },
+        {
+          "name": "obj_type",
+          "type": "string"
+        }
+      ],
+      "line": 2746,
+      "end_line": 2780,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 214,
+          "text": "button  -h ($mid_button_h-2) -w ($btnn_w*1.5)-command \"SelectHierarchy; $sel_joints=JOPA_4_1_1ed150b12535ee196bee8b74a6bf5f5c(`ls-sl`, \\\"joint\\\");select $sel_joints;\" -annotation \"hierarchically selects joints only\" \"select joints hierarchy\";"
+        },
+        {
+          "line": 513,
+          "text": "button  -h $mid_button_h -w ($btnn_w*1.5)  -command \"SelectHierarchy; $sel_joints=JOPA_4_1_1ed150b12535ee196bee8b74a6bf5f5c(`ls-sl`, \\\"joint\\\");select $sel_joints;\" -annotation \"hierarchically selects joints only\" \"select joints hierarchy\";"
+        }
+      ]
+    },
+    "JOPA_4_1_ce7b9a074764f1b06f64dfc666cf4813": {
+      "name": "JOPA_4_1_ce7b9a074764f1b06f64dfc666cf4813",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        },
+        {
+          "name": "side_from",
+          "type": "string"
+        },
+        {
+          "name": "side_to",
+          "type": "string"
+        }
+      ],
+      "line": 2781,
+      "end_line": 2793,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_c954f3ebe8232ef721ae19221935b64e": {
+      "name": "JOPA_4_1_c954f3ebe8232ef721ae19221935b64e",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "take_name",
+          "type": "string"
+        }
+      ],
+      "line": 2794,
+      "end_line": 2800,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_95d47209f5832c068ce7614b82201089": {
+      "name": "JOPA_4_1_95d47209f5832c068ce7614b82201089",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2801,
+      "end_line": 2828,
+      "direct_effects": [
+        "delete",
+        "setAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 245,
+          "text": "button -w ($btnn_w)  -h $mid_button_h  -command \" JOPA_4_1_95d47209f5832c068ce7614b82201089;\" -annotation \"make rotations selected joint like after an euler filter\"  \"Rotate like Euler\";"
+        },
+        {
+          "line": 303,
+          "text": "button  -w ($btnn_w )-h $mid_button_h  -command \"repeatLast -ac \\\" JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1(); JOPA_4_1_a9acebc46d5277d92e6d954501ac53c7( $barnev_skeleton_menue_axis , $SAO_napr, $minus_up); JOPA_4_1_95d47209f5832c068ce7614b82201089;\t\\\" -acl \\\" orient joint null rotate\\\";JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1(); JOPA_4_1_a9acebc46d5277d92e6d954501ac53c7( $barnev_skeleton_menue_axis , $SAO_napr, $minus_up); JOPA_4_1_95d47209f5832c068ce7614b82201089;\t\" -annotation \"improved version of the standard system. Well oriented along the axes\"  \"true orient\";"
+        }
+      ]
+    },
+    "JOPA_4_1_2edf2909df70a7e657b4b646868a0b9c": {
+      "name": "JOPA_4_1_2edf2909df70a7e657b4b646868a0b9c",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 2829,
+      "end_line": 2843,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_a9acebc46d5277d92e6d954501ac53c7": {
+      "name": "JOPA_4_1_a9acebc46d5277d92e6d954501ac53c7",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "axis",
+          "type": "string"
+        },
+        {
+          "name": "sao_napr",
+          "type": "string"
+        },
+        {
+          "name": "ch_up",
+          "type": "string"
+        }
+      ],
+      "line": 2844,
+      "end_line": 2900,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": [
+        {
+          "line": 303,
+          "text": "button  -w ($btnn_w )-h $mid_button_h  -command \"repeatLast -ac \\\" JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1(); JOPA_4_1_a9acebc46d5277d92e6d954501ac53c7( $barnev_skeleton_menue_axis , $SAO_napr, $minus_up); JOPA_4_1_95d47209f5832c068ce7614b82201089;\t\\\" -acl \\\" orient joint null rotate\\\";JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1(); JOPA_4_1_a9acebc46d5277d92e6d954501ac53c7( $barnev_skeleton_menue_axis , $SAO_napr, $minus_up); JOPA_4_1_95d47209f5832c068ce7614b82201089;\t\" -annotation \"improved version of the standard system. Well oriented along the axes\"  \"true orient\";"
+        }
+      ]
+    },
+    "JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1": {
+      "name": "JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2901,
+      "end_line": 2921,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": [
+        {
+          "line": 124,
+          "text": "button  -h $mid_button_h  -w ($btnn_w*1.4) -command \"repeatLast -ac \\\"JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1();\\\" -acl \\\"freeze transform joints();\\\"; JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1();\"  -annotation \"freeze ROTATE AND JOINT ORIENT. On complex bifurcated chains it is better not to use\" \"Freeze rotate and orient\";"
+        },
+        {
+          "line": 303,
+          "text": "button  -w ($btnn_w )-h $mid_button_h  -command \"repeatLast -ac \\\" JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1(); JOPA_4_1_a9acebc46d5277d92e6d954501ac53c7( $barnev_skeleton_menue_axis , $SAO_napr, $minus_up); JOPA_4_1_95d47209f5832c068ce7614b82201089;\t\\\" -acl \\\" orient joint null rotate\\\";JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1(); JOPA_4_1_a9acebc46d5277d92e6d954501ac53c7( $barnev_skeleton_menue_axis , $SAO_napr, $minus_up); JOPA_4_1_95d47209f5832c068ce7614b82201089;\t\" -annotation \"improved version of the standard system. Well oriented along the axes\"  \"true orient\";"
+        }
+      ]
+    },
+    "JOPA_4_1_c81811a11b8f20fafe4877c444b7b2a7": {
+      "name": "JOPA_4_1_c81811a11b8f20fafe4877c444b7b2a7",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 2922,
+      "end_line": 2938,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 520,
+          "text": "-h $mid_button_h -w ($btnn_w)  -c \"select (`JOPA_4_1_c81811a11b8f20fafe4877c444b7b2a7`);sets -n name_Duplicates\" \"find duplicates\";"
+        }
+      ]
+    },
+    "JOPA_4_1_e34225338b41391d68d09634ca599397": {
+      "name": "JOPA_4_1_e34225338b41391d68d09634ca599397",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "return_scene_like_first",
+          "type": "int"
+        }
+      ],
+      "line": 2939,
+      "end_line": 2965,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_ab8c8018d47d542b750e72df0fa0b3ee": {
+      "name": "JOPA_4_1_ab8c8018d47d542b750e72df0fa0b3ee",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 2966,
+      "end_line": 2976,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_cf07169f94f84aada068ef575331b875": {
+      "name": "JOPA_4_1_cf07169f94f84aada068ef575331b875",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "mod",
+          "type": "string"
+        }
+      ],
+      "line": 2977,
+      "end_line": 3067,
+      "direct_effects": [],
+      "ui_references": [
+        {
+          "line": 211,
+          "text": "button  -h ($mid_button_h-2) -w ($btnn_w*1.5) -command \"JOPA_4_1_cf07169f94f84aada068ef575331b875(\\\"forward\\\")\" -annotation \"hierarchically selects a piece of chain between selected joints\" \"select between\";"
+        },
+        {
+          "line": 516,
+          "text": "button  -h $mid_button_h -w ($btnn_w) -command \"JOPA_4_1_cf07169f94f84aada068ef575331b875(\\\"forward\\\")\" -annotation \"hierarchically selects a piece of chain between selected joints\" \"select between\";"
+        }
+      ]
+    },
+    "JOPA_4_1_0bec9b327a3b7f3839a0d58cf92ce02c": {
+      "name": "JOPA_4_1_0bec9b327a3b7f3839a0d58cf92ce02c",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 3068,
+      "end_line": 3084,
+      "direct_effects": [
+        "delete",
+        "parent"
+      ],
+      "ui_references": [
+        {
+          "line": 133,
+          "text": "button  -h $mid_button_h -w ($btnn_w*1.4) -command \"repeatLast -ac \\\"JOPA_4_1_0bec9b327a3b7f3839a0d58cf92ce02c\\\" -acl \\\"freeze rotate \\\"; JOPA_4_1_0bec9b327a3b7f3839a0d58cf92ce02c()\"  -annotation \"- zero Rotate on selected joints and transfer to Joint Orient\" \"Rotate>Orient\";"
+        }
+      ]
+    },
+    "JOPA_4_1_0f1ac522d0b034408fd36bd87fb46cb3": {
+      "name": "JOPA_4_1_0f1ac522d0b034408fd36bd87fb46cb3",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 3085,
+      "end_line": 3098,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": [
+        {
+          "line": 130,
+          "text": "button  -h $mid_button_h -w ($btnn_w*1.4) -command \"repeatLast -ac \\\" JOPA_4_1_0f1ac522d0b034408fd36bd87fb46cb3\\\" -acl \\\" joint orient \\\"; JOPA_4_1_0f1ac522d0b034408fd36bd87fb46cb3()\"  -annotation \"Zero joint orient only for selected bones. With their transfer to rotate\" \"Orient->Rotate\";"
+        }
+      ]
+    },
+    "JOPA_4_1_a2b81a3977941c0eac1cda769570172c": {
+      "name": "JOPA_4_1_a2b81a3977941c0eac1cda769570172c",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 3099,
+      "end_line": 3134,
+      "direct_effects": [
+        "delete",
+        "parent"
+      ],
+      "ui_references": [
+        {
+          "line": 151,
+          "text": "button  -h $mid_button_h  -w ($btnn_w ) -command  \"undoInfo -ock -cn \\\"JOPA_4_1_a2b81a3977941c0eac1cda769570172c\\\";JOPA_4_1_a2b81a3977941c0eac1cda769570172c();undoInfo -cck;\" -annotation \"true unparent while maintaining selection\" \"true unparent\";"
+        }
+      ]
+    },
+    "JOPA_4_1_18250f0751da33452100ea861e8e386a": {
+      "name": "JOPA_4_1_18250f0751da33452100ea861e8e386a",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "axis",
+          "type": "string"
+        }
+      ],
+      "line": 3135,
+      "end_line": 3225,
+      "direct_effects": [
+        "delete",
+        "eval"
+      ],
+      "ui_references": [
+        {
+          "line": 312,
+          "text": "button -w ($btnn_w*1.5)  -h $mid_button_h -p \"child_bttn\" -command \"repeatLast -ac \\\" JOPA_4_1_18250f0751da33452100ea861e8e386a($minus_MM + $barnev_skeleton_menue_axis)\\\" -acl \\\" orient joint on parent\\\"; JOPA_4_1_18250f0751da33452100ea861e8e386a($minus_MM +  $barnev_skeleton_menue_axis);\" -annotation \"orient the bone chosen for the child\"  \"orient joint on child\";"
+        }
+      ]
+    },
+    "JOPA_4_1_ee505820b9f32e5106abbdfa4f840186": {
+      "name": "JOPA_4_1_ee505820b9f32e5106abbdfa4f840186",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "axis",
+          "type": "string"
+        }
+      ],
+      "line": 3226,
+      "end_line": 3289,
+      "direct_effects": [
+        "delete",
+        "eval"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_18df331e107c49828a5c6e6e0b53d687": {
+      "name": "JOPA_4_1_18df331e107c49828a5c6e6e0b53d687",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 3290,
+      "end_line": 3314,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_ede435b7fff94dfd41b52ef93374d3ee": {
+      "name": "JOPA_4_1_ede435b7fff94dfd41b52ef93374d3ee",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 3315,
+      "end_line": 3342,
+      "direct_effects": [
+        "delete",
+        "connectAttr"
+      ],
+      "ui_references": [
+        {
+          "line": 112,
+          "text": "-command \" repeatLast -ac \\\"  JOPA_4_1_ede435b7fff94dfd41b52ef93374d3ee();\\\" -acl \\\" place center by 3 \\\" ;  JOPA_4_1_ede435b7fff94dfd41b52ef93374d3ee()\""
+        }
+      ]
+    },
+    "JOPA_4_1_20a28b95c1b8b4dd29397ab332dbc667": {
+      "name": "JOPA_4_1_20a28b95c1b8b4dd29397ab332dbc667",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [],
+      "line": 3343,
+      "end_line": 3352,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_0bb35ddf616d7cd6bdc38d3dd23af1bf": {
+      "name": "JOPA_4_1_0bb35ddf616d7cd6bdc38d3dd23af1bf",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [],
+      "line": 3360,
+      "end_line": 3374,
+      "direct_effects": [
+        "optionVar"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_933d4aecbe9d9d0ce9a6591c5b2e3770": {
+      "name": "JOPA_4_1_933d4aecbe9d9d0ce9a6591c5b2e3770",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "jnt",
+          "type": "string"
+        }
+      ],
+      "line": 3375,
+      "end_line": 3393,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_e849743d83b9357359884fec322c28ec": {
+      "name": "JOPA_4_1_e849743d83b9357359884fec322c28ec",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "curve",
+          "type": "string"
+        },
+        {
+          "name": "objects",
+          "type": "string[]"
+        }
+      ],
+      "line": 3394,
+      "end_line": 3421,
+      "direct_effects": [
+        "delete",
+        "connectAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_33737a5f897286cfa410615445094c2a": {
+      "name": "JOPA_4_1_33737a5f897286cfa410615445094c2a",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "side_from",
+          "type": "string"
+        },
+        {
+          "name": "side_to",
+          "type": "string"
+        },
+        {
+          "name": "rule",
+          "type": "string"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        }
+      ],
+      "line": 3422,
+      "end_line": 3442,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_b785f6145105d03029da5b3e19367cbd": {
+      "name": "JOPA_4_1_b785f6145105d03029da5b3e19367cbd",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "p1",
+          "type": "float[]"
+        },
+        {
+          "name": "p2",
+          "type": "float[]"
+        },
+        {
+          "name": "normalize",
+          "type": "int"
+        }
+      ],
+      "line": 3443,
+      "end_line": 3449,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_9cf10c253bb06da91bcfe3836a7e5f36": {
+      "name": "JOPA_4_1_9cf10c253bb06da91bcfe3836a7e5f36",
+      "global_scope": true,
+      "return_type": "float",
+      "parameters": [
+        {
+          "name": "pos1",
+          "type": "float[]"
+        },
+        {
+          "name": "pos2",
+          "type": "float[]"
+        }
+      ],
+      "line": 3450,
+      "end_line": 3455,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_6f6ae5b84133776f167ce9bbf3409540": {
+      "name": "JOPA_4_1_6f6ae5b84133776f167ce9bbf3409540",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "point1",
+          "type": "float[]"
+        },
+        {
+          "name": "point2",
+          "type": "float[]"
+        },
+        {
+          "name": "point3",
+          "type": "float[]"
+        }
+      ],
+      "line": 3456,
+      "end_line": 3463,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_3a5adc63366ca7a6c7ff1a4a0eb042a1": {
+      "name": "JOPA_4_1_3a5adc63366ca7a6c7ff1a4a0eb042a1",
+      "global_scope": true,
+      "return_type": "float[]",
+      "parameters": [
+        {
+          "name": "point1",
+          "type": "float[]"
+        },
+        {
+          "name": "point2",
+          "type": "float[]"
+        },
+        {
+          "name": "distance",
+          "type": "float"
+        }
+      ],
+      "line": 3464,
+      "end_line": 3474,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_476390711655739e4d4919b7f7336b00": {
+      "name": "JOPA_4_1_476390711655739e4d4919b7f7336b00",
+      "global_scope": true,
+      "return_type": "float",
+      "parameters": [
+        {
+          "name": "pos_A",
+          "type": "float[]"
+        },
+        {
+          "name": "pos_B",
+          "type": "float[]"
+        },
+        {
+          "name": "pos_C",
+          "type": "float[]"
+        }
+      ],
+      "line": 3475,
+      "end_line": 3487,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_1d56f8884d88d7b022ffa48bc52b3755": {
+      "name": "JOPA_4_1_1d56f8884d88d7b022ffa48bc52b3755",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "name_massive",
+          "type": "string[]"
+        },
+        {
+          "name": "float_massive",
+          "type": "float[]"
+        }
+      ],
+      "line": 3488,
+      "end_line": 3500,
+      "direct_effects": [
+        "eval",
+        "python"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_65107bc37ea4a0d842be293fd78287a9": {
+      "name": "JOPA_4_1_65107bc37ea4a0d842be293fd78287a9",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "attribname",
+          "type": "string"
+        },
+        {
+          "name": "object",
+          "type": "string"
+        }
+      ],
+      "line": 3501,
+      "end_line": 3506,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_e8f0c3b3e6300189aca31ae83320ec92": {
+      "name": "JOPA_4_1_e8f0c3b3e6300189aca31ae83320ec92",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "node_name_mask",
+          "type": "string"
+        }
+      ],
+      "line": 3507,
+      "end_line": 3522,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_9a8d2e62249cad27916aacc736478655": {
+      "name": "JOPA_4_1_9a8d2e62249cad27916aacc736478655",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 3523,
+      "end_line": 3537,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_0a10c57fddb9b8e3dc07486c3a9a5eed": {
+      "name": "JOPA_4_1_0a10c57fddb9b8e3dc07486c3a9a5eed",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 3538,
+      "end_line": 3568,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_a7e0d73da2a8798cbe2f405b170f6598": {
+      "name": "JOPA_4_1_a7e0d73da2a8798cbe2f405b170f6598",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 3569,
+      "end_line": 3578,
+      "direct_effects": [
+        "delete"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_526c020cd7c9a859fd08d49719a4fddf": {
+      "name": "JOPA_4_1_526c020cd7c9a859fd08d49719a4fddf",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "string[]"
+        }
+      ],
+      "line": 3579,
+      "end_line": 3599,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_c99bdb5a898efbfb1d4fa2221eba881b": {
+      "name": "JOPA_4_1_c99bdb5a898efbfb1d4fa2221eba881b",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "target_massiv",
+          "type": "string[]"
+        },
+        {
+          "name": "object_massiv",
+          "type": "string[]"
+        }
+      ],
+      "line": 3600,
+      "end_line": 3635,
+      "direct_effects": [
+        "eval"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_5e8af8371c687e5c50d7ded5040ffe13": {
+      "name": "JOPA_4_1_5e8af8371c687e5c50d7ded5040ffe13",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "target_position",
+          "type": "string[]"
+        },
+        {
+          "name": "object_to_move",
+          "type": "string[]"
+        }
+      ],
+      "line": 3636,
+      "end_line": 3651,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_b360a99bae10f4014414d48a6e4f58bd": {
+      "name": "JOPA_4_1_b360a99bae10f4014414d48a6e4f58bd",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "string[]"
+        },
+        {
+          "name": "object",
+          "type": "string[]"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        }
+      ],
+      "line": 3652,
+      "end_line": 3671,
+      "direct_effects": [
+        "setAttr",
+        "connectAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_dd7661a2f1ff7e388148027fc411f9cb": {
+      "name": "JOPA_4_1_dd7661a2f1ff7e388148027fc411f9cb",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "string[]"
+        },
+        {
+          "name": "object",
+          "type": "string[]"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        },
+        {
+          "name": "z",
+          "type": "int"
+        }
+      ],
+      "line": 3672,
+      "end_line": 3691,
+      "direct_effects": [
+        "setAttr",
+        "connectAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_399e6ca23a24d0e48ed5cb872f4729dd": {
+      "name": "JOPA_4_1_399e6ca23a24d0e48ed5cb872f4729dd",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "shape",
+          "type": "string"
+        }
+      ],
+      "line": 3692,
+      "end_line": 3701,
+      "direct_effects": [
+        "parent"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_b3acc831f9f61a01a45fe7165ec12c62": {
+      "name": "JOPA_4_1_b3acc831f9f61a01a45fe7165ec12c62",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "full_name",
+          "type": "string"
+        },
+        {
+          "name": "side_from",
+          "type": "string"
+        },
+        {
+          "name": "side_to",
+          "type": "string"
+        }
+      ],
+      "line": 3702,
+      "end_line": 3725,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_5cca387e40527d14dd0862d275b6a5fc": {
+      "name": "JOPA_4_1_5cca387e40527d14dd0862d275b6a5fc",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "j_chain",
+          "type": "string[]"
+        },
+        {
+          "name": "axis",
+          "type": "string"
+        },
+        {
+          "name": "sao_napr",
+          "type": "string"
+        },
+        {
+          "name": "ch_up",
+          "type": "string"
+        }
+      ],
+      "line": 3726,
+      "end_line": 3830,
+      "direct_effects": [
+        "delete",
+        "setAttr",
+        "eval"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_18a895830f3c7ec611ca2fbd58e5730f": {
+      "name": "JOPA_4_1_18a895830f3c7ec611ca2fbd58e5730f",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "min_max",
+          "type": "int"
+        }
+      ],
+      "line": 3831,
+      "end_line": 3873,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_b0727bdb3ca55fb364a5d867d3297ff5": {
+      "name": "JOPA_4_1_b0727bdb3ca55fb364a5d867d3297ff5",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "string[]"
+        },
+        {
+          "name": "object",
+          "type": "string[]"
+        }
+      ],
+      "line": 3874,
+      "end_line": 3882,
+      "direct_effects": [
+        "setAttr"
+      ],
+      "ui_references": []
+    },
+    "JOPA_4_1_9542c11845a1e56080fc5b7a1c5e8a5b": {
+      "name": "JOPA_4_1_9542c11845a1e56080fc5b7a1c5e8a5b",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "get_string_for_revers",
+          "type": "string[]"
+        }
+      ],
+      "line": 3883,
+      "end_line": 3893,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_465f2c70f8e4bf417e93834f61ee4f6e": {
+      "name": "JOPA_4_1_465f2c70f8e4bf417e93834f61ee4f6e",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "stroka",
+          "type": "string"
+        },
+        {
+          "name": "poisk",
+          "type": "string"
+        }
+      ],
+      "line": 3894,
+      "end_line": 3909,
+      "direct_effects": [],
+      "ui_references": []
+    },
+    "JOPA_4_1_606ff0264a96e1d3ce1e41778c87d876": {
+      "name": "JOPA_4_1_606ff0264a96e1d3ce1e41778c87d876",
+      "global_scope": true,
+      "return_type": "int",
+      "parameters": [
+        {
+          "name": "num",
+          "type": "float"
+        }
+      ],
+      "line": 3910,
+      "end_line": 3918,
+      "direct_effects": [],
+      "ui_references": []
+    }
+  },
+  "declaration_count": 144,
+  "duplicate_names": {
+    "JOPA_4_1_6d2bbf47e863c2f0037cf0467b97cef6": 2
+  },
+  "top_level_lines": [],
+  "vendor_modified": false,
+  "license": "Copyright Barnev Pavel 2018-2022. Original License.txt retained: no modification/redistribution, commercial use requires purchase. No purchase or publishing performed."
+}

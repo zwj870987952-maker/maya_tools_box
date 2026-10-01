@@ -89,6 +89,13 @@ class MayaChecks(unittest.TestCase):
         self.assertEqual(before, runtime.snapshot())
         with self.assertRaises(RuntimeError):
             TOOL.show_ui()
+        parent_a = cmds.createNode('transform', name='trueInstanceParentA')
+        parent_b = cmds.createNode('transform', name='trueInstanceParentB')
+        child = cmds.createNode('transform', name='trueInstanceChild', parent=parent_a)
+        cmds.parent(child, parent_b, add=True)
+        result = TOOL.run(action='call', procedure='create_normalised_locators_on_selected', objects=['|trueInstanceParentA|trueInstanceChild'])
+        self.assertFalse(result.success)
+        self.assertIn('Instanced', result.message)
 
     def test_real_vendor_constraint_attribute_cleanup_is_scoped_and_undoable(self):
         node = cmds.createNode('transform', name='cleanupControl')

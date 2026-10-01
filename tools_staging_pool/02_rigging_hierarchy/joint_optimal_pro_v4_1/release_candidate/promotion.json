@@ -1,0 +1,82 @@
+{
+  "tool_id": "joint_optimal_pro_v4_1",
+  "registration": {
+    "module": "joint_optimal_pro_v4_1",
+    "class_name": "JointOptimalProTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/joint_optimal_pro_v4_1.md",
+      "target": "docs/tools/joint_optimal_pro_v4_1.md"
+    },
+    {
+      "source": "maya_toolkit/tools/joint_optimal_pro_v4_1/__init__.py",
+      "target": "maya_toolkit/tools/joint_optimal_pro_v4_1/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/joint_optimal_pro_v4_1/catalog.json",
+      "target": "maya_toolkit/tools/joint_optimal_pro_v4_1/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/joint_optimal_pro_v4_1/runtime.py",
+      "target": "maya_toolkit/tools/joint_optimal_pro_v4_1/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/joint_optimal_pro_v4_1/tool.py",
+      "target": "maya_toolkit/tools/joint_optimal_pro_v4_1/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/joint_optimal_pro_v4_1/vendor/barnev_Joint_Optimal_Pro_Application_code.mel",
+      "target": "maya_toolkit/tools/joint_optimal_pro_v4_1/vendor/barnev_Joint_Optimal_Pro_Application_code.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/joint_optimal_pro_v4_1/vendor/drag_and_drop_THIS_FILE_on_maya_window_for_install_Joint_Optimal_Pro_Application.mel",
+      "target": "maya_toolkit/tools/joint_optimal_pro_v4_1/vendor/drag_and_drop_THIS_FILE_on_maya_window_for_install_Joint_Optimal_Pro_Application.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/joint_optimal_pro_v4_1/vendor/ico/create_joint_tools.png",
+      "target": "maya_toolkit/tools/joint_optimal_pro_v4_1/vendor/ico/create_joint_tools.png"
+    },
+    {
+      "source": "maya_toolkit/tools/joint_optimal_pro_v4_1/vendor/JointOptimalProApplication_Guide.pdf",
+      "target": "maya_toolkit/tools/joint_optimal_pro_v4_1/vendor/JointOptimalProApplication_Guide.pdf"
+    },
+    {
+      "source": "maya_toolkit/tools/joint_optimal_pro_v4_1/vendor/License.txt",
+      "target": "maya_toolkit/tools/joint_optimal_pro_v4_1/vendor/License.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/joint_optimal_pro_v4_1/vendor/READ_ME.TXT",
+      "target": "maya_toolkit/tools/joint_optimal_pro_v4_1/vendor/READ_ME.TXT"
+    },
+    {
+      "source": "tests/test_joint_optimal_pro_v4_1.py",
+      "target": "tests/test_joint_optimal_pro_v4_1.py"
+    },
+    {
+      "source": "tests/test_joint_optimal_pro_v4_1_maya.py",
+      "target": "tests/test_joint_optimal_pro_v4_1_maya.py"
+    }
+  ],
+  "resources": [
+    "barnev_Joint_Optimal_Pro_Application_code.mel",
+    "drag_and_drop_THIS_FILE_on_maya_window_for_install_Joint_Optimal_Pro_Application.mel",
+    "ico/create_joint_tools.png",
+    "JointOptimalProApplication_Guide.pdf",
+    "License.txt",
+    "READ_ME.TXT"
+  ],
+  "dependencies": [
+    "Maya cmds/MEL with interactive viewport for complete original workflows",
+    "Entire original MEL, PDF guide, README, license, icon and installer retained; installer never executed"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete unmodified Joint Optimal Pro 4.1 distribution, all 144 declarations / 143 unique procedures, original full UI and 142 typed callable signatures. Independent read-only inspect/dry-run, scope/channel checks, true DAG instance guards, nested Undo handling and caller environment restoration. Original installer and system-based find helper are not executed.",
+  "verification_limitations": [
+    "Real Maya GUI, vertex workflows, chain insertion/removal, orient/freeze, mirror, bake/reparent and production rigs not_run",
+    "Original callbacks expand beyond explicit input scope; native catchQuiet may hide partial failure",
+    "Original duplicate declaration, shared find/global names and native eval/Python retained unchanged; fresh Maya session required for conflicts",
+    "Original UI callbacks/preferences are outside API restoration and scene Undo; vendor bytes never rewritten",
+    "License retained, no commercial license verification or redistribution/publishing performed"
+  ]
+}

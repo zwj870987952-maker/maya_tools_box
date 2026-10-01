@@ -35,7 +35,9 @@ def nodes(values):
         if len(found) != 1 or '.' in value or not cmds.objectType(found[0], isAType='transform'):
             raise ValueError('Unique whole transform/joint required: ' + value)
         node = found[0]
-        if len(cmds.ls(node, long=True, allPaths=True) or []) != 1:
+        selection = om.MSelectionList()
+        selection.add(node)
+        if len(om.MDagPath.getAllPathsTo(selection.getDependNode(0))) != 1:
             raise ValueError('Instanced nodes unsupported by original routines')
         if cmds.referenceQuery(node, isNodeReferenced=True) or any(cmds.lockNode(node, query=True, lock=True)):
             raise ValueError('Referenced/locked API input: ' + node)

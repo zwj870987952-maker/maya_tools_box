@@ -499,3 +499,10 @@
 - 普通Python4组、真实隔离Maya2025四组、临时正式布局/domain/schema/panel通过：namespace与真重复leaf长路径/原始state零变化；真point constraints正确方向/未选hidden中介/保留父边、严格verify；geometry driver+joint祖先；真双point结构环valid=false/no fake layers，budget/alias/instance拒绝。初次重复leaf夹具误拿ambiguous列表第一项和shape-instance误当transform-instance的断言已改为准确夹具后复验。
 - 实例检查发现对精确fullPath调用cmds.ls(allPaths)仍可能只返该路径；改用API2 MDagPath.getAllPathsTo，新增真实多parent transform实例回归。同样纠正53 BB/54约束管理的输入实例guard，原其他检查和正式布局完整重跑均通过，manifest fingerprint更新。未改原prototype或正式库。
 - 完整交付prepared_unverified，真实结果GUI/生产复杂图/十种native constraint更多情形/多版本待集中验收。只读分析不写scene/time/select/Undo/namespace/UI/file，只有显式show_ui开原结果窗；不提前转正/同步/用卡/购买。
+# 2026-10-01：Joint Optimal Pro 4.1完整候选，累计56/109
+
+- 六份原资源/MEL/PDF/License/图标/安装器逐字节SHA保留；144声明、143独立原过程、142原签名typed API与完整原GUI，system find仅归档不调用，不安装/购买/发布。
+- 独立适配全类型/vector/matrix、有序whole输入/锁引用/真实多父DAG保护、半径/颜色RGB/驱动/strict limit语义预检；其他原scope须显式同意与interactive Maya。API恢复time/UUID选择/namespace/autokey/选择偏好/mirror optionVars，框架Undo+nested chunk保护；原GUI/runtime globals/catchQuiet边界明确。
+- 初次Windows source在321行唯一CP1251字母被本机CP936误读，Unterminated string失败报告保留；完整原字节在内存decode CP1251→Unicode mel.eval后全部143过程编译，无修改源码。第二次仅fixture残留实例选择失败，修正fixture明确选择后四组真实Maya2025+两组普通Python+临时正式布局全部通过，候选fingerprint匹配；不冒充GUI实测。
+- 同步修正第51项OverRig原allPaths(fullPath)实例误判，改API2 MDagPath.getAllPathsTo，新增真实多父DAG检查；其五组隔离Maya/两组普通Python/晋级布局及重记录均通过。
+- GUI、组件、链增删/朝向/镜像/烘焙/生产rig与其他版本not_run，prepared_unverified。实际额度已用5h59%、周25%，继续第57项；heartbeat保持暂停，未迁正式库/同步Obsidian/用卡或购买。

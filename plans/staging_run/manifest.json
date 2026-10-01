@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T23:08:07.927211+08:00",
+  "updated_at": "2026-10-01T23:26:47.489345+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "02_rigging_hierarchy/hierarchy_analyzer",
+    "last_completed_tool": "02_rigging_hierarchy/joint_optimal_pro_v4_1",
     "last_usage": {
-      "five_hour_used_percent": 43.0,
-      "weekly_used_percent": 22.0,
-      "recorded_at": "2026-10-01T22:51:23.801179+08:00",
+      "five_hour_used_percent": 51.0,
+      "weekly_used_percent": 23.0,
+      "recorded_at": "2026-10-01T23:12:40.894517+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "02_rigging_hierarchy/hierarchy_analyzer"
+    "current_tool": "02_rigging_hierarchy/joint_optimal_pro_v4_1"
   },
   "entry_repairs": [
     {
@@ -8488,13 +8488,13 @@
           "kind": "isolated_unittest",
           "passed": true,
           "returncode": 0,
-          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.007s\r\n\r\nOK\r\n"
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.006s\r\n\r\nOK\r\n"
         },
         {
           "kind": "promotion_preview",
           "passed": true,
           "returncode": 0,
-          "output": "{\r\n  \"tool_id\": \"base_overrig_v9_0\",\r\n  \"candidate_sha256\": \"1f0a74c0535295a16652ee4b21c5381b7a9d47285fafab78e523de429492141e\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\base_overrig_v9_0.md\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\base_OverRig_scripts.mel\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\Drag_and_Drop_to_install.mel\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\function_for_hotkeys.TXT\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\icons\\\\base_OverRig.bmp\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\icons\\\\base_OverRig2.bmp\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\License.txt\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\misc\\\\Jiggle_Bone_New.mb\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\OverRig_basic_User_Manual_ENG.pdf\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\OverRig_basic_User_Manual_RUS.pdf\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\Read_Me_ENG.TXT\",\r\n    \"tests\\\\test_base_overrig_v9_0.py\",\r\n    \"tests\\\\test_base_overrig_v9_0_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+          "output": "{\r\n  \"tool_id\": \"base_overrig_v9_0\",\r\n  \"candidate_sha256\": \"2507a22289197f65c70ebd09b863986471d89eefc126c44f92efb06f34d476c8\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\base_overrig_v9_0.md\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\base_OverRig_scripts.mel\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\Drag_and_Drop_to_install.mel\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\function_for_hotkeys.TXT\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\icons\\\\base_OverRig.bmp\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\icons\\\\base_OverRig2.bmp\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\License.txt\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\misc\\\\Jiggle_Bone_New.mb\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\OverRig_basic_User_Manual_ENG.pdf\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\OverRig_basic_User_Manual_RUS.pdf\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\Read_Me_ENG.TXT\",\r\n    \"tests\\\\test_base_overrig_v9_0.py\",\r\n    \"tests\\\\test_base_overrig_v9_0_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
         },
         {
           "kind": "mayapy_standalone",
@@ -8502,10 +8502,10 @@
           "test": "tools_staging_pool/02_rigging_hierarchy/base_overrig_v9_0/release_candidate/tests/test_base_overrig_v9_0_maya.py",
           "returncode": 0,
           "passed": true,
-          "output": "test_actual_native_locator_scale_and_single_undo_restore_dry (__main__.MayaChecks.test_actual_native_locator_scale_and_single_undo_restore_dry) ... ����: BaseOverRigTool_base_overrig_v9_0\n����: BaseOverRigTool_base_overrig_v9_0\nok\r\ntest_complete_original_compiles_all307_without_auto_ui_or_scene_change (__main__.MayaChecks.test_complete_original_compiles_all307_without_auto_ui_or_scene_change) ... ok\r\ntest_native_normalized_locator_created_at_original_pose_and_undo (__main__.MayaChecks.test_native_normalized_locator_created_at_original_pose_and_undo) ... ����: BaseOverRigTool_base_overrig_v9_0\nok\r\ntest_readonly_inspect_scope_lock_and_batch_workflows_honestly_rejected (__main__.MayaChecks.test_readonly_inspect_scope_lock_and_batch_workflows_honestly_rejected) ... ok\r\ntest_real_vendor_constraint_attribute_cleanup_is_scoped_and_undoable (__main__.MayaChecks.test_real_vendor_constraint_attribute_cleanup_is_scoped_and_undoable) ... ����: BaseOverRigTool_base_overrig_v9_0\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 2.251s\r\n\r\nOK\r\n",
+          "output": "test_actual_native_locator_scale_and_single_undo_restore_dry (__main__.MayaChecks.test_actual_native_locator_scale_and_single_undo_restore_dry) ... ����: BaseOverRigTool_base_overrig_v9_0\n����: BaseOverRigTool_base_overrig_v9_0\nok\r\ntest_complete_original_compiles_all307_without_auto_ui_or_scene_change (__main__.MayaChecks.test_complete_original_compiles_all307_without_auto_ui_or_scene_change) ... ok\r\ntest_native_normalized_locator_created_at_original_pose_and_undo (__main__.MayaChecks.test_native_normalized_locator_created_at_original_pose_and_undo) ... ����: BaseOverRigTool_base_overrig_v9_0\nok\r\ntest_readonly_inspect_scope_lock_and_batch_workflows_honestly_rejected (__main__.MayaChecks.test_readonly_inspect_scope_lock_and_batch_workflows_honestly_rejected) ... ok\r\ntest_real_vendor_constraint_attribute_cleanup_is_scoped_and_undoable (__main__.MayaChecks.test_real_vendor_constraint_attribute_cleanup_is_scoped_and_undoable) ... ����: BaseOverRigTool_base_overrig_v9_0\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 2.447s\r\n\r\nOK\r\n",
           "gui_acceptance": false,
-          "python_source_sha256": "9aaf6afdc4c1ca388a39403151e8ceb39a6301d848c412b2c124fd49426fae6b",
-          "runtime_source_sha256": "72cf6db7c93385ce67d34f96bd278c605bf7a19e739bd9309f63db70eb60a400"
+          "python_source_sha256": "2d7360a68d196889c87e5bf6f8489fc4cc343e9536ad5381ee3fdc1234230cdc",
+          "runtime_source_sha256": "80d7328562ac1d48e3669bce6d4f6e2c3302ff7a94780c3afed84f6903f45a0b"
         },
         {
           "kind": "mayapy_report_matches_candidate",
@@ -8518,12 +8518,12 @@
         {
           "kind": "required_runtime_evidence",
           "passed": false,
-          "reason": "Complete original GUI/production knots, bake, IK, physics and overlap workflows require actual Maya acceptance; original vendor bytes not modified"
+          "reason": "Real Maya GUI and production workflows not_run"
         },
         {
           "kind": "promoted_layout_offline",
           "passed": true,
-          "candidate_sha256": "1f0a74c0535295a16652ee4b21c5381b7a9d47285fafab78e523de429492141e",
+          "candidate_sha256": "2507a22289197f65c70ebd09b863986471d89eefc126c44f92efb06f34d476c8",
           "returncode": 0,
           "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.007s\r\n\r\nOK\r\n",
           "registry_returncode": 0,
@@ -8562,7 +8562,7 @@
       "acceptance_instructions": "tools_staging_pool/02_rigging_hierarchy/base_overrig_v9_0/release_candidate/acceptance.md",
       "promotion": {
         "tool_id": "base_overrig_v9_0",
-        "candidate_sha256": "1f0a74c0535295a16652ee4b21c5381b7a9d47285fafab78e523de429492141e",
+        "candidate_sha256": "2507a22289197f65c70ebd09b863986471d89eefc126c44f92efb06f34d476c8",
         "applied": false,
         "files": [
           "docs\\tools\\base_overrig_v9_0.md",
@@ -8606,7 +8606,7 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete unmodified licensed OverRig 9.0 distribution and all 308 declarations retained. Separate typed public-procedure API, resource/selection/lock/version preflight and read-only inspect, original full UI, Undo nesting and caller environment restoration. Installer/userSetup/hotkeys never executed.",
-      "prepared_at": "2026-10-01T21:32:13.824455+08:00",
+      "prepared_at": "2026-10-01T23:26:45.490497+08:00",
       "source_commit": "38639f6d9b628d893b2c82eb21b42220ae245722"
     },
     {
@@ -9148,7 +9148,7 @@
       "source_preserved": true,
       "change_summary": "Complete BB distribution retained byte-for-byte. Full active native suite with namespaced declarations, explicit UI startup and bundled paths; typed procedure API/read-only inventory, caller environment restoration, scratch weight XML, restricted QC settings, no-overwrite texture IO, explicit virus-file quarantine rather than userSetup deletion. Original installer and obsolete duplicate versions archived only.",
       "prepared_at": "2026-10-01T23:08:03.888144+08:00",
-      "source_commit": "a151e78a9c7de26779fe8d9d101ca2a4f713ec4e"
+      "source_commit": "1fab75eb1079820a86976c106371adc32aadbbf4"
     },
     {
       "source_path": "02_rigging_hierarchy/constraint_manager_v6",
@@ -9282,7 +9282,7 @@
       "source_preserved": true,
       "change_summary": "Both complete prototypes and every native UI method preserved with explicit startup and Qt6/Qt5 imports. Typed API/full native UI bridge, actual target aliases/order/UUIDs, explicit key values, output-edge disconnect/restore preserving animation/offsets, true inverse constraints without cycles/overwriting drivers, full duplicate-based rebuild, scene list JSON and protected explicit snapshot files; original unsafe auto-run/file fallback never invoked.",
       "prepared_at": "2026-10-01T23:08:04.720333+08:00",
-      "source_commit": "21798d465c13d751447f93acaed13bc6bfb3f9e9"
+      "source_commit": "1fab75eb1079820a86976c106371adc32aadbbf4"
     },
     {
       "source_path": "02_rigging_hierarchy/hierarchy_analyzer",
@@ -9410,7 +9410,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete seven-function prototype and result UI retained; full long DAG/UUID analysis, correct driver-to-child edges and geometry target support, preserved parent relationships, indirect paths through unselected nodes, stable true topological layers and explicit cycle/blocked diagnostics, read-only API/Schema/result and callable close callback.",
-      "prepared_at": "2026-10-01T23:08:05.572038+08:00"
+      "prepared_at": "2026-10-01T23:08:05.572038+08:00",
+      "source_commit": "1fab75eb1079820a86976c106371adc32aadbbf4"
     },
     {
       "source_path": "02_rigging_hierarchy/joint_optimal_pro_v4_1",
@@ -9421,7 +9422,7 @@
       "entry_candidates": [
         "Joint_Optimal_Pro_Application_v4.1/barnev_Joint_Optimal_Pro_Application_code.mel"
       ],
-      "source_file_count": 6,
+      "source_file_count": 7,
       "source_files": [
         "Joint_Optimal_Pro_Application_v4.1/barnev_Joint_Optimal_Pro_Application_code.mel",
         "Joint_Optimal_Pro_Application_v4.1/drag_and_drop_THIS_FILE_on_maya_window_for_install_Joint_Optimal_Pro_Application.mel"
@@ -9429,14 +9430,78 @@
       "license_files": [
         "Joint_Optimal_Pro_Application_v4.1/License.txt"
       ],
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.007s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"joint_optimal_pro_v4_1\",\r\n  \"candidate_sha256\": \"fcb640f8c5763ecac34494908ddbaa69641b34844cd8bf6481980222e3988dcb\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\joint_optimal_pro_v4_1.md\",\r\n    \"maya_toolkit\\\\tools\\\\joint_optimal_pro_v4_1\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\joint_optimal_pro_v4_1\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\joint_optimal_pro_v4_1\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\joint_optimal_pro_v4_1\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\joint_optimal_pro_v4_1\\\\vendor\\\\barnev_Joint_Optimal_Pro_Application_code.mel\",\r\n    \"maya_toolkit\\\\tools\\\\joint_optimal_pro_v4_1\\\\vendor\\\\drag_and_drop_THIS_FILE_on_maya_window_for_install_Joint_Optimal_Pro_Application.mel\",\r\n    \"maya_toolkit\\\\tools\\\\joint_optimal_pro_v4_1\\\\vendor\\\\ico\\\\create_joint_tools.png\",\r\n    \"maya_toolkit\\\\tools\\\\joint_optimal_pro_v4_1\\\\vendor\\\\JointOptimalProApplication_Guide.pdf\",\r\n    \"maya_toolkit\\\\tools\\\\joint_optimal_pro_v4_1\\\\vendor\\\\License.txt\",\r\n    \"maya_toolkit\\\\tools\\\\joint_optimal_pro_v4_1\\\\vendor\\\\READ_ME.TXT\",\r\n    \"tests\\\\test_joint_optimal_pro_v4_1.py\",\r\n    \"tests\\\\test_joint_optimal_pro_v4_1_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/02_rigging_hierarchy/joint_optimal_pro_v4_1/release_candidate/tests/test_joint_optimal_pro_v4_1_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_actual_radius_color_handle_and_single_undo_redo_dry (__main__.MayaChecks.test_actual_radius_color_handle_and_single_undo_redo_dry) ... ����: JointOptimalProTool_joint_optimal_pro_v4_1\n����: JointOptimalProTool_joint_optimal_pro_v4_1\n����: JointOptimalProTool_joint_optimal_pro_v4_1\n����: JointOptimalProTool_joint_optimal_pro_v4_1\n����: JointOptimalProTool_joint_optimal_pro_v4_1\n����: JointOptimalProTool_joint_optimal_pro_v4_1\nok\r\ntest_all143_original_names_compile_without_ui_or_scene_change (__main__.MayaChecks.test_all143_original_names_compile_without_ui_or_scene_change) ... ok\r\ntest_locked_driven_instances_bounds_and_interactive_refusal (__main__.MayaChecks.test_locked_driven_instances_bounds_and_interactive_refusal) ... ok\r\ntest_real_ordered_joint_creation_pose_namespace_restore_and_undo (__main__.MayaChecks.test_real_ordered_joint_creation_pose_namespace_restore_and_undo) ... ����: JointOptimalProTool_joint_optimal_pro_v4_1\n����: JointOptimalProTool_joint_optimal_pro_v4_1\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.292s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "ba22a1dc5daf40be1985ec4049697ff7866c339e97160e653e26b9067068c5a1",
+          "runtime_source_sha256": "3e60cc8ffbd6a1467a538648c8e6ef6f5f7c4cb52d6bd91fd4e7320cdccdf6ed"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya GUI, component workflows, chain orientation/mirror/reparent and production skeletons not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "fcb640f8c5763ecac34494908ddbaa69641b34844cd8bf6481980222e3988dcb",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.006s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI, vertex workflows, chain insertion/removal, orient/freeze, mirror, bake/reparent and production rigs not_run",
+        "Original callbacks expand beyond explicit input scope; native catchQuiet may hide partial failure",
+        "Original duplicate declaration, shared find/global names and native eval/Python retained unchanged; fresh Maya session required for conflicts",
+        "Original UI callbacks/preferences are outside API restoration and scene Undo; vendor bytes never rewritten",
+        "License retained, no commercial license verification or redistribution/publishing performed"
+      ],
       "entry_review": {
         "evidence": "Actual source declares JOPA_skeleton_tools_menue; sibling drag-drop file installs tool.",
         "kind": "mel_procedure",
@@ -9451,7 +9516,47 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "1d999449dc84ef6e1d5dbea220d2421a917a264ff5a1830384f151256e6a6538"
+      "source_tree_sha256": "547fd5d3eca8b228c74849dfae98308a68683b781b679bad9a02940e7340690b",
+      "candidate_path": "tools_staging_pool/02_rigging_hierarchy/joint_optimal_pro_v4_1/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/02_rigging_hierarchy/joint_optimal_pro_v4_1/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "joint_optimal_pro_v4_1",
+        "candidate_sha256": "fcb640f8c5763ecac34494908ddbaa69641b34844cd8bf6481980222e3988dcb",
+        "applied": false,
+        "files": [
+          "docs\\tools\\joint_optimal_pro_v4_1.md",
+          "maya_toolkit\\tools\\joint_optimal_pro_v4_1\\__init__.py",
+          "maya_toolkit\\tools\\joint_optimal_pro_v4_1\\catalog.json",
+          "maya_toolkit\\tools\\joint_optimal_pro_v4_1\\runtime.py",
+          "maya_toolkit\\tools\\joint_optimal_pro_v4_1\\tool.py",
+          "maya_toolkit\\tools\\joint_optimal_pro_v4_1\\vendor\\barnev_Joint_Optimal_Pro_Application_code.mel",
+          "maya_toolkit\\tools\\joint_optimal_pro_v4_1\\vendor\\drag_and_drop_THIS_FILE_on_maya_window_for_install_Joint_Optimal_Pro_Application.mel",
+          "maya_toolkit\\tools\\joint_optimal_pro_v4_1\\vendor\\ico\\create_joint_tools.png",
+          "maya_toolkit\\tools\\joint_optimal_pro_v4_1\\vendor\\JointOptimalProApplication_Guide.pdf",
+          "maya_toolkit\\tools\\joint_optimal_pro_v4_1\\vendor\\License.txt",
+          "maya_toolkit\\tools\\joint_optimal_pro_v4_1\\vendor\\READ_ME.TXT",
+          "tests\\test_joint_optimal_pro_v4_1.py",
+          "tests\\test_joint_optimal_pro_v4_1_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "barnev_Joint_Optimal_Pro_Application_code.mel",
+        "drag_and_drop_THIS_FILE_on_maya_window_for_install_Joint_Optimal_Pro_Application.mel",
+        "ico/create_joint_tools.png",
+        "JointOptimalProApplication_Guide.pdf",
+        "License.txt",
+        "READ_ME.TXT"
+      ],
+      "external_dependencies": [
+        "Maya cmds/MEL with interactive viewport for complete original workflows",
+        "Entire original MEL, PDF guide, README, license, icon and installer retained; installer never executed"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete unmodified Joint Optimal Pro 4.1 distribution, all 144 declarations / 143 unique procedures, original full UI and 142 typed callable signatures. Independent read-only inspect/dry-run, scope/channel checks, true DAG instance guards, nested Undo handling and caller environment restoration. Original installer and system-based find helper are not executed.",
+      "prepared_at": "2026-10-01T23:26:45.743893+08:00"
     },
     {
       "source_path": "02_rigging_hierarchy/rdm_tools_v2",
