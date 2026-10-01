@@ -602,3 +602,9 @@
 - 实际发现Maya2025原AbcImport Undo留下AlembicNode；复制/直接删除临时DG方案导致隔离进程3221225477，撤回该方案。最终自包含MPxCommand拥有native导入生命周期，临时child记录关闭且保留Undo队列，MDagModifier撤销全部新增DAG/DG与原visibility，Redo同一节点及动画连接。dry不注册插件；执行只载自己的候选command，不安装/autoload，不改core。
 - 2离线+3隔离Maya2025+临时正式布局/注册/modeling_surfacing/panel/fingerprint通过；真实临时AbcExport/AbcImport/gpuCache、cube8vertices/frame1=2/frame3=6/原父ty10局部挂载、dry无变、一次Undo无AlembicNode残留与原Undo历史、重复Undo/Redo和动画、bad后行全表拒绝/hideFalse/overlap/锁/batchGUI拒绝。隔离fixture卸载reader释放Windows临时handle，仅测试进程，候选不卸载插件。
 - GUI/GPU视口/复杂生产Alembic/跨版本not_run，prepared_unverified。Undo可能留空namespace与会话注册command，相关队列存在时不能卸载候选，验收路径变换用新session。实际5h61%已用、周40%，立即继续isolate_selected；heartbeat暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：隔离选中物体完整候选，累计70/109
+
+- 原两文件SHA归档，完整四入口/API/Schema/原生小UI/知识/验收/晋级备齐；修正原隐藏直接shape与全场景强制恢复，保留选中后代祖先，只还原本次visibility。UUID持久network receipt与原视图集合可随场景保存/重命名/显式panel恢复，锁/引用/驱动/真实例/别名/腐坏记录/手改visibility全表拒绝。
+- 2离线+3隔离Maya2025+临时正式布局/注册/modeling_surfacing/panel/fingerprint全部通过。实际DAG/shape/visibility/UUID/receipt/单Undo与Redo、重命名、无关/原隐藏保持、选中后代祖先、锁/坏行/改值/实例拒绝。仅替换viewport adapter，不冒充原生视口验收；native batch/GUI拒绝正确。真实modelPanel/GUI/视图Undo/生产场景/跨版本not_run，prepared_unverified；意外视口失败人工Undo本调用。
+- 实际5h66%已用（剩34%）、周41%，立即继续mirror_tool；heartbeat暂停，不迁正式/同步/用卡/购买。

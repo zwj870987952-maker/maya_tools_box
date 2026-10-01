@@ -1,0 +1,57 @@
+{
+  "tool_id": "isolate_selected",
+  "registration": {
+    "module": "isolate_selected",
+    "class_name": "IsolateSelectedTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/isolate_selected.md",
+      "target": "docs/tools/isolate_selected.md"
+    },
+    {
+      "source": "maya_toolkit/tools/isolate_selected/__init__.py",
+      "target": "maya_toolkit/tools/isolate_selected/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/isolate_selected/catalog.json",
+      "target": "maya_toolkit/tools/isolate_selected/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/isolate_selected/tool.py",
+      "target": "maya_toolkit/tools/isolate_selected/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/isolate_selected/upstream/isolate_selected_only.py.original",
+      "target": "maya_toolkit/tools/isolate_selected/upstream/isolate_selected_only.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/isolate_selected/upstream/isolate_selected_only_使用说明.md",
+      "target": "maya_toolkit/tools/isolate_selected/upstream/isolate_selected_only_使用说明.md"
+    },
+    {
+      "source": "maya_toolkit/tools/isolate_selected/view.py",
+      "target": "maya_toolkit/tools/isolate_selected/view.py"
+    },
+    {
+      "source": "tests/test_isolate_selected.py",
+      "target": "tests/test_isolate_selected.py"
+    },
+    {
+      "source": "tests/test_isolate_selected_maya.py",
+      "target": "tests/test_isolate_selected_maya.py"
+    }
+  ],
+  "resources": [
+    "isolate_selected_only.py",
+    "isolate_selected_only_使用说明.md"
+  ],
+  "dependencies": [
+    "Maya cmds/API2"
+  ],
+  "acceptance_required": true,
+  "change_summary": "完整隔离/恢复/UI/API；直接shape与选中后代路径保持，UUID持久记录仅恢复本次visibility及原视图集合，严格只读预检/Undo/候选晋级",
+  "verification_limitations": [
+    "真实GUI与原生modelPanel及跨版本not_run；隔离Maya仅替换viewport adapter"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T04:26:47.126148+08:00",
+  "updated_at": "2026-10-02T04:39:55.843032+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "03_transforms_modeling/gpu_cache_to_mesh",
+    "last_completed_tool": "03_transforms_modeling/isolate_selected",
     "last_usage": {
-      "five_hour_used_percent": 55.0,
-      "weekly_used_percent": 39.0,
-      "recorded_at": "2026-10-02T04:13:02.677815+08:00",
+      "five_hour_used_percent": 61.0,
+      "weekly_used_percent": 40.0,
+      "recorded_at": "2026-10-02T04:27:42.340313+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "03_transforms_modeling/gpu_cache_to_mesh"
+    "current_tool": "03_transforms_modeling/isolate_selected"
   },
   "entry_repairs": [
     {
@@ -14718,7 +14718,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete full-file native Alembic import/reparent/cache hide, strict all-row preflight, self-contained MPxCommand Undo/Redo of all actual DAG/DG, original bytes and full UI/API/docs/tests/promotion.",
-      "prepared_at": "2026-10-02T04:26:44.450615+08:00"
+      "prepared_at": "2026-10-02T04:26:44.450615+08:00",
+      "source_commit": "8ca993e4742f36b29d38e04b5a2e0e05f9d1c2d0"
     },
     {
       "source_path": "03_transforms_modeling/isolate_selected",
@@ -14729,20 +14730,80 @@
       "entry_candidates": [
         "isolate_selected_only.py"
       ],
-      "source_file_count": 2,
+      "source_file_count": 3,
       "source_files": [
         "isolate_selected_only.py"
       ],
       "license_files": [],
       "entry_sha256": "50b8ec68ec1194f8d758545f38985ff7670b267a7d6cfc66d240d93b1165783b",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"isolate_selected\",\r\n  \"candidate_sha256\": \"9f8c661f2de16a79331c9c3087803acff02873cd8d2d9e03039a23161180251f\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\isolate_selected.md\",\r\n    \"maya_toolkit\\\\tools\\\\isolate_selected\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\isolate_selected\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\isolate_selected\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\isolate_selected\\\\upstream\\\\isolate_selected_only.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\isolate_selected\\\\upstream\\\\isolate_selected_only_\\u4f7f\\u7528\\u8bf4\\u660e.md\",\r\n    \"maya_toolkit\\\\tools\\\\isolate_selected\\\\view.py\",\r\n    \"tests\\\\test_isolate_selected.py\",\r\n    \"tests\\\\test_isolate_selected_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/03_transforms_modeling/isolate_selected/release_candidate/tests/test_isolate_selected_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": ".����: IsolateSelectedTool_isolate_selected\n����: IsolateSelectedTool_isolate_selected\n����: IsolateSelectedTool_isolate_selected\n����: IsolateSelectedTool_isolate_selected\n..\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.030s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "52a9c535a8b4339559eda0ef81e62b012d1540d3f8c8538edb0102bfbc663d17",
+          "runtime_source_sha256": "2f7b103d4b77c67f2613982512f3cb7a4e70d8fb3bb32457a112c47f0d68bf59"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "真实GUI、原生modelPanel与视口Undo/多视图/跨版本not_run；隔离测试仅替换viewport adapter，实际DAG/UUID/visibility/Undo通过"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "9f8c661f2de16a79331c9c3087803acff02873cd8d2d9e03039a23161180251f",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "真实GUI与原生modelPanel及跨版本not_run；隔离Maya仅替换viewport adapter"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -14751,7 +14812,38 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "ae9d0cd5c880e971e1a2a846c2a14c81efe2e950ffe3bc65a7c47c980a418c55"
+      "source_tree_sha256": "f737e2001d88ec34fa64dd0641076d34be08567761baead08594c97541d62a6d",
+      "candidate_path": "tools_staging_pool/03_transforms_modeling/isolate_selected/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/03_transforms_modeling/isolate_selected/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "isolate_selected",
+        "candidate_sha256": "9f8c661f2de16a79331c9c3087803acff02873cd8d2d9e03039a23161180251f",
+        "applied": false,
+        "files": [
+          "docs\\tools\\isolate_selected.md",
+          "maya_toolkit\\tools\\isolate_selected\\__init__.py",
+          "maya_toolkit\\tools\\isolate_selected\\catalog.json",
+          "maya_toolkit\\tools\\isolate_selected\\tool.py",
+          "maya_toolkit\\tools\\isolate_selected\\upstream\\isolate_selected_only.py.original",
+          "maya_toolkit\\tools\\isolate_selected\\upstream\\isolate_selected_only_使用说明.md",
+          "maya_toolkit\\tools\\isolate_selected\\view.py",
+          "tests\\test_isolate_selected.py",
+          "tests\\test_isolate_selected_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "isolate_selected_only.py",
+        "isolate_selected_only_使用说明.md"
+      ],
+      "external_dependencies": [
+        "Maya cmds/API2"
+      ],
+      "source_preserved": true,
+      "change_summary": "完整隔离/恢复/UI/API；直接shape与选中后代路径保持，UUID持久记录仅恢复本次visibility及原视图集合，严格只读预检/Undo/候选晋级",
+      "prepared_at": "2026-10-02T04:38:58.899859+08:00"
     },
     {
       "source_path": "03_transforms_modeling/mirror_tool",
