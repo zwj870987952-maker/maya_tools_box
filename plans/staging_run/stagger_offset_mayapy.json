@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/stagger_offset/release_candidate/tests/test_stagger_offset_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_dense_batch_negative_fractional_once_and_undo_redo (__main__.MayaChecks.test_dense_batch_negative_fractional_once_and_undo_redo) ... ����: StaggerOffsetTool_stagger_offset\n����: StaggerOffsetTool_stagger_offset\n����: StaggerOffsetTool_stagger_offset\n����: StaggerOffsetTool_stagger_offset\n����: StaggerOffsetTool_stagger_offset\n����: StaggerOffsetTool_stagger_offset\nok\r\ntest_gui_selection_semantics_without_window (__main__.MayaChecks.test_gui_selection_semantics_without_window) ... ok\r\ntest_readonly_selection_and_invalid_second_curve_no_partial_write (__main__.MayaChecks.test_readonly_selection_and_invalid_second_curve_no_partial_write) ... ok\r\ntest_shared_curve_conflict_or_equal_delta_single_move (__main__.MayaChecks.test_shared_curve_conflict_or_equal_delta_single_move) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.031s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "12fdf4f50ca7f3cd79f0cbb819c19f41c9ddd73d0542ee0737ab76bbd1654249",
+  "runtime_source_sha256": "1e378d0242f11237ca2b686416a2349738ae3434f1e15dd5d2a974e7eb71aa73"
+}

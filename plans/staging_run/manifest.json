@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T18:04:44.451562+08:00",
+  "updated_at": "2026-10-01T18:10:40.928516+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/stagger_gui",
+    "last_completed_tool": "01_animation/stagger_offset",
     "last_usage": {
-      "five_hour_used_percent": 47.0,
-      "weekly_used_percent": 7.0,
-      "recorded_at": "2026-10-01T17:55:39.757138+08:00",
+      "five_hour_used_percent": 51.0,
+      "weekly_used_percent": 8.0,
+      "recorded_at": "2026-10-01T18:06:54.011219+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/stagger_gui"
+    "current_tool": "01_animation/stagger_offset"
   },
   "entry_repairs": [
     {
@@ -7412,7 +7412,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Full original stagger resampling algorithm, original GUI layout/slider/range buttons and all assets preserved. Scoped curve API, read-only validation, Undo, private UI names and finally progress restoration added.",
-      "prepared_at": "2026-10-01T18:04:42.178067+08:00"
+      "prepared_at": "2026-10-01T18:04:42.178067+08:00",
+      "source_commit": "4012af1f4c2bcb569e8541e2367054bbb07d23ab"
     },
     {
       "source_path": "01_animation/stagger_offset",
@@ -7423,21 +7424,84 @@
       "entry_candidates": [
         "批量减选关键帧偏移.py"
       ],
-      "source_file_count": 2,
+      "source_file_count": 3,
       "source_files": [
         "单次减选关键帧偏移.py",
         "批量减选关键帧偏移.py"
       ],
       "license_files": [],
       "entry_sha256": "88cffadfec72af78c7d308c866611fe666bc462211a2baecce983da097583fac",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_original_sources_complete_lazy_and_schema (__main__.Offline.test_original_sources_complete_lazy_and_schema) ... ok\r\ntest_repeated_remove_offsets_and_rejections (__main__.Offline.test_repeated_remove_offsets_and_rejections) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"stagger_offset\",\r\n  \"candidate_sha256\": \"56414c9823220521a3e3d5da0cfff790eb4f50f1a96605a070ae5c1ac3a0a645\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\stagger_offset.md\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_offset\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_offset\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_offset\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_offset\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_offset\\\\upstream\\\\\\u5355\\u6b21\\u51cf\\u9009\\u5173\\u952e\\u5e27\\u504f\\u79fb.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_offset\\\\upstream\\\\\\u6279\\u91cf\\u51cf\\u9009\\u5173\\u952e\\u5e27\\u504f\\u79fb.py.original\",\r\n    \"tests\\\\test_stagger_offset.py\",\r\n    \"tests\\\\test_stagger_offset_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/stagger_offset/release_candidate/tests/test_stagger_offset_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_dense_batch_negative_fractional_once_and_undo_redo (__main__.MayaChecks.test_dense_batch_negative_fractional_once_and_undo_redo) ... ����: StaggerOffsetTool_stagger_offset\n����: StaggerOffsetTool_stagger_offset\n����: StaggerOffsetTool_stagger_offset\n����: StaggerOffsetTool_stagger_offset\n����: StaggerOffsetTool_stagger_offset\n����: StaggerOffsetTool_stagger_offset\nok\r\ntest_gui_selection_semantics_without_window (__main__.MayaChecks.test_gui_selection_semantics_without_window) ... ok\r\ntest_readonly_selection_and_invalid_second_curve_no_partial_write (__main__.MayaChecks.test_readonly_selection_and_invalid_second_curve_no_partial_write) ... ok\r\ntest_shared_curve_conflict_or_equal_delta_single_move (__main__.MayaChecks.test_shared_curve_conflict_or_equal_delta_single_move) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.031s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "12fdf4f50ca7f3cd79f0cbb819c19f41c9ddd73d0542ee0737ab76bbd1654249",
+          "runtime_source_sha256": "1e378d0242f11237ca2b686416a2349738ae3434f1e15dd5d2a974e7eb71aa73"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya GUI and production weighted/complex rig animation not accepted; dense-key timing, safety, Undo and selection behavior passed isolated Maya checks."
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "56414c9823220521a3e3d5da0cfff790eb4f50f1a96605a070ae5c1ac3a0a645",
+          "returncode": 0,
+          "output": "test_original_sources_complete_lazy_and_schema (__main__.Offline.test_original_sources_complete_lazy_and_schema) ... ok\r\ntest_repeated_remove_offsets_and_rejections (__main__.Offline.test_repeated_remove_offsets_and_rejections) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI and production animation acceptance pending",
+        "Original ls(dag=True) expanded descendants; candidate deliberately uses explicitly ordered whole transforms",
+        "Keyframe times/values move together; Maya key clipboard/selection effects are separate from scene Undo",
+        "Original two auto-opening source entry points remain archive-only"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 2,
@@ -7446,7 +7510,38 @@
         "possible_top_level_calls": 2,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "999ff5e2ccee34a49e6699d95d5688ada52a98bd20887d6ce5fcded6e2e58702"
+      "source_tree_sha256": "2588301dcde7c0d73f5dfd7970aae6811efe76442c23cd75adc522b11b732787",
+      "candidate_path": "tools_staging_pool/01_animation/stagger_offset/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/stagger_offset/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "stagger_offset",
+        "candidate_sha256": "56414c9823220521a3e3d5da0cfff790eb4f50f1a96605a070ae5c1ac3a0a645",
+        "applied": false,
+        "files": [
+          "docs\\tools\\stagger_offset.md",
+          "maya_toolkit\\tools\\stagger_offset\\__init__.py",
+          "maya_toolkit\\tools\\stagger_offset\\catalog.json",
+          "maya_toolkit\\tools\\stagger_offset\\tool.py",
+          "maya_toolkit\\tools\\stagger_offset\\ui.py",
+          "maya_toolkit\\tools\\stagger_offset\\upstream\\单次减选关键帧偏移.py.original",
+          "maya_toolkit\\tools\\stagger_offset\\upstream\\批量减选关键帧偏移.py.original",
+          "tests\\test_stagger_offset.py",
+          "tests\\test_stagger_offset_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "单次减选关键帧偏移.py",
+        "批量减选关键帧偏移.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds, no external dependencies"
+      ],
+      "source_preserved": true,
+      "change_summary": "Both original single-remove and repeated-remove batch offset workflows retained, complete original sources archived. Dense-key-safe whole-curve translation replaces collision-prone per-time loops, explicit ordered whole-node scope, shared curve guards, dry-run/Undo and UI provided.",
+      "prepared_at": "2026-10-01T18:10:38.753431+08:00"
     },
     {
       "source_path": "01_animation/sword_anim_polishing_tool_v4",

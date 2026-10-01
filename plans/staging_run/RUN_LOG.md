@@ -392,3 +392,9 @@
 - 完整原边界插键/首键值比较/每2帧偏移与正常值交替采样/奇数end-.5/末端ease与整数帧写入，不切掉旧内部键、不缩减原算法、不误当物体错时。原五GUI函数、原图形高度随slider和start/end时间滑块按钮完整保留，私有控件名，执行API桥，finally恢复进度/窗口高度；真实GUI与SVG未验收。
 - 原无对象参数query容易受全局键选择影响，候选直接从指定对象图查curve，拒锁/引用/范围外共享/timeWarp/animBlend等不支持图。Maya2025实际拒keyframe(query,animation='objects')，已改直接listConnections；普通时间curve有隐式time输入无connection，保留支持并拒真正warp。
 - 普通Python2组/隔离Maya3组通过：完整原函数仅固定GUI数值读取而全部实际动画命令Maya执行，偶/奇/最小/负帧结果逐键等同；dry node/key/undo/time/select无变，无关selected key隔离，UndoRedo；常量仍只边界插键，共享/锁target拒绝。临时正式布局注册/面板/Schema通过；非线性加权生产曲线/真实UI另需验收，prepared_unverified，不转正/同步/用卡/购买。
+
+## 2026-10-01：减选关键帧偏移完整候选，累计44/109
+
+- 单次/批量两个原入口字节SHA完整留档，原自动窗口只archive，正式候选同时提供两工作方式；once=0/offset/offset，batch=0/offset/2offset/...，不丢减选循环语义。原ls(dag=True)隐式后代展开现明确只用ordered whole nodes，省略objects时ls selection列表并注明tracking未启用不能保证点击顺序。
+- 原逐时间写入可能dense key碰撞、重复时间多次移动，改整curve relative timeChange/option over一次平移，保留全部键值/数量；共享同delta去重，不同delta/影响首个不动或外部对象拒绝。拒引用/锁/驱动键/timeWarp/层与不支持图；整批预检无节点/键/时间/选择/Undo写入，run整Undo组；API默认保持选择，GUI显式update_selection保留原减选与选键输出。
+- 原字段范围/精度/step和两按钮完整私有UI，无外部依赖/文件写入。普通Python2组、隔离Maya4组、临时晋级布局注册面板全部通过：密集邻帧batch正/负与once小数的每键时间/值/数量及UndoRedo；dry/后项锁整批无先写；共享curve冲突或同delta仅一次；once余对象和batch末对象/keys选择。真实UI/生产加权切线/跨版本仍not_run，prepared_unverified。不转正/同步/用卡/购买。
