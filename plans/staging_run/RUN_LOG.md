@@ -633,3 +633,10 @@
 - 明确source被旋转、target只读；原烘焙无setKeyframe修正范围真实写keys，非烘焙保留参考小数key，单帧小数/可选成功跳帧；统一Undo/AutoKey/time/degree单位转换。原6选up参数算法未用，拒绝不伪造。源锁轴按原跳过，JO/RA/order原算法；驱动/引用/共享curve/OPM/实例/shear/反射/退化检查，未来帧动态失败可Undo本调用。
 - 2离线+4隔离Maya2025+临时正式布局/注册/modeling_surfacing/panel/fingerprint通过：真实原单轴矩阵、完整XYZ、JO+非XYZ+旋转父、锁轴单轴、dry/单Undo/AutoKey/time、实际range键/小数参考key/曲线外键保留/rad度制/共享curve拒绝。新建键fixture缓存未求值导致一次Undo姿态比较失败，先显式时间求值后核对原曲线值/矩阵，全部通过，不改算法掩盖错误。GUI/生产长动画/复杂骨架/跨版本not_run，prepared_unverified。
 - 实际5h80%已用（剩20%）、周43%，立即继续smart_mesh；heartbeat暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：SmartMesh完整候选，累计75/109
+
+- Dennis Bartalon Porter原1.1.0两文件SHA/所有MEL业务与安装/About归档；完整四几何业务/原生四row图标文字fallback/逐操作命名/预检/Shelf/Hotkey/窗口Shelf/About/标准Base/Schema/知识验收晋级。合并精确mesh叶/多数完整父组，不临时重命名整个层级或删原组/无关child，静态history独占消费者保护；拆分两pivot分别保持；extract指定面/全face拒绝，duplicate完整rig源只读/新副本清理检查UUID，不碰源skin/children/history，全face无空delete。
+- 2离线+4隔离Maya2025+临时正式布局/注册/modeling_surfacing/panel/fingerprint全通过：真实combine数量/父组/无关对象/材质/AutoKey/单Undo原全部节点；separate壳/父组/不同两pivot/Undo；rigged源duplicate保持skin与mesh/全face/真实extract；锁/共享poly历史/错scope/写实例/GUI与安装batch拒绝。原shape-wide listHistory走入groupId/共享SG导致误拒绝，改几何inMesh图；实际combined pivots查询顺序与假设相反，改两属性独立读，修复后全部通过。
+- Shelf/Hotkey完整实现但只验收晋级注册后显式安装，静态正式包命令不留staging路径，不覆盖任何既有press/release绑定或foreigncommand；持久UI/偏好不由sceneUndo回滚，整理时未写。GUI/复杂UV材质/生产rig/引用实例只读duplicate/持久安装及跨版本not_run，prepared_unverified。
+- 实际5h87%已用（剩13%）、周44%，立即继续unlock_freeze；heartbeat暂停，不迁正式/同步/用卡/购买。

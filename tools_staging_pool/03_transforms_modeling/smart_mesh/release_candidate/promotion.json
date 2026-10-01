@@ -1,0 +1,61 @@
+{
+  "tool_id": "smart_mesh",
+  "registration": {
+    "module": "smart_mesh",
+    "class_name": "SmartMeshTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/smart_mesh.md",
+      "target": "docs/tools/smart_mesh.md"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_mesh/__init__.py",
+      "target": "maya_toolkit/tools/smart_mesh/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_mesh/catalog.json",
+      "target": "maya_toolkit/tools/smart_mesh/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_mesh/install.py",
+      "target": "maya_toolkit/tools/smart_mesh/install.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_mesh/tool.py",
+      "target": "maya_toolkit/tools/smart_mesh/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_mesh/ui.py",
+      "target": "maya_toolkit/tools/smart_mesh/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_mesh/upstream/dpSmartMeshTools.mel",
+      "target": "maya_toolkit/tools/smart_mesh/upstream/dpSmartMeshTools.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_mesh/upstream/SmartMesh Tools_Readme.txt",
+      "target": "maya_toolkit/tools/smart_mesh/upstream/SmartMesh Tools_Readme.txt"
+    },
+    {
+      "source": "tests/test_smart_mesh.py",
+      "target": "tests/test_smart_mesh.py"
+    },
+    {
+      "source": "tests/test_smart_mesh_maya.py",
+      "target": "tests/test_smart_mesh_maya.py"
+    }
+  ],
+  "resources": [
+    "dpSmartMeshTools.mel",
+    "SmartMesh Tools_Readme.txt"
+  ],
+  "dependencies": [
+    "Maya cmds/API2"
+  ],
+  "acceptance_required": true,
+  "change_summary": "完整SmartMesh四几何业务/原生UI/About/转正后显式ShelfHotkey；精确mesh/历史/父级/命名/只读rig复制scope，预检/Undo/知识测试晋级",
+  "verification_limitations": [
+    "真实GUI/复杂UV材质/生产rig/引用实例只读复制与持久安装/跨版本not_run"
+  ]
+}

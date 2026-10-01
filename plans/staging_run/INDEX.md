@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-02T05:15:52.084040+08:00
+更新时间：2026-10-02T05:33:05.994732+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -80,7 +80,7 @@
 | `03_transforms_modeling/quaternion_tool` | prepared_unverified | True | True | not_run |
 | `03_transforms_modeling/reset_pivot` | prepared_verified_offline | True | True | not_run |
 | `03_transforms_modeling/rotation_aligner` | prepared_unverified | True | True | not_run |
-| `03_transforms_modeling/smart_mesh` | pending | True | False | not_run |
+| `03_transforms_modeling/smart_mesh` | prepared_unverified | True | True | not_run |
 | `03_transforms_modeling/unlock_freeze` | pending | True | False | not_run |
 | `03_transforms_modeling/uv_set_renamer` | pending | True | False | not_run |
 | `03_transforms_modeling/world_transform_v4` | pending | True | False | not_run |
