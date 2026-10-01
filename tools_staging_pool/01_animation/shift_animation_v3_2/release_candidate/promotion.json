@@ -1,0 +1,86 @@
+{
+  "tool_id": "shift_animation_v3_2",
+  "registration": {
+    "module": "shift_animation_v3_2",
+    "class_name": "ShiftAnimationTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/shift_animation_v3_2.md",
+      "target": "docs/tools/shift_animation_v3_2.md"
+    },
+    {
+      "source": "maya_toolkit/tools/shift_animation_v3_2/__init__.py",
+      "target": "maya_toolkit/tools/shift_animation_v3_2/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/shift_animation_v3_2/catalog.json",
+      "target": "maya_toolkit/tools/shift_animation_v3_2/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/shift_animation_v3_2/runtime.py",
+      "target": "maya_toolkit/tools/shift_animation_v3_2/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/shift_animation_v3_2/tool.py",
+      "target": "maya_toolkit/tools/shift_animation_v3_2/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/shift_animation_v3_2/ui.py",
+      "target": "maya_toolkit/tools/shift_animation_v3_2/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/shift_animation_v3_2/vendor/barnev_Shift_animation_code.mel",
+      "target": "maya_toolkit/tools/shift_animation_v3_2/vendor/barnev_Shift_animation_code.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/shift_animation_v3_2/vendor/Drag_and_Drop_to_install.mel",
+      "target": "maya_toolkit/tools/shift_animation_v3_2/vendor/Drag_and_Drop_to_install.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/shift_animation_v3_2/vendor/ico/Shift_animation.bmp",
+      "target": "maya_toolkit/tools/shift_animation_v3_2/vendor/ico/Shift_animation.bmp"
+    },
+    {
+      "source": "maya_toolkit/tools/shift_animation_v3_2/vendor/License.txt",
+      "target": "maya_toolkit/tools/shift_animation_v3_2/vendor/License.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/shift_animation_v3_2/vendor/READ_ME_and_guide_ENG.TXT",
+      "target": "maya_toolkit/tools/shift_animation_v3_2/vendor/READ_ME_and_guide_ENG.TXT"
+    },
+    {
+      "source": "maya_toolkit/tools/shift_animation_v3_2/vendor/READ_ME_and_guide_RUS.TXT",
+      "target": "maya_toolkit/tools/shift_animation_v3_2/vendor/READ_ME_and_guide_RUS.TXT"
+    },
+    {
+      "source": "tests/test_shift_animation_v3_2.py",
+      "target": "tests/test_shift_animation_v3_2.py"
+    },
+    {
+      "source": "tests/test_shift_animation_v3_2_maya.py",
+      "target": "tests/test_shift_animation_v3_2_maya.py"
+    }
+  ],
+  "resources": [
+    "barnev_Shift_animation_code.mel",
+    "Drag_and_Drop_to_install.mel",
+    "ico/Shift_animation.bmp",
+    "License.txt",
+    "READ_ME_and_guide_ENG.TXT",
+    "READ_ME_and_guide_RUS.TXT"
+  ],
+  "dependencies": [
+    "Maya cmds/MEL and standard UI/animation-layer/cached-playback utilities",
+    "Original licensed Shift Animation v3.2 MEL engine (complete unchanged bundle)"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete unmodified licensed MEL engine, original UI/installer, guides and icon retained. Separate adapter exposes full MATCH/AUTOPATH/manual/circle/root-motion/curve utilities with scene preflight, explicit original custom-attribute cleanup option, Undo and environment restoration.",
+  "verification_limitations": [
+    "Full MATCH/path/circle/root-motion workflows require interactive Maya animation-layer/timeline builtins; batch numeric/procedure checks do not verify these workflows",
+    "Original vendor code cannot be patched under supplied license; source bugs must be reported and checked in real Maya",
+    "Original root-motion/path cleanup deletes user-defined control attributes; explicit allowance and backup are required if such attrs exist",
+    "Original MEL names/globals remain shared; do not run two vendor versions or native and candidate UI concurrently",
+    "License forbids redistribution/modification; commercial use requires purchase; no purchases or publishing performed"
+  ]
+}

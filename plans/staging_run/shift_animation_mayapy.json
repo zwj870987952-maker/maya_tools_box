@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/shift_animation_v3_2/release_candidate/tests/test_shift_animation_v3_2_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_complete_mel_compiles_without_scene_ui_side_effects (__main__.Maya.test_complete_mel_compiles_without_scene_ui_side_effects) ... ok\r\ntest_curve_controls_full_vendor_system_delete_and_undo (__main__.Maya.test_curve_controls_full_vendor_system_delete_and_undo) ... ����: ShiftAnimationTool_shift_animation_v3_2\n����: ShiftAnimationTool_shift_animation_v3_2\nok\r\ntest_dry_layer_and_custom_attribute_cleanup_guard_without_batch_simulation (__main__.Maya.test_dry_layer_and_custom_attribute_cleanup_guard_without_batch_simulation) ... ok\r\ntest_original_acceleration_weighting_zero_and_moving_curves_is_readonly (__main__.Maya.test_original_acceleration_weighting_zero_and_moving_curves_is_readonly) ... ok\r\ntest_wrapper_failure_restores_environment_and_records_undoable_failure (__main__.Maya.test_wrapper_failure_restores_environment_and_records_undoable_failure) ... ����: ShiftAnimationTool_shift_animation_v3_2\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.127s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "565d63d54fb4a86fcf02fc8dcee00829faaf8ae82259d0bf0266490f0b9816ee",
+  "runtime_source_sha256": "97694084d485ad54c8cfb87d4d830d665556de71b5a20e894b14acda5f28194b"
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T16:49:41.641932+08:00",
+  "updated_at": "2026-10-01T17:30:10.079281+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/shape_animation_tool",
+    "last_completed_tool": "01_animation/shift_animation_v3_2",
     "last_usage": {
-      "five_hour_used_percent": 8.0,
-      "weekly_used_percent": 1.0,
-      "recorded_at": "2026-10-01T16:15:55.308514+08:00",
+      "five_hour_used_percent": 22.0,
+      "weekly_used_percent": 3.0,
+      "recorded_at": "2026-10-01T16:51:35.068112+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/shape_animation_tool"
+    "current_tool": "01_animation/shift_animation_v3_2"
   },
   "entry_repairs": [
     {
@@ -6664,8 +6664,8 @@
         "sat【修型插件】/sat_2022_py3【汉化版】/utils.py"
       ],
       "license_files": [],
-      "status": "pending",
-      "candidate_complete": false,
+      "status": "prepared_unverified",
+      "candidate_complete": true,
       "offline_checks": [
         {
           "kind": "python_static_parse",
@@ -6676,7 +6676,7 @@
           "kind": "isolated_unittest",
           "passed": true,
           "returncode": 0,
-          "output": "test_contract_and_legacy_primitive_reader (__main__.Offline.test_contract_and_legacy_primitive_reader) ... ok\r\ntest_distribution_complete_and_import_is_lazy (__main__.Offline.test_distribution_complete_and_import_is_lazy) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.008s\r\n\r\nOK\r\n"
+          "output": "test_contract_and_legacy_primitive_reader (__main__.Offline.test_contract_and_legacy_primitive_reader) ... ok\r\ntest_distribution_complete_and_import_is_lazy (__main__.Offline.test_distribution_complete_and_import_is_lazy) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.007s\r\n\r\nOK\r\n"
         },
         {
           "kind": "promotion_preview",
@@ -6734,8 +6734,7 @@
         "SHAPESBrush plugin/MEL are absent and its optional button requires separate user installation",
         "Commercial source has no redistribution license; local personal preparation only",
         "Original .ui sources/pysideuic are absent; delivered generated UI needs no recompilation",
-        "Older Maya/Python/Qt versions require acceptance",
-        "Original source/resources changed; candidate must be reviewed again"
+        "Older Maya/Python/Qt versions require acceptance"
       ],
       "entry_review": {
         "evidence": "Versioned package initializer instantiates MainWindow, shows it, connects signals and starts. Other Python2 variants retained. Decompiled-source markers and import side effects are recorded; no compatibility or licensing inference.",
@@ -6830,7 +6829,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete original paired corrective blendShape target and keyframe/sculpt/brush/pick/UI workflow retained; private UUID-owned persistent sessions, strict graph preflight, guarded temporary cleanup, Qt6/Python3 and JSON/legacy pickle fixes. All six original distributions retained.",
-      "prepared_at": "2026-10-01T16:49:39.487774+08:00"
+      "prepared_at": "2026-10-01T16:51:34.404986+08:00",
+      "source_commit": "68307035724f860c50a1525814d1d37f1d396794"
     },
     {
       "source_path": "01_animation/shift_animation_v3_2",
@@ -6841,7 +6841,7 @@
       "entry_candidates": [
         "Shift_animation_v3_2/barnev_Shift_animation_code.mel"
       ],
-      "source_file_count": 6,
+      "source_file_count": 7,
       "source_files": [
         "Shift_animation_v3_2/barnev_Shift_animation_code.mel",
         "Shift_animation_v3_2/Drag_and_Drop_to_install.mel"
@@ -6849,14 +6849,78 @@
       "license_files": [
         "Shift_animation_v3_2/License.txt"
       ],
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_schema_rejects_invalid_and_inapplicable_inputs (__main__.Offline.test_schema_rejects_invalid_and_inapplicable_inputs) ... ok\r\ntest_whole_licensed_distribution_unchanged_and_lazy_import (__main__.Offline.test_whole_licensed_distribution_unchanged_and_lazy_import) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.002s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"shift_animation_v3_2\",\r\n  \"candidate_sha256\": \"4563185d352e062d1fd56e800d69abed8664ffb3c39707fb7dc1cb9a2c67fddb\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\shift_animation_v3_2.md\",\r\n    \"maya_toolkit\\\\tools\\\\shift_animation_v3_2\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\shift_animation_v3_2\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\shift_animation_v3_2\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\shift_animation_v3_2\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\shift_animation_v3_2\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\shift_animation_v3_2\\\\vendor\\\\barnev_Shift_animation_code.mel\",\r\n    \"maya_toolkit\\\\tools\\\\shift_animation_v3_2\\\\vendor\\\\Drag_and_Drop_to_install.mel\",\r\n    \"maya_toolkit\\\\tools\\\\shift_animation_v3_2\\\\vendor\\\\ico\\\\Shift_animation.bmp\",\r\n    \"maya_toolkit\\\\tools\\\\shift_animation_v3_2\\\\vendor\\\\License.txt\",\r\n    \"maya_toolkit\\\\tools\\\\shift_animation_v3_2\\\\vendor\\\\READ_ME_and_guide_ENG.TXT\",\r\n    \"maya_toolkit\\\\tools\\\\shift_animation_v3_2\\\\vendor\\\\READ_ME_and_guide_RUS.TXT\",\r\n    \"tests\\\\test_shift_animation_v3_2.py\",\r\n    \"tests\\\\test_shift_animation_v3_2_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/shift_animation_v3_2/release_candidate/tests/test_shift_animation_v3_2_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_complete_mel_compiles_without_scene_ui_side_effects (__main__.Maya.test_complete_mel_compiles_without_scene_ui_side_effects) ... ok\r\ntest_curve_controls_full_vendor_system_delete_and_undo (__main__.Maya.test_curve_controls_full_vendor_system_delete_and_undo) ... ����: ShiftAnimationTool_shift_animation_v3_2\n����: ShiftAnimationTool_shift_animation_v3_2\nok\r\ntest_dry_layer_and_custom_attribute_cleanup_guard_without_batch_simulation (__main__.Maya.test_dry_layer_and_custom_attribute_cleanup_guard_without_batch_simulation) ... ok\r\ntest_original_acceleration_weighting_zero_and_moving_curves_is_readonly (__main__.Maya.test_original_acceleration_weighting_zero_and_moving_curves_is_readonly) ... ok\r\ntest_wrapper_failure_restores_environment_and_records_undoable_failure (__main__.Maya.test_wrapper_failure_restores_environment_and_records_undoable_failure) ... ����: ShiftAnimationTool_shift_animation_v3_2\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.127s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "565d63d54fb4a86fcf02fc8dcee00829faaf8ae82259d0bf0266490f0b9816ee",
+          "runtime_source_sha256": "97694084d485ad54c8cfb87d4d830d665556de71b5a20e894b14acda5f28194b"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Complete licensed original MATCH/path/circle/root-motion require real interactive Maya layer/timeline UI; only original numeric and curve-system workflows were executed in isolated Maya. All native/candidate GUI and production foot-slide/prefs effects await human acceptance."
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "4563185d352e062d1fd56e800d69abed8664ffb3c39707fb7dc1cb9a2c67fddb",
+          "returncode": 0,
+          "output": "test_schema_rejects_invalid_and_inapplicable_inputs (__main__.Offline.test_schema_rejects_invalid_and_inapplicable_inputs) ... ok\r\ntest_whole_licensed_distribution_unchanged_and_lazy_import (__main__.Offline.test_whole_licensed_distribution_unchanged_and_lazy_import) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.002s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Full MATCH/path/circle/root-motion workflows require interactive Maya animation-layer/timeline builtins; batch numeric/procedure checks do not verify these workflows",
+        "Original vendor code cannot be patched under supplied license; source bugs must be reported and checked in real Maya",
+        "Original root-motion/path cleanup deletes user-defined control attributes; explicit allowance and backup are required if such attrs exist",
+        "Original MEL names/globals remain shared; do not run two vendor versions or native and candidate UI concurrently",
+        "License forbids redistribution/modification; commercial use requires purchase; no purchases or publishing performed"
+      ],
       "entry_review": {
         "evidence": "Actual source declares SHIFTING_animation_menue; sibling drag-drop file is installer.",
         "kind": "mel_procedure",
@@ -6871,7 +6935,48 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "3fd93f2a65fba3985664ac36b7f207b929394dcc44bfa166b5046258b71285fe"
+      "source_tree_sha256": "e5a8c1ffcd8b4b07f49ca388e2c99e2d006aef2c5e0524020ea1a06800a629bd",
+      "candidate_path": "tools_staging_pool/01_animation/shift_animation_v3_2/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/shift_animation_v3_2/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "shift_animation_v3_2",
+        "candidate_sha256": "4563185d352e062d1fd56e800d69abed8664ffb3c39707fb7dc1cb9a2c67fddb",
+        "applied": false,
+        "files": [
+          "docs\\tools\\shift_animation_v3_2.md",
+          "maya_toolkit\\tools\\shift_animation_v3_2\\__init__.py",
+          "maya_toolkit\\tools\\shift_animation_v3_2\\catalog.json",
+          "maya_toolkit\\tools\\shift_animation_v3_2\\runtime.py",
+          "maya_toolkit\\tools\\shift_animation_v3_2\\tool.py",
+          "maya_toolkit\\tools\\shift_animation_v3_2\\ui.py",
+          "maya_toolkit\\tools\\shift_animation_v3_2\\vendor\\barnev_Shift_animation_code.mel",
+          "maya_toolkit\\tools\\shift_animation_v3_2\\vendor\\Drag_and_Drop_to_install.mel",
+          "maya_toolkit\\tools\\shift_animation_v3_2\\vendor\\ico\\Shift_animation.bmp",
+          "maya_toolkit\\tools\\shift_animation_v3_2\\vendor\\License.txt",
+          "maya_toolkit\\tools\\shift_animation_v3_2\\vendor\\READ_ME_and_guide_ENG.TXT",
+          "maya_toolkit\\tools\\shift_animation_v3_2\\vendor\\READ_ME_and_guide_RUS.TXT",
+          "tests\\test_shift_animation_v3_2.py",
+          "tests\\test_shift_animation_v3_2_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "barnev_Shift_animation_code.mel",
+        "Drag_and_Drop_to_install.mel",
+        "ico/Shift_animation.bmp",
+        "License.txt",
+        "READ_ME_and_guide_ENG.TXT",
+        "READ_ME_and_guide_RUS.TXT"
+      ],
+      "external_dependencies": [
+        "Maya cmds/MEL and standard UI/animation-layer/cached-playback utilities",
+        "Original licensed Shift Animation v3.2 MEL engine (complete unchanged bundle)"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete unmodified licensed MEL engine, original UI/installer, guides and icon retained. Separate adapter exposes full MATCH/AUTOPATH/manual/circle/root-motion/curve utilities with scene preflight, explicit original custom-attribute cleanup option, Undo and environment restoration.",
+      "prepared_at": "2026-10-01T17:30:07.824177+08:00"
     },
     {
       "source_path": "01_animation/spring_magic_v3_5a",
