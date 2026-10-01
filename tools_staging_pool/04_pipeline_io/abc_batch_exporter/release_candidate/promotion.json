@@ -1,0 +1,62 @@
+{
+  "tool_id": "abc_batch_exporter",
+  "registration": {
+    "module": "abc_batch_exporter",
+    "class_name": "ABCBatchExporterTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/abc_batch_exporter.md",
+      "target": "docs/tools/abc_batch_exporter.md"
+    },
+    {
+      "source": "maya_toolkit/tools/abc_batch_exporter/__init__.py",
+      "target": "maya_toolkit/tools/abc_batch_exporter/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/abc_batch_exporter/catalog.json",
+      "target": "maya_toolkit/tools/abc_batch_exporter/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/abc_batch_exporter/tool.py",
+      "target": "maya_toolkit/tools/abc_batch_exporter/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/abc_batch_exporter/ui.py",
+      "target": "maya_toolkit/tools/abc_batch_exporter/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/abc_batch_exporter/upstream/ABC导出_v3.py.original",
+      "target": "maya_toolkit/tools/abc_batch_exporter/upstream/ABC导出_v3.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/abc_batch_exporter/upstream/ABC导出_选择集批量UI版.py.original",
+      "target": "maya_toolkit/tools/abc_batch_exporter/upstream/ABC导出_选择集批量UI版.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/abc_batch_exporter/worker.py",
+      "target": "maya_toolkit/tools/abc_batch_exporter/worker.py"
+    },
+    {
+      "source": "tests/test_abc_batch_exporter.py",
+      "target": "tests/test_abc_batch_exporter.py"
+    },
+    {
+      "source": "tests/test_abc_batch_exporter_maya.py",
+      "target": "tests/test_abc_batch_exporter_maya.py"
+    }
+  ],
+  "resources": [
+    "ABC导出_v3.py",
+    "ABC导出_选择集批量UI版.py"
+  ],
+  "dependencies": [
+    "Maya AbcExport/AbcImport native plugins",
+    "same-version mayapy for isolated folder batch"
+  ],
+  "acceptance_required": true,
+  "change_summary": "两Python2原稿完整归档与全部UI/随机Lambert；真实quoted AbcExport flags、精确mesh/set范围、独占文件提交、隔离mayapy逐scene批量/原场景保护/失败结果、Base Schema知识测试晋级",
+  "verification_limitations": [
+    "真实双UI/颜色faceSets/生产引用资产与跨版本not_run"
+  ]
+}

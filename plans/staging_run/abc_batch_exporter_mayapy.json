@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/04_pipeline_io/abc_batch_exporter/release_candidate/tests/test_abc_batch_exporter_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "AbcExport v1.0 using Alembic 1.8.5 (built Jul 12 2024 10:39:11)\n1\n2\n3\nAbcImport v1.0 using Alembic 1.8.5 (built Jul 12 2024 10:39:11)\n..����: ABCBatchExporterTool_abc_batch_exporter\n.\r\n----------------------------------------------------------------------\r\nRan 3 tests in 5.962s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "4489e8562d93c572436b00e87877690e061867de2d1c2bcb63a6fe370373636e",
+  "runtime_source_sha256": "d3bb60ae7f2182eefbc32cb3214e7923f119934cf5374caa4d4a2dc8cb553656"
+}

@@ -661,3 +661,9 @@
 - 原单文件SHA归档、完整原生UI/两滑条/只key/ChannelBox组识别/真实高亮范围/进度保留；标准Base/Schema/只读inspect/UUID单位快照/父子排序重试/真实逐帧key/Undo/时间AutoKey恢复/显式独占JSON/知识验收晋级。修正原自动覆盖共享temp、±180角差、失败仍key且报成功、未高亮误取范围；不把snapshot当动画曲线，所选组小数keys保留。
 - 2离线+5隔离Maya2025+临时正式布局/注册/panel/fingerprint全通过：真实父子姿态/重命名UUID/单Undo/key/time/AutoKey；已有小数key/范围外key值/只位移；JO+nonXYZ joint/native xform、不同pivot/rad/m单位；临时JSON exclusive/dry/非法load/内存dry不改；坏后行锁/共享curve/真实实例/batchUI拒绝。发现原生setKeyframe生成直接time曲线可能无显式input连线，允许Maya隐式time或time1两标准输出，仍拒绝自定义time驱动，修复后全通过。
 - GUI/ChannelBox/高亮/取消/生产复杂骨架及跨版本not_run，prepared_unverified。实际5h4%已用（剩96%）、周46%，立即继续abc_batch_exporter，heartbeat工作时暂停。
+
+# 2026-10-02：ABC两版完整候选，累计79/109
+
+- 两Python2原稿逐字节SHA归档；完整两原生UI全部控件与随机Lambert/SG按钮保留Python3函数回调，模型列表/选择集/quoted AbcExport全部flags/Schema/只读预检/知识验收晋级齐备。修正原动态exec/boolean值塞flag/不quoted文件路径/缺集沿用旧选区/强制丢弃当前scene/覆盖输出。batch真实逐scene独立mayapy，scriptNodes禁用，当前scene不打开/关闭/保存。
+- 2离线+3隔离Maya2025+临时正式布局/注册/panel/fingerprint全部通过：实际带空格ABC写出并AbcImport回读两mesh/UV/动画最后帧6单位、选区时间AutoKey/node/modified不改、dry不加载exporter/创建file、既有cache bytes不覆盖；缺空set/stripNamespace冲突/随机材质真实分配与oneUndo；真实childmayapy分别导出good.ma及missing.mb失败且保留成功文件，dirty liveUnsaved scene完整，输出已存在及同stem冲突全批前拒绝。
+- GUI双窗/颜色faceSets全部语义/生产引用资产/跨版本not_run，prepared_unverified。文件/plugin加载非sceneUndo，worker超时可能遗留独有临时或partial文件明确说明。实际5h8%已用（剩92%）、周47%，立即继续asset_it_v1_2，heartbeat保持暂停。
