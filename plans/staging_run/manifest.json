@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T10:16:07.156924+08:00",
+  "updated_at": "2026-10-01T10:42:42.689360+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,15 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/pose_transfer_remote",
+    "last_completed_tool": "01_animation/retime_tools",
     "last_usage": {
-      "five_hour_used_percent": 66.0,
-      "weekly_used_percent": 96.0,
-      "recorded_at": "2026-10-01T10:01:58.588407+08:00",
+      "five_hour_used_percent": 73.0,
+      "weekly_used_percent": 97.0,
+      "recorded_at": "2026-10-01T10:17:49.535658+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/pose_transfer_remote",
-    "resume_note": "Timeline Marker source review only; no candidate changes. Resume this item after actual remaining >95%, weekly allowed and no other writer."
+    "current_tool": "01_animation/retime_tools"
   },
   "entry_repairs": [
     {
@@ -6264,7 +6263,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Full original 9-method locator-based world-matrix pose capture/root translation/apply/cleanup and original UI retained with scene UUID sessions, scoped controller discovery and owned helper protections.",
-      "prepared_at": "2026-10-01T10:16:05.538789+08:00"
+      "prepared_at": "2026-10-01T10:16:05.538789+08:00",
+      "source_commit": "9a7d4f2f302a0cdd39aa61fa61e23fc22cb5585a"
     },
     {
       "source_path": "01_animation/retime_tools",
@@ -6275,7 +6275,7 @@
       "entry_candidates": [
         "RetimeTools/RetimeTools.py"
       ],
-      "source_file_count": 28,
+      "source_file_count": 29,
       "source_files": [
         "RetimeTools/__init__.py",
         "RetimeTools/create_shelf_button.py",
@@ -6306,14 +6306,76 @@
         "RetimeTools/QTS/LicenseManager.py"
       ],
       "entry_sha256": "a0c93bb05c65d9e09d6adce6ff67120b356a0e59df03c9a46625b9aa8d0e1db7",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_parsers_and_zero_negative_inverse (__main__.Offline.test_parsers_and_zero_negative_inverse) ... ok\r\ntest_whole_original_suite_and_lazy_import (__main__.Offline.test_whole_original_suite_and_lazy_import) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.023s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"retime_tools\",\r\n  \"candidate_sha256\": \"45b3537e8266506c9504a4c8fdd0a84fceb58be00dc89994bda2b4fa1085dfd9\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\retime_tools.md\",\r\n    \"docs\\\\tools\\\\retime_tools_changes.diff\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\assets\\\\legacy_timewarp.mel\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\engine.py\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\legacy_mel.py\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\native.py\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\qt_compat.py\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\ui_bridge.py\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\create_shelf_button.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\eblabs_retime.png\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\ebLabs_timeWarp.mel\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\LicenseManager.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\Plugin.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\QTS\\\\BasicTool_Widgets.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\QTS\\\\ColorModule.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\QTS\\\\ColorPaletteManager.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\QTS\\\\DevTool.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\QTS\\\\DPIHandler.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\QTS\\\\IconProvider.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\QTS\\\\LicenseManager.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\QTS\\\\MaterialDesign.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\QTS\\\\PixoShop.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\QTS\\\\Prefs.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\QTS\\\\Qt.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\QTS\\\\QtUtils.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\QTS\\\\Scandir.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\QTS\\\\ScandirHelper.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\QTS\\\\SceneCallbacks.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\QTS\\\\SharedSettings.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\RetimeTools.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools\\\\\\u628a\\u8fd9\\u4e2a\\u62d6\\u8fdbmaya\\u7a97\\u53e3.mel\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\RetimeTools.7z\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\\\u529f\\u80fd\\u7b80\\u4ecb.png\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\\\u5b98\\u7f51.url\",\r\n    \"maya_toolkit\\\\tools\\\\retime_tools\\\\upstream\\\\\\u63d2\\u4ef6\\u754c\\u9762.jpg\",\r\n    \"tests\\\\test_retime_tools.py\",\r\n    \"tests\\\\test_retime_tools_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/retime_tools/release_candidate/tests/test_retime_tools_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_complete_legacy_mel_compiles_without_scene_writes (__main__.MayaChecks.test_complete_legacy_mel_compiles_without_scene_writes) ... ok\r\ntest_curve_files_bake_roundtrip_and_ui_import_only (__main__.MayaChecks.test_curve_files_bake_roundtrip_and_ui_import_only) ... ok\r\ntest_driver_locks_foreign_children_and_flat_inverse_refused (__main__.MayaChecks.test_driver_locks_foreign_children_and_flat_inverse_refused) ... ok\r\ntest_dry_create_connections_restore_and_state_undo (__main__.MayaChecks.test_dry_create_connections_restore_and_state_undo) ... ����: RetimeToolsTool_retime_tools\nok\r\ntest_shuffle_zero_negative_times_and_delete_disconnect (__main__.MayaChecks.test_shuffle_zero_negative_times_and_delete_disconnect) ... ����: RetimeToolsTool_retime_tools\n����: RetimeToolsTool_retime_tools\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.113s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "d7c67042aa5b74bda6bd95d9d9a92d6e9fa15be3f9a13ffdae8b1c7f69a72131",
+          "runtime_source_sha256": "f3178c05da4c04524a73deb13bdae6e227732063ab1e1fb684aeaf48e693d618"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Original Qt UI, historical MEL callbacks, weighted nonlinear tangents and production rigs require human Maya acceptance."
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "45b3537e8266506c9504a4c8fdd0a84fceb58be00dc89994bda2b4fa1085dfd9",
+          "returncode": 0,
+          "output": "test_parsers_and_zero_negative_inverse (__main__.Offline.test_parsers_and_zero_negative_inverse) ... ok\r\ntest_whole_original_suite_and_lazy_import (__main__.Offline.test_whole_original_suite_and_lazy_import) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.021s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "GUI and legacy MEL suite require human Maya acceptance",
+        "Original disabled import/export menu stubs are identified; explicit API supplies curve IO",
+        "No independent license supplied; local only"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 21,
@@ -6322,7 +6384,99 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "59a57295c5c9a322f52127649a7491a0ba31bc47b89d462f737a50dbf929f961"
+      "source_tree_sha256": "9a37a005040982386a2070bc9b061691644d11c7a21f6b64c501edb420c28fdb",
+      "candidate_path": "tools_staging_pool/01_animation/retime_tools/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/retime_tools/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "retime_tools",
+        "candidate_sha256": "45b3537e8266506c9504a4c8fdd0a84fceb58be00dc89994bda2b4fa1085dfd9",
+        "applied": false,
+        "files": [
+          "docs\\tools\\retime_tools.md",
+          "docs\\tools\\retime_tools_changes.diff",
+          "maya_toolkit\\tools\\retime_tools\\__init__.py",
+          "maya_toolkit\\tools\\retime_tools\\assets\\legacy_timewarp.mel",
+          "maya_toolkit\\tools\\retime_tools\\catalog.json",
+          "maya_toolkit\\tools\\retime_tools\\engine.py",
+          "maya_toolkit\\tools\\retime_tools\\legacy_mel.py",
+          "maya_toolkit\\tools\\retime_tools\\native.py",
+          "maya_toolkit\\tools\\retime_tools\\qt_compat.py",
+          "maya_toolkit\\tools\\retime_tools\\runtime.py",
+          "maya_toolkit\\tools\\retime_tools\\tool.py",
+          "maya_toolkit\\tools\\retime_tools\\ui_bridge.py",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\__init__.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\create_shelf_button.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\eblabs_retime.png",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\ebLabs_timeWarp.mel",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\LicenseManager.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\Plugin.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\QTS\\BasicTool_Widgets.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\QTS\\ColorModule.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\QTS\\ColorPaletteManager.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\QTS\\DevTool.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\QTS\\DPIHandler.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\QTS\\IconProvider.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\QTS\\LicenseManager.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\QTS\\MaterialDesign.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\QTS\\PixoShop.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\QTS\\Prefs.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\QTS\\Qt.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\QTS\\QtUtils.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\QTS\\Scandir.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\QTS\\ScandirHelper.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\QTS\\SceneCallbacks.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\QTS\\SharedSettings.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\RetimeTools.py.original",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools\\把这个拖进maya窗口.mel",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\RetimeTools.7z",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\功能简介.png",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\官网.url",
+          "maya_toolkit\\tools\\retime_tools\\upstream\\插件界面.jpg",
+          "tests\\test_retime_tools.py",
+          "tests\\test_retime_tools_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "RetimeTools.7z",
+        "功能简介.png",
+        "官网.url",
+        "插件界面.jpg",
+        "RetimeTools/create_shelf_button.py.original",
+        "RetimeTools/eblabs_retime.png",
+        "RetimeTools/ebLabs_timeWarp.mel",
+        "RetimeTools/LicenseManager.py.original",
+        "RetimeTools/Plugin.py.original",
+        "RetimeTools/RetimeTools.py.original",
+        "RetimeTools/__init__.py.original",
+        "RetimeTools/把这个拖进maya窗口.mel",
+        "RetimeTools/QTS/BasicTool_Widgets.py.original",
+        "RetimeTools/QTS/ColorModule.py.original",
+        "RetimeTools/QTS/ColorPaletteManager.py.original",
+        "RetimeTools/QTS/DevTool.py.original",
+        "RetimeTools/QTS/DPIHandler.py.original",
+        "RetimeTools/QTS/IconProvider.py.original",
+        "RetimeTools/QTS/LicenseManager.py.original",
+        "RetimeTools/QTS/MaterialDesign.py.original",
+        "RetimeTools/QTS/PixoShop.py.original",
+        "RetimeTools/QTS/Prefs.py.original",
+        "RetimeTools/QTS/Qt.py.original",
+        "RetimeTools/QTS/QtUtils.py.original",
+        "RetimeTools/QTS/Scandir.py.original",
+        "RetimeTools/QTS/ScandirHelper.py.original",
+        "RetimeTools/QTS/SceneCallbacks.py.original",
+        "RetimeTools/QTS/SharedSettings.py.original"
+      ],
+      "external_dependencies": [
+        "Maya cmds/mel",
+        "PySide6 or PySide2 with matching shiboken for original Qt UI",
+        "Original optional QTS license/version modules unavailable; never faked"
+      ],
+      "source_preserved": true,
+      "change_summary": "Full original Python suite/Qt widgets and headless CoreFunctions/ShuffleKeys/RetimeLookup, complete MEL and vendor/resources archives; checked API/UI, explicit file IO, and full original method catalog.",
+      "prepared_at": "2026-10-01T10:42:41.045068+08:00"
     },
     {
       "source_path": "01_animation/root_motion_bake",

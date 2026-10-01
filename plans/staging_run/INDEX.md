@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-01T10:16:07.156924+08:00
+更新时间：2026-10-01T10:42:42.689360+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -42,7 +42,7 @@
 | `01_animation/physics_tools` | prepared_unverified | True | True | not_run |
 | `01_animation/pose_matcher` | prepared_unverified | True | True | not_run |
 | `01_animation/pose_transfer_remote` | prepared_unverified | True | True | not_run |
-| `01_animation/retime_tools` | pending | True | False | not_run |
+| `01_animation/retime_tools` | prepared_unverified | True | True | not_run |
 | `01_animation/root_motion_bake` | pending | True | False | not_run |
 | `01_animation/shape_animation_tool` | pending | True | False | not_run |
 | `01_animation/shift_animation_v3_2` | pending | True | False | not_run |

@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/retime_tools/release_candidate/tests/test_retime_tools_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_complete_legacy_mel_compiles_without_scene_writes (__main__.MayaChecks.test_complete_legacy_mel_compiles_without_scene_writes) ... ok\r\ntest_curve_files_bake_roundtrip_and_ui_import_only (__main__.MayaChecks.test_curve_files_bake_roundtrip_and_ui_import_only) ... ok\r\ntest_driver_locks_foreign_children_and_flat_inverse_refused (__main__.MayaChecks.test_driver_locks_foreign_children_and_flat_inverse_refused) ... ok\r\ntest_dry_create_connections_restore_and_state_undo (__main__.MayaChecks.test_dry_create_connections_restore_and_state_undo) ... ����: RetimeToolsTool_retime_tools\nok\r\ntest_shuffle_zero_negative_times_and_delete_disconnect (__main__.MayaChecks.test_shuffle_zero_negative_times_and_delete_disconnect) ... ����: RetimeToolsTool_retime_tools\n����: RetimeToolsTool_retime_tools\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.113s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "d7c67042aa5b74bda6bd95d9d9a92d6e9fa15be3f9a13ffdae8b1c7f69a72131",
+  "runtime_source_sha256": "f3178c05da4c04524a73deb13bdae6e227732063ab1e1fb684aeaf48e693d618"
+}

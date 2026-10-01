@@ -347,3 +347,12 @@
 - 保留完整原matrix/locator方法，修helper带DAG非法名、重复shift累计offset（成功后更新上次ROOTpos）、创建后立即tracking及partial flag、marker skipSelect、rename后UUID校对路径、控制器删除仍可cleanup。只删自有helper/shape，外部child/output和锁/driver/tamper/metadata异常拒绝；finally时间/选择/AutoKey/ns恢复，UI关闭不删scene session，窗口高550容纳按钮。
 - 普通Python2组、Maya2025隔离5组、临时正式布局注册/面板/Schema/全指纹通过：dry/detect set范围/private guard/Undo无改动；capture/shift重复delta0/apply世界位置旋转/UndoRedo/ma保存重开/cleanup Undo后shift；外部child/locked scale/目标attr被改拒绝；第二helper xform注入失败partial flag/finally/Undo；UUID rename后apply和目标被删后的cleanup。原UI/production pivots/scale/shear/OPM/ref edits未实测prepared_unverified，文档/验收/晋级齐备。
 - 实际收尾5小时73%/周97%已用、ordinaryUsageAllowed=true，继续下一个pending单元；heartbeat暂停，不用卡/购买/Obsidian同步/转正。检查点helper去掉已过时的Timeline Marker resume_note，实际current_tool/source_commit/log才是恢复依据。
+
+## 2026-10-01：Retime Tools完整候选，累计38/109
+
+- 原28文件/32类211方法/38历史MEL过程完整携带。raw Python归档.py.original，完整native.py原UI与方法保留；Core/Shuffle/Lookup/State/Color全类提取headless engine。所有原图、7z、空Plugin.py、安装/Qt/license资源字节校验；未安装Shelf或第三方依赖。主文件只依赖Qt，原可选LicenseManager版本模块/UXFramework缺失如实列出，原许可代码/trial flag不改不模拟，未给独立再分发许可只本地整理。
+- 标准Schema/API/readonly validate/dry/ToolResult/Undo、finally selection/time/ns/autokey；原Qt写回调同API，创建原全部多shape控制器、连接、启停/offline/reset/invert、bake、shuffle/clean、rename、明确单个旧controller升级与ASCII/JSON IO。拒ref/lock/其他warp/shared warp animation curve/外部输出与子项/层及约束输出；子集只connect/disconnect/clean，bake/shuffle/state整controller预检。
+- 完整原逆查找辅助方法保留，API用原分段样本相邻插值去重和warp斜率，修错误同端点/邻接方向/零帧被跳过；shuffle merge避免insert移动已粘贴时间，Infinity属性直接读取恢复（原query在实际Maya返回None）、失败不装通过、临时curve finally清理；负帧floor(t+.5)取整、invert包含末帧、bake单curve输出查询；断开和delete先恢复time.outTime避免冻结。逆操作拒hold/nonmonotonic无唯一逆，原bake preserveOutsideKeys=False影响明确。
+- 原导入/导出菜单是禁用占位，保留事实而API提供完整显式文件数据流程/元数据，不依赖缺失MEL全局。现有目录temp→hardlink不覆盖/明确overwrite原子replace，外部文件不Undo。key clipboard改变同原算法不等于scene Undo可还原。
+- 历史MEL完整私有过程/UI/全局变量，不自动呼出；修缺失animscratch Python桥。保留calculator/velocity/旧迭代连接/字符集/旧shuffle/bake/进度完整算法，历史回调单独人工Maya验收，不能等同受Python预检API或无人值守场景写入口。
+- 普通Python2组、隔离Maya2025五组与临时正式布局注册/面板/Schema/全指纹通过：dry undo/time/selection不变、原完整create/connect/enable/disable/Undo；正负零帧shuffle/时间恢复/临时清理/deleteUndo；锁/外部child/hold拒绝/私有writer guard；ASCII/JSON预检不写/不覆盖/导入导出/bake及Qt类import不造Widget；38 MEL定义编译无scene变动。真实Qt按钮/旧MEL回调/生产rig/加权非线性/跨版本仍not_run，prepared_unverified。未晋级/Obsidian同步/用卡/购买。

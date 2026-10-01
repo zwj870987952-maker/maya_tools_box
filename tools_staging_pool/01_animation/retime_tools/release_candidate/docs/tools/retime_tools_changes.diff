@@ -1,0 +1,169 @@
+--- upstream/RetimeTools/RetimeTools.py.original
++++ native.py
+@@ -1,5 +1,5 @@
+ # -*- coding: utf-8 -*-
+-import maya.cmds as cmds
++from .runtime import ui_cmds as cmds
+ import maya.mel as mel
+ import os
+ import json
+@@ -12,8 +12,8 @@
+ import traceback
+ import copy
+ 
+-from QTS import Qt
+- 
++from . import qt_compat as Qt
++
+ '''
+ - retro compatible
+ - resize the upper window including the retime
+@@ -53,7 +53,7 @@
+         set title
+         '''
+         windowTitle = u'eblabs Retime Tools 【帝都儿汉化】'
+-        self.setObjectName(windowTitle)
++        self.setObjectName('mtkRetimeCandidateWindow')
+         self.setWindowTitle(windowTitle)
+ 
+         '''
+@@ -84,7 +84,7 @@
+         self.setLayout(self.main_layout)
+ 
+     def display(self):
+-    
++
+ 
+         '''
+         deffered add document
+@@ -338,12 +338,12 @@
+         configure buttons
+         '''
+         d = OrderedDict()
+-        
++
+         '''
+         Main Group
+         '''
+         d[u'主体'] = OrderedDict()
+-        
++
+         '''
+         Create New Retime
+         '''
+@@ -356,12 +356,12 @@
+         kwargs['button_checkbox_message'] = ''
+         kwargs['button_is_valid_checking'] = False
+         d[u'主体'][u'创 建 新 的 重 定 时 控 制 器'] =  kwargs
+-        
++
+         '''
+         Bake Group
+         '''
+         d[u'烘焙'] = OrderedDict()
+-        
++
+         '''
+         Bake Retime
+         '''
+@@ -376,7 +376,7 @@
+         kwargs['display_checkbox'] = False
+         kwargs['button_is_valid_checking'] = True
+         d[u'烘焙'][u'烘 焙 重 定 时'] = kwargs
+-        
++
+         '''
+         Shuffle Keys
+         '''
+@@ -503,7 +503,6 @@
+         '''
+         undo chunck
+         '''
+-        cmds.undoInfo(openChunk=True, chunkName='Retime Shuffle')
+ 
+         '''
+         shuffle
+@@ -523,7 +522,6 @@
+         '''
+         undo chunck
+         '''
+-        cmds.undoInfo(closeChunk=True)
+ 
+         '''
+         signal update event
+@@ -665,7 +663,6 @@
+         '''
+         undo chunck
+         '''
+-        cmds.undoInfo(openChunk=True, chunkName='Add Objects to Retime')
+ 
+         '''
+         launch add function
+@@ -673,7 +670,6 @@
+         CoreFunctions.addCurvesToTimewarp(retime_curve)
+ 
+         #
+-        cmds.undoInfo(closeChunk=True)
+ 
+         '''
+         update UI
+@@ -1577,14 +1573,12 @@
+         '''
+         undo chunck
+         '''
+-        cmds.undoInfo(openChunk=True, chunkName='Create Retime Curve')
+ 
+         cls.create_new_retime_controller_exec(retime_controller=retime_controller)
+ 
+         '''
+         undo chunck
+         '''
+-        cmds.undoInfo(closeChunk=True)
+ 
+     @classmethod
+     def create_new_retime_controller_exec(cls, retime_controller ='retime_controller'):
+@@ -1663,7 +1657,7 @@
+         '''
+         change to a default state temporarily
+         * disconnect time
+-        * copy offline back timeWarp 
++        * copy offline back timeWarp
+         '''
+ 
+         attr = '{0}.{1}'.format(retime_controller, 'timeWarp')
+@@ -2432,7 +2426,7 @@
+                 index_a -= 1
+ 
+         '''
+-        
++
+         '''
+         try:
+             slope = cls.slope(pairs[index_a][0], pairs[index_a][1], pairs[index_b][0], pairs[index_b][1])
+@@ -2981,8 +2975,8 @@
+             '''
+             import maya.OpenMayaUI as omui
+             mayaMainWindowPtr = omui.MQtUtil.mainWindow()
+-            # mayaMainWindow = wrapInstance(long(mayaMainWindowPtr), Qt.QtWidgets.QWidget)
+-            mayaMainWindow = Qt._wrapinstance(long(mayaMainWindowPtr), base=Qt.QtWidgets.QWidget)
++            # mayaMainWindow = wrapInstance(int(mayaMainWindowPtr), Qt.QtWidgets.QWidget)
++            mayaMainWindow = Qt._wrapinstance(int(mayaMainWindowPtr), base=Qt.QtWidgets.QWidget)
+             main_window = mayaMainWindow
+         except:
+             try:
+@@ -3163,7 +3157,7 @@
+             w.setFixedHeight(30)
+ 
+         '''
+-        
++
+         '''
+         self.checkbox.setChecked(self.bool_initial_state)
+         self.okay_button.clicked.connect(self.on_click_okay)
+@@ -4221,3 +4215,6 @@
+ 
+ 
+ 
++
++from .ui_bridge import install
++install(globals())
