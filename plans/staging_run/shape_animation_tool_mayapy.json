@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/shape_animation_tool/release_candidate/tests/test_shape_animation_tool_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_dry_import_and_preflight_have_no_scene_or_undo_changes (__main__.Maya.test_dry_import_and_preflight_have_no_scene_or_undo_changes) ... ok\r\ntest_full_sculpt_pair_geometry_keys_step_and_undo (__main__.Maya.test_full_sculpt_pair_geometry_keys_step_and_undo) ... ����: ShapeAnimationTool_shape_animation_tool\n����: ShapeAnimationTool_shape_animation_tool\nok\r\ntest_key_failure_restores_envelope_time_selection_and_helpers (__main__.Maya.test_key_failure_restores_envelope_time_selection_and_helpers) ... ok\r\ntest_legacy_inspect_adopt_reuses_full_owned_pair_graph (__main__.Maya.test_legacy_inspect_adopt_reuses_full_owned_pair_graph) ... ok\r\ntest_parented_transformed_mesh_sculpt_and_coherent_curve_retime (__main__.Maya.test_parented_transformed_mesh_sculpt_and_coherent_curve_retime) ... ok\r\ntest_reset_delete_key_all_keys_and_remove_preserve_foreign_nodes (__main__.Maya.test_reset_delete_key_all_keys_and_remove_preserve_foreign_nodes) ... ok\r\ntest_save_reopen_pending_sculpt_and_independent_layers (__main__.Maya.test_save_reopen_pending_sculpt_and_independent_layers) ... �ļ���ȡ����ʱ��Ϊ  0.0051 �롣\nok\r\ntest_uuid_rename_pending_sculpt_reconstruction_and_shared_driver_guard (__main__.Maya.test_uuid_rename_pending_sculpt_reconstruction_and_shared_driver_guard) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.248s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "ad230970c307f5eeed6149b427ceac81a901f6812c220a045c2882c6b5cda91d",
+  "runtime_source_sha256": "6a5e0ab0d63b5d0a726b7acabe45535da291dc783ddbf6e5a9dd65e0a857b67d"
+}

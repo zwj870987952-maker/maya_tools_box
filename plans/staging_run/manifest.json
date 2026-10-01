@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T16:14:45.180687+08:00",
+  "updated_at": "2026-10-01T16:49:41.641932+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/root_motion_bake",
+    "last_completed_tool": "01_animation/shape_animation_tool",
     "last_usage": {
-      "five_hour_used_percent": 1.0,
-      "weekly_used_percent": 0.0,
-      "recorded_at": "2026-10-01T15:58:29.513405+08:00",
-      "note": "Actual caller read: ordinaryUsageAllowed true; app thread list showed no other active writer in this checkout"
+      "five_hour_used_percent": 8.0,
+      "weekly_used_percent": 1.0,
+      "recorded_at": "2026-10-01T16:15:55.308514+08:00",
+      "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/root_motion_bake"
+    "current_tool": "01_animation/shape_animation_tool"
   },
   "entry_repairs": [
     {
@@ -6607,7 +6607,8 @@
       ],
       "source_preserved": true,
       "change_summary": "All original 13 methods and native UI retained; complete center constraints/root baking/offset layer workflow, strict batch preflight, unique layers and tracked temporary cleanup, selected-range fix and explicit center snapshots.",
-      "prepared_at": "2026-10-01T16:14:43.536128+08:00"
+      "prepared_at": "2026-10-01T16:14:43.536128+08:00",
+      "source_commit": "50efac06e767e09eff28d3305b7a071a41a9a6cb"
     },
     {
       "source_path": "01_animation/shape_animation_tool",
@@ -6623,7 +6624,7 @@
         "sat【修型插件】/sat_2022_py3/sat/__init__.py",
         "sat【修型插件】/sat_2022_py3【汉化版】/__init__.py"
       ],
-      "source_file_count": 39,
+      "source_file_count": 40,
       "source_files": [
         "sat【修型插件】/sat_2018_py2/__init__.py",
         "sat【修型插件】/sat_2018_py2/aboutWindow.py",
@@ -6665,12 +6666,77 @@
       "license_files": [],
       "status": "pending",
       "candidate_complete": false,
-      "offline_checks": [],
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_contract_and_legacy_primitive_reader (__main__.Offline.test_contract_and_legacy_primitive_reader) ... ok\r\ntest_distribution_complete_and_import_is_lazy (__main__.Offline.test_distribution_complete_and_import_is_lazy) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.008s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"shape_animation_tool\",\r\n  \"candidate_sha256\": \"7dcad667b6cfa92479b19dee4dc0539597796fd1f7898215ec4308a9d690187e\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\shape_animation_tool.md\",\r\n    \"docs\\\\tools\\\\shape_animation_tool_changes.diff\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\aboutWindow.py\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\mainWindow.py\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\native.py\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\pick_compat.py\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\Qt.py\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\ui_bridge.py\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2018_py2\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2018_py2\\\\aboutWindow.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2018_py2\\\\main.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2018_py2\\\\mainWindow.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2018_py2\\\\Qt.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2018_py2\\\\utils.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2018_py2\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2018_py2\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\aboutWindow.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2018_py2\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\main.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2018_py2\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\mainWindow.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2018_py2\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\Qt.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2018_py2\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\utils.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2020_2022_py2\\\\sat\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2020_2022_py2\\\\sat\\\\aboutWindow.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2020_2022_py2\\\\sat\\\\main.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2020_2022_py2\\\\sat\\\\mainWindow.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2020_2022_py2\\\\sat\\\\Qt.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2020_2022_py2\\\\sat\\\\utils.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2020_2022_py2\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2020_2022_py2\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\aboutWindow.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2020_2022_py2\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\main.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2020_2022_py2\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\mainWindow.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2020_2022_py2\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\Qt.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2020_2022_py2\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\utils.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2022_py3\\\\sat\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2022_py3\\\\sat\\\\aboutWindow.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2022_py3\\\\sat\\\\main.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2022_py3\\\\sat\\\\mainWindow.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2022_py3\\\\sat\\\\Qt.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2022_py3\\\\sat\\\\utils.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2022_py3\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2022_py3\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\aboutWindow.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2022_py3\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\main.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2022_py3\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\mainWindow.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2022_py3\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\Qt.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\sat_2022_py3\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\utils.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\\\u542f\\u52a8\\u4ee3\\u7801.txt\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\\\u5b89\\u88c5\\u4e0e\\u4f7f\\u7528\\u8bf4\\u660e.docx\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\upstream\\\\\\u8d2d\\u4e70\\u7f51\\u5740.txt\",\r\n    \"maya_toolkit\\\\tools\\\\shape_animation_tool\\\\utils.py\",\r\n    \"tests\\\\test_shape_animation_tool.py\",\r\n    \"tests\\\\test_shape_animation_tool_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/shape_animation_tool/release_candidate/tests/test_shape_animation_tool_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_dry_import_and_preflight_have_no_scene_or_undo_changes (__main__.Maya.test_dry_import_and_preflight_have_no_scene_or_undo_changes) ... ok\r\ntest_full_sculpt_pair_geometry_keys_step_and_undo (__main__.Maya.test_full_sculpt_pair_geometry_keys_step_and_undo) ... ����: ShapeAnimationTool_shape_animation_tool\n����: ShapeAnimationTool_shape_animation_tool\nok\r\ntest_key_failure_restores_envelope_time_selection_and_helpers (__main__.Maya.test_key_failure_restores_envelope_time_selection_and_helpers) ... ok\r\ntest_legacy_inspect_adopt_reuses_full_owned_pair_graph (__main__.Maya.test_legacy_inspect_adopt_reuses_full_owned_pair_graph) ... ok\r\ntest_parented_transformed_mesh_sculpt_and_coherent_curve_retime (__main__.Maya.test_parented_transformed_mesh_sculpt_and_coherent_curve_retime) ... ok\r\ntest_reset_delete_key_all_keys_and_remove_preserve_foreign_nodes (__main__.Maya.test_reset_delete_key_all_keys_and_remove_preserve_foreign_nodes) ... ok\r\ntest_save_reopen_pending_sculpt_and_independent_layers (__main__.Maya.test_save_reopen_pending_sculpt_and_independent_layers) ... �ļ���ȡ����ʱ��Ϊ  0.0051 �롣\nok\r\ntest_uuid_rename_pending_sculpt_reconstruction_and_shared_driver_guard (__main__.Maya.test_uuid_rename_pending_sculpt_reconstruction_and_shared_driver_guard) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.248s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "ad230970c307f5eeed6149b427ceac81a901f6812c220a045c2882c6b5cda91d",
+          "runtime_source_sha256": "6a5e0ab0d63b5d0a726b7acabe45535da291dc783ddbf6e5a9dd65e0a857b67d"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya GUI/Artisan/pick/optional SHAPESBrush/production deformation stack and older versions require human acceptance; complete offline engine tests do not replace GUI acceptance"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "7dcad667b6cfa92479b19dee4dc0539597796fd1f7898215ec4308a9d690187e",
+          "returncode": 0,
+          "output": "test_contract_and_legacy_primitive_reader (__main__.Offline.test_contract_and_legacy_primitive_reader) ... ok\r\ntest_distribution_complete_and_import_is_lazy (__main__.Offline.test_distribution_complete_and_import_is_lazy) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.009s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI, Artisan first-activation behavior, pick/isolated viewport and saved-scene undo/reload require acceptance",
+        "SHAPESBrush plugin/MEL are absent and its optional button requires separate user installation",
+        "Commercial source has no redistribution license; local personal preparation only",
+        "Original .ui sources/pysideuic are absent; delivered generated UI needs no recompilation",
+        "Older Maya/Python/Qt versions require acceptance",
+        "Original source/resources changed; candidate must be reviewed again"
+      ],
       "entry_review": {
         "evidence": "Versioned package initializer instantiates MainWindow, shows it, connects signals and starts. Other Python2 variants retained. Decompiled-source markers and import side effects are recorded; no compatibility or licensing inference.",
         "kind": "versioned_package_with_import_side_effect",
@@ -6685,7 +6751,86 @@
         "possible_top_level_calls": 12,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "98aecafdc69eb0b6a163e5108966891aad24a90e3942fe476e866aad74667d80"
+      "source_tree_sha256": "27c1589ac57f8a053d7403125ccce0e6745b4010c55cc4df45066f6285044ab6",
+      "candidate_path": "tools_staging_pool/01_animation/shape_animation_tool/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/shape_animation_tool/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "shape_animation_tool",
+        "candidate_sha256": "7dcad667b6cfa92479b19dee4dc0539597796fd1f7898215ec4308a9d690187e",
+        "applied": false,
+        "files": [
+          "docs\\tools\\shape_animation_tool.md",
+          "docs\\tools\\shape_animation_tool_changes.diff",
+          "maya_toolkit\\tools\\shape_animation_tool\\__init__.py",
+          "maya_toolkit\\tools\\shape_animation_tool\\aboutWindow.py",
+          "maya_toolkit\\tools\\shape_animation_tool\\catalog.json",
+          "maya_toolkit\\tools\\shape_animation_tool\\mainWindow.py",
+          "maya_toolkit\\tools\\shape_animation_tool\\native.py",
+          "maya_toolkit\\tools\\shape_animation_tool\\pick_compat.py",
+          "maya_toolkit\\tools\\shape_animation_tool\\Qt.py",
+          "maya_toolkit\\tools\\shape_animation_tool\\runtime.py",
+          "maya_toolkit\\tools\\shape_animation_tool\\tool.py",
+          "maya_toolkit\\tools\\shape_animation_tool\\ui_bridge.py",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2018_py2\\__init__.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2018_py2\\aboutWindow.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2018_py2\\main.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2018_py2\\mainWindow.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2018_py2\\Qt.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2018_py2\\utils.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2018_py2【汉化版】\\__init__.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2018_py2【汉化版】\\aboutWindow.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2018_py2【汉化版】\\main.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2018_py2【汉化版】\\mainWindow.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2018_py2【汉化版】\\Qt.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2018_py2【汉化版】\\utils.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2020_2022_py2\\sat\\__init__.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2020_2022_py2\\sat\\aboutWindow.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2020_2022_py2\\sat\\main.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2020_2022_py2\\sat\\mainWindow.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2020_2022_py2\\sat\\Qt.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2020_2022_py2\\sat\\utils.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2020_2022_py2【汉化版】\\__init__.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2020_2022_py2【汉化版】\\aboutWindow.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2020_2022_py2【汉化版】\\main.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2020_2022_py2【汉化版】\\mainWindow.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2020_2022_py2【汉化版】\\Qt.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2020_2022_py2【汉化版】\\utils.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2022_py3\\sat\\__init__.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2022_py3\\sat\\aboutWindow.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2022_py3\\sat\\main.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2022_py3\\sat\\mainWindow.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2022_py3\\sat\\Qt.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2022_py3\\sat\\utils.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2022_py3【汉化版】\\__init__.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2022_py3【汉化版】\\aboutWindow.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2022_py3【汉化版】\\main.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2022_py3【汉化版】\\mainWindow.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2022_py3【汉化版】\\Qt.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\sat_2022_py3【汉化版】\\utils.py.original",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\启动代码.txt",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\安装与使用说明.docx",
+          "maya_toolkit\\tools\\shape_animation_tool\\upstream\\购买网址.txt",
+          "maya_toolkit\\tools\\shape_animation_tool\\utils.py",
+          "tests\\test_shape_animation_tool.py",
+          "tests\\test_shape_animation_tool_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "catalog.json",
+        "upstream/ (39 unchanged original files including Word instructions)"
+      ],
+      "external_dependencies": [
+        "Maya cmds/mel/OpenMaya/OpenMayaUI",
+        "PySide6/shiboken6 or PySide2/shiboken2 for interactive UI",
+        "Optional separately installed SHAPESBrush.mll and SHAPESBrush MEL",
+        "BaseMayaTool/ToolResult/Undo"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete original paired corrective blendShape target and keyframe/sculpt/brush/pick/UI workflow retained; private UUID-owned persistent sessions, strict graph preflight, guarded temporary cleanup, Qt6/Python3 and JSON/legacy pickle fixes. All six original distributions retained.",
+      "prepared_at": "2026-10-01T16:49:39.487774+08:00"
     },
     {
       "source_path": "01_animation/shift_animation_v3_2",

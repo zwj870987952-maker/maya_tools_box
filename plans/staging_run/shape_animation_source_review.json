@@ -1,0 +1,666 @@
+{
+  "files": [
+    {
+      "path": "sat_2018_py2/__init__.py",
+      "sha256": "fdd846ae39c891643170d957f8ab2ce38565a484f968cec992d3fe71c31671b0",
+      "bytes": 484
+    },
+    {
+      "path": "sat_2018_py2/aboutWindow.py",
+      "sha256": "d5916c7c3978bd013cf4811f5540b7007045030e0ce6755be9da610c4b48658a",
+      "bytes": 4135
+    },
+    {
+      "path": "sat_2018_py2/main.py",
+      "sha256": "a4b03fb1f1058e3a7456f6171d6a0fa41fd0b28b95442538095dcaed68a9041b",
+      "bytes": 31093,
+      "classes": {
+        "AboutWindow": [
+          "__init__"
+        ],
+        "MainWindow": [
+          "__init__",
+          "updateFrame",
+          "start",
+          "connectSignals",
+          "updateUI",
+          "onOffBs",
+          "selectMeshInList",
+          "addMesh",
+          "removeMesh",
+          "pickMesh",
+          "fillGeoList",
+          "removeAllMeshes",
+          "sculpt",
+          "scultpMenuOn",
+          "setSelectionMode",
+          "brush",
+          "shapesBrush",
+          "points",
+          "resetShape",
+          "setKey",
+          "deleteKey",
+          "deleteAllKeys",
+          "stepKey",
+          "getKeytimes",
+          "saveData",
+          "loadData",
+          "removeIntermediateShape",
+          "fixShapeName",
+          "returnName",
+          "about",
+          "showBrushWindow",
+          "homePage",
+          "closeEvent"
+        ]
+      },
+      "methods": {
+        "AboutWindow.__init__": "c14a2d40fd40a82360f14e553c8e33b62dd5639473a213ad970edb64a49fdfdb",
+        "MainWindow.__init__": "3efec7104d5136cd9f13cba6fd1bcc8244938e2e7978c01392f2006585907af0",
+        "MainWindow.updateFrame": "6c2bc6f0f5b97f09780040ca238068a9d91e8141daddb5038e8f853218290436",
+        "MainWindow.start": "20827d16422bd2d0716464d6aa9bf869bcf7b20b32552cf2a288f3f7a61d3fc0",
+        "MainWindow.connectSignals": "826d8c2c05214c011f2dbae98fa2e831ae86ea5169cd9a47cf5e4ec9f3fa9a21",
+        "MainWindow.updateUI": "6eab8d09709a82444acc7caccb438e67ffd86f8f3fd1d124fbedd0713b03aa78",
+        "MainWindow.onOffBs": "42e4451535400ed89efbca1a27db1097a1f4a358a7fa4f85c70b2190f273530f",
+        "MainWindow.selectMeshInList": "dd3c927ae5353e231f8cc5236a1a25d70495a2c8ad41d648e569b2d506abde06",
+        "MainWindow.addMesh": "e95ddc0ad9523dc12aaa405ef6c95303a4cd09f765291cdc6f7f193713e07243",
+        "MainWindow.removeMesh": "37411b26692ea952c6211d33d63d3eba4dacf24bbb9cdb4a9656946ff1e87452",
+        "MainWindow.pickMesh": "251923908c8bb5a06ff274e96c70ea59e97a910013e5086fce664ece7e414d4f",
+        "MainWindow.fillGeoList": "27ecde3454f3d3696d14cdb44f3561f898878915af94adfc968289fdb617b190",
+        "MainWindow.removeAllMeshes": "c42792a97a9b09970421c1939e219b9a38973490ad1c0db0fa03fcc7e4fb4755",
+        "MainWindow.sculpt": "b328c45ac174c8e85f4662593b8077c626652b8830ee086e09637c5d71dc1d03",
+        "MainWindow.scultpMenuOn": "c037db78a20b4ed3c20aef3d438185cc76b5e7752521fea82281d6c714ff3ae7",
+        "MainWindow.setSelectionMode": "3515fa925da063201033a3b2a45b71ead018121c8d14a7b4228d179aae3a1ab5",
+        "MainWindow.brush": "09f54a47dcbfb0f725927e0b7bfbd47679e3e358c09bd4e1fa2798d232e3c038",
+        "MainWindow.shapesBrush": "fabd6c6e046f38306559399955acb56dd0aa47a6f64c58fcd358cb3d19b98d3c",
+        "MainWindow.points": "ab2bd5a1770348c181b201cbc3ff604dc025dbb52934e0adcc5a5905d593eeac",
+        "MainWindow.resetShape": "527a66b6ba8ceb4c086ad529d2ea5bcd1d74bcf326429a38f6e27545a8333e01",
+        "MainWindow.setKey": "ef613055c4888ec328daeca4f9bf71892dd1bea0d94a99cf13dc597a398d2411",
+        "MainWindow.deleteKey": "e17bfb20dcecb3ef6e96c58391f19d8d2f406c66c4435b87e574c94126388ad4",
+        "MainWindow.deleteAllKeys": "276460bed3ef3d4c224686bbc5c9f94f5e5919a1564ddd188dd05161909a9a55",
+        "MainWindow.stepKey": "1ddf14a621758f59310e94b1464f55048534494af3189c469fc771148976fcfc",
+        "MainWindow.getKeytimes": "bf2daad48e788a609ead027550978ea3d838b4c48b4ba1dac40f9f6c01b927a0",
+        "MainWindow.saveData": "95259ac27fac42c22cdd2e91efc9d5f83a83000ba0613672ee70a86a898cf8b7",
+        "MainWindow.loadData": "91272cc16e7c5b82f6085dda8412610e5578a28889efe48a4a87228ccee96e0b",
+        "MainWindow.removeIntermediateShape": "d2fa032546b091ac6c12db7494a0294f0bdfb0c75d0856e7a5c6cc79b2154a1f",
+        "MainWindow.fixShapeName": "c02e99b0189534749b616675c882d9d93bc0b757cd0420de14f6a31f7b31121f",
+        "MainWindow.returnName": "5a0f09dafbdaf23a6706f7bca20a18ea4bc6e1b44cd7bc758b9036d6ea9e9506",
+        "MainWindow.about": "11e4b58725267def9076a01ccd007c4dbc843d48cfaabc028176c3aa29934532",
+        "MainWindow.showBrushWindow": "7a571de3ef947bbabecaba66c65a9f53b8a173f358cc866b237be546ecffca0d",
+        "MainWindow.homePage": "36dc1751fd22bca9d8b6284485d6056cc819c9d4527f40b3e6aafd83d3a15db2",
+        "MainWindow.closeEvent": "2a525a9b2d569418d84622d7ca99c91a50c61d4436b078031573bc09c43e7ffe"
+      }
+    },
+    {
+      "path": "sat_2018_py2/mainWindow.py",
+      "sha256": "1afafb80a41611c711bde91924d8c83aeeda13f5c352bdfc9ff3fadc58bd776a",
+      "bytes": 19787
+    },
+    {
+      "path": "sat_2018_py2/Qt.py",
+      "sha256": "c08c03e116c22131e1e721f29823386087457320ce84c74f6b0bd17f1d7017b5",
+      "bytes": 10658
+    },
+    {
+      "path": "sat_2018_py2/utils.py",
+      "sha256": "cd993d8416d0cbef20f8cb9bcc706969911d43d881f73bf8acbdfb782acfa5ec",
+      "bytes": 2479
+    },
+    {
+      "path": "sat_2018_py2【汉化版】/__init__.py",
+      "sha256": "fdd846ae39c891643170d957f8ab2ce38565a484f968cec992d3fe71c31671b0",
+      "bytes": 484
+    },
+    {
+      "path": "sat_2018_py2【汉化版】/aboutWindow.py",
+      "sha256": "4e96b94119285479204c5ae6aec61e1c5dafdb5ab121509d1dba7544eb852399",
+      "bytes": 4145
+    },
+    {
+      "path": "sat_2018_py2【汉化版】/main.py",
+      "sha256": "c12692075c3e650bd0b0ab0b464111c34f55dc44ba71b19b507ca5791cb642db",
+      "bytes": 31155,
+      "classes": {
+        "AboutWindow": [
+          "__init__"
+        ],
+        "MainWindow": [
+          "__init__",
+          "updateFrame",
+          "start",
+          "connectSignals",
+          "updateUI",
+          "onOffBs",
+          "selectMeshInList",
+          "addMesh",
+          "removeMesh",
+          "pickMesh",
+          "fillGeoList",
+          "removeAllMeshes",
+          "sculpt",
+          "scultpMenuOn",
+          "setSelectionMode",
+          "brush",
+          "shapesBrush",
+          "points",
+          "resetShape",
+          "setKey",
+          "deleteKey",
+          "deleteAllKeys",
+          "stepKey",
+          "getKeytimes",
+          "saveData",
+          "loadData",
+          "removeIntermediateShape",
+          "fixShapeName",
+          "returnName",
+          "about",
+          "showBrushWindow",
+          "homePage",
+          "closeEvent"
+        ]
+      },
+      "methods": {
+        "AboutWindow.__init__": "c14a2d40fd40a82360f14e553c8e33b62dd5639473a213ad970edb64a49fdfdb",
+        "MainWindow.__init__": "3efec7104d5136cd9f13cba6fd1bcc8244938e2e7978c01392f2006585907af0",
+        "MainWindow.updateFrame": "6c2bc6f0f5b97f09780040ca238068a9d91e8141daddb5038e8f853218290436",
+        "MainWindow.start": "20827d16422bd2d0716464d6aa9bf869bcf7b20b32552cf2a288f3f7a61d3fc0",
+        "MainWindow.connectSignals": "826d8c2c05214c011f2dbae98fa2e831ae86ea5169cd9a47cf5e4ec9f3fa9a21",
+        "MainWindow.updateUI": "6eab8d09709a82444acc7caccb438e67ffd86f8f3fd1d124fbedd0713b03aa78",
+        "MainWindow.onOffBs": "42e4451535400ed89efbca1a27db1097a1f4a358a7fa4f85c70b2190f273530f",
+        "MainWindow.selectMeshInList": "dd3c927ae5353e231f8cc5236a1a25d70495a2c8ad41d648e569b2d506abde06",
+        "MainWindow.addMesh": "e95ddc0ad9523dc12aaa405ef6c95303a4cd09f765291cdc6f7f193713e07243",
+        "MainWindow.removeMesh": "37411b26692ea952c6211d33d63d3eba4dacf24bbb9cdb4a9656946ff1e87452",
+        "MainWindow.pickMesh": "251923908c8bb5a06ff274e96c70ea59e97a910013e5086fce664ece7e414d4f",
+        "MainWindow.fillGeoList": "27ecde3454f3d3696d14cdb44f3561f898878915af94adfc968289fdb617b190",
+        "MainWindow.removeAllMeshes": "c42792a97a9b09970421c1939e219b9a38973490ad1c0db0fa03fcc7e4fb4755",
+        "MainWindow.sculpt": "b328c45ac174c8e85f4662593b8077c626652b8830ee086e09637c5d71dc1d03",
+        "MainWindow.scultpMenuOn": "c037db78a20b4ed3c20aef3d438185cc76b5e7752521fea82281d6c714ff3ae7",
+        "MainWindow.setSelectionMode": "3515fa925da063201033a3b2a45b71ead018121c8d14a7b4228d179aae3a1ab5",
+        "MainWindow.brush": "09f54a47dcbfb0f725927e0b7bfbd47679e3e358c09bd4e1fa2798d232e3c038",
+        "MainWindow.shapesBrush": "fabd6c6e046f38306559399955acb56dd0aa47a6f64c58fcd358cb3d19b98d3c",
+        "MainWindow.points": "ab2bd5a1770348c181b201cbc3ff604dc025dbb52934e0adcc5a5905d593eeac",
+        "MainWindow.resetShape": "527a66b6ba8ceb4c086ad529d2ea5bcd1d74bcf326429a38f6e27545a8333e01",
+        "MainWindow.setKey": "ef613055c4888ec328daeca4f9bf71892dd1bea0d94a99cf13dc597a398d2411",
+        "MainWindow.deleteKey": "e17bfb20dcecb3ef6e96c58391f19d8d2f406c66c4435b87e574c94126388ad4",
+        "MainWindow.deleteAllKeys": "276460bed3ef3d4c224686bbc5c9f94f5e5919a1564ddd188dd05161909a9a55",
+        "MainWindow.stepKey": "1ddf14a621758f59310e94b1464f55048534494af3189c469fc771148976fcfc",
+        "MainWindow.getKeytimes": "bf2daad48e788a609ead027550978ea3d838b4c48b4ba1dac40f9f6c01b927a0",
+        "MainWindow.saveData": "95259ac27fac42c22cdd2e91efc9d5f83a83000ba0613672ee70a86a898cf8b7",
+        "MainWindow.loadData": "91272cc16e7c5b82f6085dda8412610e5578a28889efe48a4a87228ccee96e0b",
+        "MainWindow.removeIntermediateShape": "d2fa032546b091ac6c12db7494a0294f0bdfb0c75d0856e7a5c6cc79b2154a1f",
+        "MainWindow.fixShapeName": "c02e99b0189534749b616675c882d9d93bc0b757cd0420de14f6a31f7b31121f",
+        "MainWindow.returnName": "5a0f09dafbdaf23a6706f7bca20a18ea4bc6e1b44cd7bc758b9036d6ea9e9506",
+        "MainWindow.about": "11e4b58725267def9076a01ccd007c4dbc843d48cfaabc028176c3aa29934532",
+        "MainWindow.showBrushWindow": "7a571de3ef947bbabecaba66c65a9f53b8a173f358cc866b237be546ecffca0d",
+        "MainWindow.homePage": "81556a6b19c01e54142192c7a4cf6f71d5e3bf718994665491ec81575b8daaeb",
+        "MainWindow.closeEvent": "2a525a9b2d569418d84622d7ca99c91a50c61d4436b078031573bc09c43e7ffe"
+      }
+    },
+    {
+      "path": "sat_2018_py2【汉化版】/mainWindow.py",
+      "sha256": "e7072b5b8d058becd1838135dee44c964d77c0654d246f1e282db71122456a00",
+      "bytes": 19911
+    },
+    {
+      "path": "sat_2018_py2【汉化版】/Qt.py",
+      "sha256": "c08c03e116c22131e1e721f29823386087457320ce84c74f6b0bd17f1d7017b5",
+      "bytes": 10658
+    },
+    {
+      "path": "sat_2018_py2【汉化版】/utils.py",
+      "sha256": "cd993d8416d0cbef20f8cb9bcc706969911d43d881f73bf8acbdfb782acfa5ec",
+      "bytes": 2479
+    },
+    {
+      "path": "sat_2020_2022_py2/sat/__init__.py",
+      "sha256": "fdd846ae39c891643170d957f8ab2ce38565a484f968cec992d3fe71c31671b0",
+      "bytes": 484
+    },
+    {
+      "path": "sat_2020_2022_py2/sat/aboutWindow.py",
+      "sha256": "d5916c7c3978bd013cf4811f5540b7007045030e0ce6755be9da610c4b48658a",
+      "bytes": 4135
+    },
+    {
+      "path": "sat_2020_2022_py2/sat/main.py",
+      "sha256": "a4b03fb1f1058e3a7456f6171d6a0fa41fd0b28b95442538095dcaed68a9041b",
+      "bytes": 31093,
+      "classes": {
+        "AboutWindow": [
+          "__init__"
+        ],
+        "MainWindow": [
+          "__init__",
+          "updateFrame",
+          "start",
+          "connectSignals",
+          "updateUI",
+          "onOffBs",
+          "selectMeshInList",
+          "addMesh",
+          "removeMesh",
+          "pickMesh",
+          "fillGeoList",
+          "removeAllMeshes",
+          "sculpt",
+          "scultpMenuOn",
+          "setSelectionMode",
+          "brush",
+          "shapesBrush",
+          "points",
+          "resetShape",
+          "setKey",
+          "deleteKey",
+          "deleteAllKeys",
+          "stepKey",
+          "getKeytimes",
+          "saveData",
+          "loadData",
+          "removeIntermediateShape",
+          "fixShapeName",
+          "returnName",
+          "about",
+          "showBrushWindow",
+          "homePage",
+          "closeEvent"
+        ]
+      },
+      "methods": {
+        "AboutWindow.__init__": "c14a2d40fd40a82360f14e553c8e33b62dd5639473a213ad970edb64a49fdfdb",
+        "MainWindow.__init__": "3efec7104d5136cd9f13cba6fd1bcc8244938e2e7978c01392f2006585907af0",
+        "MainWindow.updateFrame": "6c2bc6f0f5b97f09780040ca238068a9d91e8141daddb5038e8f853218290436",
+        "MainWindow.start": "20827d16422bd2d0716464d6aa9bf869bcf7b20b32552cf2a288f3f7a61d3fc0",
+        "MainWindow.connectSignals": "826d8c2c05214c011f2dbae98fa2e831ae86ea5169cd9a47cf5e4ec9f3fa9a21",
+        "MainWindow.updateUI": "6eab8d09709a82444acc7caccb438e67ffd86f8f3fd1d124fbedd0713b03aa78",
+        "MainWindow.onOffBs": "42e4451535400ed89efbca1a27db1097a1f4a358a7fa4f85c70b2190f273530f",
+        "MainWindow.selectMeshInList": "dd3c927ae5353e231f8cc5236a1a25d70495a2c8ad41d648e569b2d506abde06",
+        "MainWindow.addMesh": "e95ddc0ad9523dc12aaa405ef6c95303a4cd09f765291cdc6f7f193713e07243",
+        "MainWindow.removeMesh": "37411b26692ea952c6211d33d63d3eba4dacf24bbb9cdb4a9656946ff1e87452",
+        "MainWindow.pickMesh": "251923908c8bb5a06ff274e96c70ea59e97a910013e5086fce664ece7e414d4f",
+        "MainWindow.fillGeoList": "27ecde3454f3d3696d14cdb44f3561f898878915af94adfc968289fdb617b190",
+        "MainWindow.removeAllMeshes": "c42792a97a9b09970421c1939e219b9a38973490ad1c0db0fa03fcc7e4fb4755",
+        "MainWindow.sculpt": "b328c45ac174c8e85f4662593b8077c626652b8830ee086e09637c5d71dc1d03",
+        "MainWindow.scultpMenuOn": "c037db78a20b4ed3c20aef3d438185cc76b5e7752521fea82281d6c714ff3ae7",
+        "MainWindow.setSelectionMode": "3515fa925da063201033a3b2a45b71ead018121c8d14a7b4228d179aae3a1ab5",
+        "MainWindow.brush": "09f54a47dcbfb0f725927e0b7bfbd47679e3e358c09bd4e1fa2798d232e3c038",
+        "MainWindow.shapesBrush": "fabd6c6e046f38306559399955acb56dd0aa47a6f64c58fcd358cb3d19b98d3c",
+        "MainWindow.points": "ab2bd5a1770348c181b201cbc3ff604dc025dbb52934e0adcc5a5905d593eeac",
+        "MainWindow.resetShape": "527a66b6ba8ceb4c086ad529d2ea5bcd1d74bcf326429a38f6e27545a8333e01",
+        "MainWindow.setKey": "ef613055c4888ec328daeca4f9bf71892dd1bea0d94a99cf13dc597a398d2411",
+        "MainWindow.deleteKey": "e17bfb20dcecb3ef6e96c58391f19d8d2f406c66c4435b87e574c94126388ad4",
+        "MainWindow.deleteAllKeys": "276460bed3ef3d4c224686bbc5c9f94f5e5919a1564ddd188dd05161909a9a55",
+        "MainWindow.stepKey": "1ddf14a621758f59310e94b1464f55048534494af3189c469fc771148976fcfc",
+        "MainWindow.getKeytimes": "bf2daad48e788a609ead027550978ea3d838b4c48b4ba1dac40f9f6c01b927a0",
+        "MainWindow.saveData": "95259ac27fac42c22cdd2e91efc9d5f83a83000ba0613672ee70a86a898cf8b7",
+        "MainWindow.loadData": "91272cc16e7c5b82f6085dda8412610e5578a28889efe48a4a87228ccee96e0b",
+        "MainWindow.removeIntermediateShape": "d2fa032546b091ac6c12db7494a0294f0bdfb0c75d0856e7a5c6cc79b2154a1f",
+        "MainWindow.fixShapeName": "c02e99b0189534749b616675c882d9d93bc0b757cd0420de14f6a31f7b31121f",
+        "MainWindow.returnName": "5a0f09dafbdaf23a6706f7bca20a18ea4bc6e1b44cd7bc758b9036d6ea9e9506",
+        "MainWindow.about": "11e4b58725267def9076a01ccd007c4dbc843d48cfaabc028176c3aa29934532",
+        "MainWindow.showBrushWindow": "7a571de3ef947bbabecaba66c65a9f53b8a173f358cc866b237be546ecffca0d",
+        "MainWindow.homePage": "36dc1751fd22bca9d8b6284485d6056cc819c9d4527f40b3e6aafd83d3a15db2",
+        "MainWindow.closeEvent": "2a525a9b2d569418d84622d7ca99c91a50c61d4436b078031573bc09c43e7ffe"
+      }
+    },
+    {
+      "path": "sat_2020_2022_py2/sat/mainWindow.py",
+      "sha256": "1afafb80a41611c711bde91924d8c83aeeda13f5c352bdfc9ff3fadc58bd776a",
+      "bytes": 19787
+    },
+    {
+      "path": "sat_2020_2022_py2/sat/Qt.py",
+      "sha256": "8552b926452310aeb4e10b5f282a54c19a503f695dded91ef41ae18713e91f99",
+      "bytes": 10661
+    },
+    {
+      "path": "sat_2020_2022_py2/sat/utils.py",
+      "sha256": "cd993d8416d0cbef20f8cb9bcc706969911d43d881f73bf8acbdfb782acfa5ec",
+      "bytes": 2479
+    },
+    {
+      "path": "sat_2020_2022_py2【汉化版】/__init__.py",
+      "sha256": "fdd846ae39c891643170d957f8ab2ce38565a484f968cec992d3fe71c31671b0",
+      "bytes": 484
+    },
+    {
+      "path": "sat_2020_2022_py2【汉化版】/aboutWindow.py",
+      "sha256": "1e370742676a695ba09a81a21d45bd1d46f245fb9dd43295eaf1aa913f46f6f1",
+      "bytes": 4145
+    },
+    {
+      "path": "sat_2020_2022_py2【汉化版】/main.py",
+      "sha256": "c12692075c3e650bd0b0ab0b464111c34f55dc44ba71b19b507ca5791cb642db",
+      "bytes": 31155,
+      "classes": {
+        "AboutWindow": [
+          "__init__"
+        ],
+        "MainWindow": [
+          "__init__",
+          "updateFrame",
+          "start",
+          "connectSignals",
+          "updateUI",
+          "onOffBs",
+          "selectMeshInList",
+          "addMesh",
+          "removeMesh",
+          "pickMesh",
+          "fillGeoList",
+          "removeAllMeshes",
+          "sculpt",
+          "scultpMenuOn",
+          "setSelectionMode",
+          "brush",
+          "shapesBrush",
+          "points",
+          "resetShape",
+          "setKey",
+          "deleteKey",
+          "deleteAllKeys",
+          "stepKey",
+          "getKeytimes",
+          "saveData",
+          "loadData",
+          "removeIntermediateShape",
+          "fixShapeName",
+          "returnName",
+          "about",
+          "showBrushWindow",
+          "homePage",
+          "closeEvent"
+        ]
+      },
+      "methods": {
+        "AboutWindow.__init__": "c14a2d40fd40a82360f14e553c8e33b62dd5639473a213ad970edb64a49fdfdb",
+        "MainWindow.__init__": "3efec7104d5136cd9f13cba6fd1bcc8244938e2e7978c01392f2006585907af0",
+        "MainWindow.updateFrame": "6c2bc6f0f5b97f09780040ca238068a9d91e8141daddb5038e8f853218290436",
+        "MainWindow.start": "20827d16422bd2d0716464d6aa9bf869bcf7b20b32552cf2a288f3f7a61d3fc0",
+        "MainWindow.connectSignals": "826d8c2c05214c011f2dbae98fa2e831ae86ea5169cd9a47cf5e4ec9f3fa9a21",
+        "MainWindow.updateUI": "6eab8d09709a82444acc7caccb438e67ffd86f8f3fd1d124fbedd0713b03aa78",
+        "MainWindow.onOffBs": "42e4451535400ed89efbca1a27db1097a1f4a358a7fa4f85c70b2190f273530f",
+        "MainWindow.selectMeshInList": "dd3c927ae5353e231f8cc5236a1a25d70495a2c8ad41d648e569b2d506abde06",
+        "MainWindow.addMesh": "e95ddc0ad9523dc12aaa405ef6c95303a4cd09f765291cdc6f7f193713e07243",
+        "MainWindow.removeMesh": "37411b26692ea952c6211d33d63d3eba4dacf24bbb9cdb4a9656946ff1e87452",
+        "MainWindow.pickMesh": "251923908c8bb5a06ff274e96c70ea59e97a910013e5086fce664ece7e414d4f",
+        "MainWindow.fillGeoList": "27ecde3454f3d3696d14cdb44f3561f898878915af94adfc968289fdb617b190",
+        "MainWindow.removeAllMeshes": "c42792a97a9b09970421c1939e219b9a38973490ad1c0db0fa03fcc7e4fb4755",
+        "MainWindow.sculpt": "b328c45ac174c8e85f4662593b8077c626652b8830ee086e09637c5d71dc1d03",
+        "MainWindow.scultpMenuOn": "c037db78a20b4ed3c20aef3d438185cc76b5e7752521fea82281d6c714ff3ae7",
+        "MainWindow.setSelectionMode": "3515fa925da063201033a3b2a45b71ead018121c8d14a7b4228d179aae3a1ab5",
+        "MainWindow.brush": "09f54a47dcbfb0f725927e0b7bfbd47679e3e358c09bd4e1fa2798d232e3c038",
+        "MainWindow.shapesBrush": "fabd6c6e046f38306559399955acb56dd0aa47a6f64c58fcd358cb3d19b98d3c",
+        "MainWindow.points": "ab2bd5a1770348c181b201cbc3ff604dc025dbb52934e0adcc5a5905d593eeac",
+        "MainWindow.resetShape": "527a66b6ba8ceb4c086ad529d2ea5bcd1d74bcf326429a38f6e27545a8333e01",
+        "MainWindow.setKey": "ef613055c4888ec328daeca4f9bf71892dd1bea0d94a99cf13dc597a398d2411",
+        "MainWindow.deleteKey": "e17bfb20dcecb3ef6e96c58391f19d8d2f406c66c4435b87e574c94126388ad4",
+        "MainWindow.deleteAllKeys": "276460bed3ef3d4c224686bbc5c9f94f5e5919a1564ddd188dd05161909a9a55",
+        "MainWindow.stepKey": "1ddf14a621758f59310e94b1464f55048534494af3189c469fc771148976fcfc",
+        "MainWindow.getKeytimes": "bf2daad48e788a609ead027550978ea3d838b4c48b4ba1dac40f9f6c01b927a0",
+        "MainWindow.saveData": "95259ac27fac42c22cdd2e91efc9d5f83a83000ba0613672ee70a86a898cf8b7",
+        "MainWindow.loadData": "91272cc16e7c5b82f6085dda8412610e5578a28889efe48a4a87228ccee96e0b",
+        "MainWindow.removeIntermediateShape": "d2fa032546b091ac6c12db7494a0294f0bdfb0c75d0856e7a5c6cc79b2154a1f",
+        "MainWindow.fixShapeName": "c02e99b0189534749b616675c882d9d93bc0b757cd0420de14f6a31f7b31121f",
+        "MainWindow.returnName": "5a0f09dafbdaf23a6706f7bca20a18ea4bc6e1b44cd7bc758b9036d6ea9e9506",
+        "MainWindow.about": "11e4b58725267def9076a01ccd007c4dbc843d48cfaabc028176c3aa29934532",
+        "MainWindow.showBrushWindow": "7a571de3ef947bbabecaba66c65a9f53b8a173f358cc866b237be546ecffca0d",
+        "MainWindow.homePage": "81556a6b19c01e54142192c7a4cf6f71d5e3bf718994665491ec81575b8daaeb",
+        "MainWindow.closeEvent": "2a525a9b2d569418d84622d7ca99c91a50c61d4436b078031573bc09c43e7ffe"
+      }
+    },
+    {
+      "path": "sat_2020_2022_py2【汉化版】/mainWindow.py",
+      "sha256": "1da4f3965da3a501be2ba82b62888c14fff9a5ccb0fba54d4e94ca12a006046b",
+      "bytes": 19911
+    },
+    {
+      "path": "sat_2020_2022_py2【汉化版】/Qt.py",
+      "sha256": "8552b926452310aeb4e10b5f282a54c19a503f695dded91ef41ae18713e91f99",
+      "bytes": 10661
+    },
+    {
+      "path": "sat_2020_2022_py2【汉化版】/utils.py",
+      "sha256": "cd993d8416d0cbef20f8cb9bcc706969911d43d881f73bf8acbdfb782acfa5ec",
+      "bytes": 2479
+    },
+    {
+      "path": "sat_2022_py3/sat/__init__.py",
+      "sha256": "fdd846ae39c891643170d957f8ab2ce38565a484f968cec992d3fe71c31671b0",
+      "bytes": 484
+    },
+    {
+      "path": "sat_2022_py3/sat/aboutWindow.py",
+      "sha256": "d5916c7c3978bd013cf4811f5540b7007045030e0ce6755be9da610c4b48658a",
+      "bytes": 4135
+    },
+    {
+      "path": "sat_2022_py3/sat/main.py",
+      "sha256": "1ee325b7cb0853b85288b7ef056f9aef6b3bc544cfc4ba932609b49b858ae306",
+      "bytes": 30530,
+      "classes": {
+        "AboutWindow": [
+          "__init__"
+        ],
+        "MainWindow": [
+          "__init__",
+          "updateFrame",
+          "start",
+          "connectSignals",
+          "updateUI",
+          "onOffBs",
+          "selectMeshInList",
+          "addMesh",
+          "removeMesh",
+          "pickMesh",
+          "fillGeoList",
+          "removeAllMeshes",
+          "sculpt",
+          "scultpMenuOn",
+          "setSelectionMode",
+          "brush",
+          "shapesBrush",
+          "points",
+          "resetShape",
+          "setKey",
+          "deleteKey",
+          "deleteAllKeys",
+          "stepKey",
+          "getKeytimes",
+          "saveData",
+          "loadData",
+          "removeIntermediateShape",
+          "fixShapeName",
+          "returnName",
+          "about",
+          "showBrushWindow",
+          "homePage",
+          "closeEvent"
+        ]
+      },
+      "methods": {
+        "AboutWindow.__init__": "c14a2d40fd40a82360f14e553c8e33b62dd5639473a213ad970edb64a49fdfdb",
+        "MainWindow.__init__": "3efec7104d5136cd9f13cba6fd1bcc8244938e2e7978c01392f2006585907af0",
+        "MainWindow.updateFrame": "6c2bc6f0f5b97f09780040ca238068a9d91e8141daddb5038e8f853218290436",
+        "MainWindow.start": "20827d16422bd2d0716464d6aa9bf869bcf7b20b32552cf2a288f3f7a61d3fc0",
+        "MainWindow.connectSignals": "826d8c2c05214c011f2dbae98fa2e831ae86ea5169cd9a47cf5e4ec9f3fa9a21",
+        "MainWindow.updateUI": "6eab8d09709a82444acc7caccb438e67ffd86f8f3fd1d124fbedd0713b03aa78",
+        "MainWindow.onOffBs": "42e4451535400ed89efbca1a27db1097a1f4a358a7fa4f85c70b2190f273530f",
+        "MainWindow.selectMeshInList": "dd3c927ae5353e231f8cc5236a1a25d70495a2c8ad41d648e569b2d506abde06",
+        "MainWindow.addMesh": "e95ddc0ad9523dc12aaa405ef6c95303a4cd09f765291cdc6f7f193713e07243",
+        "MainWindow.removeMesh": "37411b26692ea952c6211d33d63d3eba4dacf24bbb9cdb4a9656946ff1e87452",
+        "MainWindow.pickMesh": "251923908c8bb5a06ff274e96c70ea59e97a910013e5086fce664ece7e414d4f",
+        "MainWindow.fillGeoList": "27ecde3454f3d3696d14cdb44f3561f898878915af94adfc968289fdb617b190",
+        "MainWindow.removeAllMeshes": "c42792a97a9b09970421c1939e219b9a38973490ad1c0db0fa03fcc7e4fb4755",
+        "MainWindow.sculpt": "cf77eda9f3ccafa4e4a637e8231d1c1e571cab3771f4a47b2a2b67830a249a18",
+        "MainWindow.scultpMenuOn": "c037db78a20b4ed3c20aef3d438185cc76b5e7752521fea82281d6c714ff3ae7",
+        "MainWindow.setSelectionMode": "3515fa925da063201033a3b2a45b71ead018121c8d14a7b4228d179aae3a1ab5",
+        "MainWindow.brush": "09f54a47dcbfb0f725927e0b7bfbd47679e3e358c09bd4e1fa2798d232e3c038",
+        "MainWindow.shapesBrush": "fabd6c6e046f38306559399955acb56dd0aa47a6f64c58fcd358cb3d19b98d3c",
+        "MainWindow.points": "ab2bd5a1770348c181b201cbc3ff604dc025dbb52934e0adcc5a5905d593eeac",
+        "MainWindow.resetShape": "527a66b6ba8ceb4c086ad529d2ea5bcd1d74bcf326429a38f6e27545a8333e01",
+        "MainWindow.setKey": "2dc7608c73aff250b9c0197d1876a3e8f0a5e84d57c28f2bd846004f5972a986",
+        "MainWindow.deleteKey": "e17bfb20dcecb3ef6e96c58391f19d8d2f406c66c4435b87e574c94126388ad4",
+        "MainWindow.deleteAllKeys": "276460bed3ef3d4c224686bbc5c9f94f5e5919a1564ddd188dd05161909a9a55",
+        "MainWindow.stepKey": "1ddf14a621758f59310e94b1464f55048534494af3189c469fc771148976fcfc",
+        "MainWindow.getKeytimes": "bf2daad48e788a609ead027550978ea3d838b4c48b4ba1dac40f9f6c01b927a0",
+        "MainWindow.saveData": "95259ac27fac42c22cdd2e91efc9d5f83a83000ba0613672ee70a86a898cf8b7",
+        "MainWindow.loadData": "91272cc16e7c5b82f6085dda8412610e5578a28889efe48a4a87228ccee96e0b",
+        "MainWindow.removeIntermediateShape": "d2fa032546b091ac6c12db7494a0294f0bdfb0c75d0856e7a5c6cc79b2154a1f",
+        "MainWindow.fixShapeName": "c02e99b0189534749b616675c882d9d93bc0b757cd0420de14f6a31f7b31121f",
+        "MainWindow.returnName": "5a0f09dafbdaf23a6706f7bca20a18ea4bc6e1b44cd7bc758b9036d6ea9e9506",
+        "MainWindow.about": "11e4b58725267def9076a01ccd007c4dbc843d48cfaabc028176c3aa29934532",
+        "MainWindow.showBrushWindow": "7a571de3ef947bbabecaba66c65a9f53b8a173f358cc866b237be546ecffca0d",
+        "MainWindow.homePage": "36dc1751fd22bca9d8b6284485d6056cc819c9d4527f40b3e6aafd83d3a15db2",
+        "MainWindow.closeEvent": "2a525a9b2d569418d84622d7ca99c91a50c61d4436b078031573bc09c43e7ffe"
+      }
+    },
+    {
+      "path": "sat_2022_py3/sat/mainWindow.py",
+      "sha256": "1afafb80a41611c711bde91924d8c83aeeda13f5c352bdfc9ff3fadc58bd776a",
+      "bytes": 19787
+    },
+    {
+      "path": "sat_2022_py3/sat/Qt.py",
+      "sha256": "8552b926452310aeb4e10b5f282a54c19a503f695dded91ef41ae18713e91f99",
+      "bytes": 10661
+    },
+    {
+      "path": "sat_2022_py3/sat/utils.py",
+      "sha256": "7d25fdbd66796c7f8b5f140429d19fbe75e6df3058cbe07ebdf30468bff649c3",
+      "bytes": 2609
+    },
+    {
+      "path": "sat_2022_py3【汉化版】/__init__.py",
+      "sha256": "fdd846ae39c891643170d957f8ab2ce38565a484f968cec992d3fe71c31671b0",
+      "bytes": 484
+    },
+    {
+      "path": "sat_2022_py3【汉化版】/aboutWindow.py",
+      "sha256": "ae6ac5990d8c564d69455bcdba668c93c5be3e176fdacdc9a5f65fecde87df88",
+      "bytes": 4130
+    },
+    {
+      "path": "sat_2022_py3【汉化版】/main.py",
+      "sha256": "44183f378c6ac0422a6c7e71ee71a6333015755dc3ea574b6bfda8f453dde716",
+      "bytes": 30577,
+      "classes": {
+        "AboutWindow": [
+          "__init__"
+        ],
+        "MainWindow": [
+          "__init__",
+          "updateFrame",
+          "start",
+          "connectSignals",
+          "updateUI",
+          "onOffBs",
+          "selectMeshInList",
+          "addMesh",
+          "removeMesh",
+          "pickMesh",
+          "fillGeoList",
+          "removeAllMeshes",
+          "sculpt",
+          "scultpMenuOn",
+          "setSelectionMode",
+          "brush",
+          "shapesBrush",
+          "points",
+          "resetShape",
+          "setKey",
+          "deleteKey",
+          "deleteAllKeys",
+          "stepKey",
+          "getKeytimes",
+          "saveData",
+          "loadData",
+          "removeIntermediateShape",
+          "fixShapeName",
+          "returnName",
+          "about",
+          "showBrushWindow",
+          "homePage",
+          "closeEvent"
+        ]
+      },
+      "methods": {
+        "AboutWindow.__init__": "c14a2d40fd40a82360f14e553c8e33b62dd5639473a213ad970edb64a49fdfdb",
+        "MainWindow.__init__": "3efec7104d5136cd9f13cba6fd1bcc8244938e2e7978c01392f2006585907af0",
+        "MainWindow.updateFrame": "6c2bc6f0f5b97f09780040ca238068a9d91e8141daddb5038e8f853218290436",
+        "MainWindow.start": "20827d16422bd2d0716464d6aa9bf869bcf7b20b32552cf2a288f3f7a61d3fc0",
+        "MainWindow.connectSignals": "826d8c2c05214c011f2dbae98fa2e831ae86ea5169cd9a47cf5e4ec9f3fa9a21",
+        "MainWindow.updateUI": "6eab8d09709a82444acc7caccb438e67ffd86f8f3fd1d124fbedd0713b03aa78",
+        "MainWindow.onOffBs": "42e4451535400ed89efbca1a27db1097a1f4a358a7fa4f85c70b2190f273530f",
+        "MainWindow.selectMeshInList": "dd3c927ae5353e231f8cc5236a1a25d70495a2c8ad41d648e569b2d506abde06",
+        "MainWindow.addMesh": "e95ddc0ad9523dc12aaa405ef6c95303a4cd09f765291cdc6f7f193713e07243",
+        "MainWindow.removeMesh": "37411b26692ea952c6211d33d63d3eba4dacf24bbb9cdb4a9656946ff1e87452",
+        "MainWindow.pickMesh": "251923908c8bb5a06ff274e96c70ea59e97a910013e5086fce664ece7e414d4f",
+        "MainWindow.fillGeoList": "27ecde3454f3d3696d14cdb44f3561f898878915af94adfc968289fdb617b190",
+        "MainWindow.removeAllMeshes": "c42792a97a9b09970421c1939e219b9a38973490ad1c0db0fa03fcc7e4fb4755",
+        "MainWindow.sculpt": "cf77eda9f3ccafa4e4a637e8231d1c1e571cab3771f4a47b2a2b67830a249a18",
+        "MainWindow.scultpMenuOn": "c037db78a20b4ed3c20aef3d438185cc76b5e7752521fea82281d6c714ff3ae7",
+        "MainWindow.setSelectionMode": "3515fa925da063201033a3b2a45b71ead018121c8d14a7b4228d179aae3a1ab5",
+        "MainWindow.brush": "09f54a47dcbfb0f725927e0b7bfbd47679e3e358c09bd4e1fa2798d232e3c038",
+        "MainWindow.shapesBrush": "fabd6c6e046f38306559399955acb56dd0aa47a6f64c58fcd358cb3d19b98d3c",
+        "MainWindow.points": "ab2bd5a1770348c181b201cbc3ff604dc025dbb52934e0adcc5a5905d593eeac",
+        "MainWindow.resetShape": "527a66b6ba8ceb4c086ad529d2ea5bcd1d74bcf326429a38f6e27545a8333e01",
+        "MainWindow.setKey": "2dc7608c73aff250b9c0197d1876a3e8f0a5e84d57c28f2bd846004f5972a986",
+        "MainWindow.deleteKey": "e17bfb20dcecb3ef6e96c58391f19d8d2f406c66c4435b87e574c94126388ad4",
+        "MainWindow.deleteAllKeys": "276460bed3ef3d4c224686bbc5c9f94f5e5919a1564ddd188dd05161909a9a55",
+        "MainWindow.stepKey": "1ddf14a621758f59310e94b1464f55048534494af3189c469fc771148976fcfc",
+        "MainWindow.getKeytimes": "bf2daad48e788a609ead027550978ea3d838b4c48b4ba1dac40f9f6c01b927a0",
+        "MainWindow.saveData": "95259ac27fac42c22cdd2e91efc9d5f83a83000ba0613672ee70a86a898cf8b7",
+        "MainWindow.loadData": "91272cc16e7c5b82f6085dda8412610e5578a28889efe48a4a87228ccee96e0b",
+        "MainWindow.removeIntermediateShape": "d2fa032546b091ac6c12db7494a0294f0bdfb0c75d0856e7a5c6cc79b2154a1f",
+        "MainWindow.fixShapeName": "c02e99b0189534749b616675c882d9d93bc0b757cd0420de14f6a31f7b31121f",
+        "MainWindow.returnName": "5a0f09dafbdaf23a6706f7bca20a18ea4bc6e1b44cd7bc758b9036d6ea9e9506",
+        "MainWindow.about": "11e4b58725267def9076a01ccd007c4dbc843d48cfaabc028176c3aa29934532",
+        "MainWindow.showBrushWindow": "7a571de3ef947bbabecaba66c65a9f53b8a173f358cc866b237be546ecffca0d",
+        "MainWindow.homePage": "81556a6b19c01e54142192c7a4cf6f71d5e3bf718994665491ec81575b8daaeb",
+        "MainWindow.closeEvent": "2a525a9b2d569418d84622d7ca99c91a50c61d4436b078031573bc09c43e7ffe"
+      }
+    },
+    {
+      "path": "sat_2022_py3【汉化版】/mainWindow.py",
+      "sha256": "984147c5221c874fbd2099423444fdd369ef197a9a5aaace6466fc1532babf3d",
+      "bytes": 19896
+    },
+    {
+      "path": "sat_2022_py3【汉化版】/Qt.py",
+      "sha256": "8552b926452310aeb4e10b5f282a54c19a503f695dded91ef41ae18713e91f99",
+      "bytes": 10661
+    },
+    {
+      "path": "sat_2022_py3【汉化版】/utils.py",
+      "sha256": "7d25fdbd66796c7f8b5f140429d19fbe75e6df3058cbe07ebdf30468bff649c3",
+      "bytes": 2609
+    },
+    {
+      "path": "启动代码.txt",
+      "sha256": "cb11f98e2cf4577193a31ba749f75a1b813a9645f5547a5b8d049992377b47af",
+      "bytes": 165
+    },
+    {
+      "path": "安装与使用说明.docx",
+      "sha256": "0e5701d0e02135451c756a02ec64414f990e97853ac24d3196c2ad9e6eaf4113",
+      "bytes": 13746
+    },
+    {
+      "path": "购买网址.txt",
+      "sha256": "087849732b4d697c024e0d5b362274b7d5e072770c59eef9945f39d708de6c38",
+      "bytes": 75
+    }
+  ],
+  "word_paragraphs": [
+    "安装",
+    "将“sat”文件夹放到对应版本的maya的scripts下",
+    "例：C:\\Users\\lin\\Documents\\maya\\2020\\zh_CN\\scripts",
+    "然后将启动代码复制到maya脚本编辑器python里，鼠标中键拖放至工具架上即可。",
+    "使用",
+    "点击工具架图标启动程序，选择要修型的模型点击add添加进来，pick点击拾取模型，Remove移除模型。点击key可记录模型初始形状移动到需要改变形状的帧，点击Edit对模型进行编辑（这里有个小bug，Edit需要多点击几次，直到又侧边栏出现笔刷图标或鼠标移动到模型出现笔刷方可使用，此bug不影响正常使用，只会在每次首次启动插件时会出现）。此时可以用默认的这个笔刷修，也可以切换到maya雕刻工具，编辑完成后需再次点击Edit方可记录形状关键帧，Reset可以恢复模型初始状态。Del key 可以删除当前帧。箭头左右可以在关键帧形状之间快速切换，Sculpt即默认雕刻模式，Vertex为点模式。",
+    "Enjoy！",
+    ""
+  ],
+  "word_media": []
+}
