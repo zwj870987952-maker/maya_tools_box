@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/03_transforms_modeling/gpu_cache_to_mesh/release_candidate/tests/test_gpu_cache_to_mesh_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "AbcExport v1.0 using Alembic 1.8.5 (built Jul 12 2024 10:39:11)\nAbcImport v1.0 using Alembic 1.8.5 (built Jul 12 2024 10:39:11)\n����: GpuCacheToMeshTool_gpu_cache_to_mesh\nAbcImport v1.0 using Alembic 1.8.5 (built Jul 12 2024 10:39:11)\n.����: GpuCacheToMeshTool_gpu_cache_to_mesh\n����: GpuCacheToMeshTool_gpu_cache_to_mesh\n����: GpuCacheToMeshTool_gpu_cache_to_mesh\n����: GpuCacheToMeshTool_gpu_cache_to_mesh\nAbcImport v1.0 using Alembic 1.8.5 (built Jul 12 2024 10:39:11)\n.AbcImport v1.0 using Alembic 1.8.5 (built Jul 12 2024 10:39:11)\n.\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.185s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "525ed4aca8f955d9a122ae25fb8274221dd552ab0bb845ab89a4693e47137be7",
+  "runtime_source_sha256": "fefe3e7b7c51487383459ea8dd792f2f419f5c25246ebdcfaf20c26ebc856de5"
+}

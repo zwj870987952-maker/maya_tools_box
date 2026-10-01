@@ -595,3 +595,10 @@
 - 原All WIP接现有完整全部显示；namespace非幂等/clear短名查询、r_左模式、空ls(None)全场景风险修复。面hide只指定原成员，去修改最后面fallback；face镜像改局部X唯一顶点/拓扑映射，全表预检；原UI选择mask/color/clipboard外部状态及partial失败Undo说明明确。
 - 2离线+4隔离Maya2025+临时正式布局/注册/modeling_surfacing/panel/fingerprint通过，真实membership/visibility/隐藏face/dry/单Undo、mirror命名/JSON往返/不覆盖、无关网格unlock保持、collision/foreignchild/锁/GUIbatch拒绝。实际面镜像/完整GUI/生产rig和跨版本not_run，prepared_unverified。
 - 实际5h55%已用、周39%，立即继续GPU Cache to Mesh；heartbeat暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：GPU缓存转实体完整候选，累计69/109
+
+- 原完整单文件SHA归档，完整每cache文件AbcImport/reparent/hide行为，全部路径/父级/shapeUUID/引用/锁/真DAG实例/overlap预检，自包含私有namespace与holder，不筛cacheGeomPath、不删原cache，不写输入文件。完整API/Schema/UI/文档/验收/注册晋级。
+- 实际发现Maya2025原AbcImport Undo留下AlembicNode；复制/直接删除临时DG方案导致隔离进程3221225477，撤回该方案。最终自包含MPxCommand拥有native导入生命周期，临时child记录关闭且保留Undo队列，MDagModifier撤销全部新增DAG/DG与原visibility，Redo同一节点及动画连接。dry不注册插件；执行只载自己的候选command，不安装/autoload，不改core。
+- 2离线+3隔离Maya2025+临时正式布局/注册/modeling_surfacing/panel/fingerprint通过；真实临时AbcExport/AbcImport/gpuCache、cube8vertices/frame1=2/frame3=6/原父ty10局部挂载、dry无变、一次Undo无AlembicNode残留与原Undo历史、重复Undo/Redo和动画、bad后行全表拒绝/hideFalse/overlap/锁/batchGUI拒绝。隔离fixture卸载reader释放Windows临时handle，仅测试进程，候选不卸载插件。
+- GUI/GPU视口/复杂生产Alembic/跨版本not_run，prepared_unverified。Undo可能留空namespace与会话注册command，相关队列存在时不能卸载候选，验收路径变换用新session。实际5h61%已用、周40%，立即继续isolate_selected；heartbeat暂停，不迁正式/同步/用卡/购买。

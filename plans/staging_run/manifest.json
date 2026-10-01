@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T04:12:00.287932+08:00",
+  "updated_at": "2026-10-02T04:26:47.126148+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "03_transforms_modeling/fcm_hider",
+    "last_completed_tool": "03_transforms_modeling/gpu_cache_to_mesh",
     "last_usage": {
-      "five_hour_used_percent": 47.0,
-      "weekly_used_percent": 38.0,
-      "recorded_at": "2026-10-02T03:56:38.830674+08:00",
+      "five_hour_used_percent": 55.0,
+      "weekly_used_percent": 39.0,
+      "recorded_at": "2026-10-02T04:13:02.677815+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "03_transforms_modeling/fcm_hider"
+    "current_tool": "03_transforms_modeling/gpu_cache_to_mesh"
   },
   "entry_repairs": [
     {
@@ -14595,7 +14595,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Full original shelf embedded Python2 source/UI/functions and all supplied icons preserved, private Python3 native runtime, explicit owned namespace/set scope, JSON data IO replacing arbitrary Python execution, no global scene unlock/show/delete, topology-safe mirror membership, callable private UI callbacks, full protocol/docs/tests/promotion.",
-      "prepared_at": "2026-10-02T04:11:57.507998+08:00"
+      "prepared_at": "2026-10-02T04:11:57.507998+08:00",
+      "source_commit": "3c7f2f2b1cb2b1728e06c086391a61ae170d6f34"
     },
     {
       "source_path": "03_transforms_modeling/gpu_cache_to_mesh",
@@ -14606,20 +14607,80 @@
       "entry_candidates": [
         "GPU缓存转实体.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "GPU缓存转实体.py"
       ],
       "license_files": [],
       "entry_sha256": "f4f1608ca937d28a88b87a5835625ae15e3bd105a3678a65b3d3cfa851b132ad",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.000s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"gpu_cache_to_mesh\",\r\n  \"candidate_sha256\": \"5c2dd3fc76fecf91d3cb7be2f53881531d5156149e6fee6b5c8bed36778290b9\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\gpu_cache_to_mesh.md\",\r\n    \"maya_toolkit\\\\tools\\\\gpu_cache_to_mesh\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\gpu_cache_to_mesh\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\gpu_cache_to_mesh\\\\gpu_cache_undo_command.py\",\r\n    \"maya_toolkit\\\\tools\\\\gpu_cache_to_mesh\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\gpu_cache_to_mesh\\\\upstream\\\\GPU\\u7f13\\u5b58\\u8f6c\\u5b9e\\u4f53.py.original\",\r\n    \"tests\\\\test_gpu_cache_to_mesh.py\",\r\n    \"tests\\\\test_gpu_cache_to_mesh_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/03_transforms_modeling/gpu_cache_to_mesh/release_candidate/tests/test_gpu_cache_to_mesh_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "AbcExport v1.0 using Alembic 1.8.5 (built Jul 12 2024 10:39:11)\nAbcImport v1.0 using Alembic 1.8.5 (built Jul 12 2024 10:39:11)\n����: GpuCacheToMeshTool_gpu_cache_to_mesh\nAbcImport v1.0 using Alembic 1.8.5 (built Jul 12 2024 10:39:11)\n.����: GpuCacheToMeshTool_gpu_cache_to_mesh\n����: GpuCacheToMeshTool_gpu_cache_to_mesh\n����: GpuCacheToMeshTool_gpu_cache_to_mesh\n����: GpuCacheToMeshTool_gpu_cache_to_mesh\nAbcImport v1.0 using Alembic 1.8.5 (built Jul 12 2024 10:39:11)\n.AbcImport v1.0 using Alembic 1.8.5 (built Jul 12 2024 10:39:11)\n.\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.185s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "525ed4aca8f955d9a122ae25fb8274221dd552ab0bb845ab89a4693e47137be7",
+          "runtime_source_sha256": "fefe3e7b7c51487383459ea8dd792f2f419f5c25246ebdcfaf20c26ebc856de5"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real GPU viewport/GUI, complex production Alembic files and cross-version import/MPxCommand Undo remain not_run."
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "5c2dd3fc76fecf91d3cb7be2f53881531d5156149e6fee6b5c8bed36778290b9",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Actual GPU viewport, complex Alembic and cross-version import not_run; entire file imported per cache; Undo may retain empty namespaces and registered command"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -14628,7 +14689,36 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "9fa6c527698ff9efadaf9a4ad6b204459d1e39a307df77f0a6b46fd89472828c"
+      "source_tree_sha256": "fd588a7f81c6ddbbe65e53c62aecc9e9fceb3cfa1d56c0ddb1eaa06fcfd56d66",
+      "candidate_path": "tools_staging_pool/03_transforms_modeling/gpu_cache_to_mesh/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/03_transforms_modeling/gpu_cache_to_mesh/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "gpu_cache_to_mesh",
+        "candidate_sha256": "5c2dd3fc76fecf91d3cb7be2f53881531d5156149e6fee6b5c8bed36778290b9",
+        "applied": false,
+        "files": [
+          "docs\\tools\\gpu_cache_to_mesh.md",
+          "maya_toolkit\\tools\\gpu_cache_to_mesh\\__init__.py",
+          "maya_toolkit\\tools\\gpu_cache_to_mesh\\catalog.json",
+          "maya_toolkit\\tools\\gpu_cache_to_mesh\\gpu_cache_undo_command.py",
+          "maya_toolkit\\tools\\gpu_cache_to_mesh\\tool.py",
+          "maya_toolkit\\tools\\gpu_cache_to_mesh\\upstream\\GPU缓存转实体.py.original",
+          "tests\\test_gpu_cache_to_mesh.py",
+          "tests\\test_gpu_cache_to_mesh_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "GPU缓存转实体.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/API2; gpuCache and already loaded AbcImport; self-contained candidate Python Undo command"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete full-file native Alembic import/reparent/cache hide, strict all-row preflight, self-contained MPxCommand Undo/Redo of all actual DAG/DG, original bytes and full UI/API/docs/tests/promotion.",
+      "prepared_at": "2026-10-02T04:26:44.450615+08:00"
     },
     {
       "source_path": "03_transforms_modeling/isolate_selected",

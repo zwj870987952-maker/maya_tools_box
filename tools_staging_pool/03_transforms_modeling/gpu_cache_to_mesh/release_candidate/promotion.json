@@ -1,0 +1,52 @@
+{
+  "tool_id": "gpu_cache_to_mesh",
+  "registration": {
+    "module": "gpu_cache_to_mesh",
+    "class_name": "GpuCacheToMeshTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/gpu_cache_to_mesh.md",
+      "target": "docs/tools/gpu_cache_to_mesh.md"
+    },
+    {
+      "source": "maya_toolkit/tools/gpu_cache_to_mesh/__init__.py",
+      "target": "maya_toolkit/tools/gpu_cache_to_mesh/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/gpu_cache_to_mesh/catalog.json",
+      "target": "maya_toolkit/tools/gpu_cache_to_mesh/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/gpu_cache_to_mesh/gpu_cache_undo_command.py",
+      "target": "maya_toolkit/tools/gpu_cache_to_mesh/gpu_cache_undo_command.py"
+    },
+    {
+      "source": "maya_toolkit/tools/gpu_cache_to_mesh/tool.py",
+      "target": "maya_toolkit/tools/gpu_cache_to_mesh/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/gpu_cache_to_mesh/upstream/GPU缓存转实体.py.original",
+      "target": "maya_toolkit/tools/gpu_cache_to_mesh/upstream/GPU缓存转实体.py.original"
+    },
+    {
+      "source": "tests/test_gpu_cache_to_mesh.py",
+      "target": "tests/test_gpu_cache_to_mesh.py"
+    },
+    {
+      "source": "tests/test_gpu_cache_to_mesh_maya.py",
+      "target": "tests/test_gpu_cache_to_mesh_maya.py"
+    }
+  ],
+  "resources": [
+    "GPU缓存转实体.py"
+  ],
+  "dependencies": [
+    "Maya cmds/API2; gpuCache and already loaded AbcImport; self-contained candidate Python Undo command"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete full-file native Alembic import/reparent/cache hide, strict all-row preflight, self-contained MPxCommand Undo/Redo of all actual DAG/DG, original bytes and full UI/API/docs/tests/promotion.",
+  "verification_limitations": [
+    "Actual GPU viewport, complex Alembic and cross-version import not_run; entire file imported per cache; Undo may retain empty namespaces and registered command"
+  ]
+}
