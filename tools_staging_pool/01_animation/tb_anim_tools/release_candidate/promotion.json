@@ -1,0 +1,95 @@
+{
+  "tool_id": "tb_anim_tools",
+  "registration": {
+    "module": "tb_anim_tools",
+    "class_name": "TBAnimToolsTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/tb_anim_tools.md",
+      "target": "docs/tools/tb_anim_tools.md"
+    },
+    {
+      "source": "maya_toolkit/tools/tb_anim_tools/__init__.py",
+      "target": "maya_toolkit/tools/tb_anim_tools/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/tb_anim_tools/catalog.json",
+      "target": "maya_toolkit/tools/tb_anim_tools/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/tb_anim_tools/files.py",
+      "target": "maya_toolkit/tools/tb_anim_tools/files.py"
+    },
+    {
+      "source": "maya_toolkit/tools/tb_anim_tools/tool.py",
+      "target": "maya_toolkit/tools/tb_anim_tools/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/tb_anim_tools/ui.py",
+      "target": "maya_toolkit/tools/tb_anim_tools/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/tb_anim_tools/upstream/Help/skip_backward.gif",
+      "target": "maya_toolkit/tools/tb_anim_tools/upstream/Help/skip_backward.gif"
+    },
+    {
+      "source": "maya_toolkit/tools/tb_anim_tools/upstream/Help/skip_forward.gif",
+      "target": "maya_toolkit/tools/tb_anim_tools/upstream/Help/skip_forward.gif"
+    },
+    {
+      "source": "maya_toolkit/tools/tb_anim_tools/upstream/Help/smooth_drag_timeline_on.gif",
+      "target": "maya_toolkit/tools/tb_anim_tools/upstream/Help/smooth_drag_timeline_on.gif"
+    },
+    {
+      "source": "maya_toolkit/tools/tb_anim_tools/upstream/Help/toggle_playback_tool.gif",
+      "target": "maya_toolkit/tools/tb_anim_tools/upstream/Help/toggle_playback_tool.gif"
+    },
+    {
+      "source": "maya_toolkit/tools/tb_anim_tools/upstream/LICENSE",
+      "target": "maya_toolkit/tools/tb_anim_tools/upstream/LICENSE"
+    },
+    {
+      "source": "maya_toolkit/tools/tb_anim_tools/upstream/snapshot.json",
+      "target": "maya_toolkit/tools/tb_anim_tools/upstream/snapshot.json"
+    },
+    {
+      "source": "maya_toolkit/tools/tb_anim_tools/upstream/tbAnimTools-eb8ede026c61f3cf5e38bafbc709d3bbed4d90c1.zip",
+      "target": "maya_toolkit/tools/tb_anim_tools/upstream/tbAnimTools-eb8ede026c61f3cf5e38bafbc709d3bbed4d90c1.zip"
+    },
+    {
+      "source": "maya_toolkit/tools/tb_anim_tools/upstream/tbAnimToolsInstaller.py.original",
+      "target": "maya_toolkit/tools/tb_anim_tools/upstream/tbAnimToolsInstaller.py.original"
+    },
+    {
+      "source": "tests/test_tb_anim_tools.py",
+      "target": "tests/test_tb_anim_tools.py"
+    },
+    {
+      "source": "tests/test_tb_anim_tools_maya.py",
+      "target": "tests/test_tb_anim_tools_maya.py"
+    }
+  ],
+  "resources": [
+    "tbAnimToolsInstaller.py",
+    "Help/skip_backward.gif",
+    "Help/skip_forward.gif",
+    "Help/smooth_drag_timeline_on.gif",
+    "Help/toggle_playback_tool.gif",
+    "tbAnimTools-eb8ede026c61f3cf5e38bafbc709d3bbed4d90c1.zip",
+    "LICENSE",
+    "snapshot.json"
+  ],
+  "dependencies": [
+    "Windows Maya cmds; original suite Qt/plugins/commercial optional proApps remain upstream dependencies; no PyMel required by candidate installer"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete original installer methods/UI/help archived and ported, plus full fixed upstream suite snapshot with source/resources. Offline hash-checked safe ZIP installation into a new directory, no overwrites, distinct module/native activation with persistent update disablement, read-only inspect/dry-run. Original entire suite is unchanged and only runs on explicit interactive activation.",
+  "verification_limitations": [
+    "Maya GUI/native suite startup and individual suite tools not_run",
+    "Original installer LGPL notice differs from upstream GPL LICENSE; component notices preserved without relicensing claims",
+    "Registration writes filesystem and optionVars; native startup effects are outside Undo and may include deferred jobs, hotkeys/plugins/runtime commands",
+    "Snapshot is complete upstream open distribution, optional paid/pro plugin dependencies are not installed/unlocked",
+    "Existing installation updates deliberately rejected; source raw and vendor suite files unchanged"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/tb_anim_tools/release_candidate/tests/test_tb_anim_tools_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_inspect_install_and_dry_run_do_not_change_scene_or_preferences (__main__.MayaChecks.test_inspect_install_and_dry_run_do_not_change_scene_or_preferences) ... ok\r\ntest_registration_scoped_to_temp_module_directory_no_overwrite (__main__.MayaChecks.test_registration_scoped_to_temp_module_directory_no_overwrite) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 2.210s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "f16f8fa14fef055bff69344798bee1156aae56f1cc6cd7592a65241716bf0111",
+  "runtime_source_sha256": "befbcd0d718b05b879ea9af30550e619ef34cb8f410acac2dcdead810c61a78e"
+}

@@ -407,3 +407,10 @@
 - 原SW_7 native motionPath打开Undo却不关闭；Maya实际query chunkName只返最外层不适合猜深度。实际MCommandMessage命令callback可见原MEL内部undoInfo，适配记录本同步调用未配对open、finally只闭其自身，保持Base外层Undo；原源码未改。native完整逐帧uValue/temporary nearPoint+decompose清理、成功及真实missing_curve失败后的外层一次Undo通过。
 - finally恢复range/time/select/keyselect/ns/autokey/units/eval/track/optionVars/cache/Move/refresh/timeline；Arc旧motionTrail.nodeState按UUID恢复，MT Update外部trail拒绝。MELglobals存网络+UUID映射避免Undo/reopen/rename陈旧缓存，failed须Undo后续才写。自身元数据网络和新helper加owner。
 - 普通Python2组/隔离Maya5组/临时正式布局注册面板通过：56完整过程source零scene/UI/Undo写入；原完整Bake/Euler+UndoRedo；原逆距/零距weights；锁/interactive拒绝与rename-global恢复；native motionPath完整抽样/Undo平衡成功及失败。真实UI/完整Arc/Parent/Aim/Sword/Reverse/cleanup/layers/productionrig仍not_run，prepared_unverified，不转正/Obsidian同步/用卡/购买。
+
+## 2026-10-01：TB Anim Tools 完整候选，累计46/109
+
+- 原安装器与四帮助GIF五原文件SHA完整留档；原安装器仅下载main、没有主体。已从原引用上游固定到eb8ede026c61f3cf5e38bafbc709d3bbed4d90c1，完整286ZIP条目/2759177bytes、SHA256 290cc3ff67d81347037b3b6d011547b76bd2bdf158e5c27c93c3f74b2a2758d9原样携带，包含所有apps/Icons/plugins/appData/proApps/样式/LICENSE，不裁减或解锁付费内容。
+- 原11类方法、style/圆角/拖动/Escape/路径字段完整UI移植，修Qt6/Py3.12/distutils/不依赖PyMel/父窗口懒求值、窗口flag/QColor/globalPosition。原自动下载并覆盖启动改为离线固定ZIP安装、显式模块注册、显式原版整套启动三个按钮；版本写入改独立精确commit收据，不覆盖upstream版本文件。原LGPL版权完整留在UI及原件；上游GPL LICENSE完整保留，不对不同组件擅改许可。
+- SHA与每文件完整性、ZIP越界/链接/ADS/设备名/大小写别名/路径冲突/压缩炸弹防护；绝对新目录/已有parent/拒junction与symlink/任何已有安装拒覆盖，Windows临时同级解包后rename发布，失败只清理本次临时目录。validate/dry_run不建目录/注册/导入vendor/联网。register仅新建模块、明确外部影响确认、tbUpdateType=2禁用自动上游更新；launch仅交互Maya和本候选完整资源/模块，拒同名已载入模块，调用完整原版installer，无真实用户profile安装或原套件启动。
+- 普通Python4组与实际隔离Maya2025两组通过，验证全部文件一致、异常发布清理/已有目录保护、只读scene/optionVars、临时module注册与foreign保护、batch native启动拒绝。临时正式布局注册/面板通过，生产库未改；GUI/原版延迟启动/各项动画功能/可选插件仍not_run，prepared_unverified。无Obsidian同步/用卡/购买。

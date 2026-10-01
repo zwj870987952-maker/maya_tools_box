@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T18:37:57.414508+08:00",
+  "updated_at": "2026-10-01T18:58:41.737436+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/sword_anim_polishing_tool_v4",
+    "last_completed_tool": "01_animation/tb_anim_tools",
     "last_usage": {
-      "five_hour_used_percent": 53.0,
-      "weekly_used_percent": 8.0,
-      "recorded_at": "2026-10-01T18:11:11.278463+08:00",
+      "five_hour_used_percent": 66.0,
+      "weekly_used_percent": 10.0,
+      "recorded_at": "2026-10-01T18:38:28.365867+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/sword_anim_polishing_tool_v4"
+    "current_tool": "01_animation/tb_anim_tools"
   },
   "entry_repairs": [
     {
@@ -7701,7 +7701,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete licensed weapon/aim/reverse/parent/path/bake algorithms and original UI retained unmodified. Independent API/UI adds scope validation, explicit setup completion instead of unmanaged native callbacks, UUID session tracking, observed native Undo balancing/environment restoration and full promotion payload.",
-      "prepared_at": "2026-10-01T18:37:55.106346+08:00"
+      "prepared_at": "2026-10-01T18:37:55.106346+08:00",
+      "source_commit": "14b15ad58675a4e4f23c01f0d2a7571a910d2777"
     },
     {
       "source_path": "01_animation/tb_anim_tools",
@@ -7712,20 +7713,84 @@
       "entry_candidates": [
         "tbAnimToolsInstaller.py"
       ],
-      "source_file_count": 5,
+      "source_file_count": 6,
       "source_files": [
         "tbAnimToolsInstaller.py"
       ],
       "license_files": [],
       "entry_sha256": "97764f297b9bec8000a8720d7f0644010a4665596ef871da0bc6a6d7403ff28f",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_complete_source_zip_originals_and_lazy_import (__main__.Offline.test_complete_source_zip_originals_and_lazy_import) ... ok\r\ntest_full_install_no_overwrite_and_failure_cleanup (__main__.Offline.test_full_install_no_overwrite_and_failure_cleanup) ... ok\r\ntest_schema_and_paths_reject_ambiguous_input (__main__.Offline.test_schema_and_paths_reject_ambiguous_input) ... ok\r\ntest_zip_traversal_alias_link_and_collision_guards (__main__.Offline.test_zip_traversal_alias_link_and_collision_guards) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 1.362s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"tb_anim_tools\",\r\n  \"candidate_sha256\": \"b86b6eb9039f327a17a83b5469458d56fc484184e10b20533b145dc47a39a14d\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\tb_anim_tools.md\",\r\n    \"maya_toolkit\\\\tools\\\\tb_anim_tools\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\tb_anim_tools\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\tb_anim_tools\\\\files.py\",\r\n    \"maya_toolkit\\\\tools\\\\tb_anim_tools\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\tb_anim_tools\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\tb_anim_tools\\\\upstream\\\\Help\\\\skip_backward.gif\",\r\n    \"maya_toolkit\\\\tools\\\\tb_anim_tools\\\\upstream\\\\Help\\\\skip_forward.gif\",\r\n    \"maya_toolkit\\\\tools\\\\tb_anim_tools\\\\upstream\\\\Help\\\\smooth_drag_timeline_on.gif\",\r\n    \"maya_toolkit\\\\tools\\\\tb_anim_tools\\\\upstream\\\\Help\\\\toggle_playback_tool.gif\",\r\n    \"maya_toolkit\\\\tools\\\\tb_anim_tools\\\\upstream\\\\LICENSE\",\r\n    \"maya_toolkit\\\\tools\\\\tb_anim_tools\\\\upstream\\\\snapshot.json\",\r\n    \"maya_toolkit\\\\tools\\\\tb_anim_tools\\\\upstream\\\\tbAnimTools-eb8ede026c61f3cf5e38bafbc709d3bbed4d90c1.zip\",\r\n    \"maya_toolkit\\\\tools\\\\tb_anim_tools\\\\upstream\\\\tbAnimToolsInstaller.py.original\",\r\n    \"tests\\\\test_tb_anim_tools.py\",\r\n    \"tests\\\\test_tb_anim_tools_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/tb_anim_tools/release_candidate/tests/test_tb_anim_tools_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_inspect_install_and_dry_run_do_not_change_scene_or_preferences (__main__.MayaChecks.test_inspect_install_and_dry_run_do_not_change_scene_or_preferences) ... ok\r\ntest_registration_scoped_to_temp_module_directory_no_overwrite (__main__.MayaChecks.test_registration_scoped_to_temp_module_directory_no_overwrite) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 2.210s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "f16f8fa14fef055bff69344798bee1156aae56f1cc6cd7592a65241716bf0111",
+          "runtime_source_sha256": "befbcd0d718b05b879ea9af30550e619ef34cb8f410acac2dcdead810c61a78e"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Interactive installer GUI, complete original suite deferred activation, individual TB animation tools and optional plugin/proApps acceptance not_run; no real user profile installation performed."
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "b86b6eb9039f327a17a83b5469458d56fc484184e10b20533b145dc47a39a14d",
+          "returncode": 0,
+          "output": "test_complete_source_zip_originals_and_lazy_import (__main__.Offline.test_complete_source_zip_originals_and_lazy_import) ... ok\r\ntest_full_install_no_overwrite_and_failure_cleanup (__main__.Offline.test_full_install_no_overwrite_and_failure_cleanup) ... ok\r\ntest_schema_and_paths_reject_ambiguous_input (__main__.Offline.test_schema_and_paths_reject_ambiguous_input) ... ok\r\ntest_zip_traversal_alias_link_and_collision_guards (__main__.Offline.test_zip_traversal_alias_link_and_collision_guards) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.830s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Maya GUI/native suite startup and individual suite tools not_run",
+        "Original installer LGPL notice differs from upstream GPL LICENSE; component notices preserved without relicensing claims",
+        "Registration writes filesystem and optionVars; native startup effects are outside Undo and may include deferred jobs, hotkeys/plugins/runtime commands",
+        "Snapshot is complete upstream open distribution, optional paid/pro plugin dependencies are not installed/unlocked",
+        "Existing installation updates deliberately rejected; source raw and vendor suite files unchanged"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -7734,7 +7799,51 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "12461205567ff6807de81085e871f2facfc6a7c86ad0a52788e681c398bc4bfd"
+      "source_tree_sha256": "59b4470f8a998047e12728b3981b5d14866eae71e87ff78ecdd0820013152915",
+      "candidate_path": "tools_staging_pool/01_animation/tb_anim_tools/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/tb_anim_tools/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "tb_anim_tools",
+        "candidate_sha256": "b86b6eb9039f327a17a83b5469458d56fc484184e10b20533b145dc47a39a14d",
+        "applied": false,
+        "files": [
+          "docs\\tools\\tb_anim_tools.md",
+          "maya_toolkit\\tools\\tb_anim_tools\\__init__.py",
+          "maya_toolkit\\tools\\tb_anim_tools\\catalog.json",
+          "maya_toolkit\\tools\\tb_anim_tools\\files.py",
+          "maya_toolkit\\tools\\tb_anim_tools\\tool.py",
+          "maya_toolkit\\tools\\tb_anim_tools\\ui.py",
+          "maya_toolkit\\tools\\tb_anim_tools\\upstream\\Help\\skip_backward.gif",
+          "maya_toolkit\\tools\\tb_anim_tools\\upstream\\Help\\skip_forward.gif",
+          "maya_toolkit\\tools\\tb_anim_tools\\upstream\\Help\\smooth_drag_timeline_on.gif",
+          "maya_toolkit\\tools\\tb_anim_tools\\upstream\\Help\\toggle_playback_tool.gif",
+          "maya_toolkit\\tools\\tb_anim_tools\\upstream\\LICENSE",
+          "maya_toolkit\\tools\\tb_anim_tools\\upstream\\snapshot.json",
+          "maya_toolkit\\tools\\tb_anim_tools\\upstream\\tbAnimTools-eb8ede026c61f3cf5e38bafbc709d3bbed4d90c1.zip",
+          "maya_toolkit\\tools\\tb_anim_tools\\upstream\\tbAnimToolsInstaller.py.original",
+          "tests\\test_tb_anim_tools.py",
+          "tests\\test_tb_anim_tools_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "tbAnimToolsInstaller.py",
+        "Help/skip_backward.gif",
+        "Help/skip_forward.gif",
+        "Help/smooth_drag_timeline_on.gif",
+        "Help/toggle_playback_tool.gif",
+        "tbAnimTools-eb8ede026c61f3cf5e38bafbc709d3bbed4d90c1.zip",
+        "LICENSE",
+        "snapshot.json"
+      ],
+      "external_dependencies": [
+        "Windows Maya cmds; original suite Qt/plugins/commercial optional proApps remain upstream dependencies; no PyMel required by candidate installer"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete original installer methods/UI/help archived and ported, plus full fixed upstream suite snapshot with source/resources. Offline hash-checked safe ZIP installation into a new directory, no overwrites, distinct module/native activation with persistent update disablement, read-only inspect/dry-run. Original entire suite is unchanged and only runs on explicit interactive activation.",
+      "prepared_at": "2026-10-01T18:58:39.615515+08:00"
     },
     {
       "source_path": "01_animation/timeline_enhanced",
