@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-02T00:17:04.088221+08:00
+更新时间：2026-10-02T00:39:42.024213+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -63,7 +63,7 @@
 | `02_rigging_hierarchy/joint_optimal_pro_v4_1` | prepared_unverified | True | True | not_run |
 | `02_rigging_hierarchy/rdm_tools_v2` | prepared_unverified | True | True | not_run |
 | `02_rigging_hierarchy/relationship_tools_v19` | prepared_unverified | True | True | not_run |
-| `02_rigging_hierarchy/reparent_pro_v1_5_1` | working | True | False | not_run |
+| `02_rigging_hierarchy/reparent_pro_v1_5_1` | prepared_unverified | True | True | not_run |
 | `02_rigging_hierarchy/segment_scale_fix` | pending | True | False | not_run |
 | `02_rigging_hierarchy/skeleton_generator` | pending | True | False | not_run |
 | `02_rigging_hierarchy/skin_info_and_super_connect` | pending | True | False | not_run |

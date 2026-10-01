@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T00:17:04.088221+08:00",
+  "updated_at": "2026-10-02T00:39:42.024213+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,11 +11,11 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "02_rigging_hierarchy/relationship_tools_v19",
+    "last_completed_tool": "02_rigging_hierarchy/reparent_pro_v1_5_1",
     "last_usage": {
       "five_hour_used_percent": 77.0,
       "weekly_used_percent": 27.0,
-      "recorded_at": "2026-10-02T00:16:32.323933+08:00",
+      "recorded_at": "2026-10-02T00:17:53.554903+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
     "current_tool": "02_rigging_hierarchy/reparent_pro_v1_5_1"
@@ -10403,7 +10403,7 @@
       "source_preserved": true,
       "change_summary": "Complete original RelationshipTool v19 class and UI preserved; safe full API/GUI mark/foot/animation marks, one/more step, world copy/paste, align, layers and owned mark deletion. Stable message/UUID ownership instead of suffix/global cache, explicit inclusive/exclusive range/selected channels, no unrelated key removal, read-only preflight and caller/Undo restoration.",
       "prepared_at": "2026-10-02T00:17:02.222319+08:00",
-      "source_commit": "751f3b821db09289f3cf75c486d37e8076e196b6"
+      "source_commit": "9ada552d34f15d04b1dcf654d1066cceeeb3ca9a"
     },
     {
       "source_path": "02_rigging_hierarchy/reparent_pro_v1_5_1",
@@ -10414,19 +10414,84 @@
       "entry_candidates": [
         "reParent_Pro_v1.5.1/reParentPro _v1.5.1.mel"
       ],
-      "source_file_count": 2,
+      "source_file_count": 3,
       "source_files": [
         "reParent_Pro_v1.5.1/reParentPro _v1.5.1.mel"
       ],
       "license_files": [],
-      "status": "working",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"reparent_pro_v1_5_1\",\r\n  \"candidate_sha256\": \"515240b84c34b34895fe3ea42c11dc6da5af9bf67c2c4791b87a27f4c2d742c0\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\reparent_pro_v1_5_1.md\",\r\n    \"maya_toolkit\\\\tools\\\\reparent_pro_v1_5_1\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\reparent_pro_v1_5_1\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\reparent_pro_v1_5_1\\\\native.mel\",\r\n    \"maya_toolkit\\\\tools\\\\reparent_pro_v1_5_1\\\\native_ui.mel\",\r\n    \"maya_toolkit\\\\tools\\\\reparent_pro_v1_5_1\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\reparent_pro_v1_5_1\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\reparent_pro_v1_5_1\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\reparent_pro_v1_5_1\\\\vendor\\\\reParentIcon.jpg\",\r\n    \"maya_toolkit\\\\tools\\\\reparent_pro_v1_5_1\\\\vendor\\\\reParentPro _v1.5.1.mel\",\r\n    \"tests\\\\test_reparent_pro_v1_5_1.py\",\r\n    \"tests\\\\test_reparent_pro_v1_5_1_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/02_rigging_hierarchy/reparent_pro_v1_5_1/release_candidate/tests/test_reparent_pro_v1_5_1_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_all_native_procedures_compile_without_scene_or_gui (__main__.MayaChecks.test_all_native_procedures_compile_without_scene_or_gui) ... ok\r\ntest_default_preserves_baked_motion_clear_ack_dry_undo_and_safe_final_bake (__main__.MayaChecks.test_default_preserves_baked_motion_clear_ack_dry_undo_and_safe_final_bake) ... 0����: ReParentProTool_reparent_pro_v1_5_1\n����: ReParentProTool_reparent_pro_v1_5_1\nok\r\ntest_guards_ownership_instances_channels_and_headless_ui (__main__.MayaChecks.test_guards_ownership_instances_channels_and_headless_ui) ... ok\r\ntest_original_ik_bent_limb_and_final_bake (__main__.MayaChecks.test_original_ik_bent_limb_and_final_bake) ... ok\r\ntest_pin_manual_go_cancel_and_relative_complete_native (__main__.MayaChecks.test_pin_manual_go_cancel_and_relative_complete_native) ... 1ok\r\ntest_tampered_membership_foreign_descendants_and_final_override_layer (__main__.MayaChecks.test_tampered_membership_foreign_descendants_and_final_override_layer) ... 1����: ReParentProTool_reparent_pro_v1_5_1\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.255s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "7678086ff90b37761d5800fbb8c04be0e79df70352d92ceed78c2e8010546a00",
+          "runtime_source_sha256": "3f2bade191db3546336eef64da4ea7f3e51b860ce6aca6cf582c8b0136cfe90c"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya GUI, production manual pivot/freeze/IK/local/advanced layers and other versions not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "515240b84c34b34895fe3ea42c11dc6da5af9bf67c2c4791b87a27f4c2d742c0",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI and production FK/IK/manual pivot/freeze/advanced animation layers not_run",
+        "Original clear-all-TR behavior explicitly retained and requires allow_clear_animation",
+        "Native MEL declarations persist outside scene Undo; errors can leave partial edits requiring one Undo",
+        "Original anim-layer menu was inert; candidate implements it only for final bake_delete, not an invented per-locator native feature",
+        "Unsupported referenced/locked/instanced/shared animation/rig naming collisions rejected; no original session auto-import",
+        "Copyright retained; no license file supplied or publishing performed"
+      ],
       "entry_review": {
         "evidence": "Actual versioned source filename includes a space; no file with original catalog basename exists. Callable requires further per-tool review.",
         "kind": "mel_source_callable_pending",
@@ -10441,7 +10506,41 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "c7f70c2887ab91790f85ac184301a6e4de7eafad346cb1245a98a2e53f517b46"
+      "source_tree_sha256": "b00aecb8259af115ca76dbd1c043d9c3ec849c71391af4b4a3237b48a5f0deff",
+      "candidate_path": "tools_staging_pool/02_rigging_hierarchy/reparent_pro_v1_5_1/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/02_rigging_hierarchy/reparent_pro_v1_5_1/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "reparent_pro_v1_5_1",
+        "candidate_sha256": "515240b84c34b34895fe3ea42c11dc6da5af9bf67c2c4791b87a27f4c2d742c0",
+        "applied": false,
+        "files": [
+          "docs\\tools\\reparent_pro_v1_5_1.md",
+          "maya_toolkit\\tools\\reparent_pro_v1_5_1\\__init__.py",
+          "maya_toolkit\\tools\\reparent_pro_v1_5_1\\catalog.json",
+          "maya_toolkit\\tools\\reparent_pro_v1_5_1\\native.mel",
+          "maya_toolkit\\tools\\reparent_pro_v1_5_1\\native_ui.mel",
+          "maya_toolkit\\tools\\reparent_pro_v1_5_1\\runtime.py",
+          "maya_toolkit\\tools\\reparent_pro_v1_5_1\\tool.py",
+          "maya_toolkit\\tools\\reparent_pro_v1_5_1\\ui.py",
+          "maya_toolkit\\tools\\reparent_pro_v1_5_1\\vendor\\reParentIcon.jpg",
+          "maya_toolkit\\tools\\reparent_pro_v1_5_1\\vendor\\reParentPro _v1.5.1.mel",
+          "tests\\test_reparent_pro_v1_5_1.py",
+          "tests\\test_reparent_pro_v1_5_1_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "reParentIcon.jpg",
+        "reParentPro _v1.5.1.mel"
+      ],
+      "external_dependencies": [
+        "Maya cmds/MEL; interactive Maya for full native GUI and freeze progress window"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete 13 original procedures, full native UI/icon and original bytes preserved. Explicit default/pin/manual start-go-cancel/relative/freeze/IK/local modes, independent MEL/options/helper names, corrected bake ranges, clear-all-TR acknowledgement, owned session checks, safe bake/delete, caller context and Undo grouping.",
+      "prepared_at": "2026-10-02T00:39:39.634623+08:00"
     },
     {
       "source_path": "02_rigging_hierarchy/segment_scale_fix",

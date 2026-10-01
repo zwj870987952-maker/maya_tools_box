@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/02_rigging_hierarchy/reparent_pro_v1_5_1/release_candidate/tests/test_reparent_pro_v1_5_1_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_all_native_procedures_compile_without_scene_or_gui (__main__.MayaChecks.test_all_native_procedures_compile_without_scene_or_gui) ... ok\r\ntest_default_preserves_baked_motion_clear_ack_dry_undo_and_safe_final_bake (__main__.MayaChecks.test_default_preserves_baked_motion_clear_ack_dry_undo_and_safe_final_bake) ... 0����: ReParentProTool_reparent_pro_v1_5_1\n����: ReParentProTool_reparent_pro_v1_5_1\nok\r\ntest_guards_ownership_instances_channels_and_headless_ui (__main__.MayaChecks.test_guards_ownership_instances_channels_and_headless_ui) ... ok\r\ntest_original_ik_bent_limb_and_final_bake (__main__.MayaChecks.test_original_ik_bent_limb_and_final_bake) ... ok\r\ntest_pin_manual_go_cancel_and_relative_complete_native (__main__.MayaChecks.test_pin_manual_go_cancel_and_relative_complete_native) ... 1ok\r\ntest_tampered_membership_foreign_descendants_and_final_override_layer (__main__.MayaChecks.test_tampered_membership_foreign_descendants_and_final_override_layer) ... 1����: ReParentProTool_reparent_pro_v1_5_1\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.255s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "7678086ff90b37761d5800fbb8c04be0e79df70352d92ceed78c2e8010546a00",
+  "runtime_source_sha256": "3f2bade191db3546336eef64da4ea7f3e51b860ce6aca6cf582c8b0136cfe90c"
+}

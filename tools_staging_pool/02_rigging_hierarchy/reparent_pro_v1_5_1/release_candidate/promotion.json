@@ -1,0 +1,74 @@
+{
+  "tool_id": "reparent_pro_v1_5_1",
+  "registration": {
+    "module": "reparent_pro_v1_5_1",
+    "class_name": "ReParentProTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/reparent_pro_v1_5_1.md",
+      "target": "docs/tools/reparent_pro_v1_5_1.md"
+    },
+    {
+      "source": "maya_toolkit/tools/reparent_pro_v1_5_1/__init__.py",
+      "target": "maya_toolkit/tools/reparent_pro_v1_5_1/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/reparent_pro_v1_5_1/catalog.json",
+      "target": "maya_toolkit/tools/reparent_pro_v1_5_1/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/reparent_pro_v1_5_1/native.mel",
+      "target": "maya_toolkit/tools/reparent_pro_v1_5_1/native.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/reparent_pro_v1_5_1/native_ui.mel",
+      "target": "maya_toolkit/tools/reparent_pro_v1_5_1/native_ui.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/reparent_pro_v1_5_1/runtime.py",
+      "target": "maya_toolkit/tools/reparent_pro_v1_5_1/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/reparent_pro_v1_5_1/tool.py",
+      "target": "maya_toolkit/tools/reparent_pro_v1_5_1/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/reparent_pro_v1_5_1/ui.py",
+      "target": "maya_toolkit/tools/reparent_pro_v1_5_1/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/reparent_pro_v1_5_1/vendor/reParentIcon.jpg",
+      "target": "maya_toolkit/tools/reparent_pro_v1_5_1/vendor/reParentIcon.jpg"
+    },
+    {
+      "source": "maya_toolkit/tools/reparent_pro_v1_5_1/vendor/reParentPro _v1.5.1.mel",
+      "target": "maya_toolkit/tools/reparent_pro_v1_5_1/vendor/reParentPro _v1.5.1.mel"
+    },
+    {
+      "source": "tests/test_reparent_pro_v1_5_1.py",
+      "target": "tests/test_reparent_pro_v1_5_1.py"
+    },
+    {
+      "source": "tests/test_reparent_pro_v1_5_1_maya.py",
+      "target": "tests/test_reparent_pro_v1_5_1_maya.py"
+    }
+  ],
+  "resources": [
+    "reParentIcon.jpg",
+    "reParentPro _v1.5.1.mel"
+  ],
+  "dependencies": [
+    "Maya cmds/MEL; interactive Maya for full native GUI and freeze progress window"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete 13 original procedures, full native UI/icon and original bytes preserved. Explicit default/pin/manual start-go-cancel/relative/freeze/IK/local modes, independent MEL/options/helper names, corrected bake ranges, clear-all-TR acknowledgement, owned session checks, safe bake/delete, caller context and Undo grouping.",
+  "verification_limitations": [
+    "Real Maya GUI and production FK/IK/manual pivot/freeze/advanced animation layers not_run",
+    "Original clear-all-TR behavior explicitly retained and requires allow_clear_animation",
+    "Native MEL declarations persist outside scene Undo; errors can leave partial edits requiring one Undo",
+    "Original anim-layer menu was inert; candidate implements it only for final bake_delete, not an invented per-locator native feature",
+    "Unsupported referenced/locked/instanced/shared animation/rig naming collisions rejected; no original session auto-import",
+    "Copyright retained; no license file supplied or publishing performed"
+  ]
+}

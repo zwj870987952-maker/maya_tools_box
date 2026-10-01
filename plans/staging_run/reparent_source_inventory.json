@@ -1,0 +1,151 @@
+[
+  {
+    "file": "tools_staging_pool\\02_rigging_hierarchy\\reparent_pro_v1_5_1\\reParent_Pro_v1.5.1\\reParentPro _v1.5.1.mel",
+    "sha256": "33c1369f6ae2a00926a84996088c2d7401ff79f0d6140f2bb8bf1a9a802623ba",
+    "bytes": 51252,
+    "lexical_decoding": "utf-8-sig",
+    "procedures": [
+      {
+        "name": "reParentIntro",
+        "global_scope": false,
+        "return_type": "void",
+        "parameters": [],
+        "line": 50,
+        "end_line": 51
+      },
+      {
+        "name": "BakeAndDelete_reParent",
+        "global_scope": false,
+        "return_type": "void",
+        "parameters": [],
+        "line": 53,
+        "end_line": 89
+      },
+      {
+        "name": "reParentTutorial",
+        "global_scope": false,
+        "return_type": "void",
+        "parameters": [],
+        "line": 92,
+        "end_line": 93
+      },
+      {
+        "name": "reParentStarter",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 96,
+        "end_line": 132
+      },
+      {
+        "name": "reParent",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 144,
+        "end_line": 324
+      },
+      {
+        "name": "reParentManualStarter",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 331,
+        "end_line": 420
+      },
+      {
+        "name": "manualModeCancel",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 422,
+        "end_line": 429
+      },
+      {
+        "name": "manualModeGo",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 432,
+        "end_line": 549
+      },
+      {
+        "name": "reParentRelativeStart",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 554,
+        "end_line": 560
+      },
+      {
+        "name": "reParentRelative",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 563,
+        "end_line": 736
+      },
+      {
+        "name": "reParentStayHere",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 744,
+        "end_line": 925
+      },
+      {
+        "name": "IKmode",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 932,
+        "end_line": 1255
+      },
+      {
+        "name": "reParentLocatorSize",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1261,
+        "end_line": 1361
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "8:progressWindow -endProgress;",
+      "9:optionVar -intValue animBlendingOpt 1;",
+      "11:if ((`window -ex ReParentPanel`)==true)",
+      "12:deleteUI ReParentPanel;",
+      "14:string $window = `window -toolbox 1 -t \"ReParent v1.5.1 Pro\" -wh 142 159 -s 0  -menuBar 1  ReParentPanel`;",
+      "16:    menu  -l \"Advanced\" -to 0 aboutMenu;",
+      "17:    menuItem  -l \"Bake on anim layer\" -cb 0 -ann \"Each new overlapping animation will be baked on new animation layer\"  onLayerMode;",
+      "18:\tmenuItem  -l \"Delete redundant\" -cb 1 -ann \"Delete all redundant keys on rePaent locators\" DelRed;",
+      "19:\tmenuItem  -l \"BAKE AND DELETE\" -ann \"Bake All animation and delete rePaent locators\" -c BakeAndDelete_reParent;    ",
+      "21:    menu -l \"Help\" -to 0 helpMenu;",
+      "22:    menuItem -l \"Intro\"  -c reParentIntro;",
+      "23:    menuItem -l \"Tutorial\"  -c reParentTutorial;",
+      "25:rowColumnLayout;",
+      "26:rowLayout -nc 2 -cw 30 30;",
+      "27:rowColumnLayout  -nc 1;",
+      "28:checkBox -ann \"Pin selected controls (delete all animation and constrain to locator)\" -label \" Pin \" -v 0 -h 18  PinCheckBox;",
+      "29:rowColumnLayout -nc 2 -columnWidth 1 70 -columnWidth 2 50;",
+      "30:checkBox -ann \"rePArent three FK controls to IK mode\" -label \" IK mode \" -v 0 -h 18  IKCheckBox;",
+      "31:checkBox  -ann \"rePArent three FK controls to IK mode with parent to the first control\" -label \" Local \" -v 0 -h 18  IKCheckLocalBox;",
+      "32:setParent..;",
+      "34:rowLayout -nc 1 -cw 30 30 ;",
+      "35:rowColumnLayout -nc 1 -columnWidth 1 130 ;",
+      "36:checkBox -ann \"Move reParent locator to set required pivot and press Go\" -label \" Manual pivot \" -v 0 -h 18  ManualCheckBox;",
+      "37:checkBox  -ann \"Freeze all contols regarding the first selected control\" -label \" Freeze main \" -v 0 -h 18  FreezeCheckBox;",
+      "38:checkBox -ann \"Select controls for reParent then last control for relative\" -label \" All to the last \" -v 0 -h 18  RelativeCheckBox;",
+      "39:button -l \"reParent\" -c \"reParentStarter\" -bgc .8 .8 .8 -w 120 -h 40 reParentButton;",
+      "41:rowColumnLayout -rs 1 100  -nc 2 -columnWidth 1 70 -columnWidth 2 50;",
+      "42:button -l \"Go\" -c \"manualModeGo\" -bgc .8 .8 .8 -w 40 -h 40;",
+      "43:button -l \"Cancel\" -c \"manualModeCancel\" -w 60 -h 40 -bgc .22 .22 .22;",
+      "44:setParent..;",
+      "45:window -edit -widthHeight 142 159 ReParentPanel;",
+      "47:showWindow ReParentPanel;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority"
+  }
+]

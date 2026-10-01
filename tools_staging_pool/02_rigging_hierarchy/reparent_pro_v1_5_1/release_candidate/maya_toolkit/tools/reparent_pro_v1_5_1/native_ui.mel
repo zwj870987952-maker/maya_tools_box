@@ -1,0 +1,49 @@
+global proc rppstg_showUI() {
+//***********************************************//
+//                                               //
+//               RePARENT PRO 1.5.1              //
+//      copyright Dmitrii Kolpakov 2020          //
+//                                               //
+//***********************************************//
+
+
+
+
+if ((`window -ex rppstg_ReParentPanel`)==true)
+deleteUI rppstg_ReParentPanel;
+
+string $window = `window -toolbox 1 -t "ReParent v1.5.1 Pro" -wh 142 159 -s 0  -menuBar 1  rppstg_ReParentPanel`;
+
+    menu  -l "Advanced" -to 0 rppstg_aboutMenu;
+    menuItem  -l "Bake on anim layer" -cb 0 -ann "Each new overlapping animation will be baked on new animation layer"  rppstg_onLayerMode;
+	menuItem  -l "Delete redundant" -cb 1 -ann "Delete all redundant keys on rePaent locators" rppstg_DelRed;
+	menuItem  -l "BAKE AND DELETE" -ann "Bake All animation and delete rePaent locators" -c rppstg_BakeAndDelete_reParent;
+
+    menu -l "Help" -to 0 rppstg_helpMenu;
+    menuItem -l "Intro"  -c rppstg_reParentIntro;
+    menuItem -l "Tutorial"  -c rppstg_reParentTutorial;
+
+rowColumnLayout;
+rowLayout -nc 2 -cw 30 30;
+rowColumnLayout  -nc 1;
+checkBox -ann "Pin selected controls (delete all animation and constrain to locator)" -label " Pin " -v 0 -h 18  rppstg_PinCheckBox;
+rowColumnLayout -nc 2 -columnWidth 1 70 -columnWidth 2 50;
+checkBox -ann "rePArent three FK controls to IK mode" -label " IK mode " -v 0 -h 18  rppstg_IKCheckBox;
+checkBox  -ann "rePArent three FK controls to IK mode with parent to the first control" -label " Local " -v 0 -h 18  rppstg_IKCheckLocalBox;
+setParent..;
+
+rowLayout -nc 1 -cw 30 30 ;
+rowColumnLayout -nc 1 -columnWidth 1 130 ;
+checkBox -ann "Move rppstg_RPPStage_reParent locator to set required pivot and press Go" -label " Manual pivot " -v 0 -h 18  rppstg_ManualCheckBox;
+checkBox  -ann "Freeze all contols regarding the first selected control" -label " Freeze main " -v 0 -h 18  rppstg_FreezeCheckBox;
+checkBox -ann "Select controls for rppstg_RPPStage_reParent then last control for relative" -label " All to the last " -v 0 -h 18  rppstg_RelativeCheckBox;
+button -l "rppstg_reParent" -c "rppstg_reParentStarter" -bgc .8 .8 .8 -w 120 -h 40 rppstg_reParentButton;
+
+rowColumnLayout -rs 1 100  -nc 2 -columnWidth 1 70 -columnWidth 2 50;
+button -l "Go" -c "rppstg_manualModeGo" -bgc .8 .8 .8 -w 40 -h 40;
+button -l "Cancel" -c "rppstg_manualModeCancel" -w 60 -h 40 -bgc .22 .22 .22;
+setParent..;
+rppstg_manualUI(0);
+
+showWindow rppstg_ReParentPanel;
+}

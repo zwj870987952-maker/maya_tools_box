@@ -520,3 +520,11 @@
 - 统一[start,end)，MarkAni不多一帧；先step采样、保留end-1，不cut旧对象键/禁用TR/scale/custom/范围外键，key-only空范围no-op；保留原六次世界pose/层级算法并检查收敛。避免写入者移动自己的mark driver或Align下面目标，真实实例/普通独立time动画输入/锁引用检查。新override层只加入所选TR、不异常重复执行，旧preferred/selected恢复。
 - 两组普通Python+五组真实隔离Maya2025通过：父移动mark/step/Undo与owned删除/Undo/外来suffix保留、Foot/MarkAni真实curve exclusive键、UUID改名世界pose/采样/未选属性与外键保留/JSON独占NaN拒绝、Align空key-only/单帧/多帧新layer真实数值+Undo、外来节点/锁/实例/GUI拒绝。锁定mark的transform keyframe查询返回None，改查询其真实连接animCurve证实实际键，未伪造通过。临时正式布局/rigging/注册/Schema/panel与fingerprint通过。
 - API最终恢复time/UUID selection/namespace/autokey/evaluation/refresh原暂停状态；GUI成功step保留+1，失败不advance。文件与Python缓存不承诺Undo，真实GUI/生产rig/复杂layer/跨版本not_run，prepared_unverified。实际5h已用77%、周27%，继续第59项，heartbeat暂停；不迁正式库/同步/用卡/购买。
+
+# 2026-10-02：ReParent Pro 1.5.1 完整候选，累计59/109
+
+- 完整原13 MEL过程、完整原UI、图标原SHA归档；候选隔离过程/全局变量/UI/临时名/动态辅助suffix，全部default/Pin/manual start-go-cancel/relative/freeze/IK/local/locator-size与最终bake-delete API及按钮路由、Schema、文档、验收、注册晋级备齐。
+- 修正全部反向bake时间字符串；保留原清全部六TR键行为（包括范围外），强制明确allow_clear_animation。foreign reserved名称、原有约束/锁/引用/真DAG实例/共享或非time动画保护，IK首控缺父/共线零长拒绝；原layer菜单业务从未读取，候选只给最终bake实现override层，明确标注。
+- 自有owner/会话控制UUID记录，清理前复核set成员/外部后代/下游连接；最终bake替换原全场景suffix通配符删除，只清自有辅助、保留控制器烘焙结果曲线及pairBlend上游动画网络并解除辅助归属。原TempLocator等保留。Pin临时约束不存在导致原delete报错已修正。
+- 两组Python、六组Maya2025隔离测试、临时正式布局注册/rigging域/Schema/panel/fingerprint全部通过：全13过程无副作用编译、default实际逐帧运动/首尾bake/清键ack/dry/两次Undo还原外键、Pin/manualGo偏移/Cancel/relative实际运动、IK弯曲三控制器真实handle/最终bake后旋转一致、外来成员/子节点拒绝、最终override层保留/Undo。Maya2025 implicit-time animCurve无input连接，改允许隐式time但仍拒绝非time驱动。
+- 真实GUI/生产manual pivot/freeze/IK/local/高级动画层/其它版本not_run，prepared_unverified。实际额度5h已用88%、周29%，继续第60项；heartbeat暂停，不同步/迁正式/用卡/购买。
