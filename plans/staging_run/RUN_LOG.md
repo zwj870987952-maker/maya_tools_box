@@ -436,3 +436,10 @@
 - 原单文件四功能/两按钮与完整距离表达式SHA/AST保留；修原average读current当start/start当end并留时间在end的实际错误，使用MDGContext直接求真start/end worldMatrix。不改timeline、scene keys/selection/Undo，无helper/文件写入；按MDagPath.instanceNumber正确查询实例，引用/锁仅可读不解锁。
 - 完整average endpoint距离/秒及instant backward sample_step差分，结构化单/多对象world位置/向量/标量/units/duration/quantity，默认选择首项和两按钮源语义保留。MTime所有Maya time单位到秒、MDistance内部cm到UI距离单位，不只支持原四fps。正时长/finite/wholetransform/歧义/别名/范围/showResult-batch预检；往返位移0不误称沿路径平均速率。
 - 普通Python2组、实际隔离Maya2025三组和临时正式布局注册panel通过：current9测真1..5结果24cm/s、半帧instant24、不动scene/Undo；父动画film24/ntscf60/120fps与m转换1.2m/s/秒单位、实例另一父分支48cm/s；往返0、零时长/属性/batch消息/GUI拒绝。Maya2025 asMObject(context)发DeprecationWarning，实测读取正确，兼容/未来API复验限制如实记录；GUI/production模拟与缓存未验收，prepared_unverified。无转正/同步/用卡/购买。
+
+## 2026-10-01：额度断点，完整候选仍为49/109
+
+- 恢复后实际账号读数：5小时已用96%（剩余4%）、周已用15%（剩余85%）；ordinaryUsageAllowed=true。额度低于停工阈值，未消费任何重置卡，未购买额度。
+- 当前第50项01_animation/w_retarget_tool仅有四个初步候选模块，engine/UI/文档/测试/晋级包仍未完成。保存release_candidate/RESUME.md及全部现有文件，不计入candidate_complete，不声称通过Maya或候选验证；原始入口未改动。
+- 已通过App工具把同聊天heartbeat恢复为ACTIVE，并由enter_quota_wait.py读取本机TOML确认，manifest.execution进入waiting_for_quota。下一轮满足5小时剩余>95%、周额度允许且无其他整理回合后，暂停heartbeat，从该部分候选继续。
+- 修复等待记录脚本：部分候选断点不再误写成完成工具边界，额度备注不再固定声称周用量100%。
