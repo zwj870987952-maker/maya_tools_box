@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "plans/staging_run/probe_sword_native.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "NATIVE_PROBE getApplicationVersionAsFloat 2025.0\r\nNATIVE_PROBE SW_ac692345fba3e827ad5d6e26de39ba07; None\r\nNATIVE_PROBE SW_54d92f8424c4459e6d996d9fd93902f0(); ['locator1']\r\nNATIVE_PROBE SW_17431451b1be026fdeee93b86579c6b6({\"weapon\"},{\"locator1\"}); ['locator1_parentConstraint1']\r\nNATIVE_PROBE SW_cc20e95399a3b6da44eb78e45451d764(22); None\r\nNATIVE_FAILED SW_6de8028af587b467034457b4d6349f89(1); ִ�� MEL �ű������г���\r\nDETAIL RuntimeError('ִ�� MEL �ű������г���')\r\nNATIVE_PROBE SW_c89bf830cdb2b9cc874e6c8604e8b257; None\r\nNATIVE_PROBE SW_de88efca2929f0080ae1d45ff5db42d4; None\r\nUNDO_PARENT 'probe_parent'\r\nUNDO_CHILD 'probe_parent'\r\nNESTED_COMMAND_CALLBACK ['undoInfo \"-ock\" \"-cn\" \"inner_probe\";\\n', 'undoInfo \"-cck\";\\n']\r\nUNDO_AFTER_CHILD 'probe_parent'\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "fe0473dcf784947078911427fcddd3431505ed8c46f6cf70e501a1cd164e9dae",
+  "runtime_source_sha256": "fe0473dcf784947078911427fcddd3431505ed8c46f6cf70e501a1cd164e9dae"
+}

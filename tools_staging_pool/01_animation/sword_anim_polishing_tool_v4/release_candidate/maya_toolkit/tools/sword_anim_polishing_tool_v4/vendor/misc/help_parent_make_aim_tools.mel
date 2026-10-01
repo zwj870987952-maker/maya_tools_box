@@ -1,0 +1,47 @@
+*********************************************************************************************************************************************************
+							This set of scripts is for polishing weapon animations
+							It is especially relevant for game animators.
+*********************************************************************************************************************************************************
+*********************************************************************************************************************************************************
+									Parent In
+*********************************************************************************************************************************************************
+	what is he doing?
+
+				recalculates animation of objects to external locator
+				this is one of the most used scripts - not only in weapon animation but also in many other places
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	how it work
+				if select one object:
+				bakes the animation of the selected object to external locator
+				if select two or more object:
+				recalculates the animation of objects to the locator system, 
+				where all locators are inside the locator of the last selected object
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	usage
+				if select sword only:
+				you can animate the hand, and the sword will be independent of it
+				if you choose a hand and a sword: 
+				then you can correct the position of the hand relative to the sword
+				if select both Hands controls, and select sword Control: 
+				hands will move inside the sword (it will be easy to make a grip with two hands)
+				And so on and so forth
+*********************************************************************************************************************************************************
+									Make Aim
+*********************************************************************************************************************************************************
+	what is he doing?
+
+				allows you to adjust the trajectory of the weapon (or any object) tip
+				this is one of the most used scripts - not only in weapon animation but also in many other places
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	how it work
+
+				bakes the rotation of the selected object (weapon or wrist or anything else) 
+				by 2 locators, one of which controls the TOP of rotation, and the second SIDE
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	usage
+	
+				After launch, 2 locators will appear, the first highlighted - TOP - immediately pull it to the top of the weapon. 
+				After that, either with the button in the menu - or with the standard hotkey - arrow to the right 
+				- select SIDE and pull it in the perpendicular direction - towards the blade.
+				And when everything is ready, click on an empty spot in the scene. The script is recalculated
+				

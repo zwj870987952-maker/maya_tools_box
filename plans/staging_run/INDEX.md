@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-01T18:10:40.928516+08:00
+更新时间：2026-10-01T18:37:57.414508+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -49,7 +49,7 @@
 | `01_animation/spring_magic_v3_5a` | prepared_unverified | True | True | not_run |
 | `01_animation/stagger_gui` | prepared_unverified | True | True | not_run |
 | `01_animation/stagger_offset` | prepared_unverified | True | True | not_run |
-| `01_animation/sword_anim_polishing_tool_v4` | pending | True | False | not_run |
+| `01_animation/sword_anim_polishing_tool_v4` | prepared_unverified | True | True | not_run |
 | `01_animation/tb_anim_tools` | pending | True | False | not_run |
 | `01_animation/timeline_enhanced` | pending | True | False | not_run |
 | `01_animation/tweener_v1_0_2` | pending | True | False | not_run |

@@ -1,0 +1,107 @@
+{
+  "tool_id": "sword_anim_polishing_tool_v4",
+  "registration": {
+    "module": "sword_anim_polishing_tool_v4",
+    "class_name": "SwordAnimPolishTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/sword_anim_polishing_tool_v4.md",
+      "target": "docs/tools/sword_anim_polishing_tool_v4.md"
+    },
+    {
+      "source": "maya_toolkit/tools/sword_anim_polishing_tool_v4/__init__.py",
+      "target": "maya_toolkit/tools/sword_anim_polishing_tool_v4/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/sword_anim_polishing_tool_v4/catalog.json",
+      "target": "maya_toolkit/tools/sword_anim_polishing_tool_v4/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/sword_anim_polishing_tool_v4/runtime.py",
+      "target": "maya_toolkit/tools/sword_anim_polishing_tool_v4/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/sword_anim_polishing_tool_v4/tool.py",
+      "target": "maya_toolkit/tools/sword_anim_polishing_tool_v4/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/sword_anim_polishing_tool_v4/ui.py",
+      "target": "maya_toolkit/tools/sword_anim_polishing_tool_v4/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/Drag_and_Drop_to_install.mel",
+      "target": "maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/Drag_and_Drop_to_install.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/icons/sword_system.bmp",
+      "target": "maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/icons/sword_system.bmp"
+    },
+    {
+      "source": "maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/License.txt",
+      "target": "maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/License.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/misc/help_bake.mel",
+      "target": "maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/misc/help_bake.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/misc/help_parent_make_aim_tools.mel",
+      "target": "maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/misc/help_parent_make_aim_tools.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/misc/help_path_polish.mel",
+      "target": "maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/misc/help_path_polish.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/misc/help_sword_reverse_tools.mel",
+      "target": "maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/misc/help_sword_reverse_tools.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/Read_Me_ENG.TXT",
+      "target": "maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/Read_Me_ENG.TXT"
+    },
+    {
+      "source": "maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/sword_anim_polish_tool.mel",
+      "target": "maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/sword_anim_polish_tool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor_adapter.py",
+      "target": "maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor_adapter.py"
+    },
+    {
+      "source": "tests/test_sword_anim_polishing_tool_v4.py",
+      "target": "tests/test_sword_anim_polishing_tool_v4.py"
+    },
+    {
+      "source": "tests/test_sword_anim_polishing_tool_v4_maya.py",
+      "target": "tests/test_sword_anim_polishing_tool_v4_maya.py"
+    }
+  ],
+  "resources": [
+    "Drag_and_Drop_to_install.mel",
+    "icons/sword_system.bmp",
+    "License.txt",
+    "misc/help_bake.mel",
+    "misc/help_parent_make_aim_tools.mel",
+    "misc/help_path_polish.mel",
+    "misc/help_sword_reverse_tools.mel",
+    "Read_Me_ENG.TXT",
+    "sword_anim_polish_tool.mel"
+  ],
+  "dependencies": [
+    "Maya cmds/MEL and actual interactive timeline/model panel for interactive setup/arc",
+    "Full unmodified licensed Sword Anim Polish MEL distribution, all help/installer/icon included",
+    "matrixNodes/decomposeMatrix and cached-playback utility for original Arc Polish"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete licensed weapon/aim/reverse/parent/path/bake algorithms and original UI retained unmodified. Independent API/UI adds scope validation, explicit setup completion instead of unmanaged native callbacks, UUID session tracking, observed native Undo balancing/environment restoration and full promotion payload.",
+  "verification_limitations": [
+    "Real Maya GUI/interactive Parent In/aim/sword/reverse setup and full Arc Polish pending",
+    "Source license forbids modifying vendor defects or distributing; internal commercial use requires license",
+    "Original vendor MEL globals/procedures are shared; native and candidate UI must not run concurrently",
+    "Original native motion-path helper leaves an open Undo chunk; adapter balances observed opens on success/failure, complete interactive Arc still requires acceptance",
+    "Original Euler filter seeds a temporary zero key before first key; rotation outside bake range can change",
+    "Source bake catches errors internally; range-key checks cannot prove every production rig/layer baked correctly"
+  ]
+}

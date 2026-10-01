@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T18:10:40.928516+08:00",
+  "updated_at": "2026-10-01T18:37:57.414508+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/stagger_offset",
+    "last_completed_tool": "01_animation/sword_anim_polishing_tool_v4",
     "last_usage": {
-      "five_hour_used_percent": 51.0,
+      "five_hour_used_percent": 53.0,
       "weekly_used_percent": 8.0,
-      "recorded_at": "2026-10-01T18:06:54.011219+08:00",
+      "recorded_at": "2026-10-01T18:11:11.278463+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/stagger_offset"
+    "current_tool": "01_animation/sword_anim_polishing_tool_v4"
   },
   "entry_repairs": [
     {
@@ -7541,7 +7541,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Both original single-remove and repeated-remove batch offset workflows retained, complete original sources archived. Dense-key-safe whole-curve translation replaces collision-prone per-time loops, explicit ordered whole-node scope, shared curve guards, dry-run/Undo and UI provided.",
-      "prepared_at": "2026-10-01T18:10:38.753431+08:00"
+      "prepared_at": "2026-10-01T18:10:38.753431+08:00",
+      "source_commit": "8e300a13498f80d54b43cbfd7c3f0cb82c07a9e4"
     },
     {
       "source_path": "01_animation/sword_anim_polishing_tool_v4",
@@ -7552,7 +7553,7 @@
       "entry_candidates": [
         "sword_anim_polish_tool.mel"
       ],
-      "source_file_count": 9,
+      "source_file_count": 10,
       "source_files": [
         "Drag_and_Drop_to_install.mel",
         "misc/help_bake.mel",
@@ -7564,14 +7565,79 @@
       "license_files": [
         "License.txt"
       ],
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_action_specific_schema_guards (__main__.Offline.test_action_specific_schema_guards) ... ok\r\ntest_unmodified_complete_vendor_suite_and_lazy_schema (__main__.Offline.test_unmodified_complete_vendor_suite_and_lazy_schema) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.002s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"sword_anim_polishing_tool_v4\",\r\n  \"candidate_sha256\": \"f1ee90c9602b6db7ac89562a6ed31d35aa0c485f19a222ee4f802e42ab84d6b3\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\sword_anim_polishing_tool_v4.md\",\r\n    \"maya_toolkit\\\\tools\\\\sword_anim_polishing_tool_v4\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\sword_anim_polishing_tool_v4\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\sword_anim_polishing_tool_v4\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\sword_anim_polishing_tool_v4\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\sword_anim_polishing_tool_v4\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\sword_anim_polishing_tool_v4\\\\vendor\\\\Drag_and_Drop_to_install.mel\",\r\n    \"maya_toolkit\\\\tools\\\\sword_anim_polishing_tool_v4\\\\vendor\\\\icons\\\\sword_system.bmp\",\r\n    \"maya_toolkit\\\\tools\\\\sword_anim_polishing_tool_v4\\\\vendor\\\\License.txt\",\r\n    \"maya_toolkit\\\\tools\\\\sword_anim_polishing_tool_v4\\\\vendor\\\\misc\\\\help_bake.mel\",\r\n    \"maya_toolkit\\\\tools\\\\sword_anim_polishing_tool_v4\\\\vendor\\\\misc\\\\help_parent_make_aim_tools.mel\",\r\n    \"maya_toolkit\\\\tools\\\\sword_anim_polishing_tool_v4\\\\vendor\\\\misc\\\\help_path_polish.mel\",\r\n    \"maya_toolkit\\\\tools\\\\sword_anim_polishing_tool_v4\\\\vendor\\\\misc\\\\help_sword_reverse_tools.mel\",\r\n    \"maya_toolkit\\\\tools\\\\sword_anim_polishing_tool_v4\\\\vendor\\\\Read_Me_ENG.TXT\",\r\n    \"maya_toolkit\\\\tools\\\\sword_anim_polishing_tool_v4\\\\vendor\\\\sword_anim_polish_tool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\sword_anim_polishing_tool_v4\\\\vendor_adapter.py\",\r\n    \"tests\\\\test_sword_anim_polishing_tool_v4.py\",\r\n    \"tests\\\\test_sword_anim_polishing_tool_v4_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/sword_anim_polishing_tool_v4/release_candidate/tests/test_sword_anim_polishing_tool_v4_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_complete_vendor_compile_no_scene_or_ui_write (__main__.MayaChecks.test_complete_vendor_compile_no_scene_or_ui_write) ... ok\r\ntest_full_native_bake_and_undo (__main__.MayaChecks.test_full_native_bake_and_undo) ... ����: SwordAnimPolishTool_sword_anim_polishing_tool_v4\n����: SwordAnimPolishTool_sword_anim_polishing_tool_v4\nok\r\ntest_locked_and_interactive_preflights_and_metadata_restore (__main__.MayaChecks.test_locked_and_interactive_preflights_and_metadata_restore) ... ok\r\ntest_native_constraint_weights_and_pivot (__main__.MayaChecks.test_native_constraint_weights_and_pivot) ... ok\r\ntest_native_motion_path_full_sampling_balances_nested_undo (__main__.MayaChecks.test_native_motion_path_full_sampling_balances_nested_undo) ... ����: outerNativePath\n����: outerNativePath\n����: file: E:/GitHub/maya_tools_box/tools_staging_pool/01_animation/sword_anim_polishing_tool_v4/release_candidate/maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/sword_anim_polish_tool.mel line 1335: û��������ƥ��Ķ���: missing_curve\n����: file: E:/GitHub/maya_tools_box/tools_staging_pool/01_animation/sword_anim_polishing_tool_v4/release_candidate/maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/sword_anim_polish_tool.mel line 1335: \n����: outerFailedNativePath\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.073s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "4846bc30bf33271f17e93720d3719d863e8b633c648459c507f0e52545b69528",
+          "runtime_source_sha256": "1fbd5e3aeebf0deb296c7ca55944aad66333c2a58b4d86b63acddb8d0aad386e"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya GUI/Parent In/Aim/Sword/Reverse/full Arc and cleanup/layer workflows pending. Original locator screen-size helper requires model panel. Complete native MEL compiled; native Bake/Euler/weights/motion-path sampling and Undo balance passed isolated Maya checks."
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "f1ee90c9602b6db7ac89562a6ed31d35aa0c485f19a222ee4f802e42ab84d6b3",
+          "returncode": 0,
+          "output": "test_action_specific_schema_guards (__main__.Offline.test_action_specific_schema_guards) ... ok\r\ntest_unmodified_complete_vendor_suite_and_lazy_schema (__main__.Offline.test_unmodified_complete_vendor_suite_and_lazy_schema) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.002s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI/interactive Parent In/aim/sword/reverse setup and full Arc Polish pending",
+        "Source license forbids modifying vendor defects or distributing; internal commercial use requires license",
+        "Original vendor MEL globals/procedures are shared; native and candidate UI must not run concurrently",
+        "Original native motion-path helper leaves an open Undo chunk; adapter balances observed opens on success/failure, complete interactive Arc still requires acceptance",
+        "Original Euler filter seeds a temporary zero key before first key; rotation outside bake range can change",
+        "Source bake catches errors internally; range-key checks cannot prove every production rig/layer baked correctly"
+      ],
       "entry_review": {
         "evidence": "Declares sword_anim_polish_tool(string script_path); requires misc resources and a correct script directory.",
         "kind": "mel_procedure_with_resources",
@@ -7586,7 +7652,56 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "5e8f01d1a46ecb5f3047cf92c1540e420d9814661a780f0803a9a68dbe45970e"
+      "source_tree_sha256": "7a6b1f713325826c0dc91d0a087b3e92699cbb821884b5d682171b1b582d3845",
+      "candidate_path": "tools_staging_pool/01_animation/sword_anim_polishing_tool_v4/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/sword_anim_polishing_tool_v4/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "sword_anim_polishing_tool_v4",
+        "candidate_sha256": "f1ee90c9602b6db7ac89562a6ed31d35aa0c485f19a222ee4f802e42ab84d6b3",
+        "applied": false,
+        "files": [
+          "docs\\tools\\sword_anim_polishing_tool_v4.md",
+          "maya_toolkit\\tools\\sword_anim_polishing_tool_v4\\__init__.py",
+          "maya_toolkit\\tools\\sword_anim_polishing_tool_v4\\catalog.json",
+          "maya_toolkit\\tools\\sword_anim_polishing_tool_v4\\runtime.py",
+          "maya_toolkit\\tools\\sword_anim_polishing_tool_v4\\tool.py",
+          "maya_toolkit\\tools\\sword_anim_polishing_tool_v4\\ui.py",
+          "maya_toolkit\\tools\\sword_anim_polishing_tool_v4\\vendor\\Drag_and_Drop_to_install.mel",
+          "maya_toolkit\\tools\\sword_anim_polishing_tool_v4\\vendor\\icons\\sword_system.bmp",
+          "maya_toolkit\\tools\\sword_anim_polishing_tool_v4\\vendor\\License.txt",
+          "maya_toolkit\\tools\\sword_anim_polishing_tool_v4\\vendor\\misc\\help_bake.mel",
+          "maya_toolkit\\tools\\sword_anim_polishing_tool_v4\\vendor\\misc\\help_parent_make_aim_tools.mel",
+          "maya_toolkit\\tools\\sword_anim_polishing_tool_v4\\vendor\\misc\\help_path_polish.mel",
+          "maya_toolkit\\tools\\sword_anim_polishing_tool_v4\\vendor\\misc\\help_sword_reverse_tools.mel",
+          "maya_toolkit\\tools\\sword_anim_polishing_tool_v4\\vendor\\Read_Me_ENG.TXT",
+          "maya_toolkit\\tools\\sword_anim_polishing_tool_v4\\vendor\\sword_anim_polish_tool.mel",
+          "maya_toolkit\\tools\\sword_anim_polishing_tool_v4\\vendor_adapter.py",
+          "tests\\test_sword_anim_polishing_tool_v4.py",
+          "tests\\test_sword_anim_polishing_tool_v4_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "Drag_and_Drop_to_install.mel",
+        "icons/sword_system.bmp",
+        "License.txt",
+        "misc/help_bake.mel",
+        "misc/help_parent_make_aim_tools.mel",
+        "misc/help_path_polish.mel",
+        "misc/help_sword_reverse_tools.mel",
+        "Read_Me_ENG.TXT",
+        "sword_anim_polish_tool.mel"
+      ],
+      "external_dependencies": [
+        "Maya cmds/MEL and actual interactive timeline/model panel for interactive setup/arc",
+        "Full unmodified licensed Sword Anim Polish MEL distribution, all help/installer/icon included",
+        "matrixNodes/decomposeMatrix and cached-playback utility for original Arc Polish"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete licensed weapon/aim/reverse/parent/path/bake algorithms and original UI retained unmodified. Independent API/UI adds scope validation, explicit setup completion instead of unmanaged native callbacks, UUID session tracking, observed native Undo balancing/environment restoration and full promotion payload.",
+      "prepared_at": "2026-10-01T18:37:55.106346+08:00"
     },
     {
       "source_path": "01_animation/tb_anim_tools",

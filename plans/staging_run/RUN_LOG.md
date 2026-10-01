@@ -398,3 +398,12 @@
 - 单次/批量两个原入口字节SHA完整留档，原自动窗口只archive，正式候选同时提供两工作方式；once=0/offset/offset，batch=0/offset/2offset/...，不丢减选循环语义。原ls(dag=True)隐式后代展开现明确只用ordered whole nodes，省略objects时ls selection列表并注明tracking未启用不能保证点击顺序。
 - 原逐时间写入可能dense key碰撞、重复时间多次移动，改整curve relative timeChange/option over一次平移，保留全部键值/数量；共享同delta去重，不同delta/影响首个不动或外部对象拒绝。拒引用/锁/驱动键/timeWarp/层与不支持图；整批预检无节点/键/时间/选择/Undo写入，run整Undo组；API默认保持选择，GUI显式update_selection保留原减选与选键输出。
 - 原字段范围/精度/step和两按钮完整私有UI，无外部依赖/文件写入。普通Python2组、隔离Maya4组、临时晋级布局注册面板全部通过：密集邻帧batch正/负与once小数的每键时间/值/数量及UndoRedo；dry/后项锁整批无先写；共享curve冲突或同delta仅一次；once余对象和batch末对象/keys选择。真实UI/生产加权切线/跨版本仍not_run，prepared_unverified。不转正/同步/用卡/购买。
+
+## 2026-10-01：Sword Anim Polishing完整候选，累计45/109
+
+- 原9文件57MEL声明/56唯一过程/21非内建全局及四帮助/installer/BMP/许可完整原字节保留。Barnev Pavel商业内部使用/不可修改分发约束明确，独立Python适配不改原引擎，不购买发布。独立接口覆盖Parent In/Aim/Sword/Reverse/Arc/Bake/Layer/Euler、全部快捷选择/帮助/删除/MT Update/VP/原约束权重；原完整UI仍可显式备份对照，不与候选同时运行，原UI会设置matrixNodes autoload本次未调用。
+- begin原SomethingSelected scriptJob仅取消本次新建的SW回调，改明确finish_setup执行原完整结束过程，Top/Side非共线+UUID预检；不修改原回调或用假camera/timeline。所有原代理joint/约束/bake/path/cluster/nearestPoint/uValue完整算法保留。普通预检不sourceMEL/不建节点，拒锁/引用/实例/短名歧义/共享driver，bake后的本系统删前拒外部child/输出；保留baked animation graph，pairBlend baked input1接回后删helper，完整交互清理须实测。
+- Parent In在真实mayapy报MEL运行错，probe分步定位原SW_6de locator屏幕尺寸函数依赖模型panel；Parent In/setup/完整Arc明确要求交互环境，不删函数来绕过。原Euler前10帧临时零键/全旋转winding影响明确，非Arc全局键选择临时清除并恢复，sourceBake内catch不能当生产正确性证明。
+- 原SW_7 native motionPath打开Undo却不关闭；Maya实际query chunkName只返最外层不适合猜深度。实际MCommandMessage命令callback可见原MEL内部undoInfo，适配记录本同步调用未配对open、finally只闭其自身，保持Base外层Undo；原源码未改。native完整逐帧uValue/temporary nearPoint+decompose清理、成功及真实missing_curve失败后的外层一次Undo通过。
+- finally恢复range/time/select/keyselect/ns/autokey/units/eval/track/optionVars/cache/Move/refresh/timeline；Arc旧motionTrail.nodeState按UUID恢复，MT Update外部trail拒绝。MELglobals存网络+UUID映射避免Undo/reopen/rename陈旧缓存，failed须Undo后续才写。自身元数据网络和新helper加owner。
+- 普通Python2组/隔离Maya5组/临时正式布局注册面板通过：56完整过程source零scene/UI/Undo写入；原完整Bake/Euler+UndoRedo；原逆距/零距weights；锁/interactive拒绝与rename-global恢复；native motionPath完整抽样/Undo平衡成功及失败。真实UI/完整Arc/Parent/Aim/Sword/Reverse/cleanup/layers/productionrig仍not_run，prepared_unverified，不转正/Obsidian同步/用卡/购买。

@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/sword_anim_polishing_tool_v4/release_candidate/tests/test_sword_anim_polishing_tool_v4_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_complete_vendor_compile_no_scene_or_ui_write (__main__.MayaChecks.test_complete_vendor_compile_no_scene_or_ui_write) ... ok\r\ntest_full_native_bake_and_undo (__main__.MayaChecks.test_full_native_bake_and_undo) ... ����: SwordAnimPolishTool_sword_anim_polishing_tool_v4\n����: SwordAnimPolishTool_sword_anim_polishing_tool_v4\nok\r\ntest_locked_and_interactive_preflights_and_metadata_restore (__main__.MayaChecks.test_locked_and_interactive_preflights_and_metadata_restore) ... ok\r\ntest_native_constraint_weights_and_pivot (__main__.MayaChecks.test_native_constraint_weights_and_pivot) ... ok\r\ntest_native_motion_path_full_sampling_balances_nested_undo (__main__.MayaChecks.test_native_motion_path_full_sampling_balances_nested_undo) ... ����: outerNativePath\n����: outerNativePath\n����: file: E:/GitHub/maya_tools_box/tools_staging_pool/01_animation/sword_anim_polishing_tool_v4/release_candidate/maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/sword_anim_polish_tool.mel line 1335: û��������ƥ��Ķ���: missing_curve\n����: file: E:/GitHub/maya_tools_box/tools_staging_pool/01_animation/sword_anim_polishing_tool_v4/release_candidate/maya_toolkit/tools/sword_anim_polishing_tool_v4/vendor/sword_anim_polish_tool.mel line 1335: \n����: outerFailedNativePath\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.073s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "4846bc30bf33271f17e93720d3719d863e8b633c648459c507f0e52545b69528",
+  "runtime_source_sha256": "1fbd5e3aeebf0deb296c7ca55944aad66333c2a58b4d86b63acddb8d0aad386e"
+}
