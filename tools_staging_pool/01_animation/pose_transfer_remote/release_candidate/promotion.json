@@ -1,0 +1,78 @@
+{
+  "tool_id": "pose_transfer_remote",
+  "registration": {
+    "module": "pose_transfer_remote",
+    "class_name": "PoseTransferRemoteTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/pose_transfer_remote.md",
+      "target": "docs/tools/pose_transfer_remote.md"
+    },
+    {
+      "source": "docs/tools/pose_transfer_remote_changes.diff",
+      "target": "docs/tools/pose_transfer_remote_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/pose_transfer_remote/__init__.py",
+      "target": "maya_toolkit/tools/pose_transfer_remote/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/pose_transfer_remote/catalog.json",
+      "target": "maya_toolkit/tools/pose_transfer_remote/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/pose_transfer_remote/native.py",
+      "target": "maya_toolkit/tools/pose_transfer_remote/native.py"
+    },
+    {
+      "source": "maya_toolkit/tools/pose_transfer_remote/runtime.py",
+      "target": "maya_toolkit/tools/pose_transfer_remote/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/pose_transfer_remote/tool.py",
+      "target": "maya_toolkit/tools/pose_transfer_remote/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/pose_transfer_remote/ui_bridge.py",
+      "target": "maya_toolkit/tools/pose_transfer_remote/ui_bridge.py"
+    },
+    {
+      "source": "maya_toolkit/tools/pose_transfer_remote/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/pose_transfer_remote/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/pose_transfer_remote/upstream/PoseTransfer.py.original",
+      "target": "maya_toolkit/tools/pose_transfer_remote/upstream/PoseTransfer.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/pose_transfer_remote/upstream/Readme.txt",
+      "target": "maya_toolkit/tools/pose_transfer_remote/upstream/Readme.txt"
+    },
+    {
+      "source": "tests/test_pose_transfer_remote.py",
+      "target": "tests/test_pose_transfer_remote.py"
+    },
+    {
+      "source": "tests/test_pose_transfer_remote_maya.py",
+      "target": "tests/test_pose_transfer_remote_maya.py"
+    }
+  ],
+  "resources": [
+    "catalog.json",
+    "upstream/PoseTransfer.py.original",
+    "upstream/Readme.txt"
+  ],
+  "dependencies": [
+    "Maya cmds and original legacy OpenMaya import",
+    "BaseMayaTool/Undo"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Full original 9-method locator-based world-matrix pose capture/root translation/apply/cleanup and original UI retained with scene UUID sessions, scoped controller discovery and owned helper protections.",
+  "verification_limitations": [
+    "Real original Maya UI and production rig/rotation-scale/pivot/reference behavior require human acceptance",
+    "Original workflow offsets translation only and does not automatically remap across models",
+    "Scene helper metadata preserved; no external files written",
+    "No independent license supplied, local only"
+  ]
+}

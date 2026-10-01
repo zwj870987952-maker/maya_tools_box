@@ -339,3 +339,11 @@
 - 输出OBJ/JSON同父临时目录→hardlink不覆盖或明确replace+旧SHA保护，部分发布实际written_files列出；finally选择/time/AutoKey/refresh/ns恢复、自有progress cleanup，取消不返回半数组。创建独立Lambert/SG、源mesh/材质/skin不迁移，位置/法线+保拓扑编辑可split，UV/skin/history/材质不在往返契约。
 - 普通Python2组、Maya2025隔离4组、临时正式布局注册/面板/Schema/全指纹通过：readonly/dry/overlaps、原向量和UV/输入不变；六order实际对齐/Undo/lock；硬边cube merge/.ma保存重开/split点UVface法线完全匹配/UndoRedo；新旧mapJSON/覆盖拒绝、before-publication及after-geometry注入失败原文件保持/finally/Undo。未造GUI、未用生产JO/RA/twist/skin或复杂模型；prepared_unverified。
 - 实际收尾5小时66%/周96%已用、ordinaryUsageAllowed=true，继续pose_transfer_remote；heartbeat保持暂停，不用卡/购买/Obsidian同步/转正。
+
+## 2026-10-01：Pose Transfer完整候选，累计37/109
+
+- 原9方法/完整自动手动1..5步+cleanup UI，两原资源字节保留，无独立license声明，只本地不发布。实际原行为是locator world matrix/ROOT平移offset写回原controllers；Readme称跨模型但源码不含重映射，知识/Schema明确不自动跨模型或处理ROOT旋转scale差异。
+- 标准API/Schema/readonly/Undo，scene network保存ROOT/controllers/locator/shape UUID和orig path/上次ROOT position/完整flag，每次操作重读，不依赖Python缓存；deep namespace与leaf特征/ROOT范围ControlSet/filter，明确手选范围可在ROOT树外，父先子后应用；全T/R/S/shear可写要求，ref edit显式API/GUI复选。
+- 保留完整原matrix/locator方法，修helper带DAG非法名、重复shift累计offset（成功后更新上次ROOTpos）、创建后立即tracking及partial flag、marker skipSelect、rename后UUID校对路径、控制器删除仍可cleanup。只删自有helper/shape，外部child/output和锁/driver/tamper/metadata异常拒绝；finally时间/选择/AutoKey/ns恢复，UI关闭不删scene session，窗口高550容纳按钮。
+- 普通Python2组、Maya2025隔离5组、临时正式布局注册/面板/Schema/全指纹通过：dry/detect set范围/private guard/Undo无改动；capture/shift重复delta0/apply世界位置旋转/UndoRedo/ma保存重开/cleanup Undo后shift；外部child/locked scale/目标attr被改拒绝；第二helper xform注入失败partial flag/finally/Undo；UUID rename后apply和目标被删后的cleanup。原UI/production pivots/scale/shear/OPM/ref edits未实测prepared_unverified，文档/验收/晋级齐备。
+- 实际收尾5小时73%/周97%已用、ordinaryUsageAllowed=true，继续下一个pending单元；heartbeat暂停，不用卡/购买/Obsidian同步/转正。检查点helper去掉已过时的Timeline Marker resume_note，实际current_tool/source_commit/log才是恢复依据。

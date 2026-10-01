@@ -20,6 +20,8 @@ def main():
     if completed["status"] not in ("prepared_verified_offline", "prepared_unverified") or not completed["candidate_complete"]:
         raise ValueError("Completed item has no complete prepared candidate")
     completed["source_commit"] = commit
+    # Drop an old human resume hint once it no longer describes the current item.
+    manifest["execution"].pop("resume_note", None)
     if args.next_tool:
         following = next(item for item in manifest["tools"] if item["source_path"] == args.next_tool)
         following["status"] = "working"

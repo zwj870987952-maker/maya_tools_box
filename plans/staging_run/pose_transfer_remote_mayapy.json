@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/pose_transfer_remote/release_candidate/tests/test_pose_transfer_remote_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_capture_shift_repeat_apply_cleanup_undo_scene_roundtrip (__main__.Maya.test_capture_shift_repeat_apply_cleanup_undo_scene_roundtrip) ... ����: PoseTransferRemoteTool_pose_transfer_remote\n����: PoseTransferRemoteTool_pose_transfer_remote\n�ļ���ȡ����ʱ��Ϊ  0.0033 �롣\n����: PoseTransferRemoteTool_pose_transfer_remote\nok\r\ntest_dry_detect_scoped_and_direct_body_guard (__main__.Maya.test_dry_detect_scoped_and_direct_body_guard) ... ok\r\ntest_foreign_child_locked_and_tampered_controller_refused (__main__.Maya.test_foreign_child_locked_and_tampered_controller_refused) ... ok\r\ntest_partial_capture_failure_context_restore_and_undo (__main__.Maya.test_partial_capture_failure_context_restore_and_undo) ... ����: PoseTransferRemoteTool_pose_transfer_remote\nok\r\ntest_uuid_rename_and_deleted_control_cleanup (__main__.Maya.test_uuid_rename_and_deleted_control_cleanup) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.083s\r\n\r\nOK\r\n������ 2 ����λ��\r\n��λ�����ƶ���ƫ����: [10.0, 0.0, 0.0]\r\n��λ�����ƶ���ƫ����: [0.0, 0.0, 0.0]\r\n��̬��Ӧ�õ�������\r\n��λ��������\r\n��λ�����ƶ���ƫ����: [0.0, 0.0, 0.0]\r\n������ 2 ����λ��\r\n������ 2 ����λ��\r\n��̬��Ӧ�õ�������\r\n��λ��������\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "db4d204e7247947ee8cb9280b29ddd62aea59856d780581dd2d99ace53e71840",
+  "runtime_source_sha256": "e5133bf8c1c9fff33f373613cdb39c7478c47841fd54890be456b6605b8b311c"
+}
