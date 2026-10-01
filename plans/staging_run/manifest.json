@@ -1,25 +1,24 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T05:52:34.203759+08:00",
+  "updated_at": "2026-10-02T07:35:38.836654+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
-    "state": "waiting_for_quota",
+    "state": "working",
     "heartbeat_id": "automation",
-    "heartbeat_status": "ACTIVE",
+    "heartbeat_status": "PAUSED",
     "heartbeat_verified": true,
     "reset_guard": "disabled_by_user_no_cards",
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "03_transforms_modeling/uv_set_renamer",
+    "last_completed_tool": "03_transforms_modeling/world_transform_v4",
     "last_usage": {
-      "five_hour_used_percent": 95.0,
-      "weekly_used_percent": 45.0,
-      "recorded_at": "2026-10-02T05:52:31.160591+08:00",
-      "note": "Actual caller-observed usage; percentages record used quota, not remaining quota."
+      "five_hour_used_percent": 0.0,
+      "weekly_used_percent": 46.0,
+      "recorded_at": "2026-10-02T07:26:33.386824+08:00",
+      "note": "Actual caller read: ordinaryUsageAllowed true; app thread list showed no other active writer in this checkout"
     },
-    "current_tool": "03_transforms_modeling/world_transform_v4",
-    "resume_note": "Stopped at completed candidate boundary. Resume only with five-hour remaining >95%, weekly allowed, and no other active round. Do not consume reset credits or purchase quota."
+    "current_tool": "03_transforms_modeling/world_transform_v4"
   },
   "entry_repairs": [
     {
@@ -15826,20 +15825,80 @@
       "entry_candidates": [
         "复制粘贴世界坐标v4.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "复制粘贴世界坐标v4.py"
       ],
       "license_files": [],
       "entry_sha256": "e2bf01775ab96a7c72d18936fadc92f14eedb369064a8c0835770c134f0c4f04",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"world_transform_v4\",\r\n  \"candidate_sha256\": \"9259f56334bcb86650235fbcbce7e468aa8909e561c89a57a7fa1578454d4282\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\world_transform_v4.md\",\r\n    \"maya_toolkit\\\\tools\\\\world_transform_v4\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\world_transform_v4\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\world_transform_v4\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\world_transform_v4\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\world_transform_v4\\\\upstream\\\\\\u590d\\u5236\\u7c98\\u8d34\\u4e16\\u754c\\u5750\\u6807v4.py.original\",\r\n    \"tests\\\\test_world_transform_v4.py\",\r\n    \"tests\\\\test_world_transform_v4_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/03_transforms_modeling/world_transform_v4/release_candidate/tests/test_world_transform_v4_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": ".����: WorldTransformV4Tool_world_transform_v4\n..����: WorldTransformV4Tool_world_transform_v4\n.����: WorldTransformV4Tool_world_transform_v4\n����: WorldTransformV4Tool_world_transform_v4\n.\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.039s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "e904bec85935651347dcb95268c05853634dce6ff621152109c13a8ceea1e639",
+          "runtime_source_sha256": "3fce216a609a9116acd1973284347b2df52b806f93b13d7e67d1e028979ce4c7"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Interactive UI/ChannelBox/highlight/cancel, production complex rigs/pivots and other versions not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "9259f56334bcb86650235fbcbce7e468aa8909e561c89a57a7fa1578454d4282",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "真实GUI/ChannelBox/高亮/取消、生产复杂pivot骨架及跨版本not_run"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -15848,7 +15907,36 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "0931c36b5013a9575d2d2e21c962291f12847ffcd4678dc5c7285fca690463aa"
+      "source_tree_sha256": "36ab28e06d5ccaa7452e4bb7a4f3ec86f903bb09218672af37460d95f4c82d08",
+      "candidate_path": "tools_staging_pool/03_transforms_modeling/world_transform_v4/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/03_transforms_modeling/world_transform_v4/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "world_transform_v4",
+        "candidate_sha256": "9259f56334bcb86650235fbcbce7e468aa8909e561c89a57a7fa1578454d4282",
+        "applied": false,
+        "files": [
+          "docs\\tools\\world_transform_v4.md",
+          "maya_toolkit\\tools\\world_transform_v4\\__init__.py",
+          "maya_toolkit\\tools\\world_transform_v4\\catalog.json",
+          "maya_toolkit\\tools\\world_transform_v4\\tool.py",
+          "maya_toolkit\\tools\\world_transform_v4\\ui.py",
+          "maya_toolkit\\tools\\world_transform_v4\\upstream\\复制粘贴世界坐标v4.py.original",
+          "tests\\test_world_transform_v4.py",
+          "tests\\test_world_transform_v4_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "复制粘贴世界坐标v4.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/API2"
+      ],
+      "source_preserved": true,
+      "change_summary": "完整原生世界姿态复制还原UI/API；UUID/单位快照、父子排序重试、真实关键帧、只key小数范围、全表预检/Undo/时间AutoKey恢复、显式独占JSON、知识测试晋级",
+      "prepared_at": "2026-10-02T07:35:01.738841+08:00"
     },
     {
       "source_path": "04_pipeline_io/abc_batch_exporter",

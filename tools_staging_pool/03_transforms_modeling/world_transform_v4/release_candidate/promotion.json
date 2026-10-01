@@ -1,0 +1,52 @@
+{
+  "tool_id": "world_transform_v4",
+  "registration": {
+    "module": "world_transform_v4",
+    "class_name": "WorldTransformV4Tool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/world_transform_v4.md",
+      "target": "docs/tools/world_transform_v4.md"
+    },
+    {
+      "source": "maya_toolkit/tools/world_transform_v4/__init__.py",
+      "target": "maya_toolkit/tools/world_transform_v4/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/world_transform_v4/catalog.json",
+      "target": "maya_toolkit/tools/world_transform_v4/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/world_transform_v4/tool.py",
+      "target": "maya_toolkit/tools/world_transform_v4/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/world_transform_v4/ui.py",
+      "target": "maya_toolkit/tools/world_transform_v4/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/world_transform_v4/upstream/复制粘贴世界坐标v4.py.original",
+      "target": "maya_toolkit/tools/world_transform_v4/upstream/复制粘贴世界坐标v4.py.original"
+    },
+    {
+      "source": "tests/test_world_transform_v4.py",
+      "target": "tests/test_world_transform_v4.py"
+    },
+    {
+      "source": "tests/test_world_transform_v4_maya.py",
+      "target": "tests/test_world_transform_v4_maya.py"
+    }
+  ],
+  "resources": [
+    "复制粘贴世界坐标v4.py"
+  ],
+  "dependencies": [
+    "Maya cmds/API2"
+  ],
+  "acceptance_required": true,
+  "change_summary": "完整原生世界姿态复制还原UI/API；UUID/单位快照、父子排序重试、真实关键帧、只key小数范围、全表预检/Undo/时间AutoKey恢复、显式独占JSON、知识测试晋级",
+  "verification_limitations": [
+    "真实GUI/ChannelBox/高亮/取消、生产复杂pivot骨架及跨版本not_run"
+  ]
+}

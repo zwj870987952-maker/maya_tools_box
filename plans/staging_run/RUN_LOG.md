@@ -654,3 +654,10 @@
 - 实际5h95%已用（剩5%）、周45%；按每项收尾阈值保存后进入额度等待，下项world_transform_v4。候选均留在池内，不迁正式/同步/用卡/购买。
 
 - UV候选提交5ad20dd08dcdd643e7aeeeb9badadc3a659531a6；App heartbeat已启用并由本机配置复核，状态waiting_for_quota，下项world_transform_v4未开始，等待5h剩余>95%且周允许再续跑。本轮新增16项（62至77），累计77/109。
+
+# 2026-10-02：额度刷新续跑，世界坐标V4完整候选，累计78/109
+
+- 实际5h0%已用、周46%、ordinaryUsageAllowed=true；本聊天为当前checkout唯一active writer，App heartbeat暂停并本机配置复核，rescan动态109无新增缺项后从第78项恢复。遵循用户最新不用卡/购买、不迁正式、不同步约束。
+- 原单文件SHA归档、完整原生UI/两滑条/只key/ChannelBox组识别/真实高亮范围/进度保留；标准Base/Schema/只读inspect/UUID单位快照/父子排序重试/真实逐帧key/Undo/时间AutoKey恢复/显式独占JSON/知识验收晋级。修正原自动覆盖共享temp、±180角差、失败仍key且报成功、未高亮误取范围；不把snapshot当动画曲线，所选组小数keys保留。
+- 2离线+5隔离Maya2025+临时正式布局/注册/panel/fingerprint全通过：真实父子姿态/重命名UUID/单Undo/key/time/AutoKey；已有小数key/范围外key值/只位移；JO+nonXYZ joint/native xform、不同pivot/rad/m单位；临时JSON exclusive/dry/非法load/内存dry不改；坏后行锁/共享curve/真实实例/batchUI拒绝。发现原生setKeyframe生成直接time曲线可能无显式input连线，允许Maya隐式time或time1两标准输出，仍拒绝自定义time驱动，修复后全通过。
+- GUI/ChannelBox/高亮/取消/生产复杂骨架及跨版本not_run，prepared_unverified。实际5h4%已用（剩96%）、周46%，立即继续abc_batch_exporter，heartbeat工作时暂停。
