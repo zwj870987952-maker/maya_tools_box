@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T05:33:05.994732+08:00",
+  "updated_at": "2026-10-02T05:39:30.237586+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "03_transforms_modeling/smart_mesh",
+    "last_completed_tool": "03_transforms_modeling/unlock_freeze",
     "last_usage": {
-      "five_hour_used_percent": 80.0,
-      "weekly_used_percent": 43.0,
-      "recorded_at": "2026-10-02T05:15:56.480362+08:00",
+      "five_hour_used_percent": 87.0,
+      "weekly_used_percent": 44.0,
+      "recorded_at": "2026-10-02T05:33:11.995406+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "03_transforms_modeling/smart_mesh"
+    "current_tool": "03_transforms_modeling/unlock_freeze"
   },
   "entry_repairs": [
     {
@@ -15569,7 +15569,8 @@
       ],
       "source_preserved": true,
       "change_summary": "完整SmartMesh四几何业务/原生UI/About/转正后显式ShelfHotkey；精确mesh/历史/父级/命名/只读rig复制scope，预检/Undo/知识测试晋级",
-      "prepared_at": "2026-10-02T05:31:45.808998+08:00"
+      "prepared_at": "2026-10-02T05:31:45.808998+08:00",
+      "source_commit": "c2cf0194c24e0a726a39d1dffcff1b5f8fefb315"
     },
     {
       "source_path": "03_transforms_modeling/unlock_freeze",
@@ -15580,20 +15581,80 @@
       "entry_candidates": [
         "unlock_and_freeze_transforms.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "unlock_and_freeze_transforms.py"
       ],
       "license_files": [],
       "entry_sha256": "c99eec4ad710de8776e8680a687cfea4777b09a63526596e55ba126ff35b204e",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.000s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"unlock_freeze\",\r\n  \"candidate_sha256\": \"a6645d11301b679e508fcf4c59afb98f3c852c528dd9b3991c6b8e8a42a14b35\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\unlock_freeze.md\",\r\n    \"maya_toolkit\\\\tools\\\\unlock_freeze\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\unlock_freeze\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\unlock_freeze\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\unlock_freeze\\\\upstream\\\\unlock_and_freeze_transforms.py.original\",\r\n    \"tests\\\\test_unlock_freeze.py\",\r\n    \"tests\\\\test_unlock_freeze_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/03_transforms_modeling/unlock_freeze/release_candidate/tests/test_unlock_freeze_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "����: UnlockFreezeTool_unlock_freeze\n����: UnlockFreezeTool_unlock_freeze\n.����: UnlockFreezeTool_unlock_freeze\n..\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.027s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "b3612108a3c46f9fd2c392ea666603a133f08bf39988dad9920752d137d8e5b1",
+          "runtime_source_sha256": "b8167d61bb6ab2ea18ee87ca107307a46f7781f6a2d4ba07c85963d6a35f83b6"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "真实GUI、复杂pivot法线/生产模型骨架/跨版本not_run；Maya2025实际mesh/controller/组后代世界点/原joint冻结与Undo通过"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "a6645d11301b679e508fcf4c59afb98f3c852c528dd9b3991c6b8e8a42a14b35",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.000s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "真实GUI/复杂pivot法线/生产模型骨架及跨版本not_run"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -15602,7 +15663,35 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "8dade2f2496856f90ae11606eadb0932eb04c14d51bd4b1f71e8520f000e6a84"
+      "source_tree_sha256": "eaf3384c65f3e80f3c9a04b8c6cb846f706e43484a8833d628f8cf72eb861aa0",
+      "candidate_path": "tools_staging_pool/03_transforms_modeling/unlock_freeze/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/03_transforms_modeling/unlock_freeze/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "unlock_freeze",
+        "candidate_sha256": "a6645d11301b679e508fcf4c59afb98f3c852c528dd9b3991c6b8e8a42a14b35",
+        "applied": false,
+        "files": [
+          "docs\\tools\\unlock_freeze.md",
+          "maya_toolkit\\tools\\unlock_freeze\\__init__.py",
+          "maya_toolkit\\tools\\unlock_freeze\\catalog.json",
+          "maya_toolkit\\tools\\unlock_freeze\\tool.py",
+          "maya_toolkit\\tools\\unlock_freeze\\upstream\\unlock_and_freeze_transforms.py.original",
+          "tests\\test_unlock_freeze.py",
+          "tests\\test_unlock_freeze_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "unlock_and_freeze_transforms.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/API2"
+      ],
+      "source_preserved": true,
+      "change_summary": "完整九TRS解锁与原makeIdentity apply冻结/原选择恢复；全部受影响后代geometry独占预检/Undo/可选原锁/UI/知识测试晋级",
+      "prepared_at": "2026-10-02T05:38:49.583892+08:00"
     },
     {
       "source_path": "03_transforms_modeling/uv_set_renamer",

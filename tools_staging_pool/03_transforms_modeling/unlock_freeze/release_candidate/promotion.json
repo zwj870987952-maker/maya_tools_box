@@ -1,0 +1,48 @@
+{
+  "tool_id": "unlock_freeze",
+  "registration": {
+    "module": "unlock_freeze",
+    "class_name": "UnlockFreezeTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/unlock_freeze.md",
+      "target": "docs/tools/unlock_freeze.md"
+    },
+    {
+      "source": "maya_toolkit/tools/unlock_freeze/__init__.py",
+      "target": "maya_toolkit/tools/unlock_freeze/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/unlock_freeze/catalog.json",
+      "target": "maya_toolkit/tools/unlock_freeze/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/unlock_freeze/tool.py",
+      "target": "maya_toolkit/tools/unlock_freeze/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/unlock_freeze/upstream/unlock_and_freeze_transforms.py.original",
+      "target": "maya_toolkit/tools/unlock_freeze/upstream/unlock_and_freeze_transforms.py.original"
+    },
+    {
+      "source": "tests/test_unlock_freeze.py",
+      "target": "tests/test_unlock_freeze.py"
+    },
+    {
+      "source": "tests/test_unlock_freeze_maya.py",
+      "target": "tests/test_unlock_freeze_maya.py"
+    }
+  ],
+  "resources": [
+    "unlock_and_freeze_transforms.py"
+  ],
+  "dependencies": [
+    "Maya cmds/API2"
+  ],
+  "acceptance_required": true,
+  "change_summary": "完整九TRS解锁与原makeIdentity apply冻结/原选择恢复；全部受影响后代geometry独占预检/Undo/可选原锁/UI/知识测试晋级",
+  "verification_limitations": [
+    "真实GUI/复杂pivot法线/生产模型骨架及跨版本not_run"
+  ]
+}

@@ -640,3 +640,9 @@
 - 2离线+4隔离Maya2025+临时正式布局/注册/modeling_surfacing/panel/fingerprint全通过：真实combine数量/父组/无关对象/材质/AutoKey/单Undo原全部节点；separate壳/父组/不同两pivot/Undo；rigged源duplicate保持skin与mesh/全face/真实extract；锁/共享poly历史/错scope/写实例/GUI与安装batch拒绝。原shape-wide listHistory走入groupId/共享SG导致误拒绝，改几何inMesh图；实际combined pivots查询顺序与假设相反，改两属性独立读，修复后全部通过。
 - Shelf/Hotkey完整实现但只验收晋级注册后显式安装，静态正式包命令不留staging路径，不覆盖任何既有press/release绑定或foreigncommand；持久UI/偏好不由sceneUndo回滚，整理时未写。GUI/复杂UV材质/生产rig/引用实例只读duplicate/持久安装及跨版本not_run，prepared_unverified。
 - 实际5h87%已用（剩13%）、周44%，立即继续unlock_freeze；heartbeat暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：解锁冻结完整候选，累计76/109
+
+- 原单文件SHA归档；完整九TRS解锁/原makeIdentity apply全TRS/原选择恢复，移除channelBox隐含其它属性与MEL拼接，精确TRS及compound解锁，可选restore_locks；标准Base/Schema/预检小UI/知识/验收/晋级。全部受影响后代/几何输入独占construction预检，锁后代/引用/实例/动画/JO/OPM/共享历史/geometry consumer/相机灯/变形器拒绝，不仅检查输入根。joint原生T骨长/旋转转JO边界说明明确。
+- 2离线+3隔离Maya2025+临时正式布局/注册/modeling_surfacing/panel/fingerprint通过：真实mesh世界points保持/TRS归零/锁解除、oneUndo原points/锁/选区/历史、v锁保持/AutoKey与restore_locks；nurbs circle/controllerCV、组后代mesh及joint骨段位置；坏后行/动画/alias/overlap/实例/GUIbatch拒绝。一次测试因新建polyCube改变fixture当前选择，改显式选择被设key的源再拒绝验证，不改业务掩盖。GUI/生产复杂pivot法线/模型骨架/跨版本not_run，prepared_unverified。
+- 实际5h90%已用（剩10%）、周45%，立即继续uv_set_renamer；heartbeat暂停，不迁正式/同步/用卡/购买。
