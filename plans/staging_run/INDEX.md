@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-02T04:57:31.426658+08:00
+更新时间：2026-10-02T05:05:30.491822+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -77,7 +77,7 @@
 | `03_transforms_modeling/isolate_selected` | prepared_unverified | True | True | not_run |
 | `03_transforms_modeling/mirror_tool` | prepared_unverified | True | True | not_run |
 | `03_transforms_modeling/no_highlight_v2` | prepared_unverified | True | True | not_run |
-| `03_transforms_modeling/quaternion_tool` | pending | True | False | not_run |
+| `03_transforms_modeling/quaternion_tool` | prepared_unverified | True | True | not_run |
 | `03_transforms_modeling/reset_pivot` | prepared_verified_offline | True | True | not_run |
 | `03_transforms_modeling/rotation_aligner` | pending | True | False | not_run |
 | `03_transforms_modeling/smart_mesh` | pending | True | False | not_run |

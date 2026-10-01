@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T04:57:31.426658+08:00",
+  "updated_at": "2026-10-02T05:05:30.491822+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "03_transforms_modeling/no_highlight_v2",
+    "last_completed_tool": "03_transforms_modeling/quaternion_tool",
     "last_usage": {
-      "five_hour_used_percent": 68.0,
-      "weekly_used_percent": 41.0,
-      "recorded_at": "2026-10-02T04:47:24.743724+08:00",
+      "five_hour_used_percent": 72.0,
+      "weekly_used_percent": 42.0,
+      "recorded_at": "2026-10-02T04:57:35.935267+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "03_transforms_modeling/no_highlight_v2"
+    "current_tool": "03_transforms_modeling/quaternion_tool"
   },
   "entry_repairs": [
     {
@@ -15091,7 +15091,8 @@
       ],
       "source_preserved": true,
       "change_summary": "完整Start/Stop/SelectionChanged/UI/API；UUID原override/视图/选择模式恢复，显式回调生命周期/Undo暂停与恢复入口，严格预检/测试/晋级",
-      "prepared_at": "2026-10-02T04:56:22.619638+08:00"
+      "prepared_at": "2026-10-02T04:56:22.619638+08:00",
+      "source_commit": "d21c46cf040bba8aaae5b438c589111d2337f735"
     },
     {
       "source_path": "03_transforms_modeling/quaternion_tool",
@@ -15102,20 +15103,80 @@
       "entry_candidates": [
         "QuaternionTool_Maya.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "QuaternionTool_Maya.py"
       ],
       "license_files": [],
       "entry_sha256": "72f59d5b240516ebb657a7f97cdc3d05cd8489fe3e4a5f161a93280d055771c2",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.009s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"quaternion_tool\",\r\n  \"candidate_sha256\": \"62c7079cb57a6e4178ec9a4febd8e038a87fa4f3082ddd04f18806fe0e205b9e\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\quaternion_tool.md\",\r\n    \"maya_toolkit\\\\tools\\\\quaternion_tool\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\quaternion_tool\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\quaternion_tool\\\\native.py\",\r\n    \"maya_toolkit\\\\tools\\\\quaternion_tool\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\quaternion_tool\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\quaternion_tool\\\\upstream\\\\QuaternionTool_Maya.py.original\",\r\n    \"tests\\\\test_quaternion_tool.py\",\r\n    \"tests\\\\test_quaternion_tool_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/03_transforms_modeling/quaternion_tool/release_candidate/tests/test_quaternion_tool_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": ".����: QuaternionMathTool_quaternion_tool\n����: QuaternionMathTool_quaternion_tool\n..\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.022s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "1a1880a4cd81cc37ce5c59079a2601ab741a68896c60445ceeeeeec8444a630d",
+          "runtime_source_sha256": "7cdf6611fd787df3231d0a5d6add64a8c6ff8fec6677e25b162e00c8e39527ce"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "真实完整GUI、复杂父级/pivot/生产控制器与跨版本not_run；Maya2025真实数学/静态XYZ应用/单位与Undo通过"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "62c7079cb57a6e4178ec9a4febd8e038a87fa4f3082ddd04f18806fe0e205b9e",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.008s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "真实GUI/复杂父级pivot与跨版本not_run；XYZ普通静态transform应用范围明确"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -15124,7 +15185,37 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "855cd4ff04d8b0b1bf34beebc24e5d1656945dd9f89a2ab60732b9beb745d44e"
+      "source_tree_sha256": "d12025c1e5e5b4f62c886e7613436f1fb500f962aed35fbdad458fcc3a43b18f",
+      "candidate_path": "tools_staging_pool/03_transforms_modeling/quaternion_tool/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/03_transforms_modeling/quaternion_tool/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "quaternion_tool",
+        "candidate_sha256": "62c7079cb57a6e4178ec9a4febd8e038a87fa4f3082ddd04f18806fe0e205b9e",
+        "applied": false,
+        "files": [
+          "docs\\tools\\quaternion_tool.md",
+          "maya_toolkit\\tools\\quaternion_tool\\__init__.py",
+          "maya_toolkit\\tools\\quaternion_tool\\catalog.json",
+          "maya_toolkit\\tools\\quaternion_tool\\native.py",
+          "maya_toolkit\\tools\\quaternion_tool\\tool.py",
+          "maya_toolkit\\tools\\quaternion_tool\\ui.py",
+          "maya_toolkit\\tools\\quaternion_tool\\upstream\\QuaternionTool_Maya.py.original",
+          "tests\\test_quaternion_tool.py",
+          "tests\\test_quaternion_tool_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "QuaternionTool_Maya.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/API2"
+      ],
+      "source_preserved": true,
+      "change_summary": "完整原数学类与创建/向量/Euler/应用UI；十一action严格类型/只读预检，实际Maya约定与显式度制应用/Undo，完整测试知识晋级",
+      "prepared_at": "2026-10-02T05:04:28.548431+08:00"
     },
     {
       "source_path": "03_transforms_modeling/reset_pivot",

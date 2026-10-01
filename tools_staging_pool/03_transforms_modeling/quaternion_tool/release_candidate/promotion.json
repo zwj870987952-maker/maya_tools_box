@@ -1,0 +1,56 @@
+{
+  "tool_id": "quaternion_tool",
+  "registration": {
+    "module": "quaternion_tool",
+    "class_name": "QuaternionMathTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/quaternion_tool.md",
+      "target": "docs/tools/quaternion_tool.md"
+    },
+    {
+      "source": "maya_toolkit/tools/quaternion_tool/__init__.py",
+      "target": "maya_toolkit/tools/quaternion_tool/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/quaternion_tool/catalog.json",
+      "target": "maya_toolkit/tools/quaternion_tool/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/quaternion_tool/native.py",
+      "target": "maya_toolkit/tools/quaternion_tool/native.py"
+    },
+    {
+      "source": "maya_toolkit/tools/quaternion_tool/tool.py",
+      "target": "maya_toolkit/tools/quaternion_tool/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/quaternion_tool/ui.py",
+      "target": "maya_toolkit/tools/quaternion_tool/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/quaternion_tool/upstream/QuaternionTool_Maya.py.original",
+      "target": "maya_toolkit/tools/quaternion_tool/upstream/QuaternionTool_Maya.py.original"
+    },
+    {
+      "source": "tests/test_quaternion_tool.py",
+      "target": "tests/test_quaternion_tool.py"
+    },
+    {
+      "source": "tests/test_quaternion_tool_maya.py",
+      "target": "tests/test_quaternion_tool_maya.py"
+    }
+  ],
+  "resources": [
+    "QuaternionTool_Maya.py"
+  ],
+  "dependencies": [
+    "Maya cmds/API2"
+  ],
+  "acceptance_required": true,
+  "change_summary": "完整原数学类与创建/向量/Euler/应用UI；十一action严格类型/只读预检，实际Maya约定与显式度制应用/Undo，完整测试知识晋级",
+  "verification_limitations": [
+    "真实GUI/复杂父级pivot与跨版本not_run；XYZ普通静态transform应用范围明确"
+  ]
+}
