@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T05:05:30.491822+08:00",
+  "updated_at": "2026-10-02T05:15:52.084040+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "03_transforms_modeling/quaternion_tool",
+    "last_completed_tool": "03_transforms_modeling/rotation_aligner",
     "last_usage": {
-      "five_hour_used_percent": 72.0,
+      "five_hour_used_percent": 75.0,
       "weekly_used_percent": 42.0,
-      "recorded_at": "2026-10-02T04:57:35.935267+08:00",
+      "recorded_at": "2026-10-02T05:05:56.972763+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "03_transforms_modeling/quaternion_tool"
+    "current_tool": "03_transforms_modeling/rotation_aligner"
   },
   "entry_repairs": [
     {
@@ -15215,7 +15215,8 @@
       ],
       "source_preserved": true,
       "change_summary": "完整原数学类与创建/向量/Euler/应用UI；十一action严格类型/只读预检，实际Maya约定与显式度制应用/Undo，完整测试知识晋级",
-      "prepared_at": "2026-10-02T05:04:28.548431+08:00"
+      "prepared_at": "2026-10-02T05:04:28.548431+08:00",
+      "source_commit": "fd782af36c3d64f975a8c5c8949937d91581f875"
     },
     {
       "source_path": "03_transforms_modeling/reset_pivot",
@@ -15323,20 +15324,80 @@
       "entry_candidates": [
         "旋转对齐工具.py"
       ],
-      "source_file_count": 2,
+      "source_file_count": 3,
       "source_files": [
         "旋转对齐工具.py"
       ],
       "license_files": [],
       "entry_sha256": "f38e2d365cfd018fff7d87959f2c50c4a21f549af603fcee6e64653fdab3c57b",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.015s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"rotation_aligner\",\r\n  \"candidate_sha256\": \"959c795b31fc3f6ef9dc71d36368718097809f66edb5061bb7cd2d1a4567f530\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\rotation_aligner.md\",\r\n    \"maya_toolkit\\\\tools\\\\rotation_aligner\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\rotation_aligner\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\rotation_aligner\\\\native.py\",\r\n    \"maya_toolkit\\\\tools\\\\rotation_aligner\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\rotation_aligner\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\rotation_aligner\\\\upstream\\\\Maya\\u7b80\\u5316\\u89d2\\u5ea6\\u5de5\\u5177_\\u4f7f\\u7528\\u8bf4\\u660e.md\",\r\n    \"maya_toolkit\\\\tools\\\\rotation_aligner\\\\upstream\\\\\\u65cb\\u8f6c\\u5bf9\\u9f50\\u5de5\\u5177.py.original\",\r\n    \"tests\\\\test_rotation_aligner.py\",\r\n    \"tests\\\\test_rotation_aligner_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/03_transforms_modeling/rotation_aligner/release_candidate/tests/test_rotation_aligner_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "����: RotationAlignerTool_rotation_aligner\n.����: RotationAlignerTool_rotation_aligner\n..����: RotationAlignerTool_rotation_aligner\n����: RotationAlignerTool_rotation_aligner\n.\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.182s\r\n\r\nOK\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n��ȫ�����һ��: ����������� y\r\n���ڶ������: |rotatedParent|jointSource\r\n��ȫ����ڶ���: ��������ת�Զ���ʣ����\r\n  ѡ��ο���: x (��ʼƫ��: 14.6��)\r\n  ��������ת�Ƕ�: -14.6��\r\n��ȫ�������: |rotatedParent|jointSource\r\n��ȫ�����һ��: ����������� y\r\n���ڶ������: |rotatedParent|jointSource\r\n��ȫ����ڶ���: ��������ת�Զ���ʣ����\r\n  ѡ��ο���: x (��ʼƫ��: 0.0��)\r\n  ��������ת�Ƕ�: 0.0��\r\n  ������ת��ʣ�����Ѷ���\r\n��ȫ�������: |rotatedParent|jointSource\r\n��ȫ�����һ��: ����������� y\r\n���ڶ������: |rotatedParent|jointSource\r\n��ȫ����ڶ���: ��������ת�Զ���ʣ����\r\n  ѡ��ο���: x (��ʼƫ��: 0.0��)\r\n  ��������ת�Ƕ�: 0.0��\r\n  ������ת��ʣ�����Ѷ���\r\n��ȫ�������: |rotatedParent|jointSource\r\n��ȫ�����һ��: ����������� y\r\n���ڶ������: |rotatedParent|jointSource\r\n��ȫ����ڶ���: ��������ת�Զ���ʣ����\r\n  ѡ��ο���: x (��ʼƫ��: 0.0��)\r\n  ��������ת�Ƕ�: 0.0��\r\n  ������ת��ʣ�����Ѷ���\r\n��ȫ�������: |rotatedParent|jointSource\r\n��ȫ�����һ��: ����������� y\r\n���ڶ������: |rotatedParent|jointSource\r\n��ȫ����ڶ���: ��������ת�Զ���ʣ����\r\n  ѡ��ο���: x (��ʼƫ��: 0.0��)\r\n  ��������ת�Ƕ�: 0.0��\r\n  ������ת��ʣ�����Ѷ���\r\n��ȫ�������: |rotatedParent|jointSource\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: |source1\r\n���ڶ������: source1\r\n���ڶ������: source1\r\n���ڶ������: source1\r\n���ڶ������: source1\r\n���ڶ������: source1\r\n��ȫ�����һ��: ����������� y\r\n���ڶ������: |source1\r\n��ȫ����ڶ���: ��������ת�Զ���ʣ����\r\n  ѡ��ο���: x (��ʼƫ��: 24.6��)\r\n  ��������ת�Ƕ�: 24.6��\r\n��ȫ�������: |source1\r\n��ȫ�����һ��: ����������� y\r\n���ڶ������: |source1\r\n��ȫ����ڶ���: ��������ת�Զ���ʣ����\r\n  ѡ��ο���: z (��ʼƫ��: 0.0��)\r\n  ��������ת�Ƕ�: -0.0��\r\n  ������ת��ʣ�����Ѷ���\r\n��ȫ�������: |source1\r\n��ȫ�����һ��: ����������� y\r\n���ڶ������: |source1\r\n��ȫ����ڶ���: ��������ת�Զ���ʣ����\r\n  ѡ��ο���: x (��ʼƫ��: 0.0��)\r\n  ��������ת�Ƕ�: -0.0��\r\n  ������ת��ʣ�����Ѷ���\r\n��ȫ�������: |source1\r\n��ȫ�����һ��: ����������� y\r\n���ڶ������: |source1\r\n��ȫ����ڶ���: ��������ת�Զ���ʣ����\r\n  ѡ��ο���: x (��ʼƫ��: 0.0��)\r\n  ��������ת�Ƕ�: -0.0��\r\n  ������ת��ʣ�����Ѷ���\r\n��ȫ�������: |source1\r\n��ȫ�����һ��: ����������� y\r\n���ڶ������: |source1\r\n��ȫ����ڶ���: ��������ת�Զ���ʣ����\r\n  ѡ��ο���: x (��ʼƫ��: 0.0��)\r\n  ��������ת�Ƕ�: -0.0��\r\n  ������ת��ʣ�����Ѷ���\r\n��ȫ�������: |source1\r\n��ȫ�����һ��: ����������� y\r\n���ڶ������: |source1\r\n��ȫ����ڶ���: ��������ת�Զ���ʣ����\r\n  ѡ��ο���: x (��ʼƫ��: 24.6��)\r\n  ��������ת�Ƕ�: 24.6��\r\n��ȫ�������: |source1\r\n��ȫ�����һ��: ����������� y\r\n���ڶ������: |source1\r\n��ȫ����ڶ���: ��������ת�Զ���ʣ����\r\n  ѡ��ο���: z (��ʼƫ��: 0.0��)\r\n  ��������ת�Ƕ�: -0.0��\r\n  ������ת��ʣ�����Ѷ���\r\n��ȫ�������: |source1\r\n��ȫ�����һ��: ����������� y\r\n���ڶ������: |source1\r\n��ȫ����ڶ���: ��������ת�Զ���ʣ����\r\n  ѡ��ο���: x (��ʼƫ��: 0.0��)\r\n  ��������ת�Ƕ�: -0.0��\r\n  ������ת��ʣ�����Ѷ���\r\n��ȫ�������: |source1\r\n��ȫ�����һ��: ����������� y\r\n���ڶ������: |source1\r\n��ȫ����ڶ���: ��������ת�Զ���ʣ����\r\n  ѡ��ο���: x (��ʼƫ��: 0.0��)\r\n  ��������ת�Ƕ�: -0.0��\r\n  ������ת��ʣ�����Ѷ���\r\n��ȫ�������: |source1\r\n��ȫ�����һ��: ����������� y\r\n���ڶ������: |source1\r\n��ȫ����ڶ���: ��������ת�Զ���ʣ����\r\n  ѡ��ο���: x (��ʼƫ��: 0.0��)\r\n  ��������ת�Ƕ�: -0.0��\r\n  ������ת��ʣ�����Ѷ���\r\n��ȫ�������: |source1\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "24434a5fb5dbf02ce3ca0c5b9184c902302892885785041ebfd7c0f0e629edf3",
+          "runtime_source_sha256": "da58c38a72eac422a81574f43bff730744366d9f44dee297ce81e4eaae7b96e6"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "真实完整GUI/生产长动画复杂骨架与跨版本not_run；原角度显示说明与源码不匹配，原六选up参数未实现明确拒绝；实际矩阵/JO/order/真实烘焙/角度单位/Undo检查见报告"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "959c795b31fc3f6ef9dc71d36368718097809f66edb5061bb7cd2d1a4567f530",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.015s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "真实GUI/生产复杂骨架/长动画/跨版本not_run；未来帧条件执行动态检查，原六选up参数未实现；原角度显示说明与源码不匹配"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -15345,7 +15406,39 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "85558bdcb7a15079225b648e17b9dd342d3c2df7bd1e4b278f30a8b5e24ecab4"
+      "source_tree_sha256": "b2252d4e64676c1ae4f15d6521b7854169a00c63b7a6e4b87ac7d37eabe96e12",
+      "candidate_path": "tools_staging_pool/03_transforms_modeling/rotation_aligner/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/03_transforms_modeling/rotation_aligner/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "rotation_aligner",
+        "candidate_sha256": "959c795b31fc3f6ef9dc71d36368718097809f66edb5061bb7cd2d1a4567f530",
+        "applied": false,
+        "files": [
+          "docs\\tools\\rotation_aligner.md",
+          "maya_toolkit\\tools\\rotation_aligner\\__init__.py",
+          "maya_toolkit\\tools\\rotation_aligner\\catalog.json",
+          "maya_toolkit\\tools\\rotation_aligner\\native.py",
+          "maya_toolkit\\tools\\rotation_aligner\\tool.py",
+          "maya_toolkit\\tools\\rotation_aligner\\ui.py",
+          "maya_toolkit\\tools\\rotation_aligner\\upstream\\Maya简化角度工具_使用说明.md",
+          "maya_toolkit\\tools\\rotation_aligner\\upstream\\旋转对齐工具.py.original",
+          "tests\\test_rotation_aligner.py",
+          "tests\\test_rotation_aligner_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "Maya简化角度工具_使用说明.md",
+        "旋转对齐工具.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/API2"
+      ],
+      "source_preserved": true,
+      "change_summary": "完整原矩阵/单轴/完全与列表范围迭代UI；明确源旋转，真实范围关键帧/度制转换/严格scope与只读预检/Undo，全部文档测试晋级",
+      "prepared_at": "2026-10-02T05:15:07.947661+08:00"
     },
     {
       "source_path": "03_transforms_modeling/smart_mesh",

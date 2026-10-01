@@ -626,3 +626,10 @@
 - 原SHA/全部数学类方法与完整创建/向量/Euler/应用/帮助UI保留，全部按钮走Base API，十一action/严格数值/Schema/只读preflight/知识/验收/晋级备齐。原乘法/RotateDirection/XYZ约定不改；浮点dot边界clamp，MVector输入复制避免normalize副作用，原零模identity和Slerp clamp保留。应用明确deg修正rad单位，不写单位/keys，严格普通XYZ/无rotateAxis/identity OPM及全表锁引用驱动实例拒绝。
 - 2离线+3隔离Maya2025+临时正式布局/注册/modeling_surfacing/panel/fingerprint全通过：十个纯计算无场景变化，实际MEulerRotation quaternion/90度向量/FromTo同向反向/Slerp半角与反号/逆积/normalize/零fallback、MVector不改；实际原cmds.rotate姿态一致、dry/oneUndo/AutoKey、rad单位姿态一致、坏后行/旋转顺序/keys/别名/组件/实例拒绝。GUI/生产复杂父级pivot及跨版本not_run，prepared_unverified。
 - 实际5h75%已用（剩25%）、周42%，立即继续rotation_aligner；heartbeat暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：旋转对齐完整候选，累计74/109
+
+- 原两文件SHA归档；原角度显示说明与旋转对齐源码不匹配明确记录，不宣称AngleDisplayContainer存在。完整原1132行全部函数/矩阵/JO/RA/order/单轴搜索/两步完全对齐与六轴/限制/多对列表/范围烘焙/迭代右键UI保留，去模块开窗，高层入口受Base/Schema/scope/只读预检/晋级保护。
+- 明确source被旋转、target只读；原烘焙无setKeyframe修正范围真实写keys，非烘焙保留参考小数key，单帧小数/可选成功跳帧；统一Undo/AutoKey/time/degree单位转换。原6选up参数算法未用，拒绝不伪造。源锁轴按原跳过，JO/RA/order原算法；驱动/引用/共享curve/OPM/实例/shear/反射/退化检查，未来帧动态失败可Undo本调用。
+- 2离线+4隔离Maya2025+临时正式布局/注册/modeling_surfacing/panel/fingerprint通过：真实原单轴矩阵、完整XYZ、JO+非XYZ+旋转父、锁轴单轴、dry/单Undo/AutoKey/time、实际range键/小数参考key/曲线外键保留/rad度制/共享curve拒绝。新建键fixture缓存未求值导致一次Undo姿态比较失败，先显式时间求值后核对原曲线值/矩阵，全部通过，不改算法掩盖错误。GUI/生产长动画/复杂骨架/跨版本not_run，prepared_unverified。
+- 实际5h80%已用（剩20%）、周43%，立即继续smart_mesh；heartbeat暂停，不迁正式/同步/用卡/购买。

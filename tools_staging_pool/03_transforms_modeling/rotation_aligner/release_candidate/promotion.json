@@ -1,0 +1,61 @@
+{
+  "tool_id": "rotation_aligner",
+  "registration": {
+    "module": "rotation_aligner",
+    "class_name": "RotationAlignerTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/rotation_aligner.md",
+      "target": "docs/tools/rotation_aligner.md"
+    },
+    {
+      "source": "maya_toolkit/tools/rotation_aligner/__init__.py",
+      "target": "maya_toolkit/tools/rotation_aligner/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rotation_aligner/catalog.json",
+      "target": "maya_toolkit/tools/rotation_aligner/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/rotation_aligner/native.py",
+      "target": "maya_toolkit/tools/rotation_aligner/native.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rotation_aligner/tool.py",
+      "target": "maya_toolkit/tools/rotation_aligner/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rotation_aligner/ui.py",
+      "target": "maya_toolkit/tools/rotation_aligner/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rotation_aligner/upstream/Maya简化角度工具_使用说明.md",
+      "target": "maya_toolkit/tools/rotation_aligner/upstream/Maya简化角度工具_使用说明.md"
+    },
+    {
+      "source": "maya_toolkit/tools/rotation_aligner/upstream/旋转对齐工具.py.original",
+      "target": "maya_toolkit/tools/rotation_aligner/upstream/旋转对齐工具.py.original"
+    },
+    {
+      "source": "tests/test_rotation_aligner.py",
+      "target": "tests/test_rotation_aligner.py"
+    },
+    {
+      "source": "tests/test_rotation_aligner_maya.py",
+      "target": "tests/test_rotation_aligner_maya.py"
+    }
+  ],
+  "resources": [
+    "Maya简化角度工具_使用说明.md",
+    "旋转对齐工具.py"
+  ],
+  "dependencies": [
+    "Maya cmds/API2"
+  ],
+  "acceptance_required": true,
+  "change_summary": "完整原矩阵/单轴/完全与列表范围迭代UI；明确源旋转，真实范围关键帧/度制转换/严格scope与只读预检/Undo，全部文档测试晋级",
+  "verification_limitations": [
+    "真实GUI/生产复杂骨架/长动画/跨版本not_run；未来帧条件执行动态检查，原六选up参数未实现；原角度显示说明与源码不匹配"
+  ]
+}
