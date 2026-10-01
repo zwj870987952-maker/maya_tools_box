@@ -1,0 +1,469 @@
+{
+  "tool_id": "spring_magic_v3_5a",
+  "registration": {
+    "module": "spring_magic_v3_5a",
+    "class_name": "SpringMagicTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/spring_magic_v3_5a.md",
+      "target": "docs/tools/spring_magic_v3_5a.md"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/__init__.py",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/catalog.json",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/__init__.py",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/core.py",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/core.py"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/decorators.py",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/decorators.py"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/history.txt",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/history.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/Howto.txt",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/Howto.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/HowToCompile.txt",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/HowToCompile.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/HowToInstall.txt",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/HowToInstall.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/addCapsule.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/addCapsule.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/addPlane.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/addPlane.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/ali_pay.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/ali_pay.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/bilibili.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/bilibili.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/bitcoin.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/bitcoin.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/China Flag.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/China Flag.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/clearCapsule.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/clearCapsule.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/ctrl_bake.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/ctrl_bake.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/ctrl_bind.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/ctrl_bind.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/donut.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/donut.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/english.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/english.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/info.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/info.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/japanese.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/japanese.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/language.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/language.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/linkedin.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/linkedin.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/paypal.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/paypal.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/redo.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/redo.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/removeCapsule.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/removeCapsule.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/Shelf.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/Shelf.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/spring.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/spring.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/Title.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/Title.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/update.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/update.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/vimeo.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/vimeo.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/wechat_pay.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/wechat_pay.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/weightBone.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/weightBone.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/wind.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/wind.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/youtube.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/icons/youtube.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/main.py",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/main.py"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/springMagic.py",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/springMagic.py"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/springMagic.ui",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/springMagic.ui"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/springMagic_chn.ui",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/springMagic_chn.ui"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/springMagic_eng.ui",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/springMagic_eng.ui"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/springMagic_jpn.ui",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/springMagic_jpn.ui"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/springMath.py",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/springMath.py"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/ui.py",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/utility.py",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/utility.py"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/UtilityFunctions.txt",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/UtilityFunctions.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/native/安装说明.txt",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/native/安装说明.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/runtime.py",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/tool.py",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/ui_support.py",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/ui_support.py"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/__init__.py.original",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/core.py.original",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/core.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/decorators.py.original",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/decorators.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/history.txt",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/history.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/Howto.txt",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/Howto.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/HowToCompile.txt",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/HowToCompile.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/HowToInstall.txt",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/HowToInstall.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/addCapsule.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/addCapsule.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/addPlane.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/addPlane.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/ali_pay.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/ali_pay.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/bilibili.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/bilibili.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/bitcoin.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/bitcoin.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/China Flag.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/China Flag.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/clearCapsule.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/clearCapsule.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/ctrl_bake.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/ctrl_bake.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/ctrl_bind.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/ctrl_bind.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/donut.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/donut.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/english.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/english.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/info.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/info.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/japanese.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/japanese.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/language.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/language.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/linkedin.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/linkedin.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/paypal.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/paypal.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/redo.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/redo.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/removeCapsule.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/removeCapsule.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/Shelf.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/Shelf.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/spring.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/spring.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/Title.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/Title.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/update.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/update.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/vimeo.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/vimeo.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/wechat_pay.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/wechat_pay.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/weightBone.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/weightBone.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/wind.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/wind.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/youtube.png",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/icons/youtube.png"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/main.py.original",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/main.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/mkDevTools.py.original",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/mkDevTools.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/springMagic.py.original",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/springMagic.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/springMagic.ui",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/springMagic.ui"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/springMagic_chn.ui",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/springMagic_chn.ui"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/springMagic_eng.ui",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/springMagic_eng.ui"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/springMagic_jpn.ui",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/springMagic_jpn.ui"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/springMath.py.original",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/springMath.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/ui.py.original",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/ui.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/utility.py.original",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/utility.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/UtilityFunctions.txt",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/UtilityFunctions.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/spring_magic_v3_5a/upstream/安装说明.txt",
+      "target": "maya_toolkit/tools/spring_magic_v3_5a/upstream/安装说明.txt"
+    },
+    {
+      "source": "tests/test_spring_magic_v3_5a.py",
+      "target": "tests/test_spring_magic_v3_5a.py"
+    },
+    {
+      "source": "tests/test_spring_magic_v3_5a_maya.py",
+      "target": "tests/test_spring_magic_v3_5a_maya.py"
+    }
+  ],
+  "resources": [
+    "__init__.py",
+    "core.py",
+    "decorators.py",
+    "history.txt",
+    "Howto.txt",
+    "HowToCompile.txt",
+    "HowToInstall.txt",
+    "icons/addCapsule.png",
+    "icons/addPlane.png",
+    "icons/ali_pay.png",
+    "icons/bilibili.png",
+    "icons/bitcoin.png",
+    "icons/China Flag.png",
+    "icons/clearCapsule.png",
+    "icons/ctrl_bake.png",
+    "icons/ctrl_bind.png",
+    "icons/donut.png",
+    "icons/english.png",
+    "icons/info.png",
+    "icons/japanese.png",
+    "icons/language.png",
+    "icons/linkedin.png",
+    "icons/paypal.png",
+    "icons/redo.png",
+    "icons/removeCapsule.png",
+    "icons/Shelf.png",
+    "icons/spring.png",
+    "icons/Title.png",
+    "icons/update.png",
+    "icons/vimeo.png",
+    "icons/wechat_pay.png",
+    "icons/weightBone.png",
+    "icons/wind.png",
+    "icons/youtube.png",
+    "main.py",
+    "mkDevTools.py",
+    "springMagic.py",
+    "springMagic.ui",
+    "springMagic_chn.ui",
+    "springMagic_eng.ui",
+    "springMagic_jpn.ui",
+    "springMath.py",
+    "ui.py",
+    "utility.py",
+    "UtilityFunctions.txt",
+    "安装说明.txt"
+  ],
+  "dependencies": [
+    "Maya cmds/MEL",
+    "PyMel compatible with the target Maya/Python (not bundled; absent from this machine Maya 2025)",
+    "Full private Spring Magic 3.5a engine/UI/icons, all included"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete original spring/twist/tension/inertia/extension, looping/pose-match, capsule/plane/wind and controller-binding engine retained. Python 3 private imports, safe API/UI bridge, UUID ownership, deterministic helper cleanup, read-only preflight, Undo, complete resources/docs/tests/promotion prepared.",
+  "verification_limitations": [
+    "PyMel absent on installed Maya 2025: full engine, collision geometry, bind/bake and GUI not executed",
+    "Source supplied no redistribution license; local preparation only",
+    "Original Floor/Subs fields have no implemented algorithm; disabled with explanation",
+    "Straight originally called missing straightBonePose; explicit selected joint rotate-zero repair requires Maya acceptance",
+    "Bind-pose runtime can touch the connected skin/bind-pose hierarchy; explicit API allowance required",
+    "Normal spring mode originally cuts all keyable channels of processed parents/children in the range; explicit acknowledgement required",
+    "Non-uniformly scaled capsule/plane, cancellation, animation layers, constrained rigs and Maya/PyMel version support require manual acceptance"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/spring_magic_v3_5a/release_candidate/tests/test_spring_magic_v3_5a_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_batch_progress_decorator_returns_and_propagates (__main__.MayaChecks.test_batch_progress_decorator_returns_and_propagates) ... ok\r\ntest_complete_engine_requires_actual_pymel (__main__.MayaChecks.test_complete_engine_requires_actual_pymel) ... skipped 'Compatible PyMel absent; full spring/collision/binding runtime and GUI not exercised'\r\ntest_environment_restored_on_exception (__main__.MayaChecks.test_environment_restored_on_exception) ... ok\r\ntest_missing_dependency_is_explicit_and_preflight_does_not_write (__main__.MayaChecks.test_missing_dependency_is_explicit_and_preflight_does_not_write) ... FULL_ENGINE_NOT_RUN: compatible PyMel absent; no GUI/collision/bind/bake claim\r\nok\r\ntest_uuid_ownership_survives_rename_and_undo (__main__.MayaChecks.test_uuid_ownership_survives_rename_and_undo) ... ����: \nok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.046s\r\n\r\nOK (skipped=1)\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "ea99703bbad01846a3d5019bb614e33a587b8d2885ea720a2b9504d5c98c408f",
+  "runtime_source_sha256": "4c98555c87e2f80914322ba16d5b07d2f0b0e6762a2c0c67cf426f3d36820394"
+}

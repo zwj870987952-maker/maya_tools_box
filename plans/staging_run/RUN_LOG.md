@@ -371,3 +371,17 @@
 - 全组readonly preflight/ref/lock/noneditable drivers/shared animCurve输出/Root重复祖先交叠/后代ring和direct后代center检查；原bake全部keyable与preserveOutsideKeys=False影响明确。层unique UUID不覆盖旧层、临时约束/locator/parentOnly副本UUID追踪，仅自有清理，外部DAG后代拒删；finally旧layers flags/time/select/ns/autokey恢复，会话总释放，失败已写场景按一Undo恢复。
 - actual ring实测源两xform后动画求值回到base，末帧偏移没保存；在无驱动parentOnly副本上执行原完整world/Euler相对方法，Maya求相同parent/pivot/RO局部值后显式在新animLayer写T/R，原起止整Rootkey保留。真实末帧tx3/tz2及Undo通过，无层源bake和rotation/已有Rootkeys/UndoRedo也通过，未用删掉偏移层的缩减代替。
 - 普通Python2组/隔离Maya2025六组/临时正式布局注册面板及全部指纹通过；干跑scene/time/Undo无变、全约束+bake+层保存、原同名层/flags不动、dependent snapshot、第二坏组前置拒绝、注入bake失败清理、深ns歧义/范围/batchUI拒绝。原GUI、生产pivot/JO/RA/RO/非均匀scale/层输入/时间滑块交互仍not_run，prepared_unverified，真人验收资料与晋级清单完整。不转正、不Obsidian同步、不用卡。
+
+## 2026-10-01：Shape Animation与Shift Animation完整候选，累计41/109
+
+- 补录已提交候选的恢复记录：Shape Animation提交68307035724f860c50a1525814d1d37f1d396794；Shift Animation提交4c0ae1edb394d980d15f2b727d3da914e2e9191b。manifest、各项检查报告与Git实际内容为依据。Shape原39文件/六版本/34方法完整携带；完整成对blendShape正负目标、关键帧曲线、原雕刻/Reset算法、UUID会话和显式安全旧会话采纳；普通Python2组、隔离Maya8组及临时正式布局通过，GUI与生产场景仍not_run。
+- Shift原六个文件、130声明/129唯一MEL过程及20全局完整未改字节保留。附带许可要求商业购买、禁止分发或修改原代码；未购买/发布。独立Python/UI适配保留MATCH/路径/圆形/root-motion/曲线控制完整MEL，原自定义属性清除有明确allow_attribute_cleanup。实际Maya批处理缺交互层/时间滑块功能如实拒绝，没有模拟该功能。普通Python2组、隔离Maya5组、临时布局通过，曲线双系统独立删除/UndoRedo/失败恢复已测，完整交互功能待验收。
+- Shape单元.gitattributes加入后改变源树指纹，第一次scan重置其完成状态；在Shift提交中已重新scan→record并修正Shape实际提交号。后续按先scan再record顺序维护完整性。当前活动回合收尾实际额度5小时38%/周6%已用，heartbeat保持PAUSED，继续Spring Magic；不重复套用新回合95%启动门槛。
+
+## 2026-10-01：Spring Magic 3.5a完整候选，累计42/109
+
+- 完整46源文件保留原字节SHA，四份UI、全部icons与history/操作说明均携带；原Python2入口/开发reload助手留档.py.original。native保留core37、springMath17、utility6、UI39、decorator10函数；数值碰撞math AST完全不变，原inertia/wind/twist/tension/extend/aim/bake/capsule/controlBind主要算法AST逐项对比通过。
+- 本机Maya2025缺PyMel，完整SpringMagic引擎、几何/绑定/GUI未执行，明确prepared_unverified；没有安装依赖或提供伪造PyMel替代。Python3相对import/next/urllib/unicode，完整引擎按需加载；状态可在缺依赖时读取。Base/Schema/readonly validate/dry/ToolResult/Undo、正X无分支链和范围/写权限/共享驱动检查齐备。
+- 所有持久碰撞资源与代理采用session UUID网络；计算临时helper确定性仅清理本次新建UUID，不做全场景SpringNull通配符清理或GC隐式删除。完整原控制器绑定，Bake控制器按UUID找源而非名字拆分。取消/异常部分key需整组Undo，failed状态阻止未Undo的后续写入；finally恢复时间/选择/namespace/autokey、等待光标及progressbar。
+- 原普通模式cutKey所有keyable通道影响明确，API默认拒绝，allow_key_cleanup=True或GUI确认才执行；原GoToBindPose连接层级影响显式allow。原Floor/Subs无引擎实现，保留但禁用；Straight源缺失函数明确补为joint.rotate置零待实测。UI语言直接XML读取，不覆盖资源；图标本包绝对路径；打开不再自动访问旧版本站，明确网站按钮保留，Shelf仅用户点击才改UI偏好。
+- 普通Python4组通过；实际隔离Maya5组中4组通过、完整引擎1组因PyMel缺失skip，分别验证依赖拒绝/无节点时间Undo写入、UUID改名及外部child拒删/Undo、失败环境恢复、batch进度finally/返回值；真实GUI=false。临时正式布局4组及注册/面板通过。全物理动态范围仍109；本项非Maya/缺依赖结果不能当真实求解通过，不转正/不同步Obsidian/不用卡不购买。
