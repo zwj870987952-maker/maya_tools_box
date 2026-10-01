@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/tweener_v1_0_2/release_candidate/tests/test_tweener_v1_0_2_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_actual_preview_cancel_commit_and_keyhammer_failure_rollback (__main__.MayaChecks.test_actual_preview_cancel_commit_and_keyhammer_failure_rollback) ... ����: \n����: \nok\r\ntest_all_five_complete_modes_actual_api2_and_undo_redo (__main__.MayaChecks.test_all_five_complete_modes_actual_api2_and_undo_redo) ... ����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\nok\r\ntest_insert_range_selected_groups_and_preview_readonly (__main__.MayaChecks.test_insert_range_selected_groups_and_preview_readonly) ... ����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\nok\r\ntest_keyhammer_union_and_inclusive_endpoint_no_outside_selection (__main__.MayaChecks.test_keyhammer_union_and_inclusive_endpoint_no_outside_selection) ... ����: TweenerTool_tweener_v1_0_2\nok\r\ntest_original_animation_layer_choice_and_angular_units (__main__.MayaChecks.test_original_animation_layer_choice_and_angular_units) ... ����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\nok\r\ntest_whole_object_resolution_locked_shared_scope_and_batch_ui (__main__.MayaChecks.test_whole_object_resolution_locked_shared_scope_and_batch_ui) ... ����: TweenerTool_tweener_v1_0_2\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.125s\r\n\r\nOK\r\n# Successfully registered command stagingTweener\r\n# Successfully registered command stagingTweenerUI\r\n# Successfully registered command stagingKeyHammer\r\n# Successfully registered command stagingTweenerTool\r\n# Keyhammer cancelled...\r\n# Added 4 keys\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "a759b3cc934ad7d4b0802f1ecf32cf04622285fb3b513e35fcedfda72db40214",
+  "runtime_source_sha256": "684c309a07dfd823e1f2cdc681143e8e879642e8e08137dfffe19f3ec91f367c"
+}

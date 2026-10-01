@@ -421,3 +421,12 @@
 - 全纯document API覆盖六色类型、添加/属性/选中/拖拽移动/复制粘贴/范围/删除/清空/JSON，返回新state不原地改输入。完整嵌套Schema与独立validate，深复制clipboard、相对时距和超显示范围裁剪保留；拒已有block覆盖、move同帧安全、selected移动映射/隐藏方块保留。文件4MiB/重复键/帧/色范围预检，绝对路径且拒junction/symlink，新建不覆盖，显式替换先完整旧字节backup再临时替换/并发哈希保护；没有package配置自动读取或源目录写入。
 - 全原UI经Bridge接API，修rowLayout columnWidth8/实际9控件、属性margin、refresh parent、私有属性窗名；原模式/fit/reset仅提示，现在实现，并保留默认拖拽。窗口内Qt5/6 shortcuts与100份document UndoRedo，不注册全局Maya热键；scene Undo不代替内存历史/外部文件/播放状态。sync整数负帧range只读，显式setCurrentFrame/play/stop，batch播放拒绝。
 - 普通Python4组、实际隔离Maya2025三组、临时正式布局注册面板全部通过；直接提取原完整copy/paste方法只固定UI frame读取，与candidate相对时距/裁剪结果一致；全61方法AST存在，原件SHA一致。实际scene key/selection/时间/Undo dry不变、临时文件backup/坏load保护、negative sync/小数拒绝、native全类导入和纯构造零窗口、batch show/play拒绝验证；全部GUI/焦点/滚动/播放not_run，prepared_unverified。不转正/同步/用卡/购买。
+
+## 2026-10-01：Tweener 1.0.2完整候选，累计48/109
+
+- 全27原文件/SHA/GPL LICENSE/14图标/135套件类函数声明完整携带，Py3私有相对包/Qt5/6移植，不裁减五模式/原层选择/Bézier切线/键数据/MPx Undo/UI/dragger/keyhammer。原installer会网络下载/删旧安装/覆盖module/autoload/Shelf，仅完整archive不运行；框架直接完整自有privateplugin，不需要安装用户目录。
+- 七个完整数值函数AST只把iteritems换items，与原一致。原BaseUndoChunk不能记录API2，保留完整MPxCommand/MAnimCurveChange undoIt/redoIt，把private stagingTweener等四命令纳入Basechunk。readonly validate不prepare/插键/注册plugin/UI；显式curve/objects/time_range/indices、wholeDag/锁引用/唯一输出/共享外部/层lock/timeWarp预检，源层best-layer/default真实API单位保留，帧在键范围外不安全插入拒绝。
+- 原live先关闭Undo命令创建cache现改原引擎直接preview、release登记同一cache一次；取消/关闭/换模式/异常/finalize回滚未登记cache、busy finally/仅移本窗口idlecallback，UUID输出/锁guard；外部API不能打断preview。原拖拽150px/overshoot与idle节流完整保留，修press拖动位置沿用旧值。GUI构造/实际idle/mouse未执行，不冒充通过。
+- 原keyhammer完整逐curve预计算evaluate后add，修range endIndex漏末帧、selected时间仅来自scope，取消API change回滚、progress finally，batch不建UI。tick原颜色不保证Undo明确；原UI完整toolbar/presets/饼图/dock/偏好/Qt资源，修Py3/Qt6绘制及重复父layout；预设label更新但callback旧值不一致，改当前fraction且仅Between映射，signed模式不二次变换；Shelf显式函数指向完整候选，不自动建Shelf/热键/autoload。
+- 普通Python2组、实际隔离Maya2025六组、临时正式布局注册面板通过。五模式实际value/UndoRedo、未有键插入/撤销、range/连续选键组、keyhammer并集闭区间/外部选键不借用、锁/共享/whole对象解析、actual MAnimCurveChange preview多步取消/提交与UndoRedo、注入keyhammer真实取消rollback均通过。真实简单选中animationLayer解析与Base键不变/Undo、旋转默认插值degree/API单位也通过。两次测试自身错误（Maya实际创建shared1，animLayer curve query返回list）已修为实际返回值，最终报告6passed。
+- 全GUI/idle/window close/mouse/weighted/nonlinear/production层仍not_run，prepared_unverified；现候选完整可晋级，不转正/Obsidian同步/用卡/购买。

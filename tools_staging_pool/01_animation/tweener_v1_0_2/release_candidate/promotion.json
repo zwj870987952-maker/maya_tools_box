@@ -1,0 +1,294 @@
+{
+  "tool_id": "tweener_v1_0_2",
+  "registration": {
+    "module": "tweener_v1_0_2",
+    "class_name": "TweenerTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/tweener_v1_0_2.md",
+      "target": "docs/tools/tweener_v1_0_2.md"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/__init__.py",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/catalog.json",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/__init__.py",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/icons/average.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/icons/average.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/icons/between.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/icons/between.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/icons/curve.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/icons/curve.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/icons/default.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/icons/default.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/icons/keyhammer.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/icons/keyhammer.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/icons/live-preview.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/icons/live-preview.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/icons/overshoot.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/icons/overshoot.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/icons/tick-normal.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/icons/tick-normal.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/icons/tick-special.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/icons/tick-special.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/icons/towards.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/icons/towards.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/icons/tweener-icon.png",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/icons/tweener-icon.png"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/icons/tweener-icon.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/icons/tweener-icon.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/icons/tweener-icon_150.png",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/icons/tweener-icon_150.png"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/icons/tweener-icon_200.png",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/icons/tweener-icon_200.png"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/LICENSE",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/LICENSE"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/mods/__init__.py",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/mods/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/mods/animdata.py",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/mods/animdata.py"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/mods/animlayers.py",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/mods/animlayers.py"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/mods/globals.py",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/mods/globals.py"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/mods/keyhammer.py",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/mods/keyhammer.py"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/mods/options.py",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/mods/options.py"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/mods/tool.py",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/mods/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/mods/tween.py",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/mods/tween.py"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/mods/ui.py",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/mods/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/mods/utils.py",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/mods/utils.py"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/native/staging_tweener_plugin.py",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/native/staging_tweener_plugin.py"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/runtime.py",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/tool.py",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/average.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/average.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/between.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/between.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/curve.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/curve.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/default.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/default.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/keyhammer.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/keyhammer.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/live-preview.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/live-preview.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/overshoot.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/overshoot.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/tick-normal.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/tick-normal.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/tick-special.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/tick-special.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/towards.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/towards.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/tweener-icon.png",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/tweener-icon.png"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/tweener-icon.svg",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/tweener-icon.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/tweener-icon_150.png",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/tweener-icon_150.png"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/tweener-icon_200.png",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/icons/tweener-icon_200.png"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/LICENSE",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/LICENSE"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/mods/__init__.py.original",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/mods/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/mods/animdata.py.original",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/mods/animdata.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/mods/animlayers.py.original",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/mods/animlayers.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/mods/globals.py.original",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/mods/globals.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/mods/keyhammer.py.original",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/mods/keyhammer.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/mods/options.py.original",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/mods/options.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/mods/tool.py.original",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/mods/tool.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/mods/tween.py.original",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/mods/tween.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/mods/ui.py.original",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/mods/ui.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/mods/utils.py.original",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/mods/utils.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/tweener-install.py.original",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/tweener-install.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/tweener_v1_0_2/upstream/tweener.py.original",
+      "target": "maya_toolkit/tools/tweener_v1_0_2/upstream/tweener.py.original"
+    },
+    {
+      "source": "tests/test_tweener_v1_0_2.py",
+      "target": "tests/test_tweener_v1_0_2.py"
+    },
+    {
+      "source": "tests/test_tweener_v1_0_2_maya.py",
+      "target": "tests/test_tweener_v1_0_2_maya.py"
+    }
+  ],
+  "resources": [
+    "icons/average.svg",
+    "icons/between.svg",
+    "icons/curve.svg",
+    "icons/default.svg",
+    "icons/keyhammer.svg",
+    "icons/live-preview.svg",
+    "icons/overshoot.svg",
+    "icons/tick-normal.svg",
+    "icons/tick-special.svg",
+    "icons/towards.svg",
+    "icons/tweener-icon.png",
+    "icons/tweener-icon.svg",
+    "icons/tweener-icon_150.png",
+    "icons/tweener-icon_200.png",
+    "LICENSE",
+    "mods/__init__.py",
+    "mods/animdata.py",
+    "mods/animlayers.py",
+    "mods/globals.py",
+    "mods/keyhammer.py",
+    "mods/options.py",
+    "mods/tool.py",
+    "mods/tween.py",
+    "mods/ui.py",
+    "mods/utils.py",
+    "tweener-install.py",
+    "tweener.py"
+  ],
+  "dependencies": [
+    "Maya API2/cmds, Qt5/6, complete private Python plugin; no download/installation/autoload required"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete original 1.0.2 suite ported with all five interpolation algorithms, animation-layer choice, original MPxCommand/MAnimCurveChange Undo, full dockable UI/mouse preview/keyhammer and resources/license. Explicit scoped API/read-only preflight, private namespaces/commands, Qt6/Py3 ports, non-destructive startup; original installer archive only.",
+  "verification_limitations": [
+    "Full GUI/idle live preview/docking/mouse tool and production animation-layer rigs not_run",
+    "Initial private plugin registration and GUI preference writes are outside Undo",
+    "Endpoint-outside-keyed-range insertion rejected; keyhammer inclusive range endpoint repaired",
+    "Original network/delete/reinstall/autoload/shelf installer remains archive-only; direct framework use is self-contained",
+    "Original tick color changes may not be Undoable in all Maya versions"
+  ]
+}

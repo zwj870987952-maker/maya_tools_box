@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T19:16:46.763690+08:00",
+  "updated_at": "2026-10-01T19:41:32.019692+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/timeline_enhanced",
+    "last_completed_tool": "01_animation/tweener_v1_0_2",
     "last_usage": {
-      "five_hour_used_percent": 74.0,
+      "five_hour_used_percent": 79.0,
       "weekly_used_percent": 12.0,
-      "recorded_at": "2026-10-01T19:00:36.639574+08:00",
+      "recorded_at": "2026-10-01T19:17:11.172197+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/timeline_enhanced"
+    "current_tool": "01_animation/tweener_v1_0_2"
   },
   "entry_repairs": [
     {
@@ -7978,7 +7978,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Both complete basic/enhanced source interfaces and all methods preserved; full pure marker-document API, all block types/edit/copy/paste/selection/drag/config/playback. Safe config schema/read-only previews, explicit file replace backups, correct parent/layout/negative frames, working modes/fit/reset/keyboard shortcuts and local document Undo/Redo. No scene animation-key editing.",
-      "prepared_at": "2026-10-01T19:16:45.123566+08:00"
+      "prepared_at": "2026-10-01T19:16:45.123566+08:00",
+      "source_commit": "8e160f2ccc7eb4fde141a9d7c9633d57bc2fc9be"
     },
     {
       "source_path": "01_animation/tweener_v1_0_2",
@@ -7989,7 +7990,7 @@
       "entry_candidates": [
         "tweener.py"
       ],
-      "source_file_count": 27,
+      "source_file_count": 28,
       "source_files": [
         "mods/__init__.py",
         "mods/animdata.py",
@@ -8008,14 +8009,78 @@
         "LICENSE"
       ],
       "entry_sha256": "fc3f00362c6a39196843f2b6ea6e0f8cdb1b1f82f79c23374ac0b2ac8d91a08a",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_all_resources_sources_license_and_algorithms (__main__.Offline.test_all_resources_sources_license_and_algorithms) ... ok\r\ntest_math_exact_unclamped_modes_and_arguments (__main__.Offline.test_math_exact_unclamped_modes_and_arguments) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.008s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"tweener_v1_0_2\",\r\n  \"candidate_sha256\": \"b0716ec01aa129ff0a2c60591a3948c97da3b78d1fbfcd3f53c5cf52d8de0d05\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\tweener_v1_0_2.md\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\icons\\\\average.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\icons\\\\between.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\icons\\\\curve.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\icons\\\\default.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\icons\\\\keyhammer.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\icons\\\\live-preview.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\icons\\\\overshoot.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\icons\\\\tick-normal.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\icons\\\\tick-special.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\icons\\\\towards.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\icons\\\\tweener-icon.png\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\icons\\\\tweener-icon.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\icons\\\\tweener-icon_150.png\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\icons\\\\tweener-icon_200.png\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\LICENSE\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\mods\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\mods\\\\animdata.py\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\mods\\\\animlayers.py\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\mods\\\\globals.py\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\mods\\\\keyhammer.py\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\mods\\\\options.py\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\mods\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\mods\\\\tween.py\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\mods\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\mods\\\\utils.py\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\native\\\\staging_tweener_plugin.py\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\icons\\\\average.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\icons\\\\between.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\icons\\\\curve.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\icons\\\\default.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\icons\\\\keyhammer.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\icons\\\\live-preview.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\icons\\\\overshoot.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\icons\\\\tick-normal.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\icons\\\\tick-special.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\icons\\\\towards.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\icons\\\\tweener-icon.png\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\icons\\\\tweener-icon.svg\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\icons\\\\tweener-icon_150.png\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\icons\\\\tweener-icon_200.png\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\LICENSE\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\mods\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\mods\\\\animdata.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\mods\\\\animlayers.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\mods\\\\globals.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\mods\\\\keyhammer.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\mods\\\\options.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\mods\\\\tool.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\mods\\\\tween.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\mods\\\\ui.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\mods\\\\utils.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\tweener-install.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\tweener_v1_0_2\\\\upstream\\\\tweener.py.original\",\r\n    \"tests\\\\test_tweener_v1_0_2.py\",\r\n    \"tests\\\\test_tweener_v1_0_2_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/tweener_v1_0_2/release_candidate/tests/test_tweener_v1_0_2_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_actual_preview_cancel_commit_and_keyhammer_failure_rollback (__main__.MayaChecks.test_actual_preview_cancel_commit_and_keyhammer_failure_rollback) ... ����: \n����: \nok\r\ntest_all_five_complete_modes_actual_api2_and_undo_redo (__main__.MayaChecks.test_all_five_complete_modes_actual_api2_and_undo_redo) ... ����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\nok\r\ntest_insert_range_selected_groups_and_preview_readonly (__main__.MayaChecks.test_insert_range_selected_groups_and_preview_readonly) ... ����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\nok\r\ntest_keyhammer_union_and_inclusive_endpoint_no_outside_selection (__main__.MayaChecks.test_keyhammer_union_and_inclusive_endpoint_no_outside_selection) ... ����: TweenerTool_tweener_v1_0_2\nok\r\ntest_original_animation_layer_choice_and_angular_units (__main__.MayaChecks.test_original_animation_layer_choice_and_angular_units) ... ����: TweenerTool_tweener_v1_0_2\n����: TweenerTool_tweener_v1_0_2\nok\r\ntest_whole_object_resolution_locked_shared_scope_and_batch_ui (__main__.MayaChecks.test_whole_object_resolution_locked_shared_scope_and_batch_ui) ... ����: TweenerTool_tweener_v1_0_2\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.125s\r\n\r\nOK\r\n# Successfully registered command stagingTweener\r\n# Successfully registered command stagingTweenerUI\r\n# Successfully registered command stagingKeyHammer\r\n# Successfully registered command stagingTweenerTool\r\n# Keyhammer cancelled...\r\n# Added 4 keys\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "a759b3cc934ad7d4b0802f1ecf32cf04622285fb3b513e35fcedfda72db40214",
+          "runtime_source_sha256": "684c309a07dfd823e1f2cdc681143e8e879642e8e08137dfffe19f3ec91f367c"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Complete dockable Qt GUI, actual idle callbacks/mouse context, weighted tangents and production layered rigs acceptance not_run; API2 preview engine alone was isolated-tested."
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "b0716ec01aa129ff0a2c60591a3948c97da3b78d1fbfcd3f53c5cf52d8de0d05",
+          "returncode": 0,
+          "output": "test_all_resources_sources_license_and_algorithms (__main__.Offline.test_all_resources_sources_license_and_algorithms) ... ok\r\ntest_math_exact_unclamped_modes_and_arguments (__main__.Offline.test_math_exact_unclamped_modes_and_arguments) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.008s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Full GUI/idle live preview/docking/mouse tool and production animation-layer rigs not_run",
+        "Initial private plugin registration and GUI preference writes are outside Undo",
+        "Endpoint-outside-keyed-range insertion rejected; keyhammer inclusive range endpoint repaired",
+        "Original network/delete/reinstall/autoload/shelf installer remains archive-only; direct framework use is self-contained",
+        "Original tick color changes may not be Undoable in all Maya versions"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 12,
@@ -8024,7 +8089,115 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "e8f8e635219b4cf548ee9802be0e8b770142996b57c265380578a767a4f86973"
+      "source_tree_sha256": "902fa867745c5a7c6914b0ee6db21199e5b34c3b1d68ac39edf9624180a79a00",
+      "candidate_path": "tools_staging_pool/01_animation/tweener_v1_0_2/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/tweener_v1_0_2/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "tweener_v1_0_2",
+        "candidate_sha256": "b0716ec01aa129ff0a2c60591a3948c97da3b78d1fbfcd3f53c5cf52d8de0d05",
+        "applied": false,
+        "files": [
+          "docs\\tools\\tweener_v1_0_2.md",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\__init__.py",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\catalog.json",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\__init__.py",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\icons\\average.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\icons\\between.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\icons\\curve.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\icons\\default.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\icons\\keyhammer.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\icons\\live-preview.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\icons\\overshoot.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\icons\\tick-normal.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\icons\\tick-special.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\icons\\towards.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\icons\\tweener-icon.png",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\icons\\tweener-icon.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\icons\\tweener-icon_150.png",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\icons\\tweener-icon_200.png",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\LICENSE",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\mods\\__init__.py",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\mods\\animdata.py",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\mods\\animlayers.py",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\mods\\globals.py",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\mods\\keyhammer.py",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\mods\\options.py",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\mods\\tool.py",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\mods\\tween.py",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\mods\\ui.py",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\mods\\utils.py",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\native\\staging_tweener_plugin.py",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\runtime.py",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\tool.py",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\icons\\average.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\icons\\between.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\icons\\curve.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\icons\\default.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\icons\\keyhammer.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\icons\\live-preview.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\icons\\overshoot.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\icons\\tick-normal.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\icons\\tick-special.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\icons\\towards.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\icons\\tweener-icon.png",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\icons\\tweener-icon.svg",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\icons\\tweener-icon_150.png",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\icons\\tweener-icon_200.png",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\LICENSE",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\mods\\__init__.py.original",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\mods\\animdata.py.original",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\mods\\animlayers.py.original",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\mods\\globals.py.original",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\mods\\keyhammer.py.original",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\mods\\options.py.original",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\mods\\tool.py.original",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\mods\\tween.py.original",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\mods\\ui.py.original",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\mods\\utils.py.original",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\tweener-install.py.original",
+          "maya_toolkit\\tools\\tweener_v1_0_2\\upstream\\tweener.py.original",
+          "tests\\test_tweener_v1_0_2.py",
+          "tests\\test_tweener_v1_0_2_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "icons/average.svg",
+        "icons/between.svg",
+        "icons/curve.svg",
+        "icons/default.svg",
+        "icons/keyhammer.svg",
+        "icons/live-preview.svg",
+        "icons/overshoot.svg",
+        "icons/tick-normal.svg",
+        "icons/tick-special.svg",
+        "icons/towards.svg",
+        "icons/tweener-icon.png",
+        "icons/tweener-icon.svg",
+        "icons/tweener-icon_150.png",
+        "icons/tweener-icon_200.png",
+        "LICENSE",
+        "mods/__init__.py",
+        "mods/animdata.py",
+        "mods/animlayers.py",
+        "mods/globals.py",
+        "mods/keyhammer.py",
+        "mods/options.py",
+        "mods/tool.py",
+        "mods/tween.py",
+        "mods/ui.py",
+        "mods/utils.py",
+        "tweener-install.py",
+        "tweener.py"
+      ],
+      "external_dependencies": [
+        "Maya API2/cmds, Qt5/6, complete private Python plugin; no download/installation/autoload required"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete original 1.0.2 suite ported with all five interpolation algorithms, animation-layer choice, original MPxCommand/MAnimCurveChange Undo, full dockable UI/mouse preview/keyhammer and resources/license. Explicit scoped API/read-only preflight, private namespaces/commands, Qt6/Py3 ports, non-destructive startup; original installer archive only.",
+      "prepared_at": "2026-10-01T19:41:30.295160+08:00"
     },
     {
       "source_path": "01_animation/velocity_calculator",
