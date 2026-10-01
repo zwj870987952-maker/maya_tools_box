@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-02T02:14:00.096847+08:00
+更新时间：2026-10-02T02:52:56.544396+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -67,7 +67,7 @@
 | `02_rigging_hierarchy/segment_scale_fix` | prepared_unverified | True | True | not_run |
 | `02_rigging_hierarchy/skeleton_generator` | prepared_unverified | True | True | not_run |
 | `02_rigging_hierarchy/skin_info_and_super_connect` | prepared_unverified | True | True | not_run |
-| `02_rigging_hierarchy/skin_magic` | pending | True | False | not_run |
+| `02_rigging_hierarchy/skin_magic` | prepared_unverified | True | True | not_run |
 | `02_rigging_hierarchy/skin_weight_transfer` | pending | True | False | not_run |
 | `03_transforms_modeling/camera_f_fix` | pending | True | False | not_run |
 | `03_transforms_modeling/cvwrap_weightdriver` | pending | True | False | not_run |

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T02:14:00.096847+08:00",
+  "updated_at": "2026-10-02T02:52:56.544396+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "02_rigging_hierarchy/skeleton_generator",
+    "last_completed_tool": "02_rigging_hierarchy/skin_magic",
     "last_usage": {
-      "five_hour_used_percent": 1.0,
+      "five_hour_used_percent": 4.0,
       "weekly_used_percent": 31.0,
-      "recorded_at": "2026-10-02T02:09:24.969518+08:00",
-      "note": "Actual caller read: ordinaryUsageAllowed true; app thread list showed no other active writer in this checkout"
+      "recorded_at": "2026-10-02T02:15:55.938845+08:00",
+      "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "02_rigging_hierarchy/skeleton_generator"
+    "current_tool": "02_rigging_hierarchy/skin_magic"
   },
   "entry_repairs": [
     {
@@ -10795,7 +10795,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete original selected joint/locator forest creation with copied world TR and joint radius/drawStyle; original bytes and full function retained, no auto execution; exact selected hierarchy edges, suffix/name collision checks, no scale or unselected hierarchy copying, iterative deep forests, dry scope and Undo, deferred complete UI.",
-      "prepared_at": "2026-10-02T02:13:57.610846+08:00"
+      "prepared_at": "2026-10-02T02:13:57.610846+08:00",
+      "source_commit": "59229967abbbdb4c4d668d033845728199588459"
     },
     {
       "source_path": "02_rigging_hierarchy/skin_info_and_super_connect",
@@ -10955,20 +10956,85 @@
       "entry_candidates": [
         "SkinMagic/skinMagic.py"
       ],
-      "source_file_count": 41,
+      "source_file_count": 42,
       "source_files": [
         "SkinMagic/skinMagic.py"
       ],
       "license_files": [],
       "entry_sha256": "432d770f488b08c9abaaf08698af2869538a8806a6fa818fb243f68977e5589d",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": ".....\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.131s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"skin_magic\",\r\n  \"candidate_sha256\": \"4e94fb0dad1b7084437ef404f7b5a6fe29874d87b660b6a5d04b3a19eb1048ed\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\skin_magic.md\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\fileio.py\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\HowToInstall.txt\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\ali_pay.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\bilibili.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\bitcoin.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\bullet_createRagdoll.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\China Flag.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\cleanAttr.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\cMuscle_misc_help.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\color.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\delNonSkinHistory.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\donut.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\english.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\gore.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\hsClearView.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\info.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\japanese.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\language.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\linkedin.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\MiscTools.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\moveSkinnedJoint.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\paypal.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\redo.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\reduce.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\removeInf.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\rename.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\scriptEditor.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\Shelf.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\spring.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\Title.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\update.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\vimeo.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\wechat_pay.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\weight.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\weightBone.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\icons\\\\youtube.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\skinMagic.py\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\skinMagic.ui\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\skinMagic_chn.ui\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\skinMagic_eng.ui\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\skinMagic_jpn.ui\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\native\\\\\\u5b89\\u88c5\\u8bf4\\u660e.txt\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\ui_support.py\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\HowToInstall.txt\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\ali_pay.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\bilibili.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\bitcoin.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\bullet_createRagdoll.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\China Flag.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\cleanAttr.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\cMuscle_misc_help.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\color.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\delNonSkinHistory.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\donut.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\english.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\gore.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\hsClearView.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\info.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\japanese.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\language.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\linkedin.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\MiscTools.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\moveSkinnedJoint.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\paypal.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\redo.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\reduce.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\removeInf.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\rename.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\scriptEditor.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\Shelf.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\spring.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\Title.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\update.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\vimeo.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\wechat_pay.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\weight.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\weightBone.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\icons\\\\youtube.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\skinMagic.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\skinMagic.ui\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\skinMagic_chn.ui\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\skinMagic_eng.ui\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\skinMagic_jpn.ui\",\r\n    \"maya_toolkit\\\\tools\\\\skin_magic\\\\upstream\\\\\\u5b89\\u88c5\\u8bf4\\u660e.txt\",\r\n    \"tests\\\\test_skin_magic.py\",\r\n    \"tests\\\\test_skin_magic_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/02_rigging_hierarchy/skin_magic/release_candidate/tests/test_skin_magic_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "����: SkinMagicTool_skin_magic\n.�����ı�����Ȩ��Ϊ��C:\\Users\\zwj87\\AppData\\Local\\Temp\\tmpmr_07g3h/native.xml����\n����: candidateXmlImport\n..����: SkinMagicTool_skin_magic\n.\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.082s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "50037b90388bb7b6a2a1be33d364fb5cc5ec738bbacccd1e3b8a2d12a6fed2bf",
+          "runtime_source_sha256": "680a4389e9f30f28e4b2c7744dcc5b82ea86dd6a63221e0920069c177d4e1d66"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Full PyMel SkinMagic GUI/business paths and production rigs not_run; PyMel absent. Real Maya GUI acceptance required before promotion."
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "4e94fb0dad1b7084437ef404f7b5a6fe29874d87b660b6a5d04b3a19eb1048ed",
+          "returncode": 0,
+          "output": ".....\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.132s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Full PyMel business paths and real Maya GUI not_run because PyMel absent",
+        "Spring dead callbacks have no algorithm/UI in upstream; retained explicit failure, separate SpringMagic required",
+        "Legacy pickle files rejected; export using original in trusted legacy environment before converting to documented JSON",
+        "Complex LoD/Gore/reskin/wrap/deformer/bind-pose/paint helpers require backup-scene manual acceptance",
+        "Maya deformerWeights underlying writes are not intrinsically undoable; candidate restores/replays weights for existing skin",
+        "No independent redistribution license supplied"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -10977,7 +11043,161 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "a9b27a06abec0a5a7dcc300bb79d22d908e774918e2feb19c9c4d4f570ad5d3b"
+      "source_tree_sha256": "90dd1aa1d9e029a2b1838ede980e2770bba8428c452c6080aae9de66f17e9c51",
+      "candidate_path": "tools_staging_pool/02_rigging_hierarchy/skin_magic/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/02_rigging_hierarchy/skin_magic/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "skin_magic",
+        "candidate_sha256": "4e94fb0dad1b7084437ef404f7b5a6fe29874d87b660b6a5d04b3a19eb1048ed",
+        "applied": false,
+        "files": [
+          "docs\\tools\\skin_magic.md",
+          "maya_toolkit\\tools\\skin_magic\\__init__.py",
+          "maya_toolkit\\tools\\skin_magic\\catalog.json",
+          "maya_toolkit\\tools\\skin_magic\\fileio.py",
+          "maya_toolkit\\tools\\skin_magic\\native\\__init__.py",
+          "maya_toolkit\\tools\\skin_magic\\native\\HowToInstall.txt",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\ali_pay.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\bilibili.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\bitcoin.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\bullet_createRagdoll.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\China Flag.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\cleanAttr.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\cMuscle_misc_help.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\color.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\delNonSkinHistory.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\donut.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\english.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\gore.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\hsClearView.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\info.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\japanese.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\language.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\linkedin.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\MiscTools.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\moveSkinnedJoint.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\paypal.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\redo.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\reduce.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\removeInf.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\rename.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\scriptEditor.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\Shelf.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\spring.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\Title.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\update.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\vimeo.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\wechat_pay.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\weight.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\weightBone.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\icons\\youtube.png",
+          "maya_toolkit\\tools\\skin_magic\\native\\skinMagic.py",
+          "maya_toolkit\\tools\\skin_magic\\native\\skinMagic.ui",
+          "maya_toolkit\\tools\\skin_magic\\native\\skinMagic_chn.ui",
+          "maya_toolkit\\tools\\skin_magic\\native\\skinMagic_eng.ui",
+          "maya_toolkit\\tools\\skin_magic\\native\\skinMagic_jpn.ui",
+          "maya_toolkit\\tools\\skin_magic\\native\\安装说明.txt",
+          "maya_toolkit\\tools\\skin_magic\\runtime.py",
+          "maya_toolkit\\tools\\skin_magic\\tool.py",
+          "maya_toolkit\\tools\\skin_magic\\ui_support.py",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\HowToInstall.txt",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\ali_pay.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\bilibili.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\bitcoin.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\bullet_createRagdoll.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\China Flag.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\cleanAttr.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\cMuscle_misc_help.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\color.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\delNonSkinHistory.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\donut.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\english.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\gore.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\hsClearView.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\info.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\japanese.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\language.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\linkedin.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\MiscTools.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\moveSkinnedJoint.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\paypal.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\redo.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\reduce.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\removeInf.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\rename.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\scriptEditor.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\Shelf.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\spring.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\Title.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\update.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\vimeo.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\wechat_pay.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\weight.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\weightBone.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\icons\\youtube.png",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\skinMagic.py.original",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\skinMagic.ui",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\skinMagic_chn.ui",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\skinMagic_eng.ui",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\skinMagic_jpn.ui",
+          "maya_toolkit\\tools\\skin_magic\\upstream\\安装说明.txt",
+          "tests\\test_skin_magic.py",
+          "tests\\test_skin_magic_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "HowToInstall.txt",
+        "icons/ali_pay.png",
+        "icons/bilibili.png",
+        "icons/bitcoin.png",
+        "icons/bullet_createRagdoll.png",
+        "icons/China Flag.png",
+        "icons/cleanAttr.png",
+        "icons/cMuscle_misc_help.png",
+        "icons/color.png",
+        "icons/delNonSkinHistory.png",
+        "icons/donut.png",
+        "icons/english.png",
+        "icons/gore.png",
+        "icons/hsClearView.png",
+        "icons/info.png",
+        "icons/japanese.png",
+        "icons/language.png",
+        "icons/linkedin.png",
+        "icons/MiscTools.png",
+        "icons/moveSkinnedJoint.png",
+        "icons/paypal.png",
+        "icons/redo.png",
+        "icons/reduce.png",
+        "icons/removeInf.png",
+        "icons/rename.png",
+        "icons/scriptEditor.png",
+        "icons/Shelf.png",
+        "icons/spring.png",
+        "icons/Title.png",
+        "icons/update.png",
+        "icons/vimeo.png",
+        "icons/wechat_pay.png",
+        "icons/weight.png",
+        "icons/weightBone.png",
+        "icons/youtube.png",
+        "skinMagic.py",
+        "skinMagic.ui",
+        "skinMagic_chn.ui",
+        "skinMagic_eng.ui",
+        "skinMagic_jpn.ui",
+        "安装说明.txt"
+      ],
+      "external_dependencies": [
+        "Maya cmds/MEL/API2",
+        "Compatible PyMel for complete original GUI/engine; absent in installed Maya2025"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete 250 upstream functions and all 41 source/resources retained with byte archive; lazy private Python3 port, full four-language UI callback binding, supplemental Gore controls, schema/API/batch weights, safe JSON replacing pickle, exclusive exports/private XML, no internal Undo/global shader/annotation cleanup, scoped ownership/dry-run, docs/tests/promotion.",
+      "prepared_at": "2026-10-02T02:49:28.454522+08:00"
     },
     {
       "source_path": "02_rigging_hierarchy/skin_weight_transfer",

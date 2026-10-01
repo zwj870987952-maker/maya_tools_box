@@ -551,3 +551,11 @@
 - 原选区生成骨骼链完整函数/原SHA保留，去自动执行。完整joint/locator所选森林，原joint-first/direct-selected-parent边界、world TR不复制scale、joint radius/drawStyle、选择新骨架保留；改迭代深树、目标namespace/后缀名碰撞整体预检、UUID映射、select_result可恢复选择，原namespace/autokey恢复。
 - 两组Python+三组Maya2025隔离+临时正式布局/rigging域/注册/Schema/panel/fingerprint通过：混选三节点实际世界位置/quaternion/层级/radius/drawStyle/单位scale、未选tip不创建、dry全scene/selection/time/undo不变、单Undo删除全部新骨架；缺选中中间父生成两个世界根/有namespace源/调用者autokey与namespace及selection恢复、冲突/别名/真DAG实例/空scope拒绝。namespaceInfo当前返回caller而非:caller，fixture改比较调用前实际值，不伪造业务变化。
 - 真实GUI/生产混合缩放rig/跨版本not_run，prepared_unverified。实际5h已用4%、周31%，继续skin_magic，heartbeat保持暂停；不迁正式/同步/用卡/购买。
+
+# 2026-10-02：SkinMagic 4.0 完整候选，累计63/109
+
+- 250原函数定义、完整41文件（4语言UI/原图标/安装说明）逐字节SHA归档，原目录不变；私有Python3完整业务运行时无自动UI/场景/网络。101控件回调逐语言改callable绑定，不污染__main__，资源绝对作者路径改候选路径；完整原权重/LoD/Rename/Misc/BS/BBF算法、Gore补充窗口，缺失Spring算法/控件明确保留报错，不虚构实现。
+- Base/ToolResult/Schema全部UI业务命令和cmds批量inspect/set/export/import；只读scope包含选区/缓存/历史/skin/LoD删除相关连接，已有引用/锁/实例/影响/alias冲突拒绝。原连续Undo改目标权重快照恢复/明确临时网格删除；去全场景annotation/unusedshader/未知后缀代理和别名目标删除；PyMel缺失不装stub，真实GUI待验收。使用框架Undo、不改core/正式库。
+- 权重与LoD pickle改64MiB安全JSON、独占输出，旧pickle明确拒绝；XML私有临时目录、实体/影响/顶点数/点值保护，原deformerWeights后API复原再skinPercent回放实现可撤销；保留原GUI导出2位精度，cmds批量完整精度。恢复选优先级/影响锁/AutoKey/time/isolate/源BS，原颜色代理按UUID清理/显示复原。
+- 5组Python+4组Maya2025隔离+临时正式布局注册/rigging域/panel/fingerprint通过：完整原字节/函数/UI/图标闭包，安全数据/恶意pickle与XML实体拒绝，真实skin指定顶点/未选顶点/no-write dry/单Undo；JSON导出不覆盖/导入Undo、XML实际weight与Undo/无holdernode，锁/错范围/实例/GUI依赖拒绝。完整PyMel、真实GUI、生产LoD/Gore/Wrap/代理及跨版本not_run；prepared_unverified，非假通过。
+- 收尾实时5h已用18%（剩82%）、周33%（剩67%），立即继续skin_weight_transfer；heartbeat保持暂停，不迁正式/同步/用卡/购买。
