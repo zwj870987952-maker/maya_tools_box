@@ -1,0 +1,5469 @@
+{
+  "files": [
+    {
+      "path": "bb_attributeTool.mel",
+      "sha256": "fa1fbca32bb38b2073b30cabbaa5ba1e8b9040e4d273d7db833fea83c1af4378",
+      "bytes": 23714
+    },
+    {
+      "path": "bb_createFolliceTool.mel",
+      "sha256": "746270cfd0dc3499a8e34f382379aca5d9387d8e1adf259adbf7715516a6d6df",
+      "bytes": 3251
+    },
+    {
+      "path": "bb_ctrlTool.mel",
+      "sha256": "25d221e14920109e6eeb29d05ba210dd1efcfbe028227cd23782b7767196dd14",
+      "bytes": 31145
+    },
+    {
+      "path": "bb_curveTool.mel",
+      "sha256": "dc3bf766641dbede89abe6376a9e4542bf5ef2af531d0ff7e395f4ec52cba64c",
+      "bytes": 15385
+    },
+    {
+      "path": "bb_history.mel",
+      "sha256": "b37b0fbbaf633872ecca9b3015a730315a831029da4072f250acad539b321be3",
+      "bytes": 1145
+    },
+    {
+      "path": "bb_listTool.mel",
+      "sha256": "81bac859c849fec743a2d7599d732bdb5b309d2a57373543572b6a8365ba1616",
+      "bytes": 8758
+    },
+    {
+      "path": "bb_QCTool/bb_QC_apply.mel",
+      "sha256": "2adc824a047af73a83f2d7f0efd3b7f0e88db2b68236628a5d21c0e19f8f4ac4",
+      "bytes": 28704
+    },
+    {
+      "path": "bb_QCTool/bb_QC_set.mel",
+      "sha256": "8e0f90336726d290e4b49cf86cde8860c057b9976b55ba0ccf913c288aee592c",
+      "bytes": 12770
+    },
+    {
+      "path": "bb_QCTool/bb_QC_text.mel",
+      "sha256": "faf0df80efe9c843a1ac6fa566fe105acdacb6d33ff52a536963fe96e4395b3a",
+      "bytes": 14183
+    },
+    {
+      "path": "bb_QCTool/bb_QC_UI.mel",
+      "sha256": "b66a1e16f2e5130de50d82ff197cbde56429449a808a4ade11ac312918fe3726",
+      "bytes": 22620
+    },
+    {
+      "path": "bb_QCTool/bb_QCTool.mel",
+      "sha256": "d3d37aa81ecc8430d24edfbebc6dc94a314f17191095d9886b79444ae0a18a15",
+      "bytes": 754
+    },
+    {
+      "path": "bb_QCTool/qc说明.docx",
+      "sha256": "0fceb043b2e12cb6bcfde09f8827d445be51ea3e33867a2fcc0b638a192a1424",
+      "bytes": 114352
+    },
+    {
+      "path": "bb_selectTool.mel",
+      "sha256": "d0403544c6838e97bee7da7e79a359ef050268ef30e883bb854d47ee459df7f3",
+      "bytes": 5559
+    },
+    {
+      "path": "bb_skinList.mel",
+      "sha256": "851589ce38ba6b48aac7694ff54b8ebb647092e4c8e7c1bec2f90d77bf5cecde",
+      "bytes": 2093
+    },
+    {
+      "path": "bb_softModTool.mel",
+      "sha256": "3c5a62d25aca983e32d3367bbb1c617b6ce1062ad9a9ae4db8f6a8c9f8a4bba6",
+      "bytes": 13567
+    },
+    {
+      "path": "bb_Tools.mel",
+      "sha256": "ccfe0523859e731cc0f094b1c3d04daa892ac66485580cd49b26113265ca8bb9",
+      "bytes": 8679
+    },
+    {
+      "path": "Icon/ADV.png",
+      "sha256": "81f6fd159e7bca35ce67f1edcc7b984ef1ec24c4c818c7c1d7b231238922e89d",
+      "bytes": 3543
+    },
+    {
+      "path": "Icon/Attr.png",
+      "sha256": "24feddf9e3a5fbbd4cd7787ac208758e8a64077b8f3cc681636fb13f9dbf9950",
+      "bytes": 3683
+    },
+    {
+      "path": "Icon/AutoSkirt.png",
+      "sha256": "420428be63f51656bb5ef29c4a50b4b3c945b7feeb3898fd34eb09e983f88776",
+      "bytes": 4942
+    },
+    {
+      "path": "Icon/BB.png",
+      "sha256": "f66d4e72f69c58d0bc28b826c33a022c27ff63d42d102b9f5120bef82cf34c9b",
+      "bytes": 3338
+    },
+    {
+      "path": "Icon/BS.png",
+      "sha256": "f9a3ba7b5c9ab19b5207f414a436d7e6dde785dc3ae2969f235419ad5a9dc7a8",
+      "bytes": 2680
+    },
+    {
+      "path": "Icon/Ctrl.png",
+      "sha256": "0b0b4d6ee7dd111f2c20439866400932b12c2c38c1e07d30ed47fc6507a309b3",
+      "bytes": 3625
+    },
+    {
+      "path": "Icon/CV.png",
+      "sha256": "e1a2e25e1bc4c9cfcb285ac449c5ddcf60fe1c76f98b87c646ac6cbdae999509",
+      "bytes": 2995
+    },
+    {
+      "path": "Icon/Duplicate.png",
+      "sha256": "0ccc07a389f13a456a29e708ad2e3b69383d2df29d7b9d17d0e9bd03c4e90bf4",
+      "bytes": 3141
+    },
+    {
+      "path": "Icon/Dynamic.png",
+      "sha256": "e8f60edd646aa8bb435669e16020d6076649b543f9825257ceacc557e4f3b4ad",
+      "bytes": 3587
+    },
+    {
+      "path": "Icon/FBX.png",
+      "sha256": "c9732618e82e68aa59cf1b80cf764b28248df807975ff46e42ea4a43f46dc5d1",
+      "bytes": 2652
+    },
+    {
+      "path": "Icon/FixError.png",
+      "sha256": "f575ae154331fcad22b7577d6ebae45af3af9fe375a12bbc6e268ea036817ec6",
+      "bytes": 2694
+    },
+    {
+      "path": "Icon/Follicles.png",
+      "sha256": "120e1cddb50f81a1ee78a62b97f499e664b02235566f18d2775d5d942f6073d3",
+      "bytes": 3601
+    },
+    {
+      "path": "Icon/History.png",
+      "sha256": "795c24d3683574a17d2518eafca3b15c0c41843442e4218648f3af3c53d695b0",
+      "bytes": 2637
+    },
+    {
+      "path": "Icon/JointRerVert.png",
+      "sha256": "7ebf02a21ea82265c5424b3dcbf87528b1c367d1c2687dc0d203c1bf4d01e77b",
+      "bytes": 4027
+    },
+    {
+      "path": "Icon/List.png",
+      "sha256": "b12b662b1d91b6fc16afba8decc7780186ca32efeee70ee8b03aa1740942be5d",
+      "bytes": 2816
+    },
+    {
+      "path": "Icon/Master.png",
+      "sha256": "18604c3daf857ce2feba73dd0eede2b6a881b772edd9ae0aa0d7c4ee94d98872",
+      "bytes": 2327
+    },
+    {
+      "path": "Icon/Mirror.png",
+      "sha256": "80c9b65bd522a1fd4cd66d0be18d59bf071a43ea8a45e60fa1956c44288fca46",
+      "bytes": 2896
+    },
+    {
+      "path": "Icon/OutlineError.png",
+      "sha256": "c61211ccc7e87ae788db8132f03910648d3b4f2eee8b4fd2631daa2adcabda5c",
+      "bytes": 4149
+    },
+    {
+      "path": "Icon/Pose.png",
+      "sha256": "44724ab276dc1fcfbcae735b14499010660bc6aa769f71583591a4c90f9e975b",
+      "bytes": 2613
+    },
+    {
+      "path": "Icon/QC.png",
+      "sha256": "d5ef78344c657deaf144732a727207bc99aace9b6bfcdb109db204c6ebc54905",
+      "bytes": 2666
+    },
+    {
+      "path": "Icon/Rename.png",
+      "sha256": "4eeebd95ce547322de98ba0d63a0a4e21161e01b6c0218312b0d4959f036da21",
+      "bytes": 3545
+    },
+    {
+      "path": "Icon/Select.png",
+      "sha256": "cc6105763e0a2e15ed5f50cc37620a85c3191d8fe49256b0452cf942c04e4536",
+      "bytes": 2810
+    },
+    {
+      "path": "Icon/SkinList.png",
+      "sha256": "c16a762857cd6c0c387cbee4aa2bc6658f2d5f7ffebc96e437b601fc6e23eee1",
+      "bytes": 4163
+    },
+    {
+      "path": "Icon/SoClear.png",
+      "sha256": "1cf22c0c1b5fae97b0c681f9fec760fb3baf34de62492477ecaedd279f1c6b60",
+      "bytes": 3279
+    },
+    {
+      "path": "Icon/SoftMod.png",
+      "sha256": "db3f4ee80009214281cf1dc5f5aeda157e54cc2817848d1d52584274def32ef9",
+      "bytes": 3844
+    },
+    {
+      "path": "Icon/TexPath.png",
+      "sha256": "c6b7dd646735e5559fc3fcb60453c18e01d11636ed499cb0e7bd78afdf0dd52c",
+      "bytes": 2476
+    },
+    {
+      "path": "Icon/Weight.png",
+      "sha256": "f522dde0a4e145b8c080c8fd776a4583e8e0e779cc33b5fb80b37aea3b580696",
+      "bytes": 4192
+    },
+    {
+      "path": "Install_BBTools.mel",
+      "sha256": "e3dd6157ac8fbcd752d6c67614de8cb55e04eb6c443eb129f2e787c669daf3f1",
+      "bytes": 751
+    },
+    {
+      "path": "Script/aboutJBPerVert.mel",
+      "sha256": "3d1350bbd72660eab56879605098c3173434e121634edb962c285c5c71cf1998",
+      "bytes": 13033
+    },
+    {
+      "path": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "sha256": "79a63e7fc926bad6bf706c1125f30ffdd95aa5fc180509400cce9b11b83dbacb",
+      "bytes": 23744
+    },
+    {
+      "path": "Script/bb_advFixTool/file/drv.ma",
+      "sha256": "e017d6c7f8171dd19e61e0dfeb02a5eb1eeee6e26a2894d6174f0679d7425f90",
+      "bytes": 217738
+    },
+    {
+      "path": "Script/bb_advFixTool/file/facialCtrl.ma",
+      "sha256": "218cbcd831b7c947127ceb28be143d8f68f52e205f57e3642532724fb8380d02",
+      "bytes": 1517582
+    },
+    {
+      "path": "Script/bb_advFixTool/file/SpineDrv.ma",
+      "sha256": "1466c239c9321093deb76b027e4b3c78897df59465e7798ef8da3d8cbf6c3344",
+      "bytes": 48540
+    },
+    {
+      "path": "Script/bb_advFixTool/mel/bb_advFix_IKSpine.mel",
+      "sha256": "293a3dbe14bfd3144446b702e1b56fc3a9a687de1f8b6ff0866fc8bcb25a6f88",
+      "bytes": 9665
+    },
+    {
+      "path": "Script/bb_advFixTool/mel/bb_subFacialTool.mel",
+      "sha256": "7ec64fc3608b80db449304b1d869da9bc8abf73b9aedbcb4a39f60a802f89cd2",
+      "bytes": 33693
+    },
+    {
+      "path": "Script/bb_attributeTool.mel",
+      "sha256": "3e58b57228ca2420926abd87eef10a78804295a4a2de92007d8cc6d821909af8",
+      "bytes": 31126
+    },
+    {
+      "path": "Script/bb_autoSkirt.mel",
+      "sha256": "1d90886f6147bfb494d467b4a9e93eb423e07d2d8b4e96227f2593bdcc316872",
+      "bytes": 20165
+    },
+    {
+      "path": "Script/bb_blendShapeTool.mel",
+      "sha256": "d86099839d3774d4a7c69c3e03af34fd4f312d31e3e2f6304851392ab76234a6",
+      "bytes": 11517
+    },
+    {
+      "path": "Script/bb_createFolliceTool.mel",
+      "sha256": "6b5a26f9ec0f94e8399160e1ea3df202dad12b274d1c4ae307539ff72b6fa947",
+      "bytes": 4224
+    },
+    {
+      "path": "Script/bb_ctrlTool.mel",
+      "sha256": "4e26b0d0f82d83447fadf2e89e63f52490ffa0f1a23bf5c0411aeecf8a7b7676",
+      "bytes": 41712
+    },
+    {
+      "path": "Script/bb_curveTool.mel",
+      "sha256": "53f1702cfebd377266ab9b6f8c7706b863798da0ef8cc29a206c87227285d64e",
+      "bytes": 20168
+    },
+    {
+      "path": "Script/bb_FBXExportTool.mel",
+      "sha256": "5e97b2c418df8b30a3e05305f051e401643e082b9a086edde0a0471e255ebc7e",
+      "bytes": 13452
+    },
+    {
+      "path": "Script/bb_FixError.mel",
+      "sha256": "bf433c6c8b19b28152ba30298b5b0b2c85696ecc8441c1374c6537008dd894b2",
+      "bytes": 2070
+    },
+    {
+      "path": "Script/bb_history.mel",
+      "sha256": "08a5f4429f1d2465eed8a85ce163f9eae775220dcfff1cbbb520171bddc0743f",
+      "bytes": 1167
+    },
+    {
+      "path": "Script/bb_listTool.mel",
+      "sha256": "712ead6e9204f3874c9715f1e12a6488e308642bc069ac70f4c090fc458cf0fc",
+      "bytes": 12527
+    },
+    {
+      "path": "Script/bb_masterCreate.mel",
+      "sha256": "8d5a0e112e401d673666a3ef229bf39c3a2c9c4962f160412345e99fd8a21578",
+      "bytes": 242
+    },
+    {
+      "path": "Script/bb_QC_apply.mel",
+      "sha256": "c55db60327706da2da935a059158ff7bd18591f659aca716c061a60bdc0d73dd",
+      "bytes": 28867
+    },
+    {
+      "path": "Script/bb_QC_set.mel",
+      "sha256": "8e0f90336726d290e4b49cf86cde8860c057b9976b55ba0ccf913c288aee592c",
+      "bytes": 12770
+    },
+    {
+      "path": "Script/bb_QC_text.mel",
+      "sha256": "faf0df80efe9c843a1ac6fa566fe105acdacb6d33ff52a536963fe96e4395b3a",
+      "bytes": 14183
+    },
+    {
+      "path": "Script/bb_QC_UI.mel",
+      "sha256": "b66a1e16f2e5130de50d82ff197cbde56429449a808a4ade11ac312918fe3726",
+      "bytes": 22620
+    },
+    {
+      "path": "Script/bb_QCTool.mel",
+      "sha256": "d3d37aa81ecc8430d24edfbebc6dc94a314f17191095d9886b79444ae0a18a15",
+      "bytes": 754
+    },
+    {
+      "path": "Script/bb_selectTool.mel",
+      "sha256": "d0403544c6838e97bee7da7e79a359ef050268ef30e883bb854d47ee459df7f3",
+      "bytes": 5559
+    },
+    {
+      "path": "Script/bb_skin2Deform.mel",
+      "sha256": "ee30d1bc01379e397948afed67f95bffd9e069db7a0c9a0b71627d2f73b97f94",
+      "bytes": 13191
+    },
+    {
+      "path": "Script/bb_skin2Deform_weight.xml",
+      "sha256": "4e04856756a3ac3c0af5b5c8ec42db4dada0859b1f7f07627ebb2640a26e760a",
+      "bytes": 6621457
+    },
+    {
+      "path": "Script/bb_skinList.mel",
+      "sha256": "851589ce38ba6b48aac7694ff54b8ebb647092e4c8e7c1bec2f90d77bf5cecde",
+      "bytes": 2093
+    },
+    {
+      "path": "Script/bb_softModTool.mel",
+      "sha256": "3a22b5a2875f3c84b94689a41b46de54e491a1294ce15c180ed9c1d2a96af1b1",
+      "bytes": 13698
+    },
+    {
+      "path": "Script/cdkMakeDynamicChain.mel",
+      "sha256": "5b0f7c20cc168ea81be9cda20679ba69eeefc7afe5da3b6b86ee1380771cf634",
+      "bytes": 25931
+    },
+    {
+      "path": "Script/cgTkShapeBuilder.mel",
+      "sha256": "13423fe608188d4e56cc52492aad2ef7e0ab11bf6494cace6714e37d0753c920",
+      "bytes": 26889
+    },
+    {
+      "path": "Script/DelDJJ.mel",
+      "sha256": "d196ec6d72b3b56e1f6c595977ca054df5c4a3f70ff588146b62d7501d012fd7",
+      "bytes": 854
+    },
+    {
+      "path": "Script/FileTextureManager.mel",
+      "sha256": "c158b40ba93c89848024f076b13001a407fb139ad533aa37a457b1d79caa3d60",
+      "bytes": 45776
+    },
+    {
+      "path": "Script/LxxBSRePlace.mel",
+      "sha256": "a354e120993159875db76a8a3a0d4b7b1775209ab5ca02937f89581955712b7b",
+      "bytes": 2238
+    },
+    {
+      "path": "Script/Mirror&Flip.mel",
+      "sha256": "8127f3865d7faca43d8504a5888e129f5f89046af4eafbe27700f425e636782d",
+      "bytes": 43723
+    },
+    {
+      "path": "Script/OutlineError.mel",
+      "sha256": "738b77d2d8a5971d997e83d16490e9af0721812df0fcf81dc491cabe0ae6a2cc",
+      "bytes": 676
+    },
+    {
+      "path": "Script/wp_rename.mel",
+      "sha256": "0fe6b1493c52ee395d9d99d5815d7f6018c94765bdcc7e266ee5779ecff17098",
+      "bytes": 24330
+    },
+    {
+      "path": "wp_rename.mel",
+      "sha256": "32412dac33f3032e733e43990af7c38ef020d982b8fe7a2e8b4936b9a5dd64b0",
+      "bytes": 24895
+    }
+  ],
+  "native_files": [
+    {
+      "path": "bb_Tools.mel",
+      "sha256": "d2f5b7eaa97b42c18a6a61f12b079f62e1dbf4e0bc2106f34ee47739f846a9bf",
+      "source_encoding": "gb18030",
+      "original_procedures": 12,
+      "native_procedures": 12,
+      "top_level_lines": [
+        "1:global string $bb_Tools_Path;",
+        "4:global string $buttonArray[];",
+        "5:$buttonArray = {\"Icon/Rename.png\",\"bbstg_wp_RenameWindow;\",\"bb_Tools_Rename\",//重命名",
+        "6:                \"Icon/List.png\",\"bbstg_bb_listTool;\",\"bb_Tools_List\",//批量处理",
+        "7:                \"Icon/Ctrl.png\",\"bbstg_bb_ctrlTool;\",\"bb_Tools_Ctrl\",//控制器",
+        "8:                \"Icon/Attr.png\",\"bbstg_bb_attributeTool;\",\"bb_Tools_Attr\",//属性",
+        "9:                \"Icon/CV.png\",\"bbstg_bb_curveTool;\",\"bb_Tools_CV\",//CV工具",
+        "10:                \"Icon/BS.png\",\"bbstg_bb_blendShapeTool;\",\"bb_Tools_BS\",//BS",
+        "11:                \"Icon/QC.png\",\"bbstg_bb_QCTool;\",\"bb_Tools_QC\",//QC",
+        "12:                \"Icon/ADV.png\",\"bbstg_bb_advFixTool;\",\"bb_Tools_ADV\",//ADV",
+        "13:                \"Icon/FBX.png\",\"bbstg_bb_FBXExportTool;\",\"bb_Tools_FBX\",//FBX",
+        "14:                \"Icon/Pose.png\",\"bbstg_cgTkShapeBuilder;\",\"bb_Tools_Pose\",//Pose",
+        "15:                \"Icon/Mirror.png\",\"bbstg_abSymMesh;\",\"bb_Tools_Mirror\",//对称",
+        "16:                \"Icon/Weight.png\",\"bbstg_bb_skin2Deform;\",\"bb_Tools_Weight\",//权重转换",
+        "17:                \"Icon/Follicles.png\",\"bbstg_bb_createFolliceTool;\",\"bb_Tools_Follicles\",//毛囊",
+        "18:                \"Icon/Dynamic.png\",\"bbstg_cdkMakeDynamicChainUI;\",\"bb_Tools_Dynamic\",//动力学",
+        "19:                \"Icon/SoftMod.png\",\"bbstg_bb_softModTool;\",\"bb_Tools_SoftMod\",//软选择",
+        "20:                \"Icon/Select.png\",\"bbstg_bb_selectTool;\",\"bb_Tools_Select\",//选择类型",
+        "21:                \"Icon/History.png\",\"bbstg_bb_history;\",\"bb_Tools_History\",//历史",
+        "22:                \"Icon/SkinList.png\",\"bbstg_bb_skinList;\",\"bb_Tools_SkinList\",//蒙皮列表",
+        "24:                \"Icon/TexPath.png\",\"bbstg_FileTextureManager;\",\"bb_Tools_TexPath\",//贴图路径",
+        "25:                \"Icon/Duplicate.png\",\"bbstg_LxxBSReplace;\",\"bb_Tools_Duplicate\",//批量复制",
+        "26:                \"Icon/FixError.png\",\"bbstg_bb_FixError;\",\"bb_Tools_FixError\"};//报错",
+        "28:global int $bb_Tools_rowColumn,$bb_Tools_MaxControl;",
+        "29:$bb_Tools_rowColumn = size($buttonArray)/3 + 1;",
+        "30:$bb_Tools_MaxControl = size($buttonArray)/3 + 1;"
+      ]
+    },
+    {
+      "path": "Script/aboutJBPerVert.mel",
+      "sha256": "c0ede33bcce85326f097df169e125020d1574fe383a18dd6792fae15b6d999b3",
+      "source_encoding": "utf-8-sig",
+      "original_procedures": 4,
+      "native_procedures": 5,
+      "top_level_lines": [
+        "284:};",
+        "339:};",
+        "396:};"
+      ]
+    },
+    {
+      "path": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "sha256": "ce17306e95d17335196a30c44bfd5bd86511b76f84531fe09913cc4666b9e51e",
+      "source_encoding": "gb18030",
+      "original_procedures": 19,
+      "native_procedures": 19,
+      "top_level_lines": []
+    },
+    {
+      "path": "Script/bb_advFixTool/mel/bb_advFix_IKSpine.mel",
+      "sha256": "83d8028292ae17e4730838df395ef66993f2bc4565d09bed85acb1348a52a107",
+      "source_encoding": "gb18030",
+      "original_procedures": 2,
+      "native_procedures": 2,
+      "top_level_lines": [
+        "1:global string $bb_advFix_SpineJoint[];"
+      ]
+    },
+    {
+      "path": "Script/bb_advFixTool/mel/bb_subFacialTool.mel",
+      "sha256": "75fbfc16f9c93c1ceb49c071640a628dd2cda6178919a1d57e7af04016c7f0cd",
+      "source_encoding": "gb18030",
+      "original_procedures": 13,
+      "native_procedures": 13,
+      "top_level_lines": [
+        "37:global string $bb_subFacial_joint[],",
+        "38:              $bb_subFacial_ctrl[];"
+      ]
+    },
+    {
+      "path": "Script/bb_attributeTool.mel",
+      "sha256": "b16eb4cf70c8111df2f9d0932cec9a54b633c0075ad1dacb30764468b44b5e2c",
+      "source_encoding": "gb18030",
+      "original_procedures": 22,
+      "native_procedures": 22,
+      "top_level_lines": [
+        "4:global string  $bb_attribute_save;"
+      ]
+    },
+    {
+      "path": "Script/bb_autoSkirt.mel",
+      "sha256": "aab0028115b04ab7ca0c8dae1e65fdc58c985d7a9b3f2d4a8f92dcf06fd67d4f",
+      "source_encoding": "gb18030",
+      "original_procedures": 6,
+      "native_procedures": 6,
+      "top_level_lines": [
+        "1:global string $bb_autoSkirt_orCtrlArray[];",
+        "2:global string $bb_autoSkirt_CtrlArray[];",
+        "3:global float $bb_autoSkirt_Scale;"
+      ]
+    },
+    {
+      "path": "Script/bb_blendShapeTool.mel",
+      "sha256": "4aeef93cb255490008513c87f456c8e74b7c314af84a365eadbee48471bd7a8c",
+      "source_encoding": "gb18030",
+      "original_procedures": 10,
+      "native_procedures": 10,
+      "top_level_lines": [
+        "54:global string $bb_BS_targetList[];",
+        "55:global string $bb_BS_baseObject;"
+      ]
+    },
+    {
+      "path": "Script/bb_createFolliceTool.mel",
+      "sha256": "7568edbef02f7fdea1614911dde1b06ed65f05367afe366e53d861a8bef7176b",
+      "source_encoding": "gb18030",
+      "original_procedures": 3,
+      "native_procedures": 3,
+      "top_level_lines": []
+    },
+    {
+      "path": "Script/bb_ctrlTool.mel",
+      "sha256": "afbbbfb77d89b093d976a28fcf50aef1730f53e3fa1da963b6e7699b4e7e0570",
+      "source_encoding": "gb18030",
+      "original_procedures": 23,
+      "native_procedures": 23,
+      "top_level_lines": [
+        "688:global string $bb_CtrlTool_EditCtrl[],$bb_CtrlTool_FixCtrl[];"
+      ]
+    },
+    {
+      "path": "Script/bb_curveTool.mel",
+      "sha256": "1e66c84fa5aa6c34ab981c38f4aaa8cfd74cf511148569bcd3055c4379aca608",
+      "source_encoding": "gb18030",
+      "original_procedures": 9,
+      "native_procedures": 9,
+      "top_level_lines": []
+    },
+    {
+      "path": "Script/bb_FBXExportTool.mel",
+      "sha256": "203f3ef43af339e9362b197f7799dbe31ddfdf7d0acb7ff770d4d834012f0dce",
+      "source_encoding": "gb18030",
+      "original_procedures": 10,
+      "native_procedures": 10,
+      "top_level_lines": [
+        "51:global string $bb_FBXExport_sourceRef;",
+        "72:global string $maJoint[],$fbxJoint[],$copyBS[],$pasteBS[];"
+      ]
+    },
+    {
+      "path": "Script/bb_FixError.mel",
+      "sha256": "3d38c0ebda1881b001a32f64730af59c7294eed257a7797295c00272a4249f05",
+      "source_encoding": "gb18030",
+      "original_procedures": 4,
+      "native_procedures": 4,
+      "top_level_lines": []
+    },
+    {
+      "path": "Script/bb_history.mel",
+      "sha256": "89c9cb0249095b8368b70f34f6c63b7a3a388d39912faea47d66b0e22381f317",
+      "source_encoding": "gb18030",
+      "original_procedures": 2,
+      "native_procedures": 2,
+      "top_level_lines": []
+    },
+    {
+      "path": "Script/bb_listTool.mel",
+      "sha256": "873a1c1fcc4a7c289d4b64a8a8282a7e45bd57d230d3db3c256935fe5744560f",
+      "source_encoding": "gb18030",
+      "original_procedures": 5,
+      "native_procedures": 5,
+      "top_level_lines": [
+        "59:global string $bb_listTool_aims[],",
+        "60:              $bb_listTool_sources[];",
+        "61:global int $bb_listTool_aimsNum,",
+        "62:           $bb_listTool_sourcesNum;"
+      ]
+    },
+    {
+      "path": "Script/bb_masterCreate.mel",
+      "sha256": "4657fb38883b6a531b495c7fe2d9ea1e52c3c6a65779c7753237b3c8e88fd26d",
+      "source_encoding": "utf-8-sig",
+      "original_procedures": 1,
+      "native_procedures": 1,
+      "top_level_lines": []
+    },
+    {
+      "path": "Script/bb_QC_apply.mel",
+      "sha256": "0acc091a14ff5bf34bd06ba56e0244dfa541cfa60f9186877d55cf62c6bf75fb",
+      "source_encoding": "gb18030",
+      "original_procedures": 34,
+      "native_procedures": 34,
+      "top_level_lines": []
+    },
+    {
+      "path": "Script/bb_QC_set.mel",
+      "sha256": "e9536bd33fcd3b5657695c344a18ae0e3a21e921e33a86b15e31510c5ddfd89d",
+      "source_encoding": "gb18030",
+      "original_procedures": 15,
+      "native_procedures": 15,
+      "top_level_lines": []
+    },
+    {
+      "path": "Script/bb_QC_text.mel",
+      "sha256": "e5e4c3a0c1d9f5c4606c185f2684aa26fd1eb170730531a502362da227a72edf",
+      "source_encoding": "gb18030",
+      "original_procedures": 2,
+      "native_procedures": 2,
+      "top_level_lines": []
+    },
+    {
+      "path": "Script/bb_QC_UI.mel",
+      "sha256": "4cdd16fe080d46ed6f15512f898f2601569e4a3cfb134f29a5afa212b05f17da",
+      "source_encoding": "gb18030",
+      "original_procedures": 4,
+      "native_procedures": 4,
+      "top_level_lines": [
+        "1:global string $bb_QC_checkBoxValue = \"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\";",
+        "2:global string $bb_QC_setFileSel;"
+      ]
+    },
+    {
+      "path": "Script/bb_QCTool.mel",
+      "sha256": "243c229f8bbc18f4f90b3a9171f5cd6b6ceef1767460165071bb00a9ca4a4740",
+      "source_encoding": "gb18030",
+      "original_procedures": 2,
+      "native_procedures": 2,
+      "top_level_lines": []
+    },
+    {
+      "path": "Script/bb_selectTool.mel",
+      "sha256": "aa2b961a830edddcf05c4f9cbde6b08630a97dc9b59833415b9caf6f4dc726f5",
+      "source_encoding": "gb18030",
+      "original_procedures": 3,
+      "native_procedures": 3,
+      "top_level_lines": []
+    },
+    {
+      "path": "Script/bb_skin2Deform.mel",
+      "sha256": "d15b752637982141a4a6083bc39174c83937b61f6a460a1033b53724a2051469",
+      "source_encoding": "gb18030",
+      "original_procedures": 9,
+      "native_procedures": 9,
+      "top_level_lines": [
+        "35:global string $bb_skin2Deform_bindJsList[];",
+        "36:global int $bb_skin2Deform_addLayoutNum;"
+      ]
+    },
+    {
+      "path": "Script/bb_skinList.mel",
+      "sha256": "10bebc014fe6ae617646829fe2ab94def2fe1a9ff6b6dff29747cb44f5069c2b",
+      "source_encoding": "utf-8-sig",
+      "original_procedures": 5,
+      "native_procedures": 5,
+      "top_level_lines": []
+    },
+    {
+      "path": "Script/bb_softModTool.mel",
+      "sha256": "6767cc58e05e6a210c5d51c0695024aa5bb229c35d9e808777b2264ee866fa26",
+      "source_encoding": "gb18030",
+      "original_procedures": 8,
+      "native_procedures": 8,
+      "top_level_lines": []
+    },
+    {
+      "path": "Script/cdkMakeDynamicChain.mel",
+      "sha256": "f32fcd7cda66c8afaa4fc358b4eae248acc8e8d4e5dcb7b767a358c738fcde6f",
+      "source_encoding": "gb18030",
+      "original_procedures": 9,
+      "native_procedures": 9,
+      "top_level_lines": []
+    },
+    {
+      "path": "Script/cgTkShapeBuilder.mel",
+      "sha256": "49f37d9ee9d26e27eeef4513ebd721d419f5c602c7fedfbd0a8e52d7557c9ebd",
+      "source_encoding": "cp1252",
+      "original_procedures": 12,
+      "native_procedures": 12,
+      "top_level_lines": []
+    },
+    {
+      "path": "Script/FileTextureManager.mel",
+      "sha256": "02de8a1f8de9bcade0585e36f2bd3eff90809b788c3a25f595447e35aeb474a5",
+      "source_encoding": "utf-8-sig",
+      "original_procedures": 14,
+      "native_procedures": 14,
+      "top_level_lines": []
+    },
+    {
+      "path": "Script/LxxBSRePlace.mel",
+      "sha256": "8081d94b190e58baba17b4dfa3f53ec138b3af02e068ab08f77373d613e9a113",
+      "source_encoding": "gb18030",
+      "original_procedures": 3,
+      "native_procedures": 3,
+      "top_level_lines": []
+    },
+    {
+      "path": "Script/Mirror&Flip.mel",
+      "sha256": "d1fcc8db743f3e2419ff66b75f40b5c053e4df02622df6d9955de0cd06494d5d",
+      "source_encoding": "utf-8-sig",
+      "original_procedures": 16,
+      "native_procedures": 16,
+      "top_level_lines": [
+        "36:global int $abSymProgBarThresh = 800; //number of verts in an operation beyond which a progress bar is shown (set higher for faster computers)",
+        "37:global int $abSymTable[];",
+        "39:global string $abSymRevVertTable[];",
+        "40:global vector $abSymRevPosTable[];",
+        "41:global vector $abSymRevBasePosTable[];",
+        "42:global int $abSymSliderDragging = false; //used to flag when the mouse is dragging a slider"
+      ]
+    },
+    {
+      "path": "Script/wp_rename.mel",
+      "sha256": "219ae5095d435becec2549cfb1c2367b1d0144566865a2b7daa5ea0fa25986e3",
+      "source_encoding": "gb18030",
+      "original_procedures": 16,
+      "native_procedures": 16,
+      "top_level_lines": [
+        "239:global int $wp_WindowHight = 509;"
+      ]
+    }
+  ],
+  "support_files": [
+    {
+      "path": "bridge.mel",
+      "sha256": "b2c3818e4547ae558a07c4c7ddd1c410b6fdcb723c878e0c9ebc771873c3453f"
+    }
+  ],
+  "procedures": {
+    "bb_Tools": {
+      "name": "bb_Tools",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 32,
+      "end_line": 37,
+      "file": "bb_Tools.mel",
+      "native_name": "bbstg_bb_Tools",
+      "direct_effects": []
+    },
+    "bb_Tools_FilePath": {
+      "name": "bb_Tools_FilePath",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [],
+      "line": 41,
+      "end_line": 51,
+      "file": "bb_Tools.mel",
+      "native_name": "bbstg_bb_Tools_FilePath",
+      "direct_effects": []
+    },
+    "bb_Tools_initialization": {
+      "name": "bb_Tools_initialization",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 53,
+      "end_line": 58,
+      "file": "bb_Tools.mel",
+      "native_name": "bbstg_bb_Tools_initialization",
+      "direct_effects": [
+        "optionVar"
+      ]
+    },
+    "bb_Tools_Win": {
+      "name": "bb_Tools_Win",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 60,
+      "end_line": 78,
+      "file": "bb_Tools.mel",
+      "native_name": "bbstg_bb_Tools_Win",
+      "direct_effects": [
+        "window"
+      ]
+    },
+    "bb_Tools_workspace": {
+      "name": "bb_Tools_workspace",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "dtm",
+          "type": "string"
+        }
+      ],
+      "line": 81,
+      "end_line": 87,
+      "file": "bb_Tools.mel",
+      "native_name": "bbstg_bb_Tools_workspace",
+      "direct_effects": [
+        "window"
+      ]
+    },
+    "bb_Tools_rowColumnLayout": {
+      "name": "bb_Tools_rowColumnLayout",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 89,
+      "end_line": 103,
+      "file": "bb_Tools.mel",
+      "native_name": "bbstg_bb_Tools_rowColumnLayout",
+      "direct_effects": []
+    },
+    "bb_Tools_EditWorkspace": {
+      "name": "bb_Tools_EditWorkspace",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 105,
+      "end_line": 114,
+      "file": "bb_Tools.mel",
+      "native_name": "bbstg_bb_Tools_EditWorkspace",
+      "direct_effects": [
+        "window"
+      ]
+    },
+    "bb_Tools_WindowChange": {
+      "name": "bb_Tools_WindowChange",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 116,
+      "end_line": 137,
+      "file": "bb_Tools.mel",
+      "native_name": "bbstg_bb_Tools_WindowChange",
+      "direct_effects": [
+        "window"
+      ]
+    },
+    "bb_Tools_WindowRow": {
+      "name": "bb_Tools_WindowRow",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 139,
+      "end_line": 151,
+      "file": "bb_Tools.mel",
+      "native_name": "bbstg_bb_Tools_WindowRow",
+      "direct_effects": [
+        "window"
+      ]
+    },
+    "bb_Tools_rowColumnChange": {
+      "name": "bb_Tools_rowColumnChange",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 153,
+      "end_line": 165,
+      "file": "bb_Tools.mel",
+      "native_name": "bbstg_bb_Tools_rowColumnChange",
+      "direct_effects": [
+        "optionVar",
+        "window"
+      ]
+    },
+    "bb_Tools_iconTextButton": {
+      "name": "bb_Tools_iconTextButton",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 167,
+      "end_line": 176,
+      "file": "bb_Tools.mel",
+      "native_name": "bbstg_bb_Tools_iconTextButton",
+      "direct_effects": []
+    },
+    "bb_Tools_DeleteIconTextButton": {
+      "name": "bb_Tools_DeleteIconTextButton",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 178,
+      "end_line": 184,
+      "file": "bb_Tools.mel",
+      "native_name": "bbstg_bb_Tools_DeleteIconTextButton",
+      "direct_effects": []
+    },
+    "setToDefault": {
+      "name": "setToDefault",
+      "global_scope": false,
+      "return_type": "void",
+      "parameters": [],
+      "line": 82,
+      "end_line": 89,
+      "file": "Script/aboutJBPerVert.mel",
+      "native_name": "bbstg_setToDefault",
+      "direct_effects": []
+    },
+    "PervertScript": {
+      "name": "PervertScript",
+      "global_scope": false,
+      "return_type": "void",
+      "parameters": [],
+      "line": 100,
+      "end_line": 282,
+      "file": "Script/aboutJBPerVert.mel",
+      "native_name": "bbstg_PervertScript",
+      "direct_effects": [
+        "window"
+      ]
+    },
+    "PervertDefault": {
+      "name": "PervertDefault",
+      "global_scope": false,
+      "return_type": "void",
+      "parameters": [],
+      "line": 289,
+      "end_line": 337,
+      "file": "Script/aboutJBPerVert.mel",
+      "native_name": "bbstg_PervertDefault",
+      "direct_effects": [
+        "window"
+      ]
+    },
+    "aboutJBPerVert": {
+      "name": "aboutJBPerVert",
+      "global_scope": false,
+      "return_type": "void",
+      "parameters": [],
+      "line": 344,
+      "end_line": 394,
+      "file": "Script/aboutJBPerVert.mel",
+      "native_name": "bbstg_aboutJBPerVert",
+      "direct_effects": [
+        "window"
+      ]
+    },
+    "bb_advFixTool": {
+      "name": "bb_advFixTool",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 12,
+      "end_line": 18,
+      "file": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "native_name": "bbstg_bb_advFixTool",
+      "direct_effects": []
+    },
+    "bb_advFix_setFilePath": {
+      "name": "bb_advFix_setFilePath",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [],
+      "line": 21,
+      "end_line": 30,
+      "file": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "native_name": "bbstg_bb_advFix_setFilePath",
+      "direct_effects": []
+    },
+    "bb_advFixUI": {
+      "name": "bb_advFixUI",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 31,
+      "end_line": 73,
+      "file": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "native_name": "bbstg_bb_advFixUI",
+      "direct_effects": [
+        "window"
+      ]
+    },
+    "bb_advFix_Scapula": {
+      "name": "bb_advFix_Scapula",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 76,
+      "end_line": 92,
+      "file": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "native_name": "bbstg_bb_advFix_Scapula",
+      "direct_effects": [
+        "delete",
+        "parent"
+      ]
+    },
+    "bb_advFix_AddMov": {
+      "name": "bb_advFix_AddMov",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 95,
+      "end_line": 109,
+      "file": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "native_name": "bbstg_bb_advFix_AddMov",
+      "direct_effects": [
+        "parent"
+      ]
+    },
+    "bb_advFix_Neck": {
+      "name": "bb_advFix_Neck",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 111,
+      "end_line": 193,
+      "file": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "native_name": "bbstg_bb_advFix_Neck",
+      "direct_effects": [
+        "delete",
+        "connectAttr",
+        "parent"
+      ]
+    },
+    "bb_advFix_Finger0Fix": {
+      "name": "bb_advFix_Finger0Fix",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 195,
+      "end_line": 205,
+      "file": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "native_name": "bbstg_bb_advFix_Finger0Fix",
+      "direct_effects": [
+        "parent"
+      ]
+    },
+    "bb_advFix_AimEye": {
+      "name": "bb_advFix_AimEye",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 207,
+      "end_line": 213,
+      "file": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "native_name": "bbstg_bb_advFix_AimEye",
+      "direct_effects": []
+    },
+    "bb_advFix_lockCtrlV": {
+      "name": "bb_advFix_lockCtrlV",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 215,
+      "end_line": 232,
+      "file": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "native_name": "bbstg_bb_advFix_lockCtrlV",
+      "direct_effects": []
+    },
+    "bb_advFix_RenameExtra": {
+      "name": "bb_advFix_RenameExtra",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "defPrefix",
+          "type": "string"
+        },
+        {
+          "name": "defSuffix",
+          "type": "string"
+        },
+        {
+          "name": "aimName",
+          "type": "string"
+        },
+        {
+          "name": "finger",
+          "type": "int"
+        }
+      ],
+      "line": 234,
+      "end_line": 260,
+      "file": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "native_name": "bbstg_bb_advFix_RenameExtra",
+      "direct_effects": []
+    },
+    "bb_advFix_Hip": {
+      "name": "bb_advFix_Hip",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 262,
+      "end_line": 266,
+      "file": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "native_name": "bbstg_bb_advFix_Hip",
+      "direct_effects": []
+    },
+    "bb_advFix_HipApply": {
+      "name": "bb_advFix_HipApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "Orientation",
+          "type": "string"
+        }
+      ],
+      "line": 267,
+      "end_line": 282,
+      "file": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "native_name": "bbstg_bb_advFix_HipApply",
+      "direct_effects": [
+        "delete",
+        "parent"
+      ]
+    },
+    "bb_advFix_Drv": {
+      "name": "bb_advFix_Drv",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 284,
+      "end_line": 326,
+      "file": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "native_name": "bbstg_bb_advFix_Drv",
+      "direct_effects": [
+        "delete",
+        "parent",
+        "file"
+      ]
+    },
+    "bb_advFix_VisCreate": {
+      "name": "bb_advFix_VisCreate",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 328,
+      "end_line": 382,
+      "file": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "native_name": "bbstg_bb_advFix_VisCreate",
+      "direct_effects": [
+        "connectAttr"
+      ]
+    },
+    "bb_advFix_VisCon": {
+      "name": "bb_advFix_VisCon",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mod",
+          "type": "int"
+        }
+      ],
+      "line": 383,
+      "end_line": 397,
+      "file": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "native_name": "bbstg_bb_advFix_VisCon",
+      "direct_effects": [
+        "connectAttr"
+      ]
+    },
+    "bb_advFix_FacialSubCtrl": {
+      "name": "bb_advFix_FacialSubCtrl",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 400,
+      "end_line": 406,
+      "file": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "native_name": "bbstg_bb_advFix_FacialSubCtrl",
+      "direct_effects": []
+    },
+    "bb_advFix_FacialSubCtrlApply": {
+      "name": "bb_advFix_FacialSubCtrlApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "Aim",
+          "type": "string[]"
+        }
+      ],
+      "line": 408,
+      "end_line": 429,
+      "file": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "native_name": "bbstg_bb_advFix_FacialSubCtrlApply",
+      "direct_effects": [
+        "delete",
+        "connectAttr",
+        "parent"
+      ]
+    },
+    "bb_advFix_autoLipPress": {
+      "name": "bb_advFix_autoLipPress",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 432,
+      "end_line": 437,
+      "file": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "native_name": "bbstg_bb_advFix_autoLipPress",
+      "direct_effects": [
+        "connectAttr"
+      ]
+    },
+    "bb_advFix_Brow": {
+      "name": "bb_advFix_Brow",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 440,
+      "end_line": 496,
+      "file": "Script/bb_advFixTool/bb_advFixTool.mel",
+      "native_name": "bbstg_bb_advFix_Brow",
+      "direct_effects": [
+        "delete",
+        "connectAttr",
+        "parent"
+      ]
+    },
+    "bb_advFix_IKSpineFix1": {
+      "name": "bb_advFix_IKSpineFix1",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2,
+      "end_line": 67,
+      "file": "Script/bb_advFixTool/mel/bb_advFix_IKSpine.mel",
+      "native_name": "bbstg_bb_advFix_IKSpineFix1",
+      "direct_effects": [
+        "connectAttr",
+        "parent"
+      ]
+    },
+    "bb_advFix_IKSpineFix2": {
+      "name": "bb_advFix_IKSpineFix2",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 69,
+      "end_line": 165,
+      "file": "Script/bb_advFixTool/mel/bb_advFix_IKSpine.mel",
+      "native_name": "bbstg_bb_advFix_IKSpineFix2",
+      "direct_effects": [
+        "delete",
+        "connectAttr",
+        "parent"
+      ]
+    },
+    "bb_subFacialTool": {
+      "name": "bb_subFacialTool",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 6,
+      "end_line": 35,
+      "file": "Script/bb_advFixTool/mel/bb_subFacialTool.mel",
+      "native_name": "bbstg_bb_subFacialTool",
+      "direct_effects": [
+        "window",
+        "checkBox"
+      ]
+    },
+    "bb_subFacial_createJoint": {
+      "name": "bb_subFacial_createJoint",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 40,
+      "end_line": 149,
+      "file": "Script/bb_advFixTool/mel/bb_subFacialTool.mel",
+      "native_name": "bbstg_bb_subFacial_createJoint",
+      "direct_effects": [
+        "parent",
+        "checkBox"
+      ]
+    },
+    "bb_subFacial_createFollice": {
+      "name": "bb_subFacial_createFollice",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 151,
+      "end_line": 187,
+      "file": "Script/bb_advFixTool/mel/bb_subFacialTool.mel",
+      "native_name": "bbstg_bb_subFacial_createFollice",
+      "direct_effects": [
+        "connectAttr",
+        "parent"
+      ]
+    },
+    "bb_subFacial_createCtrl": {
+      "name": "bb_subFacial_createCtrl",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 189,
+      "end_line": 323,
+      "file": "Script/bb_advFixTool/mel/bb_subFacialTool.mel",
+      "native_name": "bbstg_bb_subFacial_createCtrl",
+      "direct_effects": [
+        "delete",
+        "connectAttr",
+        "parent"
+      ]
+    },
+    "bb_subFacial_createGroup": {
+      "name": "bb_subFacial_createGroup",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctrlName",
+          "type": "string"
+        }
+      ],
+      "line": 324,
+      "end_line": 330,
+      "file": "Script/bb_advFixTool/mel/bb_subFacialTool.mel",
+      "native_name": "bbstg_bb_subFacial_createGroup",
+      "direct_effects": [
+        "parent"
+      ]
+    },
+    "bb_subFacial_createShape": {
+      "name": "bb_subFacial_createShape",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "shapeStyle",
+          "type": "int"
+        },
+        {
+          "name": "shapeColor",
+          "type": "int"
+        },
+        {
+          "name": "ctrlName",
+          "type": "string"
+        }
+      ],
+      "line": 332,
+      "end_line": 372,
+      "file": "Script/bb_advFixTool/mel/bb_subFacialTool.mel",
+      "native_name": "bbstg_bb_subFacial_createShape",
+      "direct_effects": []
+    },
+    "bb_subFacial_cleanUp": {
+      "name": "bb_subFacial_cleanUp",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 375,
+      "end_line": 461,
+      "file": "Script/bb_advFixTool/mel/bb_subFacialTool.mel",
+      "native_name": "bbstg_bb_subFacial_cleanUp",
+      "direct_effects": [
+        "delete",
+        "connectAttr",
+        "parent"
+      ]
+    },
+    "bb_subFacial_LipCorner": {
+      "name": "bb_subFacial_LipCorner",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 463,
+      "end_line": 507,
+      "file": "Script/bb_advFixTool/mel/bb_subFacialTool.mel",
+      "native_name": "bbstg_bb_subFacial_LipCorner",
+      "direct_effects": [
+        "parent"
+      ]
+    },
+    "bb_subFacial_data2Env": {
+      "name": "bb_subFacial_data2Env",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctrl",
+          "type": "string"
+        }
+      ],
+      "line": 510,
+      "end_line": 529,
+      "file": "Script/bb_advFixTool/mel/bb_subFacialTool.mel",
+      "native_name": "bbstg_bb_subFacial_data2Env",
+      "direct_effects": []
+    },
+    "bb_subFacial_mirrorCtrl": {
+      "name": "bb_subFacial_mirrorCtrl",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 532,
+      "end_line": 549,
+      "file": "Script/bb_advFixTool/mel/bb_subFacialTool.mel",
+      "native_name": "bbstg_bb_subFacial_mirrorCtrl",
+      "direct_effects": []
+    },
+    "bb_subFacial_mirrorJoint": {
+      "name": "bb_subFacial_mirrorJoint",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 552,
+      "end_line": 564,
+      "file": "Script/bb_advFixTool/mel/bb_subFacialTool.mel",
+      "native_name": "bbstg_bb_subFacial_mirrorJoint",
+      "direct_effects": []
+    },
+    "bb_subFacial_mirrorFollice": {
+      "name": "bb_subFacial_mirrorFollice",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 566,
+      "end_line": 582,
+      "file": "Script/bb_advFixTool/mel/bb_subFacialTool.mel",
+      "native_name": "bbstg_bb_subFacial_mirrorFollice",
+      "direct_effects": []
+    },
+    "bb_subFacial_reCon": {
+      "name": "bb_subFacial_reCon",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 584,
+      "end_line": 599,
+      "file": "Script/bb_advFixTool/mel/bb_subFacialTool.mel",
+      "native_name": "bbstg_bb_subFacial_reCon",
+      "direct_effects": [
+        "delete"
+      ]
+    },
+    "bb_attribute_initialization": {
+      "name": "bb_attribute_initialization",
+      "global_scope": false,
+      "return_type": "void",
+      "parameters": [],
+      "line": 6,
+      "end_line": 11,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attribute_initialization",
+      "direct_effects": [
+        "optionVar"
+      ]
+    },
+    "bb_attributeTool": {
+      "name": "bb_attributeTool",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 13,
+      "end_line": 122,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attributeTool",
+      "direct_effects": [
+        "parent",
+        "scriptJob",
+        "window",
+        "textField",
+        "checkBox",
+        "radioCollection",
+        "textScrollList"
+      ]
+    },
+    "bb_attr_CreateFix": {
+      "name": "bb_attr_CreateFix",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 125,
+      "end_line": 130,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attr_CreateFix",
+      "direct_effects": []
+    },
+    "bb_attr_Fix": {
+      "name": "bb_attr_Fix",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 132,
+      "end_line": 188,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attr_Fix",
+      "direct_effects": [
+        "textField",
+        "checkBox",
+        "radioCollection",
+        "textScrollList"
+      ]
+    },
+    "bb_attr_FixUI": {
+      "name": "bb_attr_FixUI",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mod",
+          "type": "int"
+        }
+      ],
+      "line": 189,
+      "end_line": 207,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attr_FixUI",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "bb_attr_FixApply": {
+      "name": "bb_attr_FixApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 209,
+      "end_line": 252,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attr_FixApply",
+      "direct_effects": [
+        "textField",
+        "checkBox",
+        "radioCollection",
+        "textScrollList"
+      ]
+    },
+    "bb_attr_reloadGeo": {
+      "name": "bb_attr_reloadGeo",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 256,
+      "end_line": 264,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attr_reloadGeo",
+      "direct_effects": []
+    },
+    "bb_attr_loadAttr": {
+      "name": "bb_attr_loadAttr",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "sel",
+          "type": "string"
+        }
+      ],
+      "line": 266,
+      "end_line": 287,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attr_loadAttr",
+      "direct_effects": [
+        "textScrollList"
+      ]
+    },
+    "bb_attribute_loadSave": {
+      "name": "bb_attribute_loadSave",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 289,
+      "end_line": 297,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attribute_loadSave",
+      "direct_effects": [
+        "textScrollList"
+      ]
+    },
+    "bb_attr_UIChange": {
+      "name": "bb_attr_UIChange",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 299,
+      "end_line": 325,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attr_UIChange",
+      "direct_effects": [
+        "textField",
+        "checkBox",
+        "radioCollection"
+      ]
+    },
+    "bb_attr_addApply": {
+      "name": "bb_attr_addApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 327,
+      "end_line": 370,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attr_addApply",
+      "direct_effects": [
+        "textField",
+        "checkBox",
+        "radioCollection"
+      ]
+    },
+    "bb_attr_addAttr": {
+      "name": "bb_attr_addAttr",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "obj",
+          "type": "string"
+        },
+        {
+          "name": "attrInfo",
+          "type": "string[]"
+        }
+      ],
+      "line": 373,
+      "end_line": 401,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attr_addAttr",
+      "direct_effects": []
+    },
+    "bb_attr_save": {
+      "name": "bb_attr_save",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 404,
+      "end_line": 436,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attr_save",
+      "direct_effects": [
+        "optionVar",
+        "textField",
+        "radioCollection",
+        "textScrollList"
+      ]
+    },
+    "bb_attr_edit": {
+      "name": "bb_attr_edit",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "edit",
+          "type": "int"
+        }
+      ],
+      "line": 438,
+      "end_line": 491,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attr_edit",
+      "direct_effects": [
+        "deleteAttr",
+        "checkBox",
+        "textScrollList"
+      ]
+    },
+    "bb_attributeTool_attrNameReturn": {
+      "name": "bb_attributeTool_attrNameReturn",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "attrArray",
+          "type": "string[]"
+        }
+      ],
+      "line": 493,
+      "end_line": 501,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attributeTool_attrNameReturn",
+      "direct_effects": []
+    },
+    "bb_attr_saveAdd": {
+      "name": "bb_attr_saveAdd",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 504,
+      "end_line": 516,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attr_saveAdd",
+      "direct_effects": [
+        "textScrollList"
+      ]
+    },
+    "bb_attr_saveEdit": {
+      "name": "bb_attr_saveEdit",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 519,
+      "end_line": 524,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attr_saveEdit",
+      "direct_effects": [
+        "textScrollList"
+      ]
+    },
+    "bb_attr_saveEditApply": {
+      "name": "bb_attr_saveEditApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "item",
+          "type": "string"
+        }
+      ],
+      "line": 526,
+      "end_line": 553,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attr_saveEditApply",
+      "direct_effects": [
+        "textField",
+        "radioCollection"
+      ]
+    },
+    "bb_attr_saveDelete": {
+      "name": "bb_attr_saveDelete",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mod",
+          "type": "int"
+        }
+      ],
+      "line": 557,
+      "end_line": 577,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attr_saveDelete",
+      "direct_effects": [
+        "optionVar",
+        "textScrollList"
+      ]
+    },
+    "bb_attr_nameSelect": {
+      "name": "bb_attr_nameSelect",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 580,
+      "end_line": 589,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attr_nameSelect",
+      "direct_effects": [
+        "textScrollList"
+      ]
+    },
+    "bb_attr_upApply": {
+      "name": "bb_attr_upApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 593,
+      "end_line": 636,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attr_upApply",
+      "direct_effects": [
+        "deleteAttr",
+        "textScrollList"
+      ]
+    },
+    "bb_attr_downApply": {
+      "name": "bb_attr_downApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 639,
+      "end_line": 686,
+      "file": "Script/bb_attributeTool.mel",
+      "native_name": "bbstg_bb_attr_downApply",
+      "direct_effects": [
+        "deleteAttr",
+        "textScrollList"
+      ]
+    },
+    "bb_autoSkirt": {
+      "name": "bb_autoSkirt",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 5,
+      "end_line": 25,
+      "file": "Script/bb_autoSkirt.mel",
+      "native_name": "bbstg_bb_autoSkirt",
+      "direct_effects": [
+        "window",
+        "textField"
+      ]
+    },
+    "bb_autoSkirt_Apply": {
+      "name": "bb_autoSkirt_Apply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 28,
+      "end_line": 231,
+      "file": "Script/bb_autoSkirt.mel",
+      "native_name": "bbstg_bb_autoSkirt_Apply",
+      "direct_effects": [
+        "delete",
+        "connectAttr",
+        "parent",
+        "textField"
+      ]
+    },
+    "bb_autoSkirt_CreateJoint": {
+      "name": "bb_autoSkirt_CreateJoint",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 233,
+      "end_line": 317,
+      "file": "Script/bb_autoSkirt.mel",
+      "native_name": "bbstg_bb_autoSkirt_CreateJoint",
+      "direct_effects": [
+        "delete",
+        "parent",
+        "textField"
+      ]
+    },
+    "bb_autoSkirt_CreateCtrl": {
+      "name": "bb_autoSkirt_CreateCtrl",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 319,
+      "end_line": 346,
+      "file": "Script/bb_autoSkirt.mel",
+      "native_name": "bbstg_bb_autoSkirt_CreateCtrl",
+      "direct_effects": [
+        "delete",
+        "parent",
+        "textField"
+      ]
+    },
+    "bb_autoSkirt_CreateCrv": {
+      "name": "bb_autoSkirt_CreateCrv",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 350,
+      "end_line": 371,
+      "file": "Script/bb_autoSkirt.mel",
+      "native_name": "bbstg_bb_autoSkirt_CreateCrv",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "bb_autoSkirt_LegJointLoad": {
+      "name": "bb_autoSkirt_LegJointLoad",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 373,
+      "end_line": 379,
+      "file": "Script/bb_autoSkirt.mel",
+      "native_name": "bbstg_bb_autoSkirt_LegJointLoad",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "bb_blendShapeTool": {
+      "name": "bb_blendShapeTool",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 6,
+      "end_line": 52,
+      "file": "Script/bb_blendShapeTool.mel",
+      "native_name": "bbstg_bb_blendShapeTool",
+      "direct_effects": [
+        "window"
+      ]
+    },
+    "bb_BS_reloadBlendShape": {
+      "name": "bb_BS_reloadBlendShape",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 57,
+      "end_line": 73,
+      "file": "Script/bb_blendShapeTool.mel",
+      "native_name": "bbstg_bb_BS_reloadBlendShape",
+      "direct_effects": []
+    },
+    "bb_BS_blendShapeList": {
+      "name": "bb_BS_blendShapeList",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "blendShape",
+          "type": "string"
+        }
+      ],
+      "line": 75,
+      "end_line": 94,
+      "file": "Script/bb_blendShapeTool.mel",
+      "native_name": "bbstg_bb_BS_blendShapeList",
+      "direct_effects": []
+    },
+    "bb_BS_inBetweenList": {
+      "name": "bb_BS_inBetweenList",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "blendShape",
+          "type": "string"
+        }
+      ],
+      "line": 96,
+      "end_line": 114,
+      "file": "Script/bb_blendShapeTool.mel",
+      "native_name": "bbstg_bb_BS_inBetweenList",
+      "direct_effects": []
+    },
+    "bb_BS_apply": {
+      "name": "bb_BS_apply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 116,
+      "end_line": 138,
+      "file": "Script/bb_blendShapeTool.mel",
+      "native_name": "bbstg_bb_BS_apply",
+      "direct_effects": [
+        "connectAttr"
+      ]
+    },
+    "bb_BS_inBetween": {
+      "name": "bb_BS_inBetween",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 140,
+      "end_line": 160,
+      "file": "Script/bb_blendShapeTool.mel",
+      "native_name": "bbstg_bb_BS_inBetween",
+      "direct_effects": []
+    },
+    "bb_BS_delete": {
+      "name": "bb_BS_delete",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 162,
+      "end_line": 188,
+      "file": "Script/bb_blendShapeTool.mel",
+      "native_name": "bbstg_bb_BS_delete",
+      "direct_effects": [
+        "parent"
+      ]
+    },
+    "bb_BS_expandItem": {
+      "name": "bb_BS_expandItem",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mode",
+          "type": "int"
+        }
+      ],
+      "line": 190,
+      "end_line": 198,
+      "file": "Script/bb_blendShapeTool.mel",
+      "native_name": "bbstg_bb_BS_expandItem",
+      "direct_effects": []
+    },
+    "bb_BS_regenerate": {
+      "name": "bb_BS_regenerate",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mode",
+          "type": "int"
+        }
+      ],
+      "line": 201,
+      "end_line": 246,
+      "file": "Script/bb_blendShapeTool.mel",
+      "native_name": "bbstg_bb_BS_regenerate",
+      "direct_effects": [
+        "parent"
+      ]
+    },
+    "bb_BS_regenerateApply": {
+      "name": "bb_BS_regenerateApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "index",
+          "type": "int"
+        },
+        {
+          "name": "inputTargetItem",
+          "type": "int"
+        },
+        {
+          "name": "blendshape",
+          "type": "string"
+        },
+        {
+          "name": "targetName",
+          "type": "string"
+        }
+      ],
+      "line": 248,
+      "end_line": 269,
+      "file": "Script/bb_blendShapeTool.mel",
+      "native_name": "bbstg_bb_BS_regenerateApply",
+      "direct_effects": [
+        "parent"
+      ]
+    },
+    "bb_createFolliceTool": {
+      "name": "bb_createFolliceTool",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1,
+      "end_line": 17,
+      "file": "Script/bb_createFolliceTool.mel",
+      "native_name": "bbstg_bb_createFolliceTool",
+      "direct_effects": [
+        "window",
+        "textField"
+      ]
+    },
+    "bb_createFollice_loadGeo": {
+      "name": "bb_createFollice_loadGeo",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mode",
+          "type": "int"
+        }
+      ],
+      "line": 20,
+      "end_line": 32,
+      "file": "Script/bb_createFolliceTool.mel",
+      "native_name": "bbstg_bb_createFollice_loadGeo",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "bb_createFollice": {
+      "name": "bb_createFollice",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 35,
+      "end_line": 83,
+      "file": "Script/bb_createFolliceTool.mel",
+      "native_name": "bbstg_bb_createFollice",
+      "direct_effects": [
+        "connectAttr",
+        "parent",
+        "textField"
+      ]
+    },
+    "bb_ctrlTool": {
+      "name": "bb_ctrlTool",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 9,
+      "end_line": 131,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_ctrlTool",
+      "direct_effects": [
+        "window",
+        "textField",
+        "checkBox",
+        "radioCollection"
+      ]
+    },
+    "bb_CtrlTool_SelectColorVis": {
+      "name": "bb_CtrlTool_SelectColorVis",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 135,
+      "end_line": 143,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_SelectColorVis",
+      "direct_effects": [
+        "window"
+      ]
+    },
+    "bb_CtrlTool_CtrlGroup": {
+      "name": "bb_CtrlTool_CtrlGroup",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 145,
+      "end_line": 158,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_CtrlGroup",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "bb_CtrlTool_scale": {
+      "name": "bb_CtrlTool_scale",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 159,
+      "end_line": 163,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_scale",
+      "direct_effects": []
+    },
+    "bb_CtrlTool_apply": {
+      "name": "bb_CtrlTool_apply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 165,
+      "end_line": 201,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_apply",
+      "direct_effects": [
+        "textField",
+        "checkBox"
+      ]
+    },
+    "bb_CtrlTool_createWholeCtrl": {
+      "name": "bb_CtrlTool_createWholeCtrl",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "CtrlName",
+          "type": "string"
+        }
+      ],
+      "line": 204,
+      "end_line": 256,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_createWholeCtrl",
+      "direct_effects": [
+        "parent",
+        "textField",
+        "checkBox",
+        "radioCollection"
+      ]
+    },
+    "bb_CtrlTool_selAddPivots": {
+      "name": "bb_CtrlTool_selAddPivots",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 258,
+      "end_line": 265,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_selAddPivots",
+      "direct_effects": []
+    },
+    "bb_CtrlTool_addPivots": {
+      "name": "bb_CtrlTool_addPivots",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "transform",
+          "type": "string"
+        }
+      ],
+      "line": 267,
+      "end_line": 292,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_addPivots",
+      "direct_effects": [
+        "connectAttr",
+        "parent"
+      ]
+    },
+    "bb_CtrlTool_changeColor": {
+      "name": "bb_CtrlTool_changeColor",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 295,
+      "end_line": 305,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_changeColor",
+      "direct_effects": []
+    },
+    "bb_CtrlTool_changeColorApply": {
+      "name": "bb_CtrlTool_changeColorApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "CtrlName",
+          "type": "string"
+        },
+        {
+          "name": "color",
+          "type": "int"
+        }
+      ],
+      "line": 308,
+      "end_line": 317,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_changeColorApply",
+      "direct_effects": []
+    },
+    "bb_CtrlTool_processMode": {
+      "name": "bb_CtrlTool_processMode",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "CtrlName",
+          "type": "string"
+        },
+        {
+          "name": "obj",
+          "type": "string"
+        }
+      ],
+      "line": 320,
+      "end_line": 357,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_processMode",
+      "direct_effects": [
+        "delete",
+        "parent",
+        "textField",
+        "checkBox",
+        "radioCollection"
+      ]
+    },
+    "bb_CtrlTool_groupObj": {
+      "name": "bb_CtrlTool_groupObj",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 360,
+      "end_line": 366,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_groupObj",
+      "direct_effects": []
+    },
+    "bb_CtrlTool_groupObjApply": {
+      "name": "bb_CtrlTool_groupObjApply",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "obj",
+          "type": "string"
+        }
+      ],
+      "line": 368,
+      "end_line": 386,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_groupObjApply",
+      "direct_effects": [
+        "delete",
+        "parent",
+        "textField"
+      ]
+    },
+    "bb_CtrlTool_fixExtra": {
+      "name": "bb_CtrlTool_fixExtra",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "choose",
+          "type": "int"
+        }
+      ],
+      "line": 389,
+      "end_line": 416,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_fixExtra",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "bb_CtrlTool_addJointApply": {
+      "name": "bb_CtrlTool_addJointApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "CtrlName",
+          "type": "string"
+        }
+      ],
+      "line": 419,
+      "end_line": 438,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_addJointApply",
+      "direct_effects": [
+        "connectAttr",
+        "parent",
+        "textField"
+      ]
+    },
+    "bb_CtrlTool_addDrv1Apply": {
+      "name": "bb_CtrlTool_addDrv1Apply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "CtrlName",
+          "type": "string"
+        }
+      ],
+      "line": 442,
+      "end_line": 457,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_addDrv1Apply",
+      "direct_effects": [
+        "parent",
+        "textField",
+        "checkBox"
+      ]
+    },
+    "bb_CtrlTool_visPivots": {
+      "name": "bb_CtrlTool_visPivots",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 460,
+      "end_line": 478,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_visPivots",
+      "direct_effects": []
+    },
+    "bb_CtrlTool_porpsCtrlApply": {
+      "name": "bb_CtrlTool_porpsCtrlApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 481,
+      "end_line": 530,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_porpsCtrlApply",
+      "direct_effects": [
+        "parent"
+      ]
+    },
+    "bb_CtrlTool_createShape": {
+      "name": "bb_CtrlTool_createShape",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "shapeStyle",
+          "type": "string"
+        },
+        {
+          "name": "shapeName",
+          "type": "string"
+        }
+      ],
+      "line": 532,
+      "end_line": 633,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_createShape",
+      "direct_effects": []
+    },
+    "bb_CtrlTool_changeShape": {
+      "name": "bb_CtrlTool_changeShape",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 635,
+      "end_line": 667,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_changeShape",
+      "direct_effects": [
+        "delete",
+        "connectAttr",
+        "parent",
+        "radioCollection"
+      ]
+    },
+    "bb_CtrlTool_combineShape": {
+      "name": "bb_CtrlTool_combineShape",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 669,
+      "end_line": 686,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_combineShape",
+      "direct_effects": [
+        "delete",
+        "parent"
+      ]
+    },
+    "bb_CtrlTool_CtrlShapeEdit": {
+      "name": "bb_CtrlTool_CtrlShapeEdit",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 691,
+      "end_line": 754,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_CtrlShapeEdit",
+      "direct_effects": [
+        "delete",
+        "parent"
+      ]
+    },
+    "bb_CtrlTool_CtrlShapeEditOK": {
+      "name": "bb_CtrlTool_CtrlShapeEditOK",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 756,
+      "end_line": 784,
+      "file": "Script/bb_ctrlTool.mel",
+      "native_name": "bbstg_bb_CtrlTool_CtrlShapeEditOK",
+      "direct_effects": [
+        "delete",
+        "connectAttr"
+      ]
+    },
+    "bb_curveTool": {
+      "name": "bb_curveTool",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 8,
+      "end_line": 61,
+      "file": "Script/bb_curveTool.mel",
+      "native_name": "bbstg_bb_curveTool",
+      "direct_effects": [
+        "window",
+        "textField",
+        "checkBox",
+        "radioCollection"
+      ]
+    },
+    "bb_curveTool_apply": {
+      "name": "bb_curveTool_apply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 64,
+      "end_line": 127,
+      "file": "Script/bb_curveTool.mel",
+      "native_name": "bbstg_bb_curveTool_apply",
+      "direct_effects": [
+        "parent",
+        "textField",
+        "checkBox",
+        "radioCollection"
+      ]
+    },
+    "bb_curveTool_rebuild": {
+      "name": "bb_curveTool_rebuild",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "curve",
+          "type": "string"
+        }
+      ],
+      "line": 129,
+      "end_line": 133,
+      "file": "Script/bb_curveTool.mel",
+      "native_name": "bbstg_bb_curveTool_rebuild",
+      "direct_effects": []
+    },
+    "bb_curveTool_createCtrl": {
+      "name": "bb_curveTool_createCtrl",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "curve",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "line": 135,
+      "end_line": 204,
+      "file": "Script/bb_curveTool.mel",
+      "native_name": "bbstg_bb_curveTool_createCtrl",
+      "direct_effects": [
+        "delete",
+        "parent"
+      ]
+    },
+    "bb_curveTool_follicle": {
+      "name": "bb_curveTool_follicle",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "surface",
+          "type": "string"
+        },
+        {
+          "name": "crvName",
+          "type": "string"
+        }
+      ],
+      "line": 206,
+      "end_line": 259,
+      "file": "Script/bb_curveTool.mel",
+      "native_name": "bbstg_bb_curveTool_follicle",
+      "direct_effects": [
+        "delete",
+        "connectAttr",
+        "parent",
+        "checkBox"
+      ]
+    },
+    "bb_curveTool_locApply": {
+      "name": "bb_curveTool_locApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 261,
+      "end_line": 294,
+      "file": "Script/bb_curveTool.mel",
+      "native_name": "bbstg_bb_curveTool_locApply",
+      "direct_effects": [
+        "connectAttr",
+        "parent",
+        "checkBox"
+      ]
+    },
+    "bb_curveTool_jointApply": {
+      "name": "bb_curveTool_jointApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 296,
+      "end_line": 328,
+      "file": "Script/bb_curveTool.mel",
+      "native_name": "bbstg_bb_curveTool_jointApply",
+      "direct_effects": [
+        "delete",
+        "checkBox"
+      ]
+    },
+    "bb_curveTool_getCVNum": {
+      "name": "bb_curveTool_getCVNum",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 330,
+      "end_line": 346,
+      "file": "Script/bb_curveTool.mel",
+      "native_name": "bbstg_bb_curveTool_getCVNum",
+      "direct_effects": []
+    },
+    "bb_curveTool_follicleOnFace": {
+      "name": "bb_curveTool_follicleOnFace",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 348,
+      "end_line": 382,
+      "file": "Script/bb_curveTool.mel",
+      "native_name": "bbstg_bb_curveTool_follicleOnFace",
+      "direct_effects": [
+        "connectAttr",
+        "parent",
+        "checkBox"
+      ]
+    },
+    "bb_FBXExportTool": {
+      "name": "bb_FBXExportTool",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 9,
+      "end_line": 49,
+      "file": "Script/bb_FBXExportTool.mel",
+      "native_name": "bbstg_bb_FBXExportTool",
+      "direct_effects": [
+        "window",
+        "textField",
+        "checkBox",
+        "radioCollection"
+      ]
+    },
+    "bb_FBXExport_loadRef": {
+      "name": "bb_FBXExport_loadRef",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 54,
+      "end_line": 71,
+      "file": "Script/bb_FBXExportTool.mel",
+      "native_name": "bbstg_bb_FBXExport_loadRef",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "bb_FBXExport_data2FBX": {
+      "name": "bb_FBXExport_data2FBX",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 75,
+      "end_line": 111,
+      "file": "Script/bb_FBXExportTool.mel",
+      "native_name": "bbstg_bb_FBXExport_data2FBX",
+      "direct_effects": [
+        "file",
+        "textField"
+      ]
+    },
+    "bb_FBXExport_importRename": {
+      "name": "bb_FBXExport_importRename",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 113,
+      "end_line": 126,
+      "file": "Script/bb_FBXExportTool.mel",
+      "native_name": "bbstg_bb_FBXExport_importRename",
+      "direct_effects": [
+        "file"
+      ]
+    },
+    "bb_FBXExport_UpAxisDisplay": {
+      "name": "bb_FBXExport_UpAxisDisplay",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 128,
+      "end_line": 137,
+      "file": "Script/bb_FBXExportTool.mel",
+      "native_name": "bbstg_bb_FBXExport_UpAxisDisplay",
+      "direct_effects": [
+        "radioCollection"
+      ]
+    },
+    "bb_FBXExport_Selcet": {
+      "name": "bb_FBXExport_Selcet",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 139,
+      "end_line": 161,
+      "file": "Script/bb_FBXExportTool.mel",
+      "native_name": "bbstg_bb_FBXExport_Selcet",
+      "direct_effects": [
+        "parent"
+      ]
+    },
+    "bb_FBXExport_ZUp": {
+      "name": "bb_FBXExport_ZUp",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 163,
+      "end_line": 180,
+      "file": "Script/bb_FBXExportTool.mel",
+      "native_name": "bbstg_bb_FBXExport_ZUp",
+      "direct_effects": [
+        "parent"
+      ]
+    },
+    "bb_FBXExport_DisConApply": {
+      "name": "bb_FBXExport_DisConApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 183,
+      "end_line": 236,
+      "file": "Script/bb_FBXExportTool.mel",
+      "native_name": "bbstg_bb_FBXExport_DisConApply",
+      "direct_effects": [
+        "parent",
+        "checkBox"
+      ]
+    },
+    "bb_FBXExport_disconnect": {
+      "name": "bb_FBXExport_disconnect",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "attr",
+          "type": "string"
+        }
+      ],
+      "line": 238,
+      "end_line": 246,
+      "file": "Script/bb_FBXExportTool.mel",
+      "native_name": "bbstg_bb_FBXExport_disconnect",
+      "direct_effects": [
+        "delete"
+      ]
+    },
+    "bb_FBXExport_BakeApply": {
+      "name": "bb_FBXExport_BakeApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 248,
+      "end_line": 314,
+      "file": "Script/bb_FBXExportTool.mel",
+      "native_name": "bbstg_bb_FBXExport_BakeApply",
+      "direct_effects": [
+        "bakeResults",
+        "parent",
+        "checkBox"
+      ]
+    },
+    "bb_FixError": {
+      "name": "bb_FixError",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1,
+      "end_line": 7,
+      "file": "Script/bb_FixError.mel",
+      "native_name": "bbstg_bb_FixError",
+      "direct_effects": []
+    },
+    "OutlineError": {
+      "name": "OutlineError",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 9,
+      "end_line": 23,
+      "file": "Script/bb_FixError.mel",
+      "native_name": "bbstg_OutlineError",
+      "direct_effects": [
+        "python"
+      ]
+    },
+    "CgAbBlastPanelOptChangeCallbackError": {
+      "name": "CgAbBlastPanelOptChangeCallbackError",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 25,
+      "end_line": 34,
+      "file": "Script/bb_FixError.mel",
+      "native_name": "bbstg_CgAbBlastPanelOptChangeCallbackError",
+      "direct_effects": [
+        "python"
+      ]
+    },
+    "DelDJJ": {
+      "name": "DelDJJ",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 36,
+      "end_line": 52,
+      "file": "Script/bb_FixError.mel",
+      "native_name": "bbstg_DelDJJ",
+      "direct_effects": [
+        "delete",
+        "python"
+      ]
+    },
+    "bb_history": {
+      "name": "bb_history",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1,
+      "end_line": 18,
+      "file": "Script/bb_history.mel",
+      "native_name": "bbstg_bb_history",
+      "direct_effects": [
+        "window"
+      ]
+    },
+    "bb_history_print": {
+      "name": "bb_history_print",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 21,
+      "end_line": 30,
+      "file": "Script/bb_history.mel",
+      "native_name": "bbstg_bb_history_print",
+      "direct_effects": [
+        "optionVar"
+      ]
+    },
+    "bb_listTool": {
+      "name": "bb_listTool",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 3,
+      "end_line": 57,
+      "file": "Script/bb_listTool.mel",
+      "native_name": "bbstg_bb_listTool",
+      "direct_effects": [
+        "parent",
+        "window",
+        "textField",
+        "checkBox",
+        "radioCollection"
+      ]
+    },
+    "bb_listTool_select": {
+      "name": "bb_listTool_select",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mode",
+          "type": "int"
+        }
+      ],
+      "line": 65,
+      "end_line": 75,
+      "file": "Script/bb_listTool.mel",
+      "native_name": "bbstg_bb_listTool_select",
+      "direct_effects": []
+    },
+    "bb_listTool_import": {
+      "name": "bb_listTool_import",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mode",
+          "type": "int"
+        }
+      ],
+      "line": 77,
+      "end_line": 114,
+      "file": "Script/bb_listTool.mel",
+      "native_name": "bbstg_bb_listTool_import",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "bb_listTool_apply": {
+      "name": "bb_listTool_apply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mode",
+          "type": "int"
+        }
+      ],
+      "line": 116,
+      "end_line": 159,
+      "file": "Script/bb_listTool.mel",
+      "native_name": "bbstg_bb_listTool_apply",
+      "direct_effects": [
+        "radioCollection"
+      ]
+    },
+    "bb_listTool_execute": {
+      "name": "bb_listTool_execute",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "aim0",
+          "type": "string"
+        },
+        {
+          "name": "sourc0",
+          "type": "string"
+        },
+        {
+          "name": "mode",
+          "type": "int"
+        }
+      ],
+      "line": 161,
+      "end_line": 273,
+      "file": "Script/bb_listTool.mel",
+      "native_name": "bbstg_bb_listTool_execute",
+      "direct_effects": [
+        "connectAttr",
+        "parent",
+        "textField",
+        "checkBox",
+        "radioCollection"
+      ]
+    },
+    "bb_masterCreate": {
+      "name": "bb_masterCreate",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1,
+      "end_line": 9,
+      "file": "Script/bb_masterCreate.mel",
+      "native_name": "bbstg_bb_masterCreate",
+      "direct_effects": [
+        "parent"
+      ]
+    },
+    "bb_QC_allQC": {
+      "name": "bb_QC_allQC",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mode",
+          "type": "int"
+        }
+      ],
+      "line": 2,
+      "end_line": 25,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_allQC",
+      "direct_effects": [
+        "checkBox"
+      ]
+    },
+    "bb_QC_sets": {
+      "name": "bb_QC_sets",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "setName",
+          "type": "string"
+        },
+        {
+          "name": "setElement",
+          "type": "string[]"
+        }
+      ],
+      "line": 28,
+      "end_line": 34,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_sets",
+      "direct_effects": [
+        "delete"
+      ]
+    },
+    "bb_QC_informationOutput": {
+      "name": "bb_QC_informationOutput",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "checkItem",
+          "type": "int"
+        },
+        {
+          "name": "conclusion",
+          "type": "int"
+        },
+        {
+          "name": "setNum",
+          "type": "int"
+        },
+        {
+          "name": "setName",
+          "type": "string"
+        }
+      ],
+      "line": 36,
+      "end_line": 73,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_informationOutput",
+      "direct_effects": []
+    },
+    "bb_QC_deleteFix": {
+      "name": "bb_QC_deleteFix",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "setName",
+          "type": "string"
+        }
+      ],
+      "line": 75,
+      "end_line": 88,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_deleteFix",
+      "direct_effects": [
+        "delete"
+      ]
+    },
+    "bb_QC_noneQC": {
+      "name": "bb_QC_noneQC",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 90,
+      "end_line": 96,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_noneQC",
+      "direct_effects": []
+    },
+    "bb_QC_setApply": {
+      "name": "bb_QC_setApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "setObj",
+          "type": "string[]"
+        },
+        {
+          "name": "setName",
+          "type": "string"
+        },
+        {
+          "name": "list",
+          "type": "int"
+        }
+      ],
+      "line": 98,
+      "end_line": 108,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_setApply",
+      "direct_effects": []
+    },
+    "bb_QC_shapes2transforms": {
+      "name": "bb_QC_shapes2transforms",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "shapeType",
+          "type": "string"
+        }
+      ],
+      "line": 110,
+      "end_line": 120,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_shapes2transforms",
+      "direct_effects": []
+    },
+    "bb_QC_unkownQC": {
+      "name": "bb_QC_unkownQC",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 123,
+      "end_line": 127,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_unkownQC",
+      "direct_effects": []
+    },
+    "bb_QC_intermediaObjQC": {
+      "name": "bb_QC_intermediaObjQC",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 130,
+      "end_line": 155,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_intermediaObjQC",
+      "direct_effects": [
+        "delete"
+      ]
+    },
+    "bb_QC_zeroVertexObjQC": {
+      "name": "bb_QC_zeroVertexObjQC",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 159,
+      "end_line": 172,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_zeroVertexObjQC",
+      "direct_effects": []
+    },
+    "bb_QC_audioQC": {
+      "name": "bb_QC_audioQC",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 175,
+      "end_line": 179,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_audioQC",
+      "direct_effects": []
+    },
+    "bb_QC_repeatedNameQC": {
+      "name": "bb_QC_repeatedNameQC",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 181,
+      "end_line": 214,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_repeatedNameQC",
+      "direct_effects": [
+        "delete",
+        "checkBox"
+      ]
+    },
+    "bb_QC_repeatedNameReturn": {
+      "name": "bb_QC_repeatedNameReturn",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "nodeType",
+          "type": "string"
+        },
+        {
+          "name": "obj",
+          "type": "string[]"
+        }
+      ],
+      "line": 216,
+      "end_line": 227,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_repeatedNameReturn",
+      "direct_effects": []
+    },
+    "bb_QC_repeatedNameFix": {
+      "name": "bb_QC_repeatedNameFix",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 229,
+      "end_line": 249,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_repeatedNameFix",
+      "direct_effects": []
+    },
+    "bb_QC_repeatedNameFixApply": {
+      "name": "bb_QC_repeatedNameFixApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "setName",
+          "type": "string"
+        }
+      ],
+      "line": 251,
+      "end_line": 274,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_repeatedNameFixApply",
+      "direct_effects": []
+    },
+    "bb_QC_modleSuffixQC": {
+      "name": "bb_QC_modleSuffixQC",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 276,
+      "end_line": 281,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_modleSuffixQC",
+      "direct_effects": [
+        "delete"
+      ]
+    },
+    "bb_QC_suffixQCApply": {
+      "name": "bb_QC_suffixQCApply",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "textField",
+          "type": "string"
+        },
+        {
+          "name": "shapeType",
+          "type": "string"
+        },
+        {
+          "name": "returnType",
+          "type": "int"
+        }
+      ],
+      "line": 284,
+      "end_line": 324,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_suffixQCApply",
+      "direct_effects": [
+        "textField",
+        "checkBox"
+      ]
+    },
+    "bb_QC_attrLockQC": {
+      "name": "bb_QC_attrLockQC",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 327,
+      "end_line": 343,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_attrLockQC",
+      "direct_effects": [
+        "delete"
+      ]
+    },
+    "bb_QC_attrLockFix": {
+      "name": "bb_QC_attrLockFix",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 345,
+      "end_line": 359,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_attrLockFix",
+      "direct_effects": []
+    },
+    "bb_QC_modleVisQC": {
+      "name": "bb_QC_modleVisQC",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 362,
+      "end_line": 384,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_modleVisQC",
+      "direct_effects": [
+        "delete"
+      ]
+    },
+    "bb_QC_modleVisFix": {
+      "name": "bb_QC_modleVisFix",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 386,
+      "end_line": 412,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_modleVisFix",
+      "direct_effects": []
+    },
+    "bb_QC_lightQC": {
+      "name": "bb_QC_lightQC",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 414,
+      "end_line": 424,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_lightQC",
+      "direct_effects": [
+        "delete"
+      ]
+    },
+    "bb_QC_camQC": {
+      "name": "bb_QC_camQC",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 426,
+      "end_line": 442,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_camQC",
+      "direct_effects": [
+        "delete",
+        "textField"
+      ]
+    },
+    "bb_QC_ctrlValueQC": {
+      "name": "bb_QC_ctrlValueQC",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 444,
+      "end_line": 483,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_ctrlValueQC",
+      "direct_effects": [
+        "delete",
+        "textScrollList"
+      ]
+    },
+    "bb_QC_ctrlValueFix": {
+      "name": "bb_QC_ctrlValueFix",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 485,
+      "end_line": 520,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_ctrlValueFix",
+      "direct_effects": [
+        "textScrollList"
+      ]
+    },
+    "bb_QC_faceMappingQC": {
+      "name": "bb_QC_faceMappingQC",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 523,
+      "end_line": 536,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_faceMappingQC",
+      "direct_effects": [
+        "delete"
+      ]
+    },
+    "bb_QC_animKeyQC": {
+      "name": "bb_QC_animKeyQC",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 539,
+      "end_line": 556,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_animKeyQC",
+      "direct_effects": [
+        "delete"
+      ]
+    },
+    "bb_QC_animKeyFix": {
+      "name": "bb_QC_animKeyFix",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 558,
+      "end_line": 574,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_animKeyFix",
+      "direct_effects": [
+        "delete"
+      ]
+    },
+    "bb_QC_layerQC": {
+      "name": "bb_QC_layerQC",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 576,
+      "end_line": 582,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_layerQC",
+      "direct_effects": [
+        "delete"
+      ]
+    },
+    "bb_QC_smoothQC": {
+      "name": "bb_QC_smoothQC",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 584,
+      "end_line": 625,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_smoothQC",
+      "direct_effects": [
+        "delete",
+        "checkBox"
+      ]
+    },
+    "bb_QC_smoothFix": {
+      "name": "bb_QC_smoothFix",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 627,
+      "end_line": 649,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_smoothFix",
+      "direct_effects": [
+        "delete"
+      ]
+    },
+    "bb_QC_smoothFixAddApply": {
+      "name": "bb_QC_smoothFixAddApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "obj",
+          "type": "string"
+        },
+        {
+          "name": "mode",
+          "type": "int"
+        }
+      ],
+      "line": 651,
+      "end_line": 670,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_smoothFixAddApply",
+      "direct_effects": [
+        "delete"
+      ]
+    },
+    "bb_QC_unusedQC": {
+      "name": "bb_QC_unusedQC",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 672,
+      "end_line": 689,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_unusedQC",
+      "direct_effects": [
+        "delete"
+      ]
+    },
+    "bb_QC_unusedFix": {
+      "name": "bb_QC_unusedFix",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 691,
+      "end_line": 702,
+      "file": "Script/bb_QC_apply.mel",
+      "native_name": "bbstg_bb_QC_unusedFix",
+      "direct_effects": []
+    },
+    "bb_QC_addApply": {
+      "name": "bb_QC_addApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "shapeType",
+          "type": "string"
+        },
+        {
+          "name": "textFieldName",
+          "type": "string"
+        },
+        {
+          "name": "nameType",
+          "type": "int"
+        }
+      ],
+      "line": 3,
+      "end_line": 38,
+      "file": "Script/bb_QC_set.mel",
+      "native_name": "bbstg_bb_QC_addApply",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "bb_QC_checkRule": {
+      "name": "bb_QC_checkRule",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "checkContent",
+          "type": "string"
+        },
+        {
+          "name": "textFieldName",
+          "type": "string"
+        }
+      ],
+      "line": 40,
+      "end_line": 54,
+      "file": "Script/bb_QC_set.mel",
+      "native_name": "bbstg_bb_QC_checkRule",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "bb_QC_checkTextField": {
+      "name": "bb_QC_checkTextField",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "textFieldName",
+          "type": "string"
+        }
+      ],
+      "line": 56,
+      "end_line": 60,
+      "file": "Script/bb_QC_set.mel",
+      "native_name": "bbstg_bb_QC_checkTextField",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "bb_QC_addAttr": {
+      "name": "bb_QC_addAttr",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mode",
+          "type": "int"
+        }
+      ],
+      "line": 63,
+      "end_line": 94,
+      "file": "Script/bb_QC_set.mel",
+      "native_name": "bbstg_bb_QC_addAttr",
+      "direct_effects": []
+    },
+    "bb_QC_attrConfirm": {
+      "name": "bb_QC_attrConfirm",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "checkContent",
+          "type": "string[]"
+        },
+        {
+          "name": "mode",
+          "type": "int"
+        }
+      ],
+      "line": 96,
+      "end_line": 133,
+      "file": "Script/bb_QC_set.mel",
+      "native_name": "bbstg_bb_QC_attrConfirm",
+      "direct_effects": [
+        "textScrollList"
+      ]
+    },
+    "bb_QC_attrSeparate": {
+      "name": "bb_QC_attrSeparate",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "attrInput",
+          "type": "string[]"
+        }
+      ],
+      "line": 136,
+      "end_line": 144,
+      "file": "Script/bb_QC_set.mel",
+      "native_name": "bbstg_bb_QC_attrSeparate",
+      "direct_effects": []
+    },
+    "bb_QC_attrWrite": {
+      "name": "bb_QC_attrWrite",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "attrInput",
+          "type": "string[]"
+        },
+        {
+          "name": "textScrollListName",
+          "type": "string"
+        }
+      ],
+      "line": 147,
+      "end_line": 163,
+      "file": "Script/bb_QC_set.mel",
+      "native_name": "bbstg_bb_QC_attrWrite",
+      "direct_effects": [
+        "textScrollList"
+      ]
+    },
+    "bb_QC_deleteAttr": {
+      "name": "bb_QC_deleteAttr",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mode",
+          "type": "int"
+        },
+        {
+          "name": "textScrollListName",
+          "type": "string"
+        }
+      ],
+      "line": 165,
+      "end_line": 176,
+      "file": "Script/bb_QC_set.mel",
+      "native_name": "bbstg_bb_QC_deleteAttr",
+      "direct_effects": [
+        "textScrollList"
+      ]
+    },
+    "bb_QC_reverseSelAttr": {
+      "name": "bb_QC_reverseSelAttr",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "textScrollListName",
+          "type": "string"
+        }
+      ],
+      "line": 178,
+      "end_line": 190,
+      "file": "Script/bb_QC_set.mel",
+      "native_name": "bbstg_bb_QC_reverseSelAttr",
+      "direct_effects": [
+        "textScrollList"
+      ]
+    },
+    "bb_QC_setExport": {
+      "name": "bb_QC_setExport",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 193,
+      "end_line": 238,
+      "file": "Script/bb_QC_set.mel",
+      "native_name": "bbstg_bb_QC_setExport",
+      "direct_effects": [
+        "optionVar",
+        "file",
+        "fopen",
+        "textField",
+        "checkBox"
+      ]
+    },
+    "bb_QC_setExportTSL": {
+      "name": "bb_QC_setExportTSL",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "textScrollListName",
+          "type": "string"
+        }
+      ],
+      "line": 240,
+      "end_line": 248,
+      "file": "Script/bb_QC_set.mel",
+      "native_name": "bbstg_bb_QC_setExportTSL",
+      "direct_effects": [
+        "textScrollList"
+      ]
+    },
+    "bb_QC_loadFile": {
+      "name": "bb_QC_loadFile",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 250,
+      "end_line": 262,
+      "file": "Script/bb_QC_set.mel",
+      "native_name": "bbstg_bb_QC_loadFile",
+      "direct_effects": [
+        "optionVar"
+      ]
+    },
+    "bb_QC_setFileMenu": {
+      "name": "bb_QC_setFileMenu",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 265,
+      "end_line": 283,
+      "file": "Script/bb_QC_set.mel",
+      "native_name": "bbstg_bb_QC_setFileMenu",
+      "direct_effects": []
+    },
+    "bb_QC_changeSetFile": {
+      "name": "bb_QC_changeSetFile",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 286,
+      "end_line": 291,
+      "file": "Script/bb_QC_set.mel",
+      "native_name": "bbstg_bb_QC_changeSetFile",
+      "direct_effects": [
+        "optionVar",
+        "file"
+      ]
+    },
+    "bb_QC_setImport": {
+      "name": "bb_QC_setImport",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 294,
+      "end_line": 311,
+      "file": "Script/bb_QC_set.mel",
+      "native_name": "bbstg_bb_QC_setImport",
+      "direct_effects": [
+        "file",
+        "fopen"
+      ]
+    },
+    "bb_QC_defaultSet": {
+      "name": "bb_QC_defaultSet",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1,
+      "end_line": 105,
+      "file": "Script/bb_QC_text.mel",
+      "native_name": "bbstg_bb_QC_defaultSet",
+      "direct_effects": [
+        "textField",
+        "checkBox",
+        "textScrollList"
+      ]
+    },
+    "bb_QC_help": {
+      "name": "bb_QC_help",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 107,
+      "end_line": 225,
+      "file": "Script/bb_QC_text.mel",
+      "native_name": "bbstg_bb_QC_help",
+      "direct_effects": []
+    },
+    "bb_QC_initialization": {
+      "name": "bb_QC_initialization",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 4,
+      "end_line": 12,
+      "file": "Script/bb_QC_UI.mel",
+      "native_name": "bbstg_bb_QC_initialization",
+      "direct_effects": [
+        "optionVar"
+      ]
+    },
+    "bb_QC_UIValueSet": {
+      "name": "bb_QC_UIValueSet",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "order",
+          "type": "int"
+        },
+        {
+          "name": "value",
+          "type": "int"
+        }
+      ],
+      "line": 14,
+      "end_line": 22,
+      "file": "Script/bb_QC_UI.mel",
+      "native_name": "bbstg_bb_QC_UIValueSet",
+      "direct_effects": [
+        "optionVar"
+      ]
+    },
+    "bb_QC_UISelect": {
+      "name": "bb_QC_UISelect",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mode",
+          "type": "int"
+        },
+        {
+          "name": "type",
+          "type": "int"
+        }
+      ],
+      "line": 24,
+      "end_line": 54,
+      "file": "Script/bb_QC_UI.mel",
+      "native_name": "bbstg_bb_QC_UISelect",
+      "direct_effects": [
+        "checkBox"
+      ]
+    },
+    "bb_QCUI": {
+      "name": "bb_QCUI",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 56,
+      "end_line": 362,
+      "file": "Script/bb_QC_UI.mel",
+      "native_name": "bbstg_bb_QCUI",
+      "direct_effects": [
+        "window",
+        "textField",
+        "checkBox",
+        "textScrollList"
+      ]
+    },
+    "bb_QCTool": {
+      "name": "bb_QCTool",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1,
+      "end_line": 9,
+      "file": "Script/bb_QCTool.mel",
+      "native_name": "bbstg_bb_QCTool",
+      "direct_effects": []
+    },
+    "bb_QC_setFilePath": {
+      "name": "bb_QC_setFilePath",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [],
+      "line": 12,
+      "end_line": 21,
+      "file": "Script/bb_QCTool.mel",
+      "native_name": "bbstg_bb_QC_setFilePath",
+      "direct_effects": []
+    },
+    "bb_selectTool": {
+      "name": "bb_selectTool",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 4,
+      "end_line": 27,
+      "file": "Script/bb_selectTool.mel",
+      "native_name": "bbstg_bb_selectTool",
+      "direct_effects": [
+        "window",
+        "textField",
+        "checkBox",
+        "radioCollection"
+      ]
+    },
+    "bb_select_loadNode": {
+      "name": "bb_select_loadNode",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 30,
+      "end_line": 60,
+      "file": "Script/bb_selectTool.mel",
+      "native_name": "bbstg_bb_select_loadNode",
+      "direct_effects": [
+        "textField",
+        "checkBox"
+      ]
+    },
+    "bb_select_apply": {
+      "name": "bb_select_apply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "applyMode",
+          "type": "int"
+        }
+      ],
+      "line": 62,
+      "end_line": 140,
+      "file": "Script/bb_selectTool.mel",
+      "native_name": "bbstg_bb_select_apply",
+      "direct_effects": [
+        "parent",
+        "textField",
+        "checkBox",
+        "radioCollection"
+      ]
+    },
+    "bb_skin2Deform": {
+      "name": "bb_skin2Deform",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 5,
+      "end_line": 28,
+      "file": "Script/bb_skin2Deform.mel",
+      "native_name": "bbstg_bb_skin2Deform",
+      "direct_effects": [
+        "window",
+        "textField"
+      ]
+    },
+    "bb_skin2Deform_resetWin": {
+      "name": "bb_skin2Deform_resetWin",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 31,
+      "end_line": 34,
+      "file": "Script/bb_skin2Deform.mel",
+      "native_name": "bbstg_bb_skin2Deform_resetWin",
+      "direct_effects": [
+        "window"
+      ]
+    },
+    "bb_skin2Deform_loadSkin": {
+      "name": "bb_skin2Deform_loadSkin",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 38,
+      "end_line": 56,
+      "file": "Script/bb_skin2Deform.mel",
+      "native_name": "bbstg_bb_skin2Deform_loadSkin",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "bb_skin2Deform_addLayout": {
+      "name": "bb_skin2Deform_addLayout",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mod",
+          "type": "int"
+        }
+      ],
+      "line": 58,
+      "end_line": 88,
+      "file": "Script/bb_skin2Deform.mel",
+      "native_name": "bbstg_bb_skin2Deform_addLayout",
+      "direct_effects": []
+    },
+    "bb_skin2Deform_addLayoutApply": {
+      "name": "bb_skin2Deform_addLayoutApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "joint",
+          "type": "string"
+        },
+        {
+          "name": "listNum",
+          "type": "int"
+        }
+      ],
+      "line": 90,
+      "end_line": 101,
+      "file": "Script/bb_skin2Deform.mel",
+      "native_name": "bbstg_bb_skin2Deform_addLayoutApply",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "bb_skin2Deform_loadDeform": {
+      "name": "bb_skin2Deform_loadDeform",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "listNum",
+          "type": "string"
+        }
+      ],
+      "line": 103,
+      "end_line": 132,
+      "file": "Script/bb_skin2Deform.mel",
+      "native_name": "bbstg_bb_skin2Deform_loadDeform",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "bb_skin2Deform_loadDeformBS": {
+      "name": "bb_skin2Deform_loadDeformBS",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "listNum",
+          "type": "string"
+        },
+        {
+          "name": "nodeName",
+          "type": "string"
+        }
+      ],
+      "line": 134,
+      "end_line": 158,
+      "file": "Script/bb_skin2Deform.mel",
+      "native_name": "bbstg_bb_skin2Deform_loadDeformBS",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "bb_skin2Deform_apply": {
+      "name": "bb_skin2Deform_apply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 160,
+      "end_line": 249,
+      "file": "Script/bb_skin2Deform.mel",
+      "native_name": "bbstg_bb_skin2Deform_apply",
+      "direct_effects": [
+        "delete",
+        "file",
+        "fopen",
+        "deformerWeights",
+        "textField"
+      ]
+    },
+    "bb_skin2Deform_progress": {
+      "name": "bb_skin2Deform_progress",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "maxValue",
+          "type": "int"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        }
+      ],
+      "line": 251,
+      "end_line": 258,
+      "file": "Script/bb_skin2Deform.mel",
+      "native_name": "bbstg_bb_skin2Deform_progress",
+      "direct_effects": [
+        "window"
+      ]
+    },
+    "bb_skinList": {
+      "name": "bb_skinList",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1,
+      "end_line": 29,
+      "file": "Script/bb_skinList.mel",
+      "native_name": "bbstg_bb_skinList",
+      "direct_effects": [
+        "parent",
+        "scriptJob",
+        "window",
+        "textScrollList"
+      ]
+    },
+    "bb_returnSkinList": {
+      "name": "bb_returnSkinList",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "obj",
+          "type": "string"
+        }
+      ],
+      "line": 32,
+      "end_line": 43,
+      "file": "Script/bb_skinList.mel",
+      "native_name": "bbstg_bb_returnSkinList",
+      "direct_effects": []
+    },
+    "bb_reloadSkinList": {
+      "name": "bb_reloadSkinList",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 45,
+      "end_line": 61,
+      "file": "Script/bb_skinList.mel",
+      "native_name": "bbstg_bb_reloadSkinList",
+      "direct_effects": [
+        "textScrollList"
+      ]
+    },
+    "bb_tslSel": {
+      "name": "bb_tslSel",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 63,
+      "end_line": 70,
+      "file": "Script/bb_skinList.mel",
+      "native_name": "bbstg_bb_tslSel",
+      "direct_effects": [
+        "textScrollList"
+      ]
+    },
+    "bb_allSel": {
+      "name": "bb_allSel",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 72,
+      "end_line": 79,
+      "file": "Script/bb_skinList.mel",
+      "native_name": "bbstg_bb_allSel",
+      "direct_effects": [
+        "textScrollList"
+      ]
+    },
+    "bb_softModTool": {
+      "name": "bb_softModTool",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 4,
+      "end_line": 44,
+      "file": "Script/bb_softModTool.mel",
+      "native_name": "bbstg_bb_softModTool",
+      "direct_effects": [
+        "window",
+        "textField"
+      ]
+    },
+    "bb_softMod_apply": {
+      "name": "bb_softMod_apply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 47,
+      "end_line": 81,
+      "file": "Script/bb_softModTool.mel",
+      "native_name": "bbstg_bb_softMod_apply",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "bb_softMod_createCtrl": {
+      "name": "bb_softMod_createCtrl",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "Name",
+          "type": "string"
+        }
+      ],
+      "line": 83,
+      "end_line": 158,
+      "file": "Script/bb_softModTool.mel",
+      "native_name": "bbstg_bb_softMod_createCtrl",
+      "direct_effects": [
+        "parent"
+      ]
+    },
+    "bb_softMod_connect": {
+      "name": "bb_softMod_connect",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "Name",
+          "type": "string"
+        },
+        {
+          "name": "sel",
+          "type": "string[]"
+        }
+      ],
+      "line": 161,
+      "end_line": 183,
+      "file": "Script/bb_softModTool.mel",
+      "native_name": "bbstg_bb_softMod_connect",
+      "direct_effects": [
+        "connectAttr",
+        "parent"
+      ]
+    },
+    "bb_softMod_visMovCtrlEnv": {
+      "name": "bb_softMod_visMovCtrlEnv",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 185,
+      "end_line": 196,
+      "file": "Script/bb_softModTool.mel",
+      "native_name": "bbstg_bb_softMod_visMovCtrlEnv",
+      "direct_effects": []
+    },
+    "bb_softMod_addRig": {
+      "name": "bb_softMod_addRig",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 200,
+      "end_line": 212,
+      "file": "Script/bb_softModTool.mel",
+      "native_name": "bbstg_bb_softMod_addRig",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "bb_softMod_addGeo": {
+      "name": "bb_softMod_addGeo",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 214,
+      "end_line": 219,
+      "file": "Script/bb_softModTool.mel",
+      "native_name": "bbstg_bb_softMod_addGeo",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "bb_softMod_addApply": {
+      "name": "bb_softMod_addApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mode",
+          "type": "int"
+        }
+      ],
+      "line": 221,
+      "end_line": 232,
+      "file": "Script/bb_softModTool.mel",
+      "native_name": "bbstg_bb_softMod_addApply",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "cdkMakeDynamicChainUI": {
+      "name": "cdkMakeDynamicChainUI",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 13,
+      "end_line": 29,
+      "file": "Script/cdkMakeDynamicChain.mel",
+      "native_name": "bbstg_cdkMakeDynamicChainUI",
+      "direct_effects": [
+        "window",
+        "textField",
+        "checkBox"
+      ]
+    },
+    "autherOn": {
+      "name": "autherOn",
+      "global_scope": false,
+      "return_type": "void",
+      "parameters": [],
+      "line": 31,
+      "end_line": 51,
+      "file": "Script/cdkMakeDynamicChain.mel",
+      "native_name": "bbstg_autherOn",
+      "direct_effects": []
+    },
+    "cdkMakeDynamicChainUserInput": {
+      "name": "cdkMakeDynamicChainUserInput",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 55,
+      "end_line": 85,
+      "file": "Script/cdkMakeDynamicChain.mel",
+      "native_name": "bbstg_cdkMakeDynamicChainUserInput",
+      "direct_effects": [
+        "system",
+        "window",
+        "textField",
+        "textScrollList"
+      ]
+    },
+    "assignExistingDynamics": {
+      "name": "assignExistingDynamics",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 87,
+      "end_line": 91,
+      "file": "Script/cdkMakeDynamicChain.mel",
+      "native_name": "bbstg_assignExistingDynamics",
+      "direct_effects": []
+    },
+    "cdkAssignNewHairSystem": {
+      "name": "cdkAssignNewHairSystem",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 95,
+      "end_line": 317,
+      "file": "Script/cdkMakeDynamicChain.mel",
+      "native_name": "bbstg_cdkAssignNewHairSystem",
+      "direct_effects": [
+        "delete",
+        "connectAttr",
+        "parent",
+        "system",
+        "textField",
+        "checkBox"
+      ]
+    },
+    "cdkAssignExistingHairSystem": {
+      "name": "cdkAssignExistingHairSystem",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 320,
+      "end_line": 457,
+      "file": "Script/cdkMakeDynamicChain.mel",
+      "native_name": "bbstg_cdkAssignExistingHairSystem",
+      "direct_effects": [
+        "delete",
+        "connectAttr",
+        "parent",
+        "system",
+        "textField",
+        "checkBox",
+        "textScrollList"
+      ]
+    },
+    "cdkJointBake": {
+      "name": "cdkJointBake",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mod",
+          "type": "int"
+        }
+      ],
+      "line": 461,
+      "end_line": 490,
+      "file": "Script/cdkMakeDynamicChain.mel",
+      "native_name": "bbstg_cdkJointBake",
+      "direct_effects": []
+    },
+    "cdkJointBakeApply": {
+      "name": "cdkJointBakeApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 492,
+      "end_line": 496,
+      "file": "Script/cdkMakeDynamicChain.mel",
+      "native_name": "bbstg_cdkJointBakeApply",
+      "direct_effects": []
+    },
+    "cdkJointUnBakeApply": {
+      "name": "cdkJointUnBakeApply",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 498,
+      "end_line": 514,
+      "file": "Script/cdkMakeDynamicChain.mel",
+      "native_name": "bbstg_cdkJointUnBakeApply",
+      "direct_effects": [
+        "cutKey"
+      ]
+    },
+    "BSpiritCorrectiveShape": {
+      "name": "BSpiritCorrectiveShape",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [],
+      "line": 31,
+      "end_line": 278,
+      "file": "Script/cgTkShapeBuilder.mel",
+      "native_name": "bbstg_BSpiritCorrectiveShape",
+      "direct_effects": [
+        "connectAttr"
+      ]
+    },
+    "generateBlendshape": {
+      "name": "generateBlendshape",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 282,
+      "end_line": 324,
+      "file": "Script/cgTkShapeBuilder.mel",
+      "native_name": "bbstg_generateBlendshape",
+      "direct_effects": [
+        "delete",
+        "textField",
+        "checkBox"
+      ]
+    },
+    "editCurve": {
+      "name": "editCurve",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 328,
+      "end_line": 335,
+      "file": "Script/cgTkShapeBuilder.mel",
+      "native_name": "bbstg_editCurve",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "setShapeKey": {
+      "name": "setShapeKey",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 339,
+      "end_line": 381,
+      "file": "Script/cgTkShapeBuilder.mel",
+      "native_name": "bbstg_setShapeKey",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "shapeSliderCommand": {
+      "name": "shapeSliderCommand",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 385,
+      "end_line": 403,
+      "file": "Script/cgTkShapeBuilder.mel",
+      "native_name": "bbstg_shapeSliderCommand",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "jointSliderCommand": {
+      "name": "jointSliderCommand",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 408,
+      "end_line": 436,
+      "file": "Script/cgTkShapeBuilder.mel",
+      "native_name": "bbstg_jointSliderCommand",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "loadDriverJoint": {
+      "name": "loadDriverJoint",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 440,
+      "end_line": 456,
+      "file": "Script/cgTkShapeBuilder.mel",
+      "native_name": "bbstg_loadDriverJoint",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "refreshBlendshapeList": {
+      "name": "refreshBlendshapeList",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 460,
+      "end_line": 491,
+      "file": "Script/cgTkShapeBuilder.mel",
+      "native_name": "bbstg_refreshBlendshapeList",
+      "direct_effects": [
+        "textField",
+        "textScrollList"
+      ]
+    },
+    "createSculptDuplicate": {
+      "name": "createSculptDuplicate",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 495,
+      "end_line": 544,
+      "file": "Script/cgTkShapeBuilder.mel",
+      "native_name": "bbstg_createSculptDuplicate",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "loadBaseMesh": {
+      "name": "loadBaseMesh",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 548,
+      "end_line": 567,
+      "file": "Script/cgTkShapeBuilder.mel",
+      "native_name": "bbstg_loadBaseMesh",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "loadBlendshapeNode": {
+      "name": "loadBlendshapeNode",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 571,
+      "end_line": 595,
+      "file": "Script/cgTkShapeBuilder.mel",
+      "native_name": "bbstg_loadBlendshapeNode",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "cgTkShapeBuilder": {
+      "name": "cgTkShapeBuilder",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 599,
+      "end_line": 695,
+      "file": "Script/cgTkShapeBuilder.mel",
+      "native_name": "bbstg_cgTkShapeBuilder",
+      "direct_effects": [
+        "window",
+        "textField",
+        "checkBox",
+        "textScrollList"
+      ]
+    },
+    "BYSelect": {
+      "name": "BYSelect",
+      "global_scope": false,
+      "return_type": "string[]",
+      "parameters": [],
+      "line": 66,
+      "end_line": 99,
+      "file": "Script/FileTextureManager.mel",
+      "native_name": "bbstg_BYSelect",
+      "direct_effects": [
+        "file"
+      ]
+    },
+    "FTM_GetPath": {
+      "name": "FTM_GetPath",
+      "global_scope": false,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "FTM_FileOrPath",
+          "type": "string"
+        },
+        {
+          "name": "FTM_OldPath",
+          "type": "string"
+        }
+      ],
+      "line": 100,
+      "end_line": 118,
+      "file": "Script/FileTextureManager.mel",
+      "native_name": "bbstg_FTM_GetPath",
+      "direct_effects": [
+        "file"
+      ]
+    },
+    "FTM_GetFile": {
+      "name": "FTM_GetFile",
+      "global_scope": false,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "FTM_OldFullPath",
+          "type": "string"
+        }
+      ],
+      "line": 128,
+      "end_line": 149,
+      "file": "Script/FileTextureManager.mel",
+      "native_name": "bbstg_FTM_GetFile",
+      "direct_effects": []
+    },
+    "FTM_FileTextureAnalyst": {
+      "name": "FTM_FileTextureAnalyst",
+      "global_scope": false,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "bySelect",
+          "type": "int"
+        }
+      ],
+      "line": 157,
+      "end_line": 251,
+      "file": "Script/FileTextureManager.mel",
+      "native_name": "bbstg_FTM_FileTextureAnalyst",
+      "direct_effects": [
+        "delete",
+        "file"
+      ]
+    },
+    "FTM_AnalyseFileTextures": {
+      "name": "FTM_AnalyseFileTextures",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "FTM_ParentUI",
+          "type": "string"
+        },
+        {
+          "name": "bySelect",
+          "type": "int"
+        }
+      ],
+      "line": 259,
+      "end_line": 390,
+      "file": "Script/FileTextureManager.mel",
+      "native_name": "bbstg_FTM_AnalyseFileTextures",
+      "direct_effects": [
+        "delete",
+        "file",
+        "window",
+        "checkBox"
+      ]
+    },
+    "FTM_BrowseCmd": {
+      "name": "FTM_BrowseCmd",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "FTM_FileOrPath",
+          "type": "string"
+        },
+        {
+          "name": "FTM_TextField",
+          "type": "string"
+        },
+        {
+          "name": "FTM_WhichButton",
+          "type": "string"
+        },
+        {
+          "name": "FTM_BrowseType",
+          "type": "int"
+        }
+      ],
+      "line": 398,
+      "end_line": 417,
+      "file": "Script/FileTextureManager.mel",
+      "native_name": "bbstg_FTM_BrowseCmd",
+      "direct_effects": [
+        "file"
+      ]
+    },
+    "FTM_ChangeTextField": {
+      "name": "FTM_ChangeTextField",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "FTM_FileOrPath",
+          "type": "string"
+        },
+        {
+          "name": "FTM_TextField",
+          "type": "string"
+        },
+        {
+          "name": "FTM_File",
+          "type": "string"
+        },
+        {
+          "name": "FTM_FileType",
+          "type": "string"
+        }
+      ],
+      "line": 425,
+      "end_line": 440,
+      "file": "Script/FileTextureManager.mel",
+      "native_name": "bbstg_FTM_ChangeTextField",
+      "direct_effects": [
+        "file",
+        "window"
+      ]
+    },
+    "FTM_UnknownOS": {
+      "name": "FTM_UnknownOS",
+      "global_scope": false,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "FTM_os",
+          "type": "string"
+        }
+      ],
+      "line": 448,
+      "end_line": 486,
+      "file": "Script/FileTextureManager.mel",
+      "native_name": "bbstg_FTM_UnknownOS",
+      "direct_effects": [
+        "window"
+      ]
+    },
+    "FTM_BuildMessageWindow": {
+      "name": "FTM_BuildMessageWindow",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [],
+      "line": 494,
+      "end_line": 522,
+      "file": "Script/FileTextureManager.mel",
+      "native_name": "bbstg_FTM_BuildMessageWindow",
+      "direct_effects": [
+        "window"
+      ]
+    },
+    "FTM_BuildMainUI": {
+      "name": "FTM_BuildMainUI",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 530,
+      "end_line": 693,
+      "file": "Script/FileTextureManager.mel",
+      "native_name": "bbstg_FTM_BuildMainUI",
+      "direct_effects": [
+        "delete",
+        "file",
+        "window",
+        "textField",
+        "checkBox"
+      ]
+    },
+    "FTM_EditUIControl": {
+      "name": "FTM_EditUIControl",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "FTM_OptionColumn",
+          "type": "string"
+        },
+        {
+          "name": "FTM_HelpForm",
+          "type": "string"
+        }
+      ],
+      "line": 701,
+      "end_line": 763,
+      "file": "Script/FileTextureManager.mel",
+      "native_name": "bbstg_FTM_EditUIControl",
+      "direct_effects": [
+        "file",
+        "textField",
+        "checkBox"
+      ]
+    },
+    "FTM_ResetUI": {
+      "name": "FTM_ResetUI",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "FTM_OptionColumn",
+          "type": "string"
+        },
+        {
+          "name": "FTM_AnalysisColumn",
+          "type": "string"
+        }
+      ],
+      "line": 771,
+      "end_line": 826,
+      "file": "Script/FileTextureManager.mel",
+      "native_name": "bbstg_FTM_ResetUI",
+      "direct_effects": [
+        "delete",
+        "window",
+        "textField",
+        "checkBox"
+      ]
+    },
+    "FTM_Function": {
+      "name": "FTM_Function",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "FTM_Function",
+          "type": "string"
+        },
+        {
+          "name": "FTM_OptionColumn",
+          "type": "string"
+        }
+      ],
+      "line": 834,
+      "end_line": 1008,
+      "file": "Script/FileTextureManager.mel",
+      "native_name": "bbstg_FTM_Function",
+      "direct_effects": [
+        "file",
+        "system",
+        "window",
+        "textField",
+        "checkBox"
+      ]
+    },
+    "FileTextureManager": {
+      "name": "FileTextureManager",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1017,
+      "end_line": 1039,
+      "file": "Script/FileTextureManager.mel",
+      "native_name": "bbstg_FileTextureManager",
+      "direct_effects": []
+    },
+    "LxxBSReplace": {
+      "name": "LxxBSReplace",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 2,
+      "end_line": 30,
+      "file": "Script/LxxBSRePlace.mel",
+      "native_name": "bbstg_LxxBSReplace",
+      "direct_effects": [
+        "window"
+      ]
+    },
+    "LxxBSReplacePick": {
+      "name": "LxxBSReplacePick",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "textFieldGrp",
+          "type": "string"
+        }
+      ],
+      "line": 33,
+      "end_line": 39,
+      "file": "Script/LxxBSRePlace.mel",
+      "native_name": "bbstg_LxxBSReplacePick",
+      "direct_effects": []
+    },
+    "LxxBSReplaceCopy": {
+      "name": "LxxBSReplaceCopy",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 41,
+      "end_line": 61,
+      "file": "Script/LxxBSRePlace.mel",
+      "native_name": "bbstg_LxxBSReplaceCopy",
+      "direct_effects": [
+        "parent"
+      ]
+    },
+    "abCheckSym": {
+      "name": "abCheckSym",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "obj",
+          "type": "string"
+        },
+        {
+          "name": "axis",
+          "type": "int"
+        },
+        {
+          "name": "tol",
+          "type": "float"
+        },
+        {
+          "name": "bTable",
+          "type": "int"
+        },
+        {
+          "name": "usePiv",
+          "type": "int"
+        }
+      ],
+      "line": 44,
+      "end_line": 202,
+      "file": "Script/Mirror&Flip.mel",
+      "native_name": "bbstg_abCheckSym",
+      "direct_effects": []
+    },
+    "abGetSymVtx": {
+      "name": "abGetSymVtx",
+      "global_scope": true,
+      "return_type": "int",
+      "parameters": [
+        {
+          "name": "vtxInt",
+          "type": "int"
+        }
+      ],
+      "line": 205,
+      "end_line": 224,
+      "file": "Script/Mirror&Flip.mel",
+      "native_name": "bbstg_abGetSymVtx",
+      "direct_effects": []
+    },
+    "abMirrorSel": {
+      "name": "abMirrorSel",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "obj",
+          "type": "string"
+        },
+        {
+          "name": "baseObj",
+          "type": "string"
+        },
+        {
+          "name": "aSelVerts",
+          "type": "string[]"
+        },
+        {
+          "name": "axis",
+          "type": "int"
+        },
+        {
+          "name": "negToPos",
+          "type": "int"
+        },
+        {
+          "name": "flip",
+          "type": "int"
+        },
+        {
+          "name": "usePiv",
+          "type": "int"
+        },
+        {
+          "name": "tol",
+          "type": "float"
+        }
+      ],
+      "line": 227,
+      "end_line": 367,
+      "file": "Script/Mirror&Flip.mel",
+      "native_name": "bbstg_abMirrorSel",
+      "direct_effects": []
+    },
+    "abRevertSel": {
+      "name": "abRevertSel",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "aSelVerts",
+          "type": "string[]"
+        },
+        {
+          "name": "obj",
+          "type": "string"
+        },
+        {
+          "name": "baseObj",
+          "type": "string"
+        },
+        {
+          "name": "bias",
+          "type": "float"
+        }
+      ],
+      "line": 370,
+      "end_line": 432,
+      "file": "Script/Mirror&Flip.mel",
+      "native_name": "bbstg_abRevertSel",
+      "direct_effects": []
+    },
+    "abSymInteractiveRevertToBase": {
+      "name": "abSymInteractiveRevertToBase",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 435,
+      "end_line": 532,
+      "file": "Script/Mirror&Flip.mel",
+      "native_name": "bbstg_abSymInteractiveRevertToBase",
+      "direct_effects": []
+    },
+    "abSymEndDrag": {
+      "name": "abSymEndDrag",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 535,
+      "end_line": 542,
+      "file": "Script/Mirror&Flip.mel",
+      "native_name": "bbstg_abSymEndDrag",
+      "direct_effects": []
+    },
+    "abSymClearRevTables": {
+      "name": "abSymClearRevTables",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 545,
+      "end_line": 555,
+      "file": "Script/Mirror&Flip.mel",
+      "native_name": "bbstg_abSymClearRevTables",
+      "direct_effects": []
+    },
+    "abSymUseAlternateBase": {
+      "name": "abSymUseAlternateBase",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "useAltBase",
+          "type": "int"
+        }
+      ],
+      "line": 558,
+      "end_line": 599,
+      "file": "Script/Mirror&Flip.mel",
+      "native_name": "bbstg_abSymUseAlternateBase",
+      "direct_effects": []
+    },
+    "abSelMovedVerts": {
+      "name": "abSelMovedVerts",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "obj",
+          "type": "string"
+        },
+        {
+          "name": "baseObj",
+          "type": "string"
+        },
+        {
+          "name": "tol",
+          "type": "float"
+        }
+      ],
+      "line": 602,
+      "end_line": 654,
+      "file": "Script/Mirror&Flip.mel",
+      "native_name": "bbstg_abSelMovedVerts",
+      "direct_effects": []
+    },
+    "abSMServiceAddSubtractCopy": {
+      "name": "abSMServiceAddSubtractCopy",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "operation",
+          "type": "int"
+        }
+      ],
+      "line": 657,
+      "end_line": 703,
+      "file": "Script/Mirror&Flip.mel",
+      "native_name": "bbstg_abSMServiceAddSubtractCopy",
+      "direct_effects": []
+    },
+    "abSMAddSubtractCopyMesh": {
+      "name": "abSMAddSubtractCopyMesh",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "baseMesh",
+          "type": "string"
+        },
+        {
+          "name": "source",
+          "type": "string"
+        },
+        {
+          "name": "target",
+          "type": "string"
+        },
+        {
+          "name": "operation",
+          "type": "int"
+        }
+      ],
+      "line": 706,
+      "end_line": 741,
+      "file": "Script/Mirror&Flip.mel",
+      "native_name": "bbstg_abSMAddSubtractCopyMesh",
+      "direct_effects": []
+    },
+    "abSelSideVerts": {
+      "name": "abSelSideVerts",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "obj",
+          "type": "string"
+        },
+        {
+          "name": "baseObj",
+          "type": "string"
+        },
+        {
+          "name": "mAxisInd",
+          "type": "int"
+        },
+        {
+          "name": "selNeg",
+          "type": "int"
+        },
+        {
+          "name": "usePiv",
+          "type": "int"
+        },
+        {
+          "name": "tol",
+          "type": "float"
+        }
+      ],
+      "line": 744,
+      "end_line": 796,
+      "file": "Script/Mirror&Flip.mel",
+      "native_name": "bbstg_abSelSideVerts",
+      "direct_effects": []
+    },
+    "abSelMirror": {
+      "name": "abSelMirror",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "obj",
+          "type": "string"
+        },
+        {
+          "name": "aSelVerts",
+          "type": "string[]"
+        }
+      ],
+      "line": 799,
+      "end_line": 825,
+      "file": "Script/Mirror&Flip.mel",
+      "native_name": "bbstg_abSelMirror",
+      "direct_effects": []
+    },
+    "abClearSbg": {
+      "name": "abClearSbg",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 828,
+      "end_line": 842,
+      "file": "Script/Mirror&Flip.mel",
+      "native_name": "bbstg_abClearSbg",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "abSymCtl": {
+      "name": "abSymCtl",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "action",
+          "type": "string"
+        }
+      ],
+      "line": 845,
+      "end_line": 1008,
+      "file": "Script/Mirror&Flip.mel",
+      "native_name": "bbstg_abSymCtl",
+      "direct_effects": [
+        "window",
+        "textField",
+        "checkBox"
+      ]
+    },
+    "abSymMesh": {
+      "name": "abSymMesh",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1011,
+      "end_line": 1209,
+      "file": "Script/Mirror&Flip.mel",
+      "native_name": "bbstg_abSymMesh",
+      "direct_effects": [
+        "window",
+        "textField",
+        "checkBox"
+      ]
+    },
+    "wp_rename": {
+      "name": "wp_rename",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 63,
+      "end_line": 66,
+      "file": "Script/wp_rename.mel",
+      "native_name": "bbstg_wp_rename",
+      "direct_effects": []
+    },
+    "wp_RenameWindow": {
+      "name": "wp_RenameWindow",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 72,
+      "end_line": 237,
+      "file": "Script/wp_rename.mel",
+      "native_name": "bbstg_wp_RenameWindow",
+      "direct_effects": [
+        "window",
+        "textField",
+        "radioCollection"
+      ]
+    },
+    "wp_RenameWindowHight": {
+      "name": "wp_RenameWindowHight",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mod",
+          "type": "int"
+        },
+        {
+          "name": "hight",
+          "type": "int"
+        }
+      ],
+      "line": 241,
+      "end_line": 246,
+      "file": "Script/wp_rename.mel",
+      "native_name": "bbstg_wp_RenameWindowHight",
+      "direct_effects": [
+        "window"
+      ]
+    },
+    "start_letter": {
+      "name": "start_letter",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "letterList_start",
+          "type": "int"
+        }
+      ],
+      "line": 251,
+      "end_line": 267,
+      "file": "Script/wp_rename.mel",
+      "native_name": "bbstg_start_letter",
+      "direct_effects": [
+        "textField"
+      ]
+    },
+    "ben_letterList": {
+      "name": "ben_letterList",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 269,
+      "end_line": 316,
+      "file": "Script/wp_rename.mel",
+      "native_name": "bbstg_ben_letterList",
+      "direct_effects": [
+        "radioCollection"
+      ]
+    },
+    "WP_remove_LastChr": {
+      "name": "WP_remove_LastChr",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 324,
+      "end_line": 349,
+      "file": "Script/wp_rename.mel",
+      "native_name": "bbstg_WP_remove_LastChr",
+      "direct_effects": []
+    },
+    "WP_remove_FirstChr": {
+      "name": "WP_remove_FirstChr",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 359,
+      "end_line": 383,
+      "file": "Script/wp_rename.mel",
+      "native_name": "bbstg_WP_remove_FirstChr",
+      "direct_effects": []
+    },
+    "WP_renameSelectedShape": {
+      "name": "WP_renameSelectedShape",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 393,
+      "end_line": 417,
+      "file": "Script/wp_rename.mel",
+      "native_name": "bbstg_WP_renameSelectedShape",
+      "direct_effects": []
+    },
+    "WP_SearchAndRename": {
+      "name": "WP_SearchAndRename",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 427,
+      "end_line": 447,
+      "file": "Script/wp_rename.mel",
+      "native_name": "bbstg_WP_SearchAndRename",
+      "direct_effects": []
+    },
+    "WP_quickSuffix": {
+      "name": "WP_quickSuffix",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "suffix",
+          "type": "string"
+        }
+      ],
+      "line": 457,
+      "end_line": 474,
+      "file": "Script/wp_rename.mel",
+      "native_name": "bbstg_WP_quickSuffix",
+      "direct_effects": []
+    },
+    "wpRename_js_hashRename_MainProc": {
+      "name": "wpRename_js_hashRename_MainProc",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 491,
+      "end_line": 500,
+      "file": "Script/wp_rename.mel",
+      "native_name": "bbstg_wpRename_js_hashRename_MainProc",
+      "direct_effects": []
+    },
+    "wpRename_js_replaceHash": {
+      "name": "wpRename_js_replaceHash",
+      "global_scope": true,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "string",
+          "type": "string"
+        },
+        {
+          "name": "number",
+          "type": "int"
+        }
+      ],
+      "line": 514,
+      "end_line": 540,
+      "file": "Script/wp_rename.mel",
+      "native_name": "bbstg_wpRename_js_replaceHash",
+      "direct_effects": []
+    },
+    "wpRename_js_hashRename": {
+      "name": "wpRename_js_hashRename",
+      "global_scope": true,
+      "return_type": "string[]",
+      "parameters": [
+        {
+          "name": "newName",
+          "type": "string"
+        }
+      ],
+      "line": 559,
+      "end_line": 606,
+      "file": "Script/wp_rename.mel",
+      "native_name": "bbstg_wpRename_js_hashRename",
+      "direct_effects": [
+        "delete",
+        "connectAttr"
+      ]
+    },
+    "getShortName": {
+      "name": "getShortName",
+      "global_scope": false,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "obj",
+          "type": "string"
+        }
+      ],
+      "line": 619,
+      "end_line": 635,
+      "file": "Script/wp_rename.mel",
+      "native_name": "bbstg_getShortName",
+      "direct_effects": []
+    },
+    "chop": {
+      "name": "chop",
+      "global_scope": false,
+      "return_type": "string",
+      "parameters": [
+        {
+          "name": "str",
+          "type": "string"
+        }
+      ],
+      "line": 642,
+      "end_line": 654,
+      "file": "Script/wp_rename.mel",
+      "native_name": "bbstg_chop",
+      "direct_effects": []
+    },
+    "wpRename_mc_doRename": {
+      "name": "wpRename_mc_doRename",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mode",
+          "type": "int"
+        }
+      ],
+      "line": 658,
+      "end_line": 750,
+      "file": "Script/wp_rename.mel",
+      "native_name": "bbstg_wpRename_mc_doRename",
+      "direct_effects": []
+    }
+  },
+  "entries": {
+    "bb_Tools.mel": "bb_Tools",
+    "Script/wp_rename.mel": "wp_RenameWindow",
+    "Script/bb_listTool.mel": "bb_listTool",
+    "Script/bb_ctrlTool.mel": "bb_ctrlTool",
+    "Script/bb_attributeTool.mel": "bb_attributeTool",
+    "Script/bb_curveTool.mel": "bb_curveTool",
+    "Script/bb_blendShapeTool.mel": "bb_blendShapeTool",
+    "Script/bb_QCTool.mel": "bb_QCTool",
+    "Script/bb_advFixTool/bb_advFixTool.mel": "bb_advFixTool",
+    "Script/bb_FBXExportTool.mel": "bb_FBXExportTool",
+    "Script/cgTkShapeBuilder.mel": "cgTkShapeBuilder",
+    "Script/Mirror&Flip.mel": "abSymMesh",
+    "Script/bb_skin2Deform.mel": "bb_skin2Deform",
+    "Script/bb_createFolliceTool.mel": "bb_createFolliceTool",
+    "Script/cdkMakeDynamicChain.mel": "cdkMakeDynamicChainUI",
+    "Script/bb_softModTool.mel": "bb_softModTool",
+    "Script/bb_selectTool.mel": "bb_selectTool",
+    "Script/bb_history.mel": "bb_history",
+    "Script/bb_skinList.mel": "bb_skinList",
+    "Script/FileTextureManager.mel": "FileTextureManager",
+    "Script/LxxBSRePlace.mel": "LxxBSReplace",
+    "Script/bb_FixError.mel": "bb_FixError",
+    "Script/bb_autoSkirt.mel": "bb_autoSkirt",
+    "Script/bb_masterCreate.mel": "bb_masterCreate",
+    "Script/aboutJBPerVert.mel": "JBPerVertWindow"
+  },
+  "original_declarations": 440,
+  "active_declarations": 297,
+  "original_modified": false,
+  "prefix": "bbstg_",
+  "archive_only": [
+    "bb_attributeTool.mel",
+    "bb_createFolliceTool.mel",
+    "bb_ctrlTool.mel",
+    "bb_curveTool.mel",
+    "bb_history.mel",
+    "bb_listTool.mel",
+    "bb_QCTool/bb_QC_apply.mel",
+    "bb_QCTool/bb_QC_set.mel",
+    "bb_QCTool/bb_QC_text.mel",
+    "bb_QCTool/bb_QC_UI.mel",
+    "bb_QCTool/bb_QCTool.mel",
+    "bb_selectTool.mel",
+    "bb_skinList.mel",
+    "bb_softModTool.mel",
+    "Install_BBTools.mel",
+    "Script/DelDJJ.mel",
+    "Script/OutlineError.mel",
+    "wp_rename.mel"
+  ],
+  "license": "Original author notices retained, including LiuBen, Nilesh Jadhav, CGTOOLKIT, Brendan Ross, Crow Yeh and Highend3D metadata. No standalone suite license found; no new distribution rights asserted."
+}

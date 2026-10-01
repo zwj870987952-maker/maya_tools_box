@@ -1,0 +1,719 @@
+{
+  "tool_id": "bb_tools",
+  "registration": {
+    "module": "bb_tools",
+    "class_name": "BBToolsTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/bb_tools.md",
+      "target": "docs/tools/bb_tools.md"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/__init__.py",
+      "target": "maya_toolkit/tools/bb_tools/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/catalog.json",
+      "target": "maya_toolkit/tools/bb_tools/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/file_guard.py",
+      "target": "maya_toolkit/tools/bb_tools/file_guard.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/bb_QCTool/qc说明.docx",
+      "target": "maya_toolkit/tools/bb_tools/native/bb_QCTool/qc说明.docx"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/bb_Tools.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/bb_Tools.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/bridge.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/bridge.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/ADV.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/ADV.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/Attr.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/Attr.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/AutoSkirt.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/AutoSkirt.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/BB.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/BB.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/BS.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/BS.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/Ctrl.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/Ctrl.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/CV.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/CV.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/Duplicate.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/Duplicate.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/Dynamic.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/Dynamic.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/FBX.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/FBX.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/FixError.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/FixError.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/Follicles.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/Follicles.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/History.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/History.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/JointRerVert.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/JointRerVert.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/List.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/List.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/Master.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/Master.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/Mirror.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/Mirror.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/OutlineError.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/OutlineError.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/Pose.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/Pose.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/QC.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/QC.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/Rename.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/Rename.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/Select.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/Select.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/SkinList.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/SkinList.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/SoClear.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/SoClear.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/SoftMod.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/SoftMod.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/TexPath.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/TexPath.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Icon/Weight.png",
+      "target": "maya_toolkit/tools/bb_tools/native/Icon/Weight.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/aboutJBPerVert.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/aboutJBPerVert.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_advFixTool/bb_advFixTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_advFixTool/bb_advFixTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_advFixTool/file/drv.ma",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_advFixTool/file/drv.ma"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_advFixTool/file/facialCtrl.ma",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_advFixTool/file/facialCtrl.ma"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_advFixTool/file/SpineDrv.ma",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_advFixTool/file/SpineDrv.ma"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_advFixTool/mel/bb_advFix_IKSpine.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_advFixTool/mel/bb_advFix_IKSpine.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_advFixTool/mel/bb_subFacialTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_advFixTool/mel/bb_subFacialTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_attributeTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_attributeTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_autoSkirt.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_autoSkirt.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_blendShapeTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_blendShapeTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_createFolliceTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_createFolliceTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_ctrlTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_ctrlTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_curveTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_curveTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_FBXExportTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_FBXExportTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_FixError.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_FixError.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_history.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_history.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_listTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_listTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_masterCreate.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_masterCreate.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_QC_apply.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_QC_apply.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_QC_set.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_QC_set.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_QC_text.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_QC_text.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_QC_UI.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_QC_UI.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_QCTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_QCTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_selectTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_selectTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_skin2Deform.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_skin2Deform.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_skin2Deform_weight.xml",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_skin2Deform_weight.xml"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_skinList.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_skinList.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/bb_softModTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/bb_softModTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/cdkMakeDynamicChain.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/cdkMakeDynamicChain.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/cgTkShapeBuilder.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/cgTkShapeBuilder.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/FileTextureManager.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/FileTextureManager.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/LxxBSRePlace.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/LxxBSRePlace.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/Mirror&Flip.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/Mirror&Flip.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/native/Script/wp_rename.mel",
+      "target": "maya_toolkit/tools/bb_tools/native/Script/wp_rename.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/runtime.py",
+      "target": "maya_toolkit/tools/bb_tools/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/tool.py",
+      "target": "maya_toolkit/tools/bb_tools/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/bb_attributeTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/bb_attributeTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/bb_createFolliceTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/bb_createFolliceTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/bb_ctrlTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/bb_ctrlTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/bb_curveTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/bb_curveTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/bb_history.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/bb_history.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/bb_listTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/bb_listTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/bb_QCTool/bb_QC_apply.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/bb_QCTool/bb_QC_apply.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/bb_QCTool/bb_QC_set.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/bb_QCTool/bb_QC_set.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/bb_QCTool/bb_QC_text.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/bb_QCTool/bb_QC_text.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/bb_QCTool/bb_QC_UI.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/bb_QCTool/bb_QC_UI.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/bb_QCTool/bb_QCTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/bb_QCTool/bb_QCTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/bb_QCTool/qc说明.docx",
+      "target": "maya_toolkit/tools/bb_tools/vendor/bb_QCTool/qc说明.docx"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/bb_selectTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/bb_selectTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/bb_skinList.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/bb_skinList.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/bb_softModTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/bb_softModTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/bb_Tools.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/bb_Tools.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/ADV.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/ADV.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/Attr.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/Attr.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/AutoSkirt.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/AutoSkirt.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/BB.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/BB.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/BS.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/BS.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/Ctrl.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/Ctrl.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/CV.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/CV.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/Duplicate.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/Duplicate.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/Dynamic.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/Dynamic.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/FBX.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/FBX.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/FixError.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/FixError.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/Follicles.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/Follicles.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/History.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/History.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/JointRerVert.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/JointRerVert.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/List.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/List.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/Master.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/Master.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/Mirror.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/Mirror.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/OutlineError.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/OutlineError.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/Pose.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/Pose.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/QC.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/QC.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/Rename.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/Rename.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/Select.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/Select.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/SkinList.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/SkinList.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/SoClear.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/SoClear.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/SoftMod.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/SoftMod.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/TexPath.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/TexPath.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Icon/Weight.png",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Icon/Weight.png"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Install_BBTools.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Install_BBTools.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/aboutJBPerVert.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/aboutJBPerVert.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_advFixTool/bb_advFixTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_advFixTool/bb_advFixTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_advFixTool/file/drv.ma",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_advFixTool/file/drv.ma"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_advFixTool/file/facialCtrl.ma",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_advFixTool/file/facialCtrl.ma"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_advFixTool/file/SpineDrv.ma",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_advFixTool/file/SpineDrv.ma"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_advFixTool/mel/bb_advFix_IKSpine.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_advFixTool/mel/bb_advFix_IKSpine.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_advFixTool/mel/bb_subFacialTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_advFixTool/mel/bb_subFacialTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_attributeTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_attributeTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_autoSkirt.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_autoSkirt.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_blendShapeTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_blendShapeTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_createFolliceTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_createFolliceTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_ctrlTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_ctrlTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_curveTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_curveTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_FBXExportTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_FBXExportTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_FixError.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_FixError.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_history.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_history.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_listTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_listTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_masterCreate.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_masterCreate.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_QC_apply.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_QC_apply.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_QC_set.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_QC_set.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_QC_text.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_QC_text.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_QC_UI.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_QC_UI.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_QCTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_QCTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_selectTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_selectTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_skin2Deform.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_skin2Deform.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_skin2Deform_weight.xml",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_skin2Deform_weight.xml"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_skinList.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_skinList.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/bb_softModTool.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/bb_softModTool.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/cdkMakeDynamicChain.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/cdkMakeDynamicChain.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/cgTkShapeBuilder.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/cgTkShapeBuilder.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/DelDJJ.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/DelDJJ.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/FileTextureManager.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/FileTextureManager.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/LxxBSRePlace.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/LxxBSRePlace.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/Mirror&Flip.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/Mirror&Flip.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/OutlineError.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/OutlineError.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/Script/wp_rename.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/Script/wp_rename.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/bb_tools/vendor/wp_rename.mel",
+      "target": "maya_toolkit/tools/bb_tools/vendor/wp_rename.mel"
+    },
+    {
+      "source": "tests/test_bb_tools.py",
+      "target": "tests/test_bb_tools.py"
+    },
+    {
+      "source": "tests/test_bb_tools_maya.py",
+      "target": "tests/test_bb_tools_maya.py"
+    }
+  ],
+  "resources": [
+    "bb_attributeTool.mel",
+    "bb_createFolliceTool.mel",
+    "bb_ctrlTool.mel",
+    "bb_curveTool.mel",
+    "bb_history.mel",
+    "bb_listTool.mel",
+    "bb_QCTool/bb_QC_apply.mel",
+    "bb_QCTool/bb_QC_set.mel",
+    "bb_QCTool/bb_QC_text.mel",
+    "bb_QCTool/bb_QC_UI.mel",
+    "bb_QCTool/bb_QCTool.mel",
+    "bb_QCTool/qc说明.docx",
+    "bb_selectTool.mel",
+    "bb_skinList.mel",
+    "bb_softModTool.mel",
+    "bb_Tools.mel",
+    "Icon/ADV.png",
+    "Icon/Attr.png",
+    "Icon/AutoSkirt.png",
+    "Icon/BB.png",
+    "Icon/BS.png",
+    "Icon/Ctrl.png",
+    "Icon/CV.png",
+    "Icon/Duplicate.png",
+    "Icon/Dynamic.png",
+    "Icon/FBX.png",
+    "Icon/FixError.png",
+    "Icon/Follicles.png",
+    "Icon/History.png",
+    "Icon/JointRerVert.png",
+    "Icon/List.png",
+    "Icon/Master.png",
+    "Icon/Mirror.png",
+    "Icon/OutlineError.png",
+    "Icon/Pose.png",
+    "Icon/QC.png",
+    "Icon/Rename.png",
+    "Icon/Select.png",
+    "Icon/SkinList.png",
+    "Icon/SoClear.png",
+    "Icon/SoftMod.png",
+    "Icon/TexPath.png",
+    "Icon/Weight.png",
+    "Install_BBTools.mel",
+    "Script/aboutJBPerVert.mel",
+    "Script/bb_advFixTool/bb_advFixTool.mel",
+    "Script/bb_advFixTool/file/drv.ma",
+    "Script/bb_advFixTool/file/facialCtrl.ma",
+    "Script/bb_advFixTool/file/SpineDrv.ma",
+    "Script/bb_advFixTool/mel/bb_advFix_IKSpine.mel",
+    "Script/bb_advFixTool/mel/bb_subFacialTool.mel",
+    "Script/bb_attributeTool.mel",
+    "Script/bb_autoSkirt.mel",
+    "Script/bb_blendShapeTool.mel",
+    "Script/bb_createFolliceTool.mel",
+    "Script/bb_ctrlTool.mel",
+    "Script/bb_curveTool.mel",
+    "Script/bb_FBXExportTool.mel",
+    "Script/bb_FixError.mel",
+    "Script/bb_history.mel",
+    "Script/bb_listTool.mel",
+    "Script/bb_masterCreate.mel",
+    "Script/bb_QC_apply.mel",
+    "Script/bb_QC_set.mel",
+    "Script/bb_QC_text.mel",
+    "Script/bb_QC_UI.mel",
+    "Script/bb_QCTool.mel",
+    "Script/bb_selectTool.mel",
+    "Script/bb_skin2Deform.mel",
+    "Script/bb_skin2Deform_weight.xml",
+    "Script/bb_skinList.mel",
+    "Script/bb_softModTool.mel",
+    "Script/cdkMakeDynamicChain.mel",
+    "Script/cgTkShapeBuilder.mel",
+    "Script/DelDJJ.mel",
+    "Script/FileTextureManager.mel",
+    "Script/LxxBSRePlace.mel",
+    "Script/Mirror&Flip.mel",
+    "Script/OutlineError.mel",
+    "Script/wp_rename.mel",
+    "wp_rename.mel"
+  ],
+  "dependencies": [
+    "Maya cmds/MEL/native UI, skin/follicle/nHair/blendShape",
+    "ADV helpers target original AdvancedSkeleton 5.74 rig conventions; other rigs require manual verification",
+    "FBX conversion requires installed fbxmaya and external user-selected FBX; no plugin installation performed"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete BB distribution retained byte-for-byte. Full active native suite with namespaced declarations, explicit UI startup and bundled paths; typed procedure API/read-only inventory, caller environment restoration, scratch weight XML, restricted QC settings, no-overwrite texture IO, explicit virus-file quarantine rather than userSetup deletion. Original installer and obsolete duplicate versions archived only.",
+  "verification_limitations": [
+    "Real Maya GUI and production rigs not_run",
+    "Full suite native UI callbacks retain original broad scene scope; batch/API safe subset is documented, native workflows require backup scenes",
+    "Original third-party algorithms and legacy workflow assumptions retained; isolated declarations/selected algorithms do not validate every button",
+    "File copies/moves/config exports/quarantine and UI/scriptJob/optionVar changes are not covered by Maya Undo",
+    "Multi-file actions can partially succeed before a later failure; no claim of atomic rollback",
+    "No public redistribution license inferred from bundled author metadata"
+  ]
+}

@@ -1,0 +1,24 @@
+// New candidate helpers. Original distribution remains under vendor/ unchanged.
+global proc string staging_bb_scratch(){
+    return python("import builtins; builtins._bb_staging_io('weight_dir', '', '')");
+}
+global proc string staging_bb_qc_dir(){
+    return python("import builtins; builtins._bb_staging_io('qc_dir', '', '')");
+}
+global proc int staging_bb_open(string $path, string $mode){
+    if ($mode != "w") error "Candidate helper only opens new output files";
+    python("import builtins; builtins._bb_staging_io('reserve', \""+encodeString($path)+"\", '')");
+    return `fopen $path "w"`;
+}
+global proc staging_bb_delete(string $path){
+    python("import builtins; builtins._bb_staging_io('delete', \""+encodeString($path)+"\", '')");
+}
+global proc staging_bb_copy(string $source, string $target){
+    python("import builtins; builtins._bb_staging_io('copy', \""+encodeString($source)+"\", \""+encodeString($target)+"\")");
+}
+global proc string staging_bb_system(string $command){
+    return python("import builtins; builtins._bb_staging_io('system', \""+encodeString($command)+"\", '')");
+}
+global proc staging_bb_qc_line(string $line){
+    python("import builtins; builtins._bb_staging_io('qc_line', \""+encodeString($line)+"\", '')");
+}

@@ -1,0 +1,39 @@
+global proc bbstg_bb_FixError()
+{
+    bbstg_OutlineError;
+    bbstg_CgAbBlastPanelOptChangeCallbackError;
+    bbstg_DelDJJ;
+    confirmDialog -title "OK" -message "界面回调清理已执行；病毒文件按清单单独隔离。\n请保存档案重开Maya" -button "好的！~";
+}
+
+global proc bbstg_OutlineError()
+{
+    string $Outliner =
+    "import maya.cmds as pm" + "\n" +
+    "for items in pm.lsUI(editors=True):" + "\n" +
+    "    if not pm.outlinerEditor(items, query=True, exists=True):" + "\n" +
+    "        continue" + "\n" +
+    "    sel_cmd = pm.outlinerEditor(items, query=True, selectCommand=True)" + "\n" +
+    "    if not sel_cmd:" + "\n" +
+    "        continue" + "\n" +
+    "    if sel_cmd.startswith('<function selCom at '):" + "\n" +
+    "        pm.outlinerEditor(items, edit=True, selectCommand='')";
+    python $Outliner;
+
+}
+
+global proc bbstg_CgAbBlastPanelOptChangeCallbackError()
+{
+    string $CgAbBlastPanelOptChangeCallback =
+    "from maya import cmds" + "\n" +
+    "for model_panel in cmds.getPanel(typ='modelPanel'):" + "\n" +
+    "    callback = cmds.modelEditor(model_panel, query=True, editorChanged=True)" + "\n" +
+    "    if callback == 'CgAbBlastPanelOptChangeCallback':" + "\n" +
+    "        cmds.modelEditor(model_panel, edit=True, editorChanged='')";
+    python $CgAbBlastPanelOptChangeCallback;
+}
+
+global proc bbstg_DelDJJ()
+{
+    python("import builtins; builtins._bb_staging_cleanup_ui()");
+}

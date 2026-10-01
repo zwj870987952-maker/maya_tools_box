@@ -1,0 +1,15 @@
+global proc bbstg_bb_QCTool()
+{
+    string $melPath = `bbstg_bb_QC_setFilePath`;
+    // Definitions already loaded through the UTF-8 Python loader.
+    // Definitions already loaded through the UTF-8 Python loader.
+    // Definitions already loaded through the UTF-8 Python loader.
+    // Definitions already loaded through the UTF-8 Python loader.
+    bbstg_bb_QCUI;
+}
+// Candidate: explicit native UI entry only.
+//提取路径
+global proc string bbstg_bb_QC_setFilePath()
+{
+    global string $bbstg_bundleRoot; return ($bbstg_bundleRoot + "Script");
+}

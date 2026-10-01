@@ -1,0 +1,6231 @@
+[
+  {
+    "file": "bb_attributeTool.mel",
+    "sha256": "fa1fbca32bb38b2073b30cabbaa5ba1e8b9040e4d273d7db833fea83c1af4378",
+    "bytes": 23714,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_attribute_initialization",
+        "global_scope": false,
+        "return_type": "void",
+        "parameters": [],
+        "line": 6,
+        "end_line": 11
+      },
+      {
+        "name": "bb_attributeTool",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 13,
+        "end_line": 120
+      },
+      {
+        "name": "bb_attr_reloadGeo",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 123,
+        "end_line": 130
+      },
+      {
+        "name": "bb_attr_loadAttr",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "sel",
+            "type": "string"
+          }
+        ],
+        "line": 132,
+        "end_line": 153
+      },
+      {
+        "name": "bb_attribute_loadSave",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 155,
+        "end_line": 163
+      },
+      {
+        "name": "bb_attr_UIChange",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 165,
+        "end_line": 183
+      },
+      {
+        "name": "bb_attr_apply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 185,
+        "end_line": 222
+      },
+      {
+        "name": "bb_attr_addAttr",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "string"
+          },
+          {
+            "name": "attrInfo",
+            "type": "string[]"
+          }
+        ],
+        "line": 225,
+        "end_line": 257
+      },
+      {
+        "name": "bb_attr_save",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 260,
+        "end_line": 292
+      },
+      {
+        "name": "bb_attr_edit",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "edit",
+            "type": "int"
+          }
+        ],
+        "line": 294,
+        "end_line": 335
+      },
+      {
+        "name": "bb_attributeTool_attrNameReturn",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "attrArray",
+            "type": "string[]"
+          }
+        ],
+        "line": 337,
+        "end_line": 345
+      },
+      {
+        "name": "bb_attr_saveAdd",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 348,
+        "end_line": 360
+      },
+      {
+        "name": "bb_attr_saveEdit",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 363,
+        "end_line": 368
+      },
+      {
+        "name": "bb_attr_saveEditApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "item",
+            "type": "string"
+          }
+        ],
+        "line": 370,
+        "end_line": 397
+      },
+      {
+        "name": "bb_attr_saveDelete",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mod",
+            "type": "int"
+          }
+        ],
+        "line": 401,
+        "end_line": 419
+      },
+      {
+        "name": "bb_attr_nameSelect",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 422,
+        "end_line": 431
+      },
+      {
+        "name": "bb_attr_upApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 435,
+        "end_line": 478
+      },
+      {
+        "name": "bb_attr_downApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 481,
+        "end_line": 529
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "4:global string  $bb_attribute_save;",
+      "121:bb_attributeTool;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//Author  :   LiuBen",
+      "//Date    :   02/08/2018",
+      "//Fix     :   07/30/2019   修改删除保存属性不执行的错误",
+      "global string  $bb_attribute_save;",
+      "",
+      "proc bb_attribute_initialization()",
+      "{",
+      "    global string  $bb_attribute_save;"
+    ],
+    "io_lines": [
+      "9:if(`optionVar -exists bb_attribute_save`)",
+      "10:$bb_attribute_save = `optionVar -q bb_attribute_save`;",
+      "115:scriptJob -parent \"bb_attributeToolWindow\" -replacePrevious -event \"SelectionChanged\" \"bb_attr_reloadGeo\";",
+      "290:optionVar -stringValue bb_attribute_save $bb_attribute_save;",
+      "412:optionVar -stringValue bb_attribute_save $bb_attribute_save;",
+      "416:optionVar -stringValue bb_attribute_save \"\";"
+    ]
+  },
+  {
+    "file": "bb_createFolliceTool.mel",
+    "sha256": "746270cfd0dc3499a8e34f382379aca5d9387d8e1adf259adbf7715516a6d6df",
+    "bytes": 3251,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_createFolliceTool",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1,
+        "end_line": 17
+      },
+      {
+        "name": "bb_createFollice_loadGeo",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 20,
+        "end_line": 32
+      },
+      {
+        "name": "bb_createFollice",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 35,
+        "end_line": 70
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "18:bb_createFolliceTool;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "global proc bb_createFolliceTool()",
+      "{",
+      "    if (`window -q -exists bb_createFolliceToolWindow`) deleteUI bb_createFolliceToolWindow;",
+      "    window -title \"创建毛囊工具\" -toolbox 1  bb_createFolliceToolWindow;    ",
+      "        columnLayout -adjustableColumn true -columnAttach \"both\" 3;",
+      "            rowLayout -numberOfColumns 2 -columnWidth2 150 80 ;",
+      "                textField -w 150 -text \"\" bb_createFolliceTool_meshTF;",
+      "                button -w 80 -label \"<<<载入模型\" -bgc 1 0.95 0.5 -c \"bb_createFollice_loadGeo(0)\";"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "bb_ctrlTool.mel",
+    "sha256": "25d221e14920109e6eeb29d05ba210dd1efcfbe028227cd23782b7767196dd14",
+    "bytes": 31145,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_ctrlTool",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 6,
+        "end_line": 97
+      },
+      {
+        "name": "bb_ctrlTool_apply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 100,
+        "end_line": 133
+      },
+      {
+        "name": "bb_ctrlTool_createWholeCtrl",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "ctrlName",
+            "type": "string"
+          }
+        ],
+        "line": 135,
+        "end_line": 180
+      },
+      {
+        "name": "bb_ctrlTool_addPivots",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "transform",
+            "type": "string"
+          }
+        ],
+        "line": 182,
+        "end_line": 208
+      },
+      {
+        "name": "bb_ctrlTool_changeColor",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 211,
+        "end_line": 218
+      },
+      {
+        "name": "bb_ctrlTool_changeColorApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "ctrlName",
+            "type": "string"
+          },
+          {
+            "name": "color",
+            "type": "int"
+          }
+        ],
+        "line": 222,
+        "end_line": 231
+      },
+      {
+        "name": "bb_ctrlTool_processMode",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "ctrlName",
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "type": "string"
+          }
+        ],
+        "line": 234,
+        "end_line": 278
+      },
+      {
+        "name": "bb_ctrlTool_groupObj",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 281,
+        "end_line": 287
+      },
+      {
+        "name": "bb_ctrlTool_groupObjApply",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "string"
+          }
+        ],
+        "line": 289,
+        "end_line": 307
+      },
+      {
+        "name": "bb_ctrlTool_fixExtra",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "choose",
+            "type": "int"
+          }
+        ],
+        "line": 310,
+        "end_line": 339
+      },
+      {
+        "name": "bb_ctrlTool_addJointApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "ctrlName",
+            "type": "string"
+          }
+        ],
+        "line": 342,
+        "end_line": 352
+      },
+      {
+        "name": "bb_ctrlTool_addDrv1Apply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "ctrlName",
+            "type": "string"
+          }
+        ],
+        "line": 356,
+        "end_line": 370
+      },
+      {
+        "name": "bb_ctrlTool_visPivots",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 374,
+        "end_line": 393
+      },
+      {
+        "name": "bb_ctrlTool_porpsCtrlApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 396,
+        "end_line": 441
+      },
+      {
+        "name": "bb_ctrlTool_createShape",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "shapeStyle",
+            "type": "string"
+          },
+          {
+            "name": "shapeName",
+            "type": "string"
+          }
+        ],
+        "line": 444,
+        "end_line": 559
+      },
+      {
+        "name": "bb_ctrlTool_changeShape",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 561,
+        "end_line": 581
+      },
+      {
+        "name": "bb_ctrlTool_locApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 583,
+        "end_line": 598
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "98:bb_ctrlTool;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//Author  :   LiuBen",
+      "//Date    :   12/05/2016",
+      "//Fix     :   05/18/2017 修正了pivot的层级关系。",
+      "//Fix     :   01/29/2018 修改了创建基础控制器的层级及命名方式。",
+      "//Fix     :   11/13/2018 修改了箭头圆的形状，添加了“创建loc”按钮。",
+      "global proc bb_ctrlTool()",
+      "{",
+      "    if (`window -q -exists bb_ctrlToolWindow`) deleteUI bb_ctrlToolWindow;"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "bb_curveTool.mel",
+    "sha256": "dc3bf766641dbede89abe6376a9e4542bf5ef2af531d0ff7e395f4ec52cba64c",
+    "bytes": 15385,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_curveTool",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 6,
+        "end_line": 42
+      },
+      {
+        "name": "bb_curveTool_apply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 46,
+        "end_line": 96
+      },
+      {
+        "name": "bb_curveTool_rebuild",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "curve",
+            "type": "string"
+          }
+        ],
+        "line": 99,
+        "end_line": 103
+      },
+      {
+        "name": "bb_curveTool_createCtrl",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "curve",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          }
+        ],
+        "line": 106,
+        "end_line": 175
+      },
+      {
+        "name": "bb_curveTool_follicle",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "surface",
+            "type": "string"
+          },
+          {
+            "name": "crvName",
+            "type": "string"
+          }
+        ],
+        "line": 177,
+        "end_line": 232
+      },
+      {
+        "name": "bb_curveTool_locApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 234,
+        "end_line": 263
+      },
+      {
+        "name": "bb_curveTool_jointApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 265,
+        "end_line": 293
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "43:bb_curveTool;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//Author  :   LiuBen",
+      "//Date    :   02/06/2017",
+      "//Fix     :   04/11/2017   修正生成曲面时，follicle定位错误的bug。修正单根曲线不会被重建的bug。",
+      "//Fix     :   12/19/2017   修正生成不重建曲线的曲面时，follicle定位错误的bug。",
+      "//Fix     :   01/29/2018   修正生成骨骼时，生成方向不指向下一节骨骼的问题。",
+      "global proc bb_curveTool()",
+      "{",
+      "    if (`window -q -exists bb_curveToolWindow`) deleteUI bb_curveToolWindow;"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "bb_history.mel",
+    "sha256": "b37b0fbbaf633872ecca9b3015a730315a831029da4072f250acad539b321be3",
+    "bytes": 1145,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_history",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1,
+        "end_line": 17
+      },
+      {
+        "name": "bb_history_print",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 20,
+        "end_line": 29
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "global proc bb_history()",
+      "{",
+      "    if (`window -q -exists bb_historyWindow`) deleteUI bb_historyWindow;",
+      "    window -title \"历史信息\" bb_historyWindow;    ",
+      "    formLayout bb_historyWFormLayout;",
+      "        cmdScrollFieldReporter bb_historyCmdHistory;",
+      "        formLayout -edit",
+      "        -attachForm     bb_historyCmdHistory     \"top\"    1"
+    ],
+    "io_lines": [
+      "22:string $icon = (`optionVar -q echoAllLines` ? \"echoCommands.png\" : \"echoCommandsOff.png\");"
+    ]
+  },
+  {
+    "file": "bb_listTool.mel",
+    "sha256": "81bac859c849fec743a2d7599d732bdb5b309d2a57373543572b6a8365ba1616",
+    "bytes": 8758,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_listTool",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 6,
+        "end_line": 49
+      },
+      {
+        "name": "bb_listTool_import",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 57,
+        "end_line": 112
+      },
+      {
+        "name": "bb_listTool_apply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 114,
+        "end_line": 136
+      },
+      {
+        "name": "bb_listTool_execute",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "aim0",
+            "type": "string"
+          },
+          {
+            "name": "sourc0",
+            "type": "string"
+          }
+        ],
+        "line": 138,
+        "end_line": 175
+      },
+      {
+        "name": "bb_listTool_extra",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 177,
+        "end_line": 198
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "50:bb_listTool;",
+      "52:global string $bb_listTool_aims[],",
+      "53:              $bb_listTool_sources[];",
+      "54:global int $bb_listTool_aimsNum,",
+      "55:           $bb_listTool_sourcesNum;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//Author  :   LiuBen",
+      "//Date    :   09/12/2016",
+      "//Fix     :   12/09/2016，对属性栏增加右键菜单",
+      "//Fix     :   02/12/2019，修改不选择属性加载时，不重置属性栏",
+      "//Fix     :   07/30/2019，添加旋转约束",
+      "global proc bb_listTool()",
+      "{",
+      "    if (`window -q -exists bb_listToolWindow`) deleteUI bb_listToolWindow;"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "bb_QCTool/bb_QC_apply.mel",
+    "sha256": "2adc824a047af73a83f2d7f0efd3b7f0e88db2b68236628a5d21c0e19f8f4ac4",
+    "bytes": 28704,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_QC_allQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 2,
+        "end_line": 24
+      },
+      {
+        "name": "bb_QC_sets",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "setName",
+            "type": "string"
+          },
+          {
+            "name": "setElement",
+            "type": "string[]"
+          }
+        ],
+        "line": 27,
+        "end_line": 33
+      },
+      {
+        "name": "bb_QC_informationOutput",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "checkItem",
+            "type": "int"
+          },
+          {
+            "name": "conclusion",
+            "type": "int"
+          },
+          {
+            "name": "setNum",
+            "type": "int"
+          },
+          {
+            "name": "setName",
+            "type": "string"
+          }
+        ],
+        "line": 35,
+        "end_line": 72
+      },
+      {
+        "name": "bb_QC_deleteFix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "setName",
+            "type": "string"
+          }
+        ],
+        "line": 74,
+        "end_line": 86
+      },
+      {
+        "name": "bb_QC_noneQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 88,
+        "end_line": 94
+      },
+      {
+        "name": "bb_QC_setApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "setObj",
+            "type": "string[]"
+          },
+          {
+            "name": "setName",
+            "type": "string"
+          },
+          {
+            "name": "list",
+            "type": "int"
+          }
+        ],
+        "line": 96,
+        "end_line": 106
+      },
+      {
+        "name": "bb_QC_shapes2transforms",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "shapeType",
+            "type": "string"
+          }
+        ],
+        "line": 108,
+        "end_line": 118
+      },
+      {
+        "name": "bb_QC_unkownQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 121,
+        "end_line": 125
+      },
+      {
+        "name": "bb_QC_intermediaObjQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 128,
+        "end_line": 153
+      },
+      {
+        "name": "bb_QC_zeroVertexObjQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 156,
+        "end_line": 169
+      },
+      {
+        "name": "bb_QC_audioQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 172,
+        "end_line": 176
+      },
+      {
+        "name": "bb_QC_repeatedNameQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 178,
+        "end_line": 211
+      },
+      {
+        "name": "bb_QC_repeatedNameReturn",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "nodeType",
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "type": "string[]"
+          }
+        ],
+        "line": 213,
+        "end_line": 224
+      },
+      {
+        "name": "bb_QC_repeatedNameFix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 226,
+        "end_line": 246
+      },
+      {
+        "name": "bb_QC_repeatedNameFixApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "setName",
+            "type": "string"
+          }
+        ],
+        "line": 248,
+        "end_line": 271
+      },
+      {
+        "name": "bb_QC_modleSuffixQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 273,
+        "end_line": 278
+      },
+      {
+        "name": "bb_QC_suffixQCApply",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "textField",
+            "type": "string"
+          },
+          {
+            "name": "shapeType",
+            "type": "string"
+          },
+          {
+            "name": "returnType",
+            "type": "int"
+          }
+        ],
+        "line": 281,
+        "end_line": 321
+      },
+      {
+        "name": "bb_QC_attrLockQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 324,
+        "end_line": 340
+      },
+      {
+        "name": "bb_QC_attrLockFix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 342,
+        "end_line": 356
+      },
+      {
+        "name": "bb_QC_modleVisQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 359,
+        "end_line": 381
+      },
+      {
+        "name": "bb_QC_modleVisFix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 383,
+        "end_line": 409
+      },
+      {
+        "name": "bb_QC_lightQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 411,
+        "end_line": 421
+      },
+      {
+        "name": "bb_QC_camQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 423,
+        "end_line": 439
+      },
+      {
+        "name": "bb_QC_ctrlValueQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 441,
+        "end_line": 480
+      },
+      {
+        "name": "bb_QC_ctrlValueFix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 482,
+        "end_line": 517
+      },
+      {
+        "name": "bb_QC_faceMappingQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 520,
+        "end_line": 533
+      },
+      {
+        "name": "bb_QC_animKeyQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 536,
+        "end_line": 553
+      },
+      {
+        "name": "bb_QC_animKeyFix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 555,
+        "end_line": 571
+      },
+      {
+        "name": "bb_QC_layerQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 573,
+        "end_line": 579
+      },
+      {
+        "name": "bb_QC_smoothQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 581,
+        "end_line": 622
+      },
+      {
+        "name": "bb_QC_smoothFix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 624,
+        "end_line": 646
+      },
+      {
+        "name": "bb_QC_smoothFixAddApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "string"
+          },
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 648,
+        "end_line": 667
+      },
+      {
+        "name": "bb_QC_unusedQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 669,
+        "end_line": 684
+      },
+      {
+        "name": "bb_QC_unusedFix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 686,
+        "end_line": 697
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//大QC",
+      "global proc bb_QC_allQC(int $mode)",
+      "{",
+      "    scrollField -e -clear bb_QC_informationSF;",
+      "    if($mode == 0){",
+      "        if(`checkBox -q -v bb_QC_unkonwCB`) bb_QC_unkownQC;",
+      "        if(`checkBox -q -v bb_QC_intermediaCB`) bb_QC_intermediaObjQC;",
+      "        if(`checkBox -q -v bb_QC_noVertexCB`) bb_QC_zeroVertexObjQC;"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "bb_QCTool/bb_QC_set.mel",
+    "sha256": "8e0f90336726d290e4b49cf86cde8860c057b9976b55ba0ccf913c288aee592c",
+    "bytes": 12770,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_QC_addApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "shapeType",
+            "type": "string"
+          },
+          {
+            "name": "textFieldName",
+            "type": "string"
+          },
+          {
+            "name": "nameType",
+            "type": "int"
+          }
+        ],
+        "line": 3,
+        "end_line": 38
+      },
+      {
+        "name": "bb_QC_checkRule",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "checkContent",
+            "type": "string"
+          },
+          {
+            "name": "textFieldName",
+            "type": "string"
+          }
+        ],
+        "line": 40,
+        "end_line": 54
+      },
+      {
+        "name": "bb_QC_checkTextField",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "textFieldName",
+            "type": "string"
+          }
+        ],
+        "line": 56,
+        "end_line": 60
+      },
+      {
+        "name": "bb_QC_addAttr",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 63,
+        "end_line": 94
+      },
+      {
+        "name": "bb_QC_attrConfirm",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "checkContent",
+            "type": "string[]"
+          },
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 96,
+        "end_line": 133
+      },
+      {
+        "name": "bb_QC_attrSeparate",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "attrInput",
+            "type": "string[]"
+          }
+        ],
+        "line": 136,
+        "end_line": 144
+      },
+      {
+        "name": "bb_QC_attrWrite",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "attrInput",
+            "type": "string[]"
+          },
+          {
+            "name": "textScrollListName",
+            "type": "string"
+          }
+        ],
+        "line": 147,
+        "end_line": 163
+      },
+      {
+        "name": "bb_QC_deleteAttr",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "int"
+          },
+          {
+            "name": "textScrollListName",
+            "type": "string"
+          }
+        ],
+        "line": 165,
+        "end_line": 176
+      },
+      {
+        "name": "bb_QC_reverseSelAttr",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "textScrollListName",
+            "type": "string"
+          }
+        ],
+        "line": 178,
+        "end_line": 190
+      },
+      {
+        "name": "bb_QC_setExport",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 193,
+        "end_line": 238
+      },
+      {
+        "name": "bb_QC_setExportTSL",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "textScrollListName",
+            "type": "string"
+          }
+        ],
+        "line": 240,
+        "end_line": 248
+      },
+      {
+        "name": "bb_QC_loadFile",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 250,
+        "end_line": 262
+      },
+      {
+        "name": "bb_QC_setFileMenu",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 265,
+        "end_line": 283
+      },
+      {
+        "name": "bb_QC_changeSetFile",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 286,
+        "end_line": 291
+      },
+      {
+        "name": "bb_QC_setImport",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 294,
+        "end_line": 311
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//添加名称应用",
+      "//$nameType 0为全部名称，1为后缀。",
+      "global proc bb_QC_addApply(string $shapeType,string $textFieldName,int $nameType)",
+      "{",
+      "    string $selTransforms[] = `ls -sl -type \"transform\"`;",
+      "    string $selShapes[] = `ls -sl -type $shapeType`;",
+      "    string $original = `textField -q -tx $textFieldName`;",
+      "    string $add;"
+    ],
+    "io_lines": [
+      "195:string $file = \"new\";",
+      "197:$file = `optionMenu -q -v bb_QC_setPathMenu`;",
+      "226:if(!`filetest -e $path`) sysFile -md $path;",
+      "228:-startingDirectory ($path + \"/\" + $file + \".bb\")`;",
+      "231:int $fileId = `fopen $fileName \"w\"`;",
+      "235:optionVar -stringValue bb_QC_setFileSel $newMenu;",
+      "257:sysFile -copy ($path + \"/\" + $fileName + \".bb\") $loadFile[0];",
+      "258:optionVar -stringValue bb_QC_setFileSel $fileName;",
+      "288:string $file = `optionMenu -q -v bb_QC_setPathMenu`;",
+      "289:optionVar -stringValue bb_QC_setFileSel $file;",
+      "298:string $file = `optionMenu -q -v bb_QC_setPathMenu`;",
+      "300:string $fileName = $path + \"/\" + $file + \".bb\";",
+      "302:int $fileId = `fopen $fileName \"r\"`;"
+    ]
+  },
+  {
+    "file": "bb_QCTool/bb_QC_text.mel",
+    "sha256": "faf0df80efe9c843a1ac6fa566fe105acdacb6d33ff52a536963fe96e4395b3a",
+    "bytes": 14183,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_QC_defaultSet",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1,
+        "end_line": 105
+      },
+      {
+        "name": "bb_QC_help",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 107,
+        "end_line": 225
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "global proc bb_QC_defaultSet()",
+      "{",
+      "    checkBox -e -v 1 bb_QC_renamePlyCB;",
+      "    checkBox -e -v 1 bb_QC_renameSurfCB;",
+      "    checkBox -e -v 1 bb_QC_renameCurvesCB;",
+      "    checkBox -e -v 1 bb_QC_renameJointCB;",
+      "    textField -e -tx \"_SDM, _sdm, _PLY, _ply, _geo, _Geo, _mesh,\" bb_QC_modleSuffixTF;",
+      "    checkBox -e -v 1 bb_QC_suffixNumCB;"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "bb_QCTool/bb_QC_UI.mel",
+    "sha256": "b66a1e16f2e5130de50d82ff197cbde56429449a808a4ade11ac312918fe3726",
+    "bytes": 22620,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_QC_initialization",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 4,
+        "end_line": 12
+      },
+      {
+        "name": "bb_QC_UIValueSet",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "order",
+            "type": "int"
+          },
+          {
+            "name": "value",
+            "type": "int"
+          }
+        ],
+        "line": 14,
+        "end_line": 22
+      },
+      {
+        "name": "bb_QC_UISelect",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "int"
+          },
+          {
+            "name": "type",
+            "type": "int"
+          }
+        ],
+        "line": 24,
+        "end_line": 54
+      },
+      {
+        "name": "bb_QCUI",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 56,
+        "end_line": 362
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "1:global string $bb_QC_checkBoxValue = \"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\";",
+      "2:global string $bb_QC_setFileSel;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "global string $bb_QC_checkBoxValue = \"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\";",
+      "global string $bb_QC_setFileSel;",
+      "",
+      "global proc bb_QC_initialization()",
+      "{",
+      "    global string  $bb_QC_checkBoxValue;",
+      "    global string $bb_QC_setFileSel;",
+      "    if(`optionVar -exists bb_QC_checkBoxValue`)"
+    ],
+    "io_lines": [
+      "8:if(`optionVar -exists bb_QC_checkBoxValue`)",
+      "9:$bb_QC_checkBoxValue = `optionVar -q bb_QC_checkBoxValue`;",
+      "10:if(`optionVar -exists bb_QC_setFileSel`)",
+      "11:$bb_QC_setFileSel = `optionVar -q bb_QC_setFileSel`;",
+      "21:optionVar -stringValue bb_QC_checkBoxValue $bb_QC_checkBoxValue;"
+    ]
+  },
+  {
+    "file": "bb_QCTool/bb_QCTool.mel",
+    "sha256": "d3d37aa81ecc8430d24edfbebc6dc94a314f17191095d9886b79444ae0a18a15",
+    "bytes": 754,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_QCTool",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1,
+        "end_line": 9
+      },
+      {
+        "name": "bb_QC_setFilePath",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [],
+        "line": 12,
+        "end_line": 21
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "10:bb_QCTool;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "global proc bb_QCTool()",
+      "{",
+      "    string $melPath = `bb_QC_setFilePath`;",
+      "    eval (\"source \\\"\"+$melPath+\"/bb_QC_set.mel\\\";\");",
+      "    eval (\"source \\\"\"+$melPath+\"/bb_QC_apply.mel\\\";\");",
+      "    eval (\"source \\\"\"+$melPath+\"/bb_QC_UI.mel\\\";\");",
+      "    eval (\"source \\\"\"+$melPath+\"/bb_QC_text.mel\\\";\");",
+      "    bb_QCUI;"
+    ],
+    "io_lines": [
+      "4:eval (\"source \\\"\"+$melPath+\"/bb_QC_set.mel\\\";\");",
+      "5:eval (\"source \\\"\"+$melPath+\"/bb_QC_apply.mel\\\";\");",
+      "6:eval (\"source \\\"\"+$melPath+\"/bb_QC_UI.mel\\\";\");",
+      "7:eval (\"source \\\"\"+$melPath+\"/bb_QC_text.mel\\\";\");"
+    ]
+  },
+  {
+    "file": "bb_selectTool.mel",
+    "sha256": "d0403544c6838e97bee7da7e79a359ef050268ef30e883bb854d47ee459df7f3",
+    "bytes": 5559,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_selectTool",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 4,
+        "end_line": 27
+      },
+      {
+        "name": "bb_select_loadNode",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 30,
+        "end_line": 60
+      },
+      {
+        "name": "bb_select_apply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "applyMode",
+            "type": "int"
+          }
+        ],
+        "line": 62,
+        "end_line": 140
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "28:bb_selectTool;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//Author  :   LiuBen",
+      "//Date    :   10/29/2018",
+      "//Fix    :    08/09/2019       修改重名选不上的问题",
+      "global proc bb_selectTool()",
+      "{",
+      "    if (`window -q -exists bb_selectToolWindow`) deleteUI bb_selectToolWindow;",
+      "    window -title \"选择工具\" bb_selectToolWindow;    ",
+      "        columnLayout -adjustableColumn true -columnAttach \"both\" 3;"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "bb_skinList.mel",
+    "sha256": "851589ce38ba6b48aac7694ff54b8ebb647092e4c8e7c1bec2f90d77bf5cecde",
+    "bytes": 2093,
+    "lexical_decoding": "utf-8-sig",
+    "procedures": [
+      {
+        "name": "bb_skinList",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1,
+        "end_line": 29
+      },
+      {
+        "name": "bb_returnSkinList",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "string"
+          }
+        ],
+        "line": 32,
+        "end_line": 43
+      },
+      {
+        "name": "bb_reloadSkinList",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 45,
+        "end_line": 61
+      },
+      {
+        "name": "bb_tslSel",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 63,
+        "end_line": 70
+      },
+      {
+        "name": "bb_allSel",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 72,
+        "end_line": 79
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "30:bb_skinList;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "utf-8-sig",
+    "header": [
+      "global proc  bb_skinList()",
+      "{",
+      "\tif(`window -ex bb_skinListWin`) deleteUI bb_skinListWin;\t",
+      "\twindow -t \"skinList\" bb_skinListWin;",
+      "\t\t",
+      "\tformLayout inflJointMainForm;",
+      "\tframeLayout -l \"\" infJointMainFrame;",
+      "\t"
+    ],
+    "io_lines": [
+      "24:scriptJob -parent \"bb_skinListWin\" -replacePrevious -event \"SelectionChanged\" \"bb_reloadSkinList\";"
+    ]
+  },
+  {
+    "file": "bb_softModTool.mel",
+    "sha256": "3c5a62d25aca983e32d3367bbb1c617b6ce1062ad9a9ae4db8f6a8c9f8a4bba6",
+    "bytes": 13567,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_softModTool",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 3,
+        "end_line": 43
+      },
+      {
+        "name": "bb_softMod_apply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 46,
+        "end_line": 80
+      },
+      {
+        "name": "bb_softMod_createCtrl",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "Name",
+            "type": "string"
+          }
+        ],
+        "line": 82,
+        "end_line": 157
+      },
+      {
+        "name": "bb_softMod_connect",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "Name",
+            "type": "string"
+          },
+          {
+            "name": "sel",
+            "type": "string[]"
+          }
+        ],
+        "line": 160,
+        "end_line": 182
+      },
+      {
+        "name": "bb_softMod_visMovCtrlEnv",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 184,
+        "end_line": 195
+      },
+      {
+        "name": "bb_softMod_addRig",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 199,
+        "end_line": 210
+      },
+      {
+        "name": "bb_softMod_addGeo",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 212,
+        "end_line": 217
+      },
+      {
+        "name": "bb_softMod_addApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 219,
+        "end_line": 230
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "44:bb_softModTool;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//Author  :   LiuBen",
+      "//Date    :   12/08/2016",
+      "global proc bb_softModTool()",
+      "{",
+      "    if (`window -q -exists bb_softModToolWindow`) deleteUI bb_softModToolWindow;",
+      "    window -title \"softMod工具\" bb_softModToolWindow; ",
+      "        tabLayout -innerMarginWidth 5 -innerMarginHeight 5 bb_softModTool_tabLayout;   ",
+      "            columnLayout -adjustableColumn true bb_softModTool_createLayout;"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "bb_Tools.mel",
+    "sha256": "ccfe0523859e731cc0f094b1c3d04daa892ac66485580cd49b26113265ca8bb9",
+    "bytes": 8679,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_Tools",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 32,
+        "end_line": 37
+      },
+      {
+        "name": "bb_Tools_FilePath",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [],
+        "line": 41,
+        "end_line": 51
+      },
+      {
+        "name": "bb_Tools_initialization",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 53,
+        "end_line": 58
+      },
+      {
+        "name": "bb_Tools_Win",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 60,
+        "end_line": 78
+      },
+      {
+        "name": "bb_Tools_workspace",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "dtm",
+            "type": "string"
+          }
+        ],
+        "line": 81,
+        "end_line": 87
+      },
+      {
+        "name": "bb_Tools_rowColumnLayout",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 89,
+        "end_line": 103
+      },
+      {
+        "name": "bb_Tools_EditWorkspace",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 105,
+        "end_line": 114
+      },
+      {
+        "name": "bb_Tools_WindowChange",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 116,
+        "end_line": 137
+      },
+      {
+        "name": "bb_Tools_WindowRow",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 139,
+        "end_line": 151
+      },
+      {
+        "name": "bb_Tools_rowColumnChange",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 153,
+        "end_line": 165
+      },
+      {
+        "name": "bb_Tools_iconTextButton",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 167,
+        "end_line": 176
+      },
+      {
+        "name": "bb_Tools_DeleteIconTextButton",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 178,
+        "end_line": 184
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "1:global string $bb_Tools_Path;",
+      "4:global string $buttonArray[];",
+      "5:$buttonArray = {\"Icon/Rename.png\",\"Script/wp_rename.mel\\\";\",\"bb_Tools_Rename\",//ÖØÃüÃû",
+      "6:                \"Icon/List.png\",\"Script/bb_listTool.mel\\\";\",\"bb_Tools_List\",//ÅúÁ¿´¦Àí",
+      "7:                \"Icon/Ctrl.png\",\"Script/bb_ctrlTool.mel\\\";\",\"bb_Tools_Ctrl\",//¿ØÖÆÆ÷",
+      "8:                \"Icon/Attr.png\",\"Script/bb_attributeTool.mel\\\";\",\"bb_Tools_Attr\",//ÊôÐÔ",
+      "9:                \"Icon/CV.png\",\"Script/bb_curveTool.mel\\\";\",\"bb_Tools_CV\",//CV¹¤¾ß",
+      "10:                \"Icon/BS.png\",\"Script/bb_blendShapeTool.mel\\\";\",\"bb_Tools_BS\",//BS",
+      "11:                \"Icon/QC.png\",\"Script/bb_QCTool.mel\\\";\",\"bb_Tools_QC\",//QC",
+      "12:                \"Icon/ADV.png\",\"Script/bb_advFixTool/bb_advFixTool.mel\\\";\",\"bb_Tools_ADV\",//ADV",
+      "13:                \"Icon/FBX.png\",\"Script/bb_FBXExportTool.mel\\\";\",\"bb_Tools_FBX\",//FBX",
+      "14:                \"Icon/Pose.png\",\"Script/cgTkShapeBuilder.mel\\\";cgTkShapeBuilder;\",\"bb_Tools_Pose\",//Pose",
+      "15:                \"Icon/Mirror.png\",\"Script/Mirror&Flip.mel\\\";\",\"bb_Tools_Mirror\",//¶Ô³Æ",
+      "16:                \"Icon/Weight.png\",\"Script/bb_skin2Deform.mel\\\";\",\"bb_Tools_Weight\",//È¨ÖØ×ª»»",
+      "17:                \"Icon/Follicles.png\",\"Script/bb_createFolliceTool.mel\\\";\",\"bb_Tools_Follicles\",//Ã«ÄÒ",
+      "18:                \"Icon/Dynamic.png\",\"Script/cdkMakeDynamicChain.mel\\\";\",\"bb_Tools_Dynamic\",//¶¯Á¦Ñ§",
+      "19:                \"Icon/SoftMod.png\",\"Script/bb_softModTool.mel\\\";\",\"bb_Tools_SoftMod\",//ÈíÑ¡Ôñ",
+      "20:                \"Icon/Select.png\",\"Script/bb_selectTool.mel\\\";\",\"bb_Tools_Select\",//Ñ¡ÔñÀàÐÍ",
+      "21:                \"Icon/History.png\",\"Script/bb_history.mel\\\";bb_history;\",\"bb_Tools_History\",//ÀúÊ·",
+      "22:                \"Icon/SkinList.png\",\"Script/bb_skinList.mel\\\";\",\"bb_Tools_SkinList\",//ÃÉÆ¤ÁÐ±í",
+      "24:                \"Icon/TexPath.png\",\"Script/FileTextureManager.mel\\\";FileTextureManager;\",\"bb_Tools_TexPath\",//ÌùÍ¼Â·¾¶",
+      "25:                \"Icon/Duplicate.png\",\"Script/LxxBSRePlace.mel\\\";\",\"bb_Tools_Duplicate\",//ÅúÁ¿¸´ÖÆ",
+      "26:                \"Icon/FixError.png\",\"Script/bb_FixError.mel\\\";bb_FixError;\",\"bb_Tools_FixError\"};//±¨´í",
+      "28:global int $bb_Tools_rowColumn,$bb_Tools_MaxControl;",
+      "29:$bb_Tools_rowColumn = size($buttonArray)/3 + 1;",
+      "30:$bb_Tools_MaxControl = size($buttonArray)/3 + 1;",
+      "38:bb_Tools;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "global string $bb_Tools_Path;",
+      "",
+      "//对应，图片，mel名，按钮名",
+      "global string $buttonArray[];",
+      "$buttonArray = {\"Icon/Rename.png\",\"Script/wp_rename.mel\\\";\",\"bb_Tools_Rename\",//重命名",
+      "                \"Icon/List.png\",\"Script/bb_listTool.mel\\\";\",\"bb_Tools_List\",//批量处理",
+      "                \"Icon/Ctrl.png\",\"Script/bb_ctrlTool.mel\\\";\",\"bb_Tools_Ctrl\",//控制器",
+      "                \"Icon/Attr.png\",\"Script/bb_attributeTool.mel\\\";\",\"bb_Tools_Attr\",//属性"
+    ],
+    "io_lines": [
+      "56:if(`optionVar -exists bb_Tools_rowColumn`)",
+      "57:$bb_Tools_rowColumn = `optionVar -q bb_Tools_rowColumn`;",
+      "159:optionVar -iv bb_Tools_rowColumn $column;",
+      "174:-c (\"source \\\"\" + $bb_Tools_Path + $buttonArray[$i+1]) $buttonArray[$i+2];"
+    ]
+  },
+  {
+    "file": "Install_BBTools.mel",
+    "sha256": "e3dd6157ac8fbcd752d6c67614de8cb55e04eb6c443eb129f2e787c669daf3f1",
+    "bytes": 751,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "Install_BBTools",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1,
+        "end_line": 19
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "20:Install_BBTools;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "global proc Install_BBTools()",
+      "{",
+      "     string $BBTools = `whatIs Install_BBTools`;",
+      "     string $tokeTmp01[];",
+      "     int $num=`tokenize $BBTools \" \" $tokeTmp01`;",
+      "     string $BBTools_Path =(`dirname $tokeTmp01[$num-1]`);",
+      "",
+      "     global string $gShelfTopLevel;"
+    ],
+    "io_lines": [
+      "14:-c (\"source \\\"\"+$BBTools_Path+\"/bb_Tools.mel\\\";\" )"
+    ]
+  },
+  {
+    "file": "Script/aboutJBPerVert.mel",
+    "sha256": "3d1350bbd72660eab56879605098c3173434e121634edb962c285c5c71cf1998",
+    "bytes": 13033,
+    "lexical_decoding": "utf-8-sig",
+    "procedures": [
+      {
+        "name": "setToDefault",
+        "global_scope": false,
+        "return_type": "void",
+        "parameters": [],
+        "line": 82,
+        "end_line": 89
+      },
+      {
+        "name": "PervertScript",
+        "global_scope": false,
+        "return_type": "void",
+        "parameters": [],
+        "line": 100,
+        "end_line": 282
+      },
+      {
+        "name": "PervertDefault",
+        "global_scope": false,
+        "return_type": "void",
+        "parameters": [],
+        "line": 289,
+        "end_line": 337
+      },
+      {
+        "name": "aboutJBPerVert",
+        "global_scope": false,
+        "return_type": "void",
+        "parameters": [],
+        "line": 344,
+        "end_line": 394
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "15:\tif (`window -exists JBPerVertWindow`)",
+      "16:\tdeleteUI JBPerVertWindow;",
+      "19:string $window = `window -title \"JB PerVert\"",
+      "20:\t-iconName \"PerVert\"",
+      "21:\t-sizeable 0",
+      "22:\t-menuBar 1",
+      "23:\t-maximizeButton 0",
+      "24:\t-widthHeight 400 365",
+      "25:\tJBPerVertWindow`;",
+      "27:\tmenu -label \"Edit\";",
+      "28:\tmenuItem -label \"Default\" -c \"setToDefault\";",
+      "31:\tmenu -label \"Help\";",
+      "32:\tmenuItem -label \"About JB PerVert\" -c \"aboutJBPerVert\";",
+      "33:columnLayout -adjustableColumn true;",
+      "35:\tseparator  -height 30 -style \"single\" -horizontal 1;\t",
+      "36:\tcolorSliderGrp -label \"One Influence\" ",
+      "37:                        -height 40",
+      "38:\t\t\t-rgb 0 0 0",
+      "40:                        color1;",
+      "41:\tcolorSliderGrp -label \"Two Influences\" ",
+      "42:                        -height 40",
+      "43:                        -rgb 0 0 .7",
+      "44:                        color2;",
+      "45:\tcolorSliderGrp -label \"Three Influences\" ",
+      "46:                        -height 40",
+      "47:                        -rgb 0 1 0",
+      "48:                        color3;",
+      "49:\tcolorSliderGrp -label \"Four Influences\" ",
+      "50:                        -height 40",
+      "51:                        -rgb 0 1 1",
+      "52:                        color4;",
+      "53:\tcolorSliderGrp -label \"Five Influences\" ",
+      "54:                        -height 40",
+      "55:                        -rgb 1 0 0",
+      "56:                        color5;",
+      "57:\tcolorSliderGrp -label \"six+ Influences\" ",
+      "58:                        -height 40",
+      "59:                        -rgb 1 1 0",
+      "60:                        color6;",
+      "61:separator  -height 15 -style \"single\" -horizontal 1;\t",
+      "62:\trowLayout -numberOfColumns 2",
+      "63:                -columnAttach2 \"both\" \"both\"",
+      "64:                -columnWidth2 130 130",
+      "65:                -columnOffset2 10 10",
+      "66:                -columnAlign2 \"center\" \"center\";",
+      "67:\t\tbutton -label \"Color PerVert\" -command (\"PervertScript()\");",
+      "68:\t\tbutton -label \"Default PerVert\" -command (\"PervertDefault()\");",
+      "69:\tsetParent..;",
+      "70:separator  -height 10 -style \"single\" -horizontal 1;\t",
+      "71:\tcolumnLayout -adjustableColumn true;",
+      "72:\t\tglobal string $progressControl;",
+      "73:\t\t$progressControl = `progressBar -minValue 0 -maxValue 7 -width 300`;",
+      "74:\tsetParent ..;",
+      "75:showWindow $window;",
+      "282:};",
+      "337:};",
+      "394:};"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "utf-8-sig",
+    "header": [
+      "/* This file downloaded from Highend3d.com",
+      "''  ",
+      "''  Highend3d.com File Information:",
+      "''  ",
+      "''    Script Name: JB PerVert",
+      "''    Author: jarombrand ",
+      "''    Last Updated: May 26, 2009",
+      "''    Update/Change this file at:"
+    ],
+    "io_lines": [
+      "1:/* This file downloaded from Highend3d.com",
+      "8:''    Update/Change this file at:"
+    ]
+  },
+  {
+    "file": "Script/bb_advFixTool/bb_advFixTool.mel",
+    "sha256": "79a63e7fc926bad6bf706c1125f30ffdd95aa5fc180509400cce9b11b83dbacb",
+    "bytes": 23744,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_advFixTool",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 12,
+        "end_line": 18
+      },
+      {
+        "name": "bb_advFix_setFilePath",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [],
+        "line": 21,
+        "end_line": 30
+      },
+      {
+        "name": "bb_advFixUI",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 31,
+        "end_line": 73
+      },
+      {
+        "name": "bb_advFix_Scapula",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 76,
+        "end_line": 92
+      },
+      {
+        "name": "bb_advFix_AddMov",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 95,
+        "end_line": 109
+      },
+      {
+        "name": "bb_advFix_Neck",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 111,
+        "end_line": 193
+      },
+      {
+        "name": "bb_advFix_Finger0Fix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 195,
+        "end_line": 205
+      },
+      {
+        "name": "bb_advFix_AimEye",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 207,
+        "end_line": 213
+      },
+      {
+        "name": "bb_advFix_lockCtrlV",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 215,
+        "end_line": 232
+      },
+      {
+        "name": "bb_advFix_RenameExtra",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "defPrefix",
+            "type": "string"
+          },
+          {
+            "name": "defSuffix",
+            "type": "string"
+          },
+          {
+            "name": "aimName",
+            "type": "string"
+          },
+          {
+            "name": "finger",
+            "type": "int"
+          }
+        ],
+        "line": 234,
+        "end_line": 260
+      },
+      {
+        "name": "bb_advFix_Hip",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 262,
+        "end_line": 266
+      },
+      {
+        "name": "bb_advFix_HipApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "Orientation",
+            "type": "string"
+          }
+        ],
+        "line": 267,
+        "end_line": 282
+      },
+      {
+        "name": "bb_advFix_Drv",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 284,
+        "end_line": 326
+      },
+      {
+        "name": "bb_advFix_VisCreate",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 328,
+        "end_line": 382
+      },
+      {
+        "name": "bb_advFix_VisCon",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mod",
+            "type": "int"
+          }
+        ],
+        "line": 383,
+        "end_line": 397
+      },
+      {
+        "name": "bb_advFix_FacialSubCtrl",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 400,
+        "end_line": 406
+      },
+      {
+        "name": "bb_advFix_FacialSubCtrlApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "Aim",
+            "type": "string[]"
+          }
+        ],
+        "line": 408,
+        "end_line": 429
+      },
+      {
+        "name": "bb_advFix_autoLipPress",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 432,
+        "end_line": 437
+      },
+      {
+        "name": "bb_advFix_Brow",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 440,
+        "end_line": 496
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "19:bb_advFixTool;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//Author  :   LiuBen",
+      "//Date    :   2020/03/13",
+      "//Fix     :   2020/07/27   适配ADV5.74版本。",
+      "//Fix     :   2020/08/05   添加控制器显示隐藏功能。",
+      "//Fix     :   2020/08/18   针对5.74手指加入层级修改功能,添加修改眼睛上层组scale不为1的功能。",
+      "//Fix     :   2020/08/19   修改躯干IK出问题的BUG。",
+      "//Fix     :   2020/10/21   重新设计界面，‘躯干方向修改’改为‘修改IK控制器为统一腰部控制器’。",
+      "//Fix     :   2021/03/11   添加嘴唇月牙次级功能。"
+    ],
+    "io_lines": [
+      "15:eval (\"source \\\"\"+$melPath+\"/mel/bb_subFacialTool.mel\\\";\");",
+      "16:eval (\"source \\\"\"+$melPath+\"/mel/bb_advFix_IKSpine.mel\\\";\");",
+      "288:string $refReture = `file -r -type \"mayaAscii\" -ignoreVersion -gl -mergeNamespacesOnClash false",
+      "289:-namespace \"Drv\" -options \"v=0;\" ($melPath + \"/file/drv.ma\")`;",
+      "293:file -importReference -referenceNode $refNode;"
+    ]
+  },
+  {
+    "file": "Script/bb_advFixTool/mel/bb_advFix_IKSpine.mel",
+    "sha256": "293a3dbe14bfd3144446b702e1b56fc3a9a687de1f8b6ff0866fc8bcb25a6f88",
+    "bytes": 9665,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_advFix_IKSpineFix1",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 2,
+        "end_line": 67
+      },
+      {
+        "name": "bb_advFix_IKSpineFix2",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 69,
+        "end_line": 165
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "1:global string $bb_advFix_SpineJoint[];"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "global string $bb_advFix_SpineJoint[];",
+      "global proc bb_advFix_IKSpineFix1()",
+      "{",
+      "    global string $bb_advFix_SpineJoint[];",
+      "    $bb_advFix_SpineJoint = {\"Chest_M\"};",
+      "    string $chest = \"Chest_M\";",
+      "    string $curveCreate = \"curve -d 3 \";",
+      "    while($chest != \"Root_M\"){"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "Script/bb_advFixTool/mel/bb_subFacialTool.mel",
+    "sha256": "7ec64fc3608b80db449304b1d869da9bc8abf73b9aedbcb4a39f60a802f89cd2",
+    "bytes": 33693,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_subFacialTool",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 6,
+        "end_line": 35
+      },
+      {
+        "name": "bb_subFacial_createJoint",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 40,
+        "end_line": 149
+      },
+      {
+        "name": "bb_subFacial_createFollice",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 151,
+        "end_line": 187
+      },
+      {
+        "name": "bb_subFacial_createCtrl",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 189,
+        "end_line": 323
+      },
+      {
+        "name": "bb_subFacial_createGroup",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "ctrlName",
+            "type": "string"
+          }
+        ],
+        "line": 324,
+        "end_line": 330
+      },
+      {
+        "name": "bb_subFacial_createShape",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "shapeStyle",
+            "type": "int"
+          },
+          {
+            "name": "shapeColor",
+            "type": "int"
+          },
+          {
+            "name": "ctrlName",
+            "type": "string"
+          }
+        ],
+        "line": 332,
+        "end_line": 372
+      },
+      {
+        "name": "bb_subFacial_cleanUp",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 375,
+        "end_line": 461
+      },
+      {
+        "name": "bb_subFacial_LipCorner",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 463,
+        "end_line": 507
+      },
+      {
+        "name": "bb_subFacial_data2Env",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "ctrl",
+            "type": "string"
+          }
+        ],
+        "line": 510,
+        "end_line": 529
+      },
+      {
+        "name": "bb_subFacial_mirrorCtrl",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 532,
+        "end_line": 549
+      },
+      {
+        "name": "bb_subFacial_mirrorJoint",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 552,
+        "end_line": 564
+      },
+      {
+        "name": "bb_subFacial_mirrorFollice",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 566,
+        "end_line": 582
+      },
+      {
+        "name": "bb_subFacial_reCon",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 584,
+        "end_line": 599
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "37:global string $bb_subFacial_joint[],",
+      "38:              $bb_subFacial_ctrl[];"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//Author  :   LiuBen",
+      "//Date    :   03/14/2019",
+      "//Fix     :   03/26/2019   增加嘴部总控制器功能",
+      "//Fix     :   12/25/2019   增加嘴角眼角骨骼。",
+      "//Fix     :   01/10/2020   整体功能提升。",
+      "global proc bb_subFacialTool()",
+      "{",
+      "    if (`window -q -exists bb_subFacialToolWindow`) deleteUI bb_subFacialToolWindow;"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "Script/bb_attributeTool.mel",
+    "sha256": "3e58b57228ca2420926abd87eef10a78804295a4a2de92007d8cc6d821909af8",
+    "bytes": 31126,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_attribute_initialization",
+        "global_scope": false,
+        "return_type": "void",
+        "parameters": [],
+        "line": 6,
+        "end_line": 11
+      },
+      {
+        "name": "bb_attributeTool",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 13,
+        "end_line": 122
+      },
+      {
+        "name": "bb_attr_CreateFix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 125,
+        "end_line": 130
+      },
+      {
+        "name": "bb_attr_Fix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 132,
+        "end_line": 188
+      },
+      {
+        "name": "bb_attr_FixUI",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mod",
+            "type": "int"
+          }
+        ],
+        "line": 189,
+        "end_line": 207
+      },
+      {
+        "name": "bb_attr_FixApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 209,
+        "end_line": 252
+      },
+      {
+        "name": "bb_attr_reloadGeo",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 256,
+        "end_line": 264
+      },
+      {
+        "name": "bb_attr_loadAttr",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "sel",
+            "type": "string"
+          }
+        ],
+        "line": 266,
+        "end_line": 287
+      },
+      {
+        "name": "bb_attribute_loadSave",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 289,
+        "end_line": 297
+      },
+      {
+        "name": "bb_attr_UIChange",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 299,
+        "end_line": 325
+      },
+      {
+        "name": "bb_attr_addApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 327,
+        "end_line": 370
+      },
+      {
+        "name": "bb_attr_addAttr",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "string"
+          },
+          {
+            "name": "attrInfo",
+            "type": "string[]"
+          }
+        ],
+        "line": 373,
+        "end_line": 401
+      },
+      {
+        "name": "bb_attr_save",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 404,
+        "end_line": 436
+      },
+      {
+        "name": "bb_attr_edit",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "edit",
+            "type": "int"
+          }
+        ],
+        "line": 438,
+        "end_line": 491
+      },
+      {
+        "name": "bb_attributeTool_attrNameReturn",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "attrArray",
+            "type": "string[]"
+          }
+        ],
+        "line": 493,
+        "end_line": 501
+      },
+      {
+        "name": "bb_attr_saveAdd",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 504,
+        "end_line": 516
+      },
+      {
+        "name": "bb_attr_saveEdit",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 519,
+        "end_line": 524
+      },
+      {
+        "name": "bb_attr_saveEditApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "item",
+            "type": "string"
+          }
+        ],
+        "line": 526,
+        "end_line": 553
+      },
+      {
+        "name": "bb_attr_saveDelete",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mod",
+            "type": "int"
+          }
+        ],
+        "line": 557,
+        "end_line": 577
+      },
+      {
+        "name": "bb_attr_nameSelect",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 580,
+        "end_line": 589
+      },
+      {
+        "name": "bb_attr_upApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 593,
+        "end_line": 636
+      },
+      {
+        "name": "bb_attr_downApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 639,
+        "end_line": 686
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "4:global string  $bb_attribute_save;",
+      "123:bb_attributeTool;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//Author  :   LiuBen",
+      "//Date    :   2018/02/08",
+      "//Fix     :   2020/10/22",
+      "global string  $bb_attribute_save;",
+      "",
+      "proc bb_attribute_initialization()",
+      "{",
+      "    global string  $bb_attribute_save;"
+    ],
+    "io_lines": [
+      "9:if(`optionVar -exists bb_attribute_save`)",
+      "10:$bb_attribute_save = `optionVar -q bb_attribute_save`;",
+      "117:scriptJob -parent \"bb_attributeToolWindow\" -replacePrevious -event \"SelectionChanged\" \"bb_attr_reloadGeo\";",
+      "434:optionVar -stringValue bb_attribute_save $bb_attribute_save;",
+      "570:optionVar -stringValue bb_attribute_save $bb_attribute_save;",
+      "574:optionVar -stringValue bb_attribute_save \"\";"
+    ]
+  },
+  {
+    "file": "Script/bb_autoSkirt.mel",
+    "sha256": "1d90886f6147bfb494d467b4a9e93eb423e07d2d8b4e96227f2593bdcc316872",
+    "bytes": 20165,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_autoSkirt",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 5,
+        "end_line": 25
+      },
+      {
+        "name": "bb_autoSkirt_Apply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 28,
+        "end_line": 231
+      },
+      {
+        "name": "bb_autoSkirt_CreateJoint",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 233,
+        "end_line": 317
+      },
+      {
+        "name": "bb_autoSkirt_CreateCtrl",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 319,
+        "end_line": 346
+      },
+      {
+        "name": "bb_autoSkirt_CreateCrv",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 350,
+        "end_line": 371
+      },
+      {
+        "name": "bb_autoSkirt_LegJointLoad",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 373,
+        "end_line": 379
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "1:global string $bb_autoSkirt_orCtrlArray[];",
+      "2:global string $bb_autoSkirt_CtrlArray[];",
+      "3:global float $bb_autoSkirt_Scale;",
+      "26:bb_autoSkirt;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "global string $bb_autoSkirt_orCtrlArray[];",
+      "global string $bb_autoSkirt_CtrlArray[];",
+      "global float $bb_autoSkirt_Scale;",
+      "",
+      "global proc bb_autoSkirt()",
+      "{",
+      "    if (`window -q -exists bb_autoSkirtWindow`) deleteUI bb_autoSkirtWindow;",
+      "    window -title \"裙子自动碰撞工具\" bb_autoSkirtWindow;"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "Script/bb_blendShapeTool.mel",
+    "sha256": "d86099839d3774d4a7c69c3e03af34fd4f312d31e3e2f6304851392ab76234a6",
+    "bytes": 11517,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_blendShapeTool",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 6,
+        "end_line": 52
+      },
+      {
+        "name": "bb_BS_reloadBlendShape",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 57,
+        "end_line": 73
+      },
+      {
+        "name": "bb_BS_blendShapeList",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "blendShape",
+            "type": "string"
+          }
+        ],
+        "line": 75,
+        "end_line": 94
+      },
+      {
+        "name": "bb_BS_inBetweenList",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "blendShape",
+            "type": "string"
+          }
+        ],
+        "line": 96,
+        "end_line": 114
+      },
+      {
+        "name": "bb_BS_apply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 116,
+        "end_line": 138
+      },
+      {
+        "name": "bb_BS_inBetween",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 140,
+        "end_line": 160
+      },
+      {
+        "name": "bb_BS_delete",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 162,
+        "end_line": 188
+      },
+      {
+        "name": "bb_BS_expandItem",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 190,
+        "end_line": 198
+      },
+      {
+        "name": "bb_BS_regenerate",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 201,
+        "end_line": 246
+      },
+      {
+        "name": "bb_BS_regenerateApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "index",
+            "type": "int"
+          },
+          {
+            "name": "inputTargetItem",
+            "type": "int"
+          },
+          {
+            "name": "blendshape",
+            "type": "string"
+          },
+          {
+            "name": "targetName",
+            "type": "string"
+          }
+        ],
+        "line": 248,
+        "end_line": 269
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "53:bb_blendShapeTool;",
+      "55:global string $bb_BS_targetList[];",
+      "56:global string $bb_BS_baseObject;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//Author  :   LiuBen",
+      "//Date    :   03/21/2019",
+      "//Fix     :   02/21/2020   修正多个target添加时，添加不上去的BUG。",
+      "//Fix     :   07/25/2020   改窗口，可以最小化。",
+      "//Fix     :   10/10/2020   修正BS序列不连续时，造成的各种bug。",
+      "global proc bb_blendShapeTool()",
+      "{    ",
+      "    if (`window -q -exists bb_blendShapeToolWindow`) deleteUI bb_blendShapeToolWindow;"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "Script/bb_createFolliceTool.mel",
+    "sha256": "6b5a26f9ec0f94e8399160e1ea3df202dad12b274d1c4ae307539ff72b6fa947",
+    "bytes": 4224,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_createFolliceTool",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1,
+        "end_line": 17
+      },
+      {
+        "name": "bb_createFollice_loadGeo",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 20,
+        "end_line": 32
+      },
+      {
+        "name": "bb_createFollice",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 35,
+        "end_line": 83
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "18:bb_createFolliceTool;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "global proc bb_createFolliceTool()",
+      "{",
+      "    if (`window -q -exists bb_createFolliceToolWindow`) deleteUI bb_createFolliceToolWindow;",
+      "    window -title \"创建毛囊工具\" -toolbox 1  bb_createFolliceToolWindow;    ",
+      "        columnLayout -adjustableColumn true -columnAttach \"both\" 3;",
+      "            rowLayout -numberOfColumns 2 -columnWidth2 150 80 ;",
+      "                textField -w 150 -text \"\" bb_createFolliceTool_meshTF;",
+      "                button -w 80 -label \"<<<载入模型\" -bgc 1 0.95 0.5 -c \"bb_createFollice_loadGeo(0)\";"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "Script/bb_ctrlTool.mel",
+    "sha256": "4e26b0d0f82d83447fadf2e89e63f52490ffa0f1a23bf5c0411aeecf8a7b7676",
+    "bytes": 41712,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_ctrlTool",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 9,
+        "end_line": 131
+      },
+      {
+        "name": "bb_CtrlTool_SelectColorVis",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 135,
+        "end_line": 143
+      },
+      {
+        "name": "bb_CtrlTool_CtrlGroup",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 145,
+        "end_line": 158
+      },
+      {
+        "name": "bb_CtrlTool_scale",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 159,
+        "end_line": 163
+      },
+      {
+        "name": "bb_CtrlTool_apply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 165,
+        "end_line": 201
+      },
+      {
+        "name": "bb_CtrlTool_createWholeCtrl",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "CtrlName",
+            "type": "string"
+          }
+        ],
+        "line": 204,
+        "end_line": 256
+      },
+      {
+        "name": "bb_CtrlTool_selAddPivots",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 258,
+        "end_line": 265
+      },
+      {
+        "name": "bb_CtrlTool_addPivots",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "transform",
+            "type": "string"
+          }
+        ],
+        "line": 267,
+        "end_line": 292
+      },
+      {
+        "name": "bb_CtrlTool_changeColor",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 295,
+        "end_line": 305
+      },
+      {
+        "name": "bb_CtrlTool_changeColorApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "CtrlName",
+            "type": "string"
+          },
+          {
+            "name": "color",
+            "type": "int"
+          }
+        ],
+        "line": 308,
+        "end_line": 317
+      },
+      {
+        "name": "bb_CtrlTool_processMode",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "CtrlName",
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "type": "string"
+          }
+        ],
+        "line": 320,
+        "end_line": 357
+      },
+      {
+        "name": "bb_CtrlTool_groupObj",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 360,
+        "end_line": 366
+      },
+      {
+        "name": "bb_CtrlTool_groupObjApply",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "string"
+          }
+        ],
+        "line": 368,
+        "end_line": 386
+      },
+      {
+        "name": "bb_CtrlTool_fixExtra",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "choose",
+            "type": "int"
+          }
+        ],
+        "line": 389,
+        "end_line": 416
+      },
+      {
+        "name": "bb_CtrlTool_addJointApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "CtrlName",
+            "type": "string"
+          }
+        ],
+        "line": 419,
+        "end_line": 438
+      },
+      {
+        "name": "bb_CtrlTool_addDrv1Apply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "CtrlName",
+            "type": "string"
+          }
+        ],
+        "line": 442,
+        "end_line": 457
+      },
+      {
+        "name": "bb_CtrlTool_visPivots",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 460,
+        "end_line": 478
+      },
+      {
+        "name": "bb_CtrlTool_porpsCtrlApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 481,
+        "end_line": 530
+      },
+      {
+        "name": "bb_CtrlTool_createShape",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "shapeStyle",
+            "type": "string"
+          },
+          {
+            "name": "shapeName",
+            "type": "string"
+          }
+        ],
+        "line": 532,
+        "end_line": 633
+      },
+      {
+        "name": "bb_CtrlTool_changeShape",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 635,
+        "end_line": 667
+      },
+      {
+        "name": "bb_CtrlTool_combineShape",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 669,
+        "end_line": 686
+      },
+      {
+        "name": "bb_CtrlTool_CtrlShapeEdit",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 691,
+        "end_line": 754
+      },
+      {
+        "name": "bb_CtrlTool_CtrlShapeEditOK",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 756,
+        "end_line": 784
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "132:bb_ctrlTool;",
+      "689:global string $bb_CtrlTool_EditCtrl[],$bb_CtrlTool_FixCtrl[];"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//Author  :   LiuBen",
+      "//Date    :   2016/12/05",
+      "//Fix     :   2017/05/18 修正了pivot的层级关系。",
+      "//Fix     :   2018/01/29 修改了创建基础控制器的层级及命名方式。",
+      "//Fix     :   2018/11/13 修改了箭头圆的形状，添加了“创建loc”按钮。",
+      "//Fix     :   2020/10/13 重新设计界面，增加了许多新功能。",
+      "//Fix     :   2021/09/24 重新设计了颜色选取，形状编辑功能。",
+      "//Fix     :   2021/11/02 修复一些小bug。"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "Script/bb_curveTool.mel",
+    "sha256": "53f1702cfebd377266ab9b6f8c7706b863798da0ef8cc29a206c87227285d64e",
+    "bytes": 20168,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_curveTool",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 8,
+        "end_line": 61
+      },
+      {
+        "name": "bb_curveTool_apply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 64,
+        "end_line": 127
+      },
+      {
+        "name": "bb_curveTool_rebuild",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "curve",
+            "type": "string"
+          }
+        ],
+        "line": 129,
+        "end_line": 133
+      },
+      {
+        "name": "bb_curveTool_createCtrl",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "curve",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          }
+        ],
+        "line": 135,
+        "end_line": 204
+      },
+      {
+        "name": "bb_curveTool_follicle",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "surface",
+            "type": "string"
+          },
+          {
+            "name": "crvName",
+            "type": "string"
+          }
+        ],
+        "line": 206,
+        "end_line": 259
+      },
+      {
+        "name": "bb_curveTool_locApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 261,
+        "end_line": 294
+      },
+      {
+        "name": "bb_curveTool_jointApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 296,
+        "end_line": 328
+      },
+      {
+        "name": "bb_curveTool_getCVNum",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 330,
+        "end_line": 346
+      },
+      {
+        "name": "bb_curveTool_follicleOnFace",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 348,
+        "end_line": 382
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "62:bb_curveTool;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//Author  :   LiuBen",
+      "//Date    :   2017/02/06",
+      "//Fix     :   2017/04/11   修正生成曲面时，follicle定位错误的bug。修正单根曲线不会被重建的bug。",
+      "//Fix     :   2017/12/19   修正生成不重建曲线的曲面时，follicle定位错误的bug。",
+      "//Fix     :   2018/01/29   修正生成骨骼时，生成方向不指向下一节骨骼的问题。",
+      "//Fix     :   2020/01/29   新增poly,nurbs可选，反向建立曲线定点、骨骼功能；曲面生成毛囊功能。",
+      "//Fix     :   2021/09/13   修正不重建曲线时，毛囊生成位置不对的问题。",
+      "global proc bb_curveTool()"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "Script/bb_FBXExportTool.mel",
+    "sha256": "5e97b2c418df8b30a3e05305f051e401643e082b9a086edde0a0471e255ebc7e",
+    "bytes": 13452,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_FBXExportTool",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 9,
+        "end_line": 49
+      },
+      {
+        "name": "bb_FBXExport_loadRef",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 54,
+        "end_line": 71
+      },
+      {
+        "name": "bb_FBXExport_data2FBX",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 75,
+        "end_line": 111
+      },
+      {
+        "name": "bb_FBXExport_importRename",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 113,
+        "end_line": 126
+      },
+      {
+        "name": "bb_FBXExport_UpAxisDisplay",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 128,
+        "end_line": 137
+      },
+      {
+        "name": "bb_FBXExport_Selcet",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 139,
+        "end_line": 161
+      },
+      {
+        "name": "bb_FBXExport_ZUp",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 163,
+        "end_line": 180
+      },
+      {
+        "name": "bb_FBXExport_DisConApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 183,
+        "end_line": 236
+      },
+      {
+        "name": "bb_FBXExport_disconnect",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "attr",
+            "type": "string"
+          }
+        ],
+        "line": 238,
+        "end_line": 246
+      },
+      {
+        "name": "bb_FBXExport_BakeApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 248,
+        "end_line": 314
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "50:bb_FBXExportTool;",
+      "52:global string $bb_FBXExport_sourceRef;",
+      "73:global string $maJoint[],$fbxJoint[],$copyBS[],$pasteBS[];"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//Author  :   LiuBen",
+      "//Date    :   01/29/2019",
+      "//Fix     :   02/13/2019   增加当前轴向的显示功能。",
+      "//Fix     :   03/23/2019   改掉导出功能为导入ref并去掉ref前缀，修改选择骨骼功能,。",
+      "//Fix     :   04/09/2019   修改“快速选择”，添加reference进入规则。",
+      "//Fix     :   11/22/2019   增加loc类型的烘焙和断开。",
+      "//Fix     :   12/11/2019   增加数据转移功能。",
+      "//Fix     :   01/02/2020   修改数据转移功能BUG。"
+    ],
+    "io_lines": [
+      "84:file -r -type \"FBX\"  -ignoreVersion -gl -mergeNamespacesOnClash false -namespace $newNamespace -options \"fbx\" $YupFBX;",
+      "108:file -removeReference $bb_FBXExport_sourceRef;",
+      "118:file -importReference -referenceNode $refNode;"
+    ]
+  },
+  {
+    "file": "Script/bb_FixError.mel",
+    "sha256": "bf433c6c8b19b28152ba30298b5b0b2c85696ecc8441c1374c6537008dd894b2",
+    "bytes": 2070,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_FixError",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1,
+        "end_line": 7
+      },
+      {
+        "name": "OutlineError",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 9,
+        "end_line": 23
+      },
+      {
+        "name": "CgAbBlastPanelOptChangeCallbackError",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 25,
+        "end_line": 34
+      },
+      {
+        "name": "DelDJJ",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 36,
+        "end_line": 52
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "global proc bb_FixError()",
+      "{",
+      "    OutlineError;",
+      "    CgAbBlastPanelOptChangeCallbackError;",
+      "    DelDJJ;",
+      "    confirmDialog -title \"OK\" -message \"报错清除完成！\\n请保存档案重开Maya\" -button \"好的！~\";",
+      "}",
+      ""
+    ],
+    "io_lines": [
+      "21:python $Outliner;",
+      "33:python $CgAbBlastPanelOptChangeCallback;",
+      "51:python $DelDJJ;"
+    ]
+  },
+  {
+    "file": "Script/bb_history.mel",
+    "sha256": "08a5f4429f1d2465eed8a85ce163f9eae775220dcfff1cbbb520171bddc0743f",
+    "bytes": 1167,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_history",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1,
+        "end_line": 18
+      },
+      {
+        "name": "bb_history_print",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 21,
+        "end_line": 30
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "global proc bb_history()",
+      "{",
+      "    if (`window -q -exists bb_historyWindow`) deleteUI bb_historyWindow;",
+      "    window -title \"历史信息\" bb_historyWindow;    ",
+      "    formLayout bb_historyWFormLayout;",
+      "        cmdScrollFieldReporter bb_historyCmdHistory;",
+      "        formLayout -edit",
+      "        -attachForm     bb_historyCmdHistory     \"top\"    1"
+    ],
+    "io_lines": [
+      "23:string $icon = (`optionVar -q echoAllLines` ? \"echoCommands.png\" : \"echoCommandsOff.png\");"
+    ]
+  },
+  {
+    "file": "Script/bb_listTool.mel",
+    "sha256": "712ead6e9204f3874c9715f1e12a6488e308642bc069ac70f4c090fc458cf0fc",
+    "bytes": 12527,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_listTool",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 3,
+        "end_line": 57
+      },
+      {
+        "name": "bb_listTool_select",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 65,
+        "end_line": 75
+      },
+      {
+        "name": "bb_listTool_import",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 77,
+        "end_line": 114
+      },
+      {
+        "name": "bb_listTool_apply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 116,
+        "end_line": 159
+      },
+      {
+        "name": "bb_listTool_execute",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "aim0",
+            "type": "string"
+          },
+          {
+            "name": "sourc0",
+            "type": "string"
+          },
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 161,
+        "end_line": 273
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "58:bb_listTool;",
+      "60:global string $bb_listTool_aims[],",
+      "61:              $bb_listTool_sources[];",
+      "62:global int $bb_listTool_aimsNum,",
+      "63:           $bb_listTool_sourcesNum;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//Author  :   LiuBen",
+      "//Date    :   03/23/2020",
+      "global proc bb_listTool()",
+      "{",
+      "    if (`window -q -exists bb_listToolWindow`) deleteUI bb_listToolWindow;",
+      "    window -title \"批量处理\" -bgc 0.2 0.2 0.2 bb_listToolWindow;    ",
+      "        columnLayout -adjustableColumn true -columnAttach \"both\" 2;",
+      "            rowColumnLayout -numberOfColumns 2 -columnWidth 1 110 -columnWidth 2 110 bb_listTool_rowColumnLayout;"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "Script/bb_masterCreate.mel",
+    "sha256": "8d5a0e112e401d673666a3ef229bf39c3a2c9c4962f160412345e99fd8a21578",
+    "bytes": 242,
+    "lexical_decoding": "utf-8-sig",
+    "procedures": [
+      {
+        "name": "bb_masterCreate",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1,
+        "end_line": 9
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "10:bb_masterCreate;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "utf-8-sig",
+    "header": [
+      "global proc bb_masterCreate()",
+      "{",
+      "    createNode \"transform\" -n \"master\";",
+      "    createNode \"transform\" -n \"MOD\";",
+      "    createNode \"transform\" -n \"All_mod_grp\";",
+      "",
+      "    parent \"MOD\" \"master\";",
+      "    parent \"All_mod_grp\" \"MOD\" ;"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "Script/bb_QC_apply.mel",
+    "sha256": "c55db60327706da2da935a059158ff7bd18591f659aca716c061a60bdc0d73dd",
+    "bytes": 28867,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_QC_allQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 2,
+        "end_line": 25
+      },
+      {
+        "name": "bb_QC_sets",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "setName",
+            "type": "string"
+          },
+          {
+            "name": "setElement",
+            "type": "string[]"
+          }
+        ],
+        "line": 28,
+        "end_line": 34
+      },
+      {
+        "name": "bb_QC_informationOutput",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "checkItem",
+            "type": "int"
+          },
+          {
+            "name": "conclusion",
+            "type": "int"
+          },
+          {
+            "name": "setNum",
+            "type": "int"
+          },
+          {
+            "name": "setName",
+            "type": "string"
+          }
+        ],
+        "line": 36,
+        "end_line": 73
+      },
+      {
+        "name": "bb_QC_deleteFix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "setName",
+            "type": "string"
+          }
+        ],
+        "line": 75,
+        "end_line": 88
+      },
+      {
+        "name": "bb_QC_noneQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 90,
+        "end_line": 96
+      },
+      {
+        "name": "bb_QC_setApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "setObj",
+            "type": "string[]"
+          },
+          {
+            "name": "setName",
+            "type": "string"
+          },
+          {
+            "name": "list",
+            "type": "int"
+          }
+        ],
+        "line": 98,
+        "end_line": 108
+      },
+      {
+        "name": "bb_QC_shapes2transforms",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "shapeType",
+            "type": "string"
+          }
+        ],
+        "line": 110,
+        "end_line": 120
+      },
+      {
+        "name": "bb_QC_unkownQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 123,
+        "end_line": 127
+      },
+      {
+        "name": "bb_QC_intermediaObjQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 130,
+        "end_line": 155
+      },
+      {
+        "name": "bb_QC_zeroVertexObjQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 159,
+        "end_line": 172
+      },
+      {
+        "name": "bb_QC_audioQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 175,
+        "end_line": 179
+      },
+      {
+        "name": "bb_QC_repeatedNameQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 181,
+        "end_line": 214
+      },
+      {
+        "name": "bb_QC_repeatedNameReturn",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "nodeType",
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "type": "string[]"
+          }
+        ],
+        "line": 216,
+        "end_line": 227
+      },
+      {
+        "name": "bb_QC_repeatedNameFix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 229,
+        "end_line": 249
+      },
+      {
+        "name": "bb_QC_repeatedNameFixApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "setName",
+            "type": "string"
+          }
+        ],
+        "line": 251,
+        "end_line": 274
+      },
+      {
+        "name": "bb_QC_modleSuffixQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 276,
+        "end_line": 281
+      },
+      {
+        "name": "bb_QC_suffixQCApply",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "textField",
+            "type": "string"
+          },
+          {
+            "name": "shapeType",
+            "type": "string"
+          },
+          {
+            "name": "returnType",
+            "type": "int"
+          }
+        ],
+        "line": 284,
+        "end_line": 324
+      },
+      {
+        "name": "bb_QC_attrLockQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 327,
+        "end_line": 343
+      },
+      {
+        "name": "bb_QC_attrLockFix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 345,
+        "end_line": 359
+      },
+      {
+        "name": "bb_QC_modleVisQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 362,
+        "end_line": 384
+      },
+      {
+        "name": "bb_QC_modleVisFix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 386,
+        "end_line": 412
+      },
+      {
+        "name": "bb_QC_lightQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 414,
+        "end_line": 424
+      },
+      {
+        "name": "bb_QC_camQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 426,
+        "end_line": 442
+      },
+      {
+        "name": "bb_QC_ctrlValueQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 444,
+        "end_line": 483
+      },
+      {
+        "name": "bb_QC_ctrlValueFix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 485,
+        "end_line": 520
+      },
+      {
+        "name": "bb_QC_faceMappingQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 523,
+        "end_line": 536
+      },
+      {
+        "name": "bb_QC_animKeyQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 539,
+        "end_line": 556
+      },
+      {
+        "name": "bb_QC_animKeyFix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 558,
+        "end_line": 574
+      },
+      {
+        "name": "bb_QC_layerQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 576,
+        "end_line": 582
+      },
+      {
+        "name": "bb_QC_smoothQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 584,
+        "end_line": 625
+      },
+      {
+        "name": "bb_QC_smoothFix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 627,
+        "end_line": 649
+      },
+      {
+        "name": "bb_QC_smoothFixAddApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "string"
+          },
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 651,
+        "end_line": 670
+      },
+      {
+        "name": "bb_QC_unusedQC",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 672,
+        "end_line": 689
+      },
+      {
+        "name": "bb_QC_unusedFix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 691,
+        "end_line": 702
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//大QC",
+      "global proc bb_QC_allQC(int $mode)",
+      "{",
+      "    scrollField -e -clear bb_QC_informationSF;",
+      "    if($mode == 0){",
+      "        if(`checkBox -q -v bb_QC_unkonwCB`) bb_QC_unkownQC;",
+      "        if(`checkBox -q -v bb_QC_intermediaCB`) bb_QC_intermediaObjQC;",
+      "        if(`checkBox -q -v bb_QC_noVertexCB`) bb_QC_zeroVertexObjQC;"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "Script/bb_QC_set.mel",
+    "sha256": "8e0f90336726d290e4b49cf86cde8860c057b9976b55ba0ccf913c288aee592c",
+    "bytes": 12770,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_QC_addApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "shapeType",
+            "type": "string"
+          },
+          {
+            "name": "textFieldName",
+            "type": "string"
+          },
+          {
+            "name": "nameType",
+            "type": "int"
+          }
+        ],
+        "line": 3,
+        "end_line": 38
+      },
+      {
+        "name": "bb_QC_checkRule",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "checkContent",
+            "type": "string"
+          },
+          {
+            "name": "textFieldName",
+            "type": "string"
+          }
+        ],
+        "line": 40,
+        "end_line": 54
+      },
+      {
+        "name": "bb_QC_checkTextField",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "textFieldName",
+            "type": "string"
+          }
+        ],
+        "line": 56,
+        "end_line": 60
+      },
+      {
+        "name": "bb_QC_addAttr",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 63,
+        "end_line": 94
+      },
+      {
+        "name": "bb_QC_attrConfirm",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "checkContent",
+            "type": "string[]"
+          },
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 96,
+        "end_line": 133
+      },
+      {
+        "name": "bb_QC_attrSeparate",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "attrInput",
+            "type": "string[]"
+          }
+        ],
+        "line": 136,
+        "end_line": 144
+      },
+      {
+        "name": "bb_QC_attrWrite",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "attrInput",
+            "type": "string[]"
+          },
+          {
+            "name": "textScrollListName",
+            "type": "string"
+          }
+        ],
+        "line": 147,
+        "end_line": 163
+      },
+      {
+        "name": "bb_QC_deleteAttr",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "int"
+          },
+          {
+            "name": "textScrollListName",
+            "type": "string"
+          }
+        ],
+        "line": 165,
+        "end_line": 176
+      },
+      {
+        "name": "bb_QC_reverseSelAttr",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "textScrollListName",
+            "type": "string"
+          }
+        ],
+        "line": 178,
+        "end_line": 190
+      },
+      {
+        "name": "bb_QC_setExport",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 193,
+        "end_line": 238
+      },
+      {
+        "name": "bb_QC_setExportTSL",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "textScrollListName",
+            "type": "string"
+          }
+        ],
+        "line": 240,
+        "end_line": 248
+      },
+      {
+        "name": "bb_QC_loadFile",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 250,
+        "end_line": 262
+      },
+      {
+        "name": "bb_QC_setFileMenu",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 265,
+        "end_line": 283
+      },
+      {
+        "name": "bb_QC_changeSetFile",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 286,
+        "end_line": 291
+      },
+      {
+        "name": "bb_QC_setImport",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 294,
+        "end_line": 311
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//添加名称应用",
+      "//$nameType 0为全部名称，1为后缀。",
+      "global proc bb_QC_addApply(string $shapeType,string $textFieldName,int $nameType)",
+      "{",
+      "    string $selTransforms[] = `ls -sl -type \"transform\"`;",
+      "    string $selShapes[] = `ls -sl -type $shapeType`;",
+      "    string $original = `textField -q -tx $textFieldName`;",
+      "    string $add;"
+    ],
+    "io_lines": [
+      "195:string $file = \"new\";",
+      "197:$file = `optionMenu -q -v bb_QC_setPathMenu`;",
+      "226:if(!`filetest -e $path`) sysFile -md $path;",
+      "228:-startingDirectory ($path + \"/\" + $file + \".bb\")`;",
+      "231:int $fileId = `fopen $fileName \"w\"`;",
+      "235:optionVar -stringValue bb_QC_setFileSel $newMenu;",
+      "257:sysFile -copy ($path + \"/\" + $fileName + \".bb\") $loadFile[0];",
+      "258:optionVar -stringValue bb_QC_setFileSel $fileName;",
+      "288:string $file = `optionMenu -q -v bb_QC_setPathMenu`;",
+      "289:optionVar -stringValue bb_QC_setFileSel $file;",
+      "298:string $file = `optionMenu -q -v bb_QC_setPathMenu`;",
+      "300:string $fileName = $path + \"/\" + $file + \".bb\";",
+      "302:int $fileId = `fopen $fileName \"r\"`;"
+    ]
+  },
+  {
+    "file": "Script/bb_QC_text.mel",
+    "sha256": "faf0df80efe9c843a1ac6fa566fe105acdacb6d33ff52a536963fe96e4395b3a",
+    "bytes": 14183,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_QC_defaultSet",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1,
+        "end_line": 105
+      },
+      {
+        "name": "bb_QC_help",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 107,
+        "end_line": 225
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "global proc bb_QC_defaultSet()",
+      "{",
+      "    checkBox -e -v 1 bb_QC_renamePlyCB;",
+      "    checkBox -e -v 1 bb_QC_renameSurfCB;",
+      "    checkBox -e -v 1 bb_QC_renameCurvesCB;",
+      "    checkBox -e -v 1 bb_QC_renameJointCB;",
+      "    textField -e -tx \"_SDM, _sdm, _PLY, _ply, _geo, _Geo, _mesh,\" bb_QC_modleSuffixTF;",
+      "    checkBox -e -v 1 bb_QC_suffixNumCB;"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "Script/bb_QC_UI.mel",
+    "sha256": "b66a1e16f2e5130de50d82ff197cbde56429449a808a4ade11ac312918fe3726",
+    "bytes": 22620,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_QC_initialization",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 4,
+        "end_line": 12
+      },
+      {
+        "name": "bb_QC_UIValueSet",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "order",
+            "type": "int"
+          },
+          {
+            "name": "value",
+            "type": "int"
+          }
+        ],
+        "line": 14,
+        "end_line": 22
+      },
+      {
+        "name": "bb_QC_UISelect",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "int"
+          },
+          {
+            "name": "type",
+            "type": "int"
+          }
+        ],
+        "line": 24,
+        "end_line": 54
+      },
+      {
+        "name": "bb_QCUI",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 56,
+        "end_line": 362
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "1:global string $bb_QC_checkBoxValue = \"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\";",
+      "2:global string $bb_QC_setFileSel;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "global string $bb_QC_checkBoxValue = \"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\";",
+      "global string $bb_QC_setFileSel;",
+      "",
+      "global proc bb_QC_initialization()",
+      "{",
+      "    global string  $bb_QC_checkBoxValue;",
+      "    global string $bb_QC_setFileSel;",
+      "    if(`optionVar -exists bb_QC_checkBoxValue`)"
+    ],
+    "io_lines": [
+      "8:if(`optionVar -exists bb_QC_checkBoxValue`)",
+      "9:$bb_QC_checkBoxValue = `optionVar -q bb_QC_checkBoxValue`;",
+      "10:if(`optionVar -exists bb_QC_setFileSel`)",
+      "11:$bb_QC_setFileSel = `optionVar -q bb_QC_setFileSel`;",
+      "21:optionVar -stringValue bb_QC_checkBoxValue $bb_QC_checkBoxValue;"
+    ]
+  },
+  {
+    "file": "Script/bb_QCTool.mel",
+    "sha256": "d3d37aa81ecc8430d24edfbebc6dc94a314f17191095d9886b79444ae0a18a15",
+    "bytes": 754,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_QCTool",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1,
+        "end_line": 9
+      },
+      {
+        "name": "bb_QC_setFilePath",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [],
+        "line": 12,
+        "end_line": 21
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "10:bb_QCTool;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "global proc bb_QCTool()",
+      "{",
+      "    string $melPath = `bb_QC_setFilePath`;",
+      "    eval (\"source \\\"\"+$melPath+\"/bb_QC_set.mel\\\";\");",
+      "    eval (\"source \\\"\"+$melPath+\"/bb_QC_apply.mel\\\";\");",
+      "    eval (\"source \\\"\"+$melPath+\"/bb_QC_UI.mel\\\";\");",
+      "    eval (\"source \\\"\"+$melPath+\"/bb_QC_text.mel\\\";\");",
+      "    bb_QCUI;"
+    ],
+    "io_lines": [
+      "4:eval (\"source \\\"\"+$melPath+\"/bb_QC_set.mel\\\";\");",
+      "5:eval (\"source \\\"\"+$melPath+\"/bb_QC_apply.mel\\\";\");",
+      "6:eval (\"source \\\"\"+$melPath+\"/bb_QC_UI.mel\\\";\");",
+      "7:eval (\"source \\\"\"+$melPath+\"/bb_QC_text.mel\\\";\");"
+    ]
+  },
+  {
+    "file": "Script/bb_selectTool.mel",
+    "sha256": "d0403544c6838e97bee7da7e79a359ef050268ef30e883bb854d47ee459df7f3",
+    "bytes": 5559,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_selectTool",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 4,
+        "end_line": 27
+      },
+      {
+        "name": "bb_select_loadNode",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 30,
+        "end_line": 60
+      },
+      {
+        "name": "bb_select_apply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "applyMode",
+            "type": "int"
+          }
+        ],
+        "line": 62,
+        "end_line": 140
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "28:bb_selectTool;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//Author  :   LiuBen",
+      "//Date    :   10/29/2018",
+      "//Fix    :    08/09/2019       修改重名选不上的问题",
+      "global proc bb_selectTool()",
+      "{",
+      "    if (`window -q -exists bb_selectToolWindow`) deleteUI bb_selectToolWindow;",
+      "    window -title \"选择工具\" bb_selectToolWindow;    ",
+      "        columnLayout -adjustableColumn true -columnAttach \"both\" 3;"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "Script/bb_skin2Deform.mel",
+    "sha256": "ee30d1bc01379e397948afed67f95bffd9e069db7a0c9a0b71627d2f73b97f94",
+    "bytes": 13191,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_skin2Deform",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 5,
+        "end_line": 28
+      },
+      {
+        "name": "bb_skin2Deform_resetWin",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 31,
+        "end_line": 34
+      },
+      {
+        "name": "bb_skin2Deform_loadSkin",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 38,
+        "end_line": 56
+      },
+      {
+        "name": "bb_skin2Deform_addLayout",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mod",
+            "type": "int"
+          }
+        ],
+        "line": 58,
+        "end_line": 88
+      },
+      {
+        "name": "bb_skin2Deform_addLayoutApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "joint",
+            "type": "string"
+          },
+          {
+            "name": "listNum",
+            "type": "int"
+          }
+        ],
+        "line": 90,
+        "end_line": 101
+      },
+      {
+        "name": "bb_skin2Deform_loadDeform",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "listNum",
+            "type": "string"
+          }
+        ],
+        "line": 103,
+        "end_line": 132
+      },
+      {
+        "name": "bb_skin2Deform_loadDeformBS",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "listNum",
+            "type": "string"
+          },
+          {
+            "name": "nodeName",
+            "type": "string"
+          }
+        ],
+        "line": 134,
+        "end_line": 158
+      },
+      {
+        "name": "bb_skin2Deform_apply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 160,
+        "end_line": 249
+      },
+      {
+        "name": "bb_skin2Deform_progress",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "maxValue",
+            "type": "int"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          }
+        ],
+        "line": 251,
+        "end_line": 258
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "29:bb_skin2Deform;",
+      "36:global string $bb_skin2Deform_bindJsList[];",
+      "37:global int $bb_skin2Deform_addLayoutNum;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//Author  :   LiuBen",
+      "//QQ      :   304092968",
+      "//Date    :   2020/06/05",
+      "//Fix     :   2021/02/22   修正提取无权重骨骼点信息时，存在“/”，导致不能导入权重信息的错误。",
+      "global proc bb_skin2Deform()",
+      "{",
+      "    if (`window -q -exists bb_skin2DeformWindow`) deleteUI bb_skin2DeformWindow;",
+      "    window -title \"权重转换\" -resizeToFitChildren 1 bb_skin2DeformWindow;"
+    ],
+    "io_lines": [
+      "181:string $file = $filePath + \"bb_skin2Deform_weight.xml\";",
+      "182:int $fileId = `fopen $file \"r\"`;",
+      "235:int $fileId = `fopen $fileNew \"w\"`;",
+      "245:sysFile -delete ($filePath + \"bb_skin2Deform_weight\" + $i + \".xml\");",
+      "248:sysFile -delete ($filePath + \"bb_skin2Deform_weight.xml\");"
+    ]
+  },
+  {
+    "file": "Script/bb_skinList.mel",
+    "sha256": "851589ce38ba6b48aac7694ff54b8ebb647092e4c8e7c1bec2f90d77bf5cecde",
+    "bytes": 2093,
+    "lexical_decoding": "utf-8-sig",
+    "procedures": [
+      {
+        "name": "bb_skinList",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1,
+        "end_line": 29
+      },
+      {
+        "name": "bb_returnSkinList",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "string"
+          }
+        ],
+        "line": 32,
+        "end_line": 43
+      },
+      {
+        "name": "bb_reloadSkinList",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 45,
+        "end_line": 61
+      },
+      {
+        "name": "bb_tslSel",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 63,
+        "end_line": 70
+      },
+      {
+        "name": "bb_allSel",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 72,
+        "end_line": 79
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "30:bb_skinList;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "utf-8-sig",
+    "header": [
+      "global proc  bb_skinList()",
+      "{",
+      "\tif(`window -ex bb_skinListWin`) deleteUI bb_skinListWin;\t",
+      "\twindow -t \"skinList\" bb_skinListWin;",
+      "\t\t",
+      "\tformLayout inflJointMainForm;",
+      "\tframeLayout -l \"\" infJointMainFrame;",
+      "\t"
+    ],
+    "io_lines": [
+      "24:scriptJob -parent \"bb_skinListWin\" -replacePrevious -event \"SelectionChanged\" \"bb_reloadSkinList\";"
+    ]
+  },
+  {
+    "file": "Script/bb_softModTool.mel",
+    "sha256": "3a22b5a2875f3c84b94689a41b46de54e491a1294ce15c180ed9c1d2a96af1b1",
+    "bytes": 13698,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "bb_softModTool",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 4,
+        "end_line": 44
+      },
+      {
+        "name": "bb_softMod_apply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 47,
+        "end_line": 81
+      },
+      {
+        "name": "bb_softMod_createCtrl",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "Name",
+            "type": "string"
+          }
+        ],
+        "line": 83,
+        "end_line": 158
+      },
+      {
+        "name": "bb_softMod_connect",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "Name",
+            "type": "string"
+          },
+          {
+            "name": "sel",
+            "type": "string[]"
+          }
+        ],
+        "line": 161,
+        "end_line": 183
+      },
+      {
+        "name": "bb_softMod_visMovCtrlEnv",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 185,
+        "end_line": 196
+      },
+      {
+        "name": "bb_softMod_addRig",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 200,
+        "end_line": 212
+      },
+      {
+        "name": "bb_softMod_addGeo",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 214,
+        "end_line": 219
+      },
+      {
+        "name": "bb_softMod_addApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 221,
+        "end_line": 232
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "45:bb_softModTool;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//Author  :   LiuBen",
+      "//Date    :   12/08/2016",
+      "//Fix     :   09/10/2019   修改加载控制器名称不对的bug。",
+      "global proc bb_softModTool()",
+      "{",
+      "    if (`window -q -exists bb_softModToolWindow`) deleteUI bb_softModToolWindow;",
+      "    window -title \"softMod工具\" bb_softModToolWindow; ",
+      "        tabLayout -innerMarginWidth 5 -innerMarginHeight 5 bb_softModTool_tabLayout;   "
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "Script/cdkMakeDynamicChain.mel",
+    "sha256": "5b0f7c20cc168ea81be9cda20679ba69eeefc7afe5da3b6b86ee1380771cf634",
+    "bytes": 25931,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "cdkMakeDynamicChainUI",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 13,
+        "end_line": 29
+      },
+      {
+        "name": "autherOn",
+        "global_scope": false,
+        "return_type": "void",
+        "parameters": [],
+        "line": 31,
+        "end_line": 51
+      },
+      {
+        "name": "cdkMakeDynamicChainUserInput",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 55,
+        "end_line": 85
+      },
+      {
+        "name": "assignExistingDynamics",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 87,
+        "end_line": 91
+      },
+      {
+        "name": "cdkAssignNewHairSystem",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 95,
+        "end_line": 317
+      },
+      {
+        "name": "cdkAssignExistingHairSystem",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 320,
+        "end_line": 457
+      },
+      {
+        "name": "cdkJointBake",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mod",
+            "type": "int"
+          }
+        ],
+        "line": 461,
+        "end_line": 490
+      },
+      {
+        "name": "cdkJointBakeApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 492,
+        "end_line": 496
+      },
+      {
+        "name": "cdkJointUnBakeApply",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 498,
+        "end_line": 514
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "30:cdkMakeDynamicChainUI;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "/*                  @@@  CDK - Maya Character Development KIT   @@@",
+      "",
+      "                                             -scripted by - Nilesh Jadhav",
+      "                                                   last updated  3-02-2014",
+      "",
+      "   scripted in Maya version - 2013 (MEL)",
+      "   ",
+      "                       script name - cdkMakeDynamicChain.mel"
+    ],
+    "io_lines": [
+      "62:print \"CDK - please name the Dynamics system !!\";",
+      "69:window -t \"CDK-Please select the Hair system to assign\" -s 0 -mxb 0 -mnb 0 -w 300 -h 80 hairSystems;",
+      "108:print \" please Name the Dynamics system !!\";",
+      "334:print \" please Name the Dynamics system !!\";"
+    ]
+  },
+  {
+    "file": "Script/cgTkShapeBuilder.mel",
+    "sha256": "13423fe608188d4e56cc52492aad2ef7e0ab11bf6494cace6714e37d0753c920",
+    "bytes": 26889,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "BSpiritCorrectiveShape",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [],
+        "line": 31,
+        "end_line": 278
+      },
+      {
+        "name": "generateBlendshape",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 282,
+        "end_line": 324
+      },
+      {
+        "name": "editCurve",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 328,
+        "end_line": 335
+      },
+      {
+        "name": "setShapeKey",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 339,
+        "end_line": 381
+      },
+      {
+        "name": "shapeSliderCommand",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 385,
+        "end_line": 403
+      },
+      {
+        "name": "jointSliderCommand",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 408,
+        "end_line": 436
+      },
+      {
+        "name": "loadDriverJoint",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 440,
+        "end_line": 456
+      },
+      {
+        "name": "refreshBlendshapeList",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 460,
+        "end_line": 491
+      },
+      {
+        "name": "createSculptDuplicate",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 495,
+        "end_line": 544
+      },
+      {
+        "name": "loadBaseMesh",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 548,
+        "end_line": 567
+      },
+      {
+        "name": "loadBlendshapeNode",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 571,
+        "end_line": 595
+      },
+      {
+        "name": "cgTkShapeBuilder",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 599,
+        "end_line": 695
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "cp1252",
+    "header": [
+      "//\t\t\t\t\t\t\t\tCGToolkit Shaper Builder",
+      "//\t\t\t\t\t\t\t\t\tcgTkShapeBuilder.mel",
+      "//",
+      "//\t\t\t\tCopyright © 2004 CGTOOLKIT. All rights reserved.",
+      "//\t\t\t\t\t\t\t\twww.cgtoolkit.com",
+      "//\t\t",
+      "//\t\t\t\tDescription:",
+      "//"
+    ],
+    "io_lines": [
+      "64:string $QueryBaseModel = `listConnections -source true ($SkinClusterSet + \".instObjGroups[0].objectGroups[0]\")`;",
+      "101:string $Tweaknode[] = `listConnections -source true ($TweakSet[0] + \".usedBy[0]\")`;"
+    ]
+  },
+  {
+    "file": "Script/DelDJJ.mel",
+    "sha256": "d196ec6d72b3b56e1f6c595977ca054df5c4a3f70ff588146b62d7501d012fd7",
+    "bytes": 854,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "DelDJJ",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1,
+        "end_line": 18
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "global proc DelDJJ()",
+      "{",
+      "    string $DelDJJ = ",
+      "    \"import maya.cmds as cmds\" + \"\\n\" +",
+      "    \"import os\" + \"\\n\" +",
+      "    \"def cleanTheVaccine():\" + \"\\n\" +",
+      "    \"    vaccine_path = cmds.internalVar(userAppDir=True)+'/scripts/'\" + \"\\n\" +",
+      "    \"    va_pathlist = os.listdir(vaccine_path)\" + \"\\n\" +"
+    ],
+    "io_lines": [
+      "16:python $DelDJJ;"
+    ]
+  },
+  {
+    "file": "Script/FileTextureManager.mel",
+    "sha256": "c158b40ba93c89848024f076b13001a407fb139ad533aa37a457b1d79caa3d60",
+    "bytes": 45776,
+    "lexical_decoding": "utf-8-sig",
+    "procedures": [
+      {
+        "name": "BYSelect",
+        "global_scope": false,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 66,
+        "end_line": 99
+      },
+      {
+        "name": "FTM_GetPath",
+        "global_scope": false,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "FTM_FileOrPath",
+            "type": "string"
+          },
+          {
+            "name": "FTM_OldPath",
+            "type": "string"
+          }
+        ],
+        "line": 100,
+        "end_line": 118
+      },
+      {
+        "name": "FTM_GetFile",
+        "global_scope": false,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "FTM_OldFullPath",
+            "type": "string"
+          }
+        ],
+        "line": 128,
+        "end_line": 149
+      },
+      {
+        "name": "FTM_FileTextureAnalyst",
+        "global_scope": false,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "bySelect",
+            "type": "int"
+          }
+        ],
+        "line": 157,
+        "end_line": 251
+      },
+      {
+        "name": "FTM_AnalyseFileTextures",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "FTM_ParentUI",
+            "type": "string"
+          },
+          {
+            "name": "bySelect",
+            "type": "int"
+          }
+        ],
+        "line": 259,
+        "end_line": 390
+      },
+      {
+        "name": "FTM_BrowseCmd",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "FTM_FileOrPath",
+            "type": "string"
+          },
+          {
+            "name": "FTM_TextField",
+            "type": "string"
+          },
+          {
+            "name": "FTM_WhichButton",
+            "type": "string"
+          },
+          {
+            "name": "FTM_BrowseType",
+            "type": "int"
+          }
+        ],
+        "line": 398,
+        "end_line": 417
+      },
+      {
+        "name": "FTM_ChangeTextField",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "FTM_FileOrPath",
+            "type": "string"
+          },
+          {
+            "name": "FTM_TextField",
+            "type": "string"
+          },
+          {
+            "name": "FTM_File",
+            "type": "string"
+          },
+          {
+            "name": "FTM_FileType",
+            "type": "string"
+          }
+        ],
+        "line": 425,
+        "end_line": 440
+      },
+      {
+        "name": "FTM_UnknownOS",
+        "global_scope": false,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "FTM_os",
+            "type": "string"
+          }
+        ],
+        "line": 448,
+        "end_line": 486
+      },
+      {
+        "name": "FTM_BuildMessageWindow",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [],
+        "line": 494,
+        "end_line": 522
+      },
+      {
+        "name": "FTM_BuildMainUI",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 530,
+        "end_line": 693
+      },
+      {
+        "name": "FTM_EditUIControl",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "FTM_OptionColumn",
+            "type": "string"
+          },
+          {
+            "name": "FTM_HelpForm",
+            "type": "string"
+          }
+        ],
+        "line": 701,
+        "end_line": 763
+      },
+      {
+        "name": "FTM_ResetUI",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "FTM_OptionColumn",
+            "type": "string"
+          },
+          {
+            "name": "FTM_AnalysisColumn",
+            "type": "string"
+          }
+        ],
+        "line": 771,
+        "end_line": 826
+      },
+      {
+        "name": "FTM_Function",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "FTM_Function",
+            "type": "string"
+          },
+          {
+            "name": "FTM_OptionColumn",
+            "type": "string"
+          }
+        ],
+        "line": 834,
+        "end_line": 1008
+      },
+      {
+        "name": "FileTextureManager",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1017,
+        "end_line": 1039
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "utf-8-sig",
+    "header": [
+      "/*  This file downloaded from Highend3d.com",
+      "''  ",
+      "''  Highend3d.com File Information:",
+      "''  ",
+      "''    Script Name: FileTextureManager v2.1",
+      "''    Author: Crow Yeh",
+      "''    Last Updated: October 28, 2002",
+      "''    Update/Change this file at:"
+    ],
+    "io_lines": [
+      "1:/*  This file downloaded from Highend3d.com",
+      "8:''    Update/Change this file at:",
+      "91:if($Type==\"file\"){",
+      "105:if ($FTM_FileOrPath == \"file\")",
+      "176:$FTM_Files = `ls -typ file`;",
+      "287:text -e -l \"No file textures found!\" ($FTM_ParentUI + \"|FTM_EmptyAnalysisText\");",
+      "294:string $FTM_TotalResults = \"Total \" + size(`ls -typ file`) + \" file textures point to \" + size($FTM_Groups) + \" (different) path(s) : \";",
+      "339:if ( `file -q -ex $FTM_CurrentFilePath`)",
+      "711:textFieldButtonGrp -e -bc (\"FTM_BrowseCmd \\\"file\\\" \\\"\" + $FTM_OptionColumn + \"|FTM_SourceDirectoryField\\\" \\\"Set_S.D.\\\" 0\")",
+      "736:$FTM_HelpDescription += \"  1. Analyse scene file textures.\\n\";",
+      "738:$FTM_HelpDescription += \"  3. Reset file textures' path.\\n\\n\";",
+      "740:$FTM_HelpDescription += \"  Step 1. Analyse scene file textures.(optional)\\n\";",
+      "741:$FTM_HelpDescription += \"  Step 2. Select scene file textures (nodes) you want to manage by checking on the related checkers in the UI. You can also do this by your own method, Eg. select them in Hypershade.\\n\";",
+      "746:$FTM_HelpDescription += \"  1. To convert \\\"\\\\\\\" to \\\"/\\\" or \\\"/\\\" to \\\"\\\\\\\" in the path, just analyse scene file textures, then select all the file textures point to the same \\\"wrong\\\" path by simply checking on the related checkers, set target directory to where related texture files are, reset the path by pressing \\\"Set Path\\\". Now you've done!\\n\";",
+      "747:$FTM_HelpDescription += \"  2. Always keep 2 different version for each texture file. Eg. \\\"abc_LowRes.tga\\\" is in low resolution while \\\"abc_HighRes.tga\\\" is in high resolution. Do your job using low-res textures to speed the interactant. Just remember to use FileTextureManager to reset each file texture to point to the related high-res texture before rendering. (Add prefix, add suffix or even replace string.)\\n\";",
+      "748:$FTM_HelpDescription += \"  3. The FileTextureManager's UI does not update dynamically like what Attribute Editor does, so it is better to re-analyse scene file textures each time you finish an FTM job. This is not necessary if you do not use the Analyse function at all.\\n\\n\";",
+      "751:$FTM_HelpDescription += \"  2. Add suffix function has limitation on the texture file name. To be sure it work as desired, the file name must be in a regular format, Eg. \\\"filename.ext\\\", \\\"filename.[#...#].ext\\\", \\\"filename.ext.[#...#]\\\", etc. The add suffix function will always replace the first \\\".\\\" found in the whole file name with \\\"suffix.\\\".\\n\";",
+      "752:$FTM_HelpDescription += \"  3. Add prfix, add suffix and replace string can be executed at the same time to each file texture. Replace string is caculated first, then add suffix, and add prefix last.\\n\";",
+      "755:$FTM_HelpDescription += \"  6. Sometimes process fails. The reason may be various. The most possible reason could be one of or both the following two: a. Texture file is not found in the source directory; b. Permission denied on reading or writing or deleting.\\n\";",
+      "758:$FTM_HelpDescription += \"  1. Analysing scene file textures let you know how many file textures there are in the scene, where there are, whether they exist or not, etc. It also allows user select all the texture files point to same path by only one simple click.\\n\";",
+      "759:$FTM_HelpDescription += \"  2. How to choose operation mode depends on different source directory status. If file is there where it point to, use Automatic mode, otherwise use Manual mode.\\n\";",
+      "836:string $FTM_SelectedFiles[] = `ls -sl -typ file`;",
+      "841:confirmDialog -t \"No file texture node selected\" -ma center -b \"OK\"",
+      "842:-m \"Select at least one file texture node please\" -p FTM_MainWindow;",
+      "868:if (!`file -q -ex $FTM_TargetDirectory`)",
+      "871:system (\"md \\\"\" + $FTM_TargetDirectory + \"\\\"\");",
+      "873:system (\"mkdir \\\"\" + $FTM_TargetDirectory + \"\\\"\");",
+      "966:system ($FTM_FinalCmd);",
+      "969:if ( `file -q -ex ($FTM_TargetDirectory + $FTM_SourceFile[1])` )",
+      "974:if ( `file -q -ex $FTM_SourceFile[0]` || `file -q -ex ($FTM_SourceDirectory + $FTM_OriginSourceFile)`)",
+      "976:$FTM_FunctionResult = \"Succeed >>>>>> \" + $FTM_FunctionResult + \" But the original file is not removed. Check the HELP for possible reasons.\";"
+    ]
+  },
+  {
+    "file": "Script/LxxBSRePlace.mel",
+    "sha256": "a354e120993159875db76a8a3a0d4b7b1775209ab5ca02937f89581955712b7b",
+    "bytes": 2238,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "LxxBSReplace",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 2,
+        "end_line": 30
+      },
+      {
+        "name": "LxxBSReplacePick",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "textFieldGrp",
+            "type": "string"
+          }
+        ],
+        "line": 33,
+        "end_line": 39
+      },
+      {
+        "name": "LxxBSReplaceCopy",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 41,
+        "end_line": 61
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "31:LxxBSReplace;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "//我lxx今天终于写了一个正经的工具栏，哇咔咔咔咔咔~~~",
+      "global proc LxxBSReplace ()",
+      "{",
+      "if (`window -q -ex LxxBSReplace`)",
+      "    deleteUI LxxBSReplace;",
+      "window -t bsReplace LxxBSReplace;",
+      "",
+      "string $Source=$Aims=$BSNote=\"请确保没有重名物体\";"
+    ],
+    "io_lines": []
+  },
+  {
+    "file": "Script/Mirror&Flip.mel",
+    "sha256": "8127f3865d7faca43d8504a5888e129f5f89046af4eafbe27700f425e636782d",
+    "bytes": 43723,
+    "lexical_decoding": "utf-8-sig",
+    "procedures": [
+      {
+        "name": "abCheckSym",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "string"
+          },
+          {
+            "name": "axis",
+            "type": "int"
+          },
+          {
+            "name": "tol",
+            "type": "float"
+          },
+          {
+            "name": "bTable",
+            "type": "int"
+          },
+          {
+            "name": "usePiv",
+            "type": "int"
+          }
+        ],
+        "line": 44,
+        "end_line": 202
+      },
+      {
+        "name": "abGetSymVtx",
+        "global_scope": true,
+        "return_type": "int",
+        "parameters": [
+          {
+            "name": "vtxInt",
+            "type": "int"
+          }
+        ],
+        "line": 205,
+        "end_line": 224
+      },
+      {
+        "name": "abMirrorSel",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "string"
+          },
+          {
+            "name": "baseObj",
+            "type": "string"
+          },
+          {
+            "name": "aSelVerts",
+            "type": "string[]"
+          },
+          {
+            "name": "axis",
+            "type": "int"
+          },
+          {
+            "name": "negToPos",
+            "type": "int"
+          },
+          {
+            "name": "flip",
+            "type": "int"
+          },
+          {
+            "name": "usePiv",
+            "type": "int"
+          },
+          {
+            "name": "tol",
+            "type": "float"
+          }
+        ],
+        "line": 227,
+        "end_line": 367
+      },
+      {
+        "name": "abRevertSel",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "aSelVerts",
+            "type": "string[]"
+          },
+          {
+            "name": "obj",
+            "type": "string"
+          },
+          {
+            "name": "baseObj",
+            "type": "string"
+          },
+          {
+            "name": "bias",
+            "type": "float"
+          }
+        ],
+        "line": 370,
+        "end_line": 432
+      },
+      {
+        "name": "abSymInteractiveRevertToBase",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 435,
+        "end_line": 532
+      },
+      {
+        "name": "abSymEndDrag",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 535,
+        "end_line": 542
+      },
+      {
+        "name": "abSymClearRevTables",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 545,
+        "end_line": 555
+      },
+      {
+        "name": "abSymUseAlternateBase",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "useAltBase",
+            "type": "int"
+          }
+        ],
+        "line": 558,
+        "end_line": 599
+      },
+      {
+        "name": "abSelMovedVerts",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "string"
+          },
+          {
+            "name": "baseObj",
+            "type": "string"
+          },
+          {
+            "name": "tol",
+            "type": "float"
+          }
+        ],
+        "line": 602,
+        "end_line": 654
+      },
+      {
+        "name": "abSMServiceAddSubtractCopy",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "operation",
+            "type": "int"
+          }
+        ],
+        "line": 657,
+        "end_line": 703
+      },
+      {
+        "name": "abSMAddSubtractCopyMesh",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "baseMesh",
+            "type": "string"
+          },
+          {
+            "name": "source",
+            "type": "string"
+          },
+          {
+            "name": "target",
+            "type": "string"
+          },
+          {
+            "name": "operation",
+            "type": "int"
+          }
+        ],
+        "line": 706,
+        "end_line": 741
+      },
+      {
+        "name": "abSelSideVerts",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "string"
+          },
+          {
+            "name": "baseObj",
+            "type": "string"
+          },
+          {
+            "name": "mAxisInd",
+            "type": "int"
+          },
+          {
+            "name": "selNeg",
+            "type": "int"
+          },
+          {
+            "name": "usePiv",
+            "type": "int"
+          },
+          {
+            "name": "tol",
+            "type": "float"
+          }
+        ],
+        "line": 744,
+        "end_line": 796
+      },
+      {
+        "name": "abSelMirror",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "string"
+          },
+          {
+            "name": "aSelVerts",
+            "type": "string[]"
+          }
+        ],
+        "line": 799,
+        "end_line": 825
+      },
+      {
+        "name": "abClearSbg",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 828,
+        "end_line": 842
+      },
+      {
+        "name": "abSymCtl",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "action",
+            "type": "string"
+          }
+        ],
+        "line": 845,
+        "end_line": 1008
+      },
+      {
+        "name": "abSymMesh",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1011,
+        "end_line": 1209
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "36:global int $abSymProgBarThresh = 800; //number of verts in an operation beyond which a progress bar is shown (set higher for faster computers) ",
+      "37:global int $abSymTable[]; ",
+      "39:global string $abSymRevVertTable[]; ",
+      "40:global vector $abSymRevPosTable[]; ",
+      "41:global vector $abSymRevBasePosTable[]; ",
+      "42:global int $abSymSliderDragging = false; //used to flag when the mouse is dragging a slider ",
+      "1210:abSymMesh ; "
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "utf-8-sig",
+    "header": [
+      "/* ",
+      "abSymMesh v 1.7 ",
+      "brendan ross 03.10.2004 ",
+      "www.supercrumbly.com ",
+      "",
+      "update -- 09.20.2004: \"Select Moved Verts\" button will select vertices that have been moved relative to the base mesh. ",
+      "update -- 3.21.2005: Added progress bar for \"Select Moved Verts\". I love progress bars. ",
+      "update -- 10.12.2006: Added popupMenu to \"Revert Selected to Base\" button to revert by a given percentage. Added $abSymProgBarThresh to adjust the number of verts included in an operation before a progress bar will be displayed (adjust higher for faster computers). "
+    ],
+    "io_lines": [
+      "671:warning \"Select two mesh objects (source and target).\";",
+      "684:warning \"The basemesh cannot be used as a source or target. Try using revert instead.\";",
+      "706:global proc abSMAddSubtractCopyMesh(string $baseMesh, string $source, string $target, int $operation){",
+      "712:string $sourceMeshStr = $source+\".vtx[\";"
+    ]
+  },
+  {
+    "file": "Script/OutlineError.mel",
+    "sha256": "738b77d2d8a5971d997e83d16490e9af0721812df0fcf81dc491cabe0ae6a2cc",
+    "bytes": 676,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "OutlineError",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1,
+        "end_line": 15
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "global proc OutlineError()",
+      "{",
+      "    string $Outliner =",
+      "    \"import pymel.core as pm\" + \"\\n\" +",
+      "    \"for items in pm.lsUI(editors=True):\" + \"\\n\" +",
+      "    \"    if not pm.outlinerEditor(items, query=True, exists=True):\" + \"\\n\" +",
+      "    \"        continue\" + \"\\n\" +",
+      "    \"    sel_cmd = pm.outlinerEditor(items, query=True, selectCommand=True)\" + \"\\n\" +"
+    ],
+    "io_lines": [
+      "13:python $Outliner;"
+    ]
+  },
+  {
+    "file": "Script/wp_rename.mel",
+    "sha256": "0fe6b1493c52ee395d9d99d5815d7f6018c94765bdcc7e266ee5779ecff17098",
+    "bytes": 24330,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "wp_rename",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 63,
+        "end_line": 66
+      },
+      {
+        "name": "wp_RenameWindow",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 72,
+        "end_line": 237
+      },
+      {
+        "name": "wp_RenameWindowHight",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mod",
+            "type": "int"
+          },
+          {
+            "name": "hight",
+            "type": "int"
+          }
+        ],
+        "line": 241,
+        "end_line": 246
+      },
+      {
+        "name": "start_letter",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "letterList_start",
+            "type": "int"
+          }
+        ],
+        "line": 251,
+        "end_line": 267
+      },
+      {
+        "name": "ben_letterList",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 269,
+        "end_line": 316
+      },
+      {
+        "name": "WP_remove_LastChr",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 324,
+        "end_line": 349
+      },
+      {
+        "name": "WP_remove_FirstChr",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 359,
+        "end_line": 383
+      },
+      {
+        "name": "WP_renameSelectedShape",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 393,
+        "end_line": 417
+      },
+      {
+        "name": "WP_SearchAndRename",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 427,
+        "end_line": 447
+      },
+      {
+        "name": "WP_quickSuffix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "suffix",
+            "type": "string"
+          }
+        ],
+        "line": 457,
+        "end_line": 474
+      },
+      {
+        "name": "wpRename_js_hashRename_MainProc",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 491,
+        "end_line": 500
+      },
+      {
+        "name": "wpRename_js_replaceHash",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "string",
+            "type": "string"
+          },
+          {
+            "name": "number",
+            "type": "int"
+          }
+        ],
+        "line": 514,
+        "end_line": 540
+      },
+      {
+        "name": "wpRename_js_hashRename",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "newName",
+            "type": "string"
+          }
+        ],
+        "line": 559,
+        "end_line": 606
+      },
+      {
+        "name": "getShortName",
+        "global_scope": false,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "string"
+          }
+        ],
+        "line": 619,
+        "end_line": 635
+      },
+      {
+        "name": "chop",
+        "global_scope": false,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "str",
+            "type": "string"
+          }
+        ],
+        "line": 642,
+        "end_line": 654
+      },
+      {
+        "name": "wpRename_mc_doRename",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 658,
+        "end_line": 750
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "238:wp_RenameWindow;",
+      "240:global int $wp_WindowHight = 509;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "/* This file downloaded from Highend3d.com",
+      "''  ",
+      "''  Highend3d.com File Information:",
+      "''  ",
+      "''    Script Name: wp rename",
+      "''    Author:  ",
+      "''    Last Updated: Jun 09, 2009",
+      "''    Update/Change this file at:"
+    ],
+    "io_lines": [
+      "1:/* This file downloaded from Highend3d.com",
+      "8:''    Update/Change this file at:"
+    ]
+  },
+  {
+    "file": "wp_rename.mel",
+    "sha256": "32412dac33f3032e733e43990af7c38ef020d982b8fe7a2e8b4936b9a5dd64b0",
+    "bytes": 24895,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "wp_rename",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 62,
+        "end_line": 65
+      },
+      {
+        "name": "wp_RenameWindow",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 71,
+        "end_line": 247
+      },
+      {
+        "name": "start_letter",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "letterList_start",
+            "type": "int"
+          }
+        ],
+        "line": 251,
+        "end_line": 267
+      },
+      {
+        "name": "ben_letterList",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 269,
+        "end_line": 316
+      },
+      {
+        "name": "WP_remove_LastChr",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 324,
+        "end_line": 349
+      },
+      {
+        "name": "WP_remove_FirstChr",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 359,
+        "end_line": 383
+      },
+      {
+        "name": "WP_renameSelectedShape",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 393,
+        "end_line": 417
+      },
+      {
+        "name": "WP_SearchAndRename",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 427,
+        "end_line": 447
+      },
+      {
+        "name": "WP_quickSuffix",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "suffix",
+            "type": "string"
+          }
+        ],
+        "line": 457,
+        "end_line": 474
+      },
+      {
+        "name": "wpRename_js_hashRename_MainProc",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 491,
+        "end_line": 500
+      },
+      {
+        "name": "wpRename_js_replaceHash",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "string",
+            "type": "string"
+          },
+          {
+            "name": "number",
+            "type": "int"
+          }
+        ],
+        "line": 514,
+        "end_line": 540
+      },
+      {
+        "name": "wpRename_js_hashRename",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "newName",
+            "type": "string"
+          }
+        ],
+        "line": 559,
+        "end_line": 606
+      },
+      {
+        "name": "getShortName",
+        "global_scope": false,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "string"
+          }
+        ],
+        "line": 621,
+        "end_line": 637
+      },
+      {
+        "name": "chop",
+        "global_scope": false,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "str",
+            "type": "string"
+          }
+        ],
+        "line": 644,
+        "end_line": 656
+      },
+      {
+        "name": "wpRename_mc_doRename",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "int"
+          }
+        ],
+        "line": 660,
+        "end_line": 752
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [
+      "248:wp_RenameWindow;"
+    ],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority",
+    "candidate_decoding": "gb18030",
+    "header": [
+      "/* This file downloaded from Highend3d.com",
+      "''  ",
+      "''  Highend3d.com File Information:",
+      "''  ",
+      "''    Script Name: wp rename",
+      "''    Author:  ",
+      "''    Last Updated: Jun 09, 2009",
+      "''    Update/Change this file at:"
+    ],
+    "io_lines": [
+      "1:/* This file downloaded from Highend3d.com",
+      "8:''    Update/Change this file at:"
+    ]
+  }
+]

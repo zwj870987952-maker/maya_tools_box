@@ -474,3 +474,11 @@
 - 完整候选prepared_unverified，GUI/生产动画/pivot/模拟/版本待真实验收，不转正/Obsidian同步/用卡/购买。
 
 - 追加区间外/custom键回归时，首次Undo节点列表对比因Maya恢复节点的枚举顺序变化失败；报告及manifest如实保存failed，随后将节点集合对比排序（选择次序仍严格比较）再跑。业务未丢节点，键恢复仍独立逐值验证，最终报告四组通过；原失败提交可追溯。
+
+## 2026-10-01：BB Tools 完整候选，累计53/109
+
+- 原81文件/9,349,220字节完整SHA归档，31活动MEL的297原过程全部保留、顶层JB PerVert界面另包入口；重复根目录旧版本/Installer/独立重复FixError helpers归档，不安装Shelf/userSetup。完整图标/QC docx/ADV三ma/XML资源齐备；保留各作者与CGTOOLKIT版权，无公开再分发许可推断。
+- 完整原主面板与全部子界面/业务保留。过程/回调前缀避免同名覆盖，明确活动版本与UTF-8 Unicode loader、随包路径。隔离Maya source曾因本机代码页损坏UTF8字符串失败，改Python mel.eval传Unicode，全套编译后通过；加载不启动原UI。typed全部global过程API、无副作用inspect/dry、六项隔离验证batch子集、其他交互原过程需明确全场景范围且拒绝batch假跑。
+- XML转权重临时文件改每次owned子目录，不写随包文件；QC配置只准固定UI数据，拒绝任意MEL/Python、不覆盖/全文件导入前检查；FTM完整Copy/Move/Set算法保留，限定解析复制搬移/mkdir无shell、独占创建/校验后移除源；原FixError无条件删userSetup改明确所选文件隔离恢复副本，场景感染节点另可Undo按钮、Outliner去PyMel依赖。
+- 五组普通Python与四组真实隔离Maya2025通过：完整81资源/31活动定义/所有原过程入口、原16种真实曲线/UndoRedo、真实颜色/属性限制/编号/蒙皮influence查询、锁/名称保护/交互拒绝；文件复制移动/拒绝覆盖/拒绝shell/删除范围、QC数据注入拒绝。临时正式布局/真实rigging domain/注册/Schema/panel通过，fingerprint匹配。
+- API恢复time/selection UUID/namespace/autokey，外部文件/GUI callback/optionVars不宣称Undo覆盖，原全场景连接/删除/引用逻辑须备份场景验收。完整交付prepared_unverified，GUI/QC往返/ADV/FBX/动态链/权重/纹理/感染样本/原全部按钮not_run。未触真实Maya GUI、正式库、Obsidian、用卡或购买。
