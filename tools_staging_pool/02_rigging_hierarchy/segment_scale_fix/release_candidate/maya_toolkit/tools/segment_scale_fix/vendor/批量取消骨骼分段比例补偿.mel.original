@@ -1,0 +1,17 @@
+//选择需要的骨骼
+
+//查询选择集中的骨骼个数
+string $selection[] = `ls -selection -type joint`;
+int $selectionSize = size($selection);
+
+//检查是否选中了一个或多个骨骼
+if ($selectionSize > 0) {
+    //如果选中了骨骼，则将它们的segmentScaleCompensate属性改为0
+    string $selected[] = `ls -type "joint" -sl`;
+    for ($i = 0; $i < size($selected); $i++) {
+        setAttr ($selected[$i] + ".segmentScaleCompensate") 0; 
+    }
+} else {
+    //如果没有选中骨骼，则提示用户选择骨骼
+    warning "Please select at least one joint.";
+}

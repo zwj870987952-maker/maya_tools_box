@@ -1,0 +1,62 @@
+{
+  "tool_id": "segment_scale_fix",
+  "registration": {
+    "module": "segment_scale_fix",
+    "class_name": "SegmentScaleFixTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/segment_scale_fix.md",
+      "target": "docs/tools/segment_scale_fix.md"
+    },
+    {
+      "source": "maya_toolkit/tools/segment_scale_fix/__init__.py",
+      "target": "maya_toolkit/tools/segment_scale_fix/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/segment_scale_fix/catalog.json",
+      "target": "maya_toolkit/tools/segment_scale_fix/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/segment_scale_fix/operations.py",
+      "target": "maya_toolkit/tools/segment_scale_fix/operations.py"
+    },
+    {
+      "source": "maya_toolkit/tools/segment_scale_fix/tool.py",
+      "target": "maya_toolkit/tools/segment_scale_fix/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/segment_scale_fix/ui.py",
+      "target": "maya_toolkit/tools/segment_scale_fix/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/segment_scale_fix/vendor/批量取消骨骼分段比例补偿.mel.original",
+      "target": "maya_toolkit/tools/segment_scale_fix/vendor/批量取消骨骼分段比例补偿.mel.original"
+    },
+    {
+      "source": "maya_toolkit/tools/segment_scale_fix/vendor/批量取消骨骼分段比例补偿.py.original",
+      "target": "maya_toolkit/tools/segment_scale_fix/vendor/批量取消骨骼分段比例补偿.py.original"
+    },
+    {
+      "source": "tests/test_segment_scale_fix.py",
+      "target": "tests/test_segment_scale_fix.py"
+    },
+    {
+      "source": "tests/test_segment_scale_fix_maya.py",
+      "target": "tests/test_segment_scale_fix_maya.py"
+    }
+  ],
+  "resources": [
+    "批量取消骨骼分段比例补偿.mel",
+    "批量取消骨骼分段比例补偿.py"
+  ],
+  "dependencies": [
+    "Maya cmds, API2 for instance detection"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete original selected-joint disable segmentScaleCompensate operation, both original Python/MEL archived by SHA; explicit scope, no-op-aware read-only preflight, locks/references/connections/true DAG instance checks, single Undo chunk and deferred Maya UI.",
+  "verification_limitations": [
+    "Real Maya GUI, production skin/rig appearance and cross-version acceptance not_run",
+    "Joint compensation changes can alter visible child proportions; scene backup required for manual comparison"
+  ]
+}

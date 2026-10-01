@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T00:39:42.024213+08:00",
+  "updated_at": "2026-10-02T00:45:27.953639+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "02_rigging_hierarchy/reparent_pro_v1_5_1",
+    "last_completed_tool": "02_rigging_hierarchy/segment_scale_fix",
     "last_usage": {
-      "five_hour_used_percent": 77.0,
-      "weekly_used_percent": 27.0,
-      "recorded_at": "2026-10-02T00:17:53.554903+08:00",
+      "five_hour_used_percent": 88.0,
+      "weekly_used_percent": 29.0,
+      "recorded_at": "2026-10-02T00:40:58.448556+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "02_rigging_hierarchy/reparent_pro_v1_5_1"
+    "current_tool": "02_rigging_hierarchy/segment_scale_fix"
   },
   "entry_repairs": [
     {
@@ -10540,7 +10540,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete 13 original procedures, full native UI/icon and original bytes preserved. Explicit default/pin/manual start-go-cancel/relative/freeze/IK/local modes, independent MEL/options/helper names, corrected bake ranges, clear-all-TR acknowledgement, owned session checks, safe bake/delete, caller context and Undo grouping.",
-      "prepared_at": "2026-10-02T00:39:39.634623+08:00"
+      "prepared_at": "2026-10-02T00:39:39.634623+08:00",
+      "source_commit": "92d60ca46d774cd51f4343a535c638a1adff93af"
     },
     {
       "source_path": "02_rigging_hierarchy/segment_scale_fix",
@@ -10551,21 +10552,82 @@
       "entry_candidates": [
         "批量取消骨骼分段比例补偿.py"
       ],
-      "source_file_count": 2,
+      "source_file_count": 3,
       "source_files": [
         "批量取消骨骼分段比例补偿.mel",
         "批量取消骨骼分段比例补偿.py"
       ],
       "license_files": [],
       "entry_sha256": "72b4ca6cfd03036267eb2ae57fd3b2e9087de63b50363399649be178ac389119",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"segment_scale_fix\",\r\n  \"candidate_sha256\": \"35241a3a2c65db5d1de6e2485b42e86cd3bc31fd239c2d7fa00606a833e473bb\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\segment_scale_fix.md\",\r\n    \"maya_toolkit\\\\tools\\\\segment_scale_fix\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\segment_scale_fix\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\segment_scale_fix\\\\operations.py\",\r\n    \"maya_toolkit\\\\tools\\\\segment_scale_fix\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\segment_scale_fix\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\segment_scale_fix\\\\vendor\\\\\\u6279\\u91cf\\u53d6\\u6d88\\u9aa8\\u9abc\\u5206\\u6bb5\\u6bd4\\u4f8b\\u8865\\u507f.mel.original\",\r\n    \"maya_toolkit\\\\tools\\\\segment_scale_fix\\\\vendor\\\\\\u6279\\u91cf\\u53d6\\u6d88\\u9aa8\\u9abc\\u5206\\u6bb5\\u6bd4\\u4f8b\\u8865\\u507f.py.original\",\r\n    \"tests\\\\test_segment_scale_fix.py\",\r\n    \"tests\\\\test_segment_scale_fix_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/02_rigging_hierarchy/segment_scale_fix/release_candidate/tests/test_segment_scale_fix_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_locked_driven_alias_instance_and_empty_protection (__main__.Checks.test_locked_driven_alias_instance_and_empty_protection) ... ok\r\ntest_noop_and_mixed_selection_matches_original_joint_filter (__main__.Checks.test_noop_and_mixed_selection_matches_original_joint_filter) ... ok\r\ntest_scaled_parent_real_world_matrix_selection_scope_and_undo (__main__.Checks.test_scaled_parent_real_world_matrix_selection_scope_and_undo) ... ����: SegmentScaleFixTool_segment_scale_fix\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.035s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "1bf773c277996505722dbdb70c995b0bc0a5f63049da58482d722b11fa3a55bd",
+          "runtime_source_sha256": "0bf2c737ddddfd28b3fefaac57cd82ba68fd4e65ffb2559cf612ae8ecc45ab10"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya GUI, production skin/rig appearance and other Maya versions not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "35241a3a2c65db5d1de6e2485b42e86cd3bc31fd239c2d7fa00606a833e473bb",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI, production skin/rig appearance and cross-version acceptance not_run",
+        "Joint compensation changes can alter visible child proportions; scene backup required for manual comparison"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -10574,7 +10636,39 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "c47fa80bc73db1ce65619334634436a2b952ede37ee3998b10e277c518f3a778"
+      "source_tree_sha256": "e3d85317687eeb066ddf704fb1778a3751cf7fadd3cdc96fcac48b70041a7779",
+      "candidate_path": "tools_staging_pool/02_rigging_hierarchy/segment_scale_fix/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/02_rigging_hierarchy/segment_scale_fix/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "segment_scale_fix",
+        "candidate_sha256": "35241a3a2c65db5d1de6e2485b42e86cd3bc31fd239c2d7fa00606a833e473bb",
+        "applied": false,
+        "files": [
+          "docs\\tools\\segment_scale_fix.md",
+          "maya_toolkit\\tools\\segment_scale_fix\\__init__.py",
+          "maya_toolkit\\tools\\segment_scale_fix\\catalog.json",
+          "maya_toolkit\\tools\\segment_scale_fix\\operations.py",
+          "maya_toolkit\\tools\\segment_scale_fix\\tool.py",
+          "maya_toolkit\\tools\\segment_scale_fix\\ui.py",
+          "maya_toolkit\\tools\\segment_scale_fix\\vendor\\批量取消骨骼分段比例补偿.mel.original",
+          "maya_toolkit\\tools\\segment_scale_fix\\vendor\\批量取消骨骼分段比例补偿.py.original",
+          "tests\\test_segment_scale_fix.py",
+          "tests\\test_segment_scale_fix_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "批量取消骨骼分段比例补偿.mel",
+        "批量取消骨骼分段比例补偿.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds, API2 for instance detection"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete original selected-joint disable segmentScaleCompensate operation, both original Python/MEL archived by SHA; explicit scope, no-op-aware read-only preflight, locks/references/connections/true DAG instance checks, single Undo chunk and deferred Maya UI.",
+      "prepared_at": "2026-10-02T00:45:25.421710+08:00"
     },
     {
       "source_path": "02_rigging_hierarchy/skeleton_generator",

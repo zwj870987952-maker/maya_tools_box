@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/02_rigging_hierarchy/segment_scale_fix/release_candidate/tests/test_segment_scale_fix_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_locked_driven_alias_instance_and_empty_protection (__main__.Checks.test_locked_driven_alias_instance_and_empty_protection) ... ok\r\ntest_noop_and_mixed_selection_matches_original_joint_filter (__main__.Checks.test_noop_and_mixed_selection_matches_original_joint_filter) ... ok\r\ntest_scaled_parent_real_world_matrix_selection_scope_and_undo (__main__.Checks.test_scaled_parent_real_world_matrix_selection_scope_and_undo) ... ����: SegmentScaleFixTool_segment_scale_fix\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.035s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "1bf773c277996505722dbdb70c995b0bc0a5f63049da58482d722b11fa3a55bd",
+  "runtime_source_sha256": "0bf2c737ddddfd28b3fefaac57cd82ba68fd4e65ffb2559cf612ae8ecc45ab10"
+}

@@ -528,3 +528,9 @@
 - 自有owner/会话控制UUID记录，清理前复核set成员/外部后代/下游连接；最终bake替换原全场景suffix通配符删除，只清自有辅助、保留控制器烘焙结果曲线及pairBlend上游动画网络并解除辅助归属。原TempLocator等保留。Pin临时约束不存在导致原delete报错已修正。
 - 两组Python、六组Maya2025隔离测试、临时正式布局注册/rigging域/Schema/panel/fingerprint全部通过：全13过程无副作用编译、default实际逐帧运动/首尾bake/清键ack/dry/两次Undo还原外键、Pin/manualGo偏移/Cancel/relative实际运动、IK弯曲三控制器真实handle/最终bake后旋转一致、外来成员/子节点拒绝、最终override层保留/Undo。Maya2025 implicit-time animCurve无input连接，改允许隐式time但仍拒绝非time驱动。
 - 真实GUI/生产manual pivot/freeze/IK/local/高级动画层/其它版本not_run，prepared_unverified。实际额度5h已用88%、周29%，继续第60项；heartbeat暂停，不同步/迁正式/用卡/购买。
+
+# 2026-10-02：Segment Scale Fix完整候选，累计60/109
+
+- 原Python/MEL两个同功能脚本完整SHA归档；完整所选joint segmentScaleCompensate关闭操作、explicit scope/只读预检/Schema/Undo/真实Maya小UI/文档/验收/注册晋级齐备。省略objects沿用原所选joint筛选，不递归；已关闭节点no-op，输出UUID/前后值/未变计数。
+- 两组Python、三组Maya2025隔离检查、临时正式布局注册/rigging域/panel/fingerprint全部通过：父缩放2时子joint真实世界矩阵scale变化、scope不影响祖孙、单步Undo恢复；锁属性/驱动/别名重复/真DAG实例/空范围拒绝；混选只joint/显式transform拒绝/重复预检no-op、GUI batch拒绝。
+- core当前仅context/maya_utils/logger/string/ui，没有等价joint属性scope业务；使用框架现有Undo，不新改core。真实GUI/生产skin rig外观/其它版本not_run，prepared_unverified。实际5h已用90%、周29%，继续第61项，heartbeat暂停，不同步/迁正式/用卡/购买。
