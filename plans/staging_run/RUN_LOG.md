@@ -356,3 +356,9 @@
 - 原导入/导出菜单是禁用占位，保留事实而API提供完整显式文件数据流程/元数据，不依赖缺失MEL全局。现有目录temp→hardlink不覆盖/明确overwrite原子replace，外部文件不Undo。key clipboard改变同原算法不等于scene Undo可还原。
 - 历史MEL完整私有过程/UI/全局变量，不自动呼出；修缺失animscratch Python桥。保留calculator/velocity/旧迭代连接/字符集/旧shuffle/bake/进度完整算法，历史回调单独人工Maya验收，不能等同受Python预检API或无人值守场景写入口。
 - 普通Python2组、隔离Maya2025五组与临时正式布局注册/面板/Schema/全指纹通过：dry undo/time/selection不变、原完整create/connect/enable/disable/Undo；正负零帧shuffle/时间恢复/临时清理/deleteUndo；锁/外部child/hold拒绝/私有writer guard；ASCII/JSON预检不写/不覆盖/导入导出/bake及Qt类import不造Widget；38 MEL定义编译无scene变动。真实Qt按钮/旧MEL回调/生产rig/加权非线性/跨版本仍not_run，prepared_unverified。未晋级/Obsidian同步/用卡/购买。
+
+### 本轮等待额度检查点
+
+- 第38项提交 cf5328047aa667e7a422fd35b45fc80cfc9f3fe2；实际额度接口5小时87%已用/周100%已用（ordinaryUsageAllowed仍true，周百分比已到100则停止新工具）。不使用任何重置卡，不购买额度。
+- 下一项01_animation/root_motion_bake仅已阅读原完整脚本，尚无第39项候选变更；恢复先读manifest/Git/usage。原相对位置是世界位置/Euler相减，并非矩阵相对变换；存在默认删除同名offset layer/烘焙全部keyable属性/框选实际用了animation range/同名namespace首匹配等边界，下一轮需保留全算法并补安全检查。
+- 保存状态waiting_for_quota，恢复同聊天30分钟heartbeat；只有周额度允许、5小时剩余高于95%、无其他运行回合时续跑。不消费卡、不转正、不同步Obsidian。

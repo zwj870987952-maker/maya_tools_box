@@ -1,24 +1,25 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T10:42:42.689360+08:00",
+  "updated_at": "2026-10-01T10:50:17.720681+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
-    "state": "working",
+    "state": "waiting_for_quota",
     "heartbeat_id": "automation",
-    "heartbeat_status": "PAUSED",
+    "heartbeat_status": "ACTIVE",
     "heartbeat_verified": true,
-    "reset_guard": "not_started_requires_authorization",
+    "reset_guard": "disabled_by_user_no_cards",
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
     "last_completed_tool": "01_animation/retime_tools",
     "last_usage": {
-      "five_hour_used_percent": 73.0,
-      "weekly_used_percent": 97.0,
-      "recorded_at": "2026-10-01T10:17:49.535658+08:00",
-      "note": "Caller supplied actual read; reread on next run"
+      "five_hour_used_percent": 87.0,
+      "weekly_used_percent": 100.0,
+      "recorded_at": "2026-10-01T10:50:15.996098+08:00",
+      "note": "Caller actual read; ordinaryUsageAllowed was true but weekly usedPercent reached 100, so no next tool started"
     },
-    "current_tool": "01_animation/retime_tools"
+    "current_tool": "01_animation/root_motion_bake",
+    "resume_note": "Stopped at completed candidate boundary. Resume only with five-hour remaining >95%, weekly allowed, and no other active round. Do not consume reset credits or purchase quota."
   },
   "entry_repairs": [
     {
@@ -6476,7 +6477,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Full original Python suite/Qt widgets and headless CoreFunctions/ShuffleKeys/RetimeLookup, complete MEL and vendor/resources archives; checked API/UI, explicit file IO, and full original method catalog.",
-      "prepared_at": "2026-10-01T10:42:41.045068+08:00"
+      "prepared_at": "2026-10-01T10:42:41.045068+08:00",
+      "source_commit": "cf5328047aa667e7a422fd35b45fc80cfc9f3fe2"
     },
     {
       "source_path": "01_animation/root_motion_bake",
