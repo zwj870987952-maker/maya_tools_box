@@ -1,0 +1,73 @@
+{
+  "tool_id": "batch_skin_bind",
+  "registration": {
+    "module": "batch_skin_bind",
+    "class_name": "BatchSkinBindTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/batch_skin_bind.md",
+      "target": "docs/tools/batch_skin_bind.md"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_skin_bind/__init__.py",
+      "target": "maya_toolkit/tools/batch_skin_bind/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_skin_bind/catalog.json",
+      "target": "maya_toolkit/tools/batch_skin_bind/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_skin_bind/engine.py",
+      "target": "maya_toolkit/tools/batch_skin_bind/engine.py"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_skin_bind/native_ui.py",
+      "target": "maya_toolkit/tools/batch_skin_bind/native_ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_skin_bind/runtime.py",
+      "target": "maya_toolkit/tools/batch_skin_bind/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_skin_bind/tool.py",
+      "target": "maya_toolkit/tools/batch_skin_bind/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_skin_bind/ui.py",
+      "target": "maya_toolkit/tools/batch_skin_bind/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_skin_bind/upstream/批量绑骨头.py.original",
+      "target": "maya_toolkit/tools/batch_skin_bind/upstream/批量绑骨头.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_skin_bind/upstream/生成代理.py.original",
+      "target": "maya_toolkit/tools/batch_skin_bind/upstream/生成代理.py.original"
+    },
+    {
+      "source": "tests/test_batch_skin_bind.py",
+      "target": "tests/test_batch_skin_bind.py"
+    },
+    {
+      "source": "tests/test_batch_skin_bind_maya.py",
+      "target": "tests/test_batch_skin_bind_maya.py"
+    }
+  ],
+  "resources": [
+    "批量绑骨头.py",
+    "生成代理.py"
+  ],
+  "dependencies": [
+    "Maya cmds, standard skinCluster/bake/constraint commands; PyMel no longer required"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Both full original prototypes archived. Complete joint/locator/cube proxy functions and original UI with explicit batch joint/mesh capture. Whole-batch preflight, actual created-name mapping, independent baked proxy joints, explicit source animation removal, new skinClusters/sets and Undo/environment restoration.",
+  "verification_limitations": [
+    "Real Maya full GUI/production rigs and simulation/animated parents not_run",
+    "Skinned proxy transfer restricted to unbound polygon meshes with unit static scale/shear and no animated ancestors",
+    "Source skinning deliberately removes ALL source transform animation keys; explicit allow_source_key_removal required; no automatic rollback on later execution failures",
+    "Existing skinClusters/locked or referenced targets rejected; does not add influences or copy skin weights",
+    "ParentConstraint transfers translation/rotation, not source scale; all original proxy set names retained with Maya collision suffixes"
+  ]
+}

@@ -465,3 +465,10 @@
 - 原source/MEL名保持不变，所有同名过程已有来源检查，资源misc路径随候选/正式位置自动绑定。统一UndoChunk、原生嵌套跟踪，恢复调用者time/selection/namespace/autokey/unit/evaluation/refresh/选择偏好/options/autoload/cache/slider；有目的的时间/选择保留。原GUI及callback仍按原逻辑，不夸大普通Undo对scriptJobs/scriptNodes/插件/prefs/disable-Undo motionTrail的范围，也不把catch吞错当成功。
 - 普通Python2组、真实隔离Maya2025五组通过：完整307过程加载不创建scene/UI，不动timeline/selection/Undo；原locator scale1.5/UndoRedo与环境恢复、原姿态loc位置4/旋转30/Undo、真正blendParent清理/其他对象和userNote保留/Undo、dry/锁/真实GUI依赖batch拒绝。初次自有wrapper timerX赋值遗漏反引号已修复后重跑通过，未改原源。
 - 临时正式布局检查先因探针硬编码animation拒绝rigging；已修探针按真实domain检查注册/筛选/Schema/panel，后续类别同用。原GUI zxy radio写6可疑行为如实待验收，不改受限源。完整交付prepared_unverified，GUI/生产绑定/IK/烘焙/物理/overlap pending，不提前转正/同步。
+
+## 2026-10-01：批量绑骨头/生成代理完整候选，累计52/109
+
+- 两份完整用户原型SHA/原始三代理函数/三UI方法保留。旧PyMel脚本同一selected两次无法配对，改明确joint/mesh pairs与两次UI独立列表捕获；Maya cmds一骨骼一mesh，不需缺失PyMel，不替代weights_copy，复用core只读mesh/skin查询与框架Undo。
+- 原joint/locator/cube无offset跟随和ISS/GOS集保留；原skinning按base名误找已有骨骼改记录实际创建后缀。完整原三函数移植：真bake含末帧、删本次代理constraint、在start冻结源并删除ALL source keys、显式新skinCluster。source删除需要明确allow_source_key_removal，未绑定polygon/静态unit scale+zero shear/无驱动父层/无共享或锁timecurve/无目标父子，全批预检，不强断驱动或覆写现skin。
+- 普通Python两组、真隔离Maya2025四组、临时正式布局/domain/schema/panel通过：两mesh各唯一influence/weight1/UndoRedo；三模式actual suffix/pose/既有set成员不改/constraint跟随/Undo；真skinning实际后缀joint键0/2/4/6、末帧、constraint已移、原keys全删、world vertex末帧位置等于原动画、Undo完整场景/区间外及custom键恢复；全批已有skin拒绝/父子拒绝/scale key拒绝。恢复selection/time/autokey/namespace，没有文件/偏好安装写入；异常仍须Undo部分修改。
+- 完整候选prepared_unverified，GUI/生产动画/pivot/模拟/版本待真实验收，不转正/Obsidian同步/用卡/购买。
