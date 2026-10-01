@@ -1,0 +1,86 @@
+{
+  "tool_id": "pose_matcher",
+  "registration": {
+    "module": "pose_matcher",
+    "class_name": "PoseMatcherTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/pose_matcher.md",
+      "target": "docs/tools/pose_matcher.md"
+    },
+    {
+      "source": "docs/tools/pose_matcher_changes.diff",
+      "target": "docs/tools/pose_matcher_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/pose_matcher/__init__.py",
+      "target": "maya_toolkit/tools/pose_matcher/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/pose_matcher/catalog.json",
+      "target": "maya_toolkit/tools/pose_matcher/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/pose_matcher/mesh_command.py",
+      "target": "maya_toolkit/tools/pose_matcher/mesh_command.py"
+    },
+    {
+      "source": "maya_toolkit/tools/pose_matcher/mesh_plugin.py",
+      "target": "maya_toolkit/tools/pose_matcher/mesh_plugin.py"
+    },
+    {
+      "source": "maya_toolkit/tools/pose_matcher/native.py",
+      "target": "maya_toolkit/tools/pose_matcher/native.py"
+    },
+    {
+      "source": "maya_toolkit/tools/pose_matcher/progress.py",
+      "target": "maya_toolkit/tools/pose_matcher/progress.py"
+    },
+    {
+      "source": "maya_toolkit/tools/pose_matcher/runtime.py",
+      "target": "maya_toolkit/tools/pose_matcher/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/pose_matcher/tool.py",
+      "target": "maya_toolkit/tools/pose_matcher/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/pose_matcher/ui_bridge.py",
+      "target": "maya_toolkit/tools/pose_matcher/ui_bridge.py"
+    },
+    {
+      "source": "maya_toolkit/tools/pose_matcher/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/pose_matcher/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/pose_matcher/upstream/PoseMatcher.py.original",
+      "target": "maya_toolkit/tools/pose_matcher/upstream/PoseMatcher.py.original"
+    },
+    {
+      "source": "tests/test_pose_matcher.py",
+      "target": "tests/test_pose_matcher.py"
+    },
+    {
+      "source": "tests/test_pose_matcher_maya.py",
+      "target": "tests/test_pose_matcher_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/PoseMatcher.py.original",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya cmds/API2",
+    "NumPy bundled in Maya",
+    "BaseMayaTool/Undo",
+    "Private undoable mesh command"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Full 55-function skeleton alignment and original native UI plus NumPy mesh merge/split pipelines retained; checked API, geometry/index repairs, undoable mesh construction and protected OBJ/JSON publication.",
+  "verification_limitations": [
+    "Real native Maya GUI/production skeletons/skin rigs and topology/edit roundtrip pending",
+    "Original source lacks an independent distribution license; local preparation only",
+    "External output files cannot Maya Undo"
+  ]
+}

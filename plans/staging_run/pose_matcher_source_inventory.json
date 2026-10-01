@@ -1,0 +1,772 @@
+{
+  "source": "tools_staging_pool/01_animation/pose_matcher/PoseMatcher.py",
+  "sha256": "18e8f0a84f23b2f85a2842f6444c3a6aa1dd841a80aecbc3779955884b90af11",
+  "source_bytes": 49691,
+  "total_lines": 1252,
+  "functions": [
+    {
+      "name": "get_base_name",
+      "line": 12,
+      "end_line": 14,
+      "calls": [
+        "obj_name.split",
+        "obj_name.split(':')[-1].split"
+      ]
+    },
+    {
+      "name": "apply_global_rotation_to_vector",
+      "line": 16,
+      "end_line": 19,
+      "calls": [
+        "om.MVector",
+        "vector_mvector.rotateBy"
+      ]
+    },
+    {
+      "name": "getlocalRotation",
+      "line": 21,
+      "end_line": 22,
+      "calls": [
+        "cmds.xform"
+      ]
+    },
+    {
+      "name": "calculate_angle_3d",
+      "line": 24,
+      "end_line": 32,
+      "calls": [
+        "np.arccos",
+        "np.array",
+        "np.degrees",
+        "np.dot",
+        "np.linalg.norm"
+      ]
+    },
+    {
+      "name": "get_joint_lra",
+      "line": 34,
+      "end_line": 60,
+      "calls": [
+        "cmds.getAttr",
+        "cmds.xform",
+        "euler.asMatrix",
+        "math.radians",
+        "om.MEulerRotation",
+        "om.MVector",
+        "om.MVector(rot_matrix[0], rot_matrix[1], rot_matrix[2]).normal",
+        "om.MVector(rot_matrix[4], rot_matrix[5], rot_matrix[6]).normal",
+        "om.MVector(rot_matrix[8], rot_matrix[9], rot_matrix[10]).normal",
+        "xyzVec.append"
+      ]
+    },
+    {
+      "name": "get_joint_global_lra",
+      "line": 62,
+      "end_line": 91,
+      "calls": [
+        "cmds.getAttr",
+        "cmds.xform",
+        "euler.asMatrix",
+        "euler_matrix.inverse",
+        "math.radians",
+        "om.MEulerRotation",
+        "om.MMatrix",
+        "om.MVector",
+        "om.MVector(rot_matrix[0], rot_matrix[1], rot_matrix[2]).normal",
+        "om.MVector(rot_matrix[4], rot_matrix[5], rot_matrix[6]).normal",
+        "om.MVector(rot_matrix[8], rot_matrix[9], rot_matrix[10]).normal",
+        "xyzVec.append"
+      ]
+    },
+    {
+      "name": "findClose0or180",
+      "line": 93,
+      "end_line": 99,
+      "calls": [
+        "abs",
+        "min",
+        "newAngles.append",
+        "newAngles.index"
+      ]
+    },
+    {
+      "name": "getAimUpVector",
+      "line": 101,
+      "end_line": 114,
+      "calls": [
+        "abs",
+        "calculate_angle_3d",
+        "findClose0or180",
+        "get_joint_global_lra",
+        "np.array"
+      ]
+    },
+    {
+      "name": "rotate_joint_to_direction",
+      "line": 116,
+      "end_line": 125,
+      "calls": [
+        "cmds.aimConstraint",
+        "cmds.delete",
+        "cmds.move",
+        "cmds.parentConstraint",
+        "cmds.spaceLocator",
+        "cmds.xform"
+      ]
+    },
+    {
+      "name": "normalize_vector",
+      "line": 133,
+      "end_line": 137,
+      "calls": [
+        "np.linalg.norm"
+      ]
+    },
+    {
+      "name": "get_joint_position",
+      "line": 139,
+      "end_line": 142,
+      "calls": [
+        "cmds.xform",
+        "np.array"
+      ]
+    },
+    {
+      "name": "getGlobalRot",
+      "line": 144,
+      "end_line": 148,
+      "calls": [
+        "cmds.xform",
+        "om.MMatrix",
+        "om.MTransformationMatrix",
+        "t_matrix.rotation",
+        "t_matrix.rotation(asQuaternion=True).asMatrix"
+      ]
+    },
+    {
+      "name": "getJointOrient",
+      "line": 150,
+      "end_line": 158,
+      "calls": [
+        "cmds.getAttr",
+        "jo_euler.asMatrix",
+        "math.radians",
+        "om.MEulerRotation"
+      ]
+    },
+    {
+      "name": "getRotateAxisRot",
+      "line": 160,
+      "end_line": 170,
+      "calls": [
+        "cmds.getAttr",
+        "math.radians",
+        "om.MEulerRotation",
+        "ra_euler.asMatrix"
+      ]
+    },
+    {
+      "name": "getRotOrder",
+      "line": 172,
+      "end_line": 174,
+      "calls": [
+        "cmds.getAttr"
+      ]
+    },
+    {
+      "name": "getAnimRotate",
+      "line": 176,
+      "end_line": 185,
+      "calls": [
+        "animEuler.asMatrix",
+        "cmds.getAttr",
+        "getRotOrder",
+        "math.radians",
+        "om.MEulerRotation"
+      ]
+    },
+    {
+      "name": "getInherentRotWithoutParent",
+      "line": 187,
+      "end_line": 196,
+      "calls": [
+        "getAnimRotate",
+        "getJointOrient",
+        "getRotateAxisRot",
+        "om.MMatrix",
+        "result_matrix.setToProduct",
+        "tmp_matrix.setToProduct"
+      ]
+    },
+    {
+      "name": "get_parent_delta_global_rot",
+      "line": 198,
+      "end_line": 203,
+      "calls": [
+        "delta_rot.setToProduct",
+        "getGlobalRot",
+        "getInherentRotWithoutParent",
+        "inherent_global_rot.inverse",
+        "om.MMatrix"
+      ]
+    },
+    {
+      "name": "getNeedRot",
+      "line": 205,
+      "end_line": 207,
+      "calls": [
+        "rot_quat.asMatrix",
+        "v1.rotateTo"
+      ]
+    },
+    {
+      "name": "align_parent_to_vector",
+      "line": 209,
+      "end_line": 247,
+      "calls": [
+        "boneVec.rotateTo",
+        "cmds.listRelatives",
+        "cmds.setAttr",
+        "float",
+        "getGlobalRot",
+        "getJointOrient",
+        "getRotOrder",
+        "getRotateAxisRot",
+        "get_joint_position",
+        "get_parent_delta_global_rot",
+        "math.degrees",
+        "needRot.asMatrix",
+        "new_rot.asEulerRotation",
+        "new_rot_euler.reorderIt",
+        "new_rot_mat.setToProduct",
+        "new_rot_transMat.rotation",
+        "om.MMatrix",
+        "om.MTransformationMatrix",
+        "om.MVector",
+        "parent_joint.rsplit",
+        "print",
+        "ra_mat.inverse",
+        "tmp1.inverse",
+        "tmp1.setToProduct",
+        "tmp2.setToProduct",
+        "tmp3.setToProduct"
+      ]
+    },
+    {
+      "name": "find_joint_by_base_name",
+      "line": 249,
+      "end_line": 258,
+      "calls": [
+        "all_joints.append",
+        "cmds.listRelatives",
+        "cmds.ls",
+        "get_base_name"
+      ]
+    },
+    {
+      "name": "get_joint_direction",
+      "line": 260,
+      "end_line": 278,
+      "calls": [
+        "cmds.listRelatives",
+        "cmds.xform",
+        "om.MVector"
+      ]
+    },
+    {
+      "name": "resetTwist",
+      "line": 280,
+      "end_line": 292,
+      "calls": [
+        "cmds.setAttr"
+      ]
+    },
+    {
+      "name": "align_skeleton",
+      "line": 294,
+      "end_line": 355,
+      "calls": [
+        "'find full path name {0},{1}'.format",
+        "align_parent_to_vector",
+        "cmds.listRelatives",
+        "cmds.warning",
+        "error_joints.append",
+        "find_joint_by_base_name",
+        "getAimUpVector",
+        "get_base_name",
+        "get_joint_direction",
+        "getlocalRotation",
+        "joint_map.items",
+        "len",
+        "print",
+        "processed_parents.add",
+        "set",
+        "str"
+      ]
+    },
+    {
+      "name": "save_joint_map",
+      "line": 357,
+      "end_line": 365,
+      "calls": [
+        "cmds.warning",
+        "json.dump",
+        "open",
+        "str"
+      ]
+    },
+    {
+      "name": "load_joint_map",
+      "line": 367,
+      "end_line": 390,
+      "calls": [
+        "cmds.warning",
+        "isinstance",
+        "item.get",
+        "json.load",
+        "open",
+        "os.path.exists",
+        "str"
+      ]
+    },
+    {
+      "name": "auto_detect_namespace",
+      "line": 392,
+      "end_line": 411,
+      "calls": [
+        "get_base_name",
+        "joint.split",
+        "max",
+        "namespaces.get",
+        "prefix_match.group",
+        "re.search"
+      ]
+    },
+    {
+      "name": "sync_selections",
+      "line": 414,
+      "end_line": 444,
+      "calls": [
+        "cmds.textScrollList"
+      ]
+    },
+    {
+      "name": "auto_detect_ns_cmd",
+      "line": 446,
+      "end_line": 463,
+      "calls": [
+        "all_joints.append",
+        "auto_detect_namespace",
+        "cmds.listRelatives",
+        "cmds.objExists",
+        "cmds.textField",
+        "cmds.warning"
+      ]
+    },
+    {
+      "name": "load_map_cmd",
+      "line": 465,
+      "end_line": 480,
+      "calls": [
+        "cmds.textField",
+        "cmds.textScrollList",
+        "cmds.warning",
+        "joint_map.items",
+        "len",
+        "load_joint_map",
+        "os.path.exists"
+      ]
+    },
+    {
+      "name": "save_map_cmd",
+      "line": 482,
+      "end_line": 503,
+      "calls": [
+        "cmds.textField",
+        "cmds.textScrollList",
+        "cmds.warning",
+        "len",
+        "range",
+        "save_joint_map"
+      ]
+    },
+    {
+      "name": "reset_table",
+      "line": 505,
+      "end_line": 524,
+      "calls": [
+        "cmds.textScrollList",
+        "cmds.warning"
+      ]
+    },
+    {
+      "name": "add_selected_cmd",
+      "line": 526,
+      "end_line": 542,
+      "calls": [
+        "cmds.ls",
+        "cmds.textScrollList",
+        "cmds.warning",
+        "get_base_name",
+        "len"
+      ]
+    },
+    {
+      "name": "remove_selected_cmd",
+      "line": 544,
+      "end_line": 583,
+      "calls": [
+        "cmds.textScrollList",
+        "items_to_remove.add",
+        "set"
+      ]
+    },
+    {
+      "name": "add_finger_mapping",
+      "line": 585,
+      "end_line": 597,
+      "calls": [
+        "cmds.textScrollList",
+        "cmds.warning",
+        "range"
+      ]
+    },
+    {
+      "name": "auto_detect_cmd",
+      "line": 599,
+      "end_line": 648,
+      "calls": [
+        "cmds.listRelatives",
+        "cmds.objExists",
+        "cmds.textField",
+        "cmds.textScrollList",
+        "cmds.warning",
+        "daz_base.startswith",
+        "daz_joints.append",
+        "get_base_name",
+        "len",
+        "mh_joints.append"
+      ]
+    },
+    {
+      "name": "execute_alignment_cmd",
+      "line": 650,
+      "end_line": 692,
+      "calls": [
+        "align_skeleton",
+        "cmds.objExists",
+        "cmds.refresh",
+        "cmds.textField",
+        "cmds.textScrollList",
+        "cmds.warning",
+        "len",
+        "range",
+        "save_joint_map"
+      ]
+    },
+    {
+      "name": "get_mesh_arrays_fast",
+      "line": 702,
+      "end_line": 741,
+      "calls": [
+        "RuntimeError",
+        "dag.apiType",
+        "dag.extendToShape",
+        "len",
+        "mesh.getAssignedUVs",
+        "mesh.getNormalIds",
+        "mesh.getPoints",
+        "mesh.getUVs",
+        "mesh.getVertexNormals",
+        "mesh.getVertices",
+        "np.arange",
+        "np.array",
+        "np.column_stack",
+        "np.column_stack((face_ids, vert_ids, uv_ids, norm_ids)).astype",
+        "np.column_stack((u_array, v_array)).astype",
+        "np.repeat",
+        "om.MFnMesh",
+        "om.MSelectionList",
+        "sel.add",
+        "sel.getDagPath"
+      ]
+    },
+    {
+      "name": "get_selected_meshes_numpy",
+      "line": 747,
+      "end_line": 773,
+      "calls": [
+        "RuntimeError",
+        "cmds.confirmDialog",
+        "dag.apiType",
+        "dag.extendToShape",
+        "get_mesh_arrays_fast",
+        "om.MGlobal.getActiveSelectionList",
+        "range",
+        "results.append",
+        "sel_list.getDagPath",
+        "sel_list.getDagPath(i).fullPathName",
+        "sel_list.length"
+      ]
+    },
+    {
+      "name": "find_overlaps",
+      "line": 779,
+      "end_line": 800,
+      "calls": [
+        "a_r.view",
+        "b_r.view",
+        "np.asarray",
+        "np.asarray(a, dtype=float).reshape",
+        "np.asarray(b, dtype=float).reshape",
+        "np.intersect1d",
+        "np.round"
+      ]
+    },
+    {
+      "name": "select_vertices",
+      "line": 806,
+      "end_line": 811,
+      "calls": [
+        "cmds.select"
+      ]
+    },
+    {
+      "name": "detect_and_select_overlaps",
+      "line": 817,
+      "end_line": 823,
+      "calls": [
+        "find_overlaps",
+        "len",
+        "print"
+      ]
+    },
+    {
+      "name": "writeWithColor",
+      "line": 829,
+      "end_line": 858,
+      "calls": [
+        "' {0}/{1}/{2}'.format",
+        "'\\nf {0}/{1}/{2}'.format",
+        "'v {0} {1} {2} 1 0 0\\n'.format",
+        "'v {0} {1} {2} 1 1 1\\n'.format",
+        "'v {0} {1} {2}\\n'.format",
+        "'vn {0} {1} {2}\\n'.format",
+        "'vt {0} {1}\\n'.format",
+        "fp.close",
+        "fp.write",
+        "open",
+        "range"
+      ]
+    },
+    {
+      "name": "ProcessVertices",
+      "line": 860,
+      "end_line": 888,
+      "calls": [
+        "cmds.progressWindow",
+        "cmds.refresh",
+        "cmds.warning",
+        "float",
+        "mesh1_v.copy",
+        "np.array",
+        "np.hstack",
+        "np.vstack",
+        "np.where",
+        "range"
+      ]
+    },
+    {
+      "name": "is_overlap",
+      "line": 890,
+      "end_line": 904,
+      "calls": []
+    },
+    {
+      "name": "ProcessUV",
+      "line": 906,
+      "end_line": 915,
+      "calls": [
+        "is_overlap",
+        "math.ceil",
+        "math.floor",
+        "max",
+        "mesh1_uv.copy",
+        "min",
+        "np.arange",
+        "np.vstack"
+      ]
+    },
+    {
+      "name": "ProcessVN",
+      "line": 917,
+      "end_line": 918,
+      "calls": [
+        "np.arange",
+        "np.vstack"
+      ]
+    },
+    {
+      "name": "ProcessFaces",
+      "line": 920,
+      "end_line": 947,
+      "calls": [
+        "cmds.progressWindow",
+        "cmds.refresh",
+        "cmds.warning",
+        "float",
+        "mesh1_f.copy",
+        "np.column_stack",
+        "np.column_stack((cur_face_id, cur_vert_id, cur_uv_id, cur_norm_id)).astype",
+        "np.vstack",
+        "range"
+      ]
+    },
+    {
+      "name": "MergeMeshes",
+      "line": 949,
+      "end_line": 969,
+      "calls": [
+        "ProcessFaces",
+        "ProcessUV",
+        "ProcessVN",
+        "ProcessVertices",
+        "json.dump",
+        "map_v.tolist",
+        "mesh1_f.tolist",
+        "mesh1_uv.tolist",
+        "mesh2_f.tolist",
+        "mesh2_uv.tolist",
+        "open"
+      ]
+    },
+    {
+      "name": "SplitMeshes",
+      "line": 971,
+      "end_line": 995,
+      "calls": [
+        "build_mesh_from_numpy",
+        "json.load",
+        "mesh_name.replace",
+        "np.array",
+        "open",
+        "os.path.dirname",
+        "writeWithColor"
+      ]
+    },
+    {
+      "name": "assign_lambert_to_mesh",
+      "line": 997,
+      "end_line": 1004,
+      "calls": [
+        "cmds.connectAttr",
+        "cmds.listRelatives",
+        "cmds.setAttr",
+        "cmds.sets",
+        "cmds.shadingNode"
+      ]
+    },
+    {
+      "name": "build_mesh_from_numpy",
+      "line": 1006,
+      "end_line": 1048,
+      "calls": [
+        "assign_lambert_to_mesh",
+        "cmds.rename",
+        "cmds.select",
+        "counts.tolist",
+        "dag.fullPathName",
+        "mfn.assignUVs",
+        "mfn.create",
+        "mfn.setUVs",
+        "np.unique",
+        "om.MDagPath.getAPathTo",
+        "om.MFloatArray",
+        "om.MFnMesh",
+        "om.MIntArray",
+        "om.MPoint",
+        "om.MPointArray",
+        "om.MVector",
+        "om.MVectorArray",
+        "uv[:, 0].tolist",
+        "uv[:, 1].tolist",
+        "vt[:, 1].tolist",
+        "vt[:, 2].tolist"
+      ]
+    },
+    {
+      "name": "MergeMeshes_cmd",
+      "line": 1055,
+      "end_line": 1074,
+      "calls": [
+        "MergeMeshes",
+        "build_mesh_from_numpy",
+        "cmds.fileDialog2",
+        "detect_and_select_overlaps",
+        "get_selected_meshes_numpy",
+        "os.path.basename",
+        "os.path.dirname",
+        "os.path.splitext",
+        "select_vertices",
+        "writeWithColor"
+      ]
+    },
+    {
+      "name": "SplitMeshes_cmd",
+      "line": 1079,
+      "end_line": 1088,
+      "calls": [
+        "SplitMeshes",
+        "cmds.fileDialog2",
+        "get_selected_meshes_numpy",
+        "meshName.rsplit",
+        "os.path.dirname"
+      ]
+    },
+    {
+      "name": "create_alignment_ui",
+      "line": 1092,
+      "end_line": 1248,
+      "calls": [
+        "MergeMeshes_cmd",
+        "SplitMeshes_cmd",
+        "add_finger_mapping",
+        "add_selected_cmd",
+        "auto_detect_cmd",
+        "auto_detect_ns_cmd",
+        "cmds.button",
+        "cmds.columnLayout",
+        "cmds.deleteUI",
+        "cmds.fileDialog2",
+        "cmds.frameLayout",
+        "cmds.gridLayout",
+        "cmds.ls",
+        "cmds.rowLayout",
+        "cmds.separator",
+        "cmds.setParent",
+        "cmds.showWindow",
+        "cmds.text",
+        "cmds.textField",
+        "cmds.textScrollList",
+        "cmds.window",
+        "execute_alignment_cmd",
+        "load_map_cmd",
+        "remove_selected_cmd",
+        "reset_table",
+        "save_map_cmd"
+      ]
+    }
+  ],
+  "license": "No independent license/author notice in source; local preparation only",
+  "issues": [
+    "Two complete workflows: skeleton alignment and NumPy merge/split with OBJ/JSON plus scene meshes",
+    "getNormals needed: vertex normals array paired with face-vertex normal IDs is inconsistent",
+    "Raw MFnMesh creation/setters are not standard cmds Undo; candidate needs an undoable creation command",
+    "Missing target checked after parent access; root/duplicate leaf/twist effective-parent guards",
+    "Merge/split/map writes overwrite directly; explicit output group and publication checks needed",
+    "ProcessUV uses V maximum for U offset and mutates the source array; cancellation leaves partial arrays",
+    "Split assumes normal indices equal vertex indices, fails hard-edge/seam data",
+    "Private UI names, stable list-row removal, callbacks with Maya positional args and refresh finally",
+    "All original algorithms and original 56-or-actual-count functions must remain traceable"
+  ]
+}

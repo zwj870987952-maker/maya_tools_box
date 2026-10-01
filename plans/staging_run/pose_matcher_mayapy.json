@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/pose_matcher/release_candidate/tests/test_pose_matcher_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_align_original_matrix_six_orders_and_undo (__main__.Maya.test_align_original_matrix_six_orders_and_undo) ... ??: ? Successfully aligned: tRoot\n??: ?? Alignment completed successfully!\n����: PoseMatcherTool_pose_matcher\n??: ? Successfully aligned: tRoot\n??: ?? Alignment completed successfully!\n����: PoseMatcherTool_pose_matcher\n??: ? Successfully aligned: tRoot\n??: ?? Alignment completed successfully!\n����: PoseMatcherTool_pose_matcher\n??: ? Successfully aligned: tRoot\n??: ?? Alignment completed successfully!\n����: PoseMatcherTool_pose_matcher\n??: ? Successfully aligned: tRoot\n??: ?? Alignment completed successfully!\n����: PoseMatcherTool_pose_matcher\n??: ? Successfully aligned: tRoot\n??: ?? Alignment completed successfully!\n����: PoseMatcherTool_pose_matcher\nok\r\ntest_map_file_guards_legacy_roundtrip_and_scope_failure (__main__.Maya.test_map_file_guards_legacy_roundtrip_and_scope_failure) ... ok\r\ntest_merge_split_hard_normals_uv_topology_and_real_undo (__main__.Maya.test_merge_split_hard_normals_uv_topology_and_real_undo) ... �ļ���ȡ����ʱ��Ϊ  0.0039 �롣\n����: PoseMatcherTool_pose_matcher\n����: PoseMatcherTool_pose_matcher\n����: PoseMatcherTool_pose_matcher\n����: PoseMatcherTool_pose_matcher\n����: PoseMatcherTool_pose_matcher\nok\r\ntest_readonly_and_original_numeric (__main__.Maya.test_readonly_and_original_numeric) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.183s\r\n\r\nOK\r\nfind full path name |sRoot|sEnd,|tRoot|tEnd\r\nAdjust |tRoot\r\nfind full path name |sRoot|sEnd,|tRoot|tEnd\r\nAdjust |tRoot\r\nfind full path name |sRoot|sEnd,|tRoot|tEnd\r\nAdjust |tRoot\r\nfind full path name |sRoot|sEnd,|tRoot|tEnd\r\nAdjust |tRoot\r\nfind full path name |sRoot|sEnd,|tRoot|tEnd\r\nAdjust |tRoot\r\nfind full path name |sRoot|sEnd,|tRoot|tEnd\r\nAdjust |tRoot\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "1046dbd167f14ec4ca04730ccf8a7d2b308d367298ed626458f78d579e55802d",
+  "runtime_source_sha256": "71f1bed86677b1d45b5ac7bbca3afed6e4d83a7d838290e3eea409811f3db635"
+}

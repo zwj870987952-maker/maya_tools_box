@@ -329,3 +329,13 @@
 - CacheMe只在明确已有父目录建立owner子目录/.mcj，运行全局diskCache时暂禁可写外部enable并finally恢复；Clear只删登记自有文件，未改项目规则/他人cache；文件不可Undo。原噪声/循环全函数通过私有dict和范围代理运行，不污染__main__，噪声显式通道/自有新层/恢复random state。finally恢复原时间/选择/AutoKey/ns/playback/refresh/layer flags，原交互editor/tool/selectMode效果另列。
 - 普通Python2组、Maya2025隔离6组、临时正式布局注册/面板/Schema/全指纹通过：109定义编译、private guard、dry/inspect零改动；locator/ns/UndoRedo；真实particle预览/烘焙/完整cleanup/Undo且原控制器存活锁恢复；原循环和noise；真实jiggle+diskCache+.mcj创建删除及注入故障finally；外部child/driver/lock拒绝。没有构造主UI，没有实测全部hair/advanced/multi/localspace/runtime-command/生产rig或运动品质，prepared_unverified。
 - 实际收尾5小时55%/周94%已用、ordinaryUsageAllowed=true，继续pose_matcher；同heartbeat暂停，不用卡/购买/同步/转正。
+
+## 2026-10-01：Pose Matcher完整候选，累计36/109
+
+- 原55函数/49691bytes/PoseMatcher.py字节归档、完整骨架对齐与NumPy网格合并/拆分两套业务和原cmds UI保留；无独立作者/license声明，只本地整理不发布。源码索引/full AST差异、完整知识/验收/晋级payload齐备。
+- 骨架原JO/RA/parent delta/rot order矩阵和同父去重/twist逻辑保留；补零向量/acos范围/缺joint与parent先查/重复basename/有效写父scope、实例/ref/lock/driver/scale/shear拒绝，reorder使用Euler自身；部分错误ToolResult如实反馈。UI私有名、双表按row删除/sync finally、reset回调参数、deep namespace、Save Map显式保存，对齐不再隐式写map。
+- 网格修vertex-normal数组和face-normal index错配、face偏移用face数、UV先copy且U平移修V上界/相同起点漏处理；保持round/intersect1d首匹配/原顶点/UV/normal/face流程。新Info format2+merged_faces，split核对拓扑再用map_v位置和当前face-corner normals，原UV恢复；旧无证明Info拒绝，未当成法线能猜对的格式。
+- private MPxCommand/MFnMeshData+MDagModifier/cachedInMesh实现真实mesh Undo/Redo。初版inMesh在无history mesh再求值后无几何，改cachedInMesh后通过；官方MeshData/polyPrimitiveCmd文档只作primary参考，无复制其实现/代码。几何保留.ma保存重开；返回单名规范化；only真实写时plugin加载，不autoload/不卸带Undo插件，正式路径加载需重启Maya。
+- 输出OBJ/JSON同父临时目录→hardlink不覆盖或明确replace+旧SHA保护，部分发布实际written_files列出；finally选择/time/AutoKey/refresh/ns恢复、自有progress cleanup，取消不返回半数组。创建独立Lambert/SG、源mesh/材质/skin不迁移，位置/法线+保拓扑编辑可split，UV/skin/history/材质不在往返契约。
+- 普通Python2组、Maya2025隔离4组、临时正式布局注册/面板/Schema/全指纹通过：readonly/dry/overlaps、原向量和UV/输入不变；六order实际对齐/Undo/lock；硬边cube merge/.ma保存重开/split点UVface法线完全匹配/UndoRedo；新旧mapJSON/覆盖拒绝、before-publication及after-geometry注入失败原文件保持/finally/Undo。未造GUI、未用生产JO/RA/twist/skin或复杂模型；prepared_unverified。
+- 实际收尾5小时66%/周96%已用、ordinaryUsageAllowed=true，继续pose_transfer_remote；heartbeat保持暂停，不用卡/购买/Obsidian同步/转正。
