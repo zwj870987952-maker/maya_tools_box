@@ -472,3 +472,5 @@
 - 原joint/locator/cube无offset跟随和ISS/GOS集保留；原skinning按base名误找已有骨骼改记录实际创建后缀。完整原三函数移植：真bake含末帧、删本次代理constraint、在start冻结源并删除ALL source keys、显式新skinCluster。source删除需要明确allow_source_key_removal，未绑定polygon/静态unit scale+zero shear/无驱动父层/无共享或锁timecurve/无目标父子，全批预检，不强断驱动或覆写现skin。
 - 普通Python两组、真隔离Maya2025四组、临时正式布局/domain/schema/panel通过：两mesh各唯一influence/weight1/UndoRedo；三模式actual suffix/pose/既有set成员不改/constraint跟随/Undo；真skinning实际后缀joint键0/2/4/6、末帧、constraint已移、原keys全删、world vertex末帧位置等于原动画、Undo完整场景/区间外及custom键恢复；全批已有skin拒绝/父子拒绝/scale key拒绝。恢复selection/time/autokey/namespace，没有文件/偏好安装写入；异常仍须Undo部分修改。
 - 完整候选prepared_unverified，GUI/生产动画/pivot/模拟/版本待真实验收，不转正/Obsidian同步/用卡/购买。
+
+- 追加区间外/custom键回归时，首次Undo节点列表对比因Maya恢复节点的枚举顺序变化失败；报告及manifest如实保存failed，随后将节点集合对比排序（选择次序仍严格比较）再跑。业务未丢节点，键恢复仍独立逐值验证，最终报告四组通过；原失败提交可追溯。

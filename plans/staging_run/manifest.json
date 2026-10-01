@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T21:46:41.814390+08:00",
+  "updated_at": "2026-10-01T21:47:47.036377+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -8643,18 +8643,18 @@
           "kind": "promotion_preview",
           "passed": true,
           "returncode": 0,
-          "output": "{\r\n  \"tool_id\": \"batch_skin_bind\",\r\n  \"candidate_sha256\": \"faf873a98eef6b4d77487c0d729640cde731b520cb1bfd1712442ec4040ffc30\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\batch_skin_bind.md\",\r\n    \"maya_toolkit\\\\tools\\\\batch_skin_bind\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\batch_skin_bind\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\batch_skin_bind\\\\engine.py\",\r\n    \"maya_toolkit\\\\tools\\\\batch_skin_bind\\\\native_ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\batch_skin_bind\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\batch_skin_bind\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\batch_skin_bind\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\batch_skin_bind\\\\upstream\\\\\\u6279\\u91cf\\u7ed1\\u9aa8\\u5934.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\batch_skin_bind\\\\upstream\\\\\\u751f\\u6210\\u4ee3\\u7406.py.original\",\r\n    \"tests\\\\test_batch_skin_bind.py\",\r\n    \"tests\\\\test_batch_skin_bind_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+          "output": "{\r\n  \"tool_id\": \"batch_skin_bind\",\r\n  \"candidate_sha256\": \"c58d9f786ad0dbcd0eb11431260ac55f103a8a6f2af48b5d0563eba19ab5a7ac\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\batch_skin_bind.md\",\r\n    \"maya_toolkit\\\\tools\\\\batch_skin_bind\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\batch_skin_bind\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\batch_skin_bind\\\\engine.py\",\r\n    \"maya_toolkit\\\\tools\\\\batch_skin_bind\\\\native_ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\batch_skin_bind\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\batch_skin_bind\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\batch_skin_bind\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\batch_skin_bind\\\\upstream\\\\\\u6279\\u91cf\\u7ed1\\u9aa8\\u5934.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\batch_skin_bind\\\\upstream\\\\\\u751f\\u6210\\u4ee3\\u7406.py.original\",\r\n    \"tests\\\\test_batch_skin_bind.py\",\r\n    \"tests\\\\test_batch_skin_bind_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
         },
         {
           "kind": "mayapy_standalone",
           "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
           "test": "tools_staging_pool/02_rigging_hierarchy/batch_skin_bind/release_candidate/tests/test_batch_skin_bind_maya.py",
-          "returncode": 1,
-          "passed": false,
-          "output": "test_all_batch_preflight_rejects_bound_or_hierarchical_or_driven_scale (__main__.MayaChecks.test_all_batch_preflight_rejects_bound_or_hierarchical_or_driven_scale) ... ok\r\ntest_all_proxy_kinds_actual_suffixes_sets_and_constraints (__main__.MayaChecks.test_all_proxy_kinds_actual_suffixes_sets_and_constraints) ... ����: \n����: BatchSkinBindTool_batch_skin_bind\n����: \n����: BatchSkinBindTool_batch_skin_bind\n����: \n����: BatchSkinBindTool_batch_skin_bind\nok\r\ntest_explicit_pairs_one_influence_weights_and_undo_redo (__main__.MayaChecks.test_explicit_pairs_one_influence_weights_and_undo_redo) ... ����: BatchSkinBindTool_batch_skin_bind\n����: BatchSkinBindTool_batch_skin_bind\nok\r\ntest_skinned_proxy_bake_collision_independent_motion_key_removal_undo (__main__.MayaChecks.test_skinned_proxy_bake_collision_independent_motion_key_removal_undo) ... ����: \n����: BatchSkinBindTool_batch_skin_bind\nFAIL\r\n\r\n======================================================================\r\nFAIL: test_skinned_proxy_bake_collision_independent_motion_key_removal_undo (__main__.MayaChecks.test_skinned_proxy_bake_collision_independent_motion_key_removal_undo)\r\n----------------------------------------------------------------------\r\nTraceback (most recent call last):\r\n  File \"E:\\GitHub\\maya_tools_box\\tools_staging_pool\\02_rigging_hierarchy\\batch_skin_bind\\release_candidate\\tests\\test_batch_skin_bind_maya.py\", line 103, in test_skinned_proxy_bake_collision_independent_motion_key_removal_undo\r\n    self.assertEqual(before[0], state()[0])\r\nAssertionError: Lists differ: ['tim[1021 chars]_joint', 'animatedBody_translateX', 'animatedBody_customValue'] != ['tim[1021 chars]_joint', 'animatedBody_customValue', 'animatedBody_translateX']\r\n\r\nFirst differing element 53:\r\n'animatedBody_translateX'\r\n'animatedBody_customValue'\r\n\r\nDiff is 1379 characters long. Set self.maxDiff to None to see it.\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.048s\r\n\r\nFAILED (failures=1)\r\nCreated a joint named source1_joint for the transform node |source1 and applied a parent constraint without maintaining offset.\r\nCreated a locator named source1_locator for the transform node |source1 and applied a parent constraint without maintaining offset.\r\nCreated a cube named source1_cube for the transform node |source1 and applied a parent constraint without maintaining offset.\r\nCreated a joint named animatedBody_joint1 for the transform node |animatedBody and applied a parent constraint without maintaining offset.\r\n",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_all_batch_preflight_rejects_bound_or_hierarchical_or_driven_scale (__main__.MayaChecks.test_all_batch_preflight_rejects_bound_or_hierarchical_or_driven_scale) ... ok\r\ntest_all_proxy_kinds_actual_suffixes_sets_and_constraints (__main__.MayaChecks.test_all_proxy_kinds_actual_suffixes_sets_and_constraints) ... ����: \n����: BatchSkinBindTool_batch_skin_bind\n����: \n����: BatchSkinBindTool_batch_skin_bind\n����: \n����: BatchSkinBindTool_batch_skin_bind\nok\r\ntest_explicit_pairs_one_influence_weights_and_undo_redo (__main__.MayaChecks.test_explicit_pairs_one_influence_weights_and_undo_redo) ... ����: BatchSkinBindTool_batch_skin_bind\n����: BatchSkinBindTool_batch_skin_bind\nok\r\ntest_skinned_proxy_bake_collision_independent_motion_key_removal_undo (__main__.MayaChecks.test_skinned_proxy_bake_collision_independent_motion_key_removal_undo) ... ����: \n����: BatchSkinBindTool_batch_skin_bind\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.051s\r\n\r\nOK\r\nCreated a joint named source1_joint for the transform node |source1 and applied a parent constraint without maintaining offset.\r\nCreated a locator named source1_locator for the transform node |source1 and applied a parent constraint without maintaining offset.\r\nCreated a cube named source1_cube for the transform node |source1 and applied a parent constraint without maintaining offset.\r\nCreated a joint named animatedBody_joint1 for the transform node |animatedBody and applied a parent constraint without maintaining offset.\r\n",
           "gui_acceptance": false,
-          "python_source_sha256": "ca9b45e0b9ad5f6caa77ec3f9df9dd6e3c08c483eb7122baa90f83d74dd9e91f",
-          "runtime_source_sha256": "f2e4518aeb14ce1d7cb2b7ac53d556e588ca804d42a131cbf8941ad20476a9e2"
+          "python_source_sha256": "020edeb37c2a33172fdc35e58eb988018fe36b2f0d1eea64d8b4534c46660c00",
+          "runtime_source_sha256": "9eda923826e30f52994b31519ade19651cf3341508d03c8fc75348982dcc2784"
         },
         {
           "kind": "mayapy_report_matches_candidate",
@@ -8672,7 +8672,7 @@
         {
           "kind": "promoted_layout_offline",
           "passed": true,
-          "candidate_sha256": "faf873a98eef6b4d77487c0d729640cde731b520cb1bfd1712442ec4040ffc30",
+          "candidate_sha256": "c58d9f786ad0dbcd0eb11431260ac55f103a8a6f2af48b5d0563eba19ab5a7ac",
           "returncode": 0,
           "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.002s\r\n\r\nOK\r\n",
           "registry_returncode": 0,
@@ -8710,7 +8710,7 @@
       "acceptance_instructions": "tools_staging_pool/02_rigging_hierarchy/batch_skin_bind/release_candidate/acceptance.md",
       "promotion": {
         "tool_id": "batch_skin_bind",
-        "candidate_sha256": "faf873a98eef6b4d77487c0d729640cde731b520cb1bfd1712442ec4040ffc30",
+        "candidate_sha256": "c58d9f786ad0dbcd0eb11431260ac55f103a8a6f2af48b5d0563eba19ab5a7ac",
         "applied": false,
         "files": [
           "docs\\tools\\batch_skin_bind.md",
@@ -8739,7 +8739,7 @@
       ],
       "source_preserved": true,
       "change_summary": "Both full original prototypes archived. Complete joint/locator/cube proxy functions and original UI with explicit batch joint/mesh capture. Whole-batch preflight, actual created-name mapping, independent baked proxy joints, explicit source animation removal, new skinClusters/sets and Undo/environment restoration.",
-      "prepared_at": "2026-10-01T21:46:40.223023+08:00"
+      "prepared_at": "2026-10-01T21:47:45.386575+08:00"
     },
     {
       "source_path": "02_rigging_hierarchy/bb_tools",

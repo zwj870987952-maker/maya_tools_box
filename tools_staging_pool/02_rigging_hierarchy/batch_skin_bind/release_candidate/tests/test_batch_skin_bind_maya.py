@@ -12,7 +12,7 @@ TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
 
 
 def state():
-    return (cmds.ls(long=True), cmds.currentTime(query=True), cmds.ls(selection=True, long=True), cmds.autoKeyframe(query=True, state=True), cmds.namespaceInfo(currentNamespace=True), cmds.undoInfo(query=True, undoName=True))
+    return (sorted(cmds.ls(long=True)), cmds.currentTime(query=True), cmds.ls(selection=True, long=True), cmds.autoKeyframe(query=True, state=True), cmds.namespaceInfo(currentNamespace=True), cmds.undoInfo(query=True, undoName=True))
 
 
 class MayaChecks(unittest.TestCase):
