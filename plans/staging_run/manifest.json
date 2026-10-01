@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T19:41:32.019692+08:00",
+  "updated_at": "2026-10-01T19:50:15.950853+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/tweener_v1_0_2",
+    "last_completed_tool": "01_animation/velocity_calculator",
     "last_usage": {
-      "five_hour_used_percent": 79.0,
-      "weekly_used_percent": 12.0,
-      "recorded_at": "2026-10-01T19:17:11.172197+08:00",
+      "five_hour_used_percent": 89.0,
+      "weekly_used_percent": 14.0,
+      "recorded_at": "2026-10-01T19:44:17.559987+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/tweener_v1_0_2"
+    "current_tool": "01_animation/velocity_calculator"
   },
   "entry_repairs": [
     {
@@ -8197,7 +8197,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete original 1.0.2 suite ported with all five interpolation algorithms, animation-layer choice, original MPxCommand/MAnimCurveChange Undo, full dockable UI/mouse preview/keyhammer and resources/license. Explicit scoped API/read-only preflight, private namespaces/commands, Qt6/Py3 ports, non-destructive startup; original installer archive only.",
-      "prepared_at": "2026-10-01T19:41:30.295160+08:00"
+      "prepared_at": "2026-10-01T19:41:30.295160+08:00",
+      "source_commit": "495987637a9add9fb2d42f6365837920f4de1ec3"
     },
     {
       "source_path": "01_animation/velocity_calculator",
@@ -8208,20 +8209,84 @@
       "entry_candidates": [
         "maya_velocity_calculator.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "maya_velocity_calculator.py"
       ],
       "license_files": [],
       "entry_sha256": "5f7c76d8d6084025e0eb0b7457ac68b473a955bac30996133c35162c6fa52ca9",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_scope_mode_and_finite_parameter_guards (__main__.Offline.test_scope_mode_and_finite_parameter_guards) ... ok\r\ntest_source_complete_and_original_distance_expression (__main__.Offline.test_source_complete_and_original_distance_expression) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.002s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"velocity_calculator\",\r\n  \"candidate_sha256\": \"6912581407ae5e3ca97c570c1a4b0d71d4e8272d2e259fc8e9e2cec2c2fbfc1b\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\velocity_calculator.md\",\r\n    \"maya_toolkit\\\\tools\\\\velocity_calculator\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\velocity_calculator\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\velocity_calculator\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\velocity_calculator\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\velocity_calculator\\\\upstream\\\\maya_velocity_calculator.py.original\",\r\n    \"tests\\\\test_velocity_calculator.py\",\r\n    \"tests\\\\test_velocity_calculator_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/velocity_calculator/release_candidate/tests/test_velocity_calculator_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_general_time_linear_units_parent_world_and_instance_path (__main__.MayaChecks.test_general_time_linear_units_parent_world_and_instance_path) ... E:\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\velocity_calculator\\release_candidate\\maya_toolkit\\tools\\velocity_calculator\\tool.py:95: DeprecationWarning: Call MPlug::asType() instead. If needed, use MDGContextGuard switch context.\r\n  start = position_at(path, plan['start_frame'])\r\nE:\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\velocity_calculator\\release_candidate\\maya_toolkit\\tools\\velocity_calculator\\tool.py:96: DeprecationWarning: Call MPlug::asType() instead. If needed, use MDGContextGuard switch context.\r\n  end = position_at(path, plan['end_frame'])\r\nok\r\ntest_return_trip_zero_displacement_and_failures_readonly (__main__.MayaChecks.test_return_trip_zero_displacement_and_failures_readonly) ... ok\r\ntest_true_endpoint_and_backward_context_preserve_scene (__main__.MayaChecks.test_true_endpoint_and_backward_context_preserve_scene) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.024s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "25b7295dff46831f69f60cf31a818796c739ae58cd5eb4315ec22d410bd823ff",
+          "runtime_source_sha256": "1d651916a03b5e68cbcdf9d4f2cbbed7f766419fb12331006e4267eff6418f7f"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya two-button UI/inViewMessage and production simulation/cache/context sampling acceptance not_run. Maya2025 warns asMObject(context) is deprecated; current tested API results pass."
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "6912581407ae5e3ca97c570c1a4b0d71d4e8272d2e259fc8e9e2cec2c2fbfc1b",
+          "returncode": 0,
+          "output": "test_scope_mode_and_finite_parameter_guards (__main__.Offline.test_scope_mode_and_finite_parameter_guards) ... ok\r\ntest_source_complete_and_original_distance_expression (__main__.Offline.test_source_complete_and_original_distance_expression) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.002s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI/viewport message and production constraints/simulation sampling not_run",
+        "Average is endpoint displacement magnitude divided by duration, not traveled path length",
+        "Instant is a backward finite difference, not an analytic derivative",
+        "Referenced/locked nodes may be queried but scene dynamics with history/cache need manual validation",
+        "Positive duration required; original zero-duration 0 result deliberately rejected"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -8230,7 +8295,36 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "c08e4dc7603e32f9061a37fa2467f034365a8b3f95f2a67d43add69429873c94"
+      "source_tree_sha256": "d1093d213274ce8a12b998e34a3933da4b0f613ecec789c44bbfd07042323d3f",
+      "candidate_path": "tools_staging_pool/01_animation/velocity_calculator/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/velocity_calculator/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "velocity_calculator",
+        "candidate_sha256": "6912581407ae5e3ca97c570c1a4b0d71d4e8272d2e259fc8e9e2cec2c2fbfc1b",
+        "applied": false,
+        "files": [
+          "docs\\tools\\velocity_calculator.md",
+          "maya_toolkit\\tools\\velocity_calculator\\__init__.py",
+          "maya_toolkit\\tools\\velocity_calculator\\catalog.json",
+          "maya_toolkit\\tools\\velocity_calculator\\tool.py",
+          "maya_toolkit\\tools\\velocity_calculator\\ui.py",
+          "maya_toolkit\\tools\\velocity_calculator\\upstream\\maya_velocity_calculator.py.original",
+          "tests\\test_velocity_calculator.py",
+          "tests\\test_velocity_calculator_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "maya_velocity_calculator.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/API2, no external resources/dependencies"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete original two-button velocity tool archived and adapted. Correct actual start/end samples with read-only MDGContext world matrices, general Maya time and linear unit conversion, explicit bounded inputs/structured results and lazy UI. Does not change timeline, preserves endpoint-distance and backward-difference semantics.",
+      "prepared_at": "2026-10-01T19:50:14.219261+08:00"
     },
     {
       "source_path": "01_animation/w_retarget_tool",

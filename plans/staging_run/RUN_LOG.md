@@ -430,3 +430,9 @@
 - 原keyhammer完整逐curve预计算evaluate后add，修range endIndex漏末帧、selected时间仅来自scope，取消API change回滚、progress finally，batch不建UI。tick原颜色不保证Undo明确；原UI完整toolbar/presets/饼图/dock/偏好/Qt资源，修Py3/Qt6绘制及重复父layout；预设label更新但callback旧值不一致，改当前fraction且仅Between映射，signed模式不二次变换；Shelf显式函数指向完整候选，不自动建Shelf/热键/autoload。
 - 普通Python2组、实际隔离Maya2025六组、临时正式布局注册面板通过。五模式实际value/UndoRedo、未有键插入/撤销、range/连续选键组、keyhammer并集闭区间/外部选键不借用、锁/共享/whole对象解析、actual MAnimCurveChange preview多步取消/提交与UndoRedo、注入keyhammer真实取消rollback均通过。真实简单选中animationLayer解析与Base键不变/Undo、旋转默认插值degree/API单位也通过。两次测试自身错误（Maya实际创建shared1，animLayer curve query返回list）已修为实际返回值，最终报告6passed。
 - 全GUI/idle/window close/mouse/weighted/nonlinear/production层仍not_run，prepared_unverified；现候选完整可晋级，不转正/Obsidian同步/用卡/购买。
+
+## 2026-10-01：速度计算器完整候选，累计49/109
+
+- 原单文件四功能/两按钮与完整距离表达式SHA/AST保留；修原average读current当start/start当end并留时间在end的实际错误，使用MDGContext直接求真start/end worldMatrix。不改timeline、scene keys/selection/Undo，无helper/文件写入；按MDagPath.instanceNumber正确查询实例，引用/锁仅可读不解锁。
+- 完整average endpoint距离/秒及instant backward sample_step差分，结构化单/多对象world位置/向量/标量/units/duration/quantity，默认选择首项和两按钮源语义保留。MTime所有Maya time单位到秒、MDistance内部cm到UI距离单位，不只支持原四fps。正时长/finite/wholetransform/歧义/别名/范围/showResult-batch预检；往返位移0不误称沿路径平均速率。
+- 普通Python2组、实际隔离Maya2025三组和临时正式布局注册panel通过：current9测真1..5结果24cm/s、半帧instant24、不动scene/Undo；父动画film24/ntscf60/120fps与m转换1.2m/s/秒单位、实例另一父分支48cm/s；往返0、零时长/属性/batch消息/GUI拒绝。Maya2025 asMObject(context)发DeprecationWarning，实测读取正确，兼容/未来API复验限制如实记录；GUI/production模拟与缓存未验收，prepared_unverified。无转正/同步/用卡/购买。

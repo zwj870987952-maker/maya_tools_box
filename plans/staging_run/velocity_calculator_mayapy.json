@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/velocity_calculator/release_candidate/tests/test_velocity_calculator_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_general_time_linear_units_parent_world_and_instance_path (__main__.MayaChecks.test_general_time_linear_units_parent_world_and_instance_path) ... E:\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\velocity_calculator\\release_candidate\\maya_toolkit\\tools\\velocity_calculator\\tool.py:95: DeprecationWarning: Call MPlug::asType() instead. If needed, use MDGContextGuard switch context.\r\n  start = position_at(path, plan['start_frame'])\r\nE:\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\velocity_calculator\\release_candidate\\maya_toolkit\\tools\\velocity_calculator\\tool.py:96: DeprecationWarning: Call MPlug::asType() instead. If needed, use MDGContextGuard switch context.\r\n  end = position_at(path, plan['end_frame'])\r\nok\r\ntest_return_trip_zero_displacement_and_failures_readonly (__main__.MayaChecks.test_return_trip_zero_displacement_and_failures_readonly) ... ok\r\ntest_true_endpoint_and_backward_context_preserve_scene (__main__.MayaChecks.test_true_endpoint_and_backward_context_preserve_scene) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.024s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "25b7295dff46831f69f60cf31a818796c739ae58cd5eb4315ec22d410bd823ff",
+  "runtime_source_sha256": "1d651916a03b5e68cbcdf9d4f2cbbed7f766419fb12331006e4267eff6418f7f"
+}

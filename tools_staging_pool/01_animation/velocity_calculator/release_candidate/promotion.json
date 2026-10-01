@@ -1,0 +1,56 @@
+{
+  "tool_id": "velocity_calculator",
+  "registration": {
+    "module": "velocity_calculator",
+    "class_name": "VelocityCalculatorTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/velocity_calculator.md",
+      "target": "docs/tools/velocity_calculator.md"
+    },
+    {
+      "source": "maya_toolkit/tools/velocity_calculator/__init__.py",
+      "target": "maya_toolkit/tools/velocity_calculator/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/velocity_calculator/catalog.json",
+      "target": "maya_toolkit/tools/velocity_calculator/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/velocity_calculator/tool.py",
+      "target": "maya_toolkit/tools/velocity_calculator/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/velocity_calculator/ui.py",
+      "target": "maya_toolkit/tools/velocity_calculator/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/velocity_calculator/upstream/maya_velocity_calculator.py.original",
+      "target": "maya_toolkit/tools/velocity_calculator/upstream/maya_velocity_calculator.py.original"
+    },
+    {
+      "source": "tests/test_velocity_calculator.py",
+      "target": "tests/test_velocity_calculator.py"
+    },
+    {
+      "source": "tests/test_velocity_calculator_maya.py",
+      "target": "tests/test_velocity_calculator_maya.py"
+    }
+  ],
+  "resources": [
+    "maya_velocity_calculator.py"
+  ],
+  "dependencies": [
+    "Maya cmds/API2, no external resources/dependencies"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete original two-button velocity tool archived and adapted. Correct actual start/end samples with read-only MDGContext world matrices, general Maya time and linear unit conversion, explicit bounded inputs/structured results and lazy UI. Does not change timeline, preserves endpoint-distance and backward-difference semantics.",
+  "verification_limitations": [
+    "Real Maya GUI/viewport message and production constraints/simulation sampling not_run",
+    "Average is endpoint displacement magnitude divided by duration, not traveled path length",
+    "Instant is a backward finite difference, not an analytic derivative",
+    "Referenced/locked nodes may be queried but scene dynamics with history/cache need manual validation",
+    "Positive duration required; original zero-duration 0 result deliberately rejected"
+  ]
+}
