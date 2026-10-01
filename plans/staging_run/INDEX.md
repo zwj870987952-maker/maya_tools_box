@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-02T03:55:42.075399+08:00
+更新时间：2026-10-02T04:12:00.287932+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -72,7 +72,7 @@
 | `03_transforms_modeling/camera_f_fix` | prepared_unverified | True | True | not_run |
 | `03_transforms_modeling/cvwrap_weightdriver` | prepared_unverified | True | True | not_run |
 | `03_transforms_modeling/eblabs_world_space_tools` | prepared_unverified | True | True | not_run |
-| `03_transforms_modeling/fcm_hider` | pending | True | False | not_run |
+| `03_transforms_modeling/fcm_hider` | prepared_unverified | True | True | not_run |
 | `03_transforms_modeling/gpu_cache_to_mesh` | pending | True | False | not_run |
 | `03_transforms_modeling/isolate_selected` | pending | True | False | not_run |
 | `03_transforms_modeling/mirror_tool` | pending | True | False | not_run |

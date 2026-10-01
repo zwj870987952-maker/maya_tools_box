@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/03_transforms_modeling/fcm_hider/release_candidate/tests/test_fcm_hider_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "���: R_armShapeHiddenFacesSet\n���: defaultHideFaceDataSet\n���: R_armShapeHiddenFacesSet\n���: R_armShapeHiddenFacesSet\n���: defaultLastHiddenSet\n����: FcmHiderTool_fcm_hider\n..����: FcmHiderTool_fcm_hider\n.����: FcmHiderTool_fcm_hider\n.\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.127s\r\n\r\nOK\r\nSet hidden Set Visible Set hidden Set hidden Set hidden Set Visible Set hidden Set hidden Set hidden Set hidden Set hidden Set hidden Set hidden Set hidden Set hidden Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set hidden Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible All Body sets removed Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible All Body sets removed Set Visible Set Visible Set Visible All Extra sets removed everything related to FCM_Hider Removed ",
+  "gui_acceptance": false,
+  "python_source_sha256": "992db3ee40e8104f772da89900c7c990e64355bd448e18f67a9a1076bd072a28",
+  "runtime_source_sha256": "fdbb1365ad4726ccc49abc490c53af0eff7e885da60b6520b40e97b3980d0be1"
+}

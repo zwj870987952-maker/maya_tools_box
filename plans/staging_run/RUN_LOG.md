@@ -587,3 +587,11 @@
 - 用户AppDir自动prefs改session+显式JSON独占输出，eval改literal_eval；去全局pane/isolate/长期chunks，finally恢复time/selection/AutoKey/namespace/animBlendingOpt。原clipboard/buffer/tangent影响明确，不假称全局可Undo。
 - 2离线+4隔离Maya2025+临时正式布局/注册/animation/panel/fingerprint通过。实际world/parent/local动画值/keytime/dry与Undo、原对象重命名UUID回烘；多目标copy/paths/逐帧1..5，共享curve/foreign child/实例/锁/错scope/Beta和GUIbatch拒绝。修正Maya属性通配漏owned DAG导致清理拒绝，按实际UUID节点查owner后通过，不伪造fixture。
 - GUI/生产IK/pathLocator/COG/gimbal/Beta与跨版本not_run，prepared_unverified。实际5h47%已用、周38%，立即继续FCM Hider；heartbeat暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：FCM Hider完整候选，累计68/109
+
+- shelf TXT完整1309行Py2业务转私有Py3，原57文件/54PNG/58定义SHA归档；完整9成员集合、All/settings、紧凑UI及所有右键/shape/面/visibility/镜像/选择/锁/检查/帮助/联系保留。三帮助图片原缺，提供文字帮助、不伪造原图；原安装器不执行，不写shelf/usericons。
+- Base/Schema/只读scope/Undo；私有mtbFCM namespace与逐节点owner，异源collision/失效成员/引用/锁/驱动/真实例拒绝。全部UI固定源回调callable/private、不污染__main__。任意外部Pythonexec集合改严格JSON独占输出，legacy .py拒绝。全scene unlock/show/delete改成员/全覆盖layer/确切owned系统范围，foreignchild/aggregateforeign/consumer拒绝清理。
+- 原All WIP接现有完整全部显示；namespace非幂等/clear短名查询、r_左模式、空ls(None)全场景风险修复。面hide只指定原成员，去修改最后面fallback；face镜像改局部X唯一顶点/拓扑映射，全表预检；原UI选择mask/color/clipboard外部状态及partial失败Undo说明明确。
+- 2离线+4隔离Maya2025+临时正式布局/注册/modeling_surfacing/panel/fingerprint通过，真实membership/visibility/隐藏face/dry/单Undo、mirror命名/JSON往返/不覆盖、无关网格unlock保持、collision/foreignchild/锁/GUIbatch拒绝。实际面镜像/完整GUI/生产rig和跨版本not_run，prepared_unverified。
+- 实际5h55%已用、周39%，立即继续GPU Cache to Mesh；heartbeat暂停，不迁正式/同步/用卡/购买。

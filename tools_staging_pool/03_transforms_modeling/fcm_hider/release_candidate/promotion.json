@@ -1,0 +1,347 @@
+{
+  "tool_id": "fcm_hider",
+  "registration": {
+    "module": "fcm_hider",
+    "class_name": "FcmHiderTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/fcm_hider.md",
+      "target": "docs/tools/fcm_hider.md"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/__init__.py",
+      "target": "maya_toolkit/tools/fcm_hider/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/catalog.json",
+      "target": "maya_toolkit/tools/fcm_hider/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/native.py",
+      "target": "maya_toolkit/tools/fcm_hider/native.py"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/proxy.py",
+      "target": "maya_toolkit/tools/fcm_hider/proxy.py"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/runtime.py",
+      "target": "maya_toolkit/tools/fcm_hider/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/tool.py",
+      "target": "maya_toolkit/tools/fcm_hider/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Drag_and_drop_Install_FCM_Hider.mel",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Drag_and_drop_Install_FCM_Hider.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/FCM_Hider Shelf Button.txt",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/FCM_Hider Shelf Button.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/All_Sets_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/All_Sets_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/All_Sets_Hider_Empty.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/All_Sets_Hider_Empty.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/All_Sets_Hider_Off.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/All_Sets_Hider_Off.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Arm_L_Hider-1.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Arm_L_Hider-1.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Arm_L_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Arm_L_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Arm_L_Hider_Empty.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Arm_L_Hider_Empty.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Arm_L_Hider_Off.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Arm_L_Hider_Off.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Arm_R_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Arm_R_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Arm_R_Hider_Empty.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Arm_R_Hider_Empty.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Arm_R_Hider_Off.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Arm_R_Hider_Off.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Contract_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Contract_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Expand_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Expand_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Extra_Functions_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Extra_Functions_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Extra_One_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Extra_One_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Extra_One_Hider_Empty.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Extra_One_Hider_Empty.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Extra_One_Hider_Off.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Extra_One_Hider_Off.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Extra_Three_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Extra_Three_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Extra_Three_Hider_Empty.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Extra_Three_Hider_Empty.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Extra_Three_Hider_Off.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Extra_Three_Hider_Off.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Extra_Two_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Extra_Two_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Extra_Two_Hider_Empty.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Extra_Two_Hider_Empty.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Extra_Two_Hider_Off.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Extra_Two_Hider_Off.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Grow_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Grow_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Head_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Head_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Head_Hider_Empty.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Head_Hider_Empty.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Head_Hider_Off.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Head_Hider_Off.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Hider_Icon.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Hider_Icon.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Leg_L_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Leg_L_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Leg_L_Hider_Empty.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Leg_L_Hider_Empty.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Leg_L_Hider_Off.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Leg_L_Hider_Off.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Leg_R_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Leg_R_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Leg_R_Hider_Empty.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Leg_R_Hider_Empty.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Leg_R_Hider_Off.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Leg_R_Hider_Off.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Lock_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Lock_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Mirror_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Mirror_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/ObjectMode_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/ObjectMode_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Only_Faces_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Only_Faces_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Only_NurbsCurve_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Only_NurbsCurve_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/PolyColorSel_Default_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/PolyColorSel_Default_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/PolyColorSel_Green_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/PolyColorSel_Green_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/PolyColorSel_Red_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/PolyColorSel_Red_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/PopUp_Add_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/PopUp_Add_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/PopUp_Remove_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/PopUp_Remove_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/PopUp_RemoveSet_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/PopUp_RemoveSet_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/PopUp_SelectSet_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/PopUp_SelectSet_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Remove_All_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Remove_All_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Show_All_Hidden_Faces_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Show_All_Hidden_Faces_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Shrink_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Shrink_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Template_Line_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Template_Line_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Torso_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Torso_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Torso_Hider_Empty.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Torso_Hider_Empty.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Torso_Hider_Off.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Torso_Hider_Off.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Unlock_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Unlock_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Unlock_VisMeshes_Hider.png",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Icons_Hider/Unlock_VisMeshes_Hider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/fcm_hider/upstream/Read me.txt",
+      "target": "maya_toolkit/tools/fcm_hider/upstream/Read me.txt"
+    },
+    {
+      "source": "tests/test_fcm_hider.py",
+      "target": "tests/test_fcm_hider.py"
+    },
+    {
+      "source": "tests/test_fcm_hider_maya.py",
+      "target": "tests/test_fcm_hider_maya.py"
+    }
+  ],
+  "resources": [
+    "Drag_and_drop_Install_FCM_Hider.mel",
+    "FCM_Hider Shelf Button.txt",
+    "Icons_Hider/All_Sets_Hider.png",
+    "Icons_Hider/All_Sets_Hider_Empty.png",
+    "Icons_Hider/All_Sets_Hider_Off.png",
+    "Icons_Hider/Arm_L_Hider-1.png",
+    "Icons_Hider/Arm_L_Hider.png",
+    "Icons_Hider/Arm_L_Hider_Empty.png",
+    "Icons_Hider/Arm_L_Hider_Off.png",
+    "Icons_Hider/Arm_R_Hider.png",
+    "Icons_Hider/Arm_R_Hider_Empty.png",
+    "Icons_Hider/Arm_R_Hider_Off.png",
+    "Icons_Hider/Contract_Hider.png",
+    "Icons_Hider/Expand_Hider.png",
+    "Icons_Hider/Extra_Functions_Hider.png",
+    "Icons_Hider/Extra_One_Hider.png",
+    "Icons_Hider/Extra_One_Hider_Empty.png",
+    "Icons_Hider/Extra_One_Hider_Off.png",
+    "Icons_Hider/Extra_Three_Hider.png",
+    "Icons_Hider/Extra_Three_Hider_Empty.png",
+    "Icons_Hider/Extra_Three_Hider_Off.png",
+    "Icons_Hider/Extra_Two_Hider.png",
+    "Icons_Hider/Extra_Two_Hider_Empty.png",
+    "Icons_Hider/Extra_Two_Hider_Off.png",
+    "Icons_Hider/Grow_Hider.png",
+    "Icons_Hider/Head_Hider.png",
+    "Icons_Hider/Head_Hider_Empty.png",
+    "Icons_Hider/Head_Hider_Off.png",
+    "Icons_Hider/Hider_Icon.png",
+    "Icons_Hider/Leg_L_Hider.png",
+    "Icons_Hider/Leg_L_Hider_Empty.png",
+    "Icons_Hider/Leg_L_Hider_Off.png",
+    "Icons_Hider/Leg_R_Hider.png",
+    "Icons_Hider/Leg_R_Hider_Empty.png",
+    "Icons_Hider/Leg_R_Hider_Off.png",
+    "Icons_Hider/Lock_Hider.png",
+    "Icons_Hider/Mirror_Hider.png",
+    "Icons_Hider/ObjectMode_Hider.png",
+    "Icons_Hider/Only_Faces_Hider.png",
+    "Icons_Hider/Only_NurbsCurve_Hider.png",
+    "Icons_Hider/PolyColorSel_Default_Hider.png",
+    "Icons_Hider/PolyColorSel_Green_Hider.png",
+    "Icons_Hider/PolyColorSel_Red_Hider.png",
+    "Icons_Hider/PopUp_Add_Hider.png",
+    "Icons_Hider/PopUp_Remove_Hider.png",
+    "Icons_Hider/PopUp_RemoveSet_Hider.png",
+    "Icons_Hider/PopUp_SelectSet_Hider.png",
+    "Icons_Hider/Remove_All_Hider.png",
+    "Icons_Hider/Show_All_Hidden_Faces_Hider.png",
+    "Icons_Hider/Shrink_Hider.png",
+    "Icons_Hider/Template_Line_Hider.png",
+    "Icons_Hider/Torso_Hider.png",
+    "Icons_Hider/Torso_Hider_Empty.png",
+    "Icons_Hider/Torso_Hider_Off.png",
+    "Icons_Hider/Unlock_Hider.png",
+    "Icons_Hider/Unlock_VisMeshes_Hider.png",
+    "Read me.txt"
+  ],
+  "dependencies": [
+    "Maya cmds/MEL/API2; original native Maya UI",
+    "Existing Base/Undo framework"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Full original shelf embedded Python2 source/UI/functions and all supplied icons preserved, private Python3 native runtime, explicit owned namespace/set scope, JSON data IO replacing arbitrary Python execution, no global scene unlock/show/delete, topology-safe mirror membership, callable private UI callbacks, full protocol/docs/tests/promotion.",
+  "verification_limitations": [
+    "Actual full GUI/face hiding/polygon holes/mirror/selection mask/rig scene acceptance not_run",
+    "Original help images absent; complete textual help replaces missing artwork",
+    "Legacy .py set files deliberately unsupported, convert only in trusted original environment",
+    "Component hide/polyHole may change mesh hidden-face data; scene backup and actual Undo required",
+    "Selection modes/display color/reflection and original UI effects require manual restoration",
+    "Original global unlock/show actions now limited to candidate system members and privately covered layers",
+    "No installation of shelf/icons/user files; no public publication rights inferred"
+  ]
+}

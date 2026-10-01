@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T03:55:42.075399+08:00",
+  "updated_at": "2026-10-02T04:12:00.287932+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "03_transforms_modeling/eblabs_world_space_tools",
+    "last_completed_tool": "03_transforms_modeling/fcm_hider",
     "last_usage": {
-      "five_hour_used_percent": 39.0,
-      "weekly_used_percent": 37.0,
-      "recorded_at": "2026-10-02T03:39:15.271898+08:00",
+      "five_hour_used_percent": 47.0,
+      "weekly_used_percent": 38.0,
+      "recorded_at": "2026-10-02T03:56:38.830674+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "03_transforms_modeling/eblabs_world_space_tools"
+    "current_tool": "03_transforms_modeling/fcm_hider"
   },
   "entry_repairs": [
     {
@@ -14346,7 +14346,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete supplied WorldSpaceTools/Hub/assets and all legacy classes/methods preserved, self-contained metadata and session preferences, all original legacy UI and world/parent/local/IK/path/COG/gimbal/copy business, explicit API, guarded native callbacks, UUID helper ownership and cleanup, Undo/finally, full docs/tests/registration/promotion.",
-      "prepared_at": "2026-10-02T03:55:39.370108+08:00"
+      "prepared_at": "2026-10-02T03:55:39.370108+08:00",
+      "source_commit": "69eae0a95f042954605670543d20e33e37dd5e60"
     },
     {
       "source_path": "03_transforms_modeling/fcm_hider",
@@ -14357,19 +14358,85 @@
       "entry_candidates": [
         "FCM_Hider Install/Drag_and_drop_Install_FCM_Hider.mel"
       ],
-      "source_file_count": 57,
+      "source_file_count": 58,
       "source_files": [
         "FCM_Hider Install/Drag_and_drop_Install_FCM_Hider.mel"
       ],
       "license_files": [],
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.016s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"fcm_hider\",\r\n  \"candidate_sha256\": \"37a544ba973e4502ae8a1933d3c9e93c8b06efb65d5eae5271880f28a9e54289\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\fcm_hider.md\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\native.py\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\proxy.py\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Drag_and_drop_Install_FCM_Hider.mel\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\FCM_Hider Shelf Button.txt\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\All_Sets_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\All_Sets_Hider_Empty.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\All_Sets_Hider_Off.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Arm_L_Hider-1.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Arm_L_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Arm_L_Hider_Empty.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Arm_L_Hider_Off.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Arm_R_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Arm_R_Hider_Empty.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Arm_R_Hider_Off.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Contract_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Expand_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Extra_Functions_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Extra_One_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Extra_One_Hider_Empty.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Extra_One_Hider_Off.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Extra_Three_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Extra_Three_Hider_Empty.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Extra_Three_Hider_Off.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Extra_Two_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Extra_Two_Hider_Empty.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Extra_Two_Hider_Off.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Grow_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Head_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Head_Hider_Empty.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Head_Hider_Off.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Hider_Icon.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Leg_L_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Leg_L_Hider_Empty.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Leg_L_Hider_Off.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Leg_R_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Leg_R_Hider_Empty.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Leg_R_Hider_Off.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Lock_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Mirror_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\ObjectMode_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Only_Faces_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Only_NurbsCurve_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\PolyColorSel_Default_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\PolyColorSel_Green_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\PolyColorSel_Red_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\PopUp_Add_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\PopUp_Remove_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\PopUp_RemoveSet_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\PopUp_SelectSet_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Remove_All_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Show_All_Hidden_Faces_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Shrink_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Template_Line_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Torso_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Torso_Hider_Empty.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Torso_Hider_Off.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Unlock_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Icons_Hider\\\\Unlock_VisMeshes_Hider.png\",\r\n    \"maya_toolkit\\\\tools\\\\fcm_hider\\\\upstream\\\\Read me.txt\",\r\n    \"tests\\\\test_fcm_hider.py\",\r\n    \"tests\\\\test_fcm_hider_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/03_transforms_modeling/fcm_hider/release_candidate/tests/test_fcm_hider_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "���: R_armShapeHiddenFacesSet\n���: defaultHideFaceDataSet\n���: R_armShapeHiddenFacesSet\n���: R_armShapeHiddenFacesSet\n���: defaultLastHiddenSet\n����: FcmHiderTool_fcm_hider\n..����: FcmHiderTool_fcm_hider\n.����: FcmHiderTool_fcm_hider\n.\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.127s\r\n\r\nOK\r\nSet hidden Set Visible Set hidden Set hidden Set hidden Set Visible Set hidden Set hidden Set hidden Set hidden Set hidden Set hidden Set hidden Set hidden Set hidden Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set hidden Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible All Body sets removed Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible Set Visible All Body sets removed Set Visible Set Visible Set Visible All Extra sets removed everything related to FCM_Hider Removed ",
+          "gui_acceptance": false,
+          "python_source_sha256": "992db3ee40e8104f772da89900c7c990e64355bd448e18f67a9a1076bd072a28",
+          "runtime_source_sha256": "fdbb1365ad4726ccc49abc490c53af0eff7e885da60b6520b40e97b3980d0be1"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Actual complete Maya UI, mirrored face topology and production rig/hidden face viewport workflows not_run. Original help artwork missing; explicit text replacement supplied."
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "37a544ba973e4502ae8a1933d3c9e93c8b06efb65d5eae5271880f28a9e54289",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.016s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Actual full GUI/face hiding/polygon holes/mirror/selection mask/rig scene acceptance not_run",
+        "Original help images absent; complete textual help replaces missing artwork",
+        "Legacy .py set files deliberately unsupported, convert only in trusted original environment",
+        "Component hide/polyHole may change mesh hidden-face data; scene backup and actual Undo required",
+        "Selection modes/display color/reflection and original UI effects require manual restoration",
+        "Original global unlock/show actions now limited to candidate system members and privately covered layers",
+        "No installation of shelf/icons/user files; no public publication rights inferred"
+      ],
       "entry_review": {
         "evidence": "Only MEL source is installer; contains sysFile and shelfButton writes and embedded tool code. Do not execute as an unattended validation step.",
         "kind": "installer_with_embedded_tool",
@@ -14384,7 +14451,151 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "adcff283c95ba6fd13989fa4d57711876f8219ed02329002f23da8e8f606d17c"
+      "source_tree_sha256": "58a31332be3ae3af425445f76380b140755a9d479049940e567fba05d0dc143a",
+      "candidate_path": "tools_staging_pool/03_transforms_modeling/fcm_hider/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/03_transforms_modeling/fcm_hider/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "fcm_hider",
+        "candidate_sha256": "37a544ba973e4502ae8a1933d3c9e93c8b06efb65d5eae5271880f28a9e54289",
+        "applied": false,
+        "files": [
+          "docs\\tools\\fcm_hider.md",
+          "maya_toolkit\\tools\\fcm_hider\\__init__.py",
+          "maya_toolkit\\tools\\fcm_hider\\catalog.json",
+          "maya_toolkit\\tools\\fcm_hider\\native.py",
+          "maya_toolkit\\tools\\fcm_hider\\proxy.py",
+          "maya_toolkit\\tools\\fcm_hider\\runtime.py",
+          "maya_toolkit\\tools\\fcm_hider\\tool.py",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Drag_and_drop_Install_FCM_Hider.mel",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\FCM_Hider Shelf Button.txt",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\All_Sets_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\All_Sets_Hider_Empty.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\All_Sets_Hider_Off.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Arm_L_Hider-1.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Arm_L_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Arm_L_Hider_Empty.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Arm_L_Hider_Off.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Arm_R_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Arm_R_Hider_Empty.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Arm_R_Hider_Off.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Contract_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Expand_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Extra_Functions_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Extra_One_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Extra_One_Hider_Empty.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Extra_One_Hider_Off.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Extra_Three_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Extra_Three_Hider_Empty.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Extra_Three_Hider_Off.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Extra_Two_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Extra_Two_Hider_Empty.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Extra_Two_Hider_Off.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Grow_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Head_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Head_Hider_Empty.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Head_Hider_Off.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Hider_Icon.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Leg_L_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Leg_L_Hider_Empty.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Leg_L_Hider_Off.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Leg_R_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Leg_R_Hider_Empty.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Leg_R_Hider_Off.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Lock_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Mirror_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\ObjectMode_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Only_Faces_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Only_NurbsCurve_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\PolyColorSel_Default_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\PolyColorSel_Green_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\PolyColorSel_Red_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\PopUp_Add_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\PopUp_Remove_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\PopUp_RemoveSet_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\PopUp_SelectSet_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Remove_All_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Show_All_Hidden_Faces_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Shrink_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Template_Line_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Torso_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Torso_Hider_Empty.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Torso_Hider_Off.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Unlock_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Icons_Hider\\Unlock_VisMeshes_Hider.png",
+          "maya_toolkit\\tools\\fcm_hider\\upstream\\Read me.txt",
+          "tests\\test_fcm_hider.py",
+          "tests\\test_fcm_hider_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "Drag_and_drop_Install_FCM_Hider.mel",
+        "FCM_Hider Shelf Button.txt",
+        "Icons_Hider/All_Sets_Hider.png",
+        "Icons_Hider/All_Sets_Hider_Empty.png",
+        "Icons_Hider/All_Sets_Hider_Off.png",
+        "Icons_Hider/Arm_L_Hider-1.png",
+        "Icons_Hider/Arm_L_Hider.png",
+        "Icons_Hider/Arm_L_Hider_Empty.png",
+        "Icons_Hider/Arm_L_Hider_Off.png",
+        "Icons_Hider/Arm_R_Hider.png",
+        "Icons_Hider/Arm_R_Hider_Empty.png",
+        "Icons_Hider/Arm_R_Hider_Off.png",
+        "Icons_Hider/Contract_Hider.png",
+        "Icons_Hider/Expand_Hider.png",
+        "Icons_Hider/Extra_Functions_Hider.png",
+        "Icons_Hider/Extra_One_Hider.png",
+        "Icons_Hider/Extra_One_Hider_Empty.png",
+        "Icons_Hider/Extra_One_Hider_Off.png",
+        "Icons_Hider/Extra_Three_Hider.png",
+        "Icons_Hider/Extra_Three_Hider_Empty.png",
+        "Icons_Hider/Extra_Three_Hider_Off.png",
+        "Icons_Hider/Extra_Two_Hider.png",
+        "Icons_Hider/Extra_Two_Hider_Empty.png",
+        "Icons_Hider/Extra_Two_Hider_Off.png",
+        "Icons_Hider/Grow_Hider.png",
+        "Icons_Hider/Head_Hider.png",
+        "Icons_Hider/Head_Hider_Empty.png",
+        "Icons_Hider/Head_Hider_Off.png",
+        "Icons_Hider/Hider_Icon.png",
+        "Icons_Hider/Leg_L_Hider.png",
+        "Icons_Hider/Leg_L_Hider_Empty.png",
+        "Icons_Hider/Leg_L_Hider_Off.png",
+        "Icons_Hider/Leg_R_Hider.png",
+        "Icons_Hider/Leg_R_Hider_Empty.png",
+        "Icons_Hider/Leg_R_Hider_Off.png",
+        "Icons_Hider/Lock_Hider.png",
+        "Icons_Hider/Mirror_Hider.png",
+        "Icons_Hider/ObjectMode_Hider.png",
+        "Icons_Hider/Only_Faces_Hider.png",
+        "Icons_Hider/Only_NurbsCurve_Hider.png",
+        "Icons_Hider/PolyColorSel_Default_Hider.png",
+        "Icons_Hider/PolyColorSel_Green_Hider.png",
+        "Icons_Hider/PolyColorSel_Red_Hider.png",
+        "Icons_Hider/PopUp_Add_Hider.png",
+        "Icons_Hider/PopUp_Remove_Hider.png",
+        "Icons_Hider/PopUp_RemoveSet_Hider.png",
+        "Icons_Hider/PopUp_SelectSet_Hider.png",
+        "Icons_Hider/Remove_All_Hider.png",
+        "Icons_Hider/Show_All_Hidden_Faces_Hider.png",
+        "Icons_Hider/Shrink_Hider.png",
+        "Icons_Hider/Template_Line_Hider.png",
+        "Icons_Hider/Torso_Hider.png",
+        "Icons_Hider/Torso_Hider_Empty.png",
+        "Icons_Hider/Torso_Hider_Off.png",
+        "Icons_Hider/Unlock_Hider.png",
+        "Icons_Hider/Unlock_VisMeshes_Hider.png",
+        "Read me.txt"
+      ],
+      "external_dependencies": [
+        "Maya cmds/MEL/API2; original native Maya UI",
+        "Existing Base/Undo framework"
+      ],
+      "source_preserved": true,
+      "change_summary": "Full original shelf embedded Python2 source/UI/functions and all supplied icons preserved, private Python3 native runtime, explicit owned namespace/set scope, JSON data IO replacing arbitrary Python execution, no global scene unlock/show/delete, topology-safe mirror membership, callable private UI callbacks, full protocol/docs/tests/promotion.",
+      "prepared_at": "2026-10-02T04:11:57.507998+08:00"
     },
     {
       "source_path": "03_transforms_modeling/gpu_cache_to_mesh",
