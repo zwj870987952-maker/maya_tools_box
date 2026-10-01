@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/02_rigging_hierarchy/relationship_tools_v19/release_candidate/tests/test_relationship_tools_v19_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_align_key_only_empty_no_dense_bake_single_layer_and_restore (__main__.MayaChecks.test_align_key_only_empty_no_dense_bake_single_layer_and_restore) ... ����: û���ҵ���Ҫ������֡\n����: RelationshipToolsTool_relationship_tools_v19\n����: ����3��֡��ִ�ж�֡����\n����: �����Ż��ؼ�֡����1��3\n����: RelationshipToolsTool_relationship_tools_v19\nok\r\ntest_foreign_name_child_output_instance_lock_and_cache_no_dry_writes (__main__.MayaChecks.test_foreign_name_child_output_instance_lock_and_cache_no_dry_writes) ... ok\r\ntest_mark_foot_static_and_animated_exclusive_samples_endpoint (__main__.MayaChecks.test_mark_foot_static_and_animated_exclusive_samples_endpoint) ... ok\r\ntest_owned_mark_source_messages_motion_step_undo_and_cleanup_foreign_preserved (__main__.MayaChecks.test_owned_mark_source_messages_motion_step_undo_and_cleanup_foreign_preserved) ... ����: RelationshipToolsTool_relationship_tools_v19\n����: RelationshipToolsTool_relationship_tools_v19\nok\r\ntest_world_copy_uuid_rename_paste_range_disabled_keys_and_pose_files (__main__.MayaChecks.test_world_copy_uuid_rename_paste_range_disabled_keys_and_pose_files) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.080s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "5c684dcc9bf827f8a15376106966f09224e830e3b623d33cd3f1f3022e05a449",
+  "runtime_source_sha256": "7ee328f31815d608c99af260ead6f283a4f63211c17be166ca932ba7485dddb8"
+}

@@ -513,3 +513,10 @@
 - 74原模块在真实隔离Maya2025import不改scene/环境，12模块因PyMel或pyside2uic延后；PyMel缺失明确失败，无stub/GUI模拟。两组普通Python+七组真实Maya通过：全部11原曲线模式位置/Undo、Box显式创建/UndoRedo、原颜色/骨骼轴/dry/scope、RootAuto/Offset真实分组/Undo、全场景曲线JSON重复不累积/不覆盖、实例/锁/空scope。初次fixture source→实际source1修正，完整import曾发现scene变量表达式误判常量，改仅字面量/Qt别名后所有复跑通过。
 - 原CurveToJson/UItoPY硬编码输出改明确绝对独占新文件/明确.ui输入，保留原算法、文件不受Undo，Maya权重GUI对话框留待临时目录验收；原未随包提供RdMTools Legacy/旧Picker图片/开发模板列明，不假造补齐资产。临时正式布局/注册/rigging域/Schema/panel与fingerprint匹配。
 - 完整Qt/PyMel/AutoRig/Facial/skin/IKFK/生产及跨版本not_run，prepared_unverified。实际额度5h已用69%、周26%，继续第58项；heartbeat暂停，不迁正式库/Obsidian/用卡/购买。
+# 2026-10-02：Relationship Tools v19完整候选，累计58/109
+
+- 原50方法/完整布局/源码历史SHA保留，去自动窗口；全部原mark/foot/ani/world pose/one-more/align/layer流程有完整API与GUI路由，不做假的batch UI。
+- 原全场景suffix删除改ownership/role/message来源，完整mark形状/约束/动画曲线一并owned；外来名称/子节点/外部驱动/锁引用保护，UUID缓存取代共用系统temp，独占显式JSON导出/限大小/有限三坐标/原UUID整体预检导入。
+- 统一[start,end)，MarkAni不多一帧；先step采样、保留end-1，不cut旧对象键/禁用TR/scale/custom/范围外键，key-only空范围no-op；保留原六次世界pose/层级算法并检查收敛。避免写入者移动自己的mark driver或Align下面目标，真实实例/普通独立time动画输入/锁引用检查。新override层只加入所选TR、不异常重复执行，旧preferred/selected恢复。
+- 两组普通Python+五组真实隔离Maya2025通过：父移动mark/step/Undo与owned删除/Undo/外来suffix保留、Foot/MarkAni真实curve exclusive键、UUID改名世界pose/采样/未选属性与外键保留/JSON独占NaN拒绝、Align空key-only/单帧/多帧新layer真实数值+Undo、外来节点/锁/实例/GUI拒绝。锁定mark的transform keyframe查询返回None，改查询其真实连接animCurve证实实际键，未伪造通过。临时正式布局/rigging/注册/Schema/panel与fingerprint通过。
+- API最终恢复time/UUID selection/namespace/autokey/evaluation/refresh原暂停状态；GUI成功step保留+1，失败不advance。文件与Python缓存不承诺Undo，真实GUI/生产rig/复杂layer/跨版本not_run，prepared_unverified。实际5h已用77%、周27%，继续第59项，heartbeat暂停；不迁正式库/同步/用卡/购买。

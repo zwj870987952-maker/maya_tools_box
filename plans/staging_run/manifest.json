@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T23:53:04.095522+08:00",
+  "updated_at": "2026-10-02T00:17:04.088221+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "02_rigging_hierarchy/rdm_tools_v2",
+    "last_completed_tool": "02_rigging_hierarchy/relationship_tools_v19",
     "last_usage": {
-      "five_hour_used_percent": 59.0,
-      "weekly_used_percent": 25.0,
-      "recorded_at": "2026-10-01T23:30:47.001244+08:00",
+      "five_hour_used_percent": 77.0,
+      "weekly_used_percent": 27.0,
+      "recorded_at": "2026-10-02T00:16:32.323933+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "02_rigging_hierarchy/rdm_tools_v2"
+    "current_tool": "02_rigging_hierarchy/reparent_pro_v1_5_1"
   },
   "entry_repairs": [
     {
@@ -10274,7 +10274,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete original distribution, docs/UI/icons, all Python functions/classes and legacy script logic preserved in Python3 candidate; import-time scene actions deferred to explicit run_script, full original UI redirected to bundled resources, Qt compatibility and isolated namespaced imports, typed function/script API with read-only inspect/dry, Undo/context restoration and exclusive explicit outputs. No installer/user scripts write.",
-      "prepared_at": "2026-10-01T23:53:02.237251+08:00"
+      "prepared_at": "2026-10-01T23:53:02.237251+08:00",
+      "source_commit": "751f3b821db09289f3cf75c486d37e8076e196b6"
     },
     {
       "source_path": "02_rigging_hierarchy/relationship_tools_v19",
@@ -10285,20 +10286,82 @@
       "entry_candidates": [
         "Relationship Tools_v19.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "Relationship Tools_v19.py"
       ],
       "license_files": [],
       "entry_sha256": "e07c400caa1ac56c3e2ce5bae6c7e81e677d5c28e2c036c7af991d46ce091c78",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.006s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"relationship_tools_v19\",\r\n  \"candidate_sha256\": \"1bf0f12abd7c6e12a40c584d353039dc6d63331fdb16be7edc51e56c03d9eb32\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\relationship_tools_v19.md\",\r\n    \"maya_toolkit\\\\tools\\\\relationship_tools_v19\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\relationship_tools_v19\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\relationship_tools_v19\\\\engine.py\",\r\n    \"maya_toolkit\\\\tools\\\\relationship_tools_v19\\\\original_logic.py\",\r\n    \"maya_toolkit\\\\tools\\\\relationship_tools_v19\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\relationship_tools_v19\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\relationship_tools_v19\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\relationship_tools_v19\\\\vendor\\\\Relationship Tools_v19.py.original\",\r\n    \"tests\\\\test_relationship_tools_v19.py\",\r\n    \"tests\\\\test_relationship_tools_v19_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/02_rigging_hierarchy/relationship_tools_v19/release_candidate/tests/test_relationship_tools_v19_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_align_key_only_empty_no_dense_bake_single_layer_and_restore (__main__.MayaChecks.test_align_key_only_empty_no_dense_bake_single_layer_and_restore) ... ����: û���ҵ���Ҫ������֡\n����: RelationshipToolsTool_relationship_tools_v19\n����: ����3��֡��ִ�ж�֡����\n����: �����Ż��ؼ�֡����1��3\n����: RelationshipToolsTool_relationship_tools_v19\nok\r\ntest_foreign_name_child_output_instance_lock_and_cache_no_dry_writes (__main__.MayaChecks.test_foreign_name_child_output_instance_lock_and_cache_no_dry_writes) ... ok\r\ntest_mark_foot_static_and_animated_exclusive_samples_endpoint (__main__.MayaChecks.test_mark_foot_static_and_animated_exclusive_samples_endpoint) ... ok\r\ntest_owned_mark_source_messages_motion_step_undo_and_cleanup_foreign_preserved (__main__.MayaChecks.test_owned_mark_source_messages_motion_step_undo_and_cleanup_foreign_preserved) ... ����: RelationshipToolsTool_relationship_tools_v19\n����: RelationshipToolsTool_relationship_tools_v19\nok\r\ntest_world_copy_uuid_rename_paste_range_disabled_keys_and_pose_files (__main__.MayaChecks.test_world_copy_uuid_rename_paste_range_disabled_keys_and_pose_files) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.080s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "5c684dcc9bf827f8a15376106966f09224e830e3b623d33cd3f1f3022e05a449",
+          "runtime_source_sha256": "7ee328f31815d608c99af260ead6f283a4f63211c17be166ca932ba7485dddb8"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya GUI production and complex animation-layer workflows not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "1bf0f12abd7c6e12a40c584d353039dc6d63331fdb16be7edc51e56c03d9eb32",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.006s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI, complex production rigs/constraints/animation layers and other versions not_run",
+        "Maya Undo does not restore in-memory copied pose cache or explicit exported JSON",
+        "Original broad suffix deletion and shared system temp cache intentionally replaced; unknown old marks require explicit review, never auto-delete"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -10307,7 +10370,40 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "fe7cb031356c3a2565a223d19c1aa6882f9ab281ebbf6dc57760108b507b7358"
+      "source_tree_sha256": "d4ad26a36a731af1061065655c0c1df3f5bde0e2da298e2e5b8d67a1cb89c1e6",
+      "candidate_path": "tools_staging_pool/02_rigging_hierarchy/relationship_tools_v19/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/02_rigging_hierarchy/relationship_tools_v19/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "relationship_tools_v19",
+        "candidate_sha256": "1bf0f12abd7c6e12a40c584d353039dc6d63331fdb16be7edc51e56c03d9eb32",
+        "applied": false,
+        "files": [
+          "docs\\tools\\relationship_tools_v19.md",
+          "maya_toolkit\\tools\\relationship_tools_v19\\__init__.py",
+          "maya_toolkit\\tools\\relationship_tools_v19\\catalog.json",
+          "maya_toolkit\\tools\\relationship_tools_v19\\engine.py",
+          "maya_toolkit\\tools\\relationship_tools_v19\\original_logic.py",
+          "maya_toolkit\\tools\\relationship_tools_v19\\runtime.py",
+          "maya_toolkit\\tools\\relationship_tools_v19\\tool.py",
+          "maya_toolkit\\tools\\relationship_tools_v19\\ui.py",
+          "maya_toolkit\\tools\\relationship_tools_v19\\vendor\\Relationship Tools_v19.py.original",
+          "tests\\test_relationship_tools_v19.py",
+          "tests\\test_relationship_tools_v19_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "Relationship Tools_v19.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/MEL with real timeline for GUI range selection"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete original RelationshipTool v19 class and UI preserved; safe full API/GUI mark/foot/animation marks, one/more step, world copy/paste, align, layers and owned mark deletion. Stable message/UUID ownership instead of suffix/global cache, explicit inclusive/exclusive range/selected channels, no unrelated key removal, read-only preflight and caller/Undo restoration.",
+      "prepared_at": "2026-10-02T00:17:02.222319+08:00",
+      "source_commit": "751f3b821db09289f3cf75c486d37e8076e196b6"
     },
     {
       "source_path": "02_rigging_hierarchy/reparent_pro_v1_5_1",
@@ -10323,7 +10419,7 @@
         "reParent_Pro_v1.5.1/reParentPro _v1.5.1.mel"
       ],
       "license_files": [],
-      "status": "pending",
+      "status": "working",
       "candidate_complete": false,
       "offline_checks": [],
       "maya_acceptance": {

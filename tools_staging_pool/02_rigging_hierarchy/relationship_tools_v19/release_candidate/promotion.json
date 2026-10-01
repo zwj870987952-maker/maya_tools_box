@@ -1,0 +1,66 @@
+{
+  "tool_id": "relationship_tools_v19",
+  "registration": {
+    "module": "relationship_tools_v19",
+    "class_name": "RelationshipToolsTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/relationship_tools_v19.md",
+      "target": "docs/tools/relationship_tools_v19.md"
+    },
+    {
+      "source": "maya_toolkit/tools/relationship_tools_v19/__init__.py",
+      "target": "maya_toolkit/tools/relationship_tools_v19/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/relationship_tools_v19/catalog.json",
+      "target": "maya_toolkit/tools/relationship_tools_v19/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/relationship_tools_v19/engine.py",
+      "target": "maya_toolkit/tools/relationship_tools_v19/engine.py"
+    },
+    {
+      "source": "maya_toolkit/tools/relationship_tools_v19/original_logic.py",
+      "target": "maya_toolkit/tools/relationship_tools_v19/original_logic.py"
+    },
+    {
+      "source": "maya_toolkit/tools/relationship_tools_v19/runtime.py",
+      "target": "maya_toolkit/tools/relationship_tools_v19/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/relationship_tools_v19/tool.py",
+      "target": "maya_toolkit/tools/relationship_tools_v19/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/relationship_tools_v19/ui.py",
+      "target": "maya_toolkit/tools/relationship_tools_v19/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/relationship_tools_v19/vendor/Relationship Tools_v19.py.original",
+      "target": "maya_toolkit/tools/relationship_tools_v19/vendor/Relationship Tools_v19.py.original"
+    },
+    {
+      "source": "tests/test_relationship_tools_v19.py",
+      "target": "tests/test_relationship_tools_v19.py"
+    },
+    {
+      "source": "tests/test_relationship_tools_v19_maya.py",
+      "target": "tests/test_relationship_tools_v19_maya.py"
+    }
+  ],
+  "resources": [
+    "Relationship Tools_v19.py"
+  ],
+  "dependencies": [
+    "Maya cmds/MEL with real timeline for GUI range selection"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete original RelationshipTool v19 class and UI preserved; safe full API/GUI mark/foot/animation marks, one/more step, world copy/paste, align, layers and owned mark deletion. Stable message/UUID ownership instead of suffix/global cache, explicit inclusive/exclusive range/selected channels, no unrelated key removal, read-only preflight and caller/Undo restoration.",
+  "verification_limitations": [
+    "Real Maya GUI, complex production rigs/constraints/animation layers and other versions not_run",
+    "Maya Undo does not restore in-memory copied pose cache or explicit exported JSON",
+    "Original broad suffix deletion and shared system temp cache intentionally replaced; unknown old marks require explicit review, never auto-delete"
+  ]
+}
