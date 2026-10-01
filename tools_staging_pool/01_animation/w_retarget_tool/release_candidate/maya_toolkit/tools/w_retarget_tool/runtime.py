@@ -53,7 +53,7 @@ class OwnedCommands:
                 self.delete(name)
 
 
-def retarget(plan):
+def retarget(plan, progress_control=None):
     from . import engine
     original = engine.cmds
     tracker = OwnedCommands()
@@ -62,9 +62,9 @@ def retarget(plan):
     try:
         engine.cmds = tracker
         cmds.autoKeyframe(state=False)
-        adapter = SimpleNamespace(ProgressControl=None)
+        adapter = SimpleNamespace(ProgressControl=progress_control)
         for pair in plan['pairs']:
-            engine.copy_anim(adapter, source=pair['source'], target=pair['target'], start_frame=plan['start_frame'], end_frame=plan['end_frame_exclusive'], prefix=tracker.prefix)
+            engine.copy_anim(adapter, source=pair['source'], target=pair['target'], start_frame=plan['start_frame'], end_frame=plan['end_frame_exclusive'], prefix=tracker.prefix, ValidObj=len(plan['pairs']))
             completed.append(pair)
         return dict(plan, completed_pairs=completed, temporary_nodes='all owned helpers/matrix nodes removed')
     finally:

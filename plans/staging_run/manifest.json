@@ -1,25 +1,24 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T20:03:57.112034+08:00",
+  "updated_at": "2026-10-01T21:13:12.255256+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
-    "state": "waiting_for_quota",
+    "state": "working",
     "heartbeat_id": "automation",
-    "heartbeat_status": "ACTIVE",
+    "heartbeat_status": "PAUSED",
     "heartbeat_verified": true,
     "reset_guard": "disabled_by_user_no_cards",
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/velocity_calculator",
+    "last_completed_tool": "01_animation/w_retarget_tool",
     "last_usage": {
-      "five_hour_used_percent": 96.0,
+      "five_hour_used_percent": 0.0,
       "weekly_used_percent": 15.0,
-      "recorded_at": "2026-10-01T20:03:16.517078+08:00",
-      "note": "Actual caller-observed usage; percentages record used quota, not remaining quota."
+      "recorded_at": "2026-10-01T21:04:13.970135+08:00",
+      "note": "Actual caller read: ordinaryUsageAllowed true; app thread list showed no other active writer in this checkout"
     },
-    "current_tool": "01_animation/w_retarget_tool",
-    "resume_note": "Saved incomplete working candidate; resume its existing files and finish verification. Resume only with five-hour remaining >95%, weekly allowed, and no other active round. Do not consume reset credits or purchase quota."
+    "current_tool": "01_animation/w_retarget_tool"
   },
   "entry_repairs": [
     {
@@ -8337,20 +8336,84 @@
       "entry_candidates": [
         "WretargetTool.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "WretargetTool.py"
       ],
       "license_files": [],
       "entry_sha256": "6c31a9653fe51f67a6ff85754262d604c0f40f0a29c7d6cc87025b0ddbdb9b33",
-      "status": "working",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.007s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"w_retarget_tool\",\r\n  \"candidate_sha256\": \"ee4c429945c01219a16b04acb449f656ea00b069ca9ab17cead0516740e93fca\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\w_retarget_tool.md\",\r\n    \"maya_toolkit\\\\tools\\\\w_retarget_tool\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\w_retarget_tool\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\w_retarget_tool\\\\engine.py\",\r\n    \"maya_toolkit\\\\tools\\\\w_retarget_tool\\\\exporter.py\",\r\n    \"maya_toolkit\\\\tools\\\\w_retarget_tool\\\\native_ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\w_retarget_tool\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\w_retarget_tool\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\w_retarget_tool\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\w_retarget_tool\\\\upstream\\\\WretargetTool.py.original\",\r\n    \"tests\\\\test_w_retarget_tool.py\",\r\n    \"tests\\\\test_w_retarget_tool_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/w_retarget_tool/release_candidate/tests/test_w_retarget_tool_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_fbx_export_new_file_preserves_settings_selection_and_no_overwrite (__main__.MayaChecks.test_fbx_export_new_file_preserves_settings_selection_and_no_overwrite) ... Logfile: \"C:\\Users\\zwj87\\AppData\\Local\\Temp\\staging_maya_dkksmbtj\\FBX\\Logs\\2020.3.6\\maya2025exp.log\"\nok\r\ntest_injected_write_failure_cleans_owned_helpers_restores_and_undo (__main__.MayaChecks.test_injected_write_failure_cleans_owned_helpers_restores_and_undo) ... ����: WRetargetTool_w_retarget_tool\nok\r\ntest_parent_namespaces_existing_keys_and_atomic_batch_preflight (__main__.MayaChecks.test_parent_namespaces_existing_keys_and_atomic_batch_preflight) ... ����: WRetargetTool_w_retarget_tool\nok\r\ntest_pose_offset_exclusive_end_restore_and_one_undo (__main__.MayaChecks.test_pose_offset_exclusive_end_restore_and_one_undo) ... ����: WRetargetTool_w_retarget_tool\n����: WRetargetTool_w_retarget_tool\nok\r\ntest_shared_curve_timewarp_and_retarget_cycles_rejected (__main__.MayaChecks.test_shared_curve_timewarp_and_retarget_cycles_rejected) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.127s\r\n\r\nOK\r\nAnimation copied from: |character:parent|source1 to: |targetParent|target\r\n\r\nAnimation copied from: |source1 to: |target\r\n\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "9be68ed1bf320d9482532746474b67d791bb3d76751148efdbd2f4a939e46789",
+          "runtime_source_sha256": "8c566efe9e8a289a71a47546dc9b46c2a506ea46e6942f3d3cb0f8379a35dc4f"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Interactive Maya GUI, production rigs and FBX reimport acceptance remain not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "ee4c429945c01219a16b04acb449f656ea00b069ca9ab17cead0516740e93fca",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.006s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI/production rigs/jointOrient/rotate orders/pivots and FBX reimport not_run",
+        "Original algorithm retargets pose offsets, not direct source transforms; proxy scale generally 1",
+        "Constraints/driven or layered target channels rejected; use an unlocked independent target",
+        "Exceptions may leave partial keys in one Undo chunk; files cannot be undone; earlier successful export files remain after later errors",
+        "No independent license supplied; original source/author retained"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -8359,7 +8422,40 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "c30e07ae4107c9027c93ce0042602e6b9e9716d02e5363017eb476589f326fd3"
+      "source_tree_sha256": "07e8aa43bffeadcaa19420fdd501eba3c9e5d9fb5bfa4c0a299471969f80f195",
+      "candidate_path": "tools_staging_pool/01_animation/w_retarget_tool/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/w_retarget_tool/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "w_retarget_tool",
+        "candidate_sha256": "ee4c429945c01219a16b04acb449f656ea00b069ca9ab17cead0516740e93fca",
+        "applied": false,
+        "files": [
+          "docs\\tools\\w_retarget_tool.md",
+          "maya_toolkit\\tools\\w_retarget_tool\\__init__.py",
+          "maya_toolkit\\tools\\w_retarget_tool\\catalog.json",
+          "maya_toolkit\\tools\\w_retarget_tool\\engine.py",
+          "maya_toolkit\\tools\\w_retarget_tool\\exporter.py",
+          "maya_toolkit\\tools\\w_retarget_tool\\native_ui.py",
+          "maya_toolkit\\tools\\w_retarget_tool\\runtime.py",
+          "maya_toolkit\\tools\\w_retarget_tool\\tool.py",
+          "maya_toolkit\\tools\\w_retarget_tool\\ui.py",
+          "maya_toolkit\\tools\\w_retarget_tool\\upstream\\WretargetTool.py.original",
+          "tests\\test_w_retarget_tool.py",
+          "tests\\test_w_retarget_tool_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "WretargetTool.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/mel; loaded fbxmaya plugin for explicit export"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete Walter Delgado source/full four-pair UI retained. Original pose-offset matrix/constraint algorithm with exclusive-end sampling and nine-channel scale behavior; bounded batch preflight, owned helper cleanup, explicit key values/Undo, environment restoration and new-file FBX export/settings restoration.",
+      "prepared_at": "2026-10-01T21:13:10.631821+08:00"
     },
     {
       "source_path": "02_rigging_hierarchy/base_overrig_v9_0",

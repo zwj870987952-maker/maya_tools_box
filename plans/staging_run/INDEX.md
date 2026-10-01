@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-01T20:03:57.112034+08:00
+更新时间：2026-10-01T21:13:12.255256+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -54,7 +54,7 @@
 | `01_animation/timeline_enhanced` | prepared_unverified | True | True | not_run |
 | `01_animation/tweener_v1_0_2` | prepared_unverified | True | True | not_run |
 | `01_animation/velocity_calculator` | prepared_unverified | True | True | not_run |
-| `01_animation/w_retarget_tool` | working | True | False | not_run |
+| `01_animation/w_retarget_tool` | prepared_unverified | True | True | not_run |
 | `02_rigging_hierarchy/base_overrig_v9_0` | pending | True | False | not_run |
 | `02_rigging_hierarchy/batch_skin_bind` | pending | True | False | not_run |
 | `02_rigging_hierarchy/bb_tools` | pending | True | False | not_run |

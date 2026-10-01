@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/w_retarget_tool/release_candidate/tests/test_w_retarget_tool_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_fbx_export_new_file_preserves_settings_selection_and_no_overwrite (__main__.MayaChecks.test_fbx_export_new_file_preserves_settings_selection_and_no_overwrite) ... Logfile: \"C:\\Users\\zwj87\\AppData\\Local\\Temp\\staging_maya_dkksmbtj\\FBX\\Logs\\2020.3.6\\maya2025exp.log\"\nok\r\ntest_injected_write_failure_cleans_owned_helpers_restores_and_undo (__main__.MayaChecks.test_injected_write_failure_cleans_owned_helpers_restores_and_undo) ... ����: WRetargetTool_w_retarget_tool\nok\r\ntest_parent_namespaces_existing_keys_and_atomic_batch_preflight (__main__.MayaChecks.test_parent_namespaces_existing_keys_and_atomic_batch_preflight) ... ����: WRetargetTool_w_retarget_tool\nok\r\ntest_pose_offset_exclusive_end_restore_and_one_undo (__main__.MayaChecks.test_pose_offset_exclusive_end_restore_and_one_undo) ... ����: WRetargetTool_w_retarget_tool\n����: WRetargetTool_w_retarget_tool\nok\r\ntest_shared_curve_timewarp_and_retarget_cycles_rejected (__main__.MayaChecks.test_shared_curve_timewarp_and_retarget_cycles_rejected) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.127s\r\n\r\nOK\r\nAnimation copied from: |character:parent|source1 to: |targetParent|target\r\n\r\nAnimation copied from: |source1 to: |target\r\n\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "9be68ed1bf320d9482532746474b67d791bb3d76751148efdbd2f4a939e46789",
+  "runtime_source_sha256": "8c566efe9e8a289a71a47546dc9b46c2a506ea46e6942f3d3cb0f8379a35dc4f"
+}

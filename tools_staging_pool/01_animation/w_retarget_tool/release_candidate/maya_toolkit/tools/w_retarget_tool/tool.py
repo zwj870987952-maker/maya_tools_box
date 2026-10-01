@@ -1,4 +1,3 @@
-import os
 from pathlib import Path
 from maya_toolkit.framework.base_tool import BaseMayaTool
 from maya_toolkit.framework.models import ToolResult
@@ -40,6 +39,10 @@ def output_path(value):
     path = Path(value)
     if not path.is_absolute() or path.suffix.lower() != '.fbx' or any(p in ('.', '..') for p in value.replace('\\', '/').split('/')) or not path.parent.is_dir():
         raise ValueError('Absolute .fbx path with existing parent required')
+    if any(':' in part or part.rstrip(' .') != part for part in path.parts[1:]):
+        raise ValueError('Alternate data streams and trailing dot/space paths rejected')
+    if path.stem.upper() in {'CON', 'PRN', 'AUX', 'NUL'} | {'COM' + str(i) for i in range(1, 10)} | {'LPT' + str(i) for i in range(1, 10)}:
+        raise ValueError('Reserved Windows filename')
     for node in [path] + list(path.parents):
         if (node.exists() or node.is_symlink()) and (node.is_symlink() or getattr(node.lstat(), 'st_file_attributes', 0) & 0x400):
             raise ValueError('Symlink/junction output rejected')
@@ -57,7 +60,7 @@ def preflight(p):
         pairs = [{'source': resolve(x['source']), 'target': resolve(x['target'])} for x in p['pairs']]
         sources = {x['source'] for x in pairs}
         targets = [x['target'] for x in pairs]
-        if len(set(targets)) != len(targets) or sources & set(targets) or any(s.startswith(t + '|') for s in sources for t in targets):
+        if len(set(targets)) != len(targets) or sources & set(targets) or any(s.startswith(t + '|') for s in sources for t in targets) or any(a.startswith(b + '|') for a in targets for b in targets if a != b):
             raise ValueError('Distinct targets and independent sources required; no retarget dependency cycles')
         for target in targets:
             if cmds.referenceQuery(target, isNodeReferenced=True) or any(cmds.lockNode(target, query=True, lock=True)):
@@ -73,6 +76,9 @@ def preflight(p):
                     outputs = cmds.listConnections(curve + '.output', source=False, destination=True, plugs=True) or []
                     if len(outputs) != 1:
                         raise ValueError('Shared target animation curve')
+                    inputs = cmds.listConnections(curve + '.input', source=True, destination=False, plugs=True) or []
+                    if any(cmds.nodeType(x.split('.')[0]) != 'time' or x.split('.')[-1] not in ('outTime', 'unwarpedTime') for x in inputs):
+                        raise ValueError('Time-warped target animation curve')
         plan.update(pairs=pairs, channels=CHANNELS, scale_effect='Original parentConstraint proxy typically keys scale=1; does not retarget source scale', algorithm='full original pose-offset parentConstraint + multMatrix/decomposeMatrix sampling')
     else:
         if not cmds.pluginInfo('fbxmaya', query=True, loaded=True):
@@ -112,7 +118,7 @@ class WRetargetTool(BaseMayaTool):
         plan = preflight(p)
         if p['action'] == 'copy':
             from .runtime import retarget
-            data = retarget(plan)
+            data = retarget(plan, progress_control=getattr(self, '_progress_control', None))
         else:
             from .exporter import export
             data = export(plan, p)

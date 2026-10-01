@@ -450,3 +450,10 @@
 - 上次读取automation.toml时通过终端输出未转义中文，输出编码造成name/prompt乱码并被写回自动化。本次使用用户原始中文指令通过App工具恢复同一automation的名称及完整prompt，保留ACTIVE、30分钟周期和原target_thread_id。
 - 修复后读取本机UTF-8 TOML，以ensure_ascii=True输出JSON并解析，对完整prompt、名称与ACTIVE状态作精确比对通过。后续终端转交中文配置均使用ASCII转义JSON或显式UTF-8，不再把乱码写回。
 - 未修改候选或正式库、未使用重置卡、未购买额度；继续等待既定开工条件。
+
+## 2026-10-01 21:03：自动续跑及 W Retarget Tool 完整候选，累计50/109
+
+- heartbeat读取实际5小时已用0%、周已用15%，manifest等待且线程列表无其他本仓库运行回合；暂停同一heartbeat并验证本机配置，恢复第50项。实时重扫109物理/目录记录/有效入口，路径修复34项，无新增漏项。不用卡、不购买、不执行Obsidian同步。
+- 全Walter Delgado原始单文件字节归档/SHA/作者保留，全部18类方法、帮助/关于和四行UI完整保留。业务提取完整五组/父层约束/multMatrix/decomposeMatrix/九通道逐帧算法，保留pose-offset、exclusive end、代理scale通常1。已有目标曲线采用显式key值，原静默异常改明确失败；长DAG名字用UUID辅助名，逐帧矩阵泄漏修为只清理本次UUID节点。
+- 全批目标锁/引用/通道/共享/timewarp/层/实例/源目标依赖先读预检；独立目标单Undo，恢复time/selection/autokey，失败可能留部分键可Undo，不冒充自动事务回滚。GUI完整按钮通过run，修方法被control覆盖、空选择/取消dialog/无效区间/CopyAll半行；Clear按原行为只清八字段。FBX显式新文件、namespace去重、明确节点、独占输出及临时文件，七项设置和selection恢复，不自动装插件/覆盖旧文件。
+- 普通Python两组、隔离Maya2025五组、临时正式布局/注册panel全部通过。真姿态10/12/14、九通道/结束不采样、parent长路径已有键保留、整批锁预检无部分写、真实注入写入失败清理/恢复/Undo、共享/timewarp拒绝、实际临时FBX导出/七设置恢复/不覆盖通过。全GUI/复杂生产绑定/FBX重导入未实测，prepared_unverified，完整包在staging，不提前转正。
