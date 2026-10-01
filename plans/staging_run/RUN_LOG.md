@@ -541,4 +541,6 @@
 - 完整info/weighted/select-influences/lock/unlock、XML/JSON/批量export-import/Timal后normalize与新旧skin、transfer/copy/prune及全9direct轴/parent/point/orient/point-orient/prefix/MO。TXT只解析安全joint名，不执行原eval；绝对既有目录、安全basename、独占批量预留输出/no覆盖/出错只清新文件，含meta拓扑指纹，旧图显式allow_unchecked_topology。已有锁/驱动/真实DAG实例/重复匹配/自身和层级依赖scope保护，delete history和direct换连接显式ack。
 - 两组Python+五组Maya2025隔离+临时正式布局注册/rigging域/panel/fingerprint全部通过：全部33原MEL/全UI定义无副作用编译、XML/JSON实权重往返及导入Undo恢复、Timal新skin/XML后normalize、transfer新skin真实weights及Undo/copy/info/weighted选择、liw/恶意TXT拒绝/错拓扑、direct全轴namespace/prefix真实motion与四约束/Undo。fixture中创建新mesh改变选择，改比较import调用前真实selection，未改业务掩盖失败。
 - 原deformerWeights不依赖其跨版本Undo保证，现有skin捕获原/导入权重后API复原再经skinPercent回放，单Undo实际测试通过；导出文件不属于MayaUndo。无许可文件，不推断发布权限。真实GUI/生产skin/拓扑姿态/历史删除/跨版本not_run，prepared_unverified。
-- 收尾实际5h已用96%（剩4%）、周30%，低于6%阈值；保存提交和检查点后启用同聊天30分钟heartbeat并结束本轮，下项skin_magic。所有候选留池、不同步/迁正式/用卡/购买。
+- 收尾实际5h已用96%（剩4%）、周30%，低于6%阈值；保存提交和检查点后启用同聊天30分钟heartbeat并结束本轮。动态清单第一未完成项为skeleton_generator（不是按聊天记忆猜测的skin_magic），下轮先处理该项。所有候选留池、不同步/迁正式/用卡/购买。
+
+- 额度等待转换已验证：App heartbeat ACTIVE，manifest waiting_for_quota，61/109，下一项02_rigging_hierarchy/skeleton_generator；第61项提交8f9b7fd49478045c825a1cbe5e6890b314c81ed3，真实GUI仍not_run。只有实时5小时剩余>95%、周额度允许、没有其它整理回合时才能暂停heartbeat恢复工作。
