@@ -652,3 +652,4 @@
 - 原单文件SHA归档；完整跨模型UV名称联合列表/白色输入/红色改名/Zwj水印UI、两兼容函数、Base/Schema/inspect只读默认/知识验收晋级。全表最终名称冲突预检，两阶段临时名称支持交换循环；每mesh缺old按原跳过，但全部不存在拒绝；UUID跟随、真实DAG实例/引用写/锁/名称及current驱动检查，当前UV集跟随原集身份，统一Undo，选区时间AutoKey不改。
 - 2离线+3隔离Maya2025+临时正式布局/注册/modeling_surfacing/panel/fingerprint全通过：两mesh缺不同UV集、dry不改状态、原MFnMesh坐标/分配索引/native set index保持、current正确跟随/oneUndo；交换与稀疏index保持；冲突/缺old/重复final/后行锁/alias/组件/实例/GUIbatch拒绝。GUI/按UV名称关联材质UVChooser与导出器/生产rig-history/跨版本not_run，prepared_unverified。
 - 实际5h95%已用（剩5%）、周45%；按每项收尾阈值保存后进入额度等待，下项world_transform_v4。候选均留在池内，不迁正式/同步/用卡/购买。
+`n- UV候选提交5ad20dd08dcdd643e7aeeeb9badadc3a659531a6；App heartbeat已启用并由本机配置复核，状态waiting_for_quota，下项world_transform_v4未开始，等待5h剩余>95%且周允许再续跑。本轮新增16项（62至77），累计77/109。
