@@ -1,0 +1,152 @@
+{
+  "tool_id": "overslapper",
+  "registration": {
+    "module": "overslapper",
+    "class_name": "OverslapperTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/overslapper.md",
+      "target": "docs/tools/overslapper.md"
+    },
+    {
+      "source": "docs/tools/overslapper_changes.diff",
+      "target": "docs/tools/overslapper_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/__init__.py",
+      "target": "maya_toolkit/tools/overslapper/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/catalog.json",
+      "target": "maya_toolkit/tools/overslapper/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/native/__init__.py",
+      "target": "maya_toolkit/tools/overslapper/native/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/native/default.json",
+      "target": "maya_toolkit/tools/overslapper/native/default.json"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/native/icons/gearIcon.png",
+      "target": "maya_toolkit/tools/overslapper/native/icons/gearIcon.png"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/native/icons/overslapperLogo.png",
+      "target": "maya_toolkit/tools/overslapper/native/icons/overslapperLogo.png"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/native/overslapper_tool.py",
+      "target": "maya_toolkit/tools/overslapper/native/overslapper_tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/native/packages/__init__.py",
+      "target": "maya_toolkit/tools/overslapper/native/packages/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/native/packages/overlap_data_package.py",
+      "target": "maya_toolkit/tools/overslapper/native/packages/overlap_data_package.py"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/native/packages/overlap_package.py",
+      "target": "maya_toolkit/tools/overslapper/native/packages/overlap_package.py"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/runtime.py",
+      "target": "maya_toolkit/tools/overslapper/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/settings.py",
+      "target": "maya_toolkit/tools/overslapper/settings.py"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/tool.py",
+      "target": "maya_toolkit/tools/overslapper/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/ui_bridge.py",
+      "target": "maya_toolkit/tools/overslapper/ui_bridge.py"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/overslapper/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/upstream/LICENSE.txt",
+      "target": "maya_toolkit/tools/overslapper/upstream/LICENSE.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/upstream/overslapper/default.json",
+      "target": "maya_toolkit/tools/overslapper/upstream/overslapper/default.json"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/upstream/overslapper/icons/gearIcon.png",
+      "target": "maya_toolkit/tools/overslapper/upstream/overslapper/icons/gearIcon.png"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/upstream/overslapper/icons/overslapperLogo.png",
+      "target": "maya_toolkit/tools/overslapper/upstream/overslapper/icons/overslapperLogo.png"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/upstream/overslapper/overslapper_tool.py.original",
+      "target": "maya_toolkit/tools/overslapper/upstream/overslapper/overslapper_tool.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/upstream/overslapper/packages/overlap_data_package.py.original",
+      "target": "maya_toolkit/tools/overslapper/upstream/overslapper/packages/overlap_data_package.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/upstream/overslapper/packages/overlap_package.py.original",
+      "target": "maya_toolkit/tools/overslapper/upstream/overslapper/packages/overlap_package.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/upstream/overslapper_installer.py.original",
+      "target": "maya_toolkit/tools/overslapper/upstream/overslapper_installer.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/overslapper/upstream/overslapperDocumentation_v1_03.pdf",
+      "target": "maya_toolkit/tools/overslapper/upstream/overslapperDocumentation_v1_03.pdf"
+    },
+    {
+      "source": "tests/test_overslapper.py",
+      "target": "tests/test_overslapper.py"
+    },
+    {
+      "source": "tests/test_overslapper_maya.py",
+      "target": "tests/test_overslapper_maya.py"
+    }
+  ],
+  "resources": [
+    "upstream/LICENSE.txt",
+    "upstream/overslapper/default.json",
+    "upstream/overslapper/icons/gearIcon.png",
+    "upstream/overslapper/icons/overslapperLogo.png",
+    "upstream/overslapper/overslapper_tool.py.original",
+    "upstream/overslapper/packages/overlap_data_package.py.original",
+    "upstream/overslapper/packages/overlap_package.py.original",
+    "upstream/overslapper_installer.py.original",
+    "upstream/overslapperDocumentation_v1_03.pdf",
+    "native/default.json",
+    "native/icons",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya cmds/API2",
+    "PySide6/shiboken6 or PySide2/shiboken2 for original GUI and QObject workers",
+    "MayaQWidgetBaseMixin/gradientControlNoAttr for genuine GUI",
+    "BaseMayaTool/Undo"
+  ],
+  "source": "../overslapper_v1_03/overslapper/overslapper_tool.py",
+  "change_summary": "Complete 28 business functions, two workers and original 56+4 UI methods/resources/manual/EULA retained. Explicit targets/layers, selected-channel writes/Undo, scoped wind discovery, Python3 private package, preset protection and concrete source defect fixes; no shelf/userScripts installation.",
+  "verification_limitations": [
+    "Native Qt gradient/preset/progress GUI and visual motion remain pending real Maya",
+    "Restrictive upstream EULA prohibits copying/modification/redistribution without permission; this local candidate conveys no permission and must not be published",
+    "Overshoot can extend keys beyond requested end; deleteall affects all times on selected channels",
+    "Referenced/instanced/joint/driver-constrained targets refused; use local transform controls",
+    "Layered channels require explicit target_layer or new_layer; adding chosen attributes only differs from original addSelectedObjects all channels",
+    "No automatic rollback on a worker exception; one Undo restores scene changes"
+  ],
+  "acceptance_required": true
+}

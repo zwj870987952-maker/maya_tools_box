@@ -311,3 +311,12 @@
 - 原Documents自动settings读写改会话+明确JSON进出，UI保存提示本次会话、导出/导入按钮，刷新不reload旧v9；打开输出仅已有目录。内部原capture/rename/cleanup helpers保留但仅标准事务自有目录允许，不能通过kwargs访问外部目录；标准capture用参数化完整流水线。未写Documents/shelf/userSetup/正式库、未装依赖。
 - 本机真实FFmpeg6.1可用。普通Python3项、Maya2025隔离4组、临时正式布局注册/面板/Schema及全部指纹通过：真实JPEG/音频生成、MOV逐帧PNG验证hold首帧重复与尾补齐、MP4/GIF/audio输出、坏JPEG真实FFmpeg非零保持旧目标、JSON覆盖/进出、dry无文件/scene写入、真实camera/audio/time/selection配合高/低拍屏shim、第二相机失败部分文件报告与finally。modelPanel/playblast是明确shim，不宣称viewport/Qt图像或声音同步实测。
 - 真实GUI/viewport/本机QuickTime codec/生产相机和音画品质仍待验prepared_unverified；完整知识/验收/晋级齐备。实际收尾5小时14%/周88%已用，继续下一项overslapper_v1_03；heartbeat暂停，无用卡/购买/同步/转正。
+
+## 2026-10-01：Overslapper完整候选，累计34/109
+
+- Philippe Ratté 1.0.3完整9原资源字节归档、原20页PDF与EULA/图标/default JSON保留。完整28业务函数、2 QObject worker、原UI56方法+部分导入4方法，私有相对导入/懒GUI，无shelf/userScripts安装。限制性EULA包括不得复制/修改/再分发，明确保留，不推定授权、不发布。
+- 原旋转24主上轴/六order/距离/忽略自身位移、平移frame lag、分组1-stiffness/strength、cycle/移除父级、layer、过冲stable zone/峰谷decay、风曲线/路径完整保留。修平移add拼写误删所有键、无关move清未选轴、风正逆matrix别名、上轴norm误用target、zero strength未缩放、单个无child索引、过冲int/string末区/零间距/end绝对帧重复加start。
+- 标准Schema/read-only preflight/Undo/UUID写scope，本地transform/所选channel/driver/锁/共享/引用边界，显式layer/noResolve原始层值与findCurveForPlug cut/scale，其他层/base保持，新增chosen attrs仅、finally恢复时间/选择/AutoKey/namespace及原layer旗标。异常不自动回滚，标准一次Undo恢复。深namespace风查询去重/明确winds、fresh曲线私有名和接线，不覆盖已有对象。
+- 原完整JSON八组/部分导入保留，先整体验证，补frame_lag/wind strength往返；JSON覆盖/取消/原子临时文件保护与文件不能Undo说明。原pratte_custom_var改私有会话gradient，关闭清理，仍明示Maya偏好保存可能写私有var；slider同步blockSignals避免负数/小数文字被范围回写。原UI不再关闭别人的chunk/cursor，Maya BaseMixin.show真实本地签名核对用无参show，未冒充Qt验收。
+- 普通Python3组、Maya2025隔离6组、临时正式布局注册/面板/Schema/全指纹通过：纯父平移解析预期/additive外键/未选轴/zero/cycle/UndoRedo、六旋转order与无child、30点风/三级namespace/正逆分离/开关Undo/两模式wind/移除父级、layer保护与deleteall/scale/flag恢复、第二键故障finally/Undo/constraint/共享未选轴拒绝、临时JSON与真实过冲。UI负数同步用假控件运行原回调，只导入类不构造Qt，未当GUI实测。首轮纯平移断言fixture带父旋转，隔离掉旋转后按解析结果通过，未为测试改业务算法。
+- PDF原文提取与相关页6..20渲染核对功能，临时PNG已在验证workspace绝对路径后清理。真人GUI/渐变/部分预设/生产rig/layer合成/运动品质仍待验prepared_unverified；完整知识/验收/晋级齐备。实际收尾5小时32%/周91%已用，继续physics_tools；heartbeat暂停，无卡/购买/Obsidian同步/转正。

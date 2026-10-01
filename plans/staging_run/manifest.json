@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T07:53:24.473900+08:00",
+  "updated_at": "2026-10-01T08:34:50.693520+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/mov_playblast_v11",
+    "last_completed_tool": "01_animation/overslapper_v1_03",
     "last_usage": {
-      "five_hour_used_percent": 7.0,
-      "weekly_used_percent": 87.0,
-      "recorded_at": "2026-10-01T07:33:35.493999+08:00",
+      "five_hour_used_percent": 16.0,
+      "weekly_used_percent": 88.0,
+      "recorded_at": "2026-10-01T07:59:27.998118+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/mov_playblast_v11",
+    "current_tool": "01_animation/overslapper_v1_03",
     "resume_note": "Timeline Marker source review only; no candidate changes. Resume this item after actual remaining >95%, weekly allowed and no other writer."
   },
   "entry_repairs": [
@@ -5682,7 +5682,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Full source UI and original helpers archived/adapted; images/Qt multi-camera capture, audio offset, sequence hold, incremental MOV/MP4/GIF, standard dry/API and explicit external output protection, checked shell-free FFmpeg and finally view state, session/JSON settings.",
-      "prepared_at": "2026-10-01T07:52:00.289063+08:00"
+      "prepared_at": "2026-10-01T07:52:00.289063+08:00",
+      "source_commit": "b5c2ef257990d4e0b763892b29881ce3961090a9"
     },
     {
       "source_path": "01_animation/overslapper_v1_03",
@@ -5693,7 +5694,7 @@
       "entry_candidates": [
         "overslapper_v1_03/overslapper/overslapper_tool.py"
       ],
-      "source_file_count": 9,
+      "source_file_count": 10,
       "source_files": [
         "overslapper_v1_03/overslapper/overslapper_tool.py",
         "overslapper_v1_03/overslapper/packages/overlap_data_package.py",
@@ -5703,14 +5704,79 @@
       "license_files": [
         "overslapper_v1_03/LICENSE.txt"
       ],
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_complete_code_resource_provenance (__main__.OfflineTests.test_complete_code_resource_provenance) ... ok\r\ntest_full_presets_before_partial_ui_apply (__main__.OfflineTests.test_full_presets_before_partial_ui_apply) ... ok\r\ntest_lazy_api_and_strict_parameters (__main__.OfflineTests.test_lazy_api_and_strict_parameters) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.021s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"overslapper\",\r\n  \"candidate_sha256\": \"5d657995b259eeded6b7fc2ca2b7416b79ff6345db892bdb0fd5f16158082fbd\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\overslapper.md\",\r\n    \"docs\\\\tools\\\\overslapper_changes.diff\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\native\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\native\\\\default.json\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\native\\\\icons\\\\gearIcon.png\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\native\\\\icons\\\\overslapperLogo.png\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\native\\\\overslapper_tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\native\\\\packages\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\native\\\\packages\\\\overlap_data_package.py\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\native\\\\packages\\\\overlap_package.py\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\settings.py\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\ui_bridge.py\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\upstream\\\\.gitattributes\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\upstream\\\\LICENSE.txt\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\upstream\\\\overslapper\\\\default.json\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\upstream\\\\overslapper\\\\icons\\\\gearIcon.png\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\upstream\\\\overslapper\\\\icons\\\\overslapperLogo.png\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\upstream\\\\overslapper\\\\overslapper_tool.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\upstream\\\\overslapper\\\\packages\\\\overlap_data_package.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\upstream\\\\overslapper\\\\packages\\\\overlap_package.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\upstream\\\\overslapper_installer.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\overslapper\\\\upstream\\\\overslapperDocumentation_v1_03.pdf\",\r\n    \"tests\\\\test_overslapper.py\",\r\n    \"tests\\\\test_overslapper_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/overslapper_v1_03/release_candidate/tests/test_overslapper_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_explicit_layers_preserve_base_other_layer_and_restore_undo (__main__.MayaTests.test_explicit_layers_preserve_base_other_layer_and_restore_undo) ... ����: OverslapperTool_overslapper\nok\r\ntest_failure_closes_chunk_restore_and_reject_drivers_shared_curves (__main__.MayaTests.test_failure_closes_chunk_restore_and_reject_drivers_shared_curves) ... ����: OverslapperTool_overslapper\nok\r\ntest_presets_protected_and_overshoot (__main__.MayaTests.test_presets_protected_and_overshoot) ... ok\r\ntest_rotation_orders_single_transform_group_stiffness (__main__.MayaTests.test_rotation_orders_single_transform_group_stiffness) ... ok\r\ntest_translation_additive_axes_zero_cycle_readonly_and_undo (__main__.MayaTests.test_translation_additive_axes_zero_cycle_readonly_and_undo) ... ����: OverslapperTool_overslapper\n����: OverslapperTool_overslapper\nok\r\ntest_wind_paths_nonaliased_namespace_scope_and_enable_undo (__main__.MayaTests.test_wind_paths_nonaliased_namespace_scope_and_enable_undo) ... ����: OverslapperTool_overslapper\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.118s\r\n\r\nOK\r\nexecuted translation overlap in 0.002 seconds\r\nexecuted translation overlap in 0.001 seconds\r\nexecuted translation overlap in 0.001 seconds\r\nexecuted rotation overlap in 0.001 seconds\r\nexecuted rotation overlap in 0.001 seconds\r\nexecuted rotation overlap in 0.001 seconds\r\nexecuted rotation overlap in 0.001 seconds\r\nexecuted rotation overlap in 0.001 seconds\r\nexecuted rotation overlap in 0.001 seconds\r\nexecuted rotation overlap in 0.001 seconds\r\nexecuted translation overlap in 0.0 seconds\r\nexecuted translation overlap in 0.002 seconds\r\nexecuted translation overlap in 0.001 seconds\r\nexecuted rotation overlap in 0.002 seconds\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "95553cd25cc217c274ccdef50c8515ace8e83374c874e24985019e649e0a5585",
+          "runtime_source_sha256": "7cf68df53bf4f25d78004aa30d71d8159cc54fd0de4b1acf2974608a57b98144"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Native Qt gradient/UI interactions, production rigs/layer composition and visual overlap/wind/overshoot motion quality require human interactive Maya acceptance"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "5d657995b259eeded6b7fc2ca2b7416b79ff6345db892bdb0fd5f16158082fbd",
+          "returncode": 0,
+          "output": "test_complete_code_resource_provenance (__main__.OfflineTests.test_complete_code_resource_provenance) ... ok\r\ntest_full_presets_before_partial_ui_apply (__main__.OfflineTests.test_full_presets_before_partial_ui_apply) ... ok\r\ntest_lazy_api_and_strict_parameters (__main__.OfflineTests.test_lazy_api_and_strict_parameters) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.021s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Native Qt gradient/preset/progress GUI and visual motion remain pending real Maya",
+        "Restrictive upstream EULA prohibits copying/modification/redistribution without permission; this local candidate conveys no permission and must not be published",
+        "Overshoot can extend keys beyond requested end; deleteall affects all times on selected channels",
+        "Referenced/instanced/joint/driver-constrained targets refused; use local transform controls",
+        "Layered channels require explicit target_layer or new_layer; adding chosen attributes only differs from original addSelectedObjects all channels",
+        "No automatic rollback on a worker exception; one Undo restores scene changes"
+      ],
       "entry_review": {
         "evidence": "Installer imports overslapper_tool, instantiates overslapper_UI and calls show; installer itself is not runtime business entry.",
         "kind": "python_ui_class",
@@ -5725,7 +5791,70 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "3c5485cb6202d9090d50aa919b27062d899d83eacf06c9942ac6651c9dc23eea"
+      "source_tree_sha256": "a99762f2169760cd332deb310bec9c49309f481b64a94ad71b21c247077d6812",
+      "candidate_path": "tools_staging_pool/01_animation/overslapper_v1_03/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/overslapper_v1_03/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "overslapper",
+        "candidate_sha256": "5d657995b259eeded6b7fc2ca2b7416b79ff6345db892bdb0fd5f16158082fbd",
+        "applied": false,
+        "files": [
+          "docs\\tools\\overslapper.md",
+          "docs\\tools\\overslapper_changes.diff",
+          "maya_toolkit\\tools\\overslapper\\__init__.py",
+          "maya_toolkit\\tools\\overslapper\\catalog.json",
+          "maya_toolkit\\tools\\overslapper\\native\\__init__.py",
+          "maya_toolkit\\tools\\overslapper\\native\\default.json",
+          "maya_toolkit\\tools\\overslapper\\native\\icons\\gearIcon.png",
+          "maya_toolkit\\tools\\overslapper\\native\\icons\\overslapperLogo.png",
+          "maya_toolkit\\tools\\overslapper\\native\\overslapper_tool.py",
+          "maya_toolkit\\tools\\overslapper\\native\\packages\\__init__.py",
+          "maya_toolkit\\tools\\overslapper\\native\\packages\\overlap_data_package.py",
+          "maya_toolkit\\tools\\overslapper\\native\\packages\\overlap_package.py",
+          "maya_toolkit\\tools\\overslapper\\runtime.py",
+          "maya_toolkit\\tools\\overslapper\\settings.py",
+          "maya_toolkit\\tools\\overslapper\\tool.py",
+          "maya_toolkit\\tools\\overslapper\\ui_bridge.py",
+          "maya_toolkit\\tools\\overslapper\\upstream\\.gitattributes",
+          "maya_toolkit\\tools\\overslapper\\upstream\\LICENSE.txt",
+          "maya_toolkit\\tools\\overslapper\\upstream\\overslapper\\default.json",
+          "maya_toolkit\\tools\\overslapper\\upstream\\overslapper\\icons\\gearIcon.png",
+          "maya_toolkit\\tools\\overslapper\\upstream\\overslapper\\icons\\overslapperLogo.png",
+          "maya_toolkit\\tools\\overslapper\\upstream\\overslapper\\overslapper_tool.py.original",
+          "maya_toolkit\\tools\\overslapper\\upstream\\overslapper\\packages\\overlap_data_package.py.original",
+          "maya_toolkit\\tools\\overslapper\\upstream\\overslapper\\packages\\overlap_package.py.original",
+          "maya_toolkit\\tools\\overslapper\\upstream\\overslapper_installer.py.original",
+          "maya_toolkit\\tools\\overslapper\\upstream\\overslapperDocumentation_v1_03.pdf",
+          "tests\\test_overslapper.py",
+          "tests\\test_overslapper_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "upstream/LICENSE.txt",
+        "upstream/overslapper/default.json",
+        "upstream/overslapper/icons/gearIcon.png",
+        "upstream/overslapper/icons/overslapperLogo.png",
+        "upstream/overslapper/overslapper_tool.py.original",
+        "upstream/overslapper/packages/overlap_data_package.py.original",
+        "upstream/overslapper/packages/overlap_package.py.original",
+        "upstream/overslapper_installer.py.original",
+        "upstream/overslapperDocumentation_v1_03.pdf",
+        "native/default.json",
+        "native/icons",
+        "catalog.json"
+      ],
+      "external_dependencies": [
+        "Maya cmds/API2",
+        "PySide6/shiboken6 or PySide2/shiboken2 for original GUI and QObject workers",
+        "MayaQWidgetBaseMixin/gradientControlNoAttr for genuine GUI",
+        "BaseMayaTool/Undo"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete 28 business functions, two workers and original 56+4 UI methods/resources/manual/EULA retained. Explicit targets/layers, selected-channel writes/Undo, scoped wind discovery, Python3 private package, preset protection and concrete source defect fixes; no shelf/userScripts installation.",
+      "prepared_at": "2026-10-01T08:34:49.003759+08:00"
     },
     {
       "source_path": "01_animation/physics_tools",

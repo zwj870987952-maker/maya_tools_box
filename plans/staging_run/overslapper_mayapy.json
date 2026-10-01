@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/overslapper_v1_03/release_candidate/tests/test_overslapper_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_explicit_layers_preserve_base_other_layer_and_restore_undo (__main__.MayaTests.test_explicit_layers_preserve_base_other_layer_and_restore_undo) ... ����: OverslapperTool_overslapper\nok\r\ntest_failure_closes_chunk_restore_and_reject_drivers_shared_curves (__main__.MayaTests.test_failure_closes_chunk_restore_and_reject_drivers_shared_curves) ... ����: OverslapperTool_overslapper\nok\r\ntest_presets_protected_and_overshoot (__main__.MayaTests.test_presets_protected_and_overshoot) ... ok\r\ntest_rotation_orders_single_transform_group_stiffness (__main__.MayaTests.test_rotation_orders_single_transform_group_stiffness) ... ok\r\ntest_translation_additive_axes_zero_cycle_readonly_and_undo (__main__.MayaTests.test_translation_additive_axes_zero_cycle_readonly_and_undo) ... ����: OverslapperTool_overslapper\n����: OverslapperTool_overslapper\nok\r\ntest_wind_paths_nonaliased_namespace_scope_and_enable_undo (__main__.MayaTests.test_wind_paths_nonaliased_namespace_scope_and_enable_undo) ... ����: OverslapperTool_overslapper\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.118s\r\n\r\nOK\r\nexecuted translation overlap in 0.002 seconds\r\nexecuted translation overlap in 0.001 seconds\r\nexecuted translation overlap in 0.001 seconds\r\nexecuted rotation overlap in 0.001 seconds\r\nexecuted rotation overlap in 0.001 seconds\r\nexecuted rotation overlap in 0.001 seconds\r\nexecuted rotation overlap in 0.001 seconds\r\nexecuted rotation overlap in 0.001 seconds\r\nexecuted rotation overlap in 0.001 seconds\r\nexecuted rotation overlap in 0.001 seconds\r\nexecuted translation overlap in 0.0 seconds\r\nexecuted translation overlap in 0.002 seconds\r\nexecuted translation overlap in 0.001 seconds\r\nexecuted rotation overlap in 0.002 seconds\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "95553cd25cc217c274ccdef50c8515ace8e83374c874e24985019e649e0a5585",
+  "runtime_source_sha256": "7cf68df53bf4f25d78004aa30d71d8159cc54fd0de4b1acf2974608a57b98144"
+}

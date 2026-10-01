@@ -1,0 +1,121 @@
+{
+  "overslapper_installer.py": {
+    "functions": [
+      "create_shelf"
+    ],
+    "classes": {}
+  },
+  "overslapper/overslapper_tool.py": {
+    "functions": [],
+    "classes": {
+      "overslapper_UI": [
+        "__init__",
+        "create_layout",
+        "create_widgets",
+        "set_tooltips",
+        "create_separator",
+        "create_palette",
+        "create_v_separator",
+        "connect_ui",
+        "wind_checked",
+        "overshoot_checked",
+        "overshoot_end_checked",
+        "overshoot_between_checked",
+        "override_checked",
+        "additive_checked",
+        "parent_checked",
+        "default_distance_checked",
+        "add_layer_option_checked",
+        "create_layer_option_checked",
+        "select_axes_changed",
+        "stiffness_type_changed",
+        "overlap_changed",
+        "get_distances",
+        "timeline_type_changed",
+        "point_changed",
+        "position_changed",
+        "value_changed",
+        "interp_changed",
+        "wind_strength_changed",
+        "wind_value_changed",
+        "stiffness_changed",
+        "stiffness_value_changed",
+        "translation_strength_changed",
+        "translation_strength_value_changed",
+        "strength_changed",
+        "strength_value_changed",
+        "overshoot_strength_changed",
+        "overshoot_strength_value_changed",
+        "overshoot_frequency_changed",
+        "overshoot_frequency_value_changed",
+        "up_axis_changed",
+        "main_axis_changed",
+        "color_swap",
+        "create_falloff_curve_layout",
+        "get_maya_layout_widget",
+        "create_wind_control",
+        "select_wind_controls",
+        "wind_controls_off",
+        "wind_controls_on",
+        "import_overlap_preset",
+        "partial_import_overlap_preset",
+        "import_ui_data",
+        "write_ui_data",
+        "error_ui",
+        "get_parent",
+        "overlap",
+        "progress_bar_update"
+      ],
+      "partialImportDialog": [
+        "__init__",
+        "set_tool_tips",
+        "create_separator",
+        "partial_import"
+      ]
+    }
+  },
+  "overslapper/packages/overlap_data_package.py": {
+    "functions": [],
+    "classes": {}
+  },
+  "overslapper/packages/overlap_package.py": {
+    "functions": [
+      "check_scale",
+      "inverse_matrix",
+      "inverse_mmatrix",
+      "parent_matrices_a_in_b",
+      "parent_m_matrices_a_in_b",
+      "get_os_translation",
+      "calculate_distance",
+      "get_distance_between_object",
+      "offset_matrix_in_os",
+      "fix_inverse_matrix",
+      "get_selection",
+      "get_matrices",
+      "apply_strenght",
+      "get_translation_matrices",
+      "matrix_substract_vector_to_translation",
+      "cross_product",
+      "aim_with_matrices",
+      "order_selection",
+      "string_to_int",
+      "keys_for_sorting",
+      "order_split_by_name",
+      "split_at_number",
+      "create_wind_control",
+      "create_wind_path",
+      "create_translation_wind_path",
+      "travel_vector_from_matrices",
+      "travel_matrix_ws",
+      "overshoot"
+    ],
+    "classes": {
+      "overlap_worker": [
+        "overlap"
+      ],
+      "overlap_translation_worker": [
+        "overlap_translation"
+      ]
+    }
+  }
+}
