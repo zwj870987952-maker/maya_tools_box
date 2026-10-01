@@ -443,3 +443,10 @@
 - 当前第50项01_animation/w_retarget_tool仅有四个初步候选模块，engine/UI/文档/测试/晋级包仍未完成。保存release_candidate/RESUME.md及全部现有文件，不计入candidate_complete，不声称通过Maya或候选验证；原始入口未改动。
 - 已通过App工具把同聊天heartbeat恢复为ACTIVE，并由enter_quota_wait.py读取本机TOML确认，manifest.execution进入waiting_for_quota。下一轮满足5小时剩余>95%、周额度允许且无其他整理回合后，暂停heartbeat，从该部分候选继续。
 - 修复等待记录脚本：部分候选断点不再误写成完成工具边界，额度备注不再固定声称周用量100%。
+
+## 2026-10-01 20:33：修复 heartbeat 中文指令编码
+
+- 本次触发实时读数：5小时已用97%、周已用15%；manifest仍waiting_for_quota，49/109完整候选，W Retarget Tool断点未变，不开启整理回合。
+- 上次读取automation.toml时通过终端输出未转义中文，输出编码造成name/prompt乱码并被写回自动化。本次使用用户原始中文指令通过App工具恢复同一automation的名称及完整prompt，保留ACTIVE、30分钟周期和原target_thread_id。
+- 修复后读取本机UTF-8 TOML，以ensure_ascii=True输出JSON并解析，对完整prompt、名称与ACTIVE状态作精确比对通过。后续终端转交中文配置均使用ASCII转义JSON或显式UTF-8，不再把乱码写回。
+- 未修改候选或正式库、未使用重置卡、未购买额度；继续等待既定开工条件。
