@@ -1,0 +1,1631 @@
+{
+  "tool_id": "eblabs_world_space_tools",
+  "registration": {
+    "module": "eblabs_world_space_tools",
+    "class_name": "WorldSpaceToolsTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/eblabs_world_space_tools.md",
+      "target": "docs/tools/eblabs_world_space_tools.md"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/data/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/data/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/data/eblabs.data",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/data/eblabs.data"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/data/PackageData.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/data/PackageData.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/images/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/images/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/images/eblabs_package_manager.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/images/eblabs_package_manager.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/images/eblabs_package_manager_Editor.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/images/eblabs_package_manager_Editor.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Data_Widgets.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Data_Widgets.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/eblabs_drag_drop_install.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/eblabs_drag_drop_install.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/PackageManager.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/PackageManager.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Plugin.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Plugin.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Plugin_Manager.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Plugin_Manager.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Plugins/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Plugins/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Utils/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Utils/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Utils/Maya.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Utils/Maya.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Utils/Misc.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Utils/Misc.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Utils/PixoShop.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Utils/PixoShop.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Utils/Prefs.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Utils/Prefs.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Utils/Qt.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Utils/Qt.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Utils/Scandir.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Utils/Scandir.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Utils/Templates.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/scripts/Utils/Templates.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/versions/eblabs_PackageManager_0.6.9.h.eblabs",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/PackageManager/versions/eblabs_PackageManager_0.6.9.h.eblabs"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/data/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/data/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/data/eblabs.data",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/data/eblabs.data"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/images/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/images/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/images/altcommand.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/images/altcommand.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/images/focus.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/images/focus.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/images/IconProvider.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/images/IconProvider.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/images/placeholder.jpg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/images/placeholder.jpg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/images/recent.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/images/recent.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/images/search.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/images/search.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/images/star.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/images/star.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/scripts/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/scripts/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/scripts/ColorModule.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/scripts/ColorModule.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/scripts/LoggingUtils.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/scripts/LoggingUtils.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/scripts/MainModule.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/scripts/MainModule.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/scripts/Prefs.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/scripts/Prefs.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/scripts/Qt.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/scripts/Qt.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/scripts/Search_Core.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/scripts/Search_Core.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/scripts/Search_UI.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/scripts/Search_UI.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/versions/eblabs_Search_0.0.h.eblabs",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/Search/versions/eblabs_Search_0.0.h.eblabs"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/data/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/data/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/data/eblabs.data",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/data/eblabs.data"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/images/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/images/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/images/clear.fill.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/images/clear.fill.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/images/IconProvider.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/images/IconProvider.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/images/more_vert.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/images/more_vert.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/images/placeholder.jpg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/images/placeholder.jpg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/images/test.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/images/test.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/images/world.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/images/world.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/BasicTool_Widgets.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/BasicTool_Widgets.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/ColorModule.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/ColorModule.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/ColorPaletteManager.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/ColorPaletteManager.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/ColorTemplates/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/ColorTemplates/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/ColorTemplates/material-theme_default.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/ColorTemplates/material-theme_default.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/DevTool.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/DevTool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/DPIHandler.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/DPIHandler.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/blend/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/blend/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/blend/blend.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/blend/blend.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/hct/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/hct/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/hct/cam16.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/hct/cam16.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/hct/hct.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/hct/hct.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/hct/viewing_conditions.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/hct/viewing_conditions.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/palettes/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/palettes/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/palettes/core_palette.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/palettes/core_palette.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/palettes/tonal_palette.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/palettes/tonal_palette.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/quantize/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/quantize/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/quantize/lab_point_provider.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/quantize/lab_point_provider.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_celebi.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_celebi.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_map.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_map.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_wsmeans.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_wsmeans.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_wu.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_wu.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/scheme/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/scheme/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/scheme/scheme.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/scheme/scheme.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/score/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/score/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/score/score.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/score/score.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/utils/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/utils/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/utils/color_utils.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/utils/color_utils.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/utils/image_utils.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/utils/image_utils.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/utils/math_utils.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/utils/math_utils.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/utils/string_utils.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/utils/string_utils.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/utils/theme_utils.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/HTC/utils/theme_utils.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/IconProvider.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/IconProvider.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/LicenseManager.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/LicenseManager.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/LicenseManager_27.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/LicenseManager_27.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/MaterialDesign.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/MaterialDesign.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/PixoShop.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/PixoShop.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/Prefs.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/Prefs.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/Prefs_27.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/Prefs_27.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/Qt.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/Qt.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/_version.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/_version.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/animation.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/animation.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/codicon-charmap.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/codicon-charmap.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/codicon.ttf",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/codicon.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/elusiveicons-webfont-charmap.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/elusiveicons-webfont-charmap.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/elusiveicons-webfont.ttf",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/elusiveicons-webfont.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome4.7-webfont-charmap.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome4.7-webfont-charmap.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome4.7-webfont.ttf",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome4.7-webfont.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-brands-webfont-charmap.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-brands-webfont-charmap.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-brands-webfont.ttf",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-brands-webfont.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-regular-webfont-charmap.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-regular-webfont-charmap.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-regular-webfont.ttf",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-regular-webfont.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-solid-webfont-charmap.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-solid-webfont-charmap.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-solid-webfont.ttf",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-solid-webfont.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons5-webfont-charmap.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons5-webfont-charmap.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons5-webfont.ttf",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons5-webfont.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons6-webfont-charmap.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons6-webfont-charmap.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons6-webfont.ttf",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons6-webfont.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/phosphor-charmap.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/phosphor-charmap.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/phosphor.ttf",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/phosphor.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/remixicon-charmap.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/remixicon-charmap.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/remixicon.ttf",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/fonts/remixicon.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/icon_browser.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/icon_browser.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/iconic_font.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/iconic_font.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/styles.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/styles.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/tests/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/tests/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/tests/test_icon_browser.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/tests/test_icon_browser.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/tests/test_qtawesome.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/qtawesome/tests/test_qtawesome.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/Scandir.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/Scandir.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/SceneCallbacks.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/SceneCallbacks.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/SharedSettings.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/scripts/SharedSettings.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/versions/eblabs_UXFramework_0.0.h.eblabs",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/UXFramework/versions/eblabs_UXFramework_0.0.h.eblabs"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/data/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/data/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/data/eblabs.data",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/data/eblabs.data"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/data/PackageData.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/data/PackageData.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/add_box.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/add_box.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/add_box_png.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/add_box_png.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/add_circle.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/add_circle.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/clear.fill.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/clear.fill.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/eblabs_worldSpaceTools.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/eblabs_worldSpaceTools.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/eblabs_worldSpaceTools_beta.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/eblabs_worldSpaceTools_beta.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/IconProvider.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/IconProvider.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/main.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/main.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/main_hover.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/main_hover.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/more_vert.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/more_vert.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/popup_tutorial.gif",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/popup_tutorial.gif"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/replay.fill.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/replay.fill.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/replay.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/replay.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/world.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/images/world.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/API.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/API.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/Core.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/Core.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/CoreWidgets.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/CoreWidgets.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/debugging.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/debugging.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/LicenseManager.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/LicenseManager.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/Plugin.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/Plugin.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/Plugins/__init__.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/Plugins/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/Plugins/Widget_WorldSpaceButton.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/Plugins/Widget_WorldSpaceButton.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/QT_ToggleWidget.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/QT_ToggleWidget.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/Spaces.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/Spaces.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/Tab_PathSpace.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/Tab_PathSpace.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/Tab_ScreenSpace.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/Tab_ScreenSpace.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/Tab_SpacesMain.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/Tab_SpacesMain.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/Tab_Tools.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/Tab_Tools.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/Version.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/Version.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/worldspace.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/scripts/worldspace.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/versions/eblabs_WorldSpaceTools_1.2.4.h.eblabs",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_hub/WorldSpaceTools/versions/eblabs_WorldSpaceTools_1.2.4.h.eblabs"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_prefs/eblabs_HUB_Main.prefs",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_prefs/eblabs_HUB_Main.prefs"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_prefs/PackageManager.prefs",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_prefs/PackageManager.prefs"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_prefs/whiskey.prefs",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/eblabs_prefs/whiskey.prefs"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/WorldSpaceTools.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/WorldSpaceTools.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/WorldSpaceToolsbeta.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/WorldSpaceToolsbeta.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/记得先把WorldSpaceTools文件夹放到规范路径",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/记得先把WorldSpaceTools文件夹放到规范路径"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/bundle/这俩PY文件拖进maya就安装好了",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/bundle/这俩PY文件拖进maya就安装好了"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/catalog.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/metadata.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/metadata.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/native.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/native.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/proxy.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/proxy.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/runtime.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/tool.py",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/data/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/data/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/data/eblabs.data",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/data/eblabs.data"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/data/PackageData.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/data/PackageData.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/images/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/images/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/images/eblabs_package_manager.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/images/eblabs_package_manager.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/images/eblabs_package_manager_Editor.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/images/eblabs_package_manager_Editor.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Data_Widgets.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Data_Widgets.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/eblabs_drag_drop_install.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/eblabs_drag_drop_install.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/PackageManager.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/PackageManager.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Plugin.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Plugin.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Plugin_Manager.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Plugin_Manager.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Plugins/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Plugins/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Utils/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Utils/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Utils/Maya.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Utils/Maya.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Utils/Misc.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Utils/Misc.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Utils/PixoShop.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Utils/PixoShop.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Utils/Prefs.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Utils/Prefs.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Utils/Qt.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Utils/Qt.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Utils/Scandir.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Utils/Scandir.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Utils/Templates.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/scripts/Utils/Templates.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/versions/eblabs_PackageManager_0.6.9.h.eblabs",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/PackageManager/versions/eblabs_PackageManager_0.6.9.h.eblabs"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/data/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/data/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/data/eblabs.data",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/data/eblabs.data"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/images/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/images/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/images/altcommand.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/images/altcommand.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/images/focus.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/images/focus.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/images/IconProvider.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/images/IconProvider.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/images/placeholder.jpg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/images/placeholder.jpg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/images/recent.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/images/recent.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/images/search.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/images/search.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/images/star.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/images/star.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/scripts/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/scripts/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/scripts/ColorModule.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/scripts/ColorModule.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/scripts/LoggingUtils.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/scripts/LoggingUtils.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/scripts/MainModule.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/scripts/MainModule.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/scripts/Prefs.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/scripts/Prefs.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/scripts/Qt.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/scripts/Qt.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/scripts/Search_Core.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/scripts/Search_Core.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/scripts/Search_UI.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/scripts/Search_UI.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/versions/eblabs_Search_0.0.h.eblabs",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/Search/versions/eblabs_Search_0.0.h.eblabs"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/data/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/data/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/data/eblabs.data",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/data/eblabs.data"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/images/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/images/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/images/clear.fill.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/images/clear.fill.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/images/IconProvider.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/images/IconProvider.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/images/more_vert.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/images/more_vert.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/images/placeholder.jpg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/images/placeholder.jpg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/images/test.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/images/test.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/images/world.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/images/world.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/BasicTool_Widgets.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/BasicTool_Widgets.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/ColorModule.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/ColorModule.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/ColorPaletteManager.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/ColorPaletteManager.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/ColorTemplates/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/ColorTemplates/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/ColorTemplates/material-theme_default.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/ColorTemplates/material-theme_default.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/DevTool.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/DevTool.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/DPIHandler.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/DPIHandler.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/blend/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/blend/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/blend/blend.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/blend/blend.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/hct/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/hct/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/hct/cam16.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/hct/cam16.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/hct/hct.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/hct/hct.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/hct/viewing_conditions.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/hct/viewing_conditions.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/palettes/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/palettes/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/palettes/core_palette.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/palettes/core_palette.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/palettes/tonal_palette.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/palettes/tonal_palette.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/lab_point_provider.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/lab_point_provider.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_celebi.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_celebi.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_map.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_map.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_wsmeans.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_wsmeans.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_wu.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_wu.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/scheme/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/scheme/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/scheme/scheme.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/scheme/scheme.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/score/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/score/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/score/score.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/score/score.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/utils/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/utils/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/utils/color_utils.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/utils/color_utils.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/utils/image_utils.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/utils/image_utils.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/utils/math_utils.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/utils/math_utils.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/utils/string_utils.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/utils/string_utils.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/utils/theme_utils.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/HTC/utils/theme_utils.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/IconProvider.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/IconProvider.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/LicenseManager.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/LicenseManager.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/LicenseManager_27.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/LicenseManager_27.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/MaterialDesign.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/MaterialDesign.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/PixoShop.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/PixoShop.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/Prefs.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/Prefs.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/Prefs_27.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/Prefs_27.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/Qt.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/Qt.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/_version.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/_version.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/animation.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/animation.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/codicon-charmap.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/codicon-charmap.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/codicon.ttf",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/codicon.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/elusiveicons-webfont-charmap.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/elusiveicons-webfont-charmap.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/elusiveicons-webfont.ttf",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/elusiveicons-webfont.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome4.7-webfont-charmap.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome4.7-webfont-charmap.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome4.7-webfont.ttf",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome4.7-webfont.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-brands-webfont-charmap.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-brands-webfont-charmap.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-brands-webfont.ttf",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-brands-webfont.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-regular-webfont-charmap.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-regular-webfont-charmap.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-regular-webfont.ttf",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-regular-webfont.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-solid-webfont-charmap.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-solid-webfont-charmap.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-solid-webfont.ttf",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-solid-webfont.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons5-webfont-charmap.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons5-webfont-charmap.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons5-webfont.ttf",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons5-webfont.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons6-webfont-charmap.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons6-webfont-charmap.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons6-webfont.ttf",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons6-webfont.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/phosphor-charmap.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/phosphor-charmap.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/phosphor.ttf",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/phosphor.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/remixicon-charmap.json",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/remixicon-charmap.json"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/remixicon.ttf",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/fonts/remixicon.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/icon_browser.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/icon_browser.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/iconic_font.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/iconic_font.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/styles.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/styles.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/tests/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/tests/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/tests/test_icon_browser.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/tests/test_icon_browser.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/tests/test_qtawesome.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/qtawesome/tests/test_qtawesome.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/Scandir.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/Scandir.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/SceneCallbacks.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/SceneCallbacks.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/SharedSettings.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/scripts/SharedSettings.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/versions/eblabs_UXFramework_0.0.h.eblabs",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/UXFramework/versions/eblabs_UXFramework_0.0.h.eblabs"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/data/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/data/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/data/eblabs.data",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/data/eblabs.data"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/data/PackageData.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/data/PackageData.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/add_box.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/add_box.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/add_box_png.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/add_box_png.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/add_circle.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/add_circle.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/clear.fill.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/clear.fill.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/eblabs_worldSpaceTools.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/eblabs_worldSpaceTools.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/eblabs_worldSpaceTools_beta.png",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/eblabs_worldSpaceTools_beta.png"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/IconProvider.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/IconProvider.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/main.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/main.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/main_hover.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/main_hover.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/more_vert.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/more_vert.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/popup_tutorial.gif",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/popup_tutorial.gif"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/replay.fill.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/replay.fill.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/replay.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/replay.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/world.svg",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/images/world.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/API.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/API.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/Core.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/Core.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/CoreWidgets.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/CoreWidgets.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/debugging.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/debugging.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/LicenseManager.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/LicenseManager.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/Plugin.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/Plugin.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/Plugins/__init__.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/Plugins/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/Plugins/Widget_WorldSpaceButton.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/Plugins/Widget_WorldSpaceButton.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/QT_ToggleWidget.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/QT_ToggleWidget.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/Spaces.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/Spaces.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/Tab_PathSpace.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/Tab_PathSpace.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/Tab_ScreenSpace.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/Tab_ScreenSpace.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/Tab_SpacesMain.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/Tab_SpacesMain.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/Tab_Tools.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/Tab_Tools.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/Version.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/Version.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/worldspace.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/scripts/worldspace.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/versions/eblabs_WorldSpaceTools_1.2.4.h.eblabs",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_hub/WorldSpaceTools/versions/eblabs_WorldSpaceTools_1.2.4.h.eblabs"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_prefs/eblabs_HUB_Main.prefs",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_prefs/eblabs_HUB_Main.prefs"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_prefs/PackageManager.prefs",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_prefs/PackageManager.prefs"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_prefs/whiskey.prefs",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/eblabs_prefs/whiskey.prefs"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/WorldSpaceTools.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/WorldSpaceTools.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/WorldSpaceToolsbeta.py.original",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/WorldSpaceToolsbeta.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/记得先把WorldSpaceTools文件夹放到规范路径",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/记得先把WorldSpaceTools文件夹放到规范路径"
+    },
+    {
+      "source": "maya_toolkit/tools/eblabs_world_space_tools/upstream/这俩PY文件拖进maya就安装好了",
+      "target": "maya_toolkit/tools/eblabs_world_space_tools/upstream/这俩PY文件拖进maya就安装好了"
+    },
+    {
+      "source": "tests/test_eblabs_world_space_tools.py",
+      "target": "tests/test_eblabs_world_space_tools.py"
+    },
+    {
+      "source": "tests/test_eblabs_world_space_tools_maya.py",
+      "target": "tests/test_eblabs_world_space_tools_maya.py"
+    }
+  ],
+  "resources": [
+    "eblabs_hub/__init__.py",
+    "eblabs_hub/PackageManager/__init__.py",
+    "eblabs_hub/PackageManager/data/__init__.py",
+    "eblabs_hub/PackageManager/data/eblabs.data",
+    "eblabs_hub/PackageManager/data/PackageData.py",
+    "eblabs_hub/PackageManager/images/__init__.py",
+    "eblabs_hub/PackageManager/images/eblabs_package_manager.png",
+    "eblabs_hub/PackageManager/images/eblabs_package_manager_Editor.png",
+    "eblabs_hub/PackageManager/scripts/__init__.py",
+    "eblabs_hub/PackageManager/scripts/Data_Widgets.py",
+    "eblabs_hub/PackageManager/scripts/eblabs_drag_drop_install.py",
+    "eblabs_hub/PackageManager/scripts/PackageManager.py",
+    "eblabs_hub/PackageManager/scripts/Plugin.py",
+    "eblabs_hub/PackageManager/scripts/Plugin_Manager.py",
+    "eblabs_hub/PackageManager/scripts/Plugins/__init__.py",
+    "eblabs_hub/PackageManager/scripts/Utils/__init__.py",
+    "eblabs_hub/PackageManager/scripts/Utils/Maya.py",
+    "eblabs_hub/PackageManager/scripts/Utils/Misc.py",
+    "eblabs_hub/PackageManager/scripts/Utils/PixoShop.py",
+    "eblabs_hub/PackageManager/scripts/Utils/Prefs.py",
+    "eblabs_hub/PackageManager/scripts/Utils/Qt.py",
+    "eblabs_hub/PackageManager/scripts/Utils/Scandir.py",
+    "eblabs_hub/PackageManager/scripts/Utils/Templates.py",
+    "eblabs_hub/PackageManager/versions/eblabs_PackageManager_0.6.9.h.eblabs",
+    "eblabs_hub/Search/__init__.py",
+    "eblabs_hub/Search/data/__init__.py",
+    "eblabs_hub/Search/data/eblabs.data",
+    "eblabs_hub/Search/images/__init__.py",
+    "eblabs_hub/Search/images/altcommand.png",
+    "eblabs_hub/Search/images/focus.png",
+    "eblabs_hub/Search/images/IconProvider.py",
+    "eblabs_hub/Search/images/placeholder.jpg",
+    "eblabs_hub/Search/images/recent.png",
+    "eblabs_hub/Search/images/search.png",
+    "eblabs_hub/Search/images/star.png",
+    "eblabs_hub/Search/scripts/__init__.py",
+    "eblabs_hub/Search/scripts/ColorModule.py",
+    "eblabs_hub/Search/scripts/LoggingUtils.py",
+    "eblabs_hub/Search/scripts/MainModule.py",
+    "eblabs_hub/Search/scripts/Prefs.py",
+    "eblabs_hub/Search/scripts/Qt.py",
+    "eblabs_hub/Search/scripts/Search_Core.py",
+    "eblabs_hub/Search/scripts/Search_UI.py",
+    "eblabs_hub/Search/versions/eblabs_Search_0.0.h.eblabs",
+    "eblabs_hub/UXFramework/__init__.py",
+    "eblabs_hub/UXFramework/data/__init__.py",
+    "eblabs_hub/UXFramework/data/eblabs.data",
+    "eblabs_hub/UXFramework/images/__init__.py",
+    "eblabs_hub/UXFramework/images/clear.fill.svg",
+    "eblabs_hub/UXFramework/images/IconProvider.py",
+    "eblabs_hub/UXFramework/images/more_vert.svg",
+    "eblabs_hub/UXFramework/images/placeholder.jpg",
+    "eblabs_hub/UXFramework/images/test.png",
+    "eblabs_hub/UXFramework/images/world.svg",
+    "eblabs_hub/UXFramework/scripts/__init__.py",
+    "eblabs_hub/UXFramework/scripts/BasicTool_Widgets.py",
+    "eblabs_hub/UXFramework/scripts/ColorModule.py",
+    "eblabs_hub/UXFramework/scripts/ColorPaletteManager.py",
+    "eblabs_hub/UXFramework/scripts/ColorTemplates/__init__.py",
+    "eblabs_hub/UXFramework/scripts/ColorTemplates/material-theme_default.json",
+    "eblabs_hub/UXFramework/scripts/DevTool.py",
+    "eblabs_hub/UXFramework/scripts/DPIHandler.py",
+    "eblabs_hub/UXFramework/scripts/HTC/__init__.py",
+    "eblabs_hub/UXFramework/scripts/HTC/blend/__init__.py",
+    "eblabs_hub/UXFramework/scripts/HTC/blend/blend.py",
+    "eblabs_hub/UXFramework/scripts/HTC/hct/__init__.py",
+    "eblabs_hub/UXFramework/scripts/HTC/hct/cam16.py",
+    "eblabs_hub/UXFramework/scripts/HTC/hct/hct.py",
+    "eblabs_hub/UXFramework/scripts/HTC/hct/viewing_conditions.py",
+    "eblabs_hub/UXFramework/scripts/HTC/palettes/__init__.py",
+    "eblabs_hub/UXFramework/scripts/HTC/palettes/core_palette.py",
+    "eblabs_hub/UXFramework/scripts/HTC/palettes/tonal_palette.py",
+    "eblabs_hub/UXFramework/scripts/HTC/quantize/__init__.py",
+    "eblabs_hub/UXFramework/scripts/HTC/quantize/lab_point_provider.py",
+    "eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_celebi.py",
+    "eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_map.py",
+    "eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_wsmeans.py",
+    "eblabs_hub/UXFramework/scripts/HTC/quantize/quantizer_wu.py",
+    "eblabs_hub/UXFramework/scripts/HTC/scheme/__init__.py",
+    "eblabs_hub/UXFramework/scripts/HTC/scheme/scheme.py",
+    "eblabs_hub/UXFramework/scripts/HTC/score/__init__.py",
+    "eblabs_hub/UXFramework/scripts/HTC/score/score.py",
+    "eblabs_hub/UXFramework/scripts/HTC/utils/__init__.py",
+    "eblabs_hub/UXFramework/scripts/HTC/utils/color_utils.py",
+    "eblabs_hub/UXFramework/scripts/HTC/utils/image_utils.py",
+    "eblabs_hub/UXFramework/scripts/HTC/utils/math_utils.py",
+    "eblabs_hub/UXFramework/scripts/HTC/utils/string_utils.py",
+    "eblabs_hub/UXFramework/scripts/HTC/utils/theme_utils.py",
+    "eblabs_hub/UXFramework/scripts/IconProvider.py",
+    "eblabs_hub/UXFramework/scripts/LicenseManager.py",
+    "eblabs_hub/UXFramework/scripts/LicenseManager_27.py",
+    "eblabs_hub/UXFramework/scripts/MaterialDesign.py",
+    "eblabs_hub/UXFramework/scripts/PixoShop.py",
+    "eblabs_hub/UXFramework/scripts/Prefs.py",
+    "eblabs_hub/UXFramework/scripts/Prefs_27.py",
+    "eblabs_hub/UXFramework/scripts/Qt.py",
+    "eblabs_hub/UXFramework/scripts/qtawesome/__init__.py",
+    "eblabs_hub/UXFramework/scripts/qtawesome/_version.py",
+    "eblabs_hub/UXFramework/scripts/qtawesome/animation.py",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/__init__.py",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/codicon-charmap.json",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/codicon.ttf",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/elusiveicons-webfont-charmap.json",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/elusiveicons-webfont.ttf",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome4.7-webfont-charmap.json",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome4.7-webfont.ttf",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-brands-webfont-charmap.json",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-brands-webfont.ttf",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-regular-webfont-charmap.json",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-regular-webfont.ttf",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-solid-webfont-charmap.json",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/fontawesome5-solid-webfont.ttf",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons5-webfont-charmap.json",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons5-webfont.ttf",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons6-webfont-charmap.json",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/materialdesignicons6-webfont.ttf",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/phosphor-charmap.json",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/phosphor.ttf",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/remixicon-charmap.json",
+    "eblabs_hub/UXFramework/scripts/qtawesome/fonts/remixicon.ttf",
+    "eblabs_hub/UXFramework/scripts/qtawesome/icon_browser.py",
+    "eblabs_hub/UXFramework/scripts/qtawesome/iconic_font.py",
+    "eblabs_hub/UXFramework/scripts/qtawesome/styles.py",
+    "eblabs_hub/UXFramework/scripts/qtawesome/tests/__init__.py",
+    "eblabs_hub/UXFramework/scripts/qtawesome/tests/test_icon_browser.py",
+    "eblabs_hub/UXFramework/scripts/qtawesome/tests/test_qtawesome.py",
+    "eblabs_hub/UXFramework/scripts/Scandir.py",
+    "eblabs_hub/UXFramework/scripts/SceneCallbacks.py",
+    "eblabs_hub/UXFramework/scripts/SharedSettings.py",
+    "eblabs_hub/UXFramework/versions/eblabs_UXFramework_0.0.h.eblabs",
+    "eblabs_hub/WorldSpaceTools/__init__.py",
+    "eblabs_hub/WorldSpaceTools/data/__init__.py",
+    "eblabs_hub/WorldSpaceTools/data/eblabs.data",
+    "eblabs_hub/WorldSpaceTools/data/PackageData.py",
+    "eblabs_hub/WorldSpaceTools/images/__init__.py",
+    "eblabs_hub/WorldSpaceTools/images/add_box.svg",
+    "eblabs_hub/WorldSpaceTools/images/add_box_png.png",
+    "eblabs_hub/WorldSpaceTools/images/add_circle.svg",
+    "eblabs_hub/WorldSpaceTools/images/clear.fill.svg",
+    "eblabs_hub/WorldSpaceTools/images/eblabs_worldSpaceTools.png",
+    "eblabs_hub/WorldSpaceTools/images/eblabs_worldSpaceTools_beta.png",
+    "eblabs_hub/WorldSpaceTools/images/IconProvider.py",
+    "eblabs_hub/WorldSpaceTools/images/main.svg",
+    "eblabs_hub/WorldSpaceTools/images/main_hover.svg",
+    "eblabs_hub/WorldSpaceTools/images/more_vert.svg",
+    "eblabs_hub/WorldSpaceTools/images/popup_tutorial.gif",
+    "eblabs_hub/WorldSpaceTools/images/replay.fill.svg",
+    "eblabs_hub/WorldSpaceTools/images/replay.svg",
+    "eblabs_hub/WorldSpaceTools/images/world.svg",
+    "eblabs_hub/WorldSpaceTools/scripts/__init__.py",
+    "eblabs_hub/WorldSpaceTools/scripts/API.py",
+    "eblabs_hub/WorldSpaceTools/scripts/Core.py",
+    "eblabs_hub/WorldSpaceTools/scripts/CoreWidgets.py",
+    "eblabs_hub/WorldSpaceTools/scripts/debugging.py",
+    "eblabs_hub/WorldSpaceTools/scripts/LicenseManager.py",
+    "eblabs_hub/WorldSpaceTools/scripts/Plugin.py",
+    "eblabs_hub/WorldSpaceTools/scripts/Plugins/__init__.py",
+    "eblabs_hub/WorldSpaceTools/scripts/Plugins/Widget_WorldSpaceButton.py",
+    "eblabs_hub/WorldSpaceTools/scripts/QT_ToggleWidget.py",
+    "eblabs_hub/WorldSpaceTools/scripts/Spaces.py",
+    "eblabs_hub/WorldSpaceTools/scripts/Tab_PathSpace.py",
+    "eblabs_hub/WorldSpaceTools/scripts/Tab_ScreenSpace.py",
+    "eblabs_hub/WorldSpaceTools/scripts/Tab_SpacesMain.py",
+    "eblabs_hub/WorldSpaceTools/scripts/Tab_Tools.py",
+    "eblabs_hub/WorldSpaceTools/scripts/Version.py",
+    "eblabs_hub/WorldSpaceTools/scripts/worldspace.py",
+    "eblabs_hub/WorldSpaceTools/versions/eblabs_WorldSpaceTools_1.2.4.h.eblabs",
+    "eblabs_prefs/eblabs_HUB_Main.prefs",
+    "eblabs_prefs/PackageManager.prefs",
+    "eblabs_prefs/whiskey.prefs",
+    "WorldSpaceTools.py",
+    "WorldSpaceToolsbeta.py",
+    "记得先把WorldSpaceTools文件夹放到规范路径",
+    "这俩PY文件拖进maya就安装好了"
+  ],
+  "dependencies": [
+    "Maya cmds/API2; complete native legacy runtime",
+    "Beta Hub needs absent proprietary version modules, matching supported Python/Qt and original licensed EB Labs environment"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete supplied WorldSpaceTools/Hub/assets and all legacy classes/methods preserved, self-contained metadata and session preferences, all original legacy UI and world/parent/local/IK/path/COG/gimbal/copy business, explicit API, guarded native callbacks, UUID helper ownership and cleanup, Undo/finally, full docs/tests/registration/promotion.",
+  "verification_limitations": [
+    "Actual native GUI/production space/IK/path/COG/gimbal workflows not_run",
+    "Beta Hub proprietary version modules absent in supplied bundle, kept complete provided source and actionable dependency diagnostics; no license bypass or fabricated implementation",
+    "Source native full suite independent of missing Hub metadata/Version readers; actual legacy source API tests do not verify beta Hub",
+    "Anim clipboard/buffer keys changed by original algorithms; Undo actual scope requires Maya acceptance",
+    "Session prefs differ from original automatic userAppDir writes; persistence via explicit JSON export only",
+    "No public publication rights inferred"
+  ]
+}

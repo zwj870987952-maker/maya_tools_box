@@ -1,0 +1,3571 @@
+from .proxy import cmds, mel
+from maya import OpenMayaUI
+from .metadata import PackageData, Version
+from . import runtime as _r
+from functools import partial
+from collections import Counter
+import json
+import traceback
+import re
+import math
+import datetime
+import pprint
+import maya.api.OpenMaya as OpenMaya
+import os
+import time
+import sys
+import copy
+package_data = PackageData.get_data()
+
+def iteritems(obj, **kwargs):
+    """Use this only if compatibility with Python versions before 2.7 is
+    required. Otherwise, prefer viewitems().
+    """
+    func = getattr(obj, 'iteritems', None)
+    if not func:
+        func = obj.items
+    return func(**kwargs)
+
+class Modes:
+    betaMode = True
+
+class window:
+
+    @classmethod
+    def load(cls, *args, **kwargs):
+        version = package_data.get('version', '')
+        windowName = 'mtbWS2'
+        windowDisplayName = 'WS2 {0}'.format(version)
+        Modes.betaMode = True
+        if 'betaMode' in kwargs:
+            Modes.betaMode = kwargs.pop('betaMode')
+        if Modes.betaMode:
+            windowDisplayName += ' *'
+        if cmds.window(windowName, exists=True):
+            cmds.deleteUI(windowName, window=True)
+        if cmds.windowPref(windowName, exists=True):
+            pass
+        cls.window = cmds.window(windowName, widthHeight=(230, 200), title=windowDisplayName)
+        Version.print_version_info()
+        cls.mainFormLayout = cmds.formLayout()
+        mainMenuBar = cmds.menuBarLayout(parent=cls.mainFormLayout, height=20)
+        optionsMenu = cmds.menu(parent=mainMenuBar, label='Options')
+        cmds.menu(optionsMenu, edit=True, postMenuCommand=partial(cls.postClickOptionsMenu, parentMenu=optionsMenu))
+        tabs = cmds.tabLayout(parent=cls.mainFormLayout)
+        child1 = cmds.columnLayout(parent=tabs, adjustableColumn=True, columnAttach=['both', 1], rowSpacing=2)
+        resizeCommand = partial(cls.resizeUI)
+        bgc = [0.95] * 3
+        cls.createOptionsFrameLayout = cmds.frameLayout(parent=child1, label='Create Options', collapsable=True, collapse=True, collapseCommand=resizeCommand, expandCommand=resizeCommand)
+        cls.createOptionsUI(parent=cls.createOptionsFrameLayout)
+        toWorldSpaceButton = cmds.button(parent=child1, height=30, label='To World Space', bgc=bgc, ann='Create World Space Control', command=partial(cls.toWorldButton))
+        toParentSpaceButton = cmds.button(parent=child1, height=30, label='To Parent Space', bgc=bgc, ann="Put A(s) in B's parent space", command=partial(cls.toWorldButton, toParentSpace=True))
+        popupMenu = cmds.popupMenu(parent=toWorldSpaceButton)
+        cmds.popupMenu(popupMenu, edit=True, postMenuCommand=partial(cls.toWorldPopupMenu, parent=popupMenu))
+        cls.bakeOptionsFrameLayout = cmds.frameLayout(parent=child1, label='Bake Options', collapsable=True, collapse=True, collapseCommand=resizeCommand, expandCommand=resizeCommand)
+        cls.bakeOptionsUI(parent=cls.bakeOptionsFrameLayout)
+        toLocalSpace = cmds.button(parent=child1, height=30, label='To Local Space', bgc=bgc, ann='Send Animation Back To Local Space', command=partial(cls.toLocalButton))
+        child2 = cmds.columnLayout(parent=tabs, adjustableColumn=True, columnAttach=['both', 1], rowSpacing=2)
+        COGFRAME = cmds.frameLayout(parent=child2, label='Create Extra COG', collapsable=False, collapse=False, bgc=[0.5] * 3)
+        COGLayout = cmds.formLayout(parent=COGFRAME)
+        childCOGButton = cmds.button(parent=COGLayout, label='Add Child COG', height=25, bgc=bgc, ann='Add Child COG', command=partial(Functions.addCog, cogType='child'))
+        parentCOGButton = cmds.button(parent=COGLayout, label='Add Parent COG', height=25, bgc=bgc, ann='Add Parent COG', command=partial(Functions.addCog, cogType='parent'))
+        cmds.formLayout(COGLayout, edit=True, attachForm=[(childCOGButton, 'top', 0)])
+        cmds.formLayout(COGLayout, edit=True, attachForm=[(childCOGButton, 'left', 0)])
+        cmds.formLayout(COGLayout, edit=True, attachNone=[(childCOGButton, 'bottom')])
+        cmds.formLayout(COGLayout, edit=True, attachPosition=[(childCOGButton, 'right', 0, 50)])
+        cmds.formLayout(COGLayout, edit=True, attachForm=[(parentCOGButton, 'top', 0)])
+        cmds.formLayout(COGLayout, edit=True, attachPosition=[(parentCOGButton, 'left', 0, 50)])
+        cmds.formLayout(COGLayout, edit=True, attachNone=[(parentCOGButton, 'bottom')])
+        cmds.formLayout(COGLayout, edit=True, attachForm=[(parentCOGButton, 'right', 0)])
+        chainFrame = cmds.frameLayout(parent=child2, label='Gimbal Info', collapsable=False, collapse=False, bgc=[0.5] * 3)
+        plotGimbalInfoButton = cmds.button(parent=chainFrame, label='Check Gimbal Flipping', height=25, bgc=bgc, ann='Plot Gimbal Flipping for Various Rotate Orders', command=partial(Functions.plotGimbalInfo))
+        child3 = cmds.columnLayout(parent=tabs, adjustableColumn=True, columnAttach=['both', 1], rowSpacing=2)
+        cls.copyAtoB_UI(parent=child3)
+        child4 = cmds.columnLayout(parent=tabs, adjustableColumn=True, columnAttach=['both', 1], rowSpacing=2)
+        cls.pathSpaces_UI(parent=child4)
+        undoFrame = cmds.frameLayout(parent=cls.mainFormLayout, label='Quick Undos', collapsable=True, collapse=True, bgc=[0.5] * 3, collapseCommand=resizeCommand, expandCommand=resizeCommand)
+        quickUndos = cmds.formLayout(parent=undoFrame)
+        undoButton = cmds.button(parent=quickUndos, height=18, label='Quick Undo', bgc=[0.9] * 3, ann='Quick Undo', command=Functions.quickUndo)
+        redoButton = cmds.button(parent=quickUndos, height=18, label='Quick Redo', bgc=[0.2] * 3, ann='Quick Redo', command=Functions.quickRedo)
+        cmds.formLayout(quickUndos, edit=True, attachForm=[(undoButton, 'top', 0)])
+        cmds.formLayout(quickUndos, edit=True, attachForm=[(undoButton, 'left', 0)])
+        cmds.formLayout(quickUndos, edit=True, attachNone=[(undoButton, 'bottom')])
+        cmds.formLayout(quickUndos, edit=True, attachPosition=[(undoButton, 'right', 0, 50)])
+        cmds.formLayout(quickUndos, edit=True, attachForm=[(redoButton, 'top', 0)])
+        cmds.formLayout(quickUndos, edit=True, attachPosition=[(redoButton, 'left', 0, 50)])
+        cmds.formLayout(quickUndos, edit=True, attachNone=[(redoButton, 'bottom')])
+        cmds.formLayout(quickUndos, edit=True, attachForm=[(redoButton, 'right', 0)])
+        cmds.tabLayout(tabs, edit=True, tabLabel=((child1, 'Spaces'), (child2, 'Extras'), (child4, 'Paths'), (child3, 'Copy')))
+        cmds.formLayout(cls.mainFormLayout, edit=True, attachNone=[(undoFrame, 'top')])
+        cmds.formLayout(cls.mainFormLayout, edit=True, attachForm=[(undoFrame, 'left', 0)])
+        cmds.formLayout(cls.mainFormLayout, edit=True, attachForm=[(undoFrame, 'bottom', 0)])
+        cmds.formLayout(cls.mainFormLayout, edit=True, attachForm=[(undoFrame, 'right', 0)])
+        cmds.formLayout(cls.mainFormLayout, edit=True, attachForm=[(mainMenuBar, 'top', 0)])
+        cmds.formLayout(cls.mainFormLayout, edit=True, attachForm=[(mainMenuBar, 'left', 0)])
+        cmds.formLayout(cls.mainFormLayout, edit=True, attachNone=[(mainMenuBar, 'bottom')])
+        cmds.formLayout(cls.mainFormLayout, edit=True, attachForm=[(mainMenuBar, 'right', 0)])
+        cmds.formLayout(cls.mainFormLayout, edit=True, attachControl=[(tabs, 'top', 0, mainMenuBar)])
+        cmds.formLayout(cls.mainFormLayout, edit=True, attachForm=[(tabs, 'left', 0)])
+        cmds.formLayout(cls.mainFormLayout, edit=True, attachControl=[(tabs, 'bottom', 0, undoFrame)])
+        cmds.formLayout(cls.mainFormLayout, edit=True, attachForm=[(tabs, 'right', 0)])
+        cmds.showWindow(cls.window)
+        cls.refreshTimeRange('create')
+        cls.refreshTimeRange('bake')
+        cls.onOptionsChange('create')
+        cls.onOptionsChange('bake')
+        cmds.evalDeferred(resizeCommand)
+
+    @classmethod
+    def toWorldPopupMenu(cls, *args, **kwargs):
+        parent = False
+        if 'parent' in kwargs:
+            parent = kwargs.pop('parent')
+        cmds.popupMenu(parent, edit=True, deleteAllItems=True)
+        cmds.setParent(parent, menu=True)
+        cmds.menuItem(parent=parent, label='IK Chain', command=partial(cls.toIKChain))
+
+    @classmethod
+    def postClickOptionsMenu(cls, *args, **kwargs):
+        parentMenu = False
+        if 'parentMenu' in kwargs:
+            parentMenu = kwargs.pop('parentMenu')
+        if parentMenu:
+            cmds.setParent(parentMenu, menu=True)
+            cmds.menu(parentMenu, edit=True, deleteAllItems=True)
+            prefsKey = 'fastMode'
+            prefsValue = PrefsManager.getProperty('fastMode', True)
+            cmds.menuItem(label='Fast Mode', checkBox=prefsValue, command=partial(cls.setPrefs, key=prefsKey))
+
+    @classmethod
+    def setPrefs(cls, *args, **kwargs):
+        key = False
+        if 'key' in kwargs:
+            key = kwargs.pop('key')
+        value = False
+        if 'value' in kwargs:
+            value = kwargs.pop('value')
+        else:
+            try:
+                value = args[0]
+            except:
+                pass
+        if key:
+            PrefsManager.setProperty(key, value)
+
+    @classmethod
+    def resizeUI(cls, *args, **kwargs):
+        command = partial(cls.resizeUI_deferred)
+        command()
+
+    @classmethod
+    def resizeUI_deferred(cls, *args, **kwargs):
+        backup_height = cmds.window(cls.window, query=True, height=True)
+        cmds.window(cls.window, edit=True, height=1)
+        fudgeFactor = 0
+        scrollLayoutHeight = cmds.formLayout(cls.mainFormLayout, query=True, height=True)
+        scrollLayoutHeight += fudgeFactor
+        cmds.window(cls.window, edit=True, height=scrollLayoutHeight)
+
+    @classmethod
+    def pathSpaces_UI(cls, parent=False, *args, **kwargs):
+        form = cmds.columnLayout(parent=parent, adjustableColumn=True, columnAttach=['both', 1], rowSpacing=2)
+        height = 25
+        bgc = [0.95] * 3
+        PSFRAME = cmds.frameLayout(parent=form, label='Path Space Utils', collapsable=False, collapse=False, bgc=[0.5] * 3)
+        PSLayout = cmds.columnLayout(parent=PSFRAME, adjustableColumn=True, columnAttach=['both', 1], rowSpacing=2)
+        createPathButton = cmds.button(parent=PSLayout, label='Create Paths For Selected', height=25, bgc=bgc, ann='Create Paths For Selected', command=partial(PathSpaces.createPathsForSelection))
+        RebuildLayout = cmds.formLayout(parent=PSLayout)
+        defaultSliderValue = 6
+        rebuildPathSlider = cmds.intSlider(parent=RebuildLayout, min=6, max=20, value=defaultSliderValue, step=1, height=25)
+        rebuildPathButton = cmds.button(parent=RebuildLayout, label='Rebuild', height=25, bgc=bgc, ann='Rebuild Curves')
+        command = partial(cls.rebuildSliderChange, slider=rebuildPathSlider, button=rebuildPathButton)
+        cmds.intSlider(rebuildPathSlider, edit=True, dragCommand=command)
+        command = partial(cls.onRebuildButtonClick, slider=rebuildPathSlider)
+        cmds.button(rebuildPathButton, edit=True, command=command)
+        cls.rebuildSliderChangeButton(button=rebuildPathButton, value=defaultSliderValue)
+        cmds.formLayout(RebuildLayout, edit=True, attachForm=[(rebuildPathSlider, 'top', 0)])
+        cmds.formLayout(RebuildLayout, edit=True, attachForm=[(rebuildPathSlider, 'left', 0)])
+        cmds.formLayout(RebuildLayout, edit=True, attachNone=[(rebuildPathSlider, 'bottom')])
+        cmds.formLayout(RebuildLayout, edit=True, attachPosition=[(rebuildPathSlider, 'right', 0, 70)])
+        cmds.formLayout(RebuildLayout, edit=True, attachForm=[(rebuildPathButton, 'top', 0)])
+        cmds.formLayout(RebuildLayout, edit=True, attachControl=[(rebuildPathButton, 'left', 2, rebuildPathSlider)])
+        cmds.formLayout(RebuildLayout, edit=True, attachNone=[(rebuildPathButton, 'bottom')])
+        cmds.formLayout(RebuildLayout, edit=True, attachForm=[(rebuildPathButton, 'right', 0)])
+        createAnimatedLocatorButton = cmds.button(parent=PSLayout, label='Animate Locator', height=25, bgc=bgc, ann='Select Path and then Control', command=partial(PathSpaces.createAnimatedLocatorOnPath))
+        ToPathSpaceSimpleButton = cmds.button(parent=PSLayout, label='To Path Space', height=25, bgc=bgc, ann='Select Control', command=partial(cls.toPathButton, slider=rebuildPathSlider))
+
+    @classmethod
+    def onRebuildButtonClick(cls, *args, **kwargs):
+        slider = False
+        if 'slider' in kwargs:
+            slider = kwargs.pop('slider')
+        value = cmds.intSlider(slider, query=True, value=True)
+        selected = cmds.ls(sl=True)
+        PathSpaces.rebuildCurve(value, selected)
+        cmds.select(selected)
+
+    @classmethod
+    def rebuildSliderChangeButton(cls, *args, **kwargs):
+        button = False
+        if 'button' in kwargs:
+            button = kwargs.pop('button')
+        value = False
+        if 'value' in kwargs:
+            value = kwargs.pop('value')
+        text = '{0} Rebuild'.format(int(value))
+        cmds.button(button, edit=True, label=text)
+
+    @classmethod
+    def rebuildSliderChange(cls, *args, **kwargs):
+        slider = False
+        if 'slider' in kwargs:
+            slider = kwargs.pop('slider')
+        button = False
+        if 'button' in kwargs:
+            button = kwargs.pop('button')
+        value = args[0]
+        cls.rebuildSliderChangeButton(button=button, value=value)
+
+    @classmethod
+    def copyAtoB_UI(cls, parent=False, *args, **kwargs):
+        form = cmds.columnLayout(parent=parent, adjustableColumn=True, columnAttach=['both', 1], rowSpacing=2)
+        height = 25
+        bgc = [0.95] * 3
+        bakeMethodForm = cmds.formLayout(parent=form, width=5)
+        TrueText = 'On Keys'
+        FalseText = 'Bake Range'
+        TrueCommand = partial(cls.toggleOnKeys, True, 'copy')
+        FalseCommand = partial(cls.toggleOnKeys, False, 'copy')
+        startState = cls.getOptions('onKeys', 'copy')
+        TrueColor = [0.208, 0.48, 0.751]
+        FalseColor = [0.5] * 3
+        padding = 0
+        cls.copyOnKeys = WidgetToggleSwitch(parent=bakeMethodForm, startState=startState, TrueText=TrueText, FalseText=FalseText, TrueCommand=TrueCommand, FalseCommand=FalseCommand, TrueColor=TrueColor, FalseColor=FalseColor, height=height, width=5, padding=padding)
+        onKeysElement = cls.copyOnKeys.getLayout()
+        cls.copyStartFrameField = cmds.intField(parent=bakeMethodForm, width=5, bgc=[0.2] * 3, height=height, enable=not startState)
+        cls.copyEndFrameField = cmds.intField(parent=bakeMethodForm, width=5, bgc=[0.2] * 3, height=height, enable=not startState)
+        cmds.formLayout(bakeMethodForm, edit=True, attachForm=[(onKeysElement, 'top', 0)])
+        cmds.formLayout(bakeMethodForm, edit=True, attachForm=[(onKeysElement, 'left', 0)])
+        cmds.formLayout(bakeMethodForm, edit=True, attachNone=[(onKeysElement, 'bottom')])
+        cmds.formLayout(bakeMethodForm, edit=True, attachPosition=[(onKeysElement, 'right', 0, 50)])
+        cmds.formLayout(bakeMethodForm, edit=True, attachForm=[(cls.copyStartFrameField, 'top', 0)])
+        cmds.formLayout(bakeMethodForm, edit=True, attachPosition=[(cls.copyStartFrameField, 'left', 0, 50)])
+        cmds.formLayout(bakeMethodForm, edit=True, attachNone=[(cls.copyStartFrameField, 'bottom')])
+        cmds.formLayout(bakeMethodForm, edit=True, attachPosition=[(cls.copyStartFrameField, 'right', 0, 75)])
+        cmds.formLayout(bakeMethodForm, edit=True, attachForm=[(cls.copyEndFrameField, 'top', 0)])
+        cmds.formLayout(bakeMethodForm, edit=True, attachPosition=[(cls.copyEndFrameField, 'left', 0, 75)])
+        cmds.formLayout(bakeMethodForm, edit=True, attachNone=[(cls.copyEndFrameField, 'bottom')])
+        cmds.formLayout(bakeMethodForm, edit=True, attachForm=[(cls.copyEndFrameField, 'right', 0)])
+        onCommand = partial(cls.setOptions, 'maintainOffset', True, 'copy')
+        offCommand = partial(cls.setOptions, 'maintainOffset', False, 'copy')
+        description = 'Maintain Offset'
+        descriptionWidth = 50
+        startState = cls.getOptions('maintainOffset', 'copy')
+        cls.maintainOffsetToggle = SwitchFlipWidget(parent=form, startState=startState, descriptionWidth=descriptionWidth, height=height, description=description, onCommand=onCommand, offCommand=onCommand)
+        maintainOffsetToggleButton = cls.maintainOffsetToggle.getLayout()
+        copyAnimButton = cmds.button(parent=form, label='Copy Anim A to B(s)', height=height, bgc=bgc, ann='Copy Animation from one object to one or more other objects.', command=partial(cls.copyAtoB_button))
+        snapButton = cmds.button(parent=form, label='Copy Anim (single frame) A to B', height=height, bgc=bgc, ann='Copy Single Frame from one object to one or more other objects.', command=partial(cls.snapAtoB_button))
+
+    @classmethod
+    def bakeOptionsUI(cls, parent=False, *args, **kwargs):
+        form = cmds.formLayout(parent=parent, bgc=[0.2] * 3)
+        height = 25
+        TrueText = 'On Keys'
+        FalseText = 'Bake Range'
+        TrueCommand = partial(cls.toggleOnKeys, True, 'bake')
+        FalseCommand = partial(cls.toggleOnKeys, False, 'bake')
+        startState = cls.getOptions('onKeys', 'bake')
+        TrueColor = [0.208, 0.48, 0.751]
+        FalseColor = [0.5] * 3
+        padding = 0
+        cls.bakeOnKeys = WidgetToggleSwitch(parent=form, startState=startState, TrueText=TrueText, FalseText=FalseText, TrueCommand=TrueCommand, FalseCommand=FalseCommand, TrueColor=TrueColor, FalseColor=FalseColor, height=height, width=5, padding=padding)
+        onKeysElement = cls.bakeOnKeys.getLayout()
+        cls.bakeStartFrameField = cmds.intField(parent=form, width=5, bgc=[0.2] * 3, height=height, enable=not startState)
+        cls.bakeEndFrameField = cmds.intField(parent=form, width=5, bgc=[0.2] * 3, height=height, enable=not startState)
+        cmds.formLayout(form, edit=True, attachForm=[(onKeysElement, 'top', 0)])
+        cmds.formLayout(form, edit=True, attachForm=[(onKeysElement, 'left', 0)])
+        cmds.formLayout(form, edit=True, attachNone=[(onKeysElement, 'bottom')])
+        cmds.formLayout(form, edit=True, attachPosition=[(onKeysElement, 'right', 0, 52)])
+        cmds.formLayout(form, edit=True, attachForm=[(cls.bakeStartFrameField, 'top', 0)])
+        cmds.formLayout(form, edit=True, attachPosition=[(cls.bakeStartFrameField, 'left', 0, 52)])
+        cmds.formLayout(form, edit=True, attachNone=[(cls.bakeStartFrameField, 'bottom')])
+        cmds.formLayout(form, edit=True, attachPosition=[(cls.bakeStartFrameField, 'right', 0, 76)])
+        cmds.formLayout(form, edit=True, attachForm=[(cls.bakeEndFrameField, 'top', 0)])
+        cmds.formLayout(form, edit=True, attachPosition=[(cls.bakeEndFrameField, 'left', 0, 76)])
+        cmds.formLayout(form, edit=True, attachNone=[(cls.bakeEndFrameField, 'bottom')])
+        cmds.formLayout(form, edit=True, attachForm=[(cls.bakeEndFrameField, 'right', 0)])
+
+    @classmethod
+    def createOptionsUI(cls, parent=False, *args, **kwargs):
+        form = cmds.formLayout(parent=parent, bgc=[0.2] * 3)
+        height = 25
+        allTranslateButton = cmds.button(parent=form, label='Translates', bgc=[0.2] * 3, height=height, command=partial(cls.toggleTranslates))
+        allRotateButton = cmds.button(parent=form, label='Rotates', bgc=[0.2] * 3, height=height, command=partial(cls.toggleRotates))
+        TrueText = 'x'
+        FalseText = 'x'
+        TrueCommand = partial(cls.setOptions, 'tx', True, 'create')
+        FalseCommand = partial(cls.setOptions, 'tx', False, 'create')
+        startState = cls.getOptions('tx', 'create')
+        TrueColor = [0.797, 0.186, 0.186]
+        cls.translateX = WidgetToggleSwitch(parent=form, startState=startState, TrueText=TrueText, FalseText=FalseText, TrueCommand=TrueCommand, FalseCommand=FalseCommand, TrueColor=TrueColor, height=height, width=5)
+        translateXElement = cls.translateX.getLayout()
+        TrueText = 'y'
+        FalseText = 'y'
+        TrueCommand = partial(cls.setOptions, 'ty', True, 'create')
+        FalseCommand = partial(cls.setOptions, 'ty', False, 'create')
+        startState = cls.getOptions('ty', 'create')
+        TrueColor = [0.024, 0.804, 0.024]
+        cls.translateY = WidgetToggleSwitch(parent=form, startState=startState, TrueText=TrueText, FalseText=FalseText, TrueCommand=TrueCommand, FalseCommand=FalseCommand, TrueColor=TrueColor, height=height, width=5)
+        translateYElement = cls.translateY.getLayout()
+        TrueText = 'z'
+        FalseText = 'z'
+        TrueCommand = partial(cls.setOptions, 'tz', True, 'create')
+        FalseCommand = partial(cls.setOptions, 'tz', False, 'create')
+        startState = cls.getOptions('tz', 'create')
+        TrueColor = [0.263, 0.478, 0.812]
+        cls.translateZ = WidgetToggleSwitch(parent=form, startState=startState, TrueText=TrueText, FalseText=FalseText, TrueCommand=TrueCommand, FalseCommand=FalseCommand, TrueColor=TrueColor, height=height, width=5)
+        translateZElement = cls.translateZ.getLayout()
+        TrueText = 'x'
+        FalseText = 'x'
+        TrueCommand = partial(cls.setOptions, 'rx', True, 'create')
+        FalseCommand = partial(cls.setOptions, 'rx', False, 'create')
+        startState = cls.getOptions('rx', 'create')
+        TrueColor = [0.797, 0.186, 0.186]
+        cls.rotateX = WidgetToggleSwitch(parent=form, startState=startState, TrueText=TrueText, FalseText=FalseText, TrueCommand=TrueCommand, FalseCommand=FalseCommand, TrueColor=TrueColor, height=height, width=5)
+        rotateXElement = cls.rotateX.getLayout()
+        TrueText = 'y'
+        FalseText = 'y'
+        TrueCommand = partial(cls.setOptions, 'ry', True, 'create')
+        FalseCommand = partial(cls.setOptions, 'ry', False, 'create')
+        startState = cls.getOptions('ry', 'create')
+        TrueColor = [0.024, 0.804, 0.024]
+        cls.rotateY = WidgetToggleSwitch(parent=form, startState=startState, TrueText=TrueText, FalseText=FalseText, TrueCommand=TrueCommand, FalseCommand=FalseCommand, TrueColor=TrueColor, height=height, width=5)
+        rotateYElement = cls.rotateY.getLayout()
+        TrueText = 'z'
+        FalseText = 'z'
+        TrueCommand = partial(cls.setOptions, 'rz', True, 'create')
+        FalseCommand = partial(cls.setOptions, 'rz', False, 'create')
+        startState = cls.getOptions('rz', 'create')
+        TrueColor = [0.263, 0.478, 0.812]
+        cls.rotateZ = WidgetToggleSwitch(parent=form, startState=startState, TrueText=TrueText, FalseText=FalseText, TrueCommand=TrueCommand, FalseCommand=FalseCommand, TrueColor=TrueColor, height=height, width=5)
+        rotateZElement = cls.rotateZ.getLayout()
+        TrueText = 'On Keys'
+        FalseText = 'Bake Range'
+        TrueCommand = partial(cls.toggleOnKeys, True, 'create')
+        FalseCommand = partial(cls.toggleOnKeys, False, 'create')
+        startState = cls.getOptions('onKeys', 'create')
+        TrueColor = [0.208, 0.48, 0.751]
+        FalseColor = [0.5] * 3
+        padding = 0
+        cls.createOnKeys = WidgetToggleSwitch(parent=form, startState=startState, TrueText=TrueText, FalseText=FalseText, TrueCommand=TrueCommand, FalseCommand=FalseCommand, TrueColor=TrueColor, FalseColor=FalseColor, height=height, width=5, padding=padding)
+        onKeysElement = cls.createOnKeys.getLayout()
+        cls.createStartFrameField = cmds.intField(parent=form, width=5, bgc=[0.2] * 3, height=height, enable=not startState)
+        cls.createEndFrameField = cmds.intField(parent=form, width=5, bgc=[0.2] * 3, height=height, enable=not startState)
+        cmds.formLayout(form, edit=True, attachForm=[(allTranslateButton, 'top', 0)])
+        cmds.formLayout(form, edit=True, attachForm=[(allTranslateButton, 'left', 0)])
+        cmds.formLayout(form, edit=True, attachNone=[(allTranslateButton, 'bottom')])
+        cmds.formLayout(form, edit=True, attachPosition=[(allTranslateButton, 'right', 0, 52)])
+        cmds.formLayout(form, edit=True, attachControl=[(allRotateButton, 'top', 0, allTranslateButton)])
+        cmds.formLayout(form, edit=True, attachForm=[(allRotateButton, 'left', 0)])
+        cmds.formLayout(form, edit=True, attachNone=[(allRotateButton, 'bottom')])
+        cmds.formLayout(form, edit=True, attachPosition=[(allRotateButton, 'right', 0, 52)])
+        cmds.formLayout(form, edit=True, attachControl=[(onKeysElement, 'top', 0, allRotateButton)])
+        cmds.formLayout(form, edit=True, attachForm=[(onKeysElement, 'left', 0)])
+        cmds.formLayout(form, edit=True, attachNone=[(onKeysElement, 'bottom')])
+        cmds.formLayout(form, edit=True, attachPosition=[(onKeysElement, 'right', 0, 52)])
+        cmds.formLayout(form, edit=True, attachControl=[(cls.createStartFrameField, 'top', 0, allRotateButton)])
+        cmds.formLayout(form, edit=True, attachPosition=[(cls.createStartFrameField, 'left', 0, 52)])
+        cmds.formLayout(form, edit=True, attachNone=[(cls.createStartFrameField, 'bottom')])
+        cmds.formLayout(form, edit=True, attachPosition=[(cls.createStartFrameField, 'right', 0, 76)])
+        cmds.formLayout(form, edit=True, attachControl=[(cls.createEndFrameField, 'top', 0, allRotateButton)])
+        cmds.formLayout(form, edit=True, attachPosition=[(cls.createEndFrameField, 'left', 0, 76)])
+        cmds.formLayout(form, edit=True, attachNone=[(cls.createEndFrameField, 'bottom')])
+        cmds.formLayout(form, edit=True, attachForm=[(cls.createEndFrameField, 'right', 0)])
+        cmds.formLayout(form, edit=True, attachForm=[(translateXElement, 'top', 0)])
+        cmds.formLayout(form, edit=True, attachPosition=[(translateXElement, 'left', 0, 52)])
+        cmds.formLayout(form, edit=True, attachNone=[(translateXElement, 'bottom')])
+        cmds.formLayout(form, edit=True, attachPosition=[(translateXElement, 'right', 0, 68)])
+        cmds.formLayout(form, edit=True, attachForm=[(translateYElement, 'top', 0)])
+        cmds.formLayout(form, edit=True, attachPosition=[(translateYElement, 'left', 0, 68)])
+        cmds.formLayout(form, edit=True, attachNone=[(translateYElement, 'bottom')])
+        cmds.formLayout(form, edit=True, attachPosition=[(translateYElement, 'right', 0, 84)])
+        cmds.formLayout(form, edit=True, attachForm=[(translateZElement, 'top', 0)])
+        cmds.formLayout(form, edit=True, attachPosition=[(translateZElement, 'left', 0, 84)])
+        cmds.formLayout(form, edit=True, attachNone=[(translateZElement, 'bottom')])
+        cmds.formLayout(form, edit=True, attachForm=[(translateZElement, 'right', 0)])
+        cmds.formLayout(form, edit=True, attachControl=[(rotateXElement, 'top', 0, allTranslateButton)])
+        cmds.formLayout(form, edit=True, attachPosition=[(rotateXElement, 'left', 0, 52)])
+        cmds.formLayout(form, edit=True, attachNone=[(rotateXElement, 'bottom')])
+        cmds.formLayout(form, edit=True, attachPosition=[(rotateXElement, 'right', 0, 68)])
+        cmds.formLayout(form, edit=True, attachControl=[(rotateYElement, 'top', 0, allTranslateButton)])
+        cmds.formLayout(form, edit=True, attachPosition=[(rotateYElement, 'left', 0, 68)])
+        cmds.formLayout(form, edit=True, attachNone=[(rotateYElement, 'bottom')])
+        cmds.formLayout(form, edit=True, attachPosition=[(rotateYElement, 'right', 0, 84)])
+        cmds.formLayout(form, edit=True, attachControl=[(rotateZElement, 'top', 0, allTranslateButton)])
+        cmds.formLayout(form, edit=True, attachPosition=[(rotateZElement, 'left', 0, 84)])
+        cmds.formLayout(form, edit=True, attachNone=[(rotateZElement, 'bottom')])
+        cmds.formLayout(form, edit=True, attachForm=[(rotateZElement, 'right', 0)])
+
+    @classmethod
+    def toggleOnKeys(cls, state, group, *args, **kwargs):
+        cls.setOptions('onKeys', state, group)
+        startField = ''
+        endField = ''
+        if group == 'create':
+            startField = cls.createStartFrameField
+            endField = cls.createEndFrameField
+        if group == 'bake':
+            startField = cls.bakeStartFrameField
+            endField = cls.bakeEndFrameField
+        if group == 'copy':
+            startField = cls.copyStartFrameField
+            endField = cls.copyEndFrameField
+        cmds.intField(startField, edit=True, enable=not state)
+        cmds.intField(endField, edit=True, enable=not state)
+        if not state:
+            cls.refreshTimeRange(group, checkHighlighted=True)
+
+    @classmethod
+    def getTimeRange(cls, group, *args, **kwargs):
+        start = False
+        end = False
+        if group == 'create':
+            start = cmds.intField(cls.createStartFrameField, query=True, value=True)
+            end = cmds.intField(cls.createEndFrameField, query=True, value=True)
+        if group == 'bake':
+            start = cmds.intField(cls.bakeStartFrameField, query=True, value=True)
+            end = cmds.intField(cls.bakeEndFrameField, query=True, value=True)
+        if group == 'copy':
+            start = cmds.intField(cls.copyStartFrameField, query=True, value=True)
+            end = cmds.intField(cls.copyEndFrameField, query=True, value=True)
+        if group == 'now':
+            start = cmds.currentTime(query=True)
+            end = start
+        return [start, end]
+
+    @classmethod
+    def refreshTimeRange(cls, group, *args, **kwargs):
+        checkHighlighted = False
+        if 'checkHighlighted' in kwargs:
+            checkHighlighted = kwargs.pop('checkHighlighted')
+        if group == 'create':
+            cls.createStartTime, cls.createEndTime = Functions.queryTimeRange(checkHighlighted=checkHighlighted)
+            cmds.intField(cls.createStartFrameField, edit=True, value=cls.createStartTime)
+            cmds.intField(cls.createEndFrameField, edit=True, value=cls.createEndTime)
+        if group == 'bake':
+            cls.bakeStartTime, cls.bakeEndTime = Functions.queryTimeRange(checkHighlighted=checkHighlighted)
+            cmds.intField(cls.bakeStartFrameField, edit=True, value=cls.bakeStartTime)
+            cmds.intField(cls.bakeEndFrameField, edit=True, value=cls.bakeEndTime)
+        if group == 'copy':
+            cls.copyStartTime, cls.copyEndTime = Functions.queryTimeRange(checkHighlighted=checkHighlighted)
+            cmds.intField(cls.copyStartFrameField, edit=True, value=cls.copyStartTime)
+            cmds.intField(cls.copyEndFrameField, edit=True, value=cls.copyEndTime)
+
+    @classmethod
+    def toggleTranslates(cls, *args, **kwargs):
+        instances = [cls.translateX, cls.translateY, cls.translateZ]
+        state = not instances[0].getState()
+        for i in instances:
+            i.pressButton(forceState=state)
+
+    @classmethod
+    def toggleRotates(cls, *args, **kwargs):
+        instances = [cls.rotateX, cls.rotateY, cls.rotateZ]
+        state = not instances[0].getState()
+        for i in instances:
+            i.pressButton(forceState=state)
+
+    @classmethod
+    def setOptions(cls, key, value, group, *args, **kwargs):
+        cls.verifyOptions(group)
+        try:
+            cls.optionsData
+        except:
+            cls.optionsData = {}
+        try:
+            cls.optionsData[group]
+        except:
+            cls.optionsData[group] = {}
+        if key in cls.optionsData[group].keys():
+            cls.optionsData[group][key] = value
+        cls.onOptionsChange(group)
+
+    @classmethod
+    def getOptions(cls, key, group):
+        cls.verifyOptions(group)
+        if key in cls.optionsData[group].keys():
+            return copy.deepcopy(cls.optionsData[group][key])
+
+    @classmethod
+    def getGroupOptions(cls, group):
+        cls.verifyOptions(group)
+        if group not in cls.optionsData.keys():
+            return False
+        return copy.deepcopy(cls.optionsData[group])
+
+    @classmethod
+    def getDefaultOptions(cls, group):
+        defaultData = {}
+        defaultData['create'] = {}
+        defaultData['create']['onKeys'] = True
+        for a in ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']:
+            defaultData['create'][a] = True
+        defaultData['bake'] = {}
+        defaultData['bake']['onKeys'] = True
+        defaultData['copy'] = {}
+        defaultData['copy']['maintainOffset'] = False
+        defaultData['copy']['onKeys'] = True
+        if group not in defaultData.keys():
+            return False
+        return copy.deepcopy(defaultData[group])
+
+    @classmethod
+    def verifyOptions(cls, group):
+        try:
+            cls.optionsData
+        except:
+            cls.optionsData = {}
+        try:
+            cls.optionsData[group]
+        except:
+            cls.optionsData[group] = {}
+        defaults = cls.getDefaultOptions(group)
+        for k, v in iteritems(defaults):
+            try:
+                cls.optionsData[group][k]
+            except:
+                cls.optionsData[group][k] = v
+
+    @classmethod
+    def isDefaultOptions(cls, group):
+        cls.verifyOptions(group)
+        defaults = cls.getDefaultOptions(group)
+        if defaults == cls.optionsData[group]:
+            return True
+        else:
+            return False
+
+    @classmethod
+    def onOptionsChange(cls, group):
+        isDefault = cls.isDefaultOptions(group)
+        if group == 'create':
+            label = 'Create Options'
+            bgc = [0.5] * 3
+            if not isDefault:
+                label = 'Create Options (*Modified)'
+                bgc = [0.847, 0.263, 0.145]
+            cmds.frameLayout(cls.createOptionsFrameLayout, edit=True, label=label, bgc=bgc)
+        if group == 'bake':
+            label = 'Bake Options'
+            bgc = [0.5] * 3
+            if not isDefault:
+                label = 'Bake Options (*Modified)'
+                bgc = [0.847, 0.263, 0.145]
+            cmds.frameLayout(cls.bakeOptionsFrameLayout, edit=True, label=label, bgc=bgc)
+
+    @classmethod
+    def toIKChain(cls, *args, **kwargs):
+        toParentSpace = False
+        if 'toParentSpace' in kwargs:
+            toParentSpace = kwargs.pop('toParentSpace')
+        optionsData = cls.getGroupOptions('create')
+        optionsData['timeRange'] = cls.getTimeRange('create')
+        WorldSpaceFunctions.toIKChainSpace(optionsData, toParentSpace=toParentSpace)
+
+    @classmethod
+    def toPathButton(cls, *args, **kwargs):
+        """
+        get path cv count
+        """
+        slider = False
+        if 'slider' in kwargs:
+            slider = kwargs.pop('slider')
+        cvCount = cmds.intSlider(slider, query=True, value=True)
+        PathSpaceFunctions.toPathSpace(cvCount=cvCount)
+
+    @classmethod
+    def toWorldButton(cls, *args, **kwargs):
+        toParentSpace = False
+        if 'toParentSpace' in kwargs:
+            toParentSpace = kwargs.pop('toParentSpace')
+        optionsData = cls.getGroupOptions('create')
+        optionsData['timeRange'] = cls.getTimeRange('create')
+        WorldSpaceFunctions.toWorldSpace(optionsData, toParentSpace=toParentSpace)
+
+    @classmethod
+    def toLocalButton(cls, *args, **kwargs):
+        optionsData = cls.getGroupOptions('bake')
+        optionsData['timeRange'] = cls.getTimeRange('bake')
+        WorldSpaceFunctions.toLocalSpace(optionsData)
+
+    @classmethod
+    def copyAtoB_button(cls, *args, **kwargs):
+        optionsData = cls.getGroupOptions('copy')
+        optionsData['timeRange'] = cls.getTimeRange('copy')
+        CopyAtoB.copyAtoB_button(optionsData)
+
+    @classmethod
+    def snapAtoB_button(cls, *args, **kwargs):
+        CopyAtoB.snapAtoB_button()
+
+class PathSpaces:
+
+    @classmethod
+    @_r.native_operation('PathSpaces.createPathsForSelection')
+    def createPathsForSelection(cls, *args, **kwargs):
+        selection = cmds.ls(sl=True)
+        newSelection = []
+        for s in selection:
+            frameRange = False
+            if cmds.keyframe(s, query=True, keyframeCount=True):
+                firstFrame = cmds.findKeyframe(s, which='first')
+                lastFrame = cmds.findKeyframe(s, which='last')
+                frameRange = [int(firstFrame), int(lastFrame)]
+            if not frameRange:
+                frameRange = Functions.queryTimeRange()
+            transformData = {}
+            curvePoints = []
+            for t in range(*frameRange):
+                worldMatrix = OpenMaya.MMatrix(cmds.getAttr('{0}.worldMatrix'.format(s), time=t))
+                localValues = Functions.decompMatrix(s, worldMatrix)
+                transformData[t] = {}
+                transformData[t]['transforms'] = localValues
+                curvePoints.append((localValues[0], localValues[1], localValues[2]))
+            curve = '{0}_curve_s{1}_e{2}'.format(s, str(frameRange[0]), str(frameRange[1]))
+            curve = cmds.curve(d=1, p=curvePoints, n=curve)
+            curveShape = cmds.listRelatives(curve, shapes=True)[0]
+            newSelection.append(curve)
+            cmds.setAttr('{0}.dispCV'.format(curveShape), True)
+            cmds.refresh()
+        cmds.select(newSelection)
+
+    @classmethod
+    @_r.native_operation('PathSpaces.rebuildCurve')
+    def rebuildCurve(cls, numSpans, curveNodes):
+        """
+        rebuildCurve -ch 1 -rpo 1 -rt 0 -end 1 -kr 1 -kcp 0 -kep 1 -kt 0 -s 6 -d 3 -tol 0.01 "pSphere1_curve_s1017_e1298";
+
+        """
+        if not curveNodes:
+            return False
+        curveShapes = []
+        for curveNode in curveNodes:
+            curveShape = cmds.listRelatives(curveNode, shapes=True, type='nurbsCurve')
+            if curveShape:
+                curveShapes.append(curveShape[0])
+        for curveShape in curveShapes:
+            cmds.rebuildCurve(curveShape, rebuildType=0, spans=numSpans)
+
+    @classmethod
+    def get_dag_path(cls, node=None):
+        members = OpenMaya.MSelectionList()
+        members.add(node)
+        dagPath = members.getDagPath(0)
+        return dagPath
+
+    @classmethod
+    @_r.native_operation('PathSpaces.createAnimatedLocatorOnPath')
+    def createAnimatedLocatorOnPath(cls, *args, **kwargs):
+        selection = cmds.ls(sl=True)
+        if len(selection) != 2:
+            return False
+        s = selection[1]
+        curveNode = selection[0]
+        curveShape = cmds.listRelatives(curveNode, shapes=True, type='nurbsCurve')
+        if curveShape:
+            curveShape = curveShape[0]
+        else:
+            return False
+        curve_dag_path = cls.get_dag_path(node=curveNode)
+        MFn_nurbs_curve = OpenMaya.MFnNurbsCurve(curve_dag_path)
+        MFn_nurbs_curve_length = MFn_nurbs_curve.length()
+        frameRange = False
+        if cmds.keyframe(s, query=True, keyframeCount=True):
+            firstFrame = cmds.findKeyframe(s, which='first')
+            lastFrame = cmds.findKeyframe(s, which='last')
+            frameRange = [int(firstFrame), int(lastFrame)]
+        if not frameRange:
+            frameRange = Functions.queryTimeRange()
+        curveInfoNode = '{0}_curveInfo'.format(curveNode)
+        curveInfoNode = cmds.createNode('curveInfo', name=curveInfoNode)
+        cmds.connectAttr('{0}.worldSpace'.format(curveShape), '{0}.inputCurve'.format(curveInfoNode))
+        curveLength = cmds.getAttr('{0}.arcLength'.format(curveInfoNode))
+        nearestPointOnCurveNode = '{0}_nearestPointNode'.format(curveNode)
+        nearestPointOnCurveNode = cmds.createNode('nearestPointOnCurve', name=nearestPointOnCurveNode)
+        cmds.connectAttr('{0}.worldSpace'.format(curveShape), '{0}.inputCurve'.format(nearestPointOnCurveNode))
+        transformData = {}
+        for t in range(*frameRange):
+            transformData[t] = {}
+            worldMatrix = OpenMaya.MMatrix(cmds.getAttr('{0}.worldMatrix'.format(s), time=t))
+            pos = Functions.decompMatrix(s, worldMatrix)[0:3]
+            cmds.setAttr('{0}.inPosition'.format(nearestPointOnCurveNode), *pos, type='double3')
+            wsPos = cmds.getAttr('{0}.position'.format(nearestPointOnCurveNode))
+            uParam = cmds.getAttr('{0}.parameter'.format(nearestPointOnCurveNode))
+            uParamModified = Functions.convertUnit(uParam, fromUnit='cm')
+            transformData[t]['uParamater'] = uParamModified
+        cmds.delete([nearestPointOnCurveNode, curveInfoNode])
+        animLocator = '{0}_animLocator'.format(curveNode)
+        animLocator = cmds.spaceLocator(name=curveInfoNode)[0]
+        radius = Functions.getBoundingBoxRadius(s) * 2
+        for a in ['X', 'Y', 'Z']:
+            cmds.setAttr('{0}.localScale{1}'.format(animLocator, a), radius)
+        fractionMode = False
+        pathConstraint = cmds.pathAnimation(curveNode, animLocator, fractionMode=fractionMode, follow=True)
+        for t in transformData.keys():
+            cmds.setKeyframe(pathConstraint, attribute='uValue', t=[t, t], value=transformData[t]['uParamater'])
+        attributes = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz', 'sx', 'sy', 'sz', 'v']
+        for a in attributes:
+            cmds.setAttr(animLocator + '.' + a, e=True, keyable=False, cb=True, lock=True)
+        markers = cmds.listConnections('{0}.positionMarkerTime'.format(pathConstraint))
+        for m in markers:
+            if 'marker' in m.lower():
+                m = m.split('->')
+                if m:
+                    cmds.setAttr('{0}.visibility'.format(m[-1]), False)
+        cmds.currentTime(cmds.currentTime(query=True), edit=True)
+
+class CopyAtoB:
+
+    @classmethod
+    @_r.native_operation('CopyAtoB.copyAtoB_button')
+    def copyAtoB_button(cls, optionsData, *args, **kwargs):
+        snapCurrentFrame = False
+        if 'snapCurrentFrame' in kwargs:
+            snapCurrentFrame = kwargs.pop('snapCurrentFrame')
+        maintainOffset = optionsData['maintainOffset']
+        bakeTimeRange = False
+        if optionsData['onKeys'] == False:
+            bakeTimeRange = optionsData['timeRange']
+        mayaControls = cmds.ls(sl=True)
+        parentObject = False
+        if mayaControls:
+            parentObject = mayaControls.pop(0)
+        errors = []
+        if not mayaControls and (not parentObject):
+            errors += ['Make sure to select two or more objects.']
+        if errors:
+            message = '\n'.join(errors)
+            confirm = cmds.confirmDialog(title='Error Message', message=message, button=['Oka'])
+        if mayaControls and parentObject and (not errors):
+            try:
+                Functions.suspendUI(True)
+                Functions.storeAnimBlendingOpt()
+                Functions.setAnimBlendingOpt(1)
+                cls.copyAtoB(mayaControls, parentObject, bakeTimeRange=bakeTimeRange, maintainOffset=maintainOffset)
+                cmds.select(mayaControls, replace=True)
+            except Exception as e:
+                _r.capture_error(True)
+                print(712, e)
+                print(traceback.format_exc())
+            finally:
+                Functions.suspendUI(False)
+                Functions.restoreAnimBlendingOpt()
+
+    @classmethod
+    @_r.native_operation('CopyAtoB.copyAtoB')
+    def copyAtoB(cls, mayaControls, parentObject, *args, **kwargs):
+        maintainOffset = False
+        if 'maintainOffset' in kwargs:
+            maintainOffset = kwargs.pop('maintainOffset')
+        bakeTimeRange = False
+        if 'bakeTimeRange' in kwargs:
+            bakeTimeRange = kwargs.pop('bakeTimeRange')
+        attributes = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']
+        checkSelectedChannels = Functions.getSelectedChannels()
+        if checkSelectedChannels:
+            attributes = list(set(attributes) & set(checkSelectedChannels))
+        bake = False
+        timeRange = False
+        if bakeTimeRange:
+            bake = True
+            timeRange = (bakeTimeRange[0], bakeTimeRange[1])
+        highlightedRangeStart, highlightedRangeEnd = str(cmds.timeControl(mel.eval('$tmpVar=$gPlayBackSlider'), query=True, range=True)).replace('"', '').split(':')
+        highlightedRangeStart = float(highlightedRangeStart)
+        highlightedRangeEnd = float(highlightedRangeEnd)
+        highlightedRangeLength = highlightedRangeEnd - highlightedRangeStart
+        if highlightedRangeLength > 1:
+            timeRange = (highlightedRangeStart, highlightedRangeEnd)
+        if timeRange:
+            if timeRange[1] - timeRange[0] == 0:
+                pass
+        tempConstraints = []
+        Functions.addPlaceholderKeys(parentObject, attributes, timeRange)
+        for mayaControl in mayaControls:
+            cmds.bufferCurve(mayaControl, overwrite=True)
+            Functions.addPlaceholderKeys(mayaControl, attributes, timeRange)
+            tempBakeConstraint = Functions.safeParentConstraint(objectA=mayaControl, objectB=parentObject, attributes=attributes, maintainOffset=maintainOffset)
+            tempConstraints.append(tempBakeConstraint)
+            Functions.copyPasteKeys(parentObject, mayaControl, attributes, timeRange)
+        attributeGroups = [['rx', 'ry', 'rz'], ['tx', 'ty', 'tz']]
+        specialKeys = Functions.getSpecialKeyTickTimes([parentObject])
+        Functions.setKeys(mayaControls, attributes, timeRange, bake=bake)
+        for mayaControl in mayaControls:
+            if specialKeys:
+                for t in specialKeys:
+                    cmds.keyframe(mayaControl, time=(t, t), tds=True)
+        for mayaControl in mayaControls:
+            cmds.filterCurve(mayaControl)
+        for tmp in tempConstraints:
+            if cmds.objExists(tmp):
+                cmds.delete(tmp)
+
+    @classmethod
+    @_r.native_operation('CopyAtoB.snapAtoB_button')
+    def snapAtoB_button(cls):
+        try:
+            Functions.storeAnimBlendingOpt()
+            Functions.setAnimBlendingOpt(1)
+            selected = cmds.ls(sl=True)
+            if selected and len(selected) == 2:
+                A = selected[1]
+                B = selected[0]
+                tmp = Functions.safeParentConstraint(objectA=A, objectB=B)
+                pos = cmds.xform(A, query=True, ws=True, rp=True)
+                rot = cmds.xform(A, query=True, ws=True, ro=True)
+                cmds.delete(tmp)
+                cmds.move(pos[0], pos[1], pos[2], A, a=True, rpr=True)
+                cmds.xform(A, ws=True, ro=rot)
+        except:
+            _r.capture_error(True)
+            pass
+        finally:
+            Functions.restoreAnimBlendingOpt()
+
+    @classmethod
+    def errorCheck(cls, nodes):
+        errorInfo = []
+        for s in nodes:
+            errors = []
+            if not errors:
+                if not cmds.objExists(s):
+                    errors += ['"{0}" doesnt Exist.'.format(s)]
+            if not errors:
+                if Functions.isWorldSpaceControl(s):
+                    errors += ['"{0}" is already a World Space Control.'.format(s)]
+            if not errors:
+                worldspaceObject = Functions.generateWorldSpaceControlName(s)
+                if cmds.objExists(worldspaceObject):
+                    errors += ['"{0}" a World Space Control already exists for this object.'.format(s)]
+            if not errors:
+                keyable = cmds.listAttr(s, keyable=True, scalar=True, unlocked=True, shortNames=True)
+                if not keyable:
+                    errors += ['"{0}" doesnt have any keyable channels.'.format(s)]
+                else:
+                    commonAttributes = list(set(keyable) & set(['tx', 'ty', 'tz', 'rx', 'ry', 'rz']))
+                    if not commonAttributes:
+                        errors += ['"{0}" doesnt have any unlocked translate or rotate channels.'.format(s)]
+            if errors:
+                errorInfo.append(' '.join(errors))
+        return errorInfo
+
+class Functions:
+
+    @classmethod
+    def storeAnimBlendingOpt(cls, *args, **kwargs):
+        cls.animBlendingOpt = cmds.optionVar(q='animBlendingOpt')
+
+    @classmethod
+    def setAnimBlendingOpt(cls, value, *args, **kwargs):
+        cmds.optionVar(intValue=['animBlendingOpt', value])
+
+    @classmethod
+    def restoreAnimBlendingOpt(cls, *args, **kwargs):
+        try:
+            cmds.optionVar(intValue=['animBlendingOpt', cls.animBlendingOpt])
+        except:
+            cls.animBlendingOpt = 1
+            cmds.optionVar(intValue=['animBlendingOpt', cls.animBlendingOpt])
+
+    @classmethod
+    def addIsolatedObjectsForModelPanel(cls, modelPanel, nodes, *args, **kwargs):
+        return False
+
+    @classmethod
+    def getIsolatedObjectsForModelPanel(cls, modelPanel, *args, **kwargs):
+        members = []
+        try:
+            state = cmds.isolateSelect(modelPanel, query=True, state=True)
+            viewObjects = cmds.isolateSelect(modelPanel, query=True, viewObjects=True)
+            if state and viewObjects:
+                members = cmds.sets(viewObjects, query=True)
+        except:
+            pass
+        return members
+
+    @classmethod
+    @_r.native_operation('Functions.plotGimbalInfo')
+    def plotGimbalInfo(cls, *args, **kwargs):
+        rotateOrderList = {'xyz': 0, 'yzx': 1, 'zxy': 2, 'xzy': 3, 'yxz': 4, 'zyx': 5}
+        rotateOrderList_inv = {v: k for k, v in rotateOrderList.items()}
+        selected = cmds.ls(sl=True)
+        if selected:
+            try:
+                Functions.suspendUI(True)
+                info = []
+                for s in selected:
+                    constraints = []
+                    parentGroup = s + '_gimbalAnalysis'
+                    parentGroup = cls.makeHelperLocator(helperName=parentGroup)
+                    parent = cmds.listRelatives(s, parent=True)
+                    if parent:
+                        parent = parent[0]
+                        constraint = cmds.parentConstraint(parent, parentGroup)[0]
+                        constraints.append(constraint)
+                    else:
+                        parent = ''
+                    helpers = []
+                    for ro in rotateOrderList.keys():
+                        helper = parentGroup + '_' + str(ro)
+                        helper = cls.makeHelperLocator(helperName=helper, rotateOrder=rotateOrderList[ro])
+                        helper = cmds.parent(helper, parentGroup)[0]
+                        helpers.append(helper)
+                        constraint = cmds.parentConstraint(s, helper)[0]
+                        constraints.append(constraint)
+                    for helper in helpers:
+                        cmds.addAttr(helper, ln='gimbalLockRatio', at='double', dv=0)
+                        cmds.setAttr(helper + '.gimbalLockRatio', e=True, c=True, keyable=True, cb=True)
+                    results = {}
+                    for ro in rotateOrderList:
+                        results[ro] = []
+                    inFrame = int(cmds.playbackOptions(q=True, animationStartTime=True))
+                    outFrame = int(cmds.playbackOptions(q=True, animationEndTime=True))
+                    timeNow = cmds.currentTime(query=True)
+                    for t in range(inFrame, outFrame + 1):
+                        cmds.currentTime(t)
+                        for helper in helpers:
+                            rotateOrderInt = cmds.getAttr(helper + '.rotateOrder')
+                            rotateOrderStr = rotateOrderList_inv[rotateOrderInt]
+                            midValue = cmds.getAttr('{0}.{1}{2}'.format(helper, 'r', rotateOrderStr[1]))
+                            gimbalLockRatio = abs((midValue + 90) % 180 - 90) / 90
+                            cmds.setAttr(helper + '.gimbalLockRatio', gimbalLockRatio)
+                            cmds.setKeyframe(helper + '.gimbalLockRatio')
+                            results[rotateOrderStr].append(gimbalLockRatio)
+                    cmds.delete(parentGroup)
+                    averages = []
+                    for ro in results.keys():
+                        average = sum(results[ro]) / len(results[ro])
+                        averages.append(average)
+                    averages = sorted(averages)
+                    displayText = []
+                    displayText += ['\nGimbal Flipping Info for {0}'.format(s)]
+                    displayText += ['*']
+                    samples = 50
+                    for ro in ['xyz', 'yzx', 'zxy', 'xzy', 'yxz', 'zyx']:
+                        count = len(results[ro])
+                        average = sum(results[ro]) / count
+                        statusBar = '|'
+                        graphShades = ['.', ':', ':', '#', '#', '#']
+                        for sample in range(samples):
+                            relativeSample = float(sample) / float(samples)
+                            index = int(relativeSample * count)
+                            value = results[ro][index]
+                            graphShade = graphShades[int(value * len(graphShades))]
+                            statusBar += graphShade
+                        percent = '{0: >3}%'.format(int(average * 100))
+                        statusBar += '| {0} | {1}'.format(percent, ro)
+                        if average == averages[0]:
+                            statusBar += ' <-- least flipping'
+                        displayText += [statusBar]
+                    info += displayText
+                cmds.currentTime(timeNow)
+                cmds.select(selected, replace=True)
+                text = '\n'.join(info)
+                windowName = 'Gimbal_Flipping_Info'
+                cls.displayTextWindow(text, windowName)
+            except Exception as e:
+                _r.capture_error(True)
+                print(1412, e)
+                print(traceback.format_exc())
+            finally:
+                Functions.suspendUI(False)
+
+    @staticmethod
+    def displayTextWindow(text=False, windowName=False):
+        if windowName and text:
+            if cmds.window(windowName, exists=True):
+                cmds.deleteUI(windowName, window=True)
+            if cmds.windowPref(windowName, exists=True):
+                cmds.windowPref(windowName, remove=True)
+            window = cmds.window(windowName, widthHeight=(700, 400), title=windowName)
+            form = cmds.formLayout()
+            scrollField = cmds.scrollField(parent=form, editable=False, wordWrap=False, text=text)
+            cmds.formLayout(form, edit=True, attachForm=[(scrollField, 'top', 0)])
+            cmds.formLayout(form, edit=True, attachForm=[(scrollField, 'left', 0)])
+            cmds.formLayout(form, edit=True, attachForm=[(scrollField, 'bottom', 0)])
+            cmds.formLayout(form, edit=True, attachForm=[(scrollField, 'right', 0)])
+            cmds.showWindow(window)
+
+    @staticmethod
+    @_r.native_operation('Functions.makeHelperLocator')
+    def makeHelperLocator(helperName='Locator', rotateOrder=0):
+        helper = cmds.spaceLocator(name=helperName)[0]
+        cmds.setAttr(helper + '.rotateOrder', rotateOrder)
+        return helper
+
+    @classmethod
+    def getSelectedChannels(cls):
+        selectedChannels = cmds.channelBox('mainChannelBox', query=True, selectedMainAttributes=True)
+        if not selectedChannels:
+            return None
+        else:
+            return selectedChannels
+
+    @classmethod
+    @_r.native_operation('Functions.addCog')
+    def addCog(cls, *args, **kwargs):
+        """
+        cogType = 'child' or 'parent'
+        """
+        cogType = False
+        if 'cogType' in kwargs:
+            cogType = kwargs.pop('cogType')
+        selected = cmds.ls(sl=True)
+        selected = cls.filterWorldSpaceControls(selected, fullCheck=False)
+        if selected and cogType:
+            cogsList = []
+            for s in selected:
+                parents = cmds.listRelatives(s, fullPath=True, parent=True)
+                children = cmds.listRelatives(s, fullPath=True, children=True, type=['transform'])
+                size = cls.getBoundingBoxRadius(s)
+                if cogType == 'child':
+                    size = size * 0.9
+                elif cogType == 'parent':
+                    size = size * 1.2
+                rootName, n = cls.splitNameNumber(s)
+                if rootName.lower().endswith('_child'):
+                    pass
+                elif rootName.lower().endswith('parent'):
+                    pass
+                else:
+                    rootName = s + '_{0}'.format(cogType)
+                suffix = cls.getNewSuffixNumberForObjectBaseName(rootName)
+                name = rootName + suffix
+                cogControl = cls.createCircleControl(s, sizeOverride=size, nameOverride=name)
+                cogsList.append(cogControl)
+                attr = 'ebLabs'
+                value = 'WorldSpace2'
+                cmds.addAttr(cogControl, ln=attr, dt='string')
+                cmds.setAttr(cogControl + '.' + attr, value, e=True, type='string')
+                if cogType == 'child':
+                    cmds.delete(cmds.parentConstraint(s, cogControl))
+                elif cogType == 'parent':
+                    if parents:
+                        cmds.delete(cmds.parentConstraint(parents[0], cogControl))
+                if cogType == 'child':
+                    cmds.parent(cogControl, s)
+                    if children:
+                        cmds.parent(children, cogControl)
+                elif cogType == 'parent':
+                    if parents:
+                        cmds.parent(cogControl, parents[0])
+                    cmds.parent(s, cogControl)
+            cmds.select(cogsList, replace=True)
+
+    @classmethod
+    @_r.native_operation('Functions.renameToUniqueObjectName')
+    def renameToUniqueObjectName(cls, s):
+        if '|' not in s:
+            return s
+        rootName, n = cls.splitNameNumber(s)
+        newNumber = cls.getNewSuffixNumberForObjectBaseName(rootName)
+        newName = rootName + newNumber
+        newName = cmds.rename(s, newName)
+        return newName
+
+    @classmethod
+    def splitNameNumber(cls, s):
+        rootName = s.split('|')[-1]
+        numberCheck = re.match('.*?([0-9]+)$', s)
+        n = False
+        rootName = ''
+        if numberCheck:
+            n = int(numberCheck.group(1))
+            rootName = s.split('|')[-1]
+            rootName = cls.reverseReplace(rootName, str(n), '', 1)
+        return (rootName, n)
+
+    @classmethod
+    def reverseReplace(cls, s, old, new, occurrence):
+        li = s.rsplit(old, occurrence)
+        return new.join(li)
+
+    @classmethod
+    def getNewSuffixNumberForObjectBaseName(cls, rootName):
+        takenNumbers = []
+        similarObjects = cmds.ls(rootName + '*', type='transform')
+        for s in similarObjects:
+            sRootName, sNumberSuffix = cls.splitNameNumber(s)
+            if sRootName == rootName:
+                if sNumberSuffix:
+                    takenNumbers.append(int(sNumberSuffix))
+        newNumber = 1
+        if takenNumbers:
+            newNumber = max(takenNumbers) + 1
+        return str(newNumber)
+
+    @classmethod
+    def quickUndo(cls, *args, **kwargs):
+        command = partial(cls.quickUndo_wrapped)
+        cmds.evalDeferred(command)
+
+    @classmethod
+    def quickUndo_wrapped(cls, *args, **kwargs):
+        try:
+            cls.suspendUI(True)
+            cmds.undo()
+        except Exception as e:
+            print(236, e)
+        finally:
+            cls.suspendUI(False)
+
+    @classmethod
+    def quickRedo(cls, *args, **kwargs):
+        command = partial(cls.quickRedo_wrapped)
+        cmds.evalDeferred(command)
+
+    @classmethod
+    def quickRedo_wrapped(cls, *args, **kwargs):
+        try:
+            cls.suspendUI(True)
+            cmds.redo()
+        except Exception as e:
+            print(255, e)
+        finally:
+            cls.suspendUI(False)
+
+    @classmethod
+    @_r.native_operation('Functions.copyPasteKeys')
+    def copyPasteKeys(cls, objectA, objectB, attributes, timeRange, *args, **kwargs):
+        keyableA = cmds.listAttr(objectA, keyable=True, scalar=True, unlocked=True, shortNames=True)
+        keyableB = cmds.listAttr(objectB, keyable=True, scalar=True, unlocked=True, shortNames=True)
+        attributes = list(set(keyableA) & set(attributes))
+        attributes = list(set(keyableB) & set(attributes))
+        firstFrame = cmds.currentTime(query=True)
+        if timeRange:
+            firstFrame = timeRange[0]
+        timeRangeLength = False
+        if timeRange:
+            timeRangeLength = timeRange[1] - timeRange[0]
+        for a in attributes:
+            if timeRangeLength > 1:
+                attribute = '{0}.{1}'.format(objectA, a)
+                cmds.copyKey(attribute, time=timeRange, option='curve')
+            else:
+                attribute = '{0}.{1}'.format(objectA, a)
+                cmds.copyKey(attribute, option='curve')
+            if timeRangeLength > 1:
+                attribute = '{0}.{1}'.format(objectB, a)
+                cmds.pasteKey(attribute, time=timeRange, option='replace')
+            else:
+                attribute = '{0}.{1}'.format(objectB, a)
+                cmds.pasteKey(attribute, option='replaceCompletely')
+
+    @classmethod
+    @_r.native_operation('Functions.addPlaceholderKeys')
+    def addPlaceholderKeys(cls, control, attributes, timeRange, *args, **kwargs):
+        """
+        This is to make sure that constraints are added and are set to pairblend = 1
+        """
+        firstFrame = cmds.currentTime(query=True)
+        if timeRange:
+            firstFrame = timeRange[0]
+        keyableAttributes = cmds.listAttr(control, keyable=True, scalar=True, unlocked=True, shortNames=True)
+        commonAttributes = list(set(keyableAttributes) & set(attributes))
+        for a in commonAttributes:
+            attribute = '{0}.{1}'.format(control, a)
+            keyCount = cmds.keyframe(attribute, query=True, keyframeCount=True)
+            if not keyCount:
+                checkAttr = control
+                if cmds.keyframe(checkAttr, query=True, keyframeCount=True):
+                    firstFrame = cmds.findKeyframe(checkAttr, which='first')
+                if a in ('tx', 'ty', 'tz'):
+                    checkAttr = '{0}.{1}'.format(control, 't')
+                    if cmds.keyframe(checkAttr, query=True, keyframeCount=True):
+                        firstFrame = cmds.findKeyframe(checkAttr, which='first')
+                elif a in ('rx', 'ry', 'rz'):
+                    checkAttr = '{0}.{1}'.format(control, 'r')
+                    if cmds.keyframe(checkAttr, query=True, keyframeCount=True):
+                        firstFrame = cmds.findKeyframe(checkAttr, which='first')
+                cmds.setKeyframe(attribute, t=firstFrame)
+
+    @classmethod
+    def createControl(cls, s, *args, **kwargs):
+        control = Functions.createCircleControl(s)
+        return control
+
+    @classmethod
+    @_r.native_operation('Functions.createControlHook')
+    def createControlHook(cls, control, *args, **kwargs):
+        controlHook = control + '_hook'
+        controlHook = cmds.group(em=True, name=controlHook)
+        controlHook = cmds.parent(controlHook, control)[0]
+        attributes = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz', 'sx', 'sy', 'sz', 'v']
+        for a in attributes:
+            cmds.setAttr(controlHook + '.' + a, e=True, keyable=False, cb=True, lock=True)
+        return controlHook
+
+    @classmethod
+    @_r.native_operation('Functions.createParentSpaceGroup')
+    def createParentSpaceGroup(cls, s, parentSpaceObject, *args, **kwargs):
+        parentSpaceGroup = s + '_ParentSpaceGroup'
+        parentSpaceGroup = cmds.group(em=True, name=parentSpaceGroup)
+        parentSpaceConstraint = s + '_constraint'
+        if Functions.isWorldSpaceControl(parentSpaceObject):
+            info = Functions.getWorldSpaceControlMetaData([parentSpaceObject])
+            parentSpaceObject = info[parentSpaceObject]['hook']
+        parentSpaceConstraint = cmds.parentConstraint(parentSpaceObject, parentSpaceGroup, name=parentSpaceConstraint)[0]
+        for a in ['tx', 'ty', 'tz', 'rx', 'ry', 'rz', 'sx', 'sy', 'sz', 'v']:
+            cmds.setAttr(parentSpaceGroup + '.' + a, e=True, keyable=False, cb=True, lock=True)
+        return parentSpaceGroup
+
+    @classmethod
+    def filterWorldSpaceControls(cls, selected, fullCheck=True):
+        worldSpaceControls = []
+        if selected:
+            selected = list(set(selected))
+        for s in selected:
+            if cls.isWorldSpaceControl(s, fullCheck=fullCheck):
+                worldSpaceControls.append(s)
+        return worldSpaceControls
+
+    @classmethod
+    def isWorldSpaceControl(cls, s, fullCheck=True):
+        """
+        start positive, and trigger off per check
+        """
+        ok = True
+        if not ok:
+            try:
+                attr = 'ebLabs'
+                value = 'WorldSpace2'
+                if not cmds.getAttr('{0}.{1}'.format(s, attr)) == value:
+                    ok = False
+            except:
+                ok = False
+        if fullCheck:
+            if ok:
+                try:
+                    attr = 'ebLabs_commonAttributes'
+                    value = cmds.getAttr('{0}.{1}'.format(s, attr))
+                    value = value.strip()
+                    if not value:
+                        ok = False
+                except:
+                    ok = False
+            if ok:
+                try:
+                    attr = 'ebLabs_hook'
+                    value = cmds.getAttr('{0}.{1}'.format(s, attr))
+                    value = value.strip()
+                    if not value:
+                        ok = False
+                except:
+                    ok = False
+        return ok
+
+    @classmethod
+    def getSetKeysInfo(cls, nodes, attributes, timeRange, bake=False, *args, **kwargs):
+        info = {}
+        allKeyTimes = []
+        for node in nodes:
+            info[node] = {}
+            keyable = cmds.listAttr(node, keyable=True, scalar=True, unlocked=True, shortNames=True)
+            keyable = list(set(attributes) & set(keyable))
+            info[node]['attribute'] = {}
+            for a in keyable:
+                keyTimes = []
+                if bake:
+                    keyTimes = range(int(timeRange[0]), int(timeRange[1] + 1))
+                else:
+                    keyTimes = cmds.keyframe(node, query=True, attribute=[a])
+                    if keyTimes:
+                        keyTimes = list(set(keyTimes))
+                    clampedRange = []
+                    if keyTimes and timeRange:
+                        for t in keyTimes:
+                            if timeRange[0] < t < timeRange[1]:
+                                clampedRange.append(t)
+                        keyTimes = clampedRange
+                info[node]['attribute'][a] = keyTimes
+                if keyTimes:
+                    allKeyTimes += keyTimes
+        allKeyTimes = list(set(allKeyTimes))
+        return (info, allKeyTimes)
+
+    @classmethod
+    def getWorldSpaceControlMetaData(cls, worldSpaceControls, *args, **kwargs):
+        info = {}
+        for worldSpaceControl in worldSpaceControls:
+            info[worldSpaceControl] = {}
+            items = []
+            items.append(['mayaControl', 'ebLabs_mayaControl'])
+            items.append(['parentGroup', 'ebLabs_parentGroup'])
+            items.append(['hook', 'ebLabs_hook'])
+            items.append(['commonAttributes', 'ebLabs_commonAttributes'])
+            for key, attr in items:
+                value = ''
+                try:
+                    value = _r.get_property(worldSpaceControl, attr, '')
+                except Exception as e:
+                    pass
+                info[worldSpaceControl][key] = value
+        return info
+
+    @classmethod
+    @_r.native_operation('Functions.setKeys')
+    def setKeys(cls, controls, attributes, timeRange, bake=False, *args, **kwargs):
+        info, allKeyTimes = cls.getSetKeysInfo(controls, attributes, timeRange, bake=bake)
+        attributeGroups = [['rx', 'ry', 'rz'], ['tx', 'ty', 'tz']]
+        userTime = cmds.currentTime(query=True)
+        if info:
+            for t in allKeyTimes:
+                cmds.currentTime(t, edit=True)
+                inTangentType = 'auto'
+                outTangentType = 'auto'
+                for attributeGroup in attributeGroups:
+                    for node in info.keys():
+                        setKey = False
+                        for a in attributeGroup:
+                            if a in info[node]['attribute'].keys():
+                                if t in info[node]['attribute'][a]:
+                                    setKey = True
+                                    break
+                        if setKey:
+                            try:
+                                inTangentTypes = cmds.keyTangent(node, query=True, time=(t, t), attribute=attributeGroup, inTangentType=True)
+                                if inTangentTypes:
+                                    inTangentType = max(set(inTangentTypes), key=inTangentTypes.count)
+                                outTangentTypes = cmds.keyTangent(node, query=True, time=(t, t), attribute=attributeGroup, outTangentType=True)
+                                if outTangentTypes:
+                                    outTangentType = max(set(outTangentTypes), key=outTangentTypes.count)
+                            except Exception as e:
+                                pass
+                            if inTangentType == 'fixed':
+                                inTangentType = 'auto'
+                            if outTangentType == 'fixed':
+                                outTangentType = 'auto'
+                            for a in attributeGroup:
+                                if a in info[node]['attribute'].keys():
+                                    attribute = '{0}.{1}'.format(node, a)
+                                    cmds.setKeyframe(attribute)
+                            cmds.keyTangent(node, edit=True, time=(t, t), attribute=attributeGroup, outTangentType=outTangentType)
+                            cmds.keyTangent(node, edit=True, time=(t, t), attribute=attributeGroup, inTangentType=inTangentType)
+            cmds.currentTime(userTime, edit=True)
+
+    @classmethod
+    @_r.native_operation('Functions.safeParentConstraintMulti')
+    def safeParentConstraintMulti(cls, *args, **kwargs):
+        objectA = ''
+        if 'objectA' in kwargs:
+            objectA = kwargs.pop('objectA')
+        objectB = ''
+        if 'objectB' in kwargs:
+            objectB = kwargs.pop('objectB')
+        attributes = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']
+        if 'attributes' in kwargs:
+            attributes = kwargs.pop('attributes')
+        if not (cmds.objExists(objectA) and cmds.objExists(objectB)):
+            return False
+        transformAttributes = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']
+        keyableAttributes = cmds.listAttr(objectA, keyable=True, scalar=True, unlocked=True, shortNames=True)
+        commonAttributes = list(set(keyableAttributes) & set(attributes))
+        parentConstraints = []
+        for a in commonAttributes:
+            skipTX = 'none'
+            skipTY = 'none'
+            skipTZ = 'none'
+            skipRX = 'none'
+            skipRY = 'none'
+            skipRZ = 'none'
+            if a != 'tx':
+                skipTX = 'x'
+            if a != 'ty':
+                skipTY = 'y'
+            if a != 'tz':
+                skipTZ = 'z'
+            if a != 'rx':
+                skipRX = 'x'
+            if a != 'ry':
+                skipRY = 'y'
+            if a != 'rz':
+                skipRZ = 'z'
+            constraintName = '{0}_{1}_{2}'.format(objectA, '_safeConstraint', a)
+            parentConstraint = cmds.parentConstraint(objectB, objectA, skipTranslate=[skipTX, skipTY, skipTZ], skipRotate=[skipRX, skipRY, skipRZ], name=constraintName)[0]
+            parentConstraints.append(parentConstraint)
+        return parentConstraints
+
+    @classmethod
+    @_r.native_operation('Functions.safeParentConstraint')
+    def safeParentConstraint(cls, *args, **kwargs):
+        objectA = ''
+        if 'objectA' in kwargs:
+            objectA = kwargs.pop('objectA')
+        objectB = ''
+        if 'objectB' in kwargs:
+            objectB = kwargs.pop('objectB')
+        attributes = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']
+        if 'attributes' in kwargs:
+            attributes = kwargs.pop('attributes')
+        maintainOffset = False
+        if 'maintainOffset' in kwargs:
+            maintainOffset = kwargs.pop('maintainOffset')
+        if type(objectB) != list:
+            objectB = [objectB]
+        everythingOk = True
+        if not cmds.objExists(objectA):
+            everythingOk = False
+        for n in objectB:
+            if not cmds.objExists(n):
+                everythingOk = False
+        if not everythingOk:
+            return False
+        transformAttributes = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']
+        keyableAttributes = cmds.listAttr(objectA, keyable=True, scalar=True, unlocked=True, shortNames=True)
+        commonAttributes = list(set(keyableAttributes) & set(attributes))
+        skipTX = 'none'
+        skipTY = 'none'
+        skipTZ = 'none'
+        skipRX = 'none'
+        skipRY = 'none'
+        skipRZ = 'none'
+        if transformAttributes[0] not in commonAttributes:
+            skipTX = 'x'
+        if transformAttributes[1] not in commonAttributes:
+            skipTY = 'y'
+        if transformAttributes[2] not in commonAttributes:
+            skipTZ = 'z'
+        if transformAttributes[3] not in commonAttributes:
+            skipRX = 'x'
+        if transformAttributes[4] not in commonAttributes:
+            skipRY = 'y'
+        if transformAttributes[5] not in commonAttributes:
+            skipRZ = 'z'
+        constraintName = objectA + '_safeConstraint'
+        parentConstraint = cmds.parentConstraint(objectB, objectA, skipTranslate=[skipTX, skipTY, skipTZ], skipRotate=[skipRX, skipRY, skipRZ], name=constraintName, maintainOffset=maintainOffset)[0]
+        return parentConstraint
+
+    @classmethod
+    @_r.native_operation('Functions.simpleSnap')
+    def simpleSnap(cls, *args, **kwargs):
+        selected = cmds.ls(sl=True)
+        if selected and len(selected) >= 2:
+            attributes = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']
+            selectedChannels = cls.getSelectedChannels()
+            if selectedChannels:
+                attributes = selectedChannels
+            constraint = cls.safeParentConstraint(objectA=selected[-1], objectB=selected[:-1], attributes=attributes)
+            for a in attributes:
+                attribute = '{0}.{1}'.format(selected[-1], a)
+                keyframeCount = cmds.keyframe(attribute, query=True)
+                if keyframeCount:
+                    cmds.setKeyframe(attribute)
+            cmds.delete(constraint)
+            cmds.select(selected[-1])
+            cmds.currentTime(cmds.currentTime(query=True), edit=True)
+
+    @classmethod
+    def generateWorldSpaceControlName(cls, s, *args, **kwargs):
+        return _r.helper_name(s, 'WorldSpaceControl')
+
+    @classmethod
+    @_r.native_operation('Functions.createCircleControl')
+    def createCircleControl(cls, s, *args, **kwargs):
+        if not (s and cmds.objExists(s)):
+            return False
+        sizeOverride = False
+        if 'sizeOverride' in kwargs:
+            sizeOverride = kwargs.pop('sizeOverride')
+        nameOverride = False
+        if 'nameOverride' in kwargs:
+            nameOverride = kwargs.pop('nameOverride')
+        name = False
+        if nameOverride:
+            name = nameOverride
+        else:
+            name = cls.generateWorldSpaceControlName(s)
+        size = 1
+        if sizeOverride:
+            size = sizeOverride
+        else:
+            size = cls.getBoundingBoxRadius(s) * 1.15
+        rotateOrder = 0
+        rotateOrder = cmds.getAttr(s + '.rotateOrder')
+        control = cmds.circle(center=(0, 0, 0), normal=(0, 1, 0), radius=size, degree=3, sections=8, constructionHistory=True, name=name)[0]
+        lockAttrs = ['sx', 'sy', 'sz']
+        for a in lockAttrs:
+            cmds.setAttr(control + '.' + a, edit=True, lock=True, keyable=False)
+        nonkeyable = ['v']
+        for a in nonkeyable:
+            cmds.setAttr(control + '.' + a, edit=True, channelBox=True, lock=False, keyable=False)
+        cmds.setAttr(control + '.rotateOrder', rotateOrder)
+        cmds.setAttr(control + '.rotateOrder', edit=True, lock=False)
+        cmds.setAttr(control + '.rotateOrder', edit=True, keyable=True)
+        shapeNode = cmds.listRelatives(control, shapes=True)[0]
+        nurbsCircleNode = cmds.listConnections(shapeNode)[0]
+        cmds.addAttr(control, ln='size', at='double', min=0, dv=size)
+        cmds.setAttr(control + '.size', e=True, c=True, keyable=False, cb=True)
+        cmds.connectAttr(control + '.size', nurbsCircleNode + '.radius', force=True)
+        setColor = cls.getOverrideColor(s)
+        cls.addColorAttribute(control, setColor=setColor)
+        return control
+
+    @classmethod
+    @_r.native_operation('Functions.addColorAttribute')
+    def addColorAttribute(cls, s, setColor=0):
+        colorList = ['None=0', 'Black=1', 'Silver=2', 'Grey=3', 'VenetianRed=4', 'Navy=5', 'Blue=6', 'BritishRacingGreen=7', 'Indigo=8', 'DeepMagenta=9', 'PiperOrange=10', 'TemptressBrown=11', 'TawnyOrange=12', 'Red=13', 'Green=14', 'Cobalt=15', 'White=16', 'Yellow=17', 'Aqua=18', 'BrightTurquoise=19', 'MelonRed=20', 'ManhattanOrange=21', 'LaserLemon=22', 'Jade=23', 'IndochineOrange=24', 'LemonGinger=25', 'SushiGreen=26', 'Eucalyptus=27', 'ScooterBlue=28', 'LochmaraBlue=29', 'PurpleHeart=30', 'LipstickRed=31']
+        if setColor:
+            setColor = int(cls.clamp(0, setColor, 31))
+        else:
+            setColor = 0
+        cmds.addAttr(s, ln='color', at='enum', enumName=':'.join(colorList))
+        cmds.setAttr(s + '.color', setColor, e=True, keyable=False, cb=True)
+        cmds.setAttr(s + '.overrideEnabled', 1, e=True, keyable=False, cb=False)
+        cmds.connectAttr(s + '.color', s + '.drawOverride.overrideColor', force=True)
+
+    @classmethod
+    def clamp(cls, minvalue, value, maxvalue):
+        return max(minvalue, min(value, maxvalue))
+
+    @classmethod
+    def getOverrideColor(cls, s, *args, **kwargs):
+        overrideColor = cmds.getAttr('{0}.{1}'.format(s, 'overrideColor'))
+        if overrideColor == 0:
+            try:
+                shape = cmds.listRelatives(s, shapes=True)[0]
+                if cmds.getAttr('{0}.{1}'.format(shape, 'overrideEnabled')):
+                    overrideColor = cmds.getAttr('{0}.{1}'.format(shape, 'overrideColor'))
+            except:
+                pass
+        return overrideColor
+
+    @classmethod
+    def getBoundingBoxRadius(cls, object, *args, **kwargs):
+        radius = 0
+        if cmds.objExists(object):
+            objectType = cmds.objectType(object)
+            if objectType == 'joint':
+                radius = cmds.getAttr(object + '.radius')
+            else:
+                boundingBox = cmds.exactWorldBoundingBox(object)
+                dimensions = [abs(boundingBox[0] - boundingBox[3]), abs(boundingBox[1] - boundingBox[4]), abs(boundingBox[2] - boundingBox[5])]
+                radius = max(dimensions) / 2
+        if radius > 0.0001:
+            return radius
+        else:
+            return 1
+
+    @classmethod
+    def getSpecialKeyTickTimes(cls, nodes, *args, **kwargs):
+        if not nodes:
+            return False
+        if type(nodes) != list:
+            nodes = [nodes]
+        specialKeyTicks = []
+        for s in nodes:
+            keyableAttributes = cmds.listAttr(s, keyable=True, unlocked=True, scalar=True, visible=True, shortNames=True)
+            for a in keyableAttributes:
+                attribute = '{0}.{1}'.format(s, a)
+                keyframeCount = cmds.keyframe(attribute, query=True)
+                if keyframeCount:
+                    curveNode = cmds.keyframe(attribute, query=True, name=True)[0]
+                    keyFrameList = cmds.keyframe(curveNode, query=True)
+                    uncheckedFrames = list(set(keyFrameList) - set(specialKeyTicks))
+                    for f in uncheckedFrames:
+                        index = keyFrameList.index(f)
+                        querySpecialKeyTick = cmds.getAttr('{0}.kyts[{1}]'.format(curveNode, index))
+                        if querySpecialKeyTick:
+                            specialKeyTicks.append(f)
+        return specialKeyTicks
+
+    @classmethod
+    def queryTimeRange(cls, *args, **kwargs):
+        checkHighlighted = False
+        if 'checkHighlighted' in kwargs:
+            checkHighlighted = kwargs.pop('checkHighlighted')
+        startTime = int(cmds.playbackOptions(q=True, minTime=True))
+        endTime = int(cmds.playbackOptions(q=True, maxTime=True))
+        if checkHighlighted:
+            rangeStart, rangeEnd = str(cmds.timeControl(mel.eval('$tmpVar=$gPlayBackSlider'), query=True, range=True)).replace('"', '').split(':')
+            rangeStart = float(rangeStart)
+            rangeEnd = float(rangeEnd) - 1
+            if rangeEnd - rangeStart > 1:
+                startTime = rangeStart
+                endTime = rangeEnd
+        return (startTime, endTime)
+
+    @classmethod
+    def suspendUI(cls, state, *args, **kwargs):
+        return None
+
+    @classmethod
+    def suspendUI_wrapped(cls, state):
+        return None
+
+    @classmethod
+    def getWorldMatrix(cls, node=False, time=False):
+        if not node:
+            return False
+        worldMatrix = cmds.getAttr(node + '.worldMatrix', time=time)
+        matrix = OpenMaya.MMatrix(worldMatrix)
+        return matrix
+
+    @classmethod
+    def getTransformsFromMatrix(cls, matrix=False, node=False, time=False):
+        mQuery = cmds.getAttr(node + '.parentInverseMatrix', time=time)
+        inverseParentMatrix = OpenMaya.MMatrix(mQuery)
+        localMatrix = matrix * inverseParentMatrix
+        attributeValues = cls.decompMatrix(node, localMatrix)
+        return attributeValues
+
+    @classmethod
+    @_r.native_operation('Functions.applyTransformValues')
+    def applyTransformValues(cls, node=False, attributes=False, attributeValues=False, time=False):
+        keyableAttributes = cmds.listAttr(node, keyable=True, scalar=True, unlocked=True, shortNames=True)
+        keyableAttributes = list(set(keyableAttributes) & set(attributes))
+        basicTransformLookup = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']
+        for a in keyableAttributes:
+            if a in basicTransformLookup:
+                indexLookup = basicTransformLookup.index(a)
+                cmds.setKeyframe(node, attribute=a, t=[time, time], value=attributeValues[indexLookup])
+
+    @classmethod
+    def decompMatrix(cls, node, matrix):
+        """
+        Decomposes a MMatrix in new api. Returns an list of translation,rotation,scale in world space.
+        """
+        rotOrder = cmds.getAttr('{0}.rotateOrder'.format(node))
+        mTransformMtx = OpenMaya.MTransformationMatrix(matrix)
+        trans = mTransformMtx.translation(OpenMaya.MSpace.kWorld)
+        trans.x = cls.convertUnit(trans.x, fromUnit='cm')
+        trans.y = cls.convertUnit(trans.y, fromUnit='cm')
+        trans.z = cls.convertUnit(trans.z, fromUnit='cm')
+        eulerRot = mTransformMtx.rotation()
+        eulerRot.reorderIt(rotOrder)
+        angles = [math.degrees(angle) for angle in (eulerRot.x, eulerRot.y, eulerRot.z)]
+        scale = mTransformMtx.scale(OpenMaya.MSpace.kWorld)
+        return [trans.x, trans.y, trans.z] + angles + scale
+
+    @classmethod
+    def convertUnit(cls, inputValue, fromUnit='cm'):
+        v = cmds.convertUnit(inputValue, fromUnit='cm')
+        v = str(v)
+        v = re.sub('[^0-9.-]', '', v)
+        try:
+            return float(v)
+        except Exception as e:
+            print(3406, Exception, e)
+            return 0
+
+class SwitchFlipWidget:
+    """
+    onCommand=partial(cls.setAutoLoadState, True)
+    offCommand=partial(cls.setAutoLoadState, False)
+    description=' Auto Load Selections
+    parent = parent
+    cls.autoUpdateSwitch = SwitchWidget(parent=parent, description=description, onCommand=onCommand, offCommand=onCommand)
+    autoSwitchButton = cls.autoUpdateSwitch.getLayout()
+    """
+
+    def __init__(self, *args, **kwargs):
+        state = True
+        parent = None
+        if 'parent' in kwargs:
+            parent = kwargs.pop('parent')
+        startState = True
+        if 'startState' in kwargs:
+            startState = kwargs.pop('startState')
+        description = ''
+        if 'description' in kwargs:
+            description = kwargs.pop('description')
+        onCommand = False
+        if 'onCommand' in kwargs:
+            onCommand = kwargs.pop('onCommand')
+        offCommand = False
+        if 'offCommand' in kwargs:
+            offCommand = kwargs.pop('offCommand')
+        width = 100
+        if 'width' in kwargs:
+            width = kwargs.pop('width')
+        height = 20
+        if 'height' in kwargs:
+            height = kwargs.pop('height')
+        descriptionWidth = 50
+        if 'descriptionWidth' in kwargs:
+            descriptionWidth = kwargs.pop('descriptionWidth')
+        if parent:
+            cmds.setParent(parent)
+        self.form = cmds.formLayout(parent=parent, height=height)
+        self.description = cmds.text(label=description, align='center', bgc=[0.3] * 3)
+        self.on = cmds.button(label='On', bgc=[1] * 3, command=partial(self.pressButton, True, onCommand), height=5)
+        self.off = cmds.button(label='Off', bgc=[0.2, 0.2, 0.2], command=partial(self.pressButton, False, offCommand), height=5)
+        cmds.formLayout(self.form, edit=True, attachForm=[(self.description, 'top', 0)])
+        cmds.formLayout(self.form, edit=True, attachForm=[(self.description, 'left', 0)])
+        cmds.formLayout(self.form, edit=True, attachForm=[(self.description, 'bottom', 0)])
+        cmds.formLayout(self.form, edit=True, attachPosition=[(self.description, 'right', 0, descriptionWidth)])
+        remainder = descriptionWidth + (100 - descriptionWidth) / 2
+        padding = 3
+        cmds.formLayout(self.form, edit=True, attachForm=[(self.on, 'top', padding)])
+        cmds.formLayout(self.form, edit=True, attachControl=[(self.on, 'left', padding, self.description)])
+        cmds.formLayout(self.form, edit=True, attachForm=[(self.on, 'bottom', padding)])
+        cmds.formLayout(self.form, edit=True, attachPosition=[(self.on, 'right', 0, remainder)])
+        cmds.formLayout(self.form, edit=True, attachForm=[(self.off, 'top', padding)])
+        cmds.formLayout(self.form, edit=True, attachControl=[(self.off, 'left', 0, self.on)])
+        cmds.formLayout(self.form, edit=True, attachForm=[(self.off, 'bottom', padding)])
+        cmds.formLayout(self.form, edit=True, attachForm=[(self.off, 'right', padding)])
+        self.pressButton(startState, False, onInit=True)
+        return
+
+    def pressButton(self, state, command, *args, **kwargs):
+        onInit = False
+        if 'onInit' in kwargs:
+            onInit = kwargs.pop('onInit')
+        enabled = [0.024, 0.804, 0.024]
+        disabled = [0.2, 0.2, 0.2]
+        onColor = []
+        offColor = []
+        if state:
+            onColor = enabled
+            offColor = disabled
+        if not state:
+            onColor = disabled
+            offColor = enabled
+        cmds.button(self.on, edit=True, bgc=onColor)
+        cmds.button(self.off, edit=True, bgc=offColor)
+        self.setState(state)
+        if not onInit:
+            if command:
+                command()
+
+    def setState(self, state, *args, **kwargs):
+        self.state = state
+
+    def getState(self, *args, **kwargs):
+        return self.state
+
+    def getLayout(self, *args, **kwargs):
+        return self.form
+
+class WidgetToggleSwitch:
+    """
+        # toggle button
+        TrueText = 'True'
+        FalseText = 'False'
+        TrueCommand = False
+        FalseCommand = False
+        startState = True
+        TranslateAll = widgetSimpleSwitch(parent=form, startState=startState, TrueText=TrueText, FalseText=FalseText, TrueCommand=TrueCommand, FalseCommand=FalseCommand)
+        TranslateAllElement = TranslateAll.getLayout()
+    """
+
+    def __init__(self, *args, **kwargs):
+        parent = None
+        if 'parent' in kwargs:
+            parent = kwargs.pop('parent')
+        startState = True
+        if 'startState' in kwargs:
+            startState = kwargs.pop('startState')
+        self.TrueText = ''
+        if 'TrueText' in kwargs:
+            self.TrueText = kwargs.pop('TrueText')
+        self.FalseText = ''
+        if 'FalseText' in kwargs:
+            self.FalseText = kwargs.pop('FalseText')
+        self.TrueCommand = False
+        if 'TrueCommand' in kwargs:
+            self.TrueCommand = kwargs.pop('TrueCommand')
+        self.FalseCommand = False
+        if 'FalseCommand' in kwargs:
+            self.FalseCommand = kwargs.pop('FalseCommand')
+        width = 75
+        if 'width' in kwargs:
+            width = kwargs.pop('width')
+        height = 18
+        if 'height' in kwargs:
+            height = kwargs.pop('height')
+        padding = 3
+        if 'padding' in kwargs:
+            padding = kwargs.pop('padding')
+        self.TrueColor = [0.7, 0.7, 0.7]
+        if 'TrueColor' in kwargs:
+            self.TrueColor = kwargs.pop('TrueColor')
+        self.FalseColor = [0.2, 0.2, 0.2]
+        if 'FalseColor' in kwargs:
+            self.FalseColor = kwargs.pop('FalseColor')
+        if parent:
+            cmds.setParent(parent)
+        self.form = cmds.formLayout(parent=parent, height=height)
+        self.button = cmds.button(width=width, height=1, command=partial(self.pressButton))
+        self.setState(startState)
+        self.pressButton(onInit=True)
+        cmds.formLayout(self.form, edit=True, attachForm=[(self.button, 'top', padding)])
+        cmds.formLayout(self.form, edit=True, attachForm=[(self.button, 'left', padding)])
+        cmds.formLayout(self.form, edit=True, attachForm=[(self.button, 'bottom', padding)])
+        cmds.formLayout(self.form, edit=True, attachForm=[(self.button, 'right', padding)])
+        return
+
+    def pressButton(self, *args, **kwargs):
+        onInit = False
+        if 'onInit' in kwargs:
+            onInit = kwargs.pop('onInit')
+        state = self.getState()
+        if not onInit:
+            state = not state
+        if 'forceState' in kwargs:
+            state = kwargs.pop('forceState')
+        color = []
+        text = ''
+        if state:
+            color = self.TrueColor
+            text = self.TrueText
+            command = self.TrueCommand
+        if not state:
+            color = self.FalseColor
+            text = self.FalseText
+            command = self.FalseCommand
+        cmds.button(self.button, edit=True, bgc=color, label=text)
+        self.setState(state)
+        if not onInit:
+            if command:
+                command()
+
+    def setState(self, state, *args, **kwargs):
+        self.state = state
+
+    def getState(self, *args, **kwargs):
+        return copy.deepcopy(self.state)
+
+    def getLayout(self, *args, **kwargs):
+        return copy.deepcopy(self.form)
+
+class New_Stuff_From_Here:
+    pass
+
+class OneClickActions:
+
+    @classmethod
+    def auto_world_space(cls):
+        """
+        get selection
+        """
+        selected = cmds.ls(sl=True)
+        maya_nodes = []
+        ws_nodes = []
+        if not selected:
+            window.load()
+        for s in selected:
+            if Utils.isWorldSpaceControl(s):
+                ws_nodes.append(s)
+            else:
+                world_space_object = Utils.generateWorldSpaceControlName(s)
+                if cmds.objExists(world_space_object):
+                    cmds.warning('"{0}" a World Space Control already exists for this object.'.format(s))
+                    continue
+                keyable = cmds.listAttr(s, keyable=True, scalar=True, unlocked=True, shortNames=True)
+                if not keyable:
+                    cmds.warning('"{0}" doesnt have any keyable channels.'.format(s))
+                    continue
+                else:
+                    commonAttributes = list(set(keyable) & set(['tx', 'ty', 'tz', 'rx', 'ry', 'rz']))
+                    if not commonAttributes:
+                        cmds.warning('"{0}" doesnt have any unlocked translate or rotate channels.'.format(s))
+                        continue
+                maya_nodes.append(s)
+        if maya_nodes:
+            optionsData = window.getDefaultOptions('create')
+            WorldSpaceFunctions.toWorldSpace(optionsData, selection=maya_nodes)
+        if ws_nodes:
+            optionsData = window.getDefaultOptions('bake')
+            WorldSpaceFunctions.toLocalSpace(optionsData, selection=maya_nodes)
+
+class PathSpaceFunctions:
+
+    @classmethod
+    @_r.native_operation('PathSpaceFunctions.toPathSpace')
+    def toPathSpace(cls, *args, **kwargs):
+        """
+        args
+        """
+        cvCount = False
+        if 'cvCount' in kwargs:
+            cvCount = kwargs.pop('cvCount')
+        selected = cmds.ls(sl=True)
+        if not selected:
+            return False
+        Utils.storeAnimBlendingOpt()
+        Utils.setAnimBlendingOpt(1)
+        newControls = []
+        for s in selected:
+            pathCurve = Utils.createCurvePathFromObject(s)
+            if cvCount:
+                cls.rebuildCurve(cvCount, [pathCurve])
+            pathConstraint, animLocator = Utils.createAnimatedLocatorOnPath(pathCurve, s)
+            worldSpaceControls = WorldSpaceFunctions.toParentSpaceBatch(s, animLocator)
+            worldSpaceControl = worldSpaceControls[0]
+            newControls.append(worldSpaceControl)
+            longName = 'uValue'
+            cmds.addAttr(worldSpaceControl, ln=longName, at='double', dv=0)
+            cmds.setAttr('{0}.{1}'.format(worldSpaceControl, longName), e=True, keyable=True, cb=True)
+            curveNode = cmds.findKeyframe(pathConstraint, curve=True, at='uValue')[0]
+            cmds.connectAttr('{0}.{1}'.format(curveNode, 'output'), '{0}.{1}'.format(worldSpaceControl, 'uValue'), force=True)
+            cmds.connectAttr('{0}.{1}'.format(worldSpaceControl, 'uValue'), '{0}.{1}'.format(pathConstraint, 'uValue'), force=True)
+            pathSpaceGroup = '{0}_pathspace'.format(s)
+            pathSpaceGroup = cmds.group(em=True, name=pathSpaceGroup)
+            cmds.parent(animLocator, pathSpaceGroup)
+            cmds.parent(pathCurve, pathSpaceGroup)
+            parent = ObjectProperties.getStringProperty(worldSpaceControl, 'ebLabs_parentGroup', False)
+            if parent:
+                cmds.parent(parent, pathSpaceGroup)
+            ObjectProperties.setStringProperty(worldSpaceControl, 'ebLabs_parentGroup', pathSpaceGroup)
+        Functions.restoreAnimBlendingOpt()
+        Utils.storeAnimBlendingOpt()
+        Utils.setAnimBlendingOpt(1)
+        cmds.select(newControls, replace=True)
+
+    @classmethod
+    @_r.native_operation('PathSpaceFunctions.rebuildCurve')
+    def rebuildCurve(cls, numSpans, curveNodes):
+        """
+        rebuildCurve -ch 1 -rpo 1 -rt 0 -end 1 -kr 1 -kcp 0 -kep 1 -kt 0 -s 6 -d 3 -tol 0.01 "pSphere1_curve_s1017_e1298";
+
+        """
+        if not curveNodes:
+            return False
+        curveShapes = []
+        for curveNode in curveNodes:
+            curveShape = cmds.listRelatives(curveNode, shapes=True, type='nurbsCurve')
+            if curveShape:
+                curveShapes.append(curveShape[0])
+        for curveShape in curveShapes:
+            cmds.rebuildCurve(curveShape, rebuildType=0, spans=numSpans)
+
+class WorldSpaceFunctions:
+
+    @classmethod
+    def toLocalSpaceBatch(cls, onKeys=True, fastMode=False, testingMode=False):
+        """
+        figure out bake range
+        """
+        optionsData = {}
+        optionsData['onKeys'] = onKeys
+        if not onKeys:
+            selected = cmds.ls(sl=True)
+            startFrame = cmds.findKeyframe(selected, which='first')
+            endFrame = cmds.findKeyframe(selected, which='last')
+            if startFrame == endFrame:
+                endFrame = startFrame + 1
+            optionsData['timeRange'] = [startFrame, endFrame]
+        if not testingMode:
+            testingMode = None
+        SuspendUI.setBatchMode(testingMode)
+        ProgressBar.setBatchMode(testingMode)
+        cls.toLocalSpace(optionsData, onKeys=onKeys, fastMode=fastMode)
+        return
+
+    @classmethod
+    @_r.native_operation('WorldSpaceFunctions.toLocalSpace')
+    def toLocalSpace(cls, optionsData, *args, **kwargs):
+        """
+        unpack attributes
+        """
+        bakeTimeRange = False
+        if optionsData['onKeys'] == False:
+            bakeTimeRange = optionsData['timeRange']
+        selection = kwargs.get('selection', None)
+        fastMode = True
+        if 'fastMode' in kwargs:
+            fastMode = kwargs.pop('fastMode')
+        else:
+            fastMode = PrefsManager.getProperty('fastMode', True)
+        suspendUI = not fastMode
+        try:
+            cmds.dgdirty(allPlugs=True)
+            if not selection:
+                selection = cmds.ls(sl=True)
+            if selection:
+                chainControls = []
+                for s in selection:
+                    values = ObjectProperties.getStringProperty(s, 'ebLabs_chainControls', False)
+                    if values:
+                        items = values.split(' ')
+                        chainControls += items
+                selection = list(set(selection + chainControls))
+                wsControls = Utils.filterWorldSpaceControls(selection)
+                errors = Utils.errorCheckToLocal(wsControls)
+                if errors:
+                    message = '\n'.join(errors)
+                    confirm = cmds.confirmDialog(title='Error Message', message=message, button=['Oka'])
+                if not errors:
+                    if suspendUI:
+                        SuspendUI.setState(True)
+                    cls.toLocalSpaceExec(wsControls, bakeTimeRange=bakeTimeRange, fastMode=fastMode)
+        except Exception as e:
+            _r.capture_error(True)
+            print(1205, traceback.format_exc())
+        finally:
+            if suspendUI:
+                SuspendUI.setState(False)
+        return
+
+    @classmethod
+    @_r.native_operation('WorldSpaceFunctions.toLocalSpaceExec')
+    def toLocalSpaceExec(cls, wsControls, *args, **kwargs):
+        bakeTimeRange = False
+        if 'bakeTimeRange' in kwargs:
+            bakeTimeRange = kwargs.pop('bakeTimeRange')
+        fastMode = True
+        if 'fastMode' in kwargs:
+            fastMode = kwargs.pop('fastMode')
+        batchMode = cmds.about(batch=True)
+        bake = False
+        timeRange = False
+        if bakeTimeRange:
+            bake = True
+            timeRange = (bakeTimeRange[0], bakeTimeRange[1])
+        if not batchMode:
+            highlightedRangeStart, highlightedRangeEnd = str(cmds.timeControl(mel.eval('$tmpVar=$gPlayBackSlider'), query=True, range=True)).replace('"', '').split(':')
+            highlightedRangeStart = float(highlightedRangeStart)
+            highlightedRangeEnd = float(highlightedRangeEnd)
+            highlightedRangeLength = highlightedRangeEnd - highlightedRangeStart
+            if highlightedRangeLength > 1:
+                timeRange = (highlightedRangeStart, highlightedRangeEnd)
+        if timeRange:
+            if timeRange[1] - timeRange[0] == 0:
+                timeRange[1] = timeRange[1] + 1
+        cmds.select(clear=True)
+        forSelection = []
+        ws_controls_data = {}
+        for wsControl in wsControls:
+            data = {}
+            data['ws_control'] = wsControl
+            data['targetObject'] = ObjectProperties.getStringProperty(wsControl, 'ebLabs_mayaControl', False)
+            data['parent'] = ObjectProperties.getStringProperty(wsControl, 'ebLabs_parentGroup', False)
+            commonAttributes = ObjectProperties.getStringProperty(wsControl, 'ebLabs_commonAttributes', False)
+            if not commonAttributes:
+                commonAttributes = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']
+            else:
+                try:
+                    commonAttributes = commonAttributes.split()
+                except:
+                    commonAttributes = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']
+            data['commonAttributes'] = commonAttributes
+            ws_controls_data[wsControl] = data
+            cmds.bufferCurve(data['targetObject'], overwrite=True)
+        attrKeyframeGroups = Utils.getKeyTimes(wsControls, timeRange, bake)
+        new_attrKeyframeGroups = {}
+        for t, node_data in iteritems(attrKeyframeGroups):
+            new_attrKeyframeGroups[t] = {}
+            for node, attr_data in iteritems(node_data):
+                new_node = ws_controls_data[node]['targetObject']
+                new_attrKeyframeGroups[t][new_node] = {}
+                for attr_group, tangent_data in iteritems(attr_data):
+                    ws_data = ws_controls_data[node]
+                    common_attributes = ws_data['commonAttributes']
+                    new_attr_group = []
+                    for a in attr_group:
+                        if a in common_attributes:
+                            new_attr_group.append(a)
+                    new_attr_group = tuple(new_attr_group)
+                    new_attrKeyframeGroups[t][new_node][new_attr_group] = attr_data
+        attrKeyframeGroups = new_attrKeyframeGroups
+        ws_controls_data = list(ws_controls_data.values())
+        attr_list = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']
+        capturedKeyframeValues = Utils.captureKeyframeValues_multi(attrKeyframeGroups, attr_list, fastMode=fastMode)
+        forDeletion = []
+        for data in ws_controls_data:
+            ws_control = data['ws_control']
+            ws_parent = data['parent']
+            node = ws_parent if ws_parent else ws_control
+            forDeletion.append(node)
+        forDeletion = list(set(forDeletion))
+        cmds.delete(forDeletion)
+        for data in ws_controls_data:
+            kwargs = {}
+            kwargs['node'] = data['targetObject']
+            kwargs['attributes'] = data['commonAttributes']
+            kwargs['timeRange'] = timeRange
+            cmds.bufferCurve(data['targetObject'], overwrite=True)
+            Utils.clearKeyframes(**kwargs)
+        Utils.setKeys(capturedKeyframeValues, fastMode=fastMode)
+        forSelection = []
+        for data in ws_controls_data:
+            node = data['targetObject']
+            forSelection.append(node)
+            cmds.filterCurve(node)
+        forSelection = list(set(forSelection))
+        cmds.select(forSelection, replace=True)
+
+    @classmethod
+    def toParentSpaceBatch(cls, node, parentNode):
+        """
+        process
+        """
+        kwargs = {}
+        kwargs['parentSpaceObject'] = parentNode
+        kwargs['bakeTimeRange'] = False
+        kwargs['attributes'] = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']
+        kwargs['fastMode'] = PrefsManager.getProperty('fastMode', True)
+        newControls = cls.toWorldSpaceExec([node], **kwargs)
+        return newControls
+
+    @classmethod
+    @_r.native_operation('WorldSpaceFunctions.toWorldSpace')
+    def toWorldSpace(cls, optionsData, *args, **kwargs):
+        toParentSpace = False
+        if 'toParentSpace' in kwargs:
+            toParentSpace = kwargs.pop('toParentSpace')
+        selection = kwargs.get('selection', None)
+        prefsKey = 'fastMode'
+        prefsValue = PrefsManager.getProperty('fastMode', True)
+        fastMode = prefsValue
+        suspendUI = not prefsValue
+        modelPanel = cmds.getPanel(withFocus=True)
+        try:
+            cmds.dgdirty(allPlugs=True)
+            if not selection:
+                selection = cmds.ls(sl=True)
+            parentSpaceObject = False
+            if len(selection) >= 2 and toParentSpace:
+                parentSpaceObject = selection[-1]
+                selection = selection[:-1]
+            errors = Utils.errorCheck(selection)
+            if errors:
+                message = '\n'.join(errors)
+                confirm = cmds.confirmDialog(title='Error Message', message=message, button=['Oka'])
+            if not errors:
+                attributes = []
+                for a in ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']:
+                    if optionsData[a] == True:
+                        attributes.append(a)
+                bakeTimeRange = False
+                if optionsData['onKeys'] == False:
+                    bakeTimeRange = optionsData['timeRange']
+                Utils.storeAnimBlendingOpt()
+                Utils.setAnimBlendingOpt(1)
+                if suspendUI:
+                    SuspendUI.setState(True)
+                newControls = cls.toWorldSpaceExec(selection, parentSpaceObject=parentSpaceObject, bakeTimeRange=bakeTimeRange, attributes=attributes, fastMode=fastMode)
+                cmds.select(newControls, replace=True)
+        except:
+            _r.capture_error(True)
+            print(3456, traceback.format_exc())
+        finally:
+            if suspendUI:
+                SuspendUI.setState(False)
+        if Utils.isViewIsolated(modelPanel):
+            Utils.addIsolatedObjectsForModelPanel(modelPanel, cmds.ls(sl=True))
+        Functions.restoreAnimBlendingOpt()
+        return
+
+    @classmethod
+    @_r.native_operation('WorldSpaceFunctions.createWorldSpaceControl')
+    def createWorldSpaceControl(cls, targetObject, parentSpaceObject, attributes, timeRange):
+        data = {}
+        data['ws_control'] = None
+        data['commonAttributes'] = None
+        data['skippedAttributes'] = None
+        data['targetObject'] = targetObject
+        data['hook'] = None
+        keyable = cmds.listAttr(targetObject, keyable=True, scalar=True, unlocked=True, shortNames=True)
+        data['commonAttributes'] = list(set(keyable) & set(attributes))
+        data['skippedAttributes'] = list({'tx', 'ty', 'tz', 'rx', 'ry', 'rz'} - set(data['commonAttributes']))
+        Utils.addPlaceholderKeys(targetObject, ['tx', 'ty', 'tz', 'rx', 'ry', 'rz'], timeRange)
+        refController = False
+        if not data['commonAttributes']:
+            refController = True
+        wsControl = Utils.createControl(targetObject, refController=refController)
+        hook = Utils.createControlHook(wsControl)
+        data['hook'] = hook
+        parentSpaceGroup = ''
+        if parentSpaceObject:
+            parentSpaceGroup = Utils.createParentSpaceGroup(targetObject, parentSpaceObject)
+            wsControl = cmds.parent(wsControl, parentSpaceGroup)[0]
+        data['ws_control'] = wsControl
+        ObjectProperties.setStringProperty(wsControl, 'ebLabs_parentGroup', parentSpaceGroup)
+        ObjectProperties.setStringProperty(wsControl, 'ebLabs_mayaControl', targetObject)
+        ObjectProperties.setStringProperty(wsControl, 'ebLabs_commonAttributes', ' '.join(data['commonAttributes']))
+        ObjectProperties.setStringProperty(wsControl, 'ebLabs_hook', hook)
+        ObjectProperties.setStringProperty(wsControl, 'ebLabs', 'WorldSpace2')
+        return data
+
+    @classmethod
+    @_r.native_operation('WorldSpaceFunctions.toWorldSpaceExec')
+    def toWorldSpaceExec(cls, selection, *args, **kwargs):
+        """
+        args
+        """
+        parentSpaceObject = False
+        if 'parentSpaceObject' in kwargs:
+            parentSpaceObject = kwargs.pop('parentSpaceObject')
+        attributes = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']
+        if 'attributes' in kwargs:
+            attributes = kwargs.pop('attributes')
+        bakeTimeRange = False
+        if 'bakeTimeRange' in kwargs:
+            bakeTimeRange = kwargs.pop('bakeTimeRange')
+        fastMode = True
+        if 'fastMode' in kwargs:
+            fastMode = kwargs.pop('fastMode')
+        chain = False
+        if 'chain' in kwargs:
+            chain = kwargs.pop('chain')
+        bake = False
+        timeRange = False
+        if bakeTimeRange:
+            bake = True
+            timeRange = [bakeTimeRange[0], bakeTimeRange[1]]
+        userTime = cmds.currentTime(query=True)
+        highlightedRangeStart, highlightedRangeEnd = str(cmds.timeControl(mel.eval('$tmpVar=$gPlayBackSlider'), query=True, range=True)).replace('"', '').split(':')
+        highlightedRangeStart = float(highlightedRangeStart)
+        highlightedRangeEnd = float(highlightedRangeEnd)
+        highlightedRangeLength = highlightedRangeEnd - highlightedRangeStart
+        if highlightedRangeLength > 1:
+            timeRange = [highlightedRangeStart, highlightedRangeEnd]
+        if timeRange:
+            if timeRange[1] - timeRange[0] == 0:
+                timeRange[1] = timeRange[1] + 1
+            timeRange = tuple(timeRange)
+        ws_controls_data = []
+        selection_control_lookup = {}
+        for s in selection:
+            data = cls.createWorldSpaceControl(s, parentSpaceObject, attributes, timeRange)
+            ws_control = data['ws_control']
+            selection_control_lookup[s] = data
+            tempBakeConstraint = cmds.parentConstraint(s, ws_control, name='{0}_tmpConstraint'.format(ws_control))[0]
+            data['tempConstraint'] = tempBakeConstraint
+            ws_controls_data.append(data)
+        attrKeyframeGroups = Utils.getKeyTimes(selection, timeRange, bake)
+        newData = {}
+        for t, node_time_data in iteritems(attrKeyframeGroups):
+            newData[t] = {}
+            for node, node_data in iteritems(node_time_data):
+                ws_control_data = selection_control_lookup[node]
+                key = ws_control_data['ws_control']
+                newData[t][key] = node_data
+        attrKeyframeGroups = newData
+        capturedKeyframeValues = Utils.captureKeyframeValues_multi(attrKeyframeGroups, attributes, fastMode=fastMode)
+        for data in ws_controls_data:
+            kwargs = {}
+            kwargs['node'] = data['ws_control']
+            kwargs['attributes'] = data['commonAttributes']
+            kwargs['timeRange'] = timeRange
+            Utils.clearKeyframes(**kwargs)
+        Utils.setKeys(capturedKeyframeValues, fastMode=fastMode)
+        for data in ws_controls_data:
+            cmds.delete(data['tempConstraint'])
+            cmds.filterCurve(data['ws_control'])
+        for data in ws_controls_data:
+            commonAttributes = data['commonAttributes']
+            if commonAttributes:
+                kwargs = {}
+                kwargs['objectA'] = data['targetObject']
+                kwargs['objectB'] = data['hook']
+                kwargs['attributes'] = commonAttributes
+                controlConstraint = Utils.safeParentConstraint(**kwargs)
+                cmds.parent(controlConstraint, data['hook'])
+        for data in ws_controls_data:
+            skippedAttributes = data['skippedAttributes']
+            commonAttributes = data['commonAttributes']
+            wsControl = data['ws_control']
+            targetObject = data['targetObject']
+            if skippedAttributes and commonAttributes:
+                lockAttributes = []
+                if sorted(set(['tx', 'ty', 'tz']) & set(skippedAttributes)) == sorted(['tx', 'ty', 'tz']):
+                    cmds.pointConstraint(targetObject, wsControl, name=wsControl + '_skipTranslate')
+                    lockAttributes = ['tx', 'ty', 'tz']
+                if sorted(set(['rx', 'ry', 'rz']) & set(skippedAttributes)) == sorted(['rx', 'ry', 'rz']):
+                    cmds.orientConstraint(targetObject, wsControl, name=wsControl + '_skipRotate')
+                    lockAttributes = ['rx', 'ry', 'rz']
+                Utils.lockAttributes(wsControl, lockAttributes)
+        newControls = []
+        for data in ws_controls_data:
+            wsControl = data['ws_control']
+            newControls.append(wsControl)
+        if userTime != cmds.currentTime(query=True):
+            cmds.currentTime(userTime, edit=True)
+        return newControls
+
+    @classmethod
+    @_r.native_operation('WorldSpaceFunctions.toIKChainSpace')
+    def toIKChainSpace(cls, optionsData, *args, **kwargs):
+        toParentSpace = False
+        if 'toParentSpace' in kwargs:
+            toParentSpace = kwargs.pop('toParentSpace')
+        prefsKey = 'fastMode'
+        prefsValue = PrefsManager.getProperty('fastMode', True)
+        fastMode = prefsValue
+        suspendUI = not prefsValue
+        modelPanel = cmds.getPanel(withFocus=True)
+        try:
+            cmds.dgdirty(allPlugs=True)
+            selection = cmds.ls(sl=True)
+            parentSpaceObject = False
+            if len(selection) >= 2 and toParentSpace:
+                parentSpaceObject = selection[-1]
+                selection = selection[:-1]
+            errors = Utils.errorCheck(selection)
+            if errors:
+                message = '\n'.join(errors)
+                confirm = cmds.confirmDialog(title='Error Message', message=message, button=['Oka'])
+            if not errors:
+                attributes = []
+                for a in ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']:
+                    if optionsData[a] == True:
+                        attributes.append(a)
+                bakeTimeRange = False
+                if optionsData['onKeys'] == False:
+                    bakeTimeRange = optionsData['timeRange']
+                Utils.storeAnimBlendingOpt()
+                Utils.setAnimBlendingOpt(1)
+                if suspendUI:
+                    SuspendUI.setState(True)
+                cls.toIKChainSpaceExec(selection, parentSpaceObject=parentSpaceObject, bakeTimeRange=bakeTimeRange, attributes=attributes, fastMode=fastMode)
+        except:
+            _r.capture_error(True)
+            print(3456, traceback.format_exc())
+        finally:
+            if suspendUI:
+                SuspendUI.setState(False)
+        if Utils.isViewIsolated(modelPanel):
+            Utils.addIsolatedObjectsForModelPanel(modelPanel, cmds.ls(sl=True))
+        Functions.restoreAnimBlendingOpt()
+
+    @classmethod
+    @_r.native_operation('WorldSpaceFunctions.toIKChainSpaceExec')
+    def toIKChainSpaceExec(cls, selection, *args, **kwargs):
+        """
+        args
+        """
+        parentSpaceObject = False
+        if 'parentSpaceObject' in kwargs:
+            parentSpaceObject = kwargs.pop('parentSpaceObject')
+        attributes = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']
+        if 'attributes' in kwargs:
+            attributes = kwargs.pop('attributes')
+        bakeTimeRange = False
+        if 'bakeTimeRange' in kwargs:
+            bakeTimeRange = kwargs.pop('bakeTimeRange')
+        fastMode = True
+        if 'fastMode' in kwargs:
+            fastMode = kwargs.pop('fastMode')
+        chain = False
+        if 'chain' in kwargs:
+            chain = kwargs.pop('chain')
+        bake = False
+        timeRange = False
+        if bakeTimeRange:
+            bake = True
+            timeRange = (bakeTimeRange[0], bakeTimeRange[1])
+        highlightedRangeStart, highlightedRangeEnd = str(cmds.timeControl(mel.eval('$tmpVar=$gPlayBackSlider'), query=True, range=True)).replace('"', '').split(':')
+        highlightedRangeStart = float(highlightedRangeStart)
+        highlightedRangeEnd = float(highlightedRangeEnd)
+        highlightedRangeLength = highlightedRangeEnd - highlightedRangeStart
+        if highlightedRangeLength > 1:
+            timeRange = (highlightedRangeStart, highlightedRangeEnd)
+        if timeRange:
+            if timeRange[1] - timeRange[0] == 0:
+                timeRange[1] = timeRange[1] + 1
+        newControls = []
+        count = len(selection)
+        selection.reverse()
+        for i, s in enumerate(selection):
+            keyable = cmds.listAttr(s, keyable=True, scalar=True, unlocked=True, shortNames=True)
+            commonAttributes = list(set(keyable) & set(attributes))
+            skippedAttributes = list(set(['tx', 'ty', 'tz', 'rx', 'ry', 'rz']) - set(commonAttributes))
+            Utils.addPlaceholderKeys(s, ['tx', 'ty', 'tz', 'rx', 'ry', 'rz'], timeRange)
+            refController = False
+            if not commonAttributes:
+                refController = True
+            wsControl = Utils.createControl(s, refController=refController)
+            newControls.append(wsControl)
+            hook = Utils.createControlHook(wsControl)
+            parentSpaceGroup = ''
+            if parentSpaceObject:
+                parentSpaceGroup = Utils.createParentSpaceGroup(s, parentSpaceObject)
+                wsControl = cmds.parent(wsControl, parentSpaceGroup)[0]
+            tempBakeConstraint = cmds.parentConstraint(s, wsControl, name='{0}_tmpConstraint'.format(wsControl))[0]
+            ObjectProperties.setStringProperty(wsControl, 'ebLabs_parentGroup', parentSpaceGroup)
+            ObjectProperties.setStringProperty(wsControl, 'ebLabs_mayaControl', s)
+            ObjectProperties.setStringProperty(wsControl, 'ebLabs_commonAttributes', ' '.join(commonAttributes))
+            ObjectProperties.setStringProperty(wsControl, 'ebLabs_hook', hook)
+            ObjectProperties.setStringProperty(wsControl, 'ebLabs', 'WorldSpace2')
+            attrKeyframeGroups = False
+            if bake:
+                attrKeyframeGroups = Utils.getKeyTimeInfoBakedRange(timeRange=timeRange)
+            else:
+                attrKeyframeGroups = Utils.getKeyTimeInfo(s, timeRange=timeRange)
+            capturedKeyframeValues = Utils.captureKeyframeValues(wsControl, attrKeyframeGroups, fastMode=fastMode)
+            kwargs = {}
+            kwargs['node'] = wsControl
+            kwargs['attributes'] = commonAttributes
+            kwargs['timeRange'] = timeRange
+            Utils.clearKeyframes(**kwargs)
+            Utils.setKeys(capturedKeyframeValues)
+            cmds.delete(tempBakeConstraint)
+            cmds.filterCurve(wsControl)
+            if commonAttributes:
+                kwargs = {}
+                kwargs['objectA'] = s
+                kwargs['objectB'] = hook
+                kwargs['attributes'] = commonAttributes
+                controlConstraint = Utils.safeParentConstraint(**kwargs)
+                cmds.parent(controlConstraint, hook)
+            if skippedAttributes and commonAttributes:
+                lockAttributes = []
+                if sorted(set(['tx', 'ty', 'tz']) & set(skippedAttributes)) == sorted(['tx', 'ty', 'tz']):
+                    cmds.pointConstraint(s, wsControl, name=wsControl + '_skipTranslate')
+                    lockAttributes = ['tx', 'ty', 'tz']
+                if sorted(set(['rx', 'ry', 'rz']) & set(skippedAttributes)) == sorted(['rx', 'ry', 'rz']):
+                    cmds.orientConstraint(s, wsControl, name=wsControl + '_skipRotate')
+                    lockAttributes = ['rx', 'ry', 'rz']
+                Utils.lockAttributes(wsControl, lockAttributes)
+            if i > 0:
+                aimNode = Utils.createEmptyGroup(setName='{0}_aimGroup'.format(wsControl), parent=wsControl, snapTo=wsControl)
+                bestGuessTargetAxis = Utils.getNearestAimAxis(aimNode, newControls[-2])
+                bestGuessUpAxis = Utils.getPerpendicularAxis(bestGuessTargetAxis)
+                kwargs = {}
+                kwargs['aimVector'] = bestGuessTargetAxis
+                kwargs['upVector'] = bestGuessUpAxis
+                kwargs['worldUpType'] = 'objectrotation'
+                kwargs['worldUpVector'] = bestGuessUpAxis
+                kwargs['worldUpObject'] = wsControl
+                kwargs['upVector'] = bestGuessUpAxis
+                aimNodeConstraint = cmds.aimConstraint(newControls[-2], aimNode, **kwargs)
+                rotateOrder = cmds.getAttr(wsControl + '.rotateOrder')
+                offsetNode = Utils.createEmptyGroup(setName='{0}_offsetNode'.format(wsControl), parent=aimNode, snapTo=wsControl, rotateOrder=rotateOrder)
+                Utils.addPlaceholderKeys(offsetNode, ['tx', 'ty', 'tz', 'rx', 'ry', 'rz'], timeRange)
+                Utils.copyAnimAToB(wsControl, offsetNode, attrKeyframeGroups, fastMode=fastMode)
+                hook = cmds.parent(hook, offsetNode)[0]
+                ObjectProperties.setStringProperty(wsControl, 'ebLabs_hook', hook)
+                for a in ['rotateX', 'rotateY', 'rotateZ']:
+                    longName = '{0}Offset'.format(a)
+                    cmds.addAttr(wsControl, ln=longName, at='doubleAngle', dv=0)
+                    cmds.setAttr('{0}.{1}'.format(wsControl, longName), e=True, keyable=True, cb=True)
+                    curveNodes = cmds.findKeyframe(offsetNode, curve=True, at=a)
+                    if curveNodes:
+                        curveNode = curveNodes[0]
+                        cmds.connectAttr('{0}.{1}'.format(curveNode, 'output'), '{0}.{1}'.format(wsControl, longName), force=True)
+                        cmds.connectAttr('{0}.{1}'.format(wsControl, longName), '{0}.{1}'.format(offsetNode, a), force=True)
+                curveNodes = cmds.findKeyframe(s, curve=True, at=a)
+        controlList = ' '.join(newControls)
+        for wsControl in newControls:
+            ObjectProperties.setStringProperty(wsControl, 'ebLabs_chainControls', controlList)
+        cmds.select(newControls, replace=True)
+
+    @classmethod
+    def copyAtoB(self):
+        """
+        """
+        pass
+
+    def copyAtoBExec(self):
+        """
+        """
+        pass
+
+class ObjectProperties:
+
+    @classmethod
+    def setStringProperty(cls, node, key, value):
+        return _r.set_property(node, key, value)
+
+    @classmethod
+    def getStringProperty(cls, node, key, defaultValue):
+        return _r.get_property(node, key, defaultValue)
+
+class Utils:
+
+    @classmethod
+    @_r.native_operation('Utils.setKeys')
+    def setKeys(cls, capturedKeyframeValues, fastMode=False):
+        """
+        progress bar
+        """
+        try:
+            message = 'Setting Keyframes ...'
+            ProgressBar.create(message)
+            progressMax = 1
+            progressCur = 0
+            for timeKey, timeData in iteritems(capturedKeyframeValues):
+                for nodeKey, nodeData in iteritems(timeData):
+                    progressMax += 1
+            for timeKey, timeData in iteritems(capturedKeyframeValues):
+                if not fastMode:
+                    cmds.currentTime(timeKey, edit=True)
+                for nodeKey, nodeData in iteritems(timeData):
+                    value = nodeData['value']
+                    inTangentType = nodeData['inTangentType']
+                    outTangentType = nodeData['outTangentType']
+                    attribute = nodeKey
+                    cmds.setKeyframe(attribute, t=timeKey, value=value)
+                    cmds.keyTangent(attribute, edit=True, time=(timeKey, timeKey), outTangentType=outTangentType)
+                    cmds.keyTangent(attribute, edit=True, time=(timeKey, timeKey), inTangentType=inTangentType)
+                    p = float(progressCur) / float(progressMax)
+                    ProgressBar.update(p)
+                    progressCur += 1
+        finally:
+            ProgressBar.finish()
+
+    @classmethod
+    @_r.native_operation('Utils.setKeysAsIs')
+    def setKeysAsIs(cls, capturedKeyframeValues):
+        """
+        progress bar
+        """
+        try:
+            message = 'Setting Keyframes ...'
+            ProgressBar.create(message)
+            progressMax = 1
+            progressCur = 0
+            for timeKey, timeData in iteritems(capturedKeyframeValues):
+                for nodeKey, nodeData in iteritems(timeData):
+                    progressMax += 1
+            for timeKey, timeData in iteritems(capturedKeyframeValues):
+                for nodeKey, nodeData in iteritems(timeData):
+                    value = nodeData['value']
+                    inTangentType = nodeData['inTangentType']
+                    outTangentType = nodeData['outTangentType']
+                    attribute = nodeKey
+                    diff = value - cmds.getAttr(attribute, time=timeKey)
+                    cmds.keyframe(attribute, valueChange=diff, time=(timeKey, timeKey), absolute=True)
+                    cmds.keyTangent(attribute, edit=True, time=(timeKey, timeKey), outTangentType=outTangentType)
+                    cmds.keyTangent(attribute, edit=True, time=(timeKey, timeKey), inTangentType=inTangentType)
+                    p = float(progressCur) / float(progressMax)
+                    ProgressBar.update(p)
+                    progressCur += 1
+        finally:
+            ProgressBar.finish()
+
+    @classmethod
+    def captureKeyframeValues(cls, node, attrKeyframeGroups, *args, **kwargs):
+        fastMode = False
+        if 'fastMode' in kwargs:
+            fastMode = kwargs.pop('fastMode')
+        attributes = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']
+        if 'attributes' in kwargs:
+            attributes = kwargs.pop('attributes')
+        data = {}
+        try:
+            message = 'Capturing Values for {0}...'.format(node)
+            ProgressBar.create(message)
+            userTime = cmds.currentTime(query=True)
+            allKeyTimes = []
+            for k, v in iteritems(attrKeyframeGroups):
+                allKeyTimes += v.keys()
+            allKeyTimes = sorted(list(set(allKeyTimes)))
+            nodeAttrLookup = {}
+            for attrs in attrKeyframeGroups.keys():
+                nodeAttrLookup[attrs] = []
+                for a in attrs:
+                    if a in attributes:
+                        nodeAttrLookup[attrs].append('{0}.{1}'.format(node, a))
+            progressMax = 1
+            progressCur = 0
+            for t in allKeyTimes:
+                for attrs, value in iteritems(attrKeyframeGroups):
+                    if t in attrKeyframeGroups[attrs].keys():
+                        for n in nodeAttrLookup[attrs]:
+                            progressMax += 1
+            for t in allKeyTimes:
+                data[t] = {}
+                if fastMode:
+                    pass
+                else:
+                    cmds.currentTime(t, edit=True)
+                for attrs, value in iteritems(attrKeyframeGroups):
+                    if t in attrKeyframeGroups[attrs].keys():
+                        for n in nodeAttrLookup[attrs]:
+                            data[t][n] = {}
+                            if fastMode:
+                                data[t][n]['value'] = cmds.getAttr(n, time=t)
+                            else:
+                                data[t][n]['value'] = cmds.getAttr(n)
+                            data[t][n]['inTangentType'] = attrKeyframeGroups[attrs][t].get('inTangentType', 'auto')
+                            data[t][n]['outTangentType'] = attrKeyframeGroups[attrs][t].get('outTangentType', 'auto')
+                            p = float(progressCur) / float(progressMax)
+                            ProgressBar.update(p)
+                            progressCur += 1
+            cmds.currentTime(userTime, edit=True)
+        finally:
+            ProgressBar.finish()
+        return data
+
+    @classmethod
+    def captureKeyframeValues_multi(cls, keyTimeGroups, *args, **kwargs):
+        fastMode = False
+        if 'fastMode' in kwargs:
+            fastMode = kwargs.pop('fastMode')
+        attributes = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']
+        if 'attributes' in kwargs:
+            attributes = kwargs.pop('attributes')
+        data = {}
+        try:
+            for t, nodeData in iteritems(keyTimeGroups):
+                if not fastMode:
+                    cmds.currentTime(t, edit=True)
+                data[t] = {}
+                for node, attrData in iteritems(nodeData):
+                    for attr, tangentData in iteritems(attrData):
+                        for a in attributes:
+                            if a in attr:
+                                attribute = '{0}.{1}'.format(node, a)
+                                data[t][attribute] = {}
+                                if fastMode:
+                                    data[t][attribute]['value'] = cmds.getAttr(attribute, time=t)
+                                else:
+                                    data[t][attribute]['value'] = cmds.getAttr(attribute)
+                                data[t][attribute]['inTangentType'] = tangentData.get('inTangentType', 'auto')
+                                data[t][attribute]['outTangentType'] = tangentData.get('outTangentType', 'auto')
+        except:
+            pass
+        return data
+
+    @classmethod
+    @_r.native_operation('Utils.clearKeyframes')
+    def clearKeyframes(cls, *args, **kwargs):
+        """
+        args
+        """
+        node = False
+        if 'node' in kwargs:
+            node = kwargs.pop('node')
+        attributes = False
+        if 'attributes' in kwargs:
+            attributes = kwargs.pop('attributes')
+        timeRange = False
+        if 'timeRange' in kwargs:
+            timeRange = kwargs.pop('timeRange')
+        kwargs = {}
+        kwargs['attribute'] = attributes
+        kwargs['option'] = 'keys'
+        kwargs['clear'] = True
+        if timeRange:
+            kwargs['time'] = (timeRange[0], timeRange[1])
+        cmds.cutKey(node, **kwargs)
+
+    @classmethod
+    def getKeyTimeInfoBakedRange(cls, *args, **kwargs):
+        """
+        args
+        """
+        timeRange = False
+        if 'timeRange' in kwargs:
+            timeRange = kwargs.pop('timeRange')
+        keyTimeGroups = {}
+        attributeGroups = [['tx', 'ty', 'tz'], ['rx', 'ry', 'rz']]
+        rangeValues = range(int(timeRange[0]), int(timeRange[1] + 1))
+        for attrs in attributeGroups:
+            attrs = tuple(attrs)
+            keyTimeGroups[attrs] = {}
+            for a in attrs:
+                for time in rangeValues:
+                    if time not in keyTimeGroups[attrs].keys():
+                        keyTimeGroups[attrs][time] = {}
+                        keyTimeGroups[attrs][time]['inTangentTypes'] = []
+                        keyTimeGroups[attrs][time]['outTangentTypes'] = []
+                    keyTimeGroups[attrs][time]['inTangentTypes'].append('18L')
+                    keyTimeGroups[attrs][time]['outTangentTypes'].append('18L')
+        return keyTimeGroups
+
+    @classmethod
+    def trimDictKeysByMinMax(cls, dictVar, minVar, maxVar):
+        if not dictVar:
+            return False
+        return {k: v for k, v in iteritems(dictVar) if minVar <= k <= maxVar}
+
+    @classmethod
+    def getTangentTypes(cls, curveNode, inOutType='keyTanInType'):
+        """
+        inOutType = 'keyTanInType'
+        inOutType = 'keyTanOutType'
+        """
+        tangentTypes = cmds.getAttr('{0}.{1}[:]'.format(curveNode, inOutType))
+        if not tangentTypes:
+            return []
+        if type(tangentTypes) != list:
+            return [tangentTypes]
+        return tangentTypes
+
+    @classmethod
+    def getKeyTimesBaked(cls, nodes, timeRange):
+        keyTimeGroups = {}
+        attributeGroups = [['tx', 'ty', 'tz'], ['rx', 'ry', 'rz']]
+        rangeValues = range(int(timeRange[0]), int(timeRange[1] + 1))
+        for time in rangeValues:
+            for node in nodes:
+                for attrs in attributeGroups:
+                    attrs = tuple(attrs)
+                    if time not in keyTimeGroups.keys():
+                        keyTimeGroups[time] = {}
+                    if node not in keyTimeGroups[time].keys():
+                        keyTimeGroups[time][node] = {}
+                    if attrs not in keyTimeGroups[time][node].keys():
+                        keyTimeGroups[time][node][attrs] = {}
+                    keyTimeGroups[time][node][attrs]['inTangentType'] = 'auto'
+                    keyTimeGroups[time][node][attrs]['outTangentType'] = 'auto'
+        return keyTimeGroups
+
+    @classmethod
+    def getKeyTimes(cls, nodes, timeRange, bake):
+        """
+        # sample output data
+        {1.0: {'pSphere1': {('rx', 'ry', 'rz'): {'inTangentType': 'auto',
+                                                 'inTangentTypes': [18],
+                                                 'outTangentType': 'auto',
+                                                 'outTangentTypes': [18]},
+                            ('tx', 'ty', 'tz'): {'inTangentType': 'auto',
+                                                 'inTangentTypes': [18],
+                                                 'outTangentType': 'auto',
+                                                 'outTangentTypes': [18]}}},
+         28.0: {'pSphere1': {('rx', 'ry', 'rz'): {'inTangentType': 'auto',
+                                                  'inTangentTypes': [18],
+                                                  'outTangentType': 'auto',
+                                                  'outTangentTypes': [18]}}},
+         60.0: {'pSphere1': {('rx', 'ry', 'rz'): {'inTangentType': 'auto',
+                                                  'inTangentTypes': [18],
+                                                  'outTangentType': 'auto',
+                                                  'outTangentTypes': [18]},
+                             ('tx', 'ty', 'tz'): {'inTangentType': 'auto',
+                                                  'inTangentTypes': [18],
+                                                  'outTangentType': 'auto',
+                                                  'outTangentTypes': [18]}}},
+         92.0: {'pSphere1': {('rx', 'ry', 'rz'): {'inTangentType': 'auto',
+                                                  'inTangentTypes': [18],
+                                                  'outTangentType': 'auto',
+                                                  'outTangentTypes': [18]}}},
+         120.0: {'pSphere1': {('rx', 'ry', 'rz'): {'inTangentType': 'auto',
+                                                   'inTangentTypes': [18],
+                                                   'outTangentType': 'auto',
+                                                   'outTangentTypes': [18]},
+                              ('tx', 'ty', 'tz'): {'inTangentType': 'auto',
+                                                   'inTangentTypes': [18],
+                                                   'outTangentType': 'auto',
+                                                   'outTangentTypes': [18]}}}}
+        """
+        if bake:
+            return cls.getKeyTimesBaked(nodes, timeRange)
+        keyTimeGroups = {}
+        attributeGroups = [['tx', 'ty', 'tz'], ['rx', 'ry', 'rz']]
+        for node in nodes:
+            for attrs in attributeGroups:
+                attrs = tuple(attrs)
+                for a in attrs:
+                    curveNodes = cmds.findKeyframe(node, curve=True, at=a)
+                    if curveNodes:
+                        for curveNode in curveNodes:
+                            timesValues = cmds.getAttr('{0}.{1}'.format(curveNode, 'keyTimeValue[:]'))
+                            inTangentTypes = Utils.getTangentTypes(curveNode, inOutType='keyTanInType')
+                            outTangentTypes = Utils.getTangentTypes(curveNode, inOutType='keyTanOutType')
+                            for i, v in enumerate(timesValues):
+                                time, value = v
+                                if time not in keyTimeGroups.keys():
+                                    keyTimeGroups[time] = {}
+                                if node not in keyTimeGroups[time].keys():
+                                    keyTimeGroups[time][node] = {}
+                                if attrs not in keyTimeGroups[time][node].keys():
+                                    keyTimeGroups[time][node][attrs] = {}
+                                keyTimeGroups[time][node][attrs]['inTangentTypes'] = []
+                                keyTimeGroups[time][node][attrs]['outTangentTypes'] = []
+                                keyTimeGroups[time][node][attrs]['inTangentTypes'].append(inTangentTypes[i])
+                                keyTimeGroups[time][node][attrs]['outTangentTypes'].append(outTangentTypes[i])
+            if timeRange:
+                keyTimeGroups = cls.trimDictKeysByMinMax(keyTimeGroups, timeRange[0], timeRange[1])
+        tangentLookup = {}
+        tangentLookup[18] = 'auto'
+        tangentLookup[9] = 'spline'
+        tangentLookup[2] = 'linear'
+        tangentLookup[3] = 'flat'
+        tangentLookup[5] = 'step'
+        tangentLookup[16] = 'plateau'
+        for time, node_data in iteritems(keyTimeGroups):
+            for node, attrs_data in iteritems(node_data):
+                for attrs, attr_data in iteritems(attrs_data):
+                    inTangentType = cls.getMostCommonItemInList(attr_data['inTangentTypes'])
+                    outTangentType = cls.getMostCommonItemInList(attr_data['outTangentTypes'])
+                    if inTangentType == 1:
+                        inTangentType = 18
+                    if outTangentType == 1:
+                        outTangentType = 18
+                    keyTimeGroups[time][node][attrs]['inTangentType'] = tangentLookup.get(inTangentType, 'auto')
+                    keyTimeGroups[time][node][attrs]['outTangentType'] = tangentLookup.get(outTangentType, 'auto')
+        return keyTimeGroups
+
+    @classmethod
+    def getKeyTimeInfo(cls, s, *args, **kwargs):
+        """
+        args
+        """
+        timeRange = False
+        if 'timeRange' in kwargs:
+            timeRange = kwargs.pop('timeRange')
+        keyTimeGroups = {}
+        attributeGroups = [['tx', 'ty', 'tz'], ['rx', 'ry', 'rz']]
+        for attrs in attributeGroups:
+            attrs = tuple(attrs)
+            keyTimeGroups[attrs] = {}
+            for a in attrs:
+                curveNodes = cmds.findKeyframe(s, curve=True, at=a)
+                if curveNodes:
+                    for curveNode in curveNodes:
+                        timesValues = cmds.getAttr('{0}.{1}'.format(curveNode, 'keyTimeValue[:]'))
+                        inTangentTypes = Utils.getTangentTypes(curveNode, inOutType='keyTanInType')
+                        outTangentTypes = Utils.getTangentTypes(curveNode, inOutType='keyTanOutType')
+                        for i, v in enumerate(timesValues):
+                            time, value = v
+                            if time not in keyTimeGroups[attrs].keys():
+                                keyTimeGroups[attrs][time] = {}
+                                keyTimeGroups[attrs][time]['inTangentTypes'] = []
+                                keyTimeGroups[attrs][time]['outTangentTypes'] = []
+                            keyTimeGroups[attrs][time]['inTangentTypes'].append(inTangentTypes[i])
+                            keyTimeGroups[attrs][time]['outTangentTypes'].append(outTangentTypes[i])
+            if timeRange:
+                keyTimeGroups[attrs] = cls.trimDictKeysByMinMax(keyTimeGroups[attrs], timeRange[0], timeRange[1])
+        tangentLookup = {}
+        tangentLookup[18] = 'auto'
+        tangentLookup[9] = 'spline'
+        tangentLookup[2] = 'linear'
+        tangentLookup[3] = 'flat'
+        tangentLookup[5] = 'step'
+        tangentLookup[16] = 'plateau'
+        for attrs, timeData in iteritems(keyTimeGroups):
+            for time, tangentData in iteritems(keyTimeGroups[attrs]):
+                inTangentType = cls.getMostCommonItemInList(keyTimeGroups[attrs][time]['inTangentTypes'])
+                outTangentType = cls.getMostCommonItemInList(keyTimeGroups[attrs][time]['outTangentTypes'])
+                if inTangentType == 1:
+                    inTangentType = 18
+                if outTangentType == 1:
+                    outTangentType = 18
+                keyTimeGroups[attrs][time]['inTangentType'] = tangentLookup.get(inTangentType, 'auto')
+                keyTimeGroups[attrs][time]['outTangentType'] = tangentLookup.get(outTangentType, 'auto')
+        return keyTimeGroups
+
+    @classmethod
+    def getMostCommonItemInList(cls, listVar):
+        data = Counter(listVar)
+        return max(listVar, key=data.get)
+
+    @classmethod
+    def storeAnimBlendingOpt(cls, *args, **kwargs):
+        cls.animBlendingOpt = cmds.optionVar(q='animBlendingOpt')
+
+    @classmethod
+    def setAnimBlendingOpt(cls, value, *args, **kwargs):
+        cmds.optionVar(intValue=['animBlendingOpt', value])
+
+    @classmethod
+    def restoreAnimBlendingOpt(cls, *args, **kwargs):
+        try:
+            cmds.optionVar(intValue=['animBlendingOpt', cls.animBlendingOpt])
+        except:
+            cls.animBlendingOpt = 1
+            cmds.optionVar(intValue=['animBlendingOpt', cls.animBlendingOpt])
+
+    @classmethod
+    @_r.native_operation('Utils.addPlaceholderKeys')
+    def addPlaceholderKeys(cls, node, attributes, timeRange, *args, **kwargs):
+        """
+        This is to make sure that constraints are added and are set to pairblend = 1
+        """
+        firstFrame = cmds.currentTime(query=True)
+        if timeRange:
+            firstFrame = timeRange[0]
+        keyableAttributes = cmds.listAttr(node, keyable=True, scalar=True, unlocked=True, shortNames=True)
+        commonAttributes = list(set(keyableAttributes) & set(attributes))
+        for a in commonAttributes:
+            attribute = '{0}.{1}'.format(node, a)
+            keyCount = cmds.keyframe(attribute, query=True, keyframeCount=True)
+            if keyCount == 0:
+                checkAttr = node
+                if cmds.keyframe(checkAttr, query=True, keyframeCount=True):
+                    firstFrame = cmds.findKeyframe(checkAttr, which='first')
+                if a in ('tx', 'ty', 'tz'):
+                    checkAttr = '{0}.{1}'.format(node, 't')
+                    if cmds.keyframe(checkAttr, query=True, keyframeCount=True):
+                        firstFrame = cmds.findKeyframe(checkAttr, which='first')
+                elif a in ('rx', 'ry', 'rz'):
+                    checkAttr = '{0}.{1}'.format(node, 'r')
+                    if cmds.keyframe(checkAttr, query=True, keyframeCount=True):
+                        firstFrame = cmds.findKeyframe(checkAttr, which='first')
+                cmds.setKeyframe(attribute, t=firstFrame)
+
+    @classmethod
+    def createControl(cls, s, *args, **kwargs):
+        refController = False
+        if 'refController' in kwargs:
+            refController = kwargs.pop('refController')
+        nameOverride = False
+        if refController == True:
+            nameOverride = s + '_ref'
+        control = cls.createCircleControl(s, nameOverride=nameOverride)
+        return control
+
+    @classmethod
+    @_r.native_operation('Utils.createCircleControl')
+    def createCircleControl(cls, s, *args, **kwargs):
+        if not (s and cmds.objExists(s)):
+            return False
+        sizeOverride = False
+        if 'sizeOverride' in kwargs:
+            sizeOverride = kwargs.pop('sizeOverride')
+        nameOverride = False
+        if 'nameOverride' in kwargs:
+            nameOverride = kwargs.pop('nameOverride')
+        name = False
+        if nameOverride:
+            name = nameOverride
+        else:
+            name = cls.generateWorldSpaceControlName(s)
+        size = 1
+        if sizeOverride:
+            size = sizeOverride
+        else:
+            size = cls.getBoundingBoxRadius(s) * 1.15
+        rotateOrder = 0
+        rotateOrder = cmds.getAttr(s + '.rotateOrder')
+        control = cmds.circle(center=(0, 0, 0), normal=(0, 1, 0), radius=size, degree=3, sections=8, constructionHistory=True, name=name)[0]
+        lockAttrs = ['sx', 'sy', 'sz']
+        for a in lockAttrs:
+            cmds.setAttr(control + '.' + a, edit=True, lock=True, keyable=False)
+        nonkeyable = ['v']
+        for a in nonkeyable:
+            cmds.setAttr(control + '.' + a, edit=True, channelBox=True, lock=False, keyable=False)
+        cmds.setAttr(control + '.rotateOrder', rotateOrder)
+        cmds.setAttr(control + '.rotateOrder', edit=True, lock=False)
+        cmds.setAttr(control + '.rotateOrder', edit=True, keyable=True)
+        shapeNode = cmds.listRelatives(control, shapes=True)[0]
+        nurbsCircleNode = cmds.listConnections(shapeNode)[0]
+        cmds.addAttr(control, ln='size', at='double', min=0, dv=size)
+        cmds.setAttr(control + '.size', e=True, c=True, keyable=False, cb=True)
+        cmds.connectAttr(control + '.size', nurbsCircleNode + '.radius', force=True)
+        setColor = cls.getOverrideColor(s)
+        cls.addColorAttribute(control, setColor=setColor)
+        return control
+
+    @classmethod
+    def generateWorldSpaceControlName(cls, s, *args, **kwargs):
+        return _r.helper_name(s, 'WorldSpaceControl')
+
+    @classmethod
+    @_r.native_operation('Utils.addColorAttribute')
+    def addColorAttribute(cls, s, setColor=0):
+        colorList = ['None=0', 'Black=1', 'Silver=2', 'Grey=3', 'VenetianRed=4', 'Navy=5', 'Blue=6', 'BritishRacingGreen=7', 'Indigo=8', 'DeepMagenta=9', 'PiperOrange=10', 'TemptressBrown=11', 'TawnyOrange=12', 'Red=13', 'Green=14', 'Cobalt=15', 'White=16', 'Yellow=17', 'Aqua=18', 'BrightTurquoise=19', 'MelonRed=20', 'ManhattanOrange=21', 'LaserLemon=22', 'Jade=23', 'IndochineOrange=24', 'LemonGinger=25', 'SushiGreen=26', 'Eucalyptus=27', 'ScooterBlue=28', 'LochmaraBlue=29', 'PurpleHeart=30', 'LipstickRed=31']
+        if setColor:
+            setColor = int(cls.clamp(0, setColor, 31))
+        else:
+            setColor = 0
+        cmds.addAttr(s, ln='color', at='enum', enumName=':'.join(colorList))
+        cmds.setAttr(s + '.color', setColor, e=True, keyable=False, cb=True)
+        cmds.setAttr(s + '.overrideEnabled', 1, e=True, keyable=False, cb=False)
+        cmds.connectAttr(s + '.color', s + '.drawOverride.overrideColor', force=True)
+
+    @classmethod
+    def getOverrideColor(cls, s, *args, **kwargs):
+        overrideColor = cmds.getAttr('{0}.{1}'.format(s, 'overrideColor'))
+        if overrideColor == 0:
+            try:
+                shape = cmds.listRelatives(s, shapes=True)[0]
+                if cmds.getAttr('{0}.{1}'.format(shape, 'overrideEnabled')):
+                    overrideColor = cmds.getAttr('{0}.{1}'.format(shape, 'overrideColor'))
+            except:
+                pass
+        return overrideColor
+
+    @classmethod
+    def getBoundingBoxRadius(cls, node, *args, **kwargs):
+        radius = 0
+        if cmds.objExists(node):
+            objectType = cmds.objectType(node)
+            if objectType == 'joint':
+                radius = cmds.getAttr(node + '.radius')
+            else:
+                boundingBox = cmds.exactWorldBoundingBox(node)
+                dimensions = [abs(boundingBox[0] - boundingBox[3]), abs(boundingBox[1] - boundingBox[4]), abs(boundingBox[2] - boundingBox[5])]
+                radius = max(dimensions) / 2
+        if radius > 0.0001:
+            return radius
+        else:
+            return 1
+
+    @classmethod
+    def clamp(cls, minvalue, value, maxvalue):
+        return max(minvalue, min(value, maxvalue))
+
+    @classmethod
+    @_r.native_operation('Utils.createControlHook')
+    def createControlHook(cls, control, *args, **kwargs):
+        controlHook = control + '_hook'
+        controlHook = cmds.group(em=True, name=controlHook)
+        controlHook = cmds.parent(controlHook, control)[0]
+        attributes = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz', 'sx', 'sy', 'sz', 'v']
+        for a in attributes:
+            cmds.setAttr(controlHook + '.' + a, e=True, keyable=False, cb=True, lock=True)
+        return controlHook
+
+    @classmethod
+    @_r.native_operation('Utils.safeParentConstraint')
+    def safeParentConstraint(cls, *args, **kwargs):
+        objectA = ''
+        if 'objectA' in kwargs:
+            objectA = kwargs.pop('objectA')
+        objectB = ''
+        if 'objectB' in kwargs:
+            objectB = kwargs.pop('objectB')
+        attributes = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']
+        if 'attributes' in kwargs:
+            attributes = kwargs.pop('attributes')
+        maintainOffset = False
+        if 'maintainOffset' in kwargs:
+            maintainOffset = kwargs.pop('maintainOffset')
+        if type(objectB) != list:
+            objectB = [objectB]
+        everythingOk = True
+        if not cmds.objExists(objectA):
+            everythingOk = False
+        for n in objectB:
+            if not cmds.objExists(n):
+                everythingOk = False
+        if not everythingOk:
+            return False
+        transformAttributes = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']
+        keyableAttributes = cmds.listAttr(objectA, keyable=True, scalar=True, unlocked=True, shortNames=True)
+        commonAttributes = list(set(keyableAttributes) & set(attributes))
+        skipTX = 'none'
+        skipTY = 'none'
+        skipTZ = 'none'
+        skipRX = 'none'
+        skipRY = 'none'
+        skipRZ = 'none'
+        if transformAttributes[0] not in commonAttributes:
+            skipTX = 'x'
+        if transformAttributes[1] not in commonAttributes:
+            skipTY = 'y'
+        if transformAttributes[2] not in commonAttributes:
+            skipTZ = 'z'
+        if transformAttributes[3] not in commonAttributes:
+            skipRX = 'x'
+        if transformAttributes[4] not in commonAttributes:
+            skipRY = 'y'
+        if transformAttributes[5] not in commonAttributes:
+            skipRZ = 'z'
+        constraintName = objectA + '_safeConstraint'
+        parentConstraint = cmds.parentConstraint(objectB, objectA, skipTranslate=[skipTX, skipTY, skipTZ], skipRotate=[skipRX, skipRY, skipRZ], name=constraintName, maintainOffset=maintainOffset)[0]
+        return parentConstraint
+
+    @classmethod
+    @_r.native_operation('Utils.createParentSpaceGroup')
+    def createParentSpaceGroup(cls, s, parentSpaceObject, *args, **kwargs):
+        parentSpaceGroup = s + '_ParentSpaceGroup'
+        parentSpaceGroup = cmds.group(em=True, name=parentSpaceGroup)
+        parentSpaceConstraint = s + '_constraint'
+        if Utils.isWorldSpaceControl(parentSpaceObject):
+            info = Utils.getWorldSpaceControlMetaData([parentSpaceObject])
+            parentSpaceObject = info[parentSpaceObject]['hook']
+        parentSpaceConstraint = cmds.parentConstraint(parentSpaceObject, parentSpaceGroup, name=parentSpaceConstraint)[0]
+        for a in ['tx', 'ty', 'tz', 'rx', 'ry', 'rz', 'sx', 'sy', 'sz', 'v']:
+            cmds.setAttr(parentSpaceGroup + '.' + a, e=True, keyable=False, cb=True, lock=True)
+        return parentSpaceGroup
+
+    @classmethod
+    @_r.native_operation('Utils.createEmptyGroup')
+    def createEmptyGroup(cls, setName='newGroup', parent=False, snapTo=False, rotateOrder=0):
+        """
+        create node
+        """
+        node = cmds.group(em=True, name=setName)
+        cmds.setAttr('{0}.rotateOrder'.format(node), rotateOrder)
+        if parent:
+            node = cmds.parent(node, parent)[0]
+        if snapTo:
+            cmds.delete(cmds.parentConstraint(snapTo, node))
+        return node
+
+    @classmethod
+    @_r.native_operation('Utils.copyAnimAToB')
+    def copyAnimAToB(cls, AObject, BObject, attrKeyframeGroups, fastMode=True):
+        """
+        setup temp constraint
+        """
+        tempBakeConstraint = cmds.parentConstraint(AObject, BObject, name='{0}_tmpConstraint'.format(AObject))[0]
+        capturedKeyframeValues = Utils.captureKeyframeValues(BObject, attrKeyframeGroups, fastMode=fastMode)
+        Utils.setKeys(capturedKeyframeValues)
+        cmds.delete(tempBakeConstraint)
+        cmds.filterCurve(BObject)
+
+    @classmethod
+    def isWorldSpaceControl(cls, s, fullCheck=True):
+        """
+        start positive, and trigger off per check
+        """
+        ok = True
+        if not ok:
+            try:
+                attr = 'ebLabs'
+                value = 'WorldSpace2'
+                if not cmds.getAttr('{0}.{1}'.format(s, attr)) == value:
+                    ok = False
+            except:
+                ok = False
+        if fullCheck:
+            if ok:
+                try:
+                    attr = 'ebLabs_hook'
+                    value = cmds.getAttr('{0}.{1}'.format(s, attr))
+                    value = value.strip()
+                    if not value:
+                        ok = False
+                except:
+                    ok = False
+        return ok
+
+    @classmethod
+    @_r.native_operation('Utils.lockAttributes')
+    def lockAttributes(cls, node, attributes):
+        for a in attributes:
+            attribute = '{0}.{1}'.format(node, a)
+            cmds.setAttr(attribute, e=True, keyable=False, cb=True, lock=True)
+
+    @classmethod
+    def errorCheckToLocal(cls, nodes):
+        errorInfo = []
+        for s in nodes:
+            errors = []
+            if not errors:
+                if not cmds.objExists(s):
+                    errors += ['"{0}" doesnt Exist.'.format(s)]
+            if not errors:
+                if not Functions.isWorldSpaceControl(s):
+                    errors += ['"{0}" isn\'t a World Space Control.'.format(s)]
+            if not errors:
+                value = ObjectProperties.getStringProperty(s, 'ebLabs_mayaControl', False)
+                if not cmds.objExists(value):
+                    errors += ['"{0}" local object, "{1}" doesnt exist.'.format(s, value)]
+            if not errors:
+                value = ObjectProperties.getStringProperty(s, 'ebLabs_commonAttributes', False)
+                if not value:
+                    errors += ['"{0}" has no connected attributes.'.format(s)]
+            if errors:
+                errorInfo.append(' '.join(errors))
+        return errorInfo
+
+    @classmethod
+    def errorCheck(cls, nodes):
+        errorInfo = []
+        for s in nodes:
+            errors = []
+            if not errors:
+                if not cmds.objExists(s):
+                    errors += ['"{0}" doesnt Exist.'.format(s)]
+            if not errors:
+                if cls.isWorldSpaceControl(s):
+                    errors += ['"{0}" is already a World Space Control.'.format(s)]
+            if not errors:
+                worldspaceObject = cls.generateWorldSpaceControlName(s)
+                if cmds.objExists(worldspaceObject):
+                    errors += ['"{0}" a World Space Control already exists for this object.'.format(s)]
+            if not errors:
+                keyable = cmds.listAttr(s, keyable=True, scalar=True, unlocked=True, shortNames=True)
+                if not keyable:
+                    errors += ['"{0}" doesnt have any keyable channels.'.format(s)]
+                else:
+                    commonAttributes = list(set(keyable) & set(['tx', 'ty', 'tz', 'rx', 'ry', 'rz']))
+                    if not commonAttributes:
+                        errors += ['"{0}" doesnt have any unlocked translate or rotate channels.'.format(s)]
+            if errors:
+                errorInfo.append(' '.join(errors))
+        return errorInfo
+
+    @classmethod
+    def addIsolatedObjectsForModelPanel(cls, modelPanel, nodes, *args, **kwargs):
+        return False
+
+    @classmethod
+    def isViewIsolated(cls, modelPanel):
+        return False
+
+    @classmethod
+    def getIsolatedObjectsForModelPanel(cls, modelPanel, *args, **kwargs):
+        members = []
+        try:
+            state = cmds.isolateSelect(modelPanel, query=True, state=True)
+            viewObjects = cmds.isolateSelect(modelPanel, query=True, viewObjects=True)
+            if state and viewObjects:
+                members = cmds.sets(viewObjects, query=True)
+        except:
+            pass
+        return members
+
+    @classmethod
+    def filterWorldSpaceControls(cls, selected, fullCheck=True):
+        worldSpaceControls = []
+        if selected:
+            selected = list(set(selected))
+        for s in selected:
+            if cls.isWorldSpaceControl(s, fullCheck=fullCheck):
+                worldSpaceControls.append(s)
+        return worldSpaceControls
+
+    @classmethod
+    def decompMatrix(cls, matrix, rotateOrder=0):
+        """
+        Decomposes a MMatrix in new api. Returns an list of translation,rotation,scale
+        """
+        mTransformMtx = OpenMaya.MTransformationMatrix(matrix)
+        trans = mTransformMtx.translation(OpenMaya.MSpace.kWorld)
+        trans.x = cls.convertUnit(trans.x, fromUnit='cm')
+        trans.y = cls.convertUnit(trans.y, fromUnit='cm')
+        trans.z = cls.convertUnit(trans.z, fromUnit='cm')
+        eulerRot = mTransformMtx.rotation()
+        eulerRot.reorderIt(rotateOrder)
+        angles = [math.degrees(angle) for angle in (eulerRot.x, eulerRot.y, eulerRot.z)]
+        scale = mTransformMtx.scale(OpenMaya.MSpace.kWorld)
+        return [trans.x, trans.y, trans.z] + angles + scale
+
+    @classmethod
+    def convertUnit(cls, inputValue, fromUnit='cm'):
+        v = cmds.convertUnit(inputValue, fromUnit='cm')
+        v = str(v)
+        v = re.sub('[^0-9.-]', '', v)
+        try:
+            return float(v)
+        except Exception as e:
+            print(3406, Exception, e)
+            return 0
+
+    @classmethod
+    def getLargestNumber(cls, nList):
+        """
+        returns either the highest or lowest number in a list
+        """
+        n = max(nList, key=lambda x: abs(x))
+        return n
+
+    @classmethod
+    def getNearestAimAxis(cls, mainNode, targetNode):
+        """
+        get local space matrix
+        """
+        currentTime = cmds.currentTime(query=True)
+        parentMatrix = OpenMaya.MMatrix(cmds.getAttr(mainNode + '.parentInverseMatrix', time=currentTime))
+        targetMatrix = OpenMaya.MMatrix(cmds.getAttr(targetNode + '.worldMatrix', time=currentTime))
+        localMatrix = targetMatrix * parentMatrix
+        values = cls.decompMatrix(localMatrix)
+        values = values[:3]
+        nVector = [0, 0, 0]
+        largestValue = cls.getLargestNumber(values)
+        directionValue = 1
+        if largestValue < 0:
+            directionValue = -1
+        nVector[values.index(largestValue)] = directionValue
+        return nVector
+
+    @classmethod
+    def getPerpendicularAxis(cls, axisVar):
+        """
+        normalized vector
+        """
+        nVector = [0, 0, 0]
+        for i, v in enumerate(nVector):
+            if axisVar[i] == 0:
+                nVector[i] = 1
+                break
+        return nVector
+
+    @classmethod
+    @_r.native_operation('Utils.createCurvePathFromObject')
+    def createCurvePathFromObject(cls, s):
+        frameRange = False
+        if cmds.keyframe(s, query=True, keyframeCount=True):
+            firstFrame = cmds.findKeyframe(s, which='first')
+            lastFrame = cmds.findKeyframe(s, which='last')
+            frameRange = [int(firstFrame), int(lastFrame)]
+        if not frameRange:
+            frameRange = Functions.queryTimeRange()
+        transformData = {}
+        curvePoints = []
+        for t in range(*frameRange):
+            worldMatrix = OpenMaya.MMatrix(cmds.getAttr('{0}.worldMatrix'.format(s), time=t))
+            localValues = Functions.decompMatrix(s, worldMatrix)
+            transformData[t] = {}
+            transformData[t]['transforms'] = localValues
+            curvePoints.append((localValues[0], localValues[1], localValues[2]))
+        curve = '{0}_curve_s{1}_e{2}'.format(s, str(frameRange[0]), str(frameRange[1]))
+        curve = cmds.curve(d=1, p=curvePoints, n=curve)
+        curveShape = cmds.listRelatives(curve, shapes=True)[0]
+        cmds.setAttr('{0}.dispCV'.format(curveShape), True)
+        return curve
+
+    @classmethod
+    @_r.native_operation('Utils.createAnimatedLocatorOnPath')
+    def createAnimatedLocatorOnPath(cls, curveNode, s):
+        """
+        get curve shape from transform
+        """
+        curveShape = cmds.listRelatives(curveNode, shapes=True, type='nurbsCurve')
+        if curveShape:
+            curveShape = curveShape[0]
+        else:
+            return False
+        frameRange = False
+        if cmds.keyframe(s, query=True, keyframeCount=True):
+            firstFrame = cmds.findKeyframe(s, which='first')
+            lastFrame = cmds.findKeyframe(s, which='last')
+            frameRange = [int(firstFrame), int(lastFrame) + 1]
+        if not frameRange:
+            frameRange = Functions.queryTimeRange()
+        curveInfoNode = '{0}_curveInfo'.format(curveNode)
+        curveInfoNode = cmds.createNode('curveInfo', name=curveInfoNode)
+        cmds.connectAttr('{0}.worldSpace'.format(curveShape), '{0}.inputCurve'.format(curveInfoNode))
+        curveLength = cmds.getAttr('{0}.arcLength'.format(curveInfoNode))
+        nearestPointOnCurveNode = '{0}_nearestPointNode'.format(curveNode)
+        nearestPointOnCurveNode = cmds.createNode('nearestPointOnCurve', name=nearestPointOnCurveNode)
+        cmds.connectAttr('{0}.worldSpace'.format(curveShape), '{0}.inputCurve'.format(nearestPointOnCurveNode))
+        transformData = {}
+        for t in range(*frameRange):
+            transformData[t] = {}
+            worldMatrix = OpenMaya.MMatrix(cmds.getAttr('{0}.worldMatrix'.format(s), time=t))
+            pos = Functions.decompMatrix(s, worldMatrix)[0:3]
+            cmds.setAttr('{0}.inPosition'.format(nearestPointOnCurveNode), *pos, type='double3')
+            wsPos = cmds.getAttr('{0}.position'.format(nearestPointOnCurveNode))
+            uParam = cmds.getAttr('{0}.parameter'.format(nearestPointOnCurveNode))
+            uParamModified = Functions.convertUnit(uParam, fromUnit='cm')
+            transformData[t]['uParamater'] = uParamModified
+        cmds.delete([nearestPointOnCurveNode, curveInfoNode])
+        animLocator = '{0}_animLocator'.format(curveNode)
+        animLocator = cmds.spaceLocator(name=curveInfoNode)[0]
+        radius = Functions.getBoundingBoxRadius(s) * 2
+        for a in ['X', 'Y', 'Z']:
+            cmds.setAttr('{0}.localScale{1}'.format(animLocator, a), radius)
+        pathConstraint = cmds.pathAnimation(curveNode, animLocator, fractionMode=False, follow=True, followAxis='z', upAxis='y', worldUpType='vector', worldUpVector=[0, 1, 0], bank=True)
+        for t in transformData.keys():
+            cmds.setKeyframe(pathConstraint, attribute='uValue', t=[t, t], value=transformData[t]['uParamater'])
+        markers = cmds.listConnections('{0}.positionMarkerTime'.format(pathConstraint))
+        for m in markers:
+            if 'marker' in m.lower():
+                m = m.split('->')
+                if m:
+                    cmds.setAttr('{0}.visibility'.format(m[-1]), False)
+        return (pathConstraint, animLocator)
+
+    @classmethod
+    def getWorldSpaceControlMetaData(cls, worldSpaceControls, *args, **kwargs):
+        info = {}
+        for worldSpaceControl in worldSpaceControls:
+            info[worldSpaceControl] = {}
+            items = []
+            items.append(['mayaControl', 'ebLabs_mayaControl'])
+            items.append(['parentGroup', 'ebLabs_parentGroup'])
+            items.append(['hook', 'ebLabs_hook'])
+            items.append(['commonAttributes', 'ebLabs_commonAttributes'])
+            for key, attr in items:
+                value = ''
+                try:
+                    value = _r.get_property(worldSpaceControl, attr, '')
+                except Exception as e:
+                    pass
+                info[worldSpaceControl][key] = value
+        return info
+
+class SuspendUI:
+    autoKeyFrameState = False
+    batchMode = None
+
+    @classmethod
+    def checkBatchMode(cls):
+        if cls.batchMode == None:
+            cls.batchMode = cmds.about(batch=True)
+        return cls.batchMode
+
+    @classmethod
+    def setBatchMode(cls, stateVar):
+        cls.batchMode = stateVar
+
+    @classmethod
+    def setState(cls, stateVar):
+        return None
+
+class ProgressBar:
+    gMainProgressBar = False
+    batchMode = None
+
+    @classmethod
+    def checkBatchMode(cls):
+        if cls.batchMode == None:
+            cls.batchMode = cmds.about(batch=True)
+        return cls.batchMode
+
+    @classmethod
+    def setBatchMode(cls, stateVar):
+        cls.batchMode = stateVar
+
+    @classmethod
+    def getMainProgressBar(cls):
+        if not cls.gMainProgressBar:
+            cls.gMainProgressBar = mel.eval('$tmp = $gMainProgressBar')
+        return cls.gMainProgressBar
+
+    @classmethod
+    def create(cls, message):
+        """
+        kill for batchmode
+        """
+        if cls.checkBatchMode():
+            return
+        gMainProgressBar = cls.getMainProgressBar()
+        maxValue = 1000
+        cmds.progressBar(gMainProgressBar, edit=True, beginProgress=True, isInterruptable=False, status=message, maxValue=maxValue)
+
+    @classmethod
+    def update(cls, percent):
+        """
+        kill for batchmode
+        """
+        if cls.checkBatchMode():
+            return
+        gMainProgressBar = cls.getMainProgressBar()
+        progressValue = percent * 1000
+        cmds.progressBar(gMainProgressBar, edit=True, progress=progressValue)
+
+    @classmethod
+    def finish(cls):
+        """
+        kill for batchmode
+        """
+        if cls.checkBatchMode():
+            return
+        gMainProgressBar = cls.getMainProgressBar()
+        cmds.progressBar(gMainProgressBar, edit=True, endProgress=True)
+
+class PrefsManager:
+    instance = False
+
+    @classmethod
+    def getInstance(cls):
+        if not cls.instance:
+            kwargs = {}
+            kwargs['prefsGroup'] = 'eblabs_worldSpaceTools'
+            cls.instance = PrefsBase(**kwargs)
+        return cls.instance
+
+    @classmethod
+    def setProperty(cls, key, value):
+        """
+        commit data
+        """
+        cls.getInstance().setFilePref(key, value)
+
+    @classmethod
+    def getProperty(cls, key, defaultValue):
+        """
+        load existing prefs
+        """
+        return cls.getInstance().getFilePref(key, default=defaultValue)
+
+class PrefsDataStruct:
+
+    @classmethod
+    def new(cls):
+        newDict = {}
+        newDict['activeProfile'] = 'default'
+        newDict['data'] = {}
+        return newDict
+
+class PrefsBase:
+    """
+    kwargs = {}
+    kwargs['prefsGroup'] = 'IDForGroupingPrefs'
+    Prefs(**kwargs)
+    """
+
+    def __init__(self, *args, **kwargs):
+        """
+        grouping keyword
+        """
+        self.prefsGroup = 'default'
+        if 'prefsGroup' in kwargs:
+            self.prefsGroup = kwargs.pop('prefsGroup')
+        self.prefsDataID = False
+        self.configDataID = False
+        self.data = False
+        self.rawData = False
+        self.activeProfile = 'default'
+        self.prefsPath = 'session://worldspace/preferences'
+        self.tempData = {}
+
+    def getActiveProfile(self):
+        return self.rawData['activeProfile']
+
+    def setActiveProfile(self, profileVar):
+        """
+        set profile
+        """
+        self.rawData['activeProfile'] = profileVar
+
+    def listProfiles(self):
+        return self.rawData['data'].keys()
+
+    def setTempKey(self, key, value, group='default'):
+        try:
+            self.tempData[group]
+        except:
+            self.tempData[group] = {}
+        self.tempData[group][key] = value
+
+    def getTempKey(self, key, group='default', default=False):
+        try:
+            self.tempData[group]
+        except:
+            self.tempData[group] = {}
+        if key not in self.tempData[group].keys():
+            return default
+        return self.tempData[group][key]
+
+    def setScenePref(self, key, value):
+        prefsKey = '{0}.{1}'.format(self.prefsGroup, key)
+        cmds.fileInfo(prefsKey, value)
+
+    def getScenePref(self, key, default='NOTSET'):
+        return _r.scene_preference(self.prefsGroup, key, default)
+
+    def getFilePref(self, key, default='NOTSET'):
+        self.refreshData()
+        if key not in self.data.keys():
+            return default
+        return copy.deepcopy(self.data[key])
+
+    def setFilePref(self, key, value):
+        self.refreshData()
+        self.data[key] = value
+        self.writePrefsToFile()
+
+    def clearPrefs(self):
+        self.rawData = PrefsDataStruct.new()
+        self.writePrefsToFile()
+
+    def getEditID(self, filepath):
+        try:
+            return os.path.getmtime(filepath)
+        except:
+            return False
+
+    def hasEditIDChanged(self, filepath, previousEditID):
+        editID = False
+        try:
+            editID = os.path.getmtime(filepath)
+        except:
+            return False
+        if editID:
+            if previousEditID != editID:
+                return True
+            else:
+                return False
+
+    def refreshData(self):
+        self.loadPrefsFromFile()
+        self.rawData.setdefault('data', {}).setdefault(self.activeProfile, {})
+        self.data = self.rawData['data'][self.activeProfile]
+
+    def writePrefsToFile(self):
+        self.rawData['data'][self.activeProfile] = self.data
+        _r.preference_save(self.prefsGroup, self.rawData)
+
+    def loadPrefsFromFile(self):
+        self.rawData = _r.preference_load(self.prefsGroup)

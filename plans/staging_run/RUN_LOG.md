@@ -579,3 +579,11 @@
 - 全部532文件、363 Python模块、4614函数/类、80UI和全部模板/图片字节SHA归档；保留完整上游业务，转换两个Py2 cvWrap模块、Qt6/2兼容、SDK reload、QInputDialog取消处理、明确29菜单SVG占位补图。源缺三原生插件二进制与本机PyMel，如实记录，不虚构变形器。
 - 统一Base/Schema/read-only预检，完整cvWrap创建/rebind/paint/绑定IO、weightDriver全MEL编辑器/AE、mGear RBF与全部family菜单；显式受保护命名空间/插件加载/AE模板，去startup自动defer，已有mGear菜单不替换。绑定独占输出，RBF preset不覆盖，gSkin禁止任意pickle对象执行；上游其它GUI按钮影响逐项说明，真实场景/文件使用备份验收。
 - 4离线+2Maya2025隔离+临时完整晋级布局/注册/modeling_surfacing/panel/fingerprint全通过；MEL四脚本真实source、只读依赖预检场景/选区/时间/Undo/插件/path不变。原生算法/完整PyMel和GUI not_run，prepared_unverified。额度首次读取失败，重读实际5h39%已用、周37%，立即继续WorldSpaceTools；heartbeat暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：WorldSpaceTools完整源码套件，累计67/109
+
+- 全174文件/114模块/336定义原字节SHA归档；完整legacy source原类/方法/四页UI与world/parent/local/IK/path/COG/gimbal/copy保留，全provided Hub/source/字体/图像/preset保留。Beta多个Python分支共缺370专用模块、本机Python3.11不支持，原许可模块不更改，不伪造Core或算法，开放准确beta_root合法环境入口并记录not_run。
+- Base/Schema/read-only scope/Undo及44原写方法和业务入口经标准回调；真实UUID新建节点owner，helper/source metadata存UUID，重命名继续，foreign child/外部连接拒绝清理，不靠suffix全局删除。原多目标复制只采样最后目标修正，字符串special tick遍历修正，fullpath basename/skipRotate变量修正；原空copy占位不当真实实现。
+- 用户AppDir自动prefs改session+显式JSON独占输出，eval改literal_eval；去全局pane/isolate/长期chunks，finally恢复time/selection/AutoKey/namespace/animBlendingOpt。原clipboard/buffer/tangent影响明确，不假称全局可Undo。
+- 2离线+4隔离Maya2025+临时正式布局/注册/animation/panel/fingerprint通过。实际world/parent/local动画值/keytime/dry与Undo、原对象重命名UUID回烘；多目标copy/paths/逐帧1..5，共享curve/foreign child/实例/锁/错scope/Beta和GUIbatch拒绝。修正Maya属性通配漏owned DAG导致清理拒绝，按实际UUID节点查owner后通过，不伪造fixture。
+- GUI/生产IK/pathLocator/COG/gimbal/Beta与跨版本not_run，prepared_unverified。实际5h47%已用、周38%，立即继续FCM Hider；heartbeat暂停，不迁正式/同步/用卡/购买。

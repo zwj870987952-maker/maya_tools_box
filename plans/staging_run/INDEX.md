@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-02T03:36:56.540604+08:00
+更新时间：2026-10-02T03:55:42.075399+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -71,7 +71,7 @@
 | `02_rigging_hierarchy/skin_weight_transfer` | prepared_unverified | True | True | not_run |
 | `03_transforms_modeling/camera_f_fix` | prepared_unverified | True | True | not_run |
 | `03_transforms_modeling/cvwrap_weightdriver` | prepared_unverified | True | True | not_run |
-| `03_transforms_modeling/eblabs_world_space_tools` | pending | True | False | not_run |
+| `03_transforms_modeling/eblabs_world_space_tools` | prepared_unverified | True | True | not_run |
 | `03_transforms_modeling/fcm_hider` | pending | True | False | not_run |
 | `03_transforms_modeling/gpu_cache_to_mesh` | pending | True | False | not_run |
 | `03_transforms_modeling/isolate_selected` | pending | True | False | not_run |

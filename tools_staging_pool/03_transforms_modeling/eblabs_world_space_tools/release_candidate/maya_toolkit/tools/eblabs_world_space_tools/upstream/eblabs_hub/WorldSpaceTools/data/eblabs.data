@@ -1,0 +1,193 @@
+{
+    "dependencies": [
+        "UXFramework"
+    ],
+    "description": "Advanced animation tools for manipulating animation focusing on switching between local, world, path and other parent spaces. Animator friendly, uses only existing key frames that the animator sets. Works for virtually any control type or rig.",
+    "id": "WorldSpaceTools",
+    "long_name": "World Space Tools",
+    "shelf_data": [
+        {
+            "color": [
+                0.761,
+                0.224,
+                0.416,
+                1
+            ],
+            "command_data": {
+                "alt_command": "",
+                "command": "\ninstall_path = 'C:\\\\Users\\\\hanjt\\\\Documents\\\\maya\\\\scripts'\npackage_id = 'WorldSpaceTools'\n\nimport os\nimport sys\nif not install_path in sys.path:\n    sys.path.insert(0, install_path)\n\nimport eblabs_hub.WorldSpaceTools.scripts.worldspace as tool\n\nprint(tool)\n\ntool.window.load()",
+                "description": "",
+                "id": "",
+                "long_name": "",
+                "source_type": "python"
+            },
+            "data": {},
+            "description": "World Space Tools",
+            "icon": {
+                "image": "C:\\Users\\hanjt\\Documents\\maya\\scripts\\eblabs_hub\\WorldSpaceTools\\images\\eblabs_worldSpaceTools.png",
+                "label": ""
+            },
+            "id": "World Space Tools",
+            "items": [
+                {
+                    "color": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "command_data": {
+                        "alt_command": null,
+                        "command": "install_path = 'C:\\\\Users\\\\hanjt\\\\Documents\\\\maya\\\\scripts'\npackage_id = 'WorldSpaceTools'\n\nimport os\nimport sys\nif not install_path in sys.path:\n    sys.path.insert(0, install_path)\n\nimport eblabs_hub.WorldSpaceTools.scripts.Spaces as tool\n\ntool.launch()",
+                        "description": "",
+                        "id": "",
+                        "long_name": "",
+                        "source_type": "python"
+                    },
+                    "data": {},
+                    "description": "",
+                    "icon": {
+                        "image": "",
+                        "label": ""
+                    },
+                    "id": "World Space Beta",
+                    "items": [],
+                    "long_name": "World Space Beta",
+                    "sub_type": "",
+                    "tags": [],
+                    "type": "menuItem",
+                    "uuid": "3216f3b98f7f4c3d8f050ed02b66b2d9"
+                },
+                {
+                    "color": [
+                        0.573,
+                        0.737,
+                        0.231,
+                        1
+                    ],
+                    "command_data": {
+                        "alt_command": "",
+                        "command": "",
+                        "description": "",
+                        "id": "",
+                        "long_name": "",
+                        "source_type": "python"
+                    },
+                    "data": {},
+                    "description": "",
+                    "icon": {
+                        "image": "",
+                        "label": ""
+                    },
+                    "id": "",
+                    "items": [],
+                    "long_name": "",
+                    "sub_type": "",
+                    "tags": [],
+                    "type": "divider",
+                    "uuid": "62b6e712e7d148529e02618d26c1e2e2"
+                }
+            ],
+            "long_name": "World Space Tools",
+            "sub_type": "",
+            "tags": [
+                "eblabs_HUB_DEV"
+            ],
+            "type": "standardButton",
+            "uuid": "6759c370553e4c4294f1089cd4b9d576"
+        },
+        {
+            "color": [
+                1,
+                1,
+                1,
+                1
+            ],
+            "command_data": {
+                "alt_command": "",
+                "command": "install_path = 'C:\\\\Users\\\\hanjt\\\\Documents\\\\maya\\\\scripts'\npackage_id = 'WorldSpaceTools'\n\nimport os\nimport sys\nif not install_path in sys.path:\n    sys.path.insert(0, install_path)\n\nimport eblabs_hub.WorldSpaceTools.scripts.Spaces as tool\n\ntool.launch()",
+                "description": "",
+                "id": "",
+                "long_name": "",
+                "source_type": "python"
+            },
+            "data": {},
+            "description": "Spaces beta",
+            "icon": {
+                "image": "C:\\Users\\hanjt\\Documents\\maya\\scripts\\eblabs_hub\\WorldSpaceTools\\images\\eblabs_worldSpaceTools_beta.png",
+                "label": ""
+            },
+            "id": "World Space Tools",
+            "items": [
+                {
+                    "color": [
+                        0.894,
+                        0.553,
+                        0.153,
+                        1
+                    ],
+                    "command_data": {
+                        "alt_command": null,
+                        "command": "install_path = 'C:\\\\Users\\\\hanjt\\\\Documents\\\\maya\\\\scripts'\npackage_id = 'WorldSpaceTools'\n\nimport os\nimport sys\nif not install_path in sys.path:\n    sys.path.insert(0, install_path)\n\nimport eblabs_hub.WorldSpaceTools.scripts.worldspace as tool\n\ntool.window.load()",
+                        "description": "",
+                        "id": "",
+                        "long_name": "",
+                        "source_type": "python"
+                    },
+                    "data": {},
+                    "description": "",
+                    "icon": {
+                        "image": "",
+                        "label": ""
+                    },
+                    "id": "World Space Classic",
+                    "items": [],
+                    "long_name": "World Space Classic",
+                    "sub_type": "",
+                    "tags": [],
+                    "type": "menuItem",
+                    "uuid": "fe1acdd9988e444c8bb257b5803343aa"
+                },
+                {
+                    "color": [
+                        0.573,
+                        0.737,
+                        0.231,
+                        1
+                    ],
+                    "command_data": {
+                        "alt_command": "",
+                        "command": "",
+                        "description": "",
+                        "id": "",
+                        "long_name": "",
+                        "source_type": "python"
+                    },
+                    "data": {},
+                    "description": "",
+                    "icon": {
+                        "image": "",
+                        "label": ""
+                    },
+                    "id": "",
+                    "items": [],
+                    "long_name": "",
+                    "sub_type": "",
+                    "tags": [],
+                    "type": "divider",
+                    "uuid": "fdacd9948444471db9f3a21a9cc298a0"
+                }
+            ],
+            "long_name": "Spaces beta",
+            "sub_type": "",
+            "tags": [
+                "eblabs_HUB_DEV"
+            ],
+            "type": "standardButton",
+            "uuid": "cd7e9267da874955ae7ca388b408fba2"
+        }
+    ],
+    "support": "https://github.com/eblabs/eblabs_docs/issues",
+    "version": "1.2.4",
+    "website": "https://eblabs.com/shop/world-space-2/"
+}
