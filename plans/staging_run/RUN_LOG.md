@@ -320,3 +320,12 @@
 - 原完整JSON八组/部分导入保留，先整体验证，补frame_lag/wind strength往返；JSON覆盖/取消/原子临时文件保护与文件不能Undo说明。原pratte_custom_var改私有会话gradient，关闭清理，仍明示Maya偏好保存可能写私有var；slider同步blockSignals避免负数/小数文字被范围回写。原UI不再关闭别人的chunk/cursor，Maya BaseMixin.show真实本地签名核对用无参show，未冒充Qt验收。
 - 普通Python3组、Maya2025隔离6组、临时正式布局注册/面板/Schema/全指纹通过：纯父平移解析预期/additive外键/未选轴/zero/cycle/UndoRedo、六旋转order与无child、30点风/三级namespace/正逆分离/开关Undo/两模式wind/移除父级、layer保护与deleteall/scale/flag恢复、第二键故障finally/Undo/constraint/共享未选轴拒绝、临时JSON与真实过冲。UI负数同步用假控件运行原回调，只导入类不构造Qt，未当GUI实测。首轮纯平移断言fixture带父旋转，隔离掉旋转后按解析结果通过，未为测试改业务算法。
 - PDF原文提取与相关页6..20渲染核对功能，临时PNG已在验证workspace绝对路径后清理。真人GUI/渐变/部分预设/生产rig/layer合成/运动品质仍待验prepared_unverified；完整知识/验收/晋级齐备。实际收尾5小时32%/周91%已用，继续physics_tools；heartbeat暂停，无卡/购买/Obsidian同步/转正。
+
+## 2026-10-01：Physics Tools完整候选，累计35/109
+
+- IURI MONTEIRO / modified by k31，PhysicsTools_v1.8.mel完整307004bytes/7314行原资源字节归档；109个完整原MEL过程、319行原生主UI与五段内嵌Python保留，无独立许可，只本地不发布。源码索引和全改动diff、完整知识、验收及晋级payload已备，不执行原自动入口。
+- 标准Schema/BaseMayaTool/只读预检/Undo/private MEL wrapper+Native guard、私有助手namespace/UUID+network metadata归属、受控删除/缓存；显式reference edits复选；目标命名UUIDleaf、绝对API DAG/namespace/layer旗标恢复、多选择越界保护、空集合访问修复。取消冗余Connection Editor/Goal UI镜像保留真实particle/goal算法；Jiggle用实际同类原生node，避开项目规则/隐藏cache路径修改。原createHair/follicle等完整保留待真人检查。
+- 隔离运行发现legacy particle删除会连带删控制器，补自有约束先清/临时目标lock恢复/单节点删除；完整bulk-delete曾90秒卡住，修改DAG根优先、跳过已删除节点后全部通过。未以失败假装通过，最终报告匹配当前所有Python/资源指纹。删除拒绝外部child/外部输出（默认shading membership例外），cleanup也删除本会话烘焙层/曲线，文档明确不能用来保留结果。
+- CacheMe只在明确已有父目录建立owner子目录/.mcj，运行全局diskCache时暂禁可写外部enable并finally恢复；Clear只删登记自有文件，未改项目规则/他人cache；文件不可Undo。原噪声/循环全函数通过私有dict和范围代理运行，不污染__main__，噪声显式通道/自有新层/恢复random state。finally恢复原时间/选择/AutoKey/ns/playback/refresh/layer flags，原交互editor/tool/selectMode效果另列。
+- 普通Python2组、Maya2025隔离6组、临时正式布局注册/面板/Schema/全指纹通过：109定义编译、private guard、dry/inspect零改动；locator/ns/UndoRedo；真实particle预览/烘焙/完整cleanup/Undo且原控制器存活锁恢复；原循环和noise；真实jiggle+diskCache+.mcj创建删除及注入故障finally；外部child/driver/lock拒绝。没有构造主UI，没有实测全部hair/advanced/multi/localspace/runtime-command/生产rig或运动品质，prepared_unverified。
+- 实际收尾5小时55%/周94%已用、ordinaryUsageAllowed=true，继续pose_matcher；同heartbeat暂停，不用卡/购买/同步/转正。

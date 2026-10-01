@@ -1,0 +1,74 @@
+{
+  "tool_id": "physics_tools",
+  "registration": {
+    "module": "physics_tools",
+    "class_name": "PhysicsToolsTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/physics_tools.md",
+      "target": "docs/tools/physics_tools.md"
+    },
+    {
+      "source": "docs/tools/physics_tools_changes.diff",
+      "target": "docs/tools/physics_tools_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/physics_tools/__init__.py",
+      "target": "maya_toolkit/tools/physics_tools/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/physics_tools/catalog.json",
+      "target": "maya_toolkit/tools/physics_tools/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/physics_tools/native.mel",
+      "target": "maya_toolkit/tools/physics_tools/native.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/physics_tools/runtime.py",
+      "target": "maya_toolkit/tools/physics_tools/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/physics_tools/tool.py",
+      "target": "maya_toolkit/tools/physics_tools/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/physics_tools/upstream/.gitattributes",
+      "target": "maya_toolkit/tools/physics_tools/upstream/.gitattributes"
+    },
+    {
+      "source": "maya_toolkit/tools/physics_tools/upstream/PhysicsTools_v1.8.mel",
+      "target": "maya_toolkit/tools/physics_tools/upstream/PhysicsTools_v1.8.mel"
+    },
+    {
+      "source": "tests/test_physics_tools.py",
+      "target": "tests/test_physics_tools.py"
+    },
+    {
+      "source": "tests/test_physics_tools_maya.py",
+      "target": "tests/test_physics_tools_maya.py"
+    }
+  ],
+  "resources": [
+    "native.mel",
+    "upstream/PhysicsTools_v1.8.mel",
+    "catalog.json"
+  ],
+  "dependencies": [
+    "Maya MEL/cmds/legacy particle/jiggle/createHair procedures",
+    "Interactive Maya native UI for scene-independent editor utilities",
+    "Rivet/GhostSelected and related Maya runtime commands; source assets not supplied",
+    "BaseMayaTool/Undo"
+  ],
+  "source": "../PhysicsTools_v1.8.mel",
+  "change_summary": "Full 109-procedure MEL suite and full original UI, particle/jiggle and advanced axis/local-space/proxy/tracking/curve/noise workflows retained; private globals/UI, checked API, isolated helper namespace and owned cache/delete protections.",
+  "verification_limitations": [
+    "Full native interactive Maya suite and production rigs require human acceptance",
+    "Legacy Jiggle/hair/runtime-command behaviors may differ in Maya2025; individual failures recorded",
+    "Preview helper/session state needs explicit cleanup; external cache files cannot Maya Undo",
+    "No independent license supplied, local use only; do not publish",
+    "Guarded source still needs all original operation-specific Maya dependencies"
+  ],
+  "acceptance_required": true
+}

@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/physics_tools/release_candidate/tests/test_physics_tools_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_compile_all_guard_and_readonly (__main__.MayaTests.test_compile_all_guard_and_readonly) ... ����: Use PhysicsToolsTool.run; private native body requires API scope\n# Traceback (most recent call last):\n#   File \"<maya console>\", line 1, in <module>\n#   File \"E:\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\physics_tools\\release_candidate\\maya_toolkit\\tools\\physics_tools\\runtime.py\", line 191, in require_scope\n#     raise ValueError('Use PhysicsToolsTool.run; private native body requires API scope')\n# ValueError: Use PhysicsToolsTool.run; private native body requires API scope\nok\r\ntest_embedded_cycle_noise_and_private_name_scope (__main__.MayaTests.test_embedded_cycle_noise_and_private_name_scope) ... ok\r\ntest_foreign_child_driver_and_locked_refusal (__main__.MayaTests.test_foreign_child_driver_and_locked_refusal) ... Done!ok\r\ntest_full_locator_proxy_cleanup_undo_and_namespace (__main__.MayaTests.test_full_locator_proxy_cleanup_undo_and_namespace) ... Done!����: PhysicsToolsTool_physics_tools\n����: PhysicsToolsTool_physics_tools\n����: PhysicsToolsTool_physics_tools\nok\r\ntest_native_jiggle_cache_scoped_and_context_restore_failure (__main__.MayaTests.test_native_jiggle_cache_scoped_and_context_restore_failure) ... ok\r\ntest_native_particle_preview_and_bake (__main__.MayaTests.test_native_particle_preview_and_bake) ... Move the sliders to preview the results����: PhysicsToolsTool_physics_tools\nThe Magic is Done!����: PhysicsToolsTool_physics_tools\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.128s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "02916d26513b901df1925036d4ee0b301f6260d4fb3d87fa8f7262e6fa82ad01",
+  "runtime_source_sha256": "7c0ee7deb90937ebc6db25b9f2484e07866b90927ca6cf2e6ced66d969329731"
+}
