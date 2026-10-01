@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T18:58:41.737436+08:00",
+  "updated_at": "2026-10-01T19:16:46.763690+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/tb_anim_tools",
+    "last_completed_tool": "01_animation/timeline_enhanced",
     "last_usage": {
-      "five_hour_used_percent": 66.0,
-      "weekly_used_percent": 10.0,
-      "recorded_at": "2026-10-01T18:38:28.365867+08:00",
+      "five_hour_used_percent": 74.0,
+      "weekly_used_percent": 12.0,
+      "recorded_at": "2026-10-01T19:00:36.639574+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/tb_anim_tools"
+    "current_tool": "01_animation/timeline_enhanced"
   },
   "entry_repairs": [
     {
@@ -7843,7 +7843,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete original installer methods/UI/help archived and ported, plus full fixed upstream suite snapshot with source/resources. Offline hash-checked safe ZIP installation into a new directory, no overwrites, distinct module/native activation with persistent update disablement, read-only inspect/dry-run. Original entire suite is unchanged and only runs on explicit interactive activation.",
-      "prepared_at": "2026-10-01T18:58:39.615515+08:00"
+      "prepared_at": "2026-10-01T18:58:39.615515+08:00",
+      "source_commit": "a21871272e7e167d7863a69b9e7deb6343f97f20"
     },
     {
       "source_path": "01_animation/timeline_enhanced",
@@ -7854,21 +7855,85 @@
       "entry_candidates": [
         "maya_timeline_tool_enhanced.py"
       ],
-      "source_file_count": 3,
+      "source_file_count": 4,
       "source_files": [
         "maya_timeline_tool.py",
         "maya_timeline_tool_enhanced.py"
       ],
       "license_files": [],
       "entry_sha256": "6d16086c5e421fbdb7bc0578021adbca4d6d1f5c371879b059a7e405fd9a3192",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_complete_originals_and_all_methods_lazy_schema (__main__.Offline.test_complete_originals_and_all_methods_lazy_schema) ... ok\r\ntest_config_and_argument_failures_do_not_mutate (__main__.Offline.test_config_and_argument_failures_do_not_mutate) ... ok\r\ntest_full_copy_paste_parity_relative_spacing_and_clipping (__main__.Offline.test_full_copy_paste_parity_relative_spacing_and_clipping) ... ok\r\ntest_move_same_frame_selection_conflicts_and_custom_blocks (__main__.Offline.test_move_same_frame_selection_conflicts_and_custom_blocks) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.009s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"timeline_enhanced\",\r\n  \"candidate_sha256\": \"efb8a030c7663b60e8198cca8607196b6f0bd123e242c61fce6452a990148f2b\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\timeline_enhanced.md\",\r\n    \"maya_toolkit\\\\tools\\\\timeline_enhanced\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\timeline_enhanced\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\timeline_enhanced\\\\model.py\",\r\n    \"maya_toolkit\\\\tools\\\\timeline_enhanced\\\\native_basic.py\",\r\n    \"maya_toolkit\\\\tools\\\\timeline_enhanced\\\\native_enhanced.py\",\r\n    \"maya_toolkit\\\\tools\\\\timeline_enhanced\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\timeline_enhanced\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\timeline_enhanced\\\\upstream\\\\maya_timeline_tool.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\timeline_enhanced\\\\upstream\\\\maya_timeline_tool_enhanced.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\timeline_enhanced\\\\upstream\\\\Maya\\u65f6\\u95f4\\u8f74\\u5de5\\u5177\\u4f7f\\u7528\\u8bf4\\u660e.md\",\r\n    \"tests\\\\test_timeline_enhanced.py\",\r\n    \"tests\\\\test_timeline_enhanced_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/timeline_enhanced/release_candidate/tests/test_timeline_enhanced_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_document_actions_and_preview_never_move_scene_keys (__main__.MayaChecks.test_document_actions_and_preview_never_move_scene_keys) ... ok\r\ntest_json_temp_save_backups_bad_load_and_dry_run (__main__.MayaChecks.test_json_temp_save_backups_bad_load_and_dry_run) ... ok\r\ntest_sync_time_batch_play_refusal_and_complete_native_import_no_ui (__main__.MayaChecks.test_sync_time_batch_play_refusal_and_complete_native_import_no_ui) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.041s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "19f27cd4ee0fd00ac9affbc0126d8c270346072ec13125f21eeb0128a3298f2c",
+          "runtime_source_sha256": "55c659b3da7d00b021d6c4a7be3b5f9a14ba52d37d68ae997f9c2aa505291f4f"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Complete basic/enhanced Maya GUI, window shortcut focus, dragging, scroll/fit and interactive playback acceptance not_run."
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "efb8a030c7663b60e8198cca8607196b6f0bd123e242c61fce6452a990148f2b",
+          "returncode": 0,
+          "output": "test_complete_originals_and_all_methods_lazy_schema (__main__.Offline.test_complete_originals_and_all_methods_lazy_schema) ... ok\r\ntest_config_and_argument_failures_do_not_mutate (__main__.Offline.test_config_and_argument_failures_do_not_mutate) ... ok\r\ntest_full_copy_paste_parity_relative_spacing_and_clipping (__main__.Offline.test_full_copy_paste_parity_relative_spacing_and_clipping) ... ok\r\ntest_move_same_frame_selection_conflicts_and_custom_blocks (__main__.Offline.test_move_same_frame_selection_conflicts_and_custom_blocks) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.009s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya basic/enhanced GUI/shortcut/playback acceptance not_run",
+        "Planning blocks are memory/JSON, not Maya animation keys",
+        "Local document Undo differs from Maya scene Undo; filesystem/time/playback are separately described",
+        "Original example/hotkey setup file mentioned in README is missing and not fabricated; window-local shortcuts supplied",
+        "View fit caps at 8 pixels/frame and large documents remain scrollable"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 2,
@@ -7877,7 +7942,43 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "faf8cf8c1c33d98421e1ce1de68d636c731a1d69341f9a87d3957109875d103d"
+      "source_tree_sha256": "8b6ca3aac159acd27ee09a4e0f49dbdaea7138ddfbe5f155f7be0d6af9ef447c",
+      "candidate_path": "tools_staging_pool/01_animation/timeline_enhanced/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/timeline_enhanced/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "timeline_enhanced",
+        "candidate_sha256": "efb8a030c7663b60e8198cca8607196b6f0bd123e242c61fce6452a990148f2b",
+        "applied": false,
+        "files": [
+          "docs\\tools\\timeline_enhanced.md",
+          "maya_toolkit\\tools\\timeline_enhanced\\__init__.py",
+          "maya_toolkit\\tools\\timeline_enhanced\\catalog.json",
+          "maya_toolkit\\tools\\timeline_enhanced\\model.py",
+          "maya_toolkit\\tools\\timeline_enhanced\\native_basic.py",
+          "maya_toolkit\\tools\\timeline_enhanced\\native_enhanced.py",
+          "maya_toolkit\\tools\\timeline_enhanced\\tool.py",
+          "maya_toolkit\\tools\\timeline_enhanced\\ui.py",
+          "maya_toolkit\\tools\\timeline_enhanced\\upstream\\maya_timeline_tool.py.original",
+          "maya_toolkit\\tools\\timeline_enhanced\\upstream\\maya_timeline_tool_enhanced.py.original",
+          "maya_toolkit\\tools\\timeline_enhanced\\upstream\\Maya时间轴工具使用说明.md",
+          "tests\\test_timeline_enhanced.py",
+          "tests\\test_timeline_enhanced_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "maya_timeline_tool.py",
+        "maya_timeline_tool_enhanced.py",
+        "Maya时间轴工具使用说明.md"
+      ],
+      "external_dependencies": [
+        "Maya cmds; Qt5/Qt6 for window-local shortcuts, no external dependencies"
+      ],
+      "source_preserved": true,
+      "change_summary": "Both complete basic/enhanced source interfaces and all methods preserved; full pure marker-document API, all block types/edit/copy/paste/selection/drag/config/playback. Safe config schema/read-only previews, explicit file replace backups, correct parent/layout/negative frames, working modes/fit/reset/keyboard shortcuts and local document Undo/Redo. No scene animation-key editing.",
+      "prepared_at": "2026-10-01T19:16:45.123566+08:00"
     },
     {
       "source_path": "01_animation/tweener_v1_0_2",

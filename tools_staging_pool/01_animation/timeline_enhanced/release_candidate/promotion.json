@@ -1,0 +1,78 @@
+{
+  "tool_id": "timeline_enhanced",
+  "registration": {
+    "module": "timeline_enhanced",
+    "class_name": "TimelineEnhancedTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/timeline_enhanced.md",
+      "target": "docs/tools/timeline_enhanced.md"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_enhanced/__init__.py",
+      "target": "maya_toolkit/tools/timeline_enhanced/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_enhanced/catalog.json",
+      "target": "maya_toolkit/tools/timeline_enhanced/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_enhanced/model.py",
+      "target": "maya_toolkit/tools/timeline_enhanced/model.py"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_enhanced/native_basic.py",
+      "target": "maya_toolkit/tools/timeline_enhanced/native_basic.py"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_enhanced/native_enhanced.py",
+      "target": "maya_toolkit/tools/timeline_enhanced/native_enhanced.py"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_enhanced/tool.py",
+      "target": "maya_toolkit/tools/timeline_enhanced/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_enhanced/ui.py",
+      "target": "maya_toolkit/tools/timeline_enhanced/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_enhanced/upstream/maya_timeline_tool.py.original",
+      "target": "maya_toolkit/tools/timeline_enhanced/upstream/maya_timeline_tool.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_enhanced/upstream/maya_timeline_tool_enhanced.py.original",
+      "target": "maya_toolkit/tools/timeline_enhanced/upstream/maya_timeline_tool_enhanced.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/timeline_enhanced/upstream/Maya时间轴工具使用说明.md",
+      "target": "maya_toolkit/tools/timeline_enhanced/upstream/Maya时间轴工具使用说明.md"
+    },
+    {
+      "source": "tests/test_timeline_enhanced.py",
+      "target": "tests/test_timeline_enhanced.py"
+    },
+    {
+      "source": "tests/test_timeline_enhanced_maya.py",
+      "target": "tests/test_timeline_enhanced_maya.py"
+    }
+  ],
+  "resources": [
+    "maya_timeline_tool.py",
+    "maya_timeline_tool_enhanced.py",
+    "Maya时间轴工具使用说明.md"
+  ],
+  "dependencies": [
+    "Maya cmds; Qt5/Qt6 for window-local shortcuts, no external dependencies"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Both complete basic/enhanced source interfaces and all methods preserved; full pure marker-document API, all block types/edit/copy/paste/selection/drag/config/playback. Safe config schema/read-only previews, explicit file replace backups, correct parent/layout/negative frames, working modes/fit/reset/keyboard shortcuts and local document Undo/Redo. No scene animation-key editing.",
+  "verification_limitations": [
+    "Real Maya basic/enhanced GUI/shortcut/playback acceptance not_run",
+    "Planning blocks are memory/JSON, not Maya animation keys",
+    "Local document Undo differs from Maya scene Undo; filesystem/time/playback are separately described",
+    "Original example/hotkey setup file mentioned in README is missing and not fabricated; window-local shortcuts supplied",
+    "View fit caps at 8 pixels/frame and large documents remain scrollable"
+  ]
+}

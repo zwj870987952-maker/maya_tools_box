@@ -414,3 +414,10 @@
 - 原11类方法、style/圆角/拖动/Escape/路径字段完整UI移植，修Qt6/Py3.12/distutils/不依赖PyMel/父窗口懒求值、窗口flag/QColor/globalPosition。原自动下载并覆盖启动改为离线固定ZIP安装、显式模块注册、显式原版整套启动三个按钮；版本写入改独立精确commit收据，不覆盖upstream版本文件。原LGPL版权完整留在UI及原件；上游GPL LICENSE完整保留，不对不同组件擅改许可。
 - SHA与每文件完整性、ZIP越界/链接/ADS/设备名/大小写别名/路径冲突/压缩炸弹防护；绝对新目录/已有parent/拒junction与symlink/任何已有安装拒覆盖，Windows临时同级解包后rename发布，失败只清理本次临时目录。validate/dry_run不建目录/注册/导入vendor/联网。register仅新建模块、明确外部影响确认、tbUpdateType=2禁用自动上游更新；launch仅交互Maya和本候选完整资源/模块，拒同名已载入模块，调用完整原版installer，无真实用户profile安装或原套件启动。
 - 普通Python4组与实际隔离Maya2025两组通过，验证全部文件一致、异常发布清理/已有目录保护、只读scene/optionVars、临时module注册与foreign保护、batch native启动拒绝。临时正式布局注册/面板通过，生产库未改；GUI/原版延迟启动/各项动画功能/可选插件仍not_run，prepared_unverified。无Obsidian同步/用卡/购买。
+
+## 2026-10-01：时间轴方块基础/增强版完整候选，累计47/109
+
+- 三原文件完整SHA保留，完整basic15/enhanced46类方法、两个布局、原中文说明携带；源说明引用缺失example/hotkey文件未伪造。明确方块是规划数据，不是场景key；原源未有场景动画重定时，不错误承诺。
+- 全纯document API覆盖六色类型、添加/属性/选中/拖拽移动/复制粘贴/范围/删除/清空/JSON，返回新state不原地改输入。完整嵌套Schema与独立validate，深复制clipboard、相对时距和超显示范围裁剪保留；拒已有block覆盖、move同帧安全、selected移动映射/隐藏方块保留。文件4MiB/重复键/帧/色范围预检，绝对路径且拒junction/symlink，新建不覆盖，显式替换先完整旧字节backup再临时替换/并发哈希保护；没有package配置自动读取或源目录写入。
+- 全原UI经Bridge接API，修rowLayout columnWidth8/实际9控件、属性margin、refresh parent、私有属性窗名；原模式/fit/reset仅提示，现在实现，并保留默认拖拽。窗口内Qt5/6 shortcuts与100份document UndoRedo，不注册全局Maya热键；scene Undo不代替内存历史/外部文件/播放状态。sync整数负帧range只读，显式setCurrentFrame/play/stop，batch播放拒绝。
+- 普通Python4组、实际隔离Maya2025三组、临时正式布局注册面板全部通过；直接提取原完整copy/paste方法只固定UI frame读取，与candidate相对时距/裁剪结果一致；全61方法AST存在，原件SHA一致。实际scene key/selection/时间/Undo dry不变、临时文件backup/坏load保护、negative sync/小数拒绝、native全类导入和纯构造零窗口、batch show/play拒绝验证；全部GUI/焦点/滚动/播放not_run，prepared_unverified。不转正/同步/用卡/购买。

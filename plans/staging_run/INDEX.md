@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-01T18:58:41.737436+08:00
+更新时间：2026-10-01T19:16:46.763690+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -51,7 +51,7 @@
 | `01_animation/stagger_offset` | prepared_unverified | True | True | not_run |
 | `01_animation/sword_anim_polishing_tool_v4` | prepared_unverified | True | True | not_run |
 | `01_animation/tb_anim_tools` | prepared_unverified | True | True | not_run |
-| `01_animation/timeline_enhanced` | pending | True | False | not_run |
+| `01_animation/timeline_enhanced` | prepared_unverified | True | True | not_run |
 | `01_animation/tweener_v1_0_2` | pending | True | False | not_run |
 | `01_animation/velocity_calculator` | pending | True | False | not_run |
 | `01_animation/w_retarget_tool` | pending | True | False | not_run |

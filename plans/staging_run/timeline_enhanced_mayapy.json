@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/timeline_enhanced/release_candidate/tests/test_timeline_enhanced_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_document_actions_and_preview_never_move_scene_keys (__main__.MayaChecks.test_document_actions_and_preview_never_move_scene_keys) ... ok\r\ntest_json_temp_save_backups_bad_load_and_dry_run (__main__.MayaChecks.test_json_temp_save_backups_bad_load_and_dry_run) ... ok\r\ntest_sync_time_batch_play_refusal_and_complete_native_import_no_ui (__main__.MayaChecks.test_sync_time_batch_play_refusal_and_complete_native_import_no_ui) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.041s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "19f27cd4ee0fd00ac9affbc0126d8c270346072ec13125f21eeb0128a3298f2c",
+  "runtime_source_sha256": "55c659b3da7d00b021d6c4a7be3b5f9a14ba52d37d68ae997f9c2aa505291f4f"
+}

@@ -1,0 +1,87 @@
+{
+  "files": [
+    {
+      "path": "maya_timeline_tool.py",
+      "archive": "upstream/maya_timeline_tool.py.original",
+      "sha256": "dc774c0cb75cf8540916e482a82113db43744ec8bbf81c10e4d939e798a15ed3"
+    },
+    {
+      "path": "maya_timeline_tool_enhanced.py",
+      "archive": "upstream/maya_timeline_tool_enhanced.py.original",
+      "sha256": "6d16086c5e421fbdb7bc0578021adbca4d6d1f5c371879b059a7e405fd9a3192"
+    },
+    {
+      "path": "Maya时间轴工具使用说明.md",
+      "archive": "upstream/Maya时间轴工具使用说明.md",
+      "sha256": "8537369c874dd8d918a3a97130140f442c7980a32df41f9ba5765c51c2d0bb5f"
+    }
+  ],
+  "original_methods": {
+    "maya_timeline_tool.py": [
+      "__init__",
+      "create_ui",
+      "create_control_panel",
+      "create_timeline_area",
+      "create_frames",
+      "on_start_frame_changed",
+      "on_frame_count_changed",
+      "refresh_timeline",
+      "on_frame_clicked",
+      "start_drag",
+      "drop_block",
+      "add_block",
+      "add_random_block",
+      "clear_all_blocks",
+      "update_blocks_display"
+    ],
+    "maya_timeline_tool_enhanced.py": [
+      "__init__",
+      "create_ui",
+      "create_menu_bar",
+      "create_toolbar",
+      "create_control_panel",
+      "create_block_type_panel",
+      "create_timeline_area",
+      "create_status_bar",
+      "create_frames",
+      "on_frame_clicked",
+      "start_drag",
+      "drop_block",
+      "cancel_drag",
+      "add_block_at_frame",
+      "delete_block_at_frame",
+      "select_block_at_frame",
+      "edit_block_properties",
+      "set_current_block_type",
+      "update_blocks_display",
+      "update_status",
+      "new_project",
+      "save_config_dialog",
+      "load_config_dialog",
+      "save_config",
+      "load_config",
+      "sync_with_maya",
+      "play_timeline",
+      "stop_timeline",
+      "select_all_blocks",
+      "deselect_all_blocks",
+      "copy_selected_blocks",
+      "paste_blocks",
+      "delete_selected_blocks",
+      "clear_all_blocks",
+      "on_start_frame_changed",
+      "on_frame_count_changed",
+      "on_current_frame_changed",
+      "refresh_timeline",
+      "show_help",
+      "show_about",
+      "close_window",
+      "set_select_mode",
+      "set_add_mode",
+      "set_delete_mode",
+      "fit_timeline",
+      "reset_view"
+    ]
+  },
+  "license": "User prototype scripts, no separate license supplied"
+}
