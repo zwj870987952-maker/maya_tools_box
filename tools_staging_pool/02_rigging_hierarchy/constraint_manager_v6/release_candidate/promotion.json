@@ -1,0 +1,74 @@
+{
+  "tool_id": "constraint_manager_v6",
+  "registration": {
+    "module": "constraint_manager_v6",
+    "class_name": "ConstraintManagerTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/constraint_manager_v6.md",
+      "target": "docs/tools/constraint_manager_v6.md"
+    },
+    {
+      "source": "maya_toolkit/tools/constraint_manager_v6/__init__.py",
+      "target": "maya_toolkit/tools/constraint_manager_v6/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/constraint_manager_v6/catalog.json",
+      "target": "maya_toolkit/tools/constraint_manager_v6/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/constraint_manager_v6/engine.py",
+      "target": "maya_toolkit/tools/constraint_manager_v6/engine.py"
+    },
+    {
+      "source": "maya_toolkit/tools/constraint_manager_v6/native_rebuild.py",
+      "target": "maya_toolkit/tools/constraint_manager_v6/native_rebuild.py"
+    },
+    {
+      "source": "maya_toolkit/tools/constraint_manager_v6/native_ui.py",
+      "target": "maya_toolkit/tools/constraint_manager_v6/native_ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/constraint_manager_v6/tool.py",
+      "target": "maya_toolkit/tools/constraint_manager_v6/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/constraint_manager_v6/ui.py",
+      "target": "maya_toolkit/tools/constraint_manager_v6/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/constraint_manager_v6/vendor/约束管理v6.py.original",
+      "target": "maya_toolkit/tools/constraint_manager_v6/vendor/约束管理v6.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/constraint_manager_v6/vendor/重建约束.py.original",
+      "target": "maya_toolkit/tools/constraint_manager_v6/vendor/重建约束.py.original"
+    },
+    {
+      "source": "tests/test_constraint_manager_v6.py",
+      "target": "tests/test_constraint_manager_v6.py"
+    },
+    {
+      "source": "tests/test_constraint_manager_v6_maya.py",
+      "target": "tests/test_constraint_manager_v6_maya.py"
+    }
+  ],
+  "resources": [
+    "约束管理v6.py",
+    "重建约束.py"
+  ],
+  "dependencies": [
+    "Maya cmds/MEL, PySide6/shiboken6 or PySide2/shiboken2 for complete native UI",
+    "Axis/rest native Maya menu procedures require interactive Maya; batch explicitly refused"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Both complete prototypes and every native UI method preserved with explicit startup and Qt6/Qt5 imports. Typed API/full native UI bridge, actual target aliases/order/UUIDs, explicit key values, output-edge disconnect/restore preserving animation/offsets, true inverse constraints without cycles/overwriting drivers, full duplicate-based rebuild, scene list JSON and protected explicit snapshot files; original unsafe auto-run/file fallback never invoked.",
+  "verification_limitations": [
+    "Real Maya GUI, every native button/context menu/color/list/tooltip and production namespaces/rigs not_run",
+    "Native Maya axis/rest menu dialogs and nonstandard constraint types require separate real GUI acceptance",
+    "Undo restores scene changes but not Python session snapshots or external snapshot files; current scene UUID/connection state is revalidated",
+    "External JSON copies are not scene-Undoable; partial errors require inspection/Undo, not automatic rollback",
+    "Reverse rejects existing target drivers/locked channels, descendants and incompatible graphs instead of silently replacing animation"
+  ]
+}

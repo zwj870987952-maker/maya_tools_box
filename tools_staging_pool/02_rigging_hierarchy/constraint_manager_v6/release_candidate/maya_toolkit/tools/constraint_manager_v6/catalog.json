@@ -1,0 +1,92 @@
+{
+  "files": [
+    {
+      "path": "约束管理v6.py",
+      "archive": "vendor/约束管理v6.py.original",
+      "sha256": "fa48f4c7ad44656936523185436919b842b62138c673b5dac3607f3faf5402ea",
+      "bytes": 81348
+    },
+    {
+      "path": "重建约束.py",
+      "archive": "vendor/重建约束.py.original",
+      "sha256": "cb9a60b0ee756b0038d4630fb08c8440c995c8e15a02f398fcafd9ca4fc337a8",
+      "bytes": 8482
+    }
+  ],
+  "declarations": {
+    "约束管理v6.py": {
+      "functions": [
+        "maya_main_window"
+      ],
+      "classes": {
+        "ConstraintTool": [
+          "__init__",
+          "create_widgets",
+          "create_layouts",
+          "create_connections",
+          "get_constraint_weights",
+          "set_custom_weight",
+          "create_context_menu",
+          "show_context_menu",
+          "show_clear_button_context_menu",
+          "load_saved_lists",
+          "add_saved_list_button",
+          "load_list_from_locator",
+          "add_selected_constraints",
+          "clear_constraints",
+          "refresh_constraints",
+          "parse_constraint_attr",
+          "get_constraint_info_and_run_tool",
+          "remove_selected_items",
+          "find_and_select_constraint_attributes",
+          "select_constraint_node",
+          "remove_target",
+          "set_rest_position",
+          "modify_constrained_axis",
+          "delete_selected_constraints",
+          "save_list",
+          "create_color_changer",
+          "change_item_color",
+          "run_tool",
+          "toggle_display_mode",
+          "refresh_display",
+          "show_select_menu",
+          "select_constrained_objects",
+          "select_target_objects",
+          "select_current_items",
+          "get_constraint_info",
+          "disconnect_constraints",
+          "restore_constraints",
+          "reverse_constraints",
+          "rebuild_constraints"
+        ],
+        "CustomListWidgetItem": [
+          "__init__"
+        ],
+        "WeightIconDelegate": [
+          "__init__",
+          "paint"
+        ],
+        "CustomListWidget": [
+          "__init__",
+          "mouseMoveEvent",
+          "get_constraint_tooltip"
+        ]
+      }
+    },
+    "重建约束.py": {
+      "functions": [
+        "get_default_file_path",
+        "create_constraint_ui",
+        "find_constraint_objects",
+        "save_constraint_info",
+        "load_constraint_info",
+        "break_constraints",
+        "restore_constraints",
+        "reverse_constraints"
+      ],
+      "classes": {}
+    }
+  },
+  "source_modified": false
+}

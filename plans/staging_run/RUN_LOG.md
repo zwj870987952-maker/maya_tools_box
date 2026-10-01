@@ -482,3 +482,12 @@
 - XML转权重临时文件改每次owned子目录，不写随包文件；QC配置只准固定UI数据，拒绝任意MEL/Python、不覆盖/全文件导入前检查；FTM完整Copy/Move/Set算法保留，限定解析复制搬移/mkdir无shell、独占创建/校验后移除源；原FixError无条件删userSetup改明确所选文件隔离恢复副本，场景感染节点另可Undo按钮、Outliner去PyMel依赖。
 - 五组普通Python与四组真实隔离Maya2025通过：完整81资源/31活动定义/所有原过程入口、原16种真实曲线/UndoRedo、真实颜色/属性限制/编号/蒙皮influence查询、锁/名称保护/交互拒绝；文件复制移动/拒绝覆盖/拒绝shell/删除范围、QC数据注入拒绝。临时正式布局/真实rigging domain/注册/Schema/panel通过，fingerprint匹配。
 - API恢复time/selection UUID/namespace/autokey，外部文件/GUI callback/optionVars不宣称Undo覆盖，原全场景连接/删除/引用逻辑须备份场景验收。完整交付prepared_unverified，GUI/QC往返/ADV/FBX/动态链/权重/纹理/感染样本/原全部按钮not_run。未触真实Maya GUI、正式库、Obsidian、用卡或购买。
+
+## 2026-10-01：约束管理v6/重建约束完整候选，累计54/109
+
+- 两份原型完整SHA归档，原4UI类/所有方法和辅助8函数保留；明确Qt6/Qt5、去自动启动。完整原列表/模式/颜色/tooltip/选择/右键/静止位置/修改轴/重建辅助界面由API桥接所有写回调。实际alias+targetMatrix+物理index匹配、保持targets顺序，不按W拆名字/误认userDefined浮点为权重。
+- 原已有动画setAttr后隐式打键改显式value、全批锁/驱动/共享timecurve预检。原删除式断开只存权重改实际输出边UUID保存/断开/恢复，原节点、动画、offset/skip/custom全留；新driver不强覆盖，原pairBlend仍流向原child同通道才能恢复；快照JSON不执行代码/任意接线/按名字删除。逆向节点有本次ownerUUID标记。
+- 原所谓反向两分支实际仍同方向已纠正：原child驱动每个原target，先断原输出防双向环，拒绝DAG相关/已有驱动/矩阵/上游child依赖；恢复只删本次inverse并接回原边，不宣称把原动画自动bake到逆向。重建duplicate(inputConnections)再接全部原outputs/delete旧，所有属性/输入曲线/target offset/interp保留、actual名UUID更新、一次Undo回原。
+- 列表notes改JSON保护长DAG分隔符/颜色，可读旧格式，新名拒绝覆写；辅助完整四动作callable回调+显式snapshot新文件读写，原固定TEMP JSON不自动调用。真实本机Autodesk菜单脚本阅读后纠正原axis把maintainOffset当version、连driver也处理的问题，限定child且所有同child约束显式包括，rest/axis只交互Maya待验收。
+- 普通Python2组、真隔离Maya2025六组、临时正式布局/domain/schema/panel通过：namespaced含W目标/alias顺序；三mode与custom实值/现curve显式key/Undo/全批锁拒绝/空UI scope不误删scene selection；原UUID/动画/偏移/输出恢复、新driver保护；真正两目标inverse及运动/owner/恢复/Undo；真实rebuild完整custom/interp/offset/inputcurve与Undo；移除exacttarget保持偏移/scene JSON颜色/导出导入拒绝覆写/伪造destination拒绝无scene/session变化；真实pairBlend原动画仍保留。
+- 完整交付prepared_unverified，原所有GUI/右键/颜色/列表往返/native rest-axis/更多约束类型/生产复杂图待真实Maya。无正式库/Obsidian写入，无用卡或购买。
