@@ -534,3 +534,11 @@
 - 原Python/MEL两个同功能脚本完整SHA归档；完整所选joint segmentScaleCompensate关闭操作、explicit scope/只读预检/Schema/Undo/真实Maya小UI/文档/验收/注册晋级齐备。省略objects沿用原所选joint筛选，不递归；已关闭节点no-op，输出UUID/前后值/未变计数。
 - 两组Python、三组Maya2025隔离检查、临时正式布局注册/rigging域/panel/fingerprint全部通过：父缩放2时子joint真实世界矩阵scale变化、scope不影响祖孙、单步Undo恢复；锁属性/驱动/别名重复/真DAG实例/空范围拒绝；混选只joint/显式transform拒绝/重复预检no-op、GUI batch拒绝。
 - core当前仅context/maya_utils/logger/string/ui，没有等价joint属性scope业务；使用框架现有Undo，不新改core。真实GUI/生产skin rig外观/其它版本not_run，prepared_unverified。实际5h已用90%、周29%，继续第61项，heartbeat暂停，不同步/迁正式/用卡/购买。
+
+# 2026-10-02：Skin Info / Super Connect / Timal完整候选，累计61/109
+
+- 原7文件完整SHA归档；SkinInfo1.92/1.7全26过程、SuperConnect全7过程、Timal全4类方法/原布局/图标/installer均保留，installer不执行。原完整四GUI入口与所有业务按钮路由安全API，原unsafe legacy算法审计保留但公开接口不调用，去顶层UI/文件写入。
+- 完整info/weighted/select-influences/lock/unlock、XML/JSON/批量export-import/Timal后normalize与新旧skin、transfer/copy/prune及全9direct轴/parent/point/orient/point-orient/prefix/MO。TXT只解析安全joint名，不执行原eval；绝对既有目录、安全basename、独占批量预留输出/no覆盖/出错只清新文件，含meta拓扑指纹，旧图显式allow_unchecked_topology。已有锁/驱动/真实DAG实例/重复匹配/自身和层级依赖scope保护，delete history和direct换连接显式ack。
+- 两组Python+五组Maya2025隔离+临时正式布局注册/rigging域/panel/fingerprint全部通过：全部33原MEL/全UI定义无副作用编译、XML/JSON实权重往返及导入Undo恢复、Timal新skin/XML后normalize、transfer新skin真实weights及Undo/copy/info/weighted选择、liw/恶意TXT拒绝/错拓扑、direct全轴namespace/prefix真实motion与四约束/Undo。fixture中创建新mesh改变选择，改比较import调用前真实selection，未改业务掩盖失败。
+- 原deformerWeights不依赖其跨版本Undo保证，现有skin捕获原/导入权重后API复原再经skinPercent回放，单Undo实际测试通过；导出文件不属于MayaUndo。无许可文件，不推断发布权限。真实GUI/生产skin/拓扑姿态/历史删除/跨版本not_run，prepared_unverified。
+- 收尾实际5h已用96%（剩4%）、周30%，低于6%阈值；保存提交和检查点后启用同聊天30分钟heartbeat并结束本轮，下项skin_magic。所有候选留池、不同步/迁正式/用卡/购买。

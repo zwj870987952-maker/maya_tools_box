@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T00:45:27.953639+08:00",
+  "updated_at": "2026-10-02T01:02:30.321001+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "02_rigging_hierarchy/segment_scale_fix",
+    "last_completed_tool": "02_rigging_hierarchy/skin_info_and_super_connect",
     "last_usage": {
-      "five_hour_used_percent": 88.0,
+      "five_hour_used_percent": 90.0,
       "weekly_used_percent": 29.0,
-      "recorded_at": "2026-10-02T00:40:58.448556+08:00",
+      "recorded_at": "2026-10-02T00:46:34.868968+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "02_rigging_hierarchy/segment_scale_fix"
+    "current_tool": "02_rigging_hierarchy/skin_info_and_super_connect"
   },
   "entry_repairs": [
     {
@@ -10668,7 +10668,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete original selected-joint disable segmentScaleCompensate operation, both original Python/MEL archived by SHA; explicit scope, no-op-aware read-only preflight, locks/references/connections/true DAG instance checks, single Undo chunk and deferred Maya UI.",
-      "prepared_at": "2026-10-02T00:45:25.421710+08:00"
+      "prepared_at": "2026-10-02T00:45:25.421710+08:00",
+      "source_commit": "aa0059d776cd6dbcacfeb433cd22eb7ec035910d"
     },
     {
       "source_path": "02_rigging_hierarchy/skeleton_generator",
@@ -10712,7 +10713,7 @@
       "entry_candidates": [
         "Export - Import SkinCluster/skinInfo_V1.92.mel"
       ],
-      "source_file_count": 7,
+      "source_file_count": 8,
       "source_files": [
         "Export - Import SkinCluster/skinInfo_V1.7.mel",
         "Export - Import SkinCluster/skinInfo_V1.92.mel",
@@ -10721,14 +10722,77 @@
       ],
       "license_files": [],
       "entry_sha256": "e1165f9d9704239c21b6cbcb3b08a451781ceebf1f466dfaaaccee26e8fc5633",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.002s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"skin_info_and_super_connect\",\r\n  \"candidate_sha256\": \"bf159b86e28e6bb51e36c596367bd4d2a6b7f5381d0e8d98cbb09c8a9f6e1d65\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\skin_info_and_super_connect.md\",\r\n    \"maya_toolkit\\\\tools\\\\skin_info_and_super_connect\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\skin_info_and_super_connect\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\skin_info_and_super_connect\\\\connect_legacy.mel\",\r\n    \"maya_toolkit\\\\tools\\\\skin_info_and_super_connect\\\\connect_ui.mel\",\r\n    \"maya_toolkit\\\\tools\\\\skin_info_and_super_connect\\\\operations.py\",\r\n    \"maya_toolkit\\\\tools\\\\skin_info_and_super_connect\\\\skin17_legacy.mel\",\r\n    \"maya_toolkit\\\\tools\\\\skin_info_and_super_connect\\\\skin17_ui.mel\",\r\n    \"maya_toolkit\\\\tools\\\\skin_info_and_super_connect\\\\skin192_legacy.mel\",\r\n    \"maya_toolkit\\\\tools\\\\skin_info_and_super_connect\\\\skin192_ui.mel\",\r\n    \"maya_toolkit\\\\tools\\\\skin_info_and_super_connect\\\\timal_original.py\",\r\n    \"maya_toolkit\\\\tools\\\\skin_info_and_super_connect\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\skin_info_and_super_connect\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\skin_info_and_super_connect\\\\vendor\\\\Export & Import Skin Weights Script\\\\Export-Import JointsWeights v1.3 UI Class.txt\",\r\n    \"maya_toolkit\\\\tools\\\\skin_info_and_super_connect\\\\vendor\\\\Export - Import SkinCluster\\\\skinInfo_V1.7.mel\",\r\n    \"maya_toolkit\\\\tools\\\\skin_info_and_super_connect\\\\vendor\\\\Export - Import SkinCluster\\\\skinInfo_V1.92.mel\",\r\n    \"maya_toolkit\\\\tools\\\\skin_info_and_super_connect\\\\vendor\\\\Super Connect\\\\Super_Connect\\\\How to install.txt\",\r\n    \"maya_toolkit\\\\tools\\\\skin_info_and_super_connect\\\\vendor\\\\Super Connect\\\\Super_Connect\\\\icon\\\\S-Connect_100px.png\",\r\n    \"maya_toolkit\\\\tools\\\\skin_info_and_super_connect\\\\vendor\\\\Super Connect\\\\Super_Connect\\\\Install.mel\",\r\n    \"maya_toolkit\\\\tools\\\\skin_info_and_super_connect\\\\vendor\\\\Super Connect\\\\Super_Connect\\\\Super_Connect.mel\",\r\n    \"tests\\\\test_skin_info_and_super_connect.py\",\r\n    \"tests\\\\test_skin_info_and_super_connect_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/02_rigging_hierarchy/skin_info_and_super_connect/release_candidate/tests/test_skin_info_and_super_connect_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_all_formats_roundtrip_exclusive_export_and_timal_bind (__main__.MayaChecks.test_all_formats_roundtrip_exclusive_export_and_timal_bind) ... �����ı�����Ȩ��Ϊ��C:\\Users\\zwj87\\AppData\\Local\\Temp\\skin_suite_bd3worsc/skinMesh.xml����\n�����ı�����Ȩ��Ϊ��C:\\Users\\zwj87\\AppData\\Local\\Temp\\skin_suite_bd3worsc/skinMesh.json����\n����: SkinInfoSuperConnectTool_skin_info_and_super_connect\n����: ָ����Ȩ����Ҫ���й�һ���޸ġ�\n����: SkinInfoSuperConnectTool_skin_info_and_super_connect\n����: ָ����Ȩ����Ҫ���й�һ���޸ġ�\n�����ı�����Ȩ��Ϊ��C:\\Users\\zwj87\\AppData\\Local\\Temp\\skin_suite_bd3worsc/timalMap_sknCls.xml����\nok\r\ntest_complete_native_definitions_compile_without_execution (__main__.MayaChecks.test_complete_native_definitions_compile_without_execution) ... ok\r\ntest_direct_all_axes_prefix_and_constraints_motion_undo (__main__.MayaChecks.test_direct_all_axes_prefix_and_constraints_motion_undo) ... ����: \n����: SkinInfoSuperConnectTool_skin_info_and_super_connect\n����: SkinInfoSuperConnectTool_skin_info_and_super_connect\n����: SkinInfoSuperConnectTool_skin_info_and_super_connect\n����: SkinInfoSuperConnectTool_skin_info_and_super_connect\n����: SkinInfoSuperConnectTool_skin_info_and_super_connect\nok\r\ntest_transfer_copy_weighted_info_and_undo (__main__.MayaChecks.test_transfer_copy_weighted_info_and_undo) ... ����: SkinInfoSuperConnectTool_skin_info_and_super_connect\nok\r\ntest_txt_no_eval_topology_and_joint_weight_locks (__main__.MayaChecks.test_txt_no_eval_topology_and_joint_weight_locks) ... �����ı�����Ȩ��Ϊ��C:\\Users\\zwj87\\AppData\\Local\\Temp\\tmpm2r196o7/skinMesh.xml����\n����: SkinInfoSuperConnectTool_skin_info_and_super_connect\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.116s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "411f35b4beaaa5476e268b0bf86f38fe84ba5767db9690d78453157c5f1f5565",
+          "runtime_source_sha256": "d82aea0d712fc4df066a785ea496b5ee26502d435d366ec1f016e21a317e34fc"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya GUI, production skin/topology/pose compatibility, delete history and other versions not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "bf159b86e28e6bb51e36c596367bd4d2a6b7f5381d0e8d98cbb09c8a9f6e1d65",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.003s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI, production skin/rig/topology compatibility and other versions not_run",
+        "External export files are not Maya Undo; old unverified topology requires explicit acknowledgement",
+        "Original unsafe MEL text evaluation and overwrite paths replaced; legacy procedures retained for audit, not called by public API/UI",
+        "Original installer never executed; no license inferred or publishing performed"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 0,
@@ -10737,7 +10801,56 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "d9ea429df347d9e275461075eca1bebfb74f965f5b24781133fd745315f98d97"
+      "source_tree_sha256": "05d45d42fef60ef615b8d79ed70943b348755601146a65ac252200cad1edf993",
+      "candidate_path": "tools_staging_pool/02_rigging_hierarchy/skin_info_and_super_connect/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/02_rigging_hierarchy/skin_info_and_super_connect/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "skin_info_and_super_connect",
+        "candidate_sha256": "bf159b86e28e6bb51e36c596367bd4d2a6b7f5381d0e8d98cbb09c8a9f6e1d65",
+        "applied": false,
+        "files": [
+          "docs\\tools\\skin_info_and_super_connect.md",
+          "maya_toolkit\\tools\\skin_info_and_super_connect\\__init__.py",
+          "maya_toolkit\\tools\\skin_info_and_super_connect\\catalog.json",
+          "maya_toolkit\\tools\\skin_info_and_super_connect\\connect_legacy.mel",
+          "maya_toolkit\\tools\\skin_info_and_super_connect\\connect_ui.mel",
+          "maya_toolkit\\tools\\skin_info_and_super_connect\\operations.py",
+          "maya_toolkit\\tools\\skin_info_and_super_connect\\skin17_legacy.mel",
+          "maya_toolkit\\tools\\skin_info_and_super_connect\\skin17_ui.mel",
+          "maya_toolkit\\tools\\skin_info_and_super_connect\\skin192_legacy.mel",
+          "maya_toolkit\\tools\\skin_info_and_super_connect\\skin192_ui.mel",
+          "maya_toolkit\\tools\\skin_info_and_super_connect\\timal_original.py",
+          "maya_toolkit\\tools\\skin_info_and_super_connect\\tool.py",
+          "maya_toolkit\\tools\\skin_info_and_super_connect\\ui.py",
+          "maya_toolkit\\tools\\skin_info_and_super_connect\\vendor\\Export & Import Skin Weights Script\\Export-Import JointsWeights v1.3 UI Class.txt",
+          "maya_toolkit\\tools\\skin_info_and_super_connect\\vendor\\Export - Import SkinCluster\\skinInfo_V1.7.mel",
+          "maya_toolkit\\tools\\skin_info_and_super_connect\\vendor\\Export - Import SkinCluster\\skinInfo_V1.92.mel",
+          "maya_toolkit\\tools\\skin_info_and_super_connect\\vendor\\Super Connect\\Super_Connect\\How to install.txt",
+          "maya_toolkit\\tools\\skin_info_and_super_connect\\vendor\\Super Connect\\Super_Connect\\icon\\S-Connect_100px.png",
+          "maya_toolkit\\tools\\skin_info_and_super_connect\\vendor\\Super Connect\\Super_Connect\\Install.mel",
+          "maya_toolkit\\tools\\skin_info_and_super_connect\\vendor\\Super Connect\\Super_Connect\\Super_Connect.mel",
+          "tests\\test_skin_info_and_super_connect.py",
+          "tests\\test_skin_info_and_super_connect_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "Export & Import Skin Weights Script/Export-Import JointsWeights v1.3 UI Class.txt",
+        "Export - Import SkinCluster/skinInfo_V1.7.mel",
+        "Export - Import SkinCluster/skinInfo_V1.92.mel",
+        "Super Connect/Super_Connect/How to install.txt",
+        "Super Connect/Super_Connect/icon/S-Connect_100px.png",
+        "Super Connect/Super_Connect/Install.mel",
+        "Super Connect/Super_Connect/Super_Connect.mel"
+      ],
+      "external_dependencies": [
+        "Maya cmds/MEL/deformerWeights; original full GUI in interactive Maya"
+      ],
+      "source_preserved": true,
+      "change_summary": "Whole SkinInfo 1.92/1.7, SuperConnect, Timal 1.3, installer/icon/source provenance preserved. Full info/weighted influences/JSON/XML/batch import-export/bind/transfer/copy/weight locks plus prefix pairing direct/parent/point/orient channels and complete UI routes, explicit no-overwrite files and non-executable TXT influence parser, dry scope and Undo.",
+      "prepared_at": "2026-10-02T01:02:27.749389+08:00"
     },
     {
       "source_path": "02_rigging_hierarchy/skin_magic",

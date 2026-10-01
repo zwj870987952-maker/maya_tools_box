@@ -1,0 +1,262 @@
+global proc scpstg_connect_Store_01() {python("__import__('maya_toolkit.tools.skin_info_and_super_connect.ui',fromlist=['dispatch']).dispatch('connect','Store_01')");}
+global proc scpstg_connect_Store_02() {python("__import__('maya_toolkit.tools.skin_info_and_super_connect.ui',fromlist=['dispatch']).dispatch('connect','Store_02')");}
+global proc scpstg_connect_Connect() {python("__import__('maya_toolkit.tools.skin_info_and_super_connect.ui',fromlist=['dispatch']).dispatch('connect','Connect')");}
+global proc scpstg_connect_Super_Direct_Connect() {python("__import__('maya_toolkit.tools.skin_info_and_super_connect.ui',fromlist=['dispatch']).dispatch('connect','Super_Direct_Connect')");}
+global proc scpstg_connect_Super_ParentConstraint() {python("__import__('maya_toolkit.tools.skin_info_and_super_connect.ui',fromlist=['dispatch']).dispatch('connect','Super_ParentConstraint')");}
+global proc scpstg_connect_Super_Point_Orient() {python("__import__('maya_toolkit.tools.skin_info_and_super_connect.ui',fromlist=['dispatch']).dispatch('connect','Super_Point_Orient')");}
+global proc scpstg_connect_showUI() {
+
+////////////////////////////////////////////////////////////////////
+// Name:        Super scpstg_connect_Connect tool                                //
+// Written by:  Khaled Hussein (KhaledGraphic@msn.com)            //
+// Version:     1.00                                              //
+//----------------------------------------------------------------//
+// Gumroad:     gumroad.com/khaledhussein                         //
+// Facebook:    www.facebook.com/khaled.graphic                   //
+// Youtube:     www.youtube.com/channel/UCZ1sYFZKE8bdHR7lMPhzTMQ  //
+// Vimeo:       https://vimeo.com/user71502391                    //
+////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+if (`window -exists scpstg_connect_Super_Connect`)
+{
+   deleteUI scpstg_connect_Super_Connect;
+}
+//windowPref -ra;
+
+window -rtf off -t "Super scpstg_connect_Connect v1.00" -s on -wh 300 100 -minimizeButton false -maximizeButton false scpstg_connect_Super_Connect;
+columnLayout -adj on -rowSpacing 1 -w 550  -columnAttach "both" 7;
+
+rowLayout -numberOfColumns 3
+    //-columnWidth3 80 75 150
+    -adjustableColumn 2
+    -columnAlign  1 "right"
+    -columnAttach 1 "both" 0
+    -columnAttach 2 "both" 0
+    -columnAttach 3 "both" 0;
+    columnLayout -adj off -rowSpacing 1;
+		text -al "left" -l "" -h 5;
+		text -al "left" -l "Source objects." -font "boldLabelFont";
+		text -al "left" -l "" -h 5;
+		button -l "Add Selection" -w 120 -h 20  -c "scpstg_connect_Store_02";
+		text -al "left" -l "" -h 2;
+		textScrollList -highlightColor 0.40 0.6 0.1 -h 80 scpstg_connect_ChangeControlsTSL_02;
+		text -al "left" -l "" -h 2;
+		textFieldGrp
+			-columnAlign 1 left
+			-columnAlign 2 right
+			-columnWidth 1 90
+			-columnWidth 2 158
+			-l "Source prefix:"
+			-highlightColor 0.40 0.6 0.1
+			-tx ""
+			scpstg_connect_SourceTXF;
+		setParent ..;
+
+	separator -horizontal off -style "shelf" -h 150;
+
+    columnLayout -adj off -rowSpacing 1;
+		text -al "left" -l "" -h 5;
+		text -al "left" -l "Destination objects." -font "boldLabelFont";
+		text -al "left" -l "" -h 5;
+		button -l "Add Selection" -w 120 -h 20  -c "scpstg_connect_Store_01";
+		text -al "left" -l "" -h 2;
+		textScrollList -highlightColor 0.40 0.6 0.1 -h 80 scpstg_connect_ChangeControlsTSL_01;
+		text -al "left" -l "" -h 2;
+		textFieldGrp
+			-columnAlign 1 left
+			-columnAlign 2 right
+			-columnWidth 1 110
+			-columnWidth 2 138
+			-l "Destination prefix:"
+			-highlightColor 0.40 0.6 0.1
+			-tx ""
+			scpstg_connect_DestinationTXF;
+		setParent ..;
+
+setParent ..;
+
+
+
+
+
+separator  -st "in" ;
+text -al "left" -l "" -h 2;
+
+
+rowLayout -numberOfColumns 3
+    -columnWidth3 200 200 150
+    -adjustableColumn 2
+    -columnAlign  1 "left"
+    -columnAlign  3 "right"
+    -columnAttach 1 "both" 0
+    -columnAttach 2 "both" 0
+    -columnAttach 3 "both" 0;
+	radioCollection;
+    radioButton
+        -label "Direct scpstg_connect_Connect"
+        -sl
+        -offCommand "checkBoxGrp -e -editable off scpstg_connect_Direct_T_CHB; checkBoxGrp -e -editable off scpstg_connect_Direct_R_CHB; checkBoxGrp -e -editable off scpstg_connect_Direct_S_CHB;"
+        -onCommand "checkBoxGrp -e -editable on scpstg_connect_Direct_T_CHB; checkBoxGrp -e -editable on scpstg_connect_Direct_R_CHB; checkBoxGrp -e -editable on scpstg_connect_Direct_S_CHB;"
+        scpstg_connect_RB1;
+    radioButton
+        -label "Parent Constraint"
+        -offCommand "checkBoxGrp -e -editable off scpstg_connect_Parent_constraints_CHB;"
+        -onCommand "checkBoxGrp -e -editable on scpstg_connect_Parent_constraints_CHB;"
+        scpstg_connect_RB2;
+	radioButton
+        -label "Point / Orient Constraint"
+        -offCommand "checkBoxGrp -e -editable off scpstg_connect_Point_Orient_constraints_CHB;"
+        -onCommand "checkBoxGrp -e -editable on scpstg_connect_Point_Orient_constraints_CHB;"
+        scpstg_connect_RB3;
+    setParent ..;
+
+rowLayout -numberOfColumns 3
+    -columnWidth3 200 200 150
+    -adjustableColumn 2
+    -columnAlign  1 "left"
+    -columnAlign  3 "right"
+    -columnAttach 1 "both" 0
+    -columnAttach 2 "both" 0
+    -columnAttach 3 "both" 0;
+	columnLayout ; // First column.
+		checkBoxGrp // Translate.
+			-numberOfCheckBoxes 3
+            -highlightColor 0.40 0.6 0.1
+            -columnWidth 1 50
+            -columnWidth 2 50
+            -columnWidth 3 50
+			-l1 "Tx" -l2 "Ty" -l3 "Tz"
+			-v1 1 -v2 1 -v3 1
+			scpstg_connect_Direct_T_CHB;
+
+        checkBoxGrp // Rotate.
+			-numberOfCheckBoxes 3
+            -highlightColor 0.40 0.6 0.1
+            -columnWidth 1 50
+            -columnWidth 2 50
+            -columnWidth 3 50
+			-l1 "Rx" -l2 "Ry" -l3 "Rz"
+			-v1 1 -v2 1 -v3 1
+			scpstg_connect_Direct_R_CHB;
+
+        checkBoxGrp // Scale.
+			-numberOfCheckBoxes 3
+            -highlightColor 0.40 0.6 0.1
+            -columnWidth 1 50
+            -columnWidth 2 50
+            -columnWidth 3 50
+			-l1 "Sx" -l2 "Sy" -l3 "Sz"
+			-v1 1 -v2 1 -v3 1
+			scpstg_connect_Direct_S_CHB;
+
+		setParent ..;
+	columnLayout ; // Second column.
+        checkBoxGrp // Parent constraints.
+			-numberOfCheckBoxes 2
+            -highlightColor 0.40 0.6 0.1
+            -columnWidth 1 200
+            -columnWidth 2 200
+            -rowAttach 1 "top" 0
+            -rowAttach 2 "top" 10
+            -vertical
+            -editable off
+			-l1 "Maintain offset"
+            -l2 "Parent Constraint"
+			-v1 1 -v2 1
+			scpstg_connect_Parent_constraints_CHB;
+
+		setParent ..;
+	columnLayout ; // Third column.
+        checkBoxGrp // Point / Orient constraints.
+			-numberOfCheckBoxes 3
+            -highlightColor 0.40 0.6 0.1
+            -columnWidth 1 200
+            -columnWidth 2 200
+            -rowAttach 1 "top" 0
+            -vertical
+            -editable off
+			-l1 "Maintain offset"
+            -l2 "Point Constraint"
+            -l3 "Orient Constraint"
+			-v1 1 -v2 0 -v3 0
+			scpstg_connect_Point_Orient_constraints_CHB;
+
+		setParent ..;
+    setParent ..;
+
+
+
+
+text -al "left" -l "" -h 2;
+separator -st "in" ;
+
+
+text -l "" -h 3;
+progressBar -minValue 0 -maxValue 10 -height 14  -highlightColor 0.40 0.45 0.1 scpstg_connect_CBSprogressBar;
+text -l "" -h 3;
+separator -st "in" ;
+
+
+text -l "" -h 3;
+button -l "scpstg_connect_Connect" -w 100 -h 25 -bgc 0.40 0.45 .1 -c "scpstg_connect_Connect" button1;
+text -l "" -h 3;
+separator -st "in" ;
+
+
+//text -l "^_^"  ;
+textField -backgroundColor .2 .2 .2 -editable false -height 22 -tx "-------------------------------------------    Developed by: Khaled Hussein    -------------------------------------------";
+text -l "" -h 3 ;
+showWindow scpstg_connect_Super_Connect;
+//=========================================================================================================================================
+
+
+
+global string $Destination_prefix;
+global string $Source_prefix;
+textFieldGrp -e -tx $Destination_prefix scpstg_connect_DestinationTXF;
+textFieldGrp -e -tx $Source_prefix scpstg_connect_SourceTXF;
+
+
+
+
+
+
+
+
+
+// Remove Namespace:============================================================================================
+
+
+
+// Direct scpstg_connect_Connect:-----------------------------------------------------------------------------------------------------
+
+// Parent Constraint:-----------------------------------------------------------------------------------------------------
+
+
+// Point\Orient Constraint:-----------------------------------------------------------------------------------------------------
+
+
+
+
+////////////////////////////////////////////////////////////////////
+// Name:        Super scpstg_connect_Connect tool                                //
+// Written by:  Khaled Hussein (KhaledGraphic@msn.com)            //
+// Version:     1.00                                              //
+//----------------------------------------------------------------//
+// Gumroad:     gumroad.com/khaledhussein                         //
+// Facebook:    www.facebook.com/khaled.graphic                   //
+// Youtube:     www.youtube.com/channel/UCZ1sYFZKE8bdHR7lMPhzTMQ  //
+// Vimeo:       https://vimeo.com/user71502391                    //
+////////////////////////////////////////////////////////////////////
+}

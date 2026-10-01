@@ -1,0 +1,117 @@
+{
+  "tool_id": "skin_info_and_super_connect",
+  "registration": {
+    "module": "skin_info_and_super_connect",
+    "class_name": "SkinInfoSuperConnectTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/skin_info_and_super_connect.md",
+      "target": "docs/tools/skin_info_and_super_connect.md"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_info_and_super_connect/__init__.py",
+      "target": "maya_toolkit/tools/skin_info_and_super_connect/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_info_and_super_connect/catalog.json",
+      "target": "maya_toolkit/tools/skin_info_and_super_connect/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_info_and_super_connect/connect_legacy.mel",
+      "target": "maya_toolkit/tools/skin_info_and_super_connect/connect_legacy.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_info_and_super_connect/connect_ui.mel",
+      "target": "maya_toolkit/tools/skin_info_and_super_connect/connect_ui.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_info_and_super_connect/operations.py",
+      "target": "maya_toolkit/tools/skin_info_and_super_connect/operations.py"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_info_and_super_connect/skin17_legacy.mel",
+      "target": "maya_toolkit/tools/skin_info_and_super_connect/skin17_legacy.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_info_and_super_connect/skin17_ui.mel",
+      "target": "maya_toolkit/tools/skin_info_and_super_connect/skin17_ui.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_info_and_super_connect/skin192_legacy.mel",
+      "target": "maya_toolkit/tools/skin_info_and_super_connect/skin192_legacy.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_info_and_super_connect/skin192_ui.mel",
+      "target": "maya_toolkit/tools/skin_info_and_super_connect/skin192_ui.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_info_and_super_connect/timal_original.py",
+      "target": "maya_toolkit/tools/skin_info_and_super_connect/timal_original.py"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_info_and_super_connect/tool.py",
+      "target": "maya_toolkit/tools/skin_info_and_super_connect/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_info_and_super_connect/ui.py",
+      "target": "maya_toolkit/tools/skin_info_and_super_connect/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_info_and_super_connect/vendor/Export & Import Skin Weights Script/Export-Import JointsWeights v1.3 UI Class.txt",
+      "target": "maya_toolkit/tools/skin_info_and_super_connect/vendor/Export & Import Skin Weights Script/Export-Import JointsWeights v1.3 UI Class.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_info_and_super_connect/vendor/Export - Import SkinCluster/skinInfo_V1.7.mel",
+      "target": "maya_toolkit/tools/skin_info_and_super_connect/vendor/Export - Import SkinCluster/skinInfo_V1.7.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_info_and_super_connect/vendor/Export - Import SkinCluster/skinInfo_V1.92.mel",
+      "target": "maya_toolkit/tools/skin_info_and_super_connect/vendor/Export - Import SkinCluster/skinInfo_V1.92.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_info_and_super_connect/vendor/Super Connect/Super_Connect/How to install.txt",
+      "target": "maya_toolkit/tools/skin_info_and_super_connect/vendor/Super Connect/Super_Connect/How to install.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_info_and_super_connect/vendor/Super Connect/Super_Connect/icon/S-Connect_100px.png",
+      "target": "maya_toolkit/tools/skin_info_and_super_connect/vendor/Super Connect/Super_Connect/icon/S-Connect_100px.png"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_info_and_super_connect/vendor/Super Connect/Super_Connect/Install.mel",
+      "target": "maya_toolkit/tools/skin_info_and_super_connect/vendor/Super Connect/Super_Connect/Install.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_info_and_super_connect/vendor/Super Connect/Super_Connect/Super_Connect.mel",
+      "target": "maya_toolkit/tools/skin_info_and_super_connect/vendor/Super Connect/Super_Connect/Super_Connect.mel"
+    },
+    {
+      "source": "tests/test_skin_info_and_super_connect.py",
+      "target": "tests/test_skin_info_and_super_connect.py"
+    },
+    {
+      "source": "tests/test_skin_info_and_super_connect_maya.py",
+      "target": "tests/test_skin_info_and_super_connect_maya.py"
+    }
+  ],
+  "resources": [
+    "Export & Import Skin Weights Script/Export-Import JointsWeights v1.3 UI Class.txt",
+    "Export - Import SkinCluster/skinInfo_V1.7.mel",
+    "Export - Import SkinCluster/skinInfo_V1.92.mel",
+    "Super Connect/Super_Connect/How to install.txt",
+    "Super Connect/Super_Connect/icon/S-Connect_100px.png",
+    "Super Connect/Super_Connect/Install.mel",
+    "Super Connect/Super_Connect/Super_Connect.mel"
+  ],
+  "dependencies": [
+    "Maya cmds/MEL/deformerWeights; original full GUI in interactive Maya"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Whole SkinInfo 1.92/1.7, SuperConnect, Timal 1.3, installer/icon/source provenance preserved. Full info/weighted influences/JSON/XML/batch import-export/bind/transfer/copy/weight locks plus prefix pairing direct/parent/point/orient channels and complete UI routes, explicit no-overwrite files and non-executable TXT influence parser, dry scope and Undo.",
+  "verification_limitations": [
+    "Real Maya GUI, production skin/rig/topology compatibility and other versions not_run",
+    "External export files are not Maya Undo; old unverified topology requires explicit acknowledgement",
+    "Original unsafe MEL text evaluation and overwrite paths replaced; legacy procedures retained for audit, not called by public API/UI",
+    "Original installer never executed; no license inferred or publishing performed"
+  ]
+}
