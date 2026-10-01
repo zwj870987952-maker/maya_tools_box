@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T02:52:56.544396+08:00",
+  "updated_at": "2026-10-02T03:01:01.267958+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "02_rigging_hierarchy/skin_magic",
+    "last_completed_tool": "02_rigging_hierarchy/skin_weight_transfer",
     "last_usage": {
-      "five_hour_used_percent": 4.0,
-      "weekly_used_percent": 31.0,
-      "recorded_at": "2026-10-02T02:15:55.938845+08:00",
+      "five_hour_used_percent": 18.0,
+      "weekly_used_percent": 33.0,
+      "recorded_at": "2026-10-02T02:53:13.125537+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "02_rigging_hierarchy/skin_magic"
+    "current_tool": "02_rigging_hierarchy/skin_weight_transfer"
   },
   "entry_repairs": [
     {
@@ -11197,7 +11197,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete 250 upstream functions and all 41 source/resources retained with byte archive; lazy private Python3 port, full four-language UI callback binding, supplemental Gore controls, schema/API/batch weights, safe JSON replacing pickle, exclusive exports/private XML, no internal Undo/global shader/annotation cleanup, scoped ownership/dry-run, docs/tests/promotion.",
-      "prepared_at": "2026-10-02T02:49:28.454522+08:00"
+      "prepared_at": "2026-10-02T02:49:28.454522+08:00",
+      "source_commit": "c2b56000e6b2aff35deb1de6c72ae708329e69df"
     },
     {
       "source_path": "02_rigging_hierarchy/skin_weight_transfer",
@@ -11208,20 +11209,83 @@
       "entry_candidates": [
         "骨骼权重转移.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "骨骼权重转移.py"
       ],
       "license_files": [],
       "entry_sha256": "bd1673267bd40227c1487a60606c77dace103b761f1bd8edd635b1215694a9d0",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "...\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.002s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"skin_weight_transfer\",\r\n  \"candidate_sha256\": \"fae92bc24548969ddf25c27ff0299d4fc0c586fdfc5f267b1e9cb52bef004cb0\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\skin_weight_transfer.md\",\r\n    \"maya_toolkit\\\\tools\\\\skin_weight_transfer\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\skin_weight_transfer\\\\algorithms.py\",\r\n    \"maya_toolkit\\\\tools\\\\skin_weight_transfer\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\skin_weight_transfer\\\\operations.py\",\r\n    \"maya_toolkit\\\\tools\\\\skin_weight_transfer\\\\original_logic.py\",\r\n    \"maya_toolkit\\\\tools\\\\skin_weight_transfer\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\skin_weight_transfer\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\skin_weight_transfer\\\\upstream\\\\\\u9aa8\\u9abc\\u6743\\u91cd\\u8f6c\\u79fb.py.original\",\r\n    \"tests\\\\test_skin_weight_transfer.py\",\r\n    \"tests\\\\test_skin_weight_transfer_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/02_rigging_hierarchy/skin_weight_transfer/release_candidate/tests/test_skin_weight_transfer_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": ".����: SkinWeightTransferTool_skin_weight_transfer\n.����: SkinWeightTransferTool_skin_weight_transfer\n.����: SkinWeightTransferTool_skin_weight_transfer\n.\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.037s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "474e7b7ec2555cdf7c71066d30501c2c98f99e02dc9fa10131233c4a73025663",
+          "runtime_source_sha256": "2d55e43e383ed44f6d0960b88b0f522d7a84fc8cfe72ecbcb36c5bc9a25b07a9"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real interactive Maya GUI, production large meshes and other versions not_run."
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "fae92bc24548969ddf25c27ff0299d4fc0c586fdfc5f267b1e9cb52bef004cb0",
+          "returncode": 0,
+          "output": "...\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.002s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI and production large meshes/other Maya versions not_run",
+        "Undoable per-vertex cmds writes may be slower than original non-undoable API bulk setWeights",
+        "Reject locked/reference/instanced/multi-skin/multi-geometry targets, ambiguous names, input-driven skin weight data and unsupported non-linear skin modes",
+        "All-list preflight rejects invalid tasks rather than silently skipping meshes; unexpected execution error may leave partial changes, Undo once before continuing"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -11230,7 +11294,39 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "02d81c1ea8dafdc1c8e522ea194ecf46c220cc5a226b786fda670965974ec391"
+      "source_tree_sha256": "13e629b27968c4df228ccf9f17393a7fdaa33ce78626cccb183d746c8cbddb50",
+      "candidate_path": "tools_staging_pool/02_rigging_hierarchy/skin_weight_transfer/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/02_rigging_hierarchy/skin_weight_transfer/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "skin_weight_transfer",
+        "candidate_sha256": "fae92bc24548969ddf25c27ff0299d4fc0c586fdfc5f267b1e9cb52bef004cb0",
+        "applied": false,
+        "files": [
+          "docs\\tools\\skin_weight_transfer.md",
+          "maya_toolkit\\tools\\skin_weight_transfer\\__init__.py",
+          "maya_toolkit\\tools\\skin_weight_transfer\\algorithms.py",
+          "maya_toolkit\\tools\\skin_weight_transfer\\catalog.json",
+          "maya_toolkit\\tools\\skin_weight_transfer\\operations.py",
+          "maya_toolkit\\tools\\skin_weight_transfer\\original_logic.py",
+          "maya_toolkit\\tools\\skin_weight_transfer\\tool.py",
+          "maya_toolkit\\tools\\skin_weight_transfer\\ui.py",
+          "maya_toolkit\\tools\\skin_weight_transfer\\upstream\\骨骼权重转移.py.original",
+          "tests\\test_skin_weight_transfer.py",
+          "tests\\test_skin_weight_transfer_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "骨骼权重转移.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/OpenMaya/OpenMayaAnim API2"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete ordered multiline source->target->meshes->DelSkin business retained, original full function and bytes archive, native API bulk reads plus undoable exact influence row writes/normalization, remove source influence, auto discover linked skin meshes, strict scope/full-list simulated influence preflight, whole task-list UI/schema/docs/tests/promotion.",
+      "prepared_at": "2026-10-02T03:00:23.785807+08:00"
     },
     {
       "source_path": "03_transforms_modeling/camera_f_fix",

@@ -559,3 +559,10 @@
 - 权重与LoD pickle改64MiB安全JSON、独占输出，旧pickle明确拒绝；XML私有临时目录、实体/影响/顶点数/点值保护，原deformerWeights后API复原再skinPercent回放实现可撤销；保留原GUI导出2位精度，cmds批量完整精度。恢复选优先级/影响锁/AutoKey/time/isolate/源BS，原颜色代理按UUID清理/显示复原。
 - 5组Python+4组Maya2025隔离+临时正式布局注册/rigging域/panel/fingerprint通过：完整原字节/函数/UI/图标闭包，安全数据/恶意pickle与XML实体拒绝，真实skin指定顶点/未选顶点/no-write dry/单Undo；JSON导出不覆盖/导入Undo、XML实际weight与Undo/无holdernode，锁/错范围/实例/GUI依赖拒绝。完整PyMel、真实GUI、生产LoD/Gore/Wrap/代理及跨版本not_run；prepared_unverified，非假通过。
 - 收尾实时5h已用18%（剩82%）、周33%（剩67%），立即继续skin_weight_transfer；heartbeat保持暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：骨骼权重转移完整候选，累计64/109
+
+- 原15函数与单文件SHA完整归档，原字节不改。完整源->目标->多mesh->DelSkin有序行、源关节已连skin自动发现、merge/normalize/remove-influence、载入选择/多行列表/UI执行+预检、Base/ToolResult/Schema/知识/测试/晋级全部备齐。
+- 精确UUID/DAG匹配拒绝歧义shortname、自身、重复shape/transform别名、缺影响、锁/引用/实例、多skin/多geometry/驱动数据/maintainMaxInfluences/DQ。全部任务预检模拟删除影响，坏后行不让前行偷偷写。API批量读保留，不可Undo的API写改逐顶点cmds写完整归一化与原removeInfluence，顺序读实际前行权重，完整单Undo。
+- 3组离线+4组Maya2025隔离+临时正式布局/注册/rigging/panel/fingerprint全部通过：真实全顶点0/.5/.5/dry场景选择时间Undo不变/oneUndo；源连接自动发现、A->B移除A后B->C最终C=1、Undo恢复影响与原权重；非归一化.8/.4/.8->0/.6/.4及Undo原值；全表错误/已删除影响/自身/alias/锁/实例/GUIbatch拒绝。发现误用了命令flag名skinMethod作属性，修正真实skinningMethod后全部通过，未掩盖错误。
+- core get_skin_cluster/正式weights_copy是不同作用域，复用框架Undo、不改core。GUI/生产大网格性能/其它版本not_run；prepared_unverified。实际5h22%已用、周34%，继续camera_f_fix，heartbeat保持暂停，不迁正式/同步/用卡/购买。

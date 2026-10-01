@@ -1,0 +1,67 @@
+{
+  "tool_id": "skin_weight_transfer",
+  "registration": {
+    "module": "skin_weight_transfer",
+    "class_name": "SkinWeightTransferTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/skin_weight_transfer.md",
+      "target": "docs/tools/skin_weight_transfer.md"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_weight_transfer/__init__.py",
+      "target": "maya_toolkit/tools/skin_weight_transfer/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_weight_transfer/algorithms.py",
+      "target": "maya_toolkit/tools/skin_weight_transfer/algorithms.py"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_weight_transfer/catalog.json",
+      "target": "maya_toolkit/tools/skin_weight_transfer/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_weight_transfer/operations.py",
+      "target": "maya_toolkit/tools/skin_weight_transfer/operations.py"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_weight_transfer/original_logic.py",
+      "target": "maya_toolkit/tools/skin_weight_transfer/original_logic.py"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_weight_transfer/tool.py",
+      "target": "maya_toolkit/tools/skin_weight_transfer/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_weight_transfer/ui.py",
+      "target": "maya_toolkit/tools/skin_weight_transfer/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/skin_weight_transfer/upstream/骨骼权重转移.py.original",
+      "target": "maya_toolkit/tools/skin_weight_transfer/upstream/骨骼权重转移.py.original"
+    },
+    {
+      "source": "tests/test_skin_weight_transfer.py",
+      "target": "tests/test_skin_weight_transfer.py"
+    },
+    {
+      "source": "tests/test_skin_weight_transfer_maya.py",
+      "target": "tests/test_skin_weight_transfer_maya.py"
+    }
+  ],
+  "resources": [
+    "骨骼权重转移.py"
+  ],
+  "dependencies": [
+    "Maya cmds/OpenMaya/OpenMayaAnim API2"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete ordered multiline source->target->meshes->DelSkin business retained, original full function and bytes archive, native API bulk reads plus undoable exact influence row writes/normalization, remove source influence, auto discover linked skin meshes, strict scope/full-list simulated influence preflight, whole task-list UI/schema/docs/tests/promotion.",
+  "verification_limitations": [
+    "Real Maya GUI and production large meshes/other Maya versions not_run",
+    "Undoable per-vertex cmds writes may be slower than original non-undoable API bulk setWeights",
+    "Reject locked/reference/instanced/multi-skin/multi-geometry targets, ambiguous names, input-driven skin weight data and unsupported non-linear skin modes",
+    "All-list preflight rejects invalid tasks rather than silently skipping meshes; unexpected execution error may leave partial changes, Undo once before continuing"
+  ]
+}
