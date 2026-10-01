@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T04:39:55.843032+08:00",
+  "updated_at": "2026-10-02T04:47:20.520995+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "03_transforms_modeling/isolate_selected",
+    "last_completed_tool": "03_transforms_modeling/mirror_tool",
     "last_usage": {
-      "five_hour_used_percent": 61.0,
-      "weekly_used_percent": 40.0,
-      "recorded_at": "2026-10-02T04:27:42.340313+08:00",
+      "five_hour_used_percent": 66.0,
+      "weekly_used_percent": 41.0,
+      "recorded_at": "2026-10-02T04:40:02.083850+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "03_transforms_modeling/isolate_selected"
+    "current_tool": "03_transforms_modeling/mirror_tool"
   },
   "entry_repairs": [
     {
@@ -14843,7 +14843,8 @@
       ],
       "source_preserved": true,
       "change_summary": "完整隔离/恢复/UI/API；直接shape与选中后代路径保持，UUID持久记录仅恢复本次visibility及原视图集合，严格只读预检/Undo/候选晋级",
-      "prepared_at": "2026-10-02T04:38:58.899859+08:00"
+      "prepared_at": "2026-10-02T04:38:58.899859+08:00",
+      "source_commit": "60d5429f8329c88d2f7dc062a88e3e47953b12cd"
     },
     {
       "source_path": "03_transforms_modeling/mirror_tool",
@@ -14854,20 +14855,80 @@
       "entry_candidates": [
         "mirror_tool.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "mirror_tool.py"
       ],
       "license_files": [],
       "entry_sha256": "5bc455be147f104610646d6f19208d06e8e928688aff31dcd1caac705f5d21b2",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.004s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"mirror_tool\",\r\n  \"candidate_sha256\": \"92de1513ca87b0b7060224b7d5f8d60ad748bf65a9420d92028d8188f8e3c197\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\mirror_tool.md\",\r\n    \"maya_toolkit\\\\tools\\\\mirror_tool\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\mirror_tool\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\mirror_tool\\\\native.py\",\r\n    \"maya_toolkit\\\\tools\\\\mirror_tool\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\mirror_tool\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\mirror_tool\\\\upstream\\\\mirror_tool.py.original\",\r\n    \"tests\\\\test_mirror_tool.py\",\r\n    \"tests\\\\test_mirror_tool_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/03_transforms_modeling/mirror_tool/release_candidate/tests/test_mirror_tool_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "����: MirrorTransformTool_mirror_tool\n����: MirrorTransformTool_mirror_tool\n����: MirrorTransformTool_mirror_tool\n����: MirrorTransformTool_mirror_tool\n����: MirrorTransformTool_mirror_tool\n����: MirrorTransformTool_mirror_tool\n����: MirrorTransformTool_mirror_tool\n����: MirrorTransformTool_mirror_tool\n����: MirrorTransformTool_mirror_tool\n..����: MirrorTransformTool_mirror_tool\n����: MirrorTransformTool_mirror_tool\n.\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.042s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "e52ffb05b49de40d3d8773f43eb2e901315afd34e3171252e633dd3e38210646",
+          "runtime_source_sha256": "9699dcba591b03329197a305157ca89d16adb26ab4ddb95fa3778041180ccd7f"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "真实GUI/复杂rig、pivot/旋转顺序/跨版本not_run；Maya2025九组合原实际矩阵与Undo比对通过"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "92de1513ca87b0b7060224b7d5f8d60ad748bf65a9420d92028d8188f8e3c197",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.004s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "真实GUI、生产复杂rig/旋转顺序/pivot与跨版本not_run"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -14876,7 +14937,37 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "ab1159f02dcf43577947bfa4f58a38b74e5d198372bbb16584d137f3a927eb7f"
+      "source_tree_sha256": "8de9a23699a098729d6ed7a05ed562c3f9d17cc2e07d034a8e778ddce87cea14",
+      "candidate_path": "tools_staging_pool/03_transforms_modeling/mirror_tool/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/03_transforms_modeling/mirror_tool/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "mirror_tool",
+        "candidate_sha256": "92de1513ca87b0b7060224b7d5f8d60ad748bf65a9420d92028d8188f8e3c197",
+        "applied": false,
+        "files": [
+          "docs\\tools\\mirror_tool.md",
+          "maya_toolkit\\tools\\mirror_tool\\__init__.py",
+          "maya_toolkit\\tools\\mirror_tool\\catalog.json",
+          "maya_toolkit\\tools\\mirror_tool\\native.py",
+          "maya_toolkit\\tools\\mirror_tool\\tool.py",
+          "maya_toolkit\\tools\\mirror_tool\\ui.py",
+          "maya_toolkit\\tools\\mirror_tool\\upstream\\mirror_tool.py.original",
+          "tests\\test_mirror_tool.py",
+          "tests\\test_mirror_tool_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "mirror_tool.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/API2"
+      ],
+      "source_preserved": true,
+      "change_summary": "完整原三平面三模式层级UI/API；basename/namespace精确配对，全部源预采样与目标父子排序，严格只读预检/Undo/文档测试晋级",
+      "prepared_at": "2026-10-02T04:46:46.707248+08:00"
     },
     {
       "source_path": "03_transforms_modeling/no_highlight_v2",

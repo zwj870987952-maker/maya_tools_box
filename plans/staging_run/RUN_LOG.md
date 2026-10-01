@@ -608,3 +608,9 @@
 - 原两文件SHA归档，完整四入口/API/Schema/原生小UI/知识/验收/晋级备齐；修正原隐藏直接shape与全场景强制恢复，保留选中后代祖先，只还原本次visibility。UUID持久network receipt与原视图集合可随场景保存/重命名/显式panel恢复，锁/引用/驱动/真实例/别名/腐坏记录/手改visibility全表拒绝。
 - 2离线+3隔离Maya2025+临时正式布局/注册/modeling_surfacing/panel/fingerprint全部通过。实际DAG/shape/visibility/UUID/receipt/单Undo与Redo、重命名、无关/原隐藏保持、选中后代祖先、锁/坏行/改值/实例拒绝。仅替换viewport adapter，不冒充原生视口验收；native batch/GUI拒绝正确。真实modelPanel/GUI/视图Undo/生产场景/跨版本not_run，prepared_unverified；意外视口失败人工Undo本调用。
 - 实际5h66%已用（剩34%）、周41%，立即继续mirror_tool；heartbeat暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：镜像变换完整候选，累计71/109
+
+- 原单文件SHA与所有类/方法/完整三平面三模式层级UI保留，UI两写入口转Base API，预制Schema/只读preflight/知识/验收/晋级。原Euler公式保留，不声称任意矩阵几何对称；精确basename/namespace路径匹配、歧义/缺侧对象拒绝、shape排除、实际目标DAG深度排序、全部源提前采样修复双侧污染。
+- 2离线+3隔离Maya2025+临时正式布局/注册/modeling_surfacing/panel/fingerprint全部通过：九组合与完整原mirror_transform实际世界矩阵一致、dry/单Undo/选区时间保持、两侧交换、父子顺序、namespace、全表锁/动画/真DAG实例/歧义拒绝。目标普通transform/正scale/无shear/identity OPM/正均匀父链及计划祖先scale严格条件；GUI/生产rig/pivot/旋转顺序/跨版本not_run，prepared_unverified。
+- 实际5h68%已用（剩32%）、周41%，立即继续no_highlight_v2；heartbeat暂停，不迁正式/同步/用卡/购买。
