@@ -544,3 +544,10 @@
 - 收尾实际5h已用96%（剩4%）、周30%，低于6%阈值；保存提交和检查点后启用同聊天30分钟heartbeat并结束本轮。动态清单第一未完成项为skeleton_generator（不是按聊天记忆猜测的skin_magic），下轮先处理该项。所有候选留池、不同步/迁正式/用卡/购买。
 
 - 额度等待转换已验证：App heartbeat ACTIVE，manifest waiting_for_quota，61/109，下一项02_rigging_hierarchy/skeleton_generator；第61项提交8f9b7fd49478045c825a1cbe5e6890b314c81ed3，真实GUI仍not_run。只有实时5小时剩余>95%、周额度允许、没有其它整理回合时才能暂停heartbeat恢复工作。
+
+# 2026-10-02：新额度回合恢复，Skeleton Generator 完整候选，累计62/109
+
+- heartbeat首次额度读失败，重读成功：5h已用1%、周31%、ordinaryUsageAllowed true。App线程列表显示当前checkout无其它active writer；同聊天heartbeat暂停已验证，resume_run进入working，实时目录109项双向对账无新增或缺项，不用卡/不购买。
+- 原选区生成骨骼链完整函数/原SHA保留，去自动执行。完整joint/locator所选森林，原joint-first/direct-selected-parent边界、world TR不复制scale、joint radius/drawStyle、选择新骨架保留；改迭代深树、目标namespace/后缀名碰撞整体预检、UUID映射、select_result可恢复选择，原namespace/autokey恢复。
+- 两组Python+三组Maya2025隔离+临时正式布局/rigging域/注册/Schema/panel/fingerprint通过：混选三节点实际世界位置/quaternion/层级/radius/drawStyle/单位scale、未选tip不创建、dry全scene/selection/time/undo不变、单Undo删除全部新骨架；缺选中中间父生成两个世界根/有namespace源/调用者autokey与namespace及selection恢复、冲突/别名/真DAG实例/空scope拒绝。namespaceInfo当前返回caller而非:caller，fixture改比较调用前实际值，不伪造业务变化。
+- 真实GUI/生产混合缩放rig/跨版本not_run，prepared_unverified。实际5h已用4%、周31%，继续skin_magic，heartbeat保持暂停；不迁正式/同步/用卡/购买。

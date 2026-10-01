@@ -1,25 +1,24 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T01:04:09.393404+08:00",
+  "updated_at": "2026-10-02T02:14:00.096847+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
-    "state": "waiting_for_quota",
+    "state": "working",
     "heartbeat_id": "automation",
-    "heartbeat_status": "ACTIVE",
+    "heartbeat_status": "PAUSED",
     "heartbeat_verified": true,
     "reset_guard": "disabled_by_user_no_cards",
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "02_rigging_hierarchy/skin_info_and_super_connect",
+    "last_completed_tool": "02_rigging_hierarchy/skeleton_generator",
     "last_usage": {
-      "five_hour_used_percent": 96.0,
-      "weekly_used_percent": 30.0,
-      "recorded_at": "2026-10-02T01:04:06.908814+08:00",
-      "note": "Actual caller-observed usage; percentages record used quota, not remaining quota."
+      "five_hour_used_percent": 1.0,
+      "weekly_used_percent": 31.0,
+      "recorded_at": "2026-10-02T02:09:24.969518+08:00",
+      "note": "Actual caller read: ordinaryUsageAllowed true; app thread list showed no other active writer in this checkout"
     },
-    "current_tool": "02_rigging_hierarchy/skeleton_generator",
-    "resume_note": "Stopped at completed candidate boundary. Resume only with five-hour remaining >95%, weekly allowed, and no other active round. Do not consume reset credits or purchase quota."
+    "current_tool": "02_rigging_hierarchy/skeleton_generator"
   },
   "entry_repairs": [
     {
@@ -10681,20 +10680,82 @@
       "entry_candidates": [
         "选区生成骨骼链.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "选区生成骨骼链.py"
       ],
       "license_files": [],
       "entry_sha256": "39462008c2fc06d4beb8bdbc960ac80532478cde5584d913efef2abede2922dc",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"skeleton_generator\",\r\n  \"candidate_sha256\": \"490793b4c35066b0b21c26709103479172e8b66cfc32e5996efb5b6299361e9f\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\skeleton_generator.md\",\r\n    \"maya_toolkit\\\\tools\\\\skeleton_generator\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\skeleton_generator\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\skeleton_generator\\\\operations.py\",\r\n    \"maya_toolkit\\\\tools\\\\skeleton_generator\\\\original_logic.py\",\r\n    \"maya_toolkit\\\\tools\\\\skeleton_generator\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\skeleton_generator\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\skeleton_generator\\\\vendor\\\\\\u9009\\u533a\\u751f\\u6210\\u9aa8\\u9abc\\u94fe.py.original\",\r\n    \"tests\\\\test_skeleton_generator.py\",\r\n    \"tests\\\\test_skeleton_generator_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/02_rigging_hierarchy/skeleton_generator/release_candidate/tests/test_skeleton_generator_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_collision_alias_instance_empty_and_component_rejection (__main__.Checks.test_collision_alias_instance_empty_and_component_rejection) ... ok\r\ntest_mixed_selected_forest_world_pose_radius_scope_and_one_undo (__main__.Checks.test_mixed_selected_forest_world_pose_radius_scope_and_one_undo) ... ����: SkeletonGeneratorTool_skeleton_generator\nok\r\ntest_unselected_parent_disconnect_namespace_no_scale_and_context (__main__.Checks.test_unselected_parent_disconnect_namespace_no_scale_and_context) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.022s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "5b5270c96097e560443dd794badae0b88944f2b589f6d9656e31c61bc4a7011a",
+          "runtime_source_sha256": "ee4fab45977168a7817e475355169e0f75f13e1265b4eda7bd301221a5cce4ef"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya GUI, production mixed/scaled rigs and other versions not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "490793b4c35066b0b21c26709103479172e8b66cfc32e5996efb5b6299361e9f",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI, production mixed/scaled rigs and other versions not_run",
+        "Creates a posed new skeleton, not copied animation/skin/bindPose or original jointOrient channels",
+        "Original selected-child-only behavior retained; unselected parents separate roots, no inferred missing edges"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -10703,7 +10764,38 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "ca8bc000b9e9051cce97698d5145a6048bfb448a275acacae3435870a66a9529"
+      "source_tree_sha256": "aae8cac89ced05d91cc91f4c52abdb61411d8a001da8bafbb74adc71272aa0c7",
+      "candidate_path": "tools_staging_pool/02_rigging_hierarchy/skeleton_generator/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/02_rigging_hierarchy/skeleton_generator/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "skeleton_generator",
+        "candidate_sha256": "490793b4c35066b0b21c26709103479172e8b66cfc32e5996efb5b6299361e9f",
+        "applied": false,
+        "files": [
+          "docs\\tools\\skeleton_generator.md",
+          "maya_toolkit\\tools\\skeleton_generator\\__init__.py",
+          "maya_toolkit\\tools\\skeleton_generator\\catalog.json",
+          "maya_toolkit\\tools\\skeleton_generator\\operations.py",
+          "maya_toolkit\\tools\\skeleton_generator\\original_logic.py",
+          "maya_toolkit\\tools\\skeleton_generator\\tool.py",
+          "maya_toolkit\\tools\\skeleton_generator\\ui.py",
+          "maya_toolkit\\tools\\skeleton_generator\\vendor\\选区生成骨骼链.py.original",
+          "tests\\test_skeleton_generator.py",
+          "tests\\test_skeleton_generator_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "选区生成骨骼链.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/API2"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete original selected joint/locator forest creation with copied world TR and joint radius/drawStyle; original bytes and full function retained, no auto execution; exact selected hierarchy edges, suffix/name collision checks, no scale or unselected hierarchy copying, iterative deep forests, dry scope and Undo, deferred complete UI.",
+      "prepared_at": "2026-10-02T02:13:57.610846+08:00"
     },
     {
       "source_path": "02_rigging_hierarchy/skin_info_and_super_connect",

@@ -1,0 +1,62 @@
+{
+  "tool_id": "skeleton_generator",
+  "registration": {
+    "module": "skeleton_generator",
+    "class_name": "SkeletonGeneratorTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/skeleton_generator.md",
+      "target": "docs/tools/skeleton_generator.md"
+    },
+    {
+      "source": "maya_toolkit/tools/skeleton_generator/__init__.py",
+      "target": "maya_toolkit/tools/skeleton_generator/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/skeleton_generator/catalog.json",
+      "target": "maya_toolkit/tools/skeleton_generator/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/skeleton_generator/operations.py",
+      "target": "maya_toolkit/tools/skeleton_generator/operations.py"
+    },
+    {
+      "source": "maya_toolkit/tools/skeleton_generator/original_logic.py",
+      "target": "maya_toolkit/tools/skeleton_generator/original_logic.py"
+    },
+    {
+      "source": "maya_toolkit/tools/skeleton_generator/tool.py",
+      "target": "maya_toolkit/tools/skeleton_generator/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/skeleton_generator/ui.py",
+      "target": "maya_toolkit/tools/skeleton_generator/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/skeleton_generator/vendor/选区生成骨骼链.py.original",
+      "target": "maya_toolkit/tools/skeleton_generator/vendor/选区生成骨骼链.py.original"
+    },
+    {
+      "source": "tests/test_skeleton_generator.py",
+      "target": "tests/test_skeleton_generator.py"
+    },
+    {
+      "source": "tests/test_skeleton_generator_maya.py",
+      "target": "tests/test_skeleton_generator_maya.py"
+    }
+  ],
+  "resources": [
+    "选区生成骨骼链.py"
+  ],
+  "dependencies": [
+    "Maya cmds/API2"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete original selected joint/locator forest creation with copied world TR and joint radius/drawStyle; original bytes and full function retained, no auto execution; exact selected hierarchy edges, suffix/name collision checks, no scale or unselected hierarchy copying, iterative deep forests, dry scope and Undo, deferred complete UI.",
+  "verification_limitations": [
+    "Real Maya GUI, production mixed/scaled rigs and other versions not_run",
+    "Creates a posed new skeleton, not copied animation/skin/bindPose or original jointOrient channels",
+    "Original selected-child-only behavior retained; unselected parents separate roots, no inferred missing edges"
+  ]
+}

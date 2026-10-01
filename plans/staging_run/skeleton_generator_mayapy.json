@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/02_rigging_hierarchy/skeleton_generator/release_candidate/tests/test_skeleton_generator_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_collision_alias_instance_empty_and_component_rejection (__main__.Checks.test_collision_alias_instance_empty_and_component_rejection) ... ok\r\ntest_mixed_selected_forest_world_pose_radius_scope_and_one_undo (__main__.Checks.test_mixed_selected_forest_world_pose_radius_scope_and_one_undo) ... ����: SkeletonGeneratorTool_skeleton_generator\nok\r\ntest_unselected_parent_disconnect_namespace_no_scale_and_context (__main__.Checks.test_unselected_parent_disconnect_namespace_no_scale_and_context) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.022s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "5b5270c96097e560443dd794badae0b88944f2b589f6d9656e31c61bc4a7011a",
+  "runtime_source_sha256": "ee4fab45977168a7817e475355169e0f75f13e1265b4eda7bd301221a5cce4ef"
+}
