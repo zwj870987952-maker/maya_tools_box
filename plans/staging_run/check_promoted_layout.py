@@ -37,7 +37,7 @@ def main():
         registry.write_bytes(merged)
         env = dict(os.environ, PYTHONPATH=str(temporary), PYTHONDONTWRITEBYTECODE='1')
         test = subprocess.run([sys.executable, str(temporary / args.test)], cwd=folder, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=45)
-        probe = "from maya_toolkit.framework import ToolRegistry; t=ToolRegistry.get(%r); assert t is not None; assert t.category == 'animation'; assert callable(t.show_ui); assert t.to_mcp_tool()['name']==%r; print('Registered tool and panel entry verified')" % (description['tool_id'], description['tool_id'])
+        probe = "from maya_toolkit.framework import ToolRegistry; t=ToolRegistry.get(%r); assert t is not None; assert t.category in {d['id'] for d in ToolRegistry.list_domains_summary()}; assert any(r['tool_id']==t.tool_id for r in ToolRegistry.list_tools(domain=t.category)); assert any(r['name']==t.tool_id for r in ToolRegistry.export_mcp_tools(domain=t.category)); assert callable(t.show_ui); assert t.to_mcp_tool()['name']==%r; print('Registered tool, domain filtering and panel entry verified')" % (description['tool_id'], description['tool_id'])
         registered = subprocess.run([sys.executable, '-c', probe], cwd=folder, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=45)
     changed = (ROOT / 'maya_toolkit/tools/__init__.py').read_bytes() != original_registry
     report = {'kind': 'promoted_layout_offline', 'passed': test.returncode == 0 and registered.returncode == 0 and not changed,

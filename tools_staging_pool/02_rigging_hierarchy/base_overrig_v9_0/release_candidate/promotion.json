@@ -1,0 +1,104 @@
+{
+  "tool_id": "base_overrig_v9_0",
+  "registration": {
+    "module": "base_overrig_v9_0",
+    "class_name": "BaseOverRigTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/base_overrig_v9_0.md",
+      "target": "docs/tools/base_overrig_v9_0.md"
+    },
+    {
+      "source": "maya_toolkit/tools/base_overrig_v9_0/__init__.py",
+      "target": "maya_toolkit/tools/base_overrig_v9_0/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/base_overrig_v9_0/catalog.json",
+      "target": "maya_toolkit/tools/base_overrig_v9_0/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/base_overrig_v9_0/runtime.py",
+      "target": "maya_toolkit/tools/base_overrig_v9_0/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/base_overrig_v9_0/tool.py",
+      "target": "maya_toolkit/tools/base_overrig_v9_0/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/base_overrig_v9_0/vendor/base_OverRig_scripts.mel",
+      "target": "maya_toolkit/tools/base_overrig_v9_0/vendor/base_OverRig_scripts.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/base_overrig_v9_0/vendor/Drag_and_Drop_to_install.mel",
+      "target": "maya_toolkit/tools/base_overrig_v9_0/vendor/Drag_and_Drop_to_install.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/base_overrig_v9_0/vendor/function_for_hotkeys.TXT",
+      "target": "maya_toolkit/tools/base_overrig_v9_0/vendor/function_for_hotkeys.TXT"
+    },
+    {
+      "source": "maya_toolkit/tools/base_overrig_v9_0/vendor/icons/base_OverRig.bmp",
+      "target": "maya_toolkit/tools/base_overrig_v9_0/vendor/icons/base_OverRig.bmp"
+    },
+    {
+      "source": "maya_toolkit/tools/base_overrig_v9_0/vendor/icons/base_OverRig2.bmp",
+      "target": "maya_toolkit/tools/base_overrig_v9_0/vendor/icons/base_OverRig2.bmp"
+    },
+    {
+      "source": "maya_toolkit/tools/base_overrig_v9_0/vendor/License.txt",
+      "target": "maya_toolkit/tools/base_overrig_v9_0/vendor/License.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/base_overrig_v9_0/vendor/misc/Jiggle_Bone_New.mb",
+      "target": "maya_toolkit/tools/base_overrig_v9_0/vendor/misc/Jiggle_Bone_New.mb"
+    },
+    {
+      "source": "maya_toolkit/tools/base_overrig_v9_0/vendor/OverRig_basic_User_Manual_ENG.pdf",
+      "target": "maya_toolkit/tools/base_overrig_v9_0/vendor/OverRig_basic_User_Manual_ENG.pdf"
+    },
+    {
+      "source": "maya_toolkit/tools/base_overrig_v9_0/vendor/OverRig_basic_User_Manual_RUS.pdf",
+      "target": "maya_toolkit/tools/base_overrig_v9_0/vendor/OverRig_basic_User_Manual_RUS.pdf"
+    },
+    {
+      "source": "maya_toolkit/tools/base_overrig_v9_0/vendor/Read_Me_ENG.TXT",
+      "target": "maya_toolkit/tools/base_overrig_v9_0/vendor/Read_Me_ENG.TXT"
+    },
+    {
+      "source": "tests/test_base_overrig_v9_0.py",
+      "target": "tests/test_base_overrig_v9_0.py"
+    },
+    {
+      "source": "tests/test_base_overrig_v9_0_maya.py",
+      "target": "tests/test_base_overrig_v9_0_maya.py"
+    }
+  ],
+  "resources": [
+    "base_OverRig_scripts.mel",
+    "Drag_and_Drop_to_install.mel",
+    "function_for_hotkeys.TXT",
+    "icons/base_OverRig.bmp",
+    "icons/base_OverRig2.bmp",
+    "License.txt",
+    "misc/Jiggle_Bone_New.mb",
+    "OverRig_basic_User_Manual_ENG.pdf",
+    "OverRig_basic_User_Manual_RUS.pdf",
+    "Read_Me_ENG.TXT"
+  ],
+  "dependencies": [
+    "Maya cmds/MEL, real timeline/GraphEditor for native workflows",
+    "Bundled Jiggle_Bone_New.mb, icons and complete ENG/RUS PDF manuals",
+    "Native procedures may load Maya matrixNodes/lookdevKit and alter runtime autoload/UI preferences"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete unmodified licensed OverRig 9.0 distribution and all 308 declarations retained. Separate typed public-procedure API, resource/selection/lock/version preflight and read-only inspect, original full UI, Undo nesting and caller environment restoration. Installer/userSetup/hotkeys never executed.",
+  "verification_limitations": [
+    "Native interactive GUI/bake/knots/IK/overlap/physics and production rigs not_run",
+    "Native public calls depend on selection, timeline, GraphEditor, objectSets and shared MEL globals; direct effects catalog is not a complete transitive safety proof",
+    "Vendor catches errors silently; an absence of fatal error does not prove each operation succeeded",
+    "Native Undo-disabled motion-trail code, callbacks/scriptNodes and runtime/UI/plugin settings cannot be guaranteed by scene Undo",
+    "Original duplicate procedure declaration retained; other versions or tools with shared global procedure names require a fresh Maya session",
+    "License forbids modifications/redistribution and requires commercial purchase; no purchase/publishing performed"
+  ]
+}

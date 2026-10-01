@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T21:13:12.255256+08:00",
+  "updated_at": "2026-10-01T21:32:15.484646+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/w_retarget_tool",
+    "last_completed_tool": "02_rigging_hierarchy/base_overrig_v9_0",
     "last_usage": {
-      "five_hour_used_percent": 0.0,
-      "weekly_used_percent": 15.0,
-      "recorded_at": "2026-10-01T21:04:13.970135+08:00",
-      "note": "Actual caller read: ordinaryUsageAllowed true; app thread list showed no other active writer in this checkout"
+      "five_hour_used_percent": 4.0,
+      "weekly_used_percent": 16.0,
+      "recorded_at": "2026-10-01T21:13:32.236010+08:00",
+      "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/w_retarget_tool"
+    "current_tool": "02_rigging_hierarchy/base_overrig_v9_0"
   },
   "entry_repairs": [
     {
@@ -8455,7 +8455,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete Walter Delgado source/full four-pair UI retained. Original pose-offset matrix/constraint algorithm with exclusive-end sampling and nine-channel scale behavior; bounded batch preflight, owned helper cleanup, explicit key values/Undo, environment restoration and new-file FBX export/settings restoration.",
-      "prepared_at": "2026-10-01T21:13:10.631821+08:00"
+      "prepared_at": "2026-10-01T21:13:10.631821+08:00",
+      "source_commit": "9e1063c5ead403d636d46a2f80dc32d0dd9800b5"
     },
     {
       "source_path": "02_rigging_hierarchy/base_overrig_v9_0",
@@ -8466,7 +8467,7 @@
       "entry_candidates": [
         "base_OverRig_scripts_V9_0/base_OverRig_scripts.mel"
       ],
-      "source_file_count": 10,
+      "source_file_count": 11,
       "source_files": [
         "base_OverRig_scripts_V9_0/base_OverRig_scripts.mel",
         "base_OverRig_scripts_V9_0/Drag_and_Drop_to_install.mel"
@@ -8475,14 +8476,79 @@
         "base_OverRig_scripts_V9_0/License.txt"
       ],
       "entry_sha256": "31a1e72a637980d46998981e7232a4bb60c0914af59b8026d1739e8774a93ce3",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.007s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"base_overrig_v9_0\",\r\n  \"candidate_sha256\": \"1f0a74c0535295a16652ee4b21c5381b7a9d47285fafab78e523de429492141e\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\base_overrig_v9_0.md\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\base_OverRig_scripts.mel\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\Drag_and_Drop_to_install.mel\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\function_for_hotkeys.TXT\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\icons\\\\base_OverRig.bmp\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\icons\\\\base_OverRig2.bmp\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\License.txt\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\misc\\\\Jiggle_Bone_New.mb\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\OverRig_basic_User_Manual_ENG.pdf\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\OverRig_basic_User_Manual_RUS.pdf\",\r\n    \"maya_toolkit\\\\tools\\\\base_overrig_v9_0\\\\vendor\\\\Read_Me_ENG.TXT\",\r\n    \"tests\\\\test_base_overrig_v9_0.py\",\r\n    \"tests\\\\test_base_overrig_v9_0_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/02_rigging_hierarchy/base_overrig_v9_0/release_candidate/tests/test_base_overrig_v9_0_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_actual_native_locator_scale_and_single_undo_restore_dry (__main__.MayaChecks.test_actual_native_locator_scale_and_single_undo_restore_dry) ... ����: BaseOverRigTool_base_overrig_v9_0\n����: BaseOverRigTool_base_overrig_v9_0\nok\r\ntest_complete_original_compiles_all307_without_auto_ui_or_scene_change (__main__.MayaChecks.test_complete_original_compiles_all307_without_auto_ui_or_scene_change) ... ok\r\ntest_native_normalized_locator_created_at_original_pose_and_undo (__main__.MayaChecks.test_native_normalized_locator_created_at_original_pose_and_undo) ... ����: BaseOverRigTool_base_overrig_v9_0\nok\r\ntest_readonly_inspect_scope_lock_and_batch_workflows_honestly_rejected (__main__.MayaChecks.test_readonly_inspect_scope_lock_and_batch_workflows_honestly_rejected) ... ok\r\ntest_real_vendor_constraint_attribute_cleanup_is_scoped_and_undoable (__main__.MayaChecks.test_real_vendor_constraint_attribute_cleanup_is_scoped_and_undoable) ... ����: BaseOverRigTool_base_overrig_v9_0\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 2.251s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "9aaf6afdc4c1ca388a39403151e8ceb39a6301d848c412b2c124fd49426fae6b",
+          "runtime_source_sha256": "72cf6db7c93385ce67d34f96bd278c605bf7a19e739bd9309f63db70eb60a400"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Complete original GUI/production knots, bake, IK, physics and overlap workflows require actual Maya acceptance; original vendor bytes not modified"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "1f0a74c0535295a16652ee4b21c5381b7a9d47285fafab78e523de429492141e",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.007s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Native interactive GUI/bake/knots/IK/overlap/physics and production rigs not_run",
+        "Native public calls depend on selection, timeline, GraphEditor, objectSets and shared MEL globals; direct effects catalog is not a complete transitive safety proof",
+        "Vendor catches errors silently; an absence of fatal error does not prove each operation succeeded",
+        "Native Undo-disabled motion-trail code, callbacks/scriptNodes and runtime/UI/plugin settings cannot be guaranteed by scene Undo",
+        "Original duplicate procedure declaration retained; other versions or tools with shared global procedure names require a fresh Maya session",
+        "License forbids modifications/redistribution and requires commercial purchase; no purchase/publishing performed"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 0,
@@ -8491,7 +8557,56 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "dd85842c915580ec5ca2fd21b94d2ec223d8f6edd7f3f34cc21c0c4561052046"
+      "source_tree_sha256": "f993120aaf3edcf2822ab9a3f739a1a4387d63ab1685b6f3f8fc177529ebea59",
+      "candidate_path": "tools_staging_pool/02_rigging_hierarchy/base_overrig_v9_0/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/02_rigging_hierarchy/base_overrig_v9_0/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "base_overrig_v9_0",
+        "candidate_sha256": "1f0a74c0535295a16652ee4b21c5381b7a9d47285fafab78e523de429492141e",
+        "applied": false,
+        "files": [
+          "docs\\tools\\base_overrig_v9_0.md",
+          "maya_toolkit\\tools\\base_overrig_v9_0\\__init__.py",
+          "maya_toolkit\\tools\\base_overrig_v9_0\\catalog.json",
+          "maya_toolkit\\tools\\base_overrig_v9_0\\runtime.py",
+          "maya_toolkit\\tools\\base_overrig_v9_0\\tool.py",
+          "maya_toolkit\\tools\\base_overrig_v9_0\\vendor\\base_OverRig_scripts.mel",
+          "maya_toolkit\\tools\\base_overrig_v9_0\\vendor\\Drag_and_Drop_to_install.mel",
+          "maya_toolkit\\tools\\base_overrig_v9_0\\vendor\\function_for_hotkeys.TXT",
+          "maya_toolkit\\tools\\base_overrig_v9_0\\vendor\\icons\\base_OverRig.bmp",
+          "maya_toolkit\\tools\\base_overrig_v9_0\\vendor\\icons\\base_OverRig2.bmp",
+          "maya_toolkit\\tools\\base_overrig_v9_0\\vendor\\License.txt",
+          "maya_toolkit\\tools\\base_overrig_v9_0\\vendor\\misc\\Jiggle_Bone_New.mb",
+          "maya_toolkit\\tools\\base_overrig_v9_0\\vendor\\OverRig_basic_User_Manual_ENG.pdf",
+          "maya_toolkit\\tools\\base_overrig_v9_0\\vendor\\OverRig_basic_User_Manual_RUS.pdf",
+          "maya_toolkit\\tools\\base_overrig_v9_0\\vendor\\Read_Me_ENG.TXT",
+          "tests\\test_base_overrig_v9_0.py",
+          "tests\\test_base_overrig_v9_0_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "base_OverRig_scripts.mel",
+        "Drag_and_Drop_to_install.mel",
+        "function_for_hotkeys.TXT",
+        "icons/base_OverRig.bmp",
+        "icons/base_OverRig2.bmp",
+        "License.txt",
+        "misc/Jiggle_Bone_New.mb",
+        "OverRig_basic_User_Manual_ENG.pdf",
+        "OverRig_basic_User_Manual_RUS.pdf",
+        "Read_Me_ENG.TXT"
+      ],
+      "external_dependencies": [
+        "Maya cmds/MEL, real timeline/GraphEditor for native workflows",
+        "Bundled Jiggle_Bone_New.mb, icons and complete ENG/RUS PDF manuals",
+        "Native procedures may load Maya matrixNodes/lookdevKit and alter runtime autoload/UI preferences"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete unmodified licensed OverRig 9.0 distribution and all 308 declarations retained. Separate typed public-procedure API, resource/selection/lock/version preflight and read-only inspect, original full UI, Undo nesting and caller environment restoration. Installer/userSetup/hotkeys never executed.",
+      "prepared_at": "2026-10-01T21:32:13.824455+08:00"
     },
     {
       "source_path": "02_rigging_hierarchy/batch_skin_bind",

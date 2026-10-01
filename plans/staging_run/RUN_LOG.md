@@ -457,3 +457,11 @@
 - 全Walter Delgado原始单文件字节归档/SHA/作者保留，全部18类方法、帮助/关于和四行UI完整保留。业务提取完整五组/父层约束/multMatrix/decomposeMatrix/九通道逐帧算法，保留pose-offset、exclusive end、代理scale通常1。已有目标曲线采用显式key值，原静默异常改明确失败；长DAG名字用UUID辅助名，逐帧矩阵泄漏修为只清理本次UUID节点。
 - 全批目标锁/引用/通道/共享/timewarp/层/实例/源目标依赖先读预检；独立目标单Undo，恢复time/selection/autokey，失败可能留部分键可Undo，不冒充自动事务回滚。GUI完整按钮通过run，修方法被control覆盖、空选择/取消dialog/无效区间/CopyAll半行；Clear按原行为只清八字段。FBX显式新文件、namespace去重、明确节点、独占输出及临时文件，七项设置和selection恢复，不自动装插件/覆盖旧文件。
 - 普通Python两组、隔离Maya2025五组、临时正式布局/注册panel全部通过。真姿态10/12/14、九通道/结束不采样、parent长路径已有键保留、整批锁预检无部分写、真实注入写入失败清理/恢复/Undo、共享/timewarp拒绝、实际临时FBX导出/七设置恢复/不覆盖通过。全GUI/复杂生产绑定/FBX重导入未实测，prepared_unverified，完整包在staging，不提前转正。
+
+## 2026-10-01：Base OverRig 9.0完整候选，累计51/109
+
+- 原Barnev Pavel许可禁止修改/再分发且商业用途需购买；全部10文件原字节SHA保留，包括368204字节MEL、安装脚本、两个PDF手册、两个图标、热键说明及Jiggle_Bone_New.mb。不修改或抽取改写原引擎，不安装Shelf/userSetup/热键、不购买或发布。
+- 词法审查原源码仅过程声明，308声明/307独立过程/一个重复声明保留，完整原主/子窗口和所有业务保留。外围57公共过程typed API及完整schema/catalog，不允许任意MEL或直接内部过程；inspect/validate/dry只读资源/签名/输入/锁/引用/源冲突预检，明确有序scope，尺寸周期/模式/布尔/IK数目与source/knots集合删除范围保护。
+- 原source/MEL名保持不变，所有同名过程已有来源检查，资源misc路径随候选/正式位置自动绑定。统一UndoChunk、原生嵌套跟踪，恢复调用者time/selection/namespace/autokey/unit/evaluation/refresh/选择偏好/options/autoload/cache/slider；有目的的时间/选择保留。原GUI及callback仍按原逻辑，不夸大普通Undo对scriptJobs/scriptNodes/插件/prefs/disable-Undo motionTrail的范围，也不把catch吞错当成功。
+- 普通Python2组、真实隔离Maya2025五组通过：完整307过程加载不创建scene/UI，不动timeline/selection/Undo；原locator scale1.5/UndoRedo与环境恢复、原姿态loc位置4/旋转30/Undo、真正blendParent清理/其他对象和userNote保留/Undo、dry/锁/真实GUI依赖batch拒绝。初次自有wrapper timerX赋值遗漏反引号已修复后重跑通过，未改原源。
+- 临时正式布局检查先因探针硬编码animation拒绝rigging；已修探针按真实domain检查注册/筛选/Schema/panel，后续类别同用。原GUI zxy radio写6可疑行为如实待验收，不改受限源。完整交付prepared_unverified，GUI/生产绑定/IK/烘焙/物理/overlap pending，不提前转正/同步。

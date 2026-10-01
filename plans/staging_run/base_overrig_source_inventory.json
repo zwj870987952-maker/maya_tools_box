@@ -1,0 +1,4133 @@
+[
+  {
+    "file": "tools_staging_pool\\02_rigging_hierarchy\\base_overrig_v9_0\\base_OverRig_scripts_V9_0\\base_OverRig_scripts.mel",
+    "sha256": "31a1e72a637980d46998981e7232a4bb60c0914af59b8026d1739e8774a93ce3",
+    "bytes": 368204,
+    "lexical_decoding": "latin-1 for lexical analysis only; actual legacy text encoding unverified",
+    "procedures": [
+      {
+        "name": "base_OverRig_scripts",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "coloring",
+            "type": "int"
+          }
+        ],
+        "line": 120,
+        "end_line": 1250
+      },
+      {
+        "name": "barn_fast_bake_source_obj_and_delete_knots",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1251,
+        "end_line": 1259
+      },
+      {
+        "name": "barn_fast_bake_min_max_or_range_source_obj_and_delete_knots",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1260,
+        "end_line": 1268
+      },
+      {
+        "name": "barn_sel_set_member",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "name_of_set",
+            "type": "string"
+          }
+        ],
+        "line": 1269,
+        "end_line": 1278
+      },
+      {
+        "name": "BOver9_0_9c1786e2252e6eb4ae4afa4c629d7185",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "rOrder_str",
+            "type": "string"
+          }
+        ],
+        "line": 1279,
+        "end_line": 1286
+      },
+      {
+        "name": "set_infinity_graphEditor",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "inf_type",
+            "type": "string"
+          }
+        ],
+        "line": 1287,
+        "end_line": 1294
+      },
+      {
+        "name": "apply_rebike_3_or_more_object_to_IK",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1295,
+        "end_line": 1317
+      },
+      {
+        "name": "apply_objects_spline_IK",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "proportional",
+            "type": "int"
+          }
+        ],
+        "line": 1318,
+        "end_line": 1332
+      },
+      {
+        "name": "BOver9_0_db4314d4d57ff2d217b4c8b03270f08d",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "close_lay_pos",
+            "type": "int[]"
+          }
+        ],
+        "line": 1333,
+        "end_line": 1343
+      },
+      {
+        "name": "setKey_on_attach_attr",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "float"
+          }
+        ],
+        "line": 1344,
+        "end_line": 1361
+      },
+      {
+        "name": "apply_Smart_Bake",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "across",
+            "type": "int"
+          }
+        ],
+        "line": 1362,
+        "end_line": 1377
+      },
+      {
+        "name": "apply_Fast_Bake",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1378,
+        "end_line": 1390
+      },
+      {
+        "name": "apply_range_Fast_Bake",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1391,
+        "end_line": 1403
+      },
+      {
+        "name": "apply_Bake_to_layer",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1404,
+        "end_line": 1416
+      },
+      {
+        "name": "apply_Parent_in",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1417,
+        "end_line": 1428
+      },
+      {
+        "name": "BOver9_0_5c1eb4b8714e7dff7e39a0c25885afc5",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1429,
+        "end_line": 1439
+      },
+      {
+        "name": "BOver9_0_06a3eb4fcdff16e9ada9a820a8fd2b67",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1440,
+        "end_line": 1450
+      },
+      {
+        "name": "apply_parent_anim_across",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "locksize",
+            "type": "float"
+          }
+        ],
+        "line": 1451,
+        "end_line": 1476
+      },
+      {
+        "name": "apply_Swap_parent",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1477,
+        "end_line": 1488
+      },
+      {
+        "name": "apply_Parent_out",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1489,
+        "end_line": 1500
+      },
+      {
+        "name": "BOver9_0_feece4078c8aeb0c08bb278bcaf1bd05",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "num",
+            "type": "int"
+          },
+          {
+            "name": "indexses",
+            "type": "int[]"
+          }
+        ],
+        "line": 1501,
+        "end_line": 1515
+      },
+      {
+        "name": "apply_ForwHierarhy",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "locksize",
+            "type": "float"
+          }
+        ],
+        "line": 1516,
+        "end_line": 1543
+      },
+      {
+        "name": "apply_ReverseHierarhy",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "locksize",
+            "type": "float"
+          }
+        ],
+        "line": 1544,
+        "end_line": 1572
+      },
+      {
+        "name": "apply_LOH_Component",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "locksize",
+            "type": "float"
+          }
+        ],
+        "line": 1573,
+        "end_line": 1604
+      },
+      {
+        "name": "apply_LOH_Fast",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "locksize",
+            "type": "float"
+          }
+        ],
+        "line": 1605,
+        "end_line": 1636
+      },
+      {
+        "name": "apply_DoubleUzelGlobal",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "locksize",
+            "type": "float"
+          }
+        ],
+        "line": 1637,
+        "end_line": 1661
+      },
+      {
+        "name": "apply_DoubleUzelLocal",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "locksize",
+            "type": "float"
+          }
+        ],
+        "line": 1662,
+        "end_line": 1687
+      },
+      {
+        "name": "apply_Knot_Orient_Point",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "locksize",
+            "type": "float"
+          }
+        ],
+        "line": 1688,
+        "end_line": 1713
+      },
+      {
+        "name": "apply_smart_Knot_Orient_Point",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "locksize",
+            "type": "float"
+          }
+        ],
+        "line": 1714,
+        "end_line": 1739
+      },
+      {
+        "name": "apply_PivotParentAnimation",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "locksize",
+            "type": "float"
+          }
+        ],
+        "line": 1740,
+        "end_line": 1765
+      },
+      {
+        "name": "apply_parentConstrAnim",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "locksize",
+            "type": "float"
+          }
+        ],
+        "line": 1766,
+        "end_line": 1793
+      },
+      {
+        "name": "apply_smart_parentConstrAnim",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "locksize",
+            "type": "float"
+          }
+        ],
+        "line": 1794,
+        "end_line": 1820
+      },
+      {
+        "name": "apply_smart_PivotParentAnimation",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "locksize",
+            "type": "float"
+          }
+        ],
+        "line": 1821,
+        "end_line": 1846
+      },
+      {
+        "name": "assign_jiggle_bone_soft",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "size_j",
+            "type": "float"
+          }
+        ],
+        "line": 1847,
+        "end_line": 1866
+      },
+      {
+        "name": "bar_tail_overlap_window",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1867,
+        "end_line": 1920
+      },
+      {
+        "name": "overRig_noise_window",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1921,
+        "end_line": 1948
+      },
+      {
+        "name": "BOver9_0_15a4ea50cf1974ac5aa20a845bd17e2c",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "float"
+          },
+          {
+            "name": "frame",
+            "type": "int"
+          },
+          {
+            "name": "uniform",
+            "type": "int"
+          }
+        ],
+        "line": 1949,
+        "end_line": 1964
+      },
+      {
+        "name": "BOver9_0_cda3c3d1e04ec31d2acfc5361ae08d58",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "num_ctrl",
+            "type": "int"
+          },
+          {
+            "name": "ctrl_size",
+            "type": "float"
+          }
+        ],
+        "line": 1965,
+        "end_line": 1975
+      },
+      {
+        "name": "create_recalc_spine_rig_menue",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 1976,
+        "end_line": 2004
+      },
+      {
+        "name": "BOver9_0_7895ec20650f9411ffd9ffcca61a04fb",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "continuation_of_chain",
+            "type": "int"
+          }
+        ],
+        "line": 2005,
+        "end_line": 2032
+      },
+      {
+        "name": "BOver9_0_56198b33b19d3947083feaf628154297",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "continuation_of_chain",
+            "type": "int"
+          }
+        ],
+        "line": 2033,
+        "end_line": 2043
+      },
+      {
+        "name": "BOver9_0_32e5cf028e8fb27af956fe4209ca4c1c",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 2044,
+        "end_line": 2076
+      },
+      {
+        "name": "BOver9_0_d6efb621a5741bab0e75433a679ae12d",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 2077,
+        "end_line": 2104
+      },
+      {
+        "name": "BOver9_0_3be196f31c019c35d2d9041bcd88bc3c",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 2105,
+        "end_line": 2135
+      },
+      {
+        "name": "BOver9_0_01cb99bf27737a7728505d63e3c07750",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 2136,
+        "end_line": 2164
+      },
+      {
+        "name": "BOver9_0_8685ddba2264207c88ce0760377b9ee2",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 2165,
+        "end_line": 2191
+      },
+      {
+        "name": "BOver9_0_43aae6ab29019a62e5f1055f1a9e5d1f",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 2192,
+        "end_line": 2227
+      },
+      {
+        "name": "BOver9_0_d4a5d70158122af66cbf2bbfa872d648",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 2228,
+        "end_line": 2260
+      },
+      {
+        "name": "BOver9_0_bb5805895dc14a829576cd013ec234e4",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          }
+        ],
+        "line": 2261,
+        "end_line": 2276
+      },
+      {
+        "name": "BOver9_0_52856795c394a4364c299578bee0a78f",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "joint_size",
+            "type": "float"
+          }
+        ],
+        "line": 2277,
+        "end_line": 2316
+      },
+      {
+        "name": "BOver9_0_38abc2ad8d0df7edc05b9cbbc4053b86",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "hardness",
+            "type": "float"
+          },
+          {
+            "name": "sdvig",
+            "type": "float"
+          },
+          {
+            "name": "cycled",
+            "type": "int"
+          },
+          {
+            "name": "abs_mode",
+            "type": "int"
+          }
+        ],
+        "line": 2317,
+        "end_line": 2365
+      },
+      {
+        "name": "BOver9_0_e2f38e4dab3a6e3b9484ed7a064317bc",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 2366,
+        "end_line": 2397
+      },
+      {
+        "name": "BOver9_0_42991b053ee9e19e32d1c71738991bc2",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "parent_Lock_selection",
+            "type": "string[]"
+          },
+          {
+            "name": "parent_Lock_gen_lock",
+            "type": "string[]"
+          },
+          {
+            "name": "frame_range",
+            "type": "float[]"
+          }
+        ],
+        "line": 2398,
+        "end_line": 2413
+      },
+      {
+        "name": "BOver9_0_4d1975d7772d2eae37b087a04c10d81a",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 2414,
+        "end_line": 2445
+      },
+      {
+        "name": "BOver9_0_d3e85eac25803609eb4d723868828e2d",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "parent_Lock_selection",
+            "type": "string[]"
+          },
+          {
+            "name": "parent_Lock_gen_lock",
+            "type": "string[]"
+          },
+          {
+            "name": "frame_range",
+            "type": "float[]"
+          }
+        ],
+        "line": 2446,
+        "end_line": 2464
+      },
+      {
+        "name": "BOver9_0_b2baa432ef55323efc338deb9d6cfc8a",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 2465,
+        "end_line": 2473
+      },
+      {
+        "name": "BOver9_0_851012718f08a89839e464f37d3496e8",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 2474,
+        "end_line": 2510
+      },
+      {
+        "name": "BOver9_0_36310cb9384c6945a466986c3a6cf7ee",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 2511,
+        "end_line": 2518
+      },
+      {
+        "name": "BOver9_0_cf7d60c10a2e981ece1b4edc00bb807f",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "rebike_animation",
+            "type": "int"
+          }
+        ],
+        "line": 2519,
+        "end_line": 2553
+      },
+      {
+        "name": "BOver9_0_5ef36e919b3dc91de3aac8c0562ec1fb",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 2554,
+        "end_line": 2592
+      },
+      {
+        "name": "BOver9_0_f3eeb22d0b2ca4debf42ff3b4d15f5b7",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 2593,
+        "end_line": 2646
+      },
+      {
+        "name": "BOver9_0_542fcb78713b77e1be59b8629b811638",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 2647,
+        "end_line": 2700
+      },
+      {
+        "name": "BOver9_0_418130abaf3fa31a6f5622b781357540",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "proportional",
+            "type": "int"
+          }
+        ],
+        "line": 2701,
+        "end_line": 2869
+      },
+      {
+        "name": "BOver9_0_93a971da971a469f7908e7adcf76c285",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 2870,
+        "end_line": 2912
+      },
+      {
+        "name": "BOver9_0_ec8dfb2c066980b35bf47f86bbe91037",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 2913,
+        "end_line": 2983
+      },
+      {
+        "name": "BOver9_0_233bec2e27da3306b7bd64db33eb703b",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "size",
+            "type": "float"
+          },
+          {
+            "name": "attach_channel",
+            "type": "int"
+          }
+        ],
+        "line": 2984,
+        "end_line": 3045
+      },
+      {
+        "name": "move_and_rotate_total_pivot",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "avg_point",
+            "type": "int"
+          }
+        ],
+        "line": 3046,
+        "end_line": 3091
+      },
+      {
+        "name": "BOver9_0_2082990dda026469945596942b8ed225",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 3092,
+        "end_line": 3153
+      },
+      {
+        "name": "BOver9_0_3c9b0fe2da1d41ec5f226b7208637f6a",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 3154,
+        "end_line": 3196
+      },
+      {
+        "name": "bar_create_multiply_fast_motion_trail",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "start",
+            "type": "int"
+          },
+          {
+            "name": "end",
+            "type": "int"
+          },
+          {
+            "name": "static",
+            "type": "int"
+          }
+        ],
+        "line": 3197,
+        "end_line": 3223
+      },
+      {
+        "name": "BOver9_0_cab45c22668192720cf5bc40a90b9717",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 3224,
+        "end_line": 3230
+      },
+      {
+        "name": "BOver9_0_8acbdd90e1a397ed24eb3b1674ab9209",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "thikness",
+            "type": "int"
+          },
+          {
+            "name": "dot",
+            "type": "float"
+          },
+          {
+            "name": "dotColor",
+            "type": "float[]"
+          }
+        ],
+        "line": 3231,
+        "end_line": 3254
+      },
+      {
+        "name": "BOver9_0_90caf8375dffdf325df3be666537a016",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 3255,
+        "end_line": 3278
+      },
+      {
+        "name": "double_inv_oscillate_or_mirror",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "period",
+            "type": "float"
+          },
+          {
+            "name": "t_axis",
+            "type": "string"
+          },
+          {
+            "name": "r_axis",
+            "type": "string"
+          }
+        ],
+        "line": 3279,
+        "end_line": 3292
+      },
+      {
+        "name": "Lag_Key",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "sdvig",
+            "type": "float"
+          }
+        ],
+        "line": 3293,
+        "end_line": 3336
+      },
+      {
+        "name": "BOver9_0_3676fd34198e455bb82f6106192bc927",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "frame_count",
+            "type": "int"
+          },
+          {
+            "name": "uniform",
+            "type": "int"
+          }
+        ],
+        "line": 3337,
+        "end_line": 3381
+      },
+      {
+        "name": "BOver9_0_cba6da1b519f7600c71b7de0d52d2c3e",
+        "global_scope": true,
+        "return_type": "float[]",
+        "parameters": [],
+        "line": 3382,
+        "end_line": 3392
+      },
+      {
+        "name": "BOver9_0_7bd26c8b37f4670d39bdb4c4c27816c3",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "scale_size",
+            "type": "float"
+          },
+          {
+            "name": "num_frames",
+            "type": "int"
+          },
+          {
+            "name": "uniform",
+            "type": "int"
+          }
+        ],
+        "line": 3393,
+        "end_line": 3442
+      },
+      {
+        "name": "set_key_time_range",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "string"
+          }
+        ],
+        "line": 3443,
+        "end_line": 3506
+      },
+      {
+        "name": "BOver9_0_8658db3767d3086054bf3959e3ff6b41",
+        "global_scope": true,
+        "return_type": "float[]",
+        "parameters": [],
+        "line": 3507,
+        "end_line": 3518
+      },
+      {
+        "name": "BOver9_0_dfc2513778a513e560ec81c8f3df6563",
+        "global_scope": true,
+        "return_type": "float[]",
+        "parameters": [],
+        "line": 3519,
+        "end_line": 3533
+      },
+      {
+        "name": "offset_keys_by_period",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "period",
+            "type": "float"
+          }
+        ],
+        "line": 3534,
+        "end_line": 3540
+      },
+      {
+        "name": "double_oscillate_keys",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "period",
+            "type": "float"
+          }
+        ],
+        "line": 3541,
+        "end_line": 3563
+      },
+      {
+        "name": "BOver9_0_a37a85a658eebae4bd5ae354ec083baa",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "period",
+            "type": "float"
+          },
+          {
+            "name": "t_axis",
+            "type": "string"
+          },
+          {
+            "name": "r_axis",
+            "type": "string"
+          }
+        ],
+        "line": 3564,
+        "end_line": 3601
+      },
+      {
+        "name": "selKeys_by_timerange",
+        "global_scope": true,
+        "return_type": "float[]",
+        "parameters": [],
+        "line": 3602,
+        "end_line": 3608
+      },
+      {
+        "name": "set_currenttime_to_mid_selection",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 3609,
+        "end_line": 3614
+      },
+      {
+        "name": "time_slider_range",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "defoult_range",
+            "type": "float"
+          }
+        ],
+        "line": 3615,
+        "end_line": 3680
+      },
+      {
+        "name": "delete_keys_from_selected_or_timeslider",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 3681,
+        "end_line": 3695
+      },
+      {
+        "name": "set_start_end_key",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 3696,
+        "end_line": 3708
+      },
+      {
+        "name": "copy_start_frame_to_end",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 3709,
+        "end_line": 3719
+      },
+      {
+        "name": "barn_copy_keys",
+        "global_scope": true,
+        "return_type": "float[]",
+        "parameters": [],
+        "line": 3720,
+        "end_line": 3732
+      },
+      {
+        "name": "barn_past_scaled_keys",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 3733,
+        "end_line": 3748
+      },
+      {
+        "name": "BOver9_0_fc9a5a809318602860f6fb1135723ed7",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "rOrder_str",
+            "type": "string"
+          }
+        ],
+        "line": 3749,
+        "end_line": 3805
+      },
+      {
+        "name": "overRig_tween_window",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 3806,
+        "end_line": 3852
+      },
+      {
+        "name": "BOver9_0_692e2fda85cadfdf0f28e93323f58c08",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 3853,
+        "end_line": 3867
+      },
+      {
+        "name": "BOver9_0_f4b1a2b52ab1771321003f86cde63160",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 3868,
+        "end_line": 3883
+      },
+      {
+        "name": "BOver9_0_9a8d2e62249cad27916aacc736478655",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 3884,
+        "end_line": 3898
+      },
+      {
+        "name": "BOver9_0_b64d97d04ad365ea1605018f7b2a9dae",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 3899,
+        "end_line": 3911
+      },
+      {
+        "name": "BOver9_0_54d92f8424c4459e6d996d9fd93902f0",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 3912,
+        "end_line": 3943
+      },
+      {
+        "name": "BOver9_0_6b3d22f4c951fb49c197d50c1803f0cb",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          }
+        ],
+        "line": 3944,
+        "end_line": 3956
+      },
+      {
+        "name": "BOver9_0_f2d5a2798ed7cfee36eb77ee8a281ed8",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 3957,
+        "end_line": 3990
+      },
+      {
+        "name": "BOver9_0_0a10c57fddb9b8e3dc07486c3a9a5eed",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 3991,
+        "end_line": 4021
+      },
+      {
+        "name": "BOver9_0_e6d1cc62e700198ddfd8906d663761ba",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 4022,
+        "end_line": 4032
+      },
+      {
+        "name": "BOver9_0_92f8bb791ca3a38da50df3bfa5733ff5",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 4033,
+        "end_line": 4057
+      },
+      {
+        "name": "BOver9_0_2e50fb684e35f7dc58ab390d98530944",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "color",
+            "type": "float[]"
+          }
+        ],
+        "line": 4058,
+        "end_line": 4069
+      },
+      {
+        "name": "BOver9_0_7f0d6f1fb40a6b860ce559f2fa5a56e5",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "range",
+            "type": "float[]"
+          }
+        ],
+        "line": 4070,
+        "end_line": 4090
+      },
+      {
+        "name": "BOver9_0_07739a1aa5203222338cc34f38597dfb",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 4091,
+        "end_line": 4119
+      },
+      {
+        "name": "BOver9_0_32a3829df17c3736d9757e423eeaf0e3",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "target",
+            "type": "string[]"
+          },
+          {
+            "name": "object",
+            "type": "string[]"
+          }
+        ],
+        "line": 4120,
+        "end_line": 4139
+      },
+      {
+        "name": "BOver9_0_70e1c4b7692160ed48aa4962be320af3",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "joints",
+            "type": "string[]"
+          },
+          {
+            "name": "lock_status",
+            "type": "int"
+          }
+        ],
+        "line": 4140,
+        "end_line": 4149
+      },
+      {
+        "name": "BOver9_0_e706e982298fe9e8f94ae04b06b5d6b2",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "prefix",
+            "type": "string"
+          }
+        ],
+        "line": 4150,
+        "end_line": 4164
+      },
+      {
+        "name": "BOver9_0_c9088e941b7677113499bb19ad80f9bf",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "prefix",
+            "type": "string"
+          },
+          {
+            "name": "name_massive",
+            "type": "string[]"
+          }
+        ],
+        "line": 4165,
+        "end_line": 4183
+      },
+      {
+        "name": "BOver9_0_10b1c67feba7e9570357d44ba9306692",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "prefix",
+            "type": "string"
+          },
+          {
+            "name": "name_massive",
+            "type": "string[]"
+          },
+          {
+            "name": "postfix",
+            "type": "string"
+          }
+        ],
+        "line": 4184,
+        "end_line": 4202
+      },
+      {
+        "name": "BOver9_0_ade4e354383a28fcefcaf5ce40e6639d",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 4203,
+        "end_line": 4211
+      },
+      {
+        "name": "BOver9_0_37979d5db724aeac3ec6046edc570bbd",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 4212,
+        "end_line": 4224
+      },
+      {
+        "name": "BOver9_0_25dd166f9ad7839b589ab3bd870d76db",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 4225,
+        "end_line": 4232
+      },
+      {
+        "name": "BOver9_0_8e6de881d48343891923789f8d88d44b",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 4233,
+        "end_line": 4240
+      },
+      {
+        "name": "BOver9_0_c89bf830cdb2b9cc874e6c8604e8b257",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 4241,
+        "end_line": 4253
+      },
+      {
+        "name": "BOver9_0_8c16c9163e07a819fc2186f2d338a280",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "show",
+            "type": "int"
+          }
+        ],
+        "line": 4254,
+        "end_line": 4266
+      },
+      {
+        "name": "BOver9_0_1f3f21e017b74355329202016bf1b177",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 4267,
+        "end_line": 4279
+      },
+      {
+        "name": "create_normalised_locators_on_selected",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 4280,
+        "end_line": 4288
+      },
+      {
+        "name": "scale_selected_lock_or_joint",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "scale_on",
+            "type": "float"
+          }
+        ],
+        "line": 4289,
+        "end_line": 4311
+      },
+      {
+        "name": "BOver9_0_526c020cd7c9a859fd08d49719a4fddf",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          }
+        ],
+        "line": 4312,
+        "end_line": 4332
+      },
+      {
+        "name": "BOver9_0_a0a7e5cc94bfb2f3bccf5d5aef2dcfb4",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 4333,
+        "end_line": 4346
+      },
+      {
+        "name": "BOver9_0_b6a5017ee305f5ba0bbf3116243cc3af",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 4347,
+        "end_line": 4359
+      },
+      {
+        "name": "BOver9_0_b0a1523d18ddbfe3c562938d09574284",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 4360,
+        "end_line": 4373
+      },
+      {
+        "name": "BOver9_0_aa074854107180f09880ea0e8edd43f8",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 4374,
+        "end_line": 4381
+      },
+      {
+        "name": "BOver9_0_90a059e9200ad500213586e0ecabdd0d",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          },
+          {
+            "name": "t_lock",
+            "type": "int"
+          },
+          {
+            "name": "r_lock",
+            "type": "int"
+          },
+          {
+            "name": "s_lock",
+            "type": "int"
+          },
+          {
+            "name": "v_lock",
+            "type": "int"
+          }
+        ],
+        "line": 4382,
+        "end_line": 4453
+      },
+      {
+        "name": "BOver9_0_7bb1bcd646c2647ac3ab09dc70126b5c",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "objs",
+            "type": "string[]"
+          },
+          {
+            "name": "attrib",
+            "type": "string"
+          }
+        ],
+        "line": 4454,
+        "end_line": 4465
+      },
+      {
+        "name": "BOver9_0_cc20e95399a3b6da44eb78e45451d764",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "color",
+            "type": "int"
+          }
+        ],
+        "line": 4466,
+        "end_line": 4476
+      },
+      {
+        "name": "BOver9_0_ea29f12459b08b7b0796eaa3f3cb0ac6",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "d_type",
+            "type": "int"
+          }
+        ],
+        "line": 4477,
+        "end_line": 4493
+      },
+      {
+        "name": "BOver9_0_c7778d9b5fb99a9fe750d3c73c32b9d9",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          },
+          {
+            "name": "local_scale",
+            "type": "float"
+          },
+          {
+            "name": "colore",
+            "type": "int"
+          }
+        ],
+        "line": 4494,
+        "end_line": 4509
+      },
+      {
+        "name": "BOver9_0_92de112c5c170c44ad9daf4d48b1acdd",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "rad",
+            "type": "float"
+          }
+        ],
+        "line": 4510,
+        "end_line": 4517
+      },
+      {
+        "name": "BOver9_0_29941243f77aa0343e79460d48136072",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "local_scale",
+            "type": "float"
+          }
+        ],
+        "line": 4518,
+        "end_line": 4530
+      },
+      {
+        "name": "BOver9_0_27a53050b555439b5aa4f172bafe4849",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "objs",
+            "type": "string[]"
+          },
+          {
+            "name": "vis",
+            "type": "int"
+          }
+        ],
+        "line": 4531,
+        "end_line": 4539
+      },
+      {
+        "name": "BOver9_0_e9a3d5ffe283044f2485219b12ac5f73",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "objs",
+            "type": "string[]"
+          },
+          {
+            "name": "vis",
+            "type": "int"
+          }
+        ],
+        "line": 4540,
+        "end_line": 4547
+      },
+      {
+        "name": "BOver9_0_4c2952dd9f486573856c8eb6a0dc46ac",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "vis",
+            "type": "int"
+          }
+        ],
+        "line": 4548,
+        "end_line": 4559
+      },
+      {
+        "name": "BOver9_0_e70d36ea08e9b8ec1fa4786146236d25",
+        "global_scope": true,
+        "return_type": "float[]",
+        "parameters": [
+          {
+            "name": "particl",
+            "type": "string"
+          }
+        ],
+        "line": 4560,
+        "end_line": 4566
+      },
+      {
+        "name": "BOver9_0_b25c8b5dbe1b800e5676f04de22544c6",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "face_name",
+            "type": "string"
+          }
+        ],
+        "line": 4567,
+        "end_line": 4594
+      },
+      {
+        "name": "BOver9_0_9de233870ac6b9c5087a491c3b4ca38a",
+        "global_scope": true,
+        "return_type": "float[]",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          }
+        ],
+        "line": 4595,
+        "end_line": 4637
+      },
+      {
+        "name": "BOver9_0_15760bd5ac6225f582185bab24346a67",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "subScale",
+            "type": "float"
+          }
+        ],
+        "line": 4638,
+        "end_line": 4656
+      },
+      {
+        "name": "BOver9_0_6de8028af587b467034457b4d6349f89",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "subScale",
+            "type": "float"
+          }
+        ],
+        "line": 4657,
+        "end_line": 4676
+      },
+      {
+        "name": "BOver9_0_4a0278149f801323f33f7bb9e4ee597d",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "target_massiv",
+            "type": "string[]"
+          },
+          {
+            "name": "object_massiv",
+            "type": "string[]"
+          }
+        ],
+        "line": 4677,
+        "end_line": 4716
+      },
+      {
+        "name": "BOver9_0_c99bdb5a898efbfb1d4fa2221eba881b",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "target_massiv",
+            "type": "string[]"
+          },
+          {
+            "name": "object_massiv",
+            "type": "string[]"
+          }
+        ],
+        "line": 4717,
+        "end_line": 4752
+      },
+      {
+        "name": "BOver9_0_ac2021d0d7ff3ecfad4dbca9f9f88248",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "target_massiv",
+            "type": "string[]"
+          },
+          {
+            "name": "object_massiv",
+            "type": "string[]"
+          }
+        ],
+        "line": 4753,
+        "end_line": 4780
+      },
+      {
+        "name": "BOver9_0_8598296823aa3af15686cb0d78f1615d",
+        "global_scope": true,
+        "return_type": "float[]",
+        "parameters": [
+          {
+            "name": "selection",
+            "type": "string"
+          }
+        ],
+        "line": 4781,
+        "end_line": 4835
+      },
+      {
+        "name": "BOver9_0_dfb2ed0c2c53945ca7515c674763faa0",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [],
+        "line": 4836,
+        "end_line": 4862
+      },
+      {
+        "name": "BOver9_0_17431451b1be026fdeee93b86579c6b6",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "target_massiv",
+            "type": "string[]"
+          },
+          {
+            "name": "object_massiv",
+            "type": "string[]"
+          }
+        ],
+        "line": 4863,
+        "end_line": 4927
+      },
+      {
+        "name": "BOver9_0_6c6f83c66f3818896ad0dc0e721c7361",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "target_massiv",
+            "type": "string[]"
+          },
+          {
+            "name": "object_massiv",
+            "type": "string[]"
+          }
+        ],
+        "line": 4928,
+        "end_line": 4992
+      },
+      {
+        "name": "BOver9_0_3ed0416e2547f09f133c132ecd5ccd97",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [],
+        "line": 4993,
+        "end_line": 5042
+      },
+      {
+        "name": "BOver9_0_5fce4865a9fd47748e6796c1be9d64b2",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 5043,
+        "end_line": 5047
+      },
+      {
+        "name": "BOver9_0_3323b46f97bc12510f86536ae21ff525",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 5048,
+        "end_line": 5052
+      },
+      {
+        "name": "BOver9_0_ac692345fba3e827ad5d6e26de39ba07",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 5053,
+        "end_line": 5057
+      },
+      {
+        "name": "BOver9_0_c830bbb3bb6041f72a5fb76403fcabe8",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [],
+        "line": 5058,
+        "end_line": 5089
+      },
+      {
+        "name": "BOver9_0_296ca14a4925cd18efa144cbe7274292",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          },
+          {
+            "name": "across",
+            "type": "int"
+          }
+        ],
+        "line": 5090,
+        "end_line": 5134
+      },
+      {
+        "name": "BOver9_0_07761c6364123ec92b7691e8fd34a814",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "selected",
+            "type": "string[]"
+          }
+        ],
+        "line": 5135,
+        "end_line": 5168
+      },
+      {
+        "name": "BOver9_0_de88efca2929f0080ae1d45ff5db42d4",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 5169,
+        "end_line": 5192
+      },
+      {
+        "name": "BOver9_0_42bfa468078681895875c773853d2cda",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "frame_range",
+            "type": "float[]"
+          }
+        ],
+        "line": 5193,
+        "end_line": 5227
+      },
+      {
+        "name": "BOver9_0_d9af2e6919b9d27514f3d6668ca41211",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          }
+        ],
+        "line": 5228,
+        "end_line": 5246
+      },
+      {
+        "name": "BOver9_0_e02b9af8de573969d2834f5d4e4228fd",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "min",
+            "type": "float"
+          },
+          {
+            "name": "max",
+            "type": "float"
+          },
+          {
+            "name": "objects",
+            "type": "string[]"
+          }
+        ],
+        "line": 5247,
+        "end_line": 5268
+      },
+      {
+        "name": "BOver9_0_d1b73d0512bac8d20998bdbab9b3aed7",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "target",
+            "type": "string[]"
+          },
+          {
+            "name": "object",
+            "type": "string[]"
+          }
+        ],
+        "line": 5269,
+        "end_line": 5277
+      },
+      {
+        "name": "BOver9_0_5e8af8371c687e5c50d7ded5040ffe13",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "target_position",
+            "type": "string[]"
+          },
+          {
+            "name": "object_to_move",
+            "type": "string[]"
+          }
+        ],
+        "line": 5278,
+        "end_line": 5293
+      },
+      {
+        "name": "BOver9_0_847308ac6f1debf8edcc8d63e128d64c",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "target_position",
+            "type": "string[]"
+          },
+          {
+            "name": "object_to_move",
+            "type": "string[]"
+          }
+        ],
+        "line": 5294,
+        "end_line": 5308
+      },
+      {
+        "name": "BOver9_0_3a25eaad774c71ebdcb06ee4d2b25ce3",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 5309,
+        "end_line": 5324
+      },
+      {
+        "name": "BOver9_0_9a3ce25cfdbc96f0053e2e03715d7f2b",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 5325,
+        "end_line": 5337
+      },
+      {
+        "name": "BOver9_0_09f1edc0a69a4931b08e1bcc40e94a55",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 5338,
+        "end_line": 5355
+      },
+      {
+        "name": "BOver9_0_194c7b09c27128a45486ac17560c7a25",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "objs",
+            "type": "string[]"
+          }
+        ],
+        "line": 5356,
+        "end_line": 5370
+      },
+      {
+        "name": "BOver9_0_c7822f1f10b007a6803735c105e40799",
+        "global_scope": true,
+        "return_type": "float",
+        "parameters": [
+          {
+            "name": "obj1",
+            "type": "string"
+          },
+          {
+            "name": "obj2",
+            "type": "string"
+          }
+        ],
+        "line": 5371,
+        "end_line": 5379
+      },
+      {
+        "name": "BOver9_0_9bcfe87821f81f923d9a4d502efb9945",
+        "global_scope": true,
+        "return_type": "float[]",
+        "parameters": [],
+        "line": 5380,
+        "end_line": 5389
+      },
+      {
+        "name": "BOver9_0_d9f7ba947826f7f00ce2215bc1417109",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "time_pref",
+            "type": "float[]"
+          }
+        ],
+        "line": 5390,
+        "end_line": 5393
+      },
+      {
+        "name": "BOver9_0_5e702211108f11813c411c94f8b1b380",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "transfrm",
+            "type": "string"
+          }
+        ],
+        "line": 5394,
+        "end_line": 5401
+      },
+      {
+        "name": "BOver9_0_c954f3ebe8232ef721ae19221935b64e",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "take_name",
+            "type": "string"
+          }
+        ],
+        "line": 5402,
+        "end_line": 5408
+      },
+      {
+        "name": "BOver9_0_95d47209f5832c068ce7614b82201089",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 5409,
+        "end_line": 5436
+      },
+      {
+        "name": "BOver9_0_5cb0441daec59a79a525bdb749d48438",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "axis",
+            "type": "string"
+          }
+        ],
+        "line": 5437,
+        "end_line": 5559
+      },
+      {
+        "name": "BOver9_0_5cca387e40527d14dd0862d275b6a5fc",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "j_chain",
+            "type": "string[]"
+          },
+          {
+            "name": "axis",
+            "type": "string"
+          },
+          {
+            "name": "sao_napr",
+            "type": "string"
+          },
+          {
+            "name": "ch_up",
+            "type": "string"
+          }
+        ],
+        "line": 5560,
+        "end_line": 5664
+      },
+      {
+        "name": "BOver9_0_a9acebc46d5277d92e6d954501ac53c7",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "axis",
+            "type": "string"
+          },
+          {
+            "name": "sao_napr",
+            "type": "string"
+          },
+          {
+            "name": "ch_up",
+            "type": "string"
+          }
+        ],
+        "line": 5665,
+        "end_line": 5721
+      },
+      {
+        "name": "BOver9_0_18a895830f3c7ec611ca2fbd58e5730f",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "min_max",
+            "type": "int"
+          }
+        ],
+        "line": 5722,
+        "end_line": 5764
+      },
+      {
+        "name": "BOver9_0_d1f6eb5ab8caa780647f498704025cf1",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 5765,
+        "end_line": 5785
+      },
+      {
+        "name": "BOver9_0_e34225338b41391d68d09634ca599397",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "return_scene_like_first",
+            "type": "int"
+          }
+        ],
+        "line": 5786,
+        "end_line": 5812
+      },
+      {
+        "name": "BOver9_0_a2b81a3977941c0eac1cda769570172c",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 5813,
+        "end_line": 5848
+      },
+      {
+        "name": "BOver9_0_20a28b95c1b8b4dd29397ab332dbc667",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [],
+        "line": 5849,
+        "end_line": 5858
+      },
+      {
+        "name": "BOver9_0_e52ed91bd5c84901d59d7d8a0117fc7e",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "radius",
+            "type": "float"
+          }
+        ],
+        "line": 5859,
+        "end_line": 5878
+      },
+      {
+        "name": "BOver9_0_7d16a2aa6cdd056e3f3dfb7d19faef75",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "radius",
+            "type": "float"
+          }
+        ],
+        "line": 5879,
+        "end_line": 5893
+      },
+      {
+        "name": "BOver9_0_46e3c16f7c510db12bc5343ac1a842b6",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "color",
+            "type": "int"
+          },
+          {
+            "name": "template",
+            "type": "int"
+          },
+          {
+            "name": "show_outliner",
+            "type": "int"
+          }
+        ],
+        "line": 5894,
+        "end_line": 5925
+      },
+      {
+        "name": "BOver9_0_1b3bfd1d62d966ea966f5caca72bac5d",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          },
+          {
+            "name": "hidden",
+            "type": "int"
+          }
+        ],
+        "line": 5926,
+        "end_line": 5938
+      },
+      {
+        "name": "return_constrained_object",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "select",
+            "type": "int"
+          }
+        ],
+        "line": 5939,
+        "end_line": 5959
+      },
+      {
+        "name": "find",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "procedure",
+            "type": "string"
+          }
+        ],
+        "line": 5960,
+        "end_line": 5966
+      },
+      {
+        "name": "BOver9_0_4b209c5c00abddc3e3509a14326e2488",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          },
+          {
+            "name": "name_set",
+            "type": "string"
+          }
+        ],
+        "line": 5967,
+        "end_line": 5978
+      },
+      {
+        "name": "BOver9_0_76e4594d663c1d36640d38425e50d327",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          },
+          {
+            "name": "name_set",
+            "type": "string"
+          }
+        ],
+        "line": 5979,
+        "end_line": 5987
+      },
+      {
+        "name": "BOver9_0_d04a25c84de52f4787d68215d32315e0",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "int"
+          },
+          {
+            "name": "objcts",
+            "type": "string[]"
+          }
+        ],
+        "line": 5988,
+        "end_line": 5992
+      },
+      {
+        "name": "delete_constraint_attributes_on_objects",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          }
+        ],
+        "line": 5993,
+        "end_line": 6005
+      },
+      {
+        "name": "BOver9_0_7f958423a7cfe1774157efdcb79ac0be",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "target_position",
+            "type": "string[]"
+          },
+          {
+            "name": "object_to_move",
+            "type": "string[]"
+          }
+        ],
+        "line": 6006,
+        "end_line": 6020
+      },
+      {
+        "name": "BOver9_0_933d4aecbe9d9d0ce9a6591c5b2e3770",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "jnt",
+            "type": "string"
+          }
+        ],
+        "line": 6021,
+        "end_line": 6039
+      },
+      {
+        "name": "BOver9_0_72356eaf232b169651a82383ba9e7e57",
+        "global_scope": true,
+        "return_type": "vector[]",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          }
+        ],
+        "line": 6040,
+        "end_line": 6052
+      },
+      {
+        "name": "BOver9_0_a358a7c27f7a7b80712d695138ed032e",
+        "global_scope": true,
+        "return_type": "float",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          },
+          {
+            "name": "average",
+            "type": "int"
+          }
+        ],
+        "line": 6053,
+        "end_line": 6061
+      },
+      {
+        "name": "BOver9_0_b370e1f695c58fe83552587a1fd52907",
+        "global_scope": true,
+        "return_type": "int",
+        "parameters": [
+          {
+            "name": "coords",
+            "type": "vector[]"
+          }
+        ],
+        "line": 6062,
+        "end_line": 6074
+      },
+      {
+        "name": "BOver9_0_e3bea614176fbceebe7c7aae67e953b0",
+        "global_scope": true,
+        "return_type": "vector",
+        "parameters": [
+          {
+            "name": "coords",
+            "type": "vector[]"
+          }
+        ],
+        "line": 6075,
+        "end_line": 6083
+      },
+      {
+        "name": "BOver9_0_d0a0b515ba819d3c77adb0bbe48cfd1d",
+        "global_scope": true,
+        "return_type": "int",
+        "parameters": [
+          {
+            "name": "massive",
+            "type": "float[]"
+          },
+          {
+            "name": "min_max",
+            "type": "int"
+          }
+        ],
+        "line": 6084,
+        "end_line": 6114
+      },
+      {
+        "name": "BOver9_0_f71c299bf7b53f7243b078a9990e581c",
+        "global_scope": true,
+        "return_type": "float",
+        "parameters": [
+          {
+            "name": "input",
+            "type": "float"
+          }
+        ],
+        "line": 6115,
+        "end_line": 6138
+      },
+      {
+        "name": "BOver9_0_e8f0c3b3e6300189aca31ae83320ec92",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "node_name_mask",
+            "type": "string"
+          }
+        ],
+        "line": 6139,
+        "end_line": 6154
+      },
+      {
+        "name": "make_aim_from_selected",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "size_lock",
+            "type": "float"
+          }
+        ],
+        "line": 6155,
+        "end_line": 6189
+      },
+      {
+        "name": "assign_Sw_System",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 6190,
+        "end_line": 6223
+      },
+      {
+        "name": "assign_Sword_pivot_System",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "loc_size",
+            "type": "float"
+          }
+        ],
+        "line": 6224,
+        "end_line": 6265
+      },
+      {
+        "name": "BOver9_0_45974e786e3602ef878571e324a928e9",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "loc_size",
+            "type": "float"
+          },
+          {
+            "name": "Piv_Top_Side",
+            "type": "string[]"
+          },
+          {
+            "name": "source_obj",
+            "type": "string[]"
+          }
+        ],
+        "line": 6266,
+        "end_line": 6293
+      },
+      {
+        "name": "BP_arc_tool_menue",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 6294,
+        "end_line": 6395
+      },
+      {
+        "name": "BOver9_0_7c2ba8388365b4e58c01dc0fb2c2d23c",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 6396,
+        "end_line": 6404
+      },
+      {
+        "name": "BOver9_0_89ca12a1050c943f0c5eb395eaa18d85",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "path_to_JGLBN",
+            "type": "string"
+          },
+          {
+            "name": "size_j",
+            "type": "float"
+          }
+        ],
+        "line": 6405,
+        "end_line": 6435
+      },
+      {
+        "name": "execute_overlap_command",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "chain",
+            "type": "int"
+          },
+          {
+            "name": "base_clth_j",
+            "type": "string[]"
+          },
+          {
+            "name": "len",
+            "type": "float"
+          },
+          {
+            "name": "sdvig",
+            "type": "float"
+          },
+          {
+            "name": "sdvig_side",
+            "type": "float"
+          },
+          {
+            "name": "smooth_end",
+            "type": "float"
+          },
+          {
+            "name": "cycle",
+            "type": "int"
+          },
+          {
+            "name": "abs_mode",
+            "type": "int"
+          },
+          {
+            "name": "save_edge",
+            "type": "int"
+          }
+        ],
+        "line": 6436,
+        "end_line": 6486
+      },
+      {
+        "name": "BOver9_0_8bc545beef54e0c34e7362b4f7218a00",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "num_ctrl",
+            "type": "int"
+          },
+          {
+            "name": "ctrl_size",
+            "type": "float"
+          }
+        ],
+        "line": 6487,
+        "end_line": 6576
+      },
+      {
+        "name": "BOver9_0_6d7498dd5c0b89568073ed9206fd5cd0",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "continuation_of_chain",
+            "type": "int"
+          }
+        ],
+        "line": 6577,
+        "end_line": 6678
+      },
+      {
+        "name": "BOver9_0_6f0c91238594d07078aec347f834371d",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "continuation_of_chain",
+            "type": "int"
+          }
+        ],
+        "line": 6679,
+        "end_line": 6711
+      },
+      {
+        "name": "BOver9_0_10df34add5a583f84d24608e860c1b4b",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 6712,
+        "end_line": 6748
+      },
+      {
+        "name": "BOver9_0_c642429ed9a3aabf65a66eefcd97bfbb",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 6749,
+        "end_line": 6807
+      },
+      {
+        "name": "BOver9_0_43f7908f4d02441c32d7d9e17f11c41d",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "targets",
+            "type": "string[]"
+          },
+          {
+            "name": "objects",
+            "type": "string[]"
+          }
+        ],
+        "line": 6808,
+        "end_line": 6819
+      },
+      {
+        "name": "BOver9_0_012d9443d9a5fb6cc34e63f93910d7d2",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "source_objs",
+            "type": "string[]"
+          },
+          {
+            "name": "target_objs",
+            "type": "string[]"
+          }
+        ],
+        "line": 6820,
+        "end_line": 6848
+      },
+      {
+        "name": "BOver9_0_7d8d1e6007388fcf544fa573f4e74bdd",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "source_objs",
+            "type": "string[]"
+          },
+          {
+            "name": "target_obj",
+            "type": "string"
+          }
+        ],
+        "line": 6849,
+        "end_line": 6870
+      },
+      {
+        "name": "BOver9_0_f0549514de82c9ee2236723b537462e7",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          },
+          {
+            "name": "constr_names",
+            "type": "string[]"
+          },
+          {
+            "name": "channel_name",
+            "type": "string"
+          },
+          {
+            "name": "frame_range",
+            "type": "float[]"
+          },
+          {
+            "name": "rotate_quaternion",
+            "type": "int"
+          }
+        ],
+        "line": 6871,
+        "end_line": 6905
+      },
+      {
+        "name": "BOver9_0_1162cc0d0275955a6cf83aa8d5c88aa0",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 6906,
+        "end_line": 6945
+      },
+      {
+        "name": "BOver9_0_9bad7ec683c4a9fc4b3098a039f34d33",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "size",
+            "type": "float"
+          },
+          {
+            "name": "orient_joints",
+            "type": "int"
+          }
+        ],
+        "line": 6946,
+        "end_line": 6969
+      },
+      {
+        "name": "BOver9_0_a9508339d126636bf3dd051d0fc90827",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "base",
+            "type": "string[]"
+          }
+        ],
+        "line": 6970,
+        "end_line": 7079
+      },
+      {
+        "name": "BOver9_0_886bd92917571731156a7a071d0dbe98",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "two_edges_names",
+            "type": "string[]"
+          }
+        ],
+        "line": 7080,
+        "end_line": 7144
+      },
+      {
+        "name": "BOver9_0_5af02f105b3c73a5596102329399dcb1",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "static",
+            "type": "int"
+          }
+        ],
+        "line": 7145,
+        "end_line": 7205
+      },
+      {
+        "name": "BOver9_0_2948842313131fcddb41ac6ad1efd38c",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 7206,
+        "end_line": 7238
+      },
+      {
+        "name": "BOver9_0_78b3badf5e21d9d0f6a0516171924096",
+        "global_scope": true,
+        "return_type": "float[]",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          },
+          {
+            "name": "type_of_slider",
+            "type": "string"
+          }
+        ],
+        "line": 7239,
+        "end_line": 7255
+      },
+      {
+        "name": "BOver9_0_09bdb78af23637cc0a3c8a88a1e6ab24",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "t_axis",
+            "type": "string"
+          },
+          {
+            "name": "r_axis",
+            "type": "string"
+          }
+        ],
+        "line": 7256,
+        "end_line": 7285
+      },
+      {
+        "name": "BOver9_0_a01af7626635f090f4162490a6d9507d",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "crvs",
+            "type": "string[]"
+          }
+        ],
+        "line": 7286,
+        "end_line": 7301
+      },
+      {
+        "name": "BOver9_0_2d92805242e50041994bf7f653f4e114",
+        "global_scope": true,
+        "return_type": "int",
+        "parameters": [
+          {
+            "name": "selection",
+            "type": "string[]"
+          },
+          {
+            "name": "num_curve",
+            "type": "string"
+          }
+        ],
+        "line": 7302,
+        "end_line": 7317
+      },
+      {
+        "name": "BOver9_0_b970808d076db3299a05dc858ee1a1e0",
+        "global_scope": true,
+        "return_type": "float",
+        "parameters": [
+          {
+            "name": "frame1",
+            "type": "float"
+          },
+          {
+            "name": "frame2",
+            "type": "float"
+          },
+          {
+            "name": "curve_name",
+            "type": "string"
+          }
+        ],
+        "line": 7318,
+        "end_line": 7331
+      },
+      {
+        "name": "BOver9_0_dc0d813b43709134eff71f1ddbf39eae",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 7332,
+        "end_line": 7341
+      },
+      {
+        "name": "BOver9_0_d18150d077ed5b67c6812087cb8711c2",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "poseBias",
+            "type": "float"
+          },
+          {
+            "name": "add_scale",
+            "type": "float"
+          }
+        ],
+        "line": 7342,
+        "end_line": 7357
+      },
+      {
+        "name": "BOver9_0_a8d1933a966541e62d79a2fcbf6e4ea4",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "interpolation",
+            "type": "int"
+          }
+        ],
+        "line": 7358,
+        "end_line": 7373
+      },
+      {
+        "name": "BOver9_0_83a9015d514ecd1326a1648b28396ba2",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "coords",
+            "type": "vector[]"
+          },
+          {
+            "name": "interp",
+            "type": "int"
+          }
+        ],
+        "line": 7374,
+        "end_line": 7388
+      },
+      {
+        "name": "BOver9_0_910f54508e7e0e76ffe92926566add2d",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 7389,
+        "end_line": 7400
+      },
+      {
+        "name": "BOver9_0_f0209cb5b5931bdfa7ae6801db19a0f8",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 7401,
+        "end_line": 7428
+      },
+      {
+        "name": "BOver9_0_8dcf27adae2f0cd4520378fd7044ea43",
+        "global_scope": true,
+        "return_type": "int[]",
+        "parameters": [
+          {
+            "name": "fl_array",
+            "type": "float[]"
+          },
+          {
+            "name": "sorting",
+            "type": "int"
+          },
+          {
+            "name": "remove_duplicates",
+            "type": "int"
+          }
+        ],
+        "line": 7429,
+        "end_line": 7447
+      },
+      {
+        "name": "BOver9_0_8071326ac26a590fcb224ddba406d389",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 7448,
+        "end_line": 7455
+      },
+      {
+        "name": "BOver9_0_ef6700cd4efa166b5d6bde47732f420a",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 7456,
+        "end_line": 7467
+      },
+      {
+        "name": "BOver9_0_34cdd1e4469c2d3c695448db824d2ecb",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "on",
+            "type": "int"
+          }
+        ],
+        "line": 7468,
+        "end_line": 7476
+      },
+      {
+        "name": "BOver9_0_e8fab4220afb7ebae48fab83681f71a5",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "vis",
+            "type": "int"
+          }
+        ],
+        "line": 7477,
+        "end_line": 7492
+      },
+      {
+        "name": "BOver9_0_d5923f3b930977b80f15c7f80da04844",
+        "global_scope": true,
+        "return_type": "float[]",
+        "parameters": [
+          {
+            "name": "array",
+            "type": "float[]"
+          },
+          {
+            "name": "sorting",
+            "type": "int"
+          }
+        ],
+        "line": 7493,
+        "end_line": 7501
+      },
+      {
+        "name": "BOver9_0_174b5e03acbe9a8ba7bf83b031094a2e",
+        "global_scope": true,
+        "return_type": "float[]",
+        "parameters": [
+          {
+            "name": "object",
+            "type": "string"
+          }
+        ],
+        "line": 7502,
+        "end_line": 7524
+      },
+      {
+        "name": "BOver9_0_e0b44e5f427a869b704a743cf1d3614c",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [],
+        "line": 7525,
+        "end_line": 7551
+      },
+      {
+        "name": "BOver9_0_b142decaa1526dfbc704c277d5c70c28",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [],
+        "line": 7552,
+        "end_line": 7591
+      },
+      {
+        "name": "BOver9_0_9713c7abe7f317a1eaefb22b30d9ce1c",
+        "global_scope": true,
+        "return_type": "float[]",
+        "parameters": [],
+        "line": 7592,
+        "end_line": 7631
+      },
+      {
+        "name": "BOver9_0_41b4e3b470ec48427b6ebd4f09a607e7",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 7632,
+        "end_line": 7644
+      },
+      {
+        "name": "BOver9_0_1ed150b12535ee196bee8b74a6bf5f5c",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          },
+          {
+            "name": "obj_type",
+            "type": "string"
+          }
+        ],
+        "line": 7645,
+        "end_line": 7679
+      },
+      {
+        "name": "BOver9_0_3f4f73dada507559923dd025fcbc3bdf",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "inputt",
+            "type": "string[]"
+          },
+          {
+            "name": "start_pos",
+            "type": "int"
+          },
+          {
+            "name": "end_pos",
+            "type": "int"
+          }
+        ],
+        "line": 7680,
+        "end_line": 7761
+      },
+      {
+        "name": "BOver9_0_2edf2909df70a7e657b4b646868a0b9c",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 7762,
+        "end_line": 7776
+      },
+      {
+        "name": "BOver9_0_c6ebe74a412a2810e00a55e90c1354fb",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "name_of_plugin",
+            "type": "string"
+          }
+        ],
+        "line": 7777,
+        "end_line": 7787
+      },
+      {
+        "name": "BOver9_0_95aedc626a621231a66a091788483a9e",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "curveName",
+            "type": "string"
+          },
+          {
+            "name": "sequent_parent",
+            "type": "int"
+          }
+        ],
+        "line": 7788,
+        "end_line": 7815
+      },
+      {
+        "name": "BOver9_0_465f2c70f8e4bf417e93834f61ee4f6e",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "stroka",
+            "type": "string"
+          },
+          {
+            "name": "poisk",
+            "type": "string"
+          }
+        ],
+        "line": 7816,
+        "end_line": 7831
+      },
+      {
+        "name": "BOver9_0_c884f4200431a153fb44b960cecbef34",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "object",
+            "type": "string"
+          }
+        ],
+        "line": 7832,
+        "end_line": 7842
+      },
+      {
+        "name": "BOver9_0_b8c78ceb987ce7e962297e68eebc8c12",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "base_obj",
+            "type": "string"
+          },
+          {
+            "name": "oriented_obj",
+            "type": "string"
+          }
+        ],
+        "line": 7843,
+        "end_line": 7876
+      },
+      {
+        "name": "BOver9_0_c94e889a43233139ecf15566d05e5a78",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "controls",
+            "type": "string[]"
+          },
+          {
+            "name": "selected_jnts",
+            "type": "string[]"
+          }
+        ],
+        "line": 7877,
+        "end_line": 7938
+      },
+      {
+        "name": "BOver9_0_d646a70340f6ca544557c45c16b7a914",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "second_obj_is_side",
+            "type": "int"
+          },
+          {
+            "name": "screen_size",
+            "type": "float"
+          }
+        ],
+        "line": 7939,
+        "end_line": 7986
+      },
+      {
+        "name": "BOver9_0_97bb4fedbc7cf5833843579d493a26a3",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "curve_name",
+            "type": "string"
+          },
+          {
+            "name": "top_object",
+            "type": "string"
+          },
+          {
+            "name": "object",
+            "type": "string"
+          },
+          {
+            "name": "WUV_perp",
+            "type": "vector"
+          }
+        ],
+        "line": 7987,
+        "end_line": 8030
+      },
+      {
+        "name": "BOver9_0_cfc20aa23531f881688ec3a171beaae5",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "m_path",
+            "type": "string"
+          }
+        ],
+        "line": 8031,
+        "end_line": 8055
+      },
+      {
+        "name": "BOver9_0_cfc20aa23531f881688ec3a171beaae5",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "m_path",
+            "type": "string"
+          }
+        ],
+        "line": 8056,
+        "end_line": 8080
+      },
+      {
+        "name": "BOver9_0_7b3fcad445e0b73cf535b7be3635a572",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 8081,
+        "end_line": 8136
+      },
+      {
+        "name": "BOver9_0_b2bb441f7665fb6e6f9e58a22cb5e462",
+        "global_scope": true,
+        "return_type": "vector",
+        "parameters": [
+          {
+            "name": "curve",
+            "type": "string"
+          }
+        ],
+        "line": 8137,
+        "end_line": 8160
+      },
+      {
+        "name": "BOver9_0_b785f6145105d03029da5b3e19367cbd",
+        "global_scope": true,
+        "return_type": "float[]",
+        "parameters": [
+          {
+            "name": "p1",
+            "type": "float[]"
+          },
+          {
+            "name": "p2",
+            "type": "float[]"
+          },
+          {
+            "name": "normalize",
+            "type": "int"
+          }
+        ],
+        "line": 8161,
+        "end_line": 8167
+      },
+      {
+        "name": "BOver9_0_8aba008b6f6ae60b66a902e6ab3eed1c",
+        "global_scope": true,
+        "return_type": "float[]",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          },
+          {
+            "name": "lenght_coeff",
+            "type": "float"
+          },
+          {
+            "name": "distribution_coeff",
+            "type": "float"
+          }
+        ],
+        "line": 8168,
+        "end_line": 8190
+      },
+      {
+        "name": "BOver9_0_476390711655739e4d4919b7f7336b00",
+        "global_scope": true,
+        "return_type": "float",
+        "parameters": [
+          {
+            "name": "pos_A",
+            "type": "float[]"
+          },
+          {
+            "name": "pos_B",
+            "type": "float[]"
+          },
+          {
+            "name": "pos_C",
+            "type": "float[]"
+          }
+        ],
+        "line": 8191,
+        "end_line": 8203
+      },
+      {
+        "name": "BOver9_0_7145e62c24cf62d609b928973d8456c7",
+        "global_scope": true,
+        "return_type": "float[]",
+        "parameters": [
+          {
+            "name": "points",
+            "type": "float[]"
+          },
+          {
+            "name": "need_sort",
+            "type": "int"
+          },
+          {
+            "name": "longest",
+            "type": "int"
+          }
+        ],
+        "line": 8204,
+        "end_line": 8234
+      },
+      {
+        "name": "BOver9_0_65107bc37ea4a0d842be293fd78287a9",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "attribname",
+            "type": "string"
+          },
+          {
+            "name": "object",
+            "type": "string"
+          }
+        ],
+        "line": 8235,
+        "end_line": 8240
+      },
+      {
+        "name": "BOver9_0_5be180667c9ec255cdbc3827fe30f0f2",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "object",
+            "type": "string"
+          },
+          {
+            "name": "node_name_mask",
+            "type": "string"
+          }
+        ],
+        "line": 8241,
+        "end_line": 8256
+      },
+      {
+        "name": "BOver9_0_f97932bf0a9a89d861a2c21323a52981",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "Lock_Size",
+            "type": "float"
+          },
+          {
+            "name": "Joint_Size",
+            "type": "float"
+          }
+        ],
+        "line": 8257,
+        "end_line": 8369
+      },
+      {
+        "name": "BOver9_0_9b29b86e5de4ada4b19840df4e8973d5",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 8370,
+        "end_line": 8382
+      },
+      {
+        "name": "BOver9_0_d1e3370b8e860ec07368697d9ae6b53b",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          }
+        ],
+        "line": 8383,
+        "end_line": 8389
+      },
+      {
+        "name": "BOver9_0_216cd5229394f893f58516bc1517892a",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "knots",
+            "type": "int"
+          },
+          {
+            "name": "bake_anim",
+            "type": "int"
+          },
+          {
+            "name": "create_MT",
+            "type": "int"
+          },
+          {
+            "name": "besier_mode",
+            "type": "int"
+          }
+        ],
+        "line": 8390,
+        "end_line": 8561
+      },
+      {
+        "name": "BOver9_0_d87329da3638ba6d8abbdc21284da5b0",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "path_to_JGLBN",
+            "type": "string"
+          }
+        ],
+        "line": 8562,
+        "end_line": 8574
+      },
+      {
+        "name": "BOver9_0_7f3473239f5affa2a0790f0c6db6aaf9",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "clth_j",
+            "type": "string[]"
+          },
+          {
+            "name": "len",
+            "type": "float"
+          },
+          {
+            "name": "sdvig",
+            "type": "float"
+          },
+          {
+            "name": "sdvig_side",
+            "type": "float"
+          },
+          {
+            "name": "smooth_end",
+            "type": "float"
+          },
+          {
+            "name": "cycle",
+            "type": "int"
+          },
+          {
+            "name": "abs_mode",
+            "type": "int"
+          },
+          {
+            "name": "save_edge",
+            "type": "int"
+          },
+          {
+            "name": "min_fr",
+            "type": "float"
+          },
+          {
+            "name": "max_fr",
+            "type": "float"
+          },
+          {
+            "name": "zero_percent",
+            "type": "int"
+          },
+          {
+            "name": "partial_mode",
+            "type": "int"
+          }
+        ],
+        "line": 8575,
+        "end_line": 8635
+      },
+      {
+        "name": "BOver9_0_a54e109972caf8ac808da7205e765e57",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "name_expression",
+            "type": "string"
+          },
+          {
+            "name": "size_inputs",
+            "type": "int"
+          }
+        ],
+        "line": 8636,
+        "end_line": 8652
+      },
+      {
+        "name": "BOver9_0_44f98143a051a179f7a8f034b026e69b",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "compon",
+            "type": "string"
+          },
+          {
+            "name": "object",
+            "type": "string"
+          }
+        ],
+        "line": 8653,
+        "end_line": 8674
+      },
+      {
+        "name": "BOver9_0_b9fa1d9928478b91ad38716608825bd6",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 8675,
+        "end_line": 8831
+      },
+      {
+        "name": "BOver9_0_5a83676d63b5330872e526b5f6930549",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "object",
+            "type": "string"
+          }
+        ],
+        "line": 8832,
+        "end_line": 8839
+      },
+      {
+        "name": "BOver9_0_bdd2d2262c150fe16a261bb2e2e76046",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "rotation_mod",
+            "type": "int"
+          }
+        ],
+        "line": 8840,
+        "end_line": 8855
+      },
+      {
+        "name": "BOver9_0_92974e563427b6856d49efc764f12d33",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "layer",
+            "type": "string"
+          }
+        ],
+        "line": 8856,
+        "end_line": 8864
+      },
+      {
+        "name": "BOver9_0_402263cc1b8de1e793411a0a2dc0e8ec",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "layers",
+            "type": "string[]"
+          },
+          {
+            "name": "range",
+            "type": "float[]"
+          },
+          {
+            "name": "side_fr",
+            "type": "float"
+          },
+          {
+            "name": "tangent",
+            "type": "string"
+          },
+          {
+            "name": "reverse",
+            "type": "int"
+          }
+        ],
+        "line": 8865,
+        "end_line": 8881
+      },
+      {
+        "name": "BOver9_0_719a69b0631e3563f3cad27518625416",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "keys_for_delete",
+            "type": "float[]"
+          }
+        ],
+        "line": 8882,
+        "end_line": 8903
+      },
+      {
+        "name": "BOver9_0_419ebd630d5f306b0e072ae65d2736e8",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "side",
+            "type": "float"
+          },
+          {
+            "name": "poseBias",
+            "type": "float"
+          }
+        ],
+        "line": 8904,
+        "end_line": 8915
+      },
+      {
+        "name": "BOver9_0_18ecfb9c58f1a9c19cff7819d9a88813",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          },
+          {
+            "name": "color",
+            "type": "float[]"
+          }
+        ],
+        "line": 8916,
+        "end_line": 8926
+      },
+      {
+        "name": "BOver9_0_d68451d42d330e385dd0c090bd6877a0",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "prefix",
+            "type": "string"
+          }
+        ],
+        "line": 8927,
+        "end_line": 8941
+      },
+      {
+        "name": "BOver9_0_24abb2efaf063b9b16a2b2c78969a384",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 8942,
+        "end_line": 8951
+      },
+      {
+        "name": "BOver9_0_113374ba19bc1f4dc9b1cc9706816f86",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          }
+        ],
+        "line": 8952,
+        "end_line": 8963
+      },
+      {
+        "name": "BOver9_0_b76d22f29f0df28efe8f00a67d5635f7",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "style",
+            "type": "int"
+          }
+        ],
+        "line": 8964,
+        "end_line": 8972
+      },
+      {
+        "name": "BOver9_0_3de1f2433d756c53274925f7253b3c51",
+        "global_scope": true,
+        "return_type": "int[]",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          }
+        ],
+        "line": 8973,
+        "end_line": 8989
+      },
+      {
+        "name": "BOver9_0_d47b8e8b02e1593b7af35176139fac48",
+        "global_scope": true,
+        "return_type": "float[]",
+        "parameters": [
+          {
+            "name": "array",
+            "type": "string[]"
+          }
+        ],
+        "line": 8990,
+        "end_line": 8999
+      },
+      {
+        "name": "BOver9_0_4ad38bb85176eb981038083a281c91d6",
+        "global_scope": true,
+        "return_type": "vector[]",
+        "parameters": [
+          {
+            "name": "selection",
+            "type": "string"
+          },
+          {
+            "name": "framerange",
+            "type": "float[]"
+          }
+        ],
+        "line": 9000,
+        "end_line": 9015
+      },
+      {
+        "name": "BOver9_0_29a2189faa1ce9571a1184989dc7f462",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [],
+        "line": 9016,
+        "end_line": 9024
+      },
+      {
+        "name": "BOver9_0_399e6ca23a24d0e48ed5cb872f4729dd",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "shape",
+            "type": "string"
+          }
+        ],
+        "line": 9025,
+        "end_line": 9034
+      },
+      {
+        "name": "BOver9_0_9145a4487029b640fc70278199ce684f",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [],
+        "line": 9035,
+        "end_line": 9049
+      },
+      {
+        "name": "BOver9_0_d9b32ab6c0497dc9f017f8056df67928",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "NMSPC",
+            "type": "string"
+          }
+        ],
+        "line": 9050,
+        "end_line": 9060
+      },
+      {
+        "name": "BOver9_0_4874f5c758343518c484dc3cb8ee48b0",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "dergee",
+            "type": "int"
+          },
+          {
+            "name": "num_CV_on_drawn_curve",
+            "type": "int"
+          },
+          {
+            "name": "proportional",
+            "type": "int"
+          },
+          {
+            "name": "connect",
+            "type": "int"
+          }
+        ],
+        "line": 9061,
+        "end_line": 9095
+      },
+      {
+        "name": "BOver9_0_ef7d5e5d22a49212f1df955c4a101f3a",
+        "global_scope": true,
+        "return_type": "string[]",
+        "parameters": [
+          {
+            "name": "radius",
+            "type": "float"
+          }
+        ],
+        "line": 9096,
+        "end_line": 9115
+      },
+      {
+        "name": "BOver9_0_c3face5af2eaef8e548ce10d50587275",
+        "global_scope": true,
+        "return_type": "int",
+        "parameters": [
+          {
+            "name": "curve",
+            "type": "string"
+          }
+        ],
+        "line": 9116,
+        "end_line": 9121
+      },
+      {
+        "name": "BOver9_0_74b3586ec5f33152020ca1d5764043c3",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 9122,
+        "end_line": 9186
+      },
+      {
+        "name": "BOver9_0_9cf10c253bb06da91bcfe3836a7e5f36",
+        "global_scope": true,
+        "return_type": "float",
+        "parameters": [
+          {
+            "name": "pos1",
+            "type": "float[]"
+          },
+          {
+            "name": "pos2",
+            "type": "float[]"
+          }
+        ],
+        "line": 9187,
+        "end_line": 9192
+      },
+      {
+        "name": "BOver9_0_6f6ae5b84133776f167ce9bbf3409540",
+        "global_scope": true,
+        "return_type": "float[]",
+        "parameters": [
+          {
+            "name": "point1",
+            "type": "float[]"
+          },
+          {
+            "name": "point2",
+            "type": "float[]"
+          },
+          {
+            "name": "point3",
+            "type": "float[]"
+          }
+        ],
+        "line": 9193,
+        "end_line": 9200
+      },
+      {
+        "name": "BOver9_0_7b95c992be7b036735f7298f89ab9556",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "object",
+            "type": "string"
+          },
+          {
+            "name": "curve_name",
+            "type": "string"
+          },
+          {
+            "name": "framerange",
+            "type": "float[]"
+          },
+          {
+            "name": "curve_movement_loc",
+            "type": "string"
+          },
+          {
+            "name": "bake_anim",
+            "type": "int"
+          }
+        ],
+        "line": 9201,
+        "end_line": 9236
+      },
+      {
+        "name": "BOver9_0_ddf3e35ed988fd159dd82159edfce03a",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "selection",
+            "type": "string[]"
+          },
+          {
+            "name": "hardness",
+            "type": "float"
+          },
+          {
+            "name": "sdvig_lenght",
+            "type": "float"
+          },
+          {
+            "name": "sdvig_side",
+            "type": "float"
+          },
+          {
+            "name": "smooth_end",
+            "type": "float"
+          },
+          {
+            "name": "cycled",
+            "type": "int"
+          },
+          {
+            "name": "abs_mode",
+            "type": "int"
+          }
+        ],
+        "line": 9237,
+        "end_line": 9301
+      },
+      {
+        "name": "BOver9_0_01964c63a0f5c1bf0eb159d94bb787cc",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "period",
+            "type": "float"
+          },
+          {
+            "name": "pre_bake",
+            "type": "int"
+          }
+        ],
+        "line": 9302,
+        "end_line": 9320
+      },
+      {
+        "name": "BOver9_0_a0b1ccb530c89eb90e4a1b647be4ed19",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "hardness",
+            "type": "float"
+          },
+          {
+            "name": "sdvig_lenght",
+            "type": "float"
+          },
+          {
+            "name": "sdvig_side",
+            "type": "float"
+          },
+          {
+            "name": "smooth_end",
+            "type": "float"
+          },
+          {
+            "name": "cycled",
+            "type": "int"
+          },
+          {
+            "name": "abs_mode",
+            "type": "int"
+          }
+        ],
+        "line": 9321,
+        "end_line": 9377
+      },
+      {
+        "name": "BOver9_0_8358654186ce68fce780ef66a4260a01",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "object",
+            "type": "string"
+          }
+        ],
+        "line": 9378,
+        "end_line": 9414
+      },
+      {
+        "name": "BOver9_0_37aa5a96585e35a67af0d77c7cbea21c",
+        "global_scope": true,
+        "return_type": "int",
+        "parameters": [],
+        "line": 9415,
+        "end_line": 9468
+      },
+      {
+        "name": "BOver9_0_e503fab70a8f9fdcc7cdd1520fc26701",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "objects",
+            "type": "string[]"
+          },
+          {
+            "name": "layers",
+            "type": "string[]"
+          }
+        ],
+        "line": 9469,
+        "end_line": 9491
+      },
+      {
+        "name": "BOver9_0_c53bf77b0f2a5276b2dd47d6531b8351",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "scale_size",
+            "type": "float"
+          }
+        ],
+        "line": 9492,
+        "end_line": 9521
+      },
+      {
+        "name": "BOver9_0_bbc6100deeaad590128e235d81b77ee3",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "poseBias",
+            "type": "float"
+          },
+          {
+            "name": "objects",
+            "type": "string[]"
+          }
+        ],
+        "line": 9522,
+        "end_line": 9583
+      },
+      {
+        "name": "BOver9_0_1325d6f8979e36be5cd12865010fabb9",
+        "global_scope": true,
+        "return_type": "string",
+        "parameters": [
+          {
+            "name": "radius",
+            "type": "float"
+          }
+        ],
+        "line": 9584,
+        "end_line": 9615
+      }
+    ],
+    "duplicate_names": {
+      "BOver9_0_cfc20aa23531f881688ec3a171beaae5": 2
+    },
+    "top_level_lines": [],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority"
+  }
+]
