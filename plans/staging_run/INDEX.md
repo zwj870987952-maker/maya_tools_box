@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-02T05:39:30.237586+08:00
+更新时间：2026-10-02T05:51:53.082319+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -82,7 +82,7 @@
 | `03_transforms_modeling/rotation_aligner` | prepared_unverified | True | True | not_run |
 | `03_transforms_modeling/smart_mesh` | prepared_unverified | True | True | not_run |
 | `03_transforms_modeling/unlock_freeze` | prepared_unverified | True | True | not_run |
-| `03_transforms_modeling/uv_set_renamer` | pending | True | False | not_run |
+| `03_transforms_modeling/uv_set_renamer` | prepared_unverified | True | True | not_run |
 | `03_transforms_modeling/world_transform_v4` | pending | True | False | not_run |
 | `04_pipeline_io/abc_batch_exporter` | pending | True | False | not_run |
 | `04_pipeline_io/asset_it_v1_2` | pending | True | False | not_run |

@@ -646,3 +646,9 @@
 - 原单文件SHA归档；完整九TRS解锁/原makeIdentity apply全TRS/原选择恢复，移除channelBox隐含其它属性与MEL拼接，精确TRS及compound解锁，可选restore_locks；标准Base/Schema/预检小UI/知识/验收/晋级。全部受影响后代/几何输入独占construction预检，锁后代/引用/实例/动画/JO/OPM/共享历史/geometry consumer/相机灯/变形器拒绝，不仅检查输入根。joint原生T骨长/旋转转JO边界说明明确。
 - 2离线+3隔离Maya2025+临时正式布局/注册/modeling_surfacing/panel/fingerprint通过：真实mesh世界points保持/TRS归零/锁解除、oneUndo原points/锁/选区/历史、v锁保持/AutoKey与restore_locks；nurbs circle/controllerCV、组后代mesh及joint骨段位置；坏后行/动画/alias/overlap/实例/GUIbatch拒绝。一次测试因新建polyCube改变fixture当前选择，改显式选择被设key的源再拒绝验证，不改业务掩盖。GUI/生产复杂pivot法线/模型骨架/跨版本not_run，prepared_unverified。
 - 实际5h90%已用（剩10%）、周45%，立即继续uv_set_renamer；heartbeat暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：UV集改名完整候选，累计77/109
+
+- 原单文件SHA归档；完整跨模型UV名称联合列表/白色输入/红色改名/Zwj水印UI、两兼容函数、Base/Schema/inspect只读默认/知识验收晋级。全表最终名称冲突预检，两阶段临时名称支持交换循环；每mesh缺old按原跳过，但全部不存在拒绝；UUID跟随、真实DAG实例/引用写/锁/名称及current驱动检查，当前UV集跟随原集身份，统一Undo，选区时间AutoKey不改。
+- 2离线+3隔离Maya2025+临时正式布局/注册/modeling_surfacing/panel/fingerprint全通过：两mesh缺不同UV集、dry不改状态、原MFnMesh坐标/分配索引/native set index保持、current正确跟随/oneUndo；交换与稀疏index保持；冲突/缺old/重复final/后行锁/alias/组件/实例/GUIbatch拒绝。GUI/按UV名称关联材质UVChooser与导出器/生产rig-history/跨版本not_run，prepared_unverified。
+- 实际5h95%已用（剩5%）、周45%；按每项收尾阈值保存后进入额度等待，下项world_transform_v4。候选均留在池内，不迁正式/同步/用卡/购买。

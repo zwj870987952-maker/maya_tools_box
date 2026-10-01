@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T05:39:30.237586+08:00",
+  "updated_at": "2026-10-02T05:51:53.082319+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "03_transforms_modeling/unlock_freeze",
+    "last_completed_tool": "03_transforms_modeling/uv_set_renamer",
     "last_usage": {
-      "five_hour_used_percent": 87.0,
-      "weekly_used_percent": 44.0,
-      "recorded_at": "2026-10-02T05:33:11.995406+08:00",
+      "five_hour_used_percent": 90.0,
+      "weekly_used_percent": 45.0,
+      "recorded_at": "2026-10-02T05:41:37.113535+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "03_transforms_modeling/unlock_freeze"
+    "current_tool": "03_transforms_modeling/uv_set_renamer"
   },
   "entry_repairs": [
     {
@@ -15691,7 +15691,8 @@
       ],
       "source_preserved": true,
       "change_summary": "完整九TRS解锁与原makeIdentity apply冻结/原选择恢复；全部受影响后代geometry独占预检/Undo/可选原锁/UI/知识测试晋级",
-      "prepared_at": "2026-10-02T05:38:49.583892+08:00"
+      "prepared_at": "2026-10-02T05:38:49.583892+08:00",
+      "source_commit": "fb81873600eea6b2278e11ff7e35b48fddea9db1"
     },
     {
       "source_path": "03_transforms_modeling/uv_set_renamer",
@@ -15702,20 +15703,80 @@
       "entry_candidates": [
         "UV集改名工具.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "UV集改名工具.py"
       ],
       "license_files": [],
       "entry_sha256": "317f4eeb77bf90e72790488dcbdc4353b23f9a53bdac579b825ce730c50150d7",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"uv_set_renamer\",\r\n  \"candidate_sha256\": \"19026f489c55047c57e2f79c554f1186c60d0a07efb5b7810ff2076de2b1194b\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\uv_set_renamer.md\",\r\n    \"maya_toolkit\\\\tools\\\\uv_set_renamer\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\uv_set_renamer\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\uv_set_renamer\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\uv_set_renamer\\\\upstream\\\\UV\\u96c6\\u6539\\u540d\\u5de5\\u5177.py.original\",\r\n    \"tests\\\\test_uv_set_renamer.py\",\r\n    \"tests\\\\test_uv_set_renamer_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/03_transforms_modeling/uv_set_renamer/release_candidate/tests/test_uv_set_renamer_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "����: ���ڸ������ʷ�����ã���Ϊĳ��ѡ����Ŀ������ʷ��\n.����: ���ڸ������ʷ�����ã���Ϊĳ��ѡ����Ŀ������ʷ��\n����: UVSetRenamerTool_uv_set_renamer\n.����: ���ڸ������ʷ�����ã���Ϊĳ��ѡ����Ŀ������ʷ��\n����: UVSetRenamerTool_uv_set_renamer\n.\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.125s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "2e6c014baf1f913a4ce1a7e5c90d1758603aba1b210e9488c64b6718957856cb",
+          "runtime_source_sha256": "45897b69cf5e30578fecb826be2dfeb9d09fa078767e4b06035ee2f2cf64acf4"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real interactive Maya UI, name-dependent UVChooser/material/export relationships, production rig-history and other versions not_run."
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "19026f489c55047c57e2f79c554f1186c60d0a07efb5b7810ff2076de2b1194b",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "真实GUI/材质按UV名关系/生产rig-history/跨版本not_run"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -15724,7 +15785,35 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "189ef8bce3558d0f3b6b532887b01bd6462ffac57b2111d741281f81adce3943"
+      "source_tree_sha256": "c8ef3c70cf4482c53fc78d600d989d82f51d5778c3aa0829b162973986ac9b98",
+      "candidate_path": "tools_staging_pool/03_transforms_modeling/uv_set_renamer/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/03_transforms_modeling/uv_set_renamer/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "uv_set_renamer",
+        "candidate_sha256": "19026f489c55047c57e2f79c554f1186c60d0a07efb5b7810ff2076de2b1194b",
+        "applied": false,
+        "files": [
+          "docs\\tools\\uv_set_renamer.md",
+          "maya_toolkit\\tools\\uv_set_renamer\\__init__.py",
+          "maya_toolkit\\tools\\uv_set_renamer\\catalog.json",
+          "maya_toolkit\\tools\\uv_set_renamer\\tool.py",
+          "maya_toolkit\\tools\\uv_set_renamer\\upstream\\UV集改名工具.py.original",
+          "tests\\test_uv_set_renamer.py",
+          "tests\\test_uv_set_renamer_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "UV集改名工具.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/API2"
+      ],
+      "source_preserved": true,
+      "change_summary": "完整跨模型UV集联合列表/批量改名UI/API；最终名称全表预检/两阶段交换循环/UUID对象跟随/UV数据index-current保持/Undo/知识测试晋级",
+      "prepared_at": "2026-10-02T05:51:18.482720+08:00"
     },
     {
       "source_path": "03_transforms_modeling/world_transform_v4",

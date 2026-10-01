@@ -1,0 +1,48 @@
+{
+  "tool_id": "uv_set_renamer",
+  "registration": {
+    "module": "uv_set_renamer",
+    "class_name": "UVSetRenamerTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/uv_set_renamer.md",
+      "target": "docs/tools/uv_set_renamer.md"
+    },
+    {
+      "source": "maya_toolkit/tools/uv_set_renamer/__init__.py",
+      "target": "maya_toolkit/tools/uv_set_renamer/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/uv_set_renamer/catalog.json",
+      "target": "maya_toolkit/tools/uv_set_renamer/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/uv_set_renamer/tool.py",
+      "target": "maya_toolkit/tools/uv_set_renamer/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/uv_set_renamer/upstream/UV集改名工具.py.original",
+      "target": "maya_toolkit/tools/uv_set_renamer/upstream/UV集改名工具.py.original"
+    },
+    {
+      "source": "tests/test_uv_set_renamer.py",
+      "target": "tests/test_uv_set_renamer.py"
+    },
+    {
+      "source": "tests/test_uv_set_renamer_maya.py",
+      "target": "tests/test_uv_set_renamer_maya.py"
+    }
+  ],
+  "resources": [
+    "UV集改名工具.py"
+  ],
+  "dependencies": [
+    "Maya cmds/API2"
+  ],
+  "acceptance_required": true,
+  "change_summary": "完整跨模型UV集联合列表/批量改名UI/API；最终名称全表预检/两阶段交换循环/UUID对象跟随/UV数据index-current保持/Undo/知识测试晋级",
+  "verification_limitations": [
+    "真实GUI/材质按UV名关系/生产rig-history/跨版本not_run"
+  ]
+}
