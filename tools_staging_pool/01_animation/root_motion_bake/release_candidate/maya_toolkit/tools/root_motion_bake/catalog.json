@@ -1,0 +1,26 @@
+{
+  "methods": [
+    "__init__",
+    "create_ui",
+    "auto_populate_objects",
+    "refresh_objects",
+    "select_object",
+    "get_constraint_axes",
+    "get_time_range",
+    "create_constraint",
+    "bake_animation",
+    "get_relative_transform",
+    "set_relative_transform",
+    "execute_workflow",
+    "process_single_group"
+  ],
+  "raw_files": [
+    {
+      "path": "root_motion_original.py.original",
+      "sha256": "a84e5f3b5d8475e0a1ea988f8dce52de15fabadbcd6dc33873f994ce01638a32"
+    }
+  ],
+  "native_sha256": "cba5a2fa5e6139313b9f37c711cfd37ca8ff7e50a72ea9612a5bcf0fa10e1577",
+  "license": "Original header author Assistant; no independent license supplied, local personal preparation only",
+  "relative_transform": "Original world translation/Euler subtraction retained; not relative matrix or quaternion transform"
+}

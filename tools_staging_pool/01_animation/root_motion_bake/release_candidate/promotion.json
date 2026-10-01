@@ -1,0 +1,69 @@
+{
+  "tool_id": "root_motion_bake",
+  "registration": {
+    "module": "root_motion_bake",
+    "class_name": "RootMotionBakeTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/root_motion_bake.md",
+      "target": "docs/tools/root_motion_bake.md"
+    },
+    {
+      "source": "docs/tools/root_motion_bake_changes.diff",
+      "target": "docs/tools/root_motion_bake_changes.diff"
+    },
+    {
+      "source": "maya_toolkit/tools/root_motion_bake/__init__.py",
+      "target": "maya_toolkit/tools/root_motion_bake/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/root_motion_bake/catalog.json",
+      "target": "maya_toolkit/tools/root_motion_bake/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/root_motion_bake/native.py",
+      "target": "maya_toolkit/tools/root_motion_bake/native.py"
+    },
+    {
+      "source": "maya_toolkit/tools/root_motion_bake/runtime.py",
+      "target": "maya_toolkit/tools/root_motion_bake/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/root_motion_bake/tool.py",
+      "target": "maya_toolkit/tools/root_motion_bake/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/root_motion_bake/ui_bridge.py",
+      "target": "maya_toolkit/tools/root_motion_bake/ui_bridge.py"
+    },
+    {
+      "source": "maya_toolkit/tools/root_motion_bake/upstream/root_motion_original.py.original",
+      "target": "maya_toolkit/tools/root_motion_bake/upstream/root_motion_original.py.original"
+    },
+    {
+      "source": "tests/test_root_motion_bake.py",
+      "target": "tests/test_root_motion_bake.py"
+    },
+    {
+      "source": "tests/test_root_motion_bake_maya.py",
+      "target": "tests/test_root_motion_bake_maya.py"
+    }
+  ],
+  "resources": [
+    "catalog.json",
+    "upstream/root_motion_original.py.original"
+  ],
+  "dependencies": [
+    "Maya cmds/mel",
+    "BaseMayaTool/ToolResult/Undo"
+  ],
+  "acceptance_required": true,
+  "change_summary": "All original 13 methods and native UI retained; complete center constraints/root baking/offset layer workflow, strict batch preflight, unique layers and tracked temporary cleanup, selected-range fix and explicit center snapshots.",
+  "verification_limitations": [
+    "Original Maya UI and production rig/layers/rotation orders need human acceptance",
+    "Original relative position is world translation/Euler arithmetic, not matrix-relative rotation/scale",
+    "Original bake operates all root keyable attributes and preserveOutsideKeys=False",
+    "No independent license supplied; local only"
+  ]
+}

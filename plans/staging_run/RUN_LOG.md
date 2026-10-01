@@ -362,3 +362,12 @@
 - 第38项提交 cf5328047aa667e7a422fd35b45fc80cfc9f3fe2；实际额度接口5小时87%已用/周100%已用（ordinaryUsageAllowed仍true，周百分比已到100则停止新工具）。不使用任何重置卡，不购买额度。
 - 下一项01_animation/root_motion_bake仅已阅读原完整脚本，尚无第39项候选变更；恢复先读manifest/Git/usage。原相对位置是世界位置/Euler相减，并非矩阵相对变换；存在默认删除同名offset layer/烘焙全部keyable属性/框选实际用了animation range/同名namespace首匹配等边界，下一轮需保留全算法并补安全检查。
 - 保存状态waiting_for_quota，恢复同聊天30分钟heartbeat；只有周额度允许、5小时剩余高于95%、无其他运行回合时续跑。不消费卡、不转正、不同步Obsidian。
+
+## 2026-10-01：额度恢复续跑与Root Motion完整候选，累计39/109
+
+- 开工实际额度5小时1%已用/周0%已用，ordinaryUsageAllowed=true；卡片可用数3而此前4，仅观察账号外部变化，不归因本聊天（本聊天没有consume调用/购买）。App thread list当前checkout只有本聊天active，另一额度问询systemError无整理writer。已暂停同聊天heartbeat并核验TOML PAUSED，动态重扫109/109入口/34路径修复，恢复working；新resume_run.py只接受实际>95%剩余/周允许/已暂停heartbeat，不启动第二writer。
+- Root Motion原13方法/UI全部保留，raw字节SHA归档。完整center point/orient skip+maintainOffset→原全keyable bakeResults参数→ring偏移层；相对语义明确是世界平移/Euler分量，不改成matrix算法或跳过层。
+- 默认全部center先world采样为独立自有locator，避免center在Root下约束循环；snapshot_center=False保留独立源直接约束。私有窗口，无顶层自动启动；GUI原扫描/执行/范围定义可追溯，bridge用整批API/真实框选/可无ring，fullnamespace和歧义不首匹配/RootX_M不误作Root。
+- 全组readonly preflight/ref/lock/noneditable drivers/shared animCurve输出/Root重复祖先交叠/后代ring和direct后代center检查；原bake全部keyable与preserveOutsideKeys=False影响明确。层unique UUID不覆盖旧层、临时约束/locator/parentOnly副本UUID追踪，仅自有清理，外部DAG后代拒删；finally旧layers flags/time/select/ns/autokey恢复，会话总释放，失败已写场景按一Undo恢复。
+- actual ring实测源两xform后动画求值回到base，末帧偏移没保存；在无驱动parentOnly副本上执行原完整world/Euler相对方法，Maya求相同parent/pivot/RO局部值后显式在新animLayer写T/R，原起止整Rootkey保留。真实末帧tx3/tz2及Undo通过，无层源bake和rotation/已有Rootkeys/UndoRedo也通过，未用删掉偏移层的缩减代替。
+- 普通Python2组/隔离Maya2025六组/临时正式布局注册面板及全部指纹通过；干跑scene/time/Undo无变、全约束+bake+层保存、原同名层/flags不动、dependent snapshot、第二坏组前置拒绝、注入bake失败清理、深ns歧义/范围/batchUI拒绝。原GUI、生产pivot/JO/RA/RO/非均匀scale/层输入/时间滑块交互仍not_run，prepared_unverified，真人验收资料与晋级清单完整。不转正、不Obsidian同步、不用卡。

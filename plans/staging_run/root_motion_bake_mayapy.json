@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/root_motion_bake/release_candidate/tests/test_root_motion_bake_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_dependent_center_snapshot_and_strict_batch_preflight (__main__.MayaChecks.test_dependent_center_snapshot_and_strict_batch_preflight) ... ����: RootMotionBakeTool_root_motion_bake\nok\r\ntest_discovery_namespace_ambiguity_ranges_and_no_ui (__main__.MayaChecks.test_discovery_namespace_ambiguity_ranges_and_no_ui) ... ok\r\ntest_failure_finally_and_unowned_deletion (__main__.MayaChecks.test_failure_finally_and_unowned_deletion) ... ����: RootMotionBakeTool_root_motion_bake\nok\r\ntest_full_bake_no_ring_and_undo_cleanup (__main__.MayaChecks.test_full_bake_no_ring_and_undo_cleanup) ... ����: RootMotionBakeTool_root_motion_bake\nok\r\ntest_full_ring_layer_unique_preserves_existing_layer (__main__.MayaChecks.test_full_ring_layer_unique_preserves_existing_layer) ... ����: RootMotionBakeTool_root_motion_bake\nok\r\ntest_original_rotation_constraints_and_animated_root_redo (__main__.MayaChecks.test_original_rotation_constraints_and_animated_root_redo) ... ����: RootMotionBakeTool_root_motion_bake\n����: RootMotionBakeTool_root_motion_bake\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.064s\r\n\r\nOK\r\n  ��һ��������Լ��...\r\n  �ڶ������決����...\r\n  ������������û�д󻷶���\r\n  �� |root ������ɣ�\r\n  ��һ��������Լ��...\r\n  �ڶ������決����...\r\n  ������ |root ʱ����: injected failure\r\n  ��һ��������Լ��...\r\n  �ڶ������決����...\r\n  ������������û�д󻷶���\r\n  �� |root ������ɣ�\r\n  ��һ��������Լ��...\r\n  �ڶ������決����...\r\n  ������������������...\r\n  �� |root ������ɣ�\r\n  ��һ��������Լ��...\r\n  �ڶ������決����...\r\n  ������������û�д󻷶���\r\n  �� |root ������ɣ�\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "5eaf55266e9a846c593d6a276b8b6664c552ac9b5b0f111d1a9d250f0195f17f",
+  "runtime_source_sha256": "572d8522a14465d4b3fe71cf1ec40aef6b17cc17ce4fc316e95d193a44f2bea7"
+}

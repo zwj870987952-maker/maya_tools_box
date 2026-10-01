@@ -1,25 +1,24 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T10:50:17.720681+08:00",
+  "updated_at": "2026-10-01T16:14:45.180687+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
-    "state": "waiting_for_quota",
+    "state": "working",
     "heartbeat_id": "automation",
-    "heartbeat_status": "ACTIVE",
+    "heartbeat_status": "PAUSED",
     "heartbeat_verified": true,
     "reset_guard": "disabled_by_user_no_cards",
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/retime_tools",
+    "last_completed_tool": "01_animation/root_motion_bake",
     "last_usage": {
-      "five_hour_used_percent": 87.0,
-      "weekly_used_percent": 100.0,
-      "recorded_at": "2026-10-01T10:50:15.996098+08:00",
-      "note": "Caller actual read; ordinaryUsageAllowed was true but weekly usedPercent reached 100, so no next tool started"
+      "five_hour_used_percent": 1.0,
+      "weekly_used_percent": 0.0,
+      "recorded_at": "2026-10-01T15:58:29.513405+08:00",
+      "note": "Actual caller read: ordinaryUsageAllowed true; app thread list showed no other active writer in this checkout"
     },
-    "current_tool": "01_animation/root_motion_bake",
-    "resume_note": "Stopped at completed candidate boundary. Resume only with five-hour remaining >95%, weekly allowed, and no other active round. Do not consume reset credits or purchase quota."
+    "current_tool": "01_animation/root_motion_bake"
   },
   "entry_repairs": [
     {
@@ -6489,20 +6488,83 @@
       "entry_candidates": [
         "root动画生成.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "root动画生成.py"
       ],
       "license_files": [],
       "entry_sha256": "a84e5f3b5d8475e0a1ea988f8dce52de15fabadbcd6dc33873f994ce01638a32",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_strict_schema_inputs (__main__.Offline.test_strict_schema_inputs) ... ok\r\ntest_whole_original_and_no_automatic_ui (__main__.Offline.test_whole_original_and_no_automatic_ui) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.003s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"root_motion_bake\",\r\n  \"candidate_sha256\": \"2aa78eb8b8e595170b82517674403e63a64b5df6058322fd8a12596d45084eff\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\root_motion_bake.md\",\r\n    \"docs\\\\tools\\\\root_motion_bake_changes.diff\",\r\n    \"maya_toolkit\\\\tools\\\\root_motion_bake\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\root_motion_bake\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\root_motion_bake\\\\native.py\",\r\n    \"maya_toolkit\\\\tools\\\\root_motion_bake\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\root_motion_bake\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\root_motion_bake\\\\ui_bridge.py\",\r\n    \"maya_toolkit\\\\tools\\\\root_motion_bake\\\\upstream\\\\root_motion_original.py.original\",\r\n    \"tests\\\\test_root_motion_bake.py\",\r\n    \"tests\\\\test_root_motion_bake_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/root_motion_bake/release_candidate/tests/test_root_motion_bake_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_dependent_center_snapshot_and_strict_batch_preflight (__main__.MayaChecks.test_dependent_center_snapshot_and_strict_batch_preflight) ... ����: RootMotionBakeTool_root_motion_bake\nok\r\ntest_discovery_namespace_ambiguity_ranges_and_no_ui (__main__.MayaChecks.test_discovery_namespace_ambiguity_ranges_and_no_ui) ... ok\r\ntest_failure_finally_and_unowned_deletion (__main__.MayaChecks.test_failure_finally_and_unowned_deletion) ... ����: RootMotionBakeTool_root_motion_bake\nok\r\ntest_full_bake_no_ring_and_undo_cleanup (__main__.MayaChecks.test_full_bake_no_ring_and_undo_cleanup) ... ����: RootMotionBakeTool_root_motion_bake\nok\r\ntest_full_ring_layer_unique_preserves_existing_layer (__main__.MayaChecks.test_full_ring_layer_unique_preserves_existing_layer) ... ����: RootMotionBakeTool_root_motion_bake\nok\r\ntest_original_rotation_constraints_and_animated_root_redo (__main__.MayaChecks.test_original_rotation_constraints_and_animated_root_redo) ... ����: RootMotionBakeTool_root_motion_bake\n����: RootMotionBakeTool_root_motion_bake\nok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.064s\r\n\r\nOK\r\n  ��һ��������Լ��...\r\n  �ڶ������決����...\r\n  ������������û�д󻷶���\r\n  �� |root ������ɣ�\r\n  ��һ��������Լ��...\r\n  �ڶ������決����...\r\n  ������ |root ʱ����: injected failure\r\n  ��һ��������Լ��...\r\n  �ڶ������決����...\r\n  ������������û�д󻷶���\r\n  �� |root ������ɣ�\r\n  ��һ��������Լ��...\r\n  �ڶ������決����...\r\n  ������������������...\r\n  �� |root ������ɣ�\r\n  ��һ��������Լ��...\r\n  �ڶ������決����...\r\n  ������������û�д󻷶���\r\n  �� |root ������ɣ�\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "5eaf55266e9a846c593d6a276b8b6664c552ac9b5b0f111d1a9d250f0195f17f",
+          "runtime_source_sha256": "572d8522a14465d4b3fe71cf1ec40aef6b17cc17ce4fc316e95d193a44f2bea7"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Original native UI, production rig pivots/rotate orders/JO/RA/scales, layered inputs and time-slider interaction still require real Maya acceptance."
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "2aa78eb8b8e595170b82517674403e63a64b5df6058322fd8a12596d45084eff",
+          "returncode": 0,
+          "output": "test_strict_schema_inputs (__main__.Offline.test_strict_schema_inputs) ... ok\r\ntest_whole_original_and_no_automatic_ui (__main__.Offline.test_whole_original_and_no_automatic_ui) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.003s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Original Maya UI and production rig/layers/rotation orders need human acceptance",
+        "Original relative position is world translation/Euler arithmetic, not matrix-relative rotation/scale",
+        "Original bake operates all root keyable attributes and preserveOutsideKeys=False",
+        "No independent license supplied; local only"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -6511,7 +6573,41 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "e84c3b0c245489f08d3f1fbef1cb2e37ebbc527b81eda2c52fea364b1bb0f013"
+      "source_tree_sha256": "1ed5d7237355c6963759f85ad847196e80023f4c9218961197fd5ad2734d4e1f",
+      "candidate_path": "tools_staging_pool/01_animation/root_motion_bake/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/root_motion_bake/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "root_motion_bake",
+        "candidate_sha256": "2aa78eb8b8e595170b82517674403e63a64b5df6058322fd8a12596d45084eff",
+        "applied": false,
+        "files": [
+          "docs\\tools\\root_motion_bake.md",
+          "docs\\tools\\root_motion_bake_changes.diff",
+          "maya_toolkit\\tools\\root_motion_bake\\__init__.py",
+          "maya_toolkit\\tools\\root_motion_bake\\catalog.json",
+          "maya_toolkit\\tools\\root_motion_bake\\native.py",
+          "maya_toolkit\\tools\\root_motion_bake\\runtime.py",
+          "maya_toolkit\\tools\\root_motion_bake\\tool.py",
+          "maya_toolkit\\tools\\root_motion_bake\\ui_bridge.py",
+          "maya_toolkit\\tools\\root_motion_bake\\upstream\\root_motion_original.py.original",
+          "tests\\test_root_motion_bake.py",
+          "tests\\test_root_motion_bake_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "catalog.json",
+        "upstream/root_motion_original.py.original"
+      ],
+      "external_dependencies": [
+        "Maya cmds/mel",
+        "BaseMayaTool/ToolResult/Undo"
+      ],
+      "source_preserved": true,
+      "change_summary": "All original 13 methods and native UI retained; complete center constraints/root baking/offset layer workflow, strict batch preflight, unique layers and tracked temporary cleanup, selected-range fix and explicit center snapshots.",
+      "prepared_at": "2026-10-01T16:14:43.536128+08:00"
     },
     {
       "source_path": "01_animation/shape_animation_tool",
