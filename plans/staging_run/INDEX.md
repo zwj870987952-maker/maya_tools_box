@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-01T22:50:11.396738+08:00
+更新时间：2026-10-01T23:08:07.927211+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -59,7 +59,7 @@
 | `02_rigging_hierarchy/batch_skin_bind` | prepared_unverified | True | True | not_run |
 | `02_rigging_hierarchy/bb_tools` | prepared_unverified | True | True | not_run |
 | `02_rigging_hierarchy/constraint_manager_v6` | prepared_unverified | True | True | not_run |
-| `02_rigging_hierarchy/hierarchy_analyzer` | pending | True | False | not_run |
+| `02_rigging_hierarchy/hierarchy_analyzer` | prepared_unverified | True | True | not_run |
 | `02_rigging_hierarchy/joint_optimal_pro_v4_1` | pending | True | False | not_run |
 | `02_rigging_hierarchy/rdm_tools_v2` | pending | True | False | not_run |
 | `02_rigging_hierarchy/relationship_tools_v19` | pending | True | False | not_run |

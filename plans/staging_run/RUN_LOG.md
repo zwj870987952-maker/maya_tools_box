@@ -491,3 +491,11 @@
 - 列表notes改JSON保护长DAG分隔符/颜色，可读旧格式，新名拒绝覆写；辅助完整四动作callable回调+显式snapshot新文件读写，原固定TEMP JSON不自动调用。真实本机Autodesk菜单脚本阅读后纠正原axis把maintainOffset当version、连driver也处理的问题，限定child且所有同child约束显式包括，rest/axis只交互Maya待验收。
 - 普通Python2组、真隔离Maya2025六组、临时正式布局/domain/schema/panel通过：namespaced含W目标/alias顺序；三mode与custom实值/现curve显式key/Undo/全批锁拒绝/空UI scope不误删scene selection；原UUID/动画/偏移/输出恢复、新driver保护；真正两目标inverse及运动/owner/恢复/Undo；真实rebuild完整custom/interp/offset/inputcurve与Undo；移除exacttarget保持偏移/scene JSON颜色/导出导入拒绝覆写/伪造destination拒绝无scene/session变化；真实pairBlend原动画仍保留。
 - 完整交付prepared_unverified，原所有GUI/右键/颜色/列表往返/native rest-axis/更多约束类型/生产复杂图待真实Maya。无正式库/Obsidian写入，无用卡或购买。
+
+## 2026-10-01：层级/约束影响分析完整候选，累计55/109
+
+- 完整原七函数、结果窗口与source SHA归档，保留六分析函数入口；输入与graph统一long DAG/UUID、实际constraint parent/targetMatrix、source->child方向，geometry补入，原不正确的“约束覆盖全部DAG parent”假定移除，保守保留父边/零weight潜在边。
+- 选择间接影响穿过未选中介，稳定输入顺序Kahn分层、严格所有边层级验证、迭代SCC/1500链不递归，cycles及下游blocked单独unresolved，不把环剩余节点伪排成正常层。全局闭包与直接/投影边都有预算、未知约束警告不冒充完整验证；明确structural potential graph不是Maya DG/evaluation证明。
+- 普通Python4组、真实隔离Maya2025四组、临时正式布局/domain/schema/panel通过：namespace与真重复leaf长路径/原始state零变化；真point constraints正确方向/未选hidden中介/保留父边、严格verify；geometry driver+joint祖先；真双point结构环valid=false/no fake layers，budget/alias/instance拒绝。初次重复leaf夹具误拿ambiguous列表第一项和shape-instance误当transform-instance的断言已改为准确夹具后复验。
+- 实例检查发现对精确fullPath调用cmds.ls(allPaths)仍可能只返该路径；改用API2 MDagPath.getAllPathsTo，新增真实多parent transform实例回归。同样纠正53 BB/54约束管理的输入实例guard，原其他检查和正式布局完整重跑均通过，manifest fingerprint更新。未改原prototype或正式库。
+- 完整交付prepared_unverified，真实结果GUI/生产复杂图/十种native constraint更多情形/多版本待集中验收。只读分析不写scene/time/select/Undo/namespace/UI/file，只有显式show_ui开原结果窗；不提前转正/同步/用卡/购买。

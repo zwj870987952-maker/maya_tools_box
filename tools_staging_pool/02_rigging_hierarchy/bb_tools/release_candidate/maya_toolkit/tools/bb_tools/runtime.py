@@ -64,7 +64,11 @@ def nodes(values, editable=True):
         if len(matches) != 1:
             raise ValueError('Unique existing whole node required: '+name)
         node = matches[0]
-        if node in out or len(cmds.ls(node, long=True, allPaths=True) or []) != 1:
+        selection = om.MSelectionList()
+        selection.add(node)
+        obj = selection.getDependNode(0)
+        instanced = obj.hasFn(om.MFn.kDagNode) and len(om.MDagPath.getAllPathsTo(obj)) != 1
+        if node in out or instanced:
             raise ValueError('Duplicate aliases/instanced nodes rejected')
         if editable:
             for target in [node]+(cmds.listRelatives(node, shapes=True, fullPath=True) or []):

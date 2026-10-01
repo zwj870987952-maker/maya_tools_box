@@ -28,6 +28,7 @@ class MayaChecks(unittest.TestCase):
         before = state()
         self.assertTrue(TOOL.run(dry_run=True).success)
         self.assertEqual(before, state())
+
         runtime.load_native()
         self.assertEqual(before, state())
         for name, item in mod.catalog()['procedures'].items():
@@ -96,6 +97,10 @@ class MayaChecks(unittest.TestCase):
         self.assertFalse(TOOL.run(action='call', procedure='bb_QC_unusedFix', allow_scene_scope=True).success)
         self.assertFalse(TOOL.run(action='call', procedure='DelDJJ').success)
         self.assertEqual(before, state())
+        instance_parent = cmds.createNode('transform', name='actualInstanceParent')
+        cmds.parent(node, instance_parent, add=True)
+        with self.assertRaises(ValueError):
+            runtime.nodes([node])
 
 
 if __name__ == '__main__':

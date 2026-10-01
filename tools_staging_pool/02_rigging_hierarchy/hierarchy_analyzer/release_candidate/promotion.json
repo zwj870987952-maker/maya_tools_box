@@ -1,0 +1,67 @@
+{
+  "tool_id": "hierarchy_analyzer",
+  "registration": {
+    "module": "hierarchy_analyzer",
+    "class_name": "HierarchyAnalyzerTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/hierarchy_analyzer.md",
+      "target": "docs/tools/hierarchy_analyzer.md"
+    },
+    {
+      "source": "maya_toolkit/tools/hierarchy_analyzer/__init__.py",
+      "target": "maya_toolkit/tools/hierarchy_analyzer/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/hierarchy_analyzer/catalog.json",
+      "target": "maya_toolkit/tools/hierarchy_analyzer/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/hierarchy_analyzer/engine.py",
+      "target": "maya_toolkit/tools/hierarchy_analyzer/engine.py"
+    },
+    {
+      "source": "maya_toolkit/tools/hierarchy_analyzer/graph.py",
+      "target": "maya_toolkit/tools/hierarchy_analyzer/graph.py"
+    },
+    {
+      "source": "maya_toolkit/tools/hierarchy_analyzer/native_ui.py",
+      "target": "maya_toolkit/tools/hierarchy_analyzer/native_ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/hierarchy_analyzer/original_logic.py",
+      "target": "maya_toolkit/tools/hierarchy_analyzer/original_logic.py"
+    },
+    {
+      "source": "maya_toolkit/tools/hierarchy_analyzer/tool.py",
+      "target": "maya_toolkit/tools/hierarchy_analyzer/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/hierarchy_analyzer/vendor/maya_hierarchy_analysis.py.original",
+      "target": "maya_toolkit/tools/hierarchy_analyzer/vendor/maya_hierarchy_analysis.py.original"
+    },
+    {
+      "source": "tests/test_hierarchy_analyzer.py",
+      "target": "tests/test_hierarchy_analyzer.py"
+    },
+    {
+      "source": "tests/test_hierarchy_analyzer_maya.py",
+      "target": "tests/test_hierarchy_analyzer_maya.py"
+    }
+  ],
+  "resources": [
+    "maya_hierarchy_analysis.py"
+  ],
+  "dependencies": [
+    "Maya cmds for read-only scene DAG and native constraint queries; Maya native UI only on explicit show_ui"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete seven-function prototype and result UI retained; full long DAG/UUID analysis, correct driver-to-child edges and geometry target support, preserved parent relationships, indirect paths through unselected nodes, stable true topological layers and explicit cycle/blocked diagnostics, read-only API/Schema/result and callable close callback.",
+  "verification_limitations": [
+    "Real Maya result GUI and production rigs/multiple versions not_run",
+    "This is a structural DAG/native-constraint potential-influence graph, not the full DG/evaluation graph; offsets, zero weights, pairBlend, dynamics, expressions, custom matrix/deformer relationships do not prove runtime influence",
+    "Scene DAG instances and unknown native constraint target mappings require explicit review; ambiguous structures are rejected or warned instead of silently skipped",
+    "Large scene/edge budgets are bounded and exceedance fails read-only; no partial ordering claimed"
+  ]
+}

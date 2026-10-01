@@ -66,6 +66,10 @@ class MayaChecks(unittest.TestCase):
         self.assertFalse(TOOL.run(action='weights', selected_weights=attrs, mode='zero').success)
         self.assertFalse(TOOL.run(action='delete', constraints=[]).success)
         self.assertEqual(before, state())
+        instance_parent = cmds.createNode('transform', name='actualInstanceParent')
+        cmds.parent(drivers[1], instance_parent, add=True)
+        with self.assertRaises(ValueError):
+            engine.node(drivers[1])
 
     def test_disconnect_restore_preserves_uuid_animation_offsets_and_protects_new_driver(self):
         drivers, child, constraint = scene()

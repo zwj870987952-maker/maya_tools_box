@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 import re
 from maya import cmds, mel
+from maya.api import OpenMaya as om
 
 PKG = Path(__file__).resolve().parent
 TYPES = ('parentConstraint', 'pointConstraint', 'orientConstraint', 'scaleConstraint', 'aimConstraint', 'geometryConstraint', 'normalConstraint', 'tangentConstraint', 'poleVectorConstraint', 'pointOnPolyConstraint')
@@ -26,7 +27,10 @@ def node(value, editable=False):
     if len(found) != 1:
         raise ValueError('Unique existing node required '+value)
     out = found[0]
-    if len(cmds.ls(out, allPaths=True, long=True) or []) != 1:
+    selection = om.MSelectionList()
+    selection.add(out)
+    obj = selection.getDependNode(0)
+    if obj.hasFn(om.MFn.kDagNode) and len(om.MDagPath.getAllPathsTo(obj)) != 1:
         raise ValueError('Instanced nodes rejected')
     if editable and (cmds.referenceQuery(out, isNodeReferenced=True) or any(cmds.lockNode(out, query=True, lock=True))):
         raise ValueError('Referenced/locked node '+out)

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T22:50:11.396738+08:00",
+  "updated_at": "2026-10-01T23:08:07.927211+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "02_rigging_hierarchy/constraint_manager_v6",
+    "last_completed_tool": "02_rigging_hierarchy/hierarchy_analyzer",
     "last_usage": {
-      "five_hour_used_percent": 34.0,
-      "weekly_used_percent": 21.0,
-      "recorded_at": "2026-10-01T22:27:31.242389+08:00",
+      "five_hour_used_percent": 43.0,
+      "weekly_used_percent": 22.0,
+      "recorded_at": "2026-10-01T22:51:23.801179+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "02_rigging_hierarchy/constraint_manager_v6"
+    "current_tool": "02_rigging_hierarchy/hierarchy_analyzer"
   },
   "entry_repairs": [
     {
@@ -8816,13 +8816,13 @@
           "kind": "isolated_unittest",
           "passed": true,
           "returncode": 0,
-          "output": ".....\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.040s\r\n\r\nOK\r\n"
+          "output": ".....\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.043s\r\n\r\nOK\r\n"
         },
         {
           "kind": "promotion_preview",
           "passed": true,
           "returncode": 0,
-          "output": "{\r\n  \"tool_id\": \"bb_tools\",\r\n  \"candidate_sha256\": \"86bce61956b1e672d3dfd6986d9d26e08e96f4cd039a8ee7e7b54d07dd74364c\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\bb_tools.md\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\file_guard.py\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\bb_QCTool\\\\qc\\u8bf4\\u660e.docx\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\bb_Tools.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\bridge.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\ADV.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Attr.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\AutoSkirt.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\BB.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\BS.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Ctrl.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\CV.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Duplicate.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Dynamic.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\FBX.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\FixError.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Follicles.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\History.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\JointRerVert.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\List.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Master.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Mirror.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\OutlineError.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Pose.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\QC.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Rename.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Select.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\SkinList.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\SoClear.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\SoftMod.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\TexPath.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Weight.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\aboutJBPerVert.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_advFixTool\\\\bb_advFixTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_advFixTool\\\\file\\\\drv.ma\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_advFixTool\\\\file\\\\facialCtrl.ma\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_advFixTool\\\\file\\\\SpineDrv.ma\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_advFixTool\\\\mel\\\\bb_advFix_IKSpine.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_advFixTool\\\\mel\\\\bb_subFacialTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_attributeTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_autoSkirt.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_blendShapeTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_createFolliceTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_ctrlTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_curveTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_FBXExportTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_FixError.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_history.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_listTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_masterCreate.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_QC_apply.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_QC_set.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_QC_text.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_QC_UI.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_QCTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_selectTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_skin2Deform.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_skin2Deform_weight.xml\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_skinList.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_softModTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\cdkMakeDynamicChain.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\cgTkShapeBuilder.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\FileTextureManager.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\LxxBSRePlace.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\Mirror&Flip.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\wp_rename.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_attributeTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_createFolliceTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_ctrlTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_curveTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_history.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_listTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_QCTool\\\\bb_QC_apply.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_QCTool\\\\bb_QC_set.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_QCTool\\\\bb_QC_text.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_QCTool\\\\bb_QC_UI.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_QCTool\\\\bb_QCTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_QCTool\\\\qc\\u8bf4\\u660e.docx\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_selectTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_skinList.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_softModTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_Tools.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\ADV.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Attr.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\AutoSkirt.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\BB.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\BS.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Ctrl.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\CV.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Duplicate.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Dynamic.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\FBX.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\FixError.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Follicles.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\History.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\JointRerVert.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\List.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Master.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Mirror.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\OutlineError.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Pose.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\QC.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Rename.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Select.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\SkinList.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\SoClear.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\SoftMod.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\TexPath.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Weight.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Install_BBTools.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\aboutJBPerVert.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_advFixTool\\\\bb_advFixTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_advFixTool\\\\file\\\\drv.ma\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_advFixTool\\\\file\\\\facialCtrl.ma\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_advFixTool\\\\file\\\\SpineDrv.ma\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_advFixTool\\\\mel\\\\bb_advFix_IKSpine.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_advFixTool\\\\mel\\\\bb_subFacialTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_attributeTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_autoSkirt.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_blendShapeTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_createFolliceTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_ctrlTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_curveTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_FBXExportTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_FixError.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_history.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_listTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_masterCreate.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_QC_apply.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_QC_set.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_QC_text.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_QC_UI.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_QCTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_selectTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_skin2Deform.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_skin2Deform_weight.xml\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_skinList.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_softModTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\cdkMakeDynamicChain.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\cgTkShapeBuilder.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\DelDJJ.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\FileTextureManager.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\LxxBSRePlace.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\Mirror&Flip.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\OutlineError.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\wp_rename.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\wp_rename.mel\",\r\n    \"tests\\\\test_bb_tools.py\",\r\n    \"tests\\\\test_bb_tools_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+          "output": "{\r\n  \"tool_id\": \"bb_tools\",\r\n  \"candidate_sha256\": \"059734a3d517931c28b80b46284e64d2d5d7f2d72c29adcddffe0ed50dade0dc\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\bb_tools.md\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\file_guard.py\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\bb_QCTool\\\\qc\\u8bf4\\u660e.docx\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\bb_Tools.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\bridge.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\ADV.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Attr.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\AutoSkirt.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\BB.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\BS.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Ctrl.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\CV.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Duplicate.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Dynamic.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\FBX.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\FixError.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Follicles.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\History.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\JointRerVert.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\List.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Master.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Mirror.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\OutlineError.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Pose.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\QC.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Rename.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Select.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\SkinList.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\SoClear.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\SoftMod.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\TexPath.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Icon\\\\Weight.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\aboutJBPerVert.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_advFixTool\\\\bb_advFixTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_advFixTool\\\\file\\\\drv.ma\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_advFixTool\\\\file\\\\facialCtrl.ma\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_advFixTool\\\\file\\\\SpineDrv.ma\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_advFixTool\\\\mel\\\\bb_advFix_IKSpine.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_advFixTool\\\\mel\\\\bb_subFacialTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_attributeTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_autoSkirt.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_blendShapeTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_createFolliceTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_ctrlTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_curveTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_FBXExportTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_FixError.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_history.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_listTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_masterCreate.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_QC_apply.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_QC_set.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_QC_text.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_QC_UI.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_QCTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_selectTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_skin2Deform.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_skin2Deform_weight.xml\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_skinList.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\bb_softModTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\cdkMakeDynamicChain.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\cgTkShapeBuilder.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\FileTextureManager.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\LxxBSRePlace.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\Mirror&Flip.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\native\\\\Script\\\\wp_rename.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_attributeTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_createFolliceTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_ctrlTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_curveTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_history.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_listTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_QCTool\\\\bb_QC_apply.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_QCTool\\\\bb_QC_set.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_QCTool\\\\bb_QC_text.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_QCTool\\\\bb_QC_UI.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_QCTool\\\\bb_QCTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_QCTool\\\\qc\\u8bf4\\u660e.docx\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_selectTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_skinList.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_softModTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\bb_Tools.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\ADV.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Attr.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\AutoSkirt.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\BB.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\BS.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Ctrl.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\CV.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Duplicate.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Dynamic.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\FBX.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\FixError.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Follicles.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\History.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\JointRerVert.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\List.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Master.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Mirror.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\OutlineError.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Pose.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\QC.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Rename.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Select.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\SkinList.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\SoClear.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\SoftMod.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\TexPath.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Icon\\\\Weight.png\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Install_BBTools.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\aboutJBPerVert.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_advFixTool\\\\bb_advFixTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_advFixTool\\\\file\\\\drv.ma\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_advFixTool\\\\file\\\\facialCtrl.ma\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_advFixTool\\\\file\\\\SpineDrv.ma\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_advFixTool\\\\mel\\\\bb_advFix_IKSpine.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_advFixTool\\\\mel\\\\bb_subFacialTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_attributeTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_autoSkirt.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_blendShapeTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_createFolliceTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_ctrlTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_curveTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_FBXExportTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_FixError.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_history.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_listTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_masterCreate.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_QC_apply.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_QC_set.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_QC_text.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_QC_UI.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_QCTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_selectTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_skin2Deform.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_skin2Deform_weight.xml\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_skinList.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\bb_softModTool.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\cdkMakeDynamicChain.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\cgTkShapeBuilder.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\DelDJJ.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\FileTextureManager.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\LxxBSRePlace.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\Mirror&Flip.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\OutlineError.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\Script\\\\wp_rename.mel\",\r\n    \"maya_toolkit\\\\tools\\\\bb_tools\\\\vendor\\\\wp_rename.mel\",\r\n    \"tests\\\\test_bb_tools.py\",\r\n    \"tests\\\\test_bb_tools_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
         },
         {
           "kind": "mayapy_standalone",
@@ -8830,10 +8830,10 @@
           "test": "tools_staging_pool/02_rigging_hierarchy/bb_tools/release_candidate/tests/test_bb_tools_maya.py",
           "returncode": 0,
           "passed": true,
-          "output": "����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n...����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n.\r\n----------------------------------------------------------------------\r\nRan 4 tests in 6.178s\r\n\r\nOK\r\n",
+          "output": "����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n...����: BBToolsTool_bb_tools\n����: BBToolsTool_bb_tools\n.\r\n----------------------------------------------------------------------\r\nRan 4 tests in 6.700s\r\n\r\nOK\r\n",
           "gui_acceptance": false,
-          "python_source_sha256": "32098c813c05c37d7b7f1f51918e2261a6464770de6672436024ca5e0973ae22",
-          "runtime_source_sha256": "f62ca4b158cd36ec57986c34342c9745c06aa1a65995c3f755ed25aac40e9b56"
+          "python_source_sha256": "0e423187f7b09a0807c0c49ad4b936f96fc5302f9e74815eeadc3bd6e8c473ab",
+          "runtime_source_sha256": "d4783ada885b3b5103c8f1994dcff81877a00d7d9c57bcbad7b251fdbd88d61f"
         },
         {
           "kind": "mayapy_report_matches_candidate",
@@ -8846,14 +8846,14 @@
         {
           "kind": "required_runtime_evidence",
           "passed": false,
-          "reason": "Real Maya GUI, native QC/FBX/ADV/dynamics/weight/texture/cleanup workflows on backup scenes and all original buttons not_run"
+          "reason": "Real Maya GUI, all native interactive workflows and production rigs/versions not_run"
         },
         {
           "kind": "promoted_layout_offline",
           "passed": true,
-          "candidate_sha256": "86bce61956b1e672d3dfd6986d9d26e08e96f4cd039a8ee7e7b54d07dd74364c",
+          "candidate_sha256": "059734a3d517931c28b80b46284e64d2d5d7f2d72c29adcddffe0ed50dade0dc",
           "returncode": 0,
-          "output": ".....\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.041s\r\n\r\nOK\r\n",
+          "output": ".....\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.042s\r\n\r\nOK\r\n",
           "registry_returncode": 0,
           "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
           "production_changed": false
@@ -8896,7 +8896,7 @@
       "acceptance_instructions": "tools_staging_pool/02_rigging_hierarchy/bb_tools/release_candidate/acceptance.md",
       "promotion": {
         "tool_id": "bb_tools",
-        "candidate_sha256": "86bce61956b1e672d3dfd6986d9d26e08e96f4cd039a8ee7e7b54d07dd74364c",
+        "candidate_sha256": "059734a3d517931c28b80b46284e64d2d5d7f2d72c29adcddffe0ed50dade0dc",
         "applied": false,
         "files": [
           "docs\\tools\\bb_tools.md",
@@ -9147,7 +9147,7 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete BB distribution retained byte-for-byte. Full active native suite with namespaced declarations, explicit UI startup and bundled paths; typed procedure API/read-only inventory, caller environment restoration, scratch weight XML, restricted QC settings, no-overwrite texture IO, explicit virus-file quarantine rather than userSetup deletion. Original installer and obsolete duplicate versions archived only.",
-      "prepared_at": "2026-10-01T22:26:11.603153+08:00",
+      "prepared_at": "2026-10-01T23:08:03.888144+08:00",
       "source_commit": "a151e78a9c7de26779fe8d9d101ca2a4f713ec4e"
     },
     {
@@ -9184,7 +9184,7 @@
           "kind": "promotion_preview",
           "passed": true,
           "returncode": 0,
-          "output": "{\r\n  \"tool_id\": \"constraint_manager_v6\",\r\n  \"candidate_sha256\": \"eb8e746297919b87d896607c741b80b4f20c1dd7517f7c0e5060cfcf4ddb68d5\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\constraint_manager_v6.md\",\r\n    \"maya_toolkit\\\\tools\\\\constraint_manager_v6\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\constraint_manager_v6\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\constraint_manager_v6\\\\engine.py\",\r\n    \"maya_toolkit\\\\tools\\\\constraint_manager_v6\\\\native_rebuild.py\",\r\n    \"maya_toolkit\\\\tools\\\\constraint_manager_v6\\\\native_ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\constraint_manager_v6\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\constraint_manager_v6\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\constraint_manager_v6\\\\vendor\\\\\\u7ea6\\u675f\\u7ba1\\u7406v6.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\constraint_manager_v6\\\\vendor\\\\\\u91cd\\u5efa\\u7ea6\\u675f.py.original\",\r\n    \"tests\\\\test_constraint_manager_v6.py\",\r\n    \"tests\\\\test_constraint_manager_v6_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+          "output": "{\r\n  \"tool_id\": \"constraint_manager_v6\",\r\n  \"candidate_sha256\": \"557b47f1fec66ce9b51683ee3b5cf78a60d1178b1b11b5db5d0f63936f948f75\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\constraint_manager_v6.md\",\r\n    \"maya_toolkit\\\\tools\\\\constraint_manager_v6\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\constraint_manager_v6\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\constraint_manager_v6\\\\engine.py\",\r\n    \"maya_toolkit\\\\tools\\\\constraint_manager_v6\\\\native_rebuild.py\",\r\n    \"maya_toolkit\\\\tools\\\\constraint_manager_v6\\\\native_ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\constraint_manager_v6\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\constraint_manager_v6\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\constraint_manager_v6\\\\vendor\\\\\\u7ea6\\u675f\\u7ba1\\u7406v6.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\constraint_manager_v6\\\\vendor\\\\\\u91cd\\u5efa\\u7ea6\\u675f.py.original\",\r\n    \"tests\\\\test_constraint_manager_v6.py\",\r\n    \"tests\\\\test_constraint_manager_v6_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
         },
         {
           "kind": "mayapy_standalone",
@@ -9192,10 +9192,10 @@
           "test": "tools_staging_pool/02_rigging_hierarchy/constraint_manager_v6/release_candidate/tests/test_constraint_manager_v6_maya.py",
           "returncode": 0,
           "passed": true,
-          "output": "����: ConstraintManagerTool_constraint_manager_v6\n����: ConstraintManagerTool_constraint_manager_v6\n.����: ConstraintManagerTool_constraint_manager_v6\n����: \n����: ConstraintManagerTool_constraint_manager_v6\n..����: ConstraintManagerTool_constraint_manager_v6\n.����: ConstraintManagerTool_constraint_manager_v6\n.����: ConstraintManagerTool_constraint_manager_v6\n.\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.180s\r\n\r\nOK\r\n",
+          "output": "����: ConstraintManagerTool_constraint_manager_v6\n����: ConstraintManagerTool_constraint_manager_v6\n.����: ConstraintManagerTool_constraint_manager_v6\n����: \n����: ConstraintManagerTool_constraint_manager_v6\n..����: ConstraintManagerTool_constraint_manager_v6\n.����: ConstraintManagerTool_constraint_manager_v6\n.����: ConstraintManagerTool_constraint_manager_v6\n.\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.184s\r\n\r\nOK\r\n",
           "gui_acceptance": false,
-          "python_source_sha256": "3d39cb05f24815681e61c06fabb43e8e1eadcd316c07af3e5edeb691a97a3ec6",
-          "runtime_source_sha256": "06353867fb66b5e6879d3d70c94969eeb87e6203fc9f3ea78d1f95692100f2cd"
+          "python_source_sha256": "700f77484db9e3babd9dfee03a7641371197cd68fc2f002f8a4753180a41b55a",
+          "runtime_source_sha256": "6ee79912863150cab8a5d0313c99542db91f26989b02b9479c563b2e166cdf6b"
         },
         {
           "kind": "mayapy_report_matches_candidate",
@@ -9208,14 +9208,14 @@
         {
           "kind": "required_runtime_evidence",
           "passed": false,
-          "reason": "Real interactive Maya all original Qt widgets/context menus/colors/lists/tooltips, native rest/axis procedures and production constraints not_run"
+          "reason": "Real Maya GUI, all native interactive workflows and production rigs/versions not_run"
         },
         {
           "kind": "promoted_layout_offline",
           "passed": true,
-          "candidate_sha256": "eb8e746297919b87d896607c741b80b4f20c1dd7517f7c0e5060cfcf4ddb68d5",
+          "candidate_sha256": "557b47f1fec66ce9b51683ee3b5cf78a60d1178b1b11b5db5d0f63936f948f75",
           "returncode": 0,
-          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.012s\r\n\r\nOK\r\n",
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.014s\r\n\r\nOK\r\n",
           "registry_returncode": 0,
           "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
           "production_changed": false
@@ -9251,7 +9251,7 @@
       "acceptance_instructions": "tools_staging_pool/02_rigging_hierarchy/constraint_manager_v6/release_candidate/acceptance.md",
       "promotion": {
         "tool_id": "constraint_manager_v6",
-        "candidate_sha256": "eb8e746297919b87d896607c741b80b4f20c1dd7517f7c0e5060cfcf4ddb68d5",
+        "candidate_sha256": "557b47f1fec66ce9b51683ee3b5cf78a60d1178b1b11b5db5d0f63936f948f75",
         "applied": false,
         "files": [
           "docs\\tools\\constraint_manager_v6.md",
@@ -9281,7 +9281,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Both complete prototypes and every native UI method preserved with explicit startup and Qt6/Qt5 imports. Typed API/full native UI bridge, actual target aliases/order/UUIDs, explicit key values, output-edge disconnect/restore preserving animation/offsets, true inverse constraints without cycles/overwriting drivers, full duplicate-based rebuild, scene list JSON and protected explicit snapshot files; original unsafe auto-run/file fallback never invoked.",
-      "prepared_at": "2026-10-01T22:50:09.602659+08:00"
+      "prepared_at": "2026-10-01T23:08:04.720333+08:00",
+      "source_commit": "21798d465c13d751447f93acaed13bc6bfb3f9e9"
     },
     {
       "source_path": "02_rigging_hierarchy/hierarchy_analyzer",
@@ -9292,20 +9293,83 @@
       "entry_candidates": [
         "maya_hierarchy_analysis.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "maya_hierarchy_analysis.py"
       ],
       "license_files": [],
       "entry_sha256": "b354bdedb01ef5d2d655b7e074daa7ef488f0a783c8d3360a502c11287dcf71c",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.005s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"hierarchy_analyzer\",\r\n  \"candidate_sha256\": \"00a8ebd49e968bb2103a16bd29026461953225ac5e505ab886dc5797ffa32117\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\hierarchy_analyzer.md\",\r\n    \"maya_toolkit\\\\tools\\\\hierarchy_analyzer\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\hierarchy_analyzer\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\hierarchy_analyzer\\\\engine.py\",\r\n    \"maya_toolkit\\\\tools\\\\hierarchy_analyzer\\\\graph.py\",\r\n    \"maya_toolkit\\\\tools\\\\hierarchy_analyzer\\\\native_ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\hierarchy_analyzer\\\\original_logic.py\",\r\n    \"maya_toolkit\\\\tools\\\\hierarchy_analyzer\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\hierarchy_analyzer\\\\vendor\\\\maya_hierarchy_analysis.py.original\",\r\n    \"tests\\\\test_hierarchy_analyzer.py\",\r\n    \"tests\\\\test_hierarchy_analyzer_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/02_rigging_hierarchy/hierarchy_analyzer/release_candidate/tests/test_hierarchy_analyzer_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.036s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "19641d3b43df702273dc4762e12d8f2024443ae5c57bc4588600ebfb70877399",
+          "runtime_source_sha256": "c48b2fadd2d522aa30d49c0b8e355707d6526a0c0e4a56189abdabc00b29eca6"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya GUI, all native interactive workflows and production rigs/versions not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "00a8ebd49e968bb2103a16bd29026461953225ac5e505ab886dc5797ffa32117",
+          "returncode": 0,
+          "output": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.005s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya result GUI and production rigs/multiple versions not_run",
+        "This is a structural DAG/native-constraint potential-influence graph, not the full DG/evaluation graph; offsets, zero weights, pairBlend, dynamics, expressions, custom matrix/deformer relationships do not prove runtime influence",
+        "Scene DAG instances and unknown native constraint target mappings require explicit review; ambiguous structures are rejected or warned instead of silently skipped",
+        "Large scene/edge budgets are bounded and exceedance fails read-only; no partial ordering claimed"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -9314,7 +9378,39 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "7c95dad0e31bdbe00b5978b50aabd0180c4b5a251e455159e55de704c8ce728d"
+      "source_tree_sha256": "74a03636485da7c8bcb7d799099842751072849d1cd822eb7ec8cb4bd6c19584",
+      "candidate_path": "tools_staging_pool/02_rigging_hierarchy/hierarchy_analyzer/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/02_rigging_hierarchy/hierarchy_analyzer/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "hierarchy_analyzer",
+        "candidate_sha256": "00a8ebd49e968bb2103a16bd29026461953225ac5e505ab886dc5797ffa32117",
+        "applied": false,
+        "files": [
+          "docs\\tools\\hierarchy_analyzer.md",
+          "maya_toolkit\\tools\\hierarchy_analyzer\\__init__.py",
+          "maya_toolkit\\tools\\hierarchy_analyzer\\catalog.json",
+          "maya_toolkit\\tools\\hierarchy_analyzer\\engine.py",
+          "maya_toolkit\\tools\\hierarchy_analyzer\\graph.py",
+          "maya_toolkit\\tools\\hierarchy_analyzer\\native_ui.py",
+          "maya_toolkit\\tools\\hierarchy_analyzer\\original_logic.py",
+          "maya_toolkit\\tools\\hierarchy_analyzer\\tool.py",
+          "maya_toolkit\\tools\\hierarchy_analyzer\\vendor\\maya_hierarchy_analysis.py.original",
+          "tests\\test_hierarchy_analyzer.py",
+          "tests\\test_hierarchy_analyzer_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "maya_hierarchy_analysis.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds for read-only scene DAG and native constraint queries; Maya native UI only on explicit show_ui"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete seven-function prototype and result UI retained; full long DAG/UUID analysis, correct driver-to-child edges and geometry target support, preserved parent relationships, indirect paths through unselected nodes, stable true topological layers and explicit cycle/blocked diagnostics, read-only API/Schema/result and callable close callback.",
+      "prepared_at": "2026-10-01T23:08:05.572038+08:00"
     },
     {
       "source_path": "02_rigging_hierarchy/joint_optimal_pro_v4_1",
