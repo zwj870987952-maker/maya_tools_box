@@ -385,3 +385,10 @@
 - 所有持久碰撞资源与代理采用session UUID网络；计算临时helper确定性仅清理本次新建UUID，不做全场景SpringNull通配符清理或GC隐式删除。完整原控制器绑定，Bake控制器按UUID找源而非名字拆分。取消/异常部分key需整组Undo，failed状态阻止未Undo的后续写入；finally恢复时间/选择/namespace/autokey、等待光标及progressbar。
 - 原普通模式cutKey所有keyable通道影响明确，API默认拒绝，allow_key_cleanup=True或GUI确认才执行；原GoToBindPose连接层级影响显式allow。原Floor/Subs无引擎实现，保留但禁用；Straight源缺失函数明确补为joint.rotate置零待实测。UI语言直接XML读取，不覆盖资源；图标本包绝对路径；打开不再自动访问旧版本站，明确网站按钮保留，Shelf仅用户点击才改UI偏好。
 - 普通Python4组通过；实际隔离Maya5组中4组通过、完整引擎1组因PyMel缺失skip，分别验证依赖拒绝/无节点时间Undo写入、UUID改名及外部child拒删/Undo、失败环境恢复、batch进度finally/返回值；真实GUI=false。临时正式布局4组及注册/面板通过。全物理动态范围仍109；本项非Maya/缺依赖结果不能当真实求解通过，不转正/不同步Obsidian/不用卡不购买。
+
+## 2026-10-01：Stagger GUI完整候选，累计43/109
+
+- 原12文件全部字节SHA归档，八SVG/原Demo GIF/三页安装PDF完整携带；PDF技能只读提取说明（PDF解析有wrong-pointing-object警告但三页文本可读），实际原入口import stagger.ui; stagger.ui.win()与头部stagger.ui()不符，框架入口已补齐。Animation Creation/2022署名保留，无独立许可仅本地整理。
+- 完整原边界插键/首键值比较/每2帧偏移与正常值交替采样/奇数end-.5/末端ease与整数帧写入，不切掉旧内部键、不缩减原算法、不误当物体错时。原五GUI函数、原图形高度随slider和start/end时间滑块按钮完整保留，私有控件名，执行API桥，finally恢复进度/窗口高度；真实GUI与SVG未验收。
+- 原无对象参数query容易受全局键选择影响，候选直接从指定对象图查curve，拒锁/引用/范围外共享/timeWarp/animBlend等不支持图。Maya2025实际拒keyframe(query,animation='objects')，已改直接listConnections；普通时间curve有隐式time输入无connection，保留支持并拒真正warp。
+- 普通Python2组/隔离Maya3组通过：完整原函数仅固定GUI数值读取而全部实际动画命令Maya执行，偶/奇/最小/负帧结果逐键等同；dry node/key/undo/time/select无变，无关selected key隔离，UndoRedo；常量仍只边界插键，共享/锁target拒绝。临时正式布局注册/面板/Schema通过；非线性加权生产曲线/真实UI另需验收，prepared_unverified，不转正/同步/用卡/购买。

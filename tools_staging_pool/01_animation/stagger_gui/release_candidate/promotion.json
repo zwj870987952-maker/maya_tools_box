@@ -1,0 +1,155 @@
+{
+  "tool_id": "stagger_gui",
+  "registration": {
+    "module": "stagger_gui",
+    "class_name": "StaggerGuiTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/stagger_gui.md",
+      "target": "docs/tools/stagger_gui.md"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/__init__.py",
+      "target": "maya_toolkit/tools/stagger_gui/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/catalog.json",
+      "target": "maya_toolkit/tools/stagger_gui/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/images/amount.svg",
+      "target": "maya_toolkit/tools/stagger_gui/images/amount.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/images/end.svg",
+      "target": "maya_toolkit/tools/stagger_gui/images/end.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/images/end_h.svg",
+      "target": "maya_toolkit/tools/stagger_gui/images/end_h.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/images/stagger_icon.svg",
+      "target": "maya_toolkit/tools/stagger_gui/images/stagger_icon.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/images/stagger_it.svg",
+      "target": "maya_toolkit/tools/stagger_gui/images/stagger_it.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/images/stagger_it_h.svg",
+      "target": "maya_toolkit/tools/stagger_gui/images/stagger_it_h.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/images/start.svg",
+      "target": "maya_toolkit/tools/stagger_gui/images/start.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/images/start_h.svg",
+      "target": "maya_toolkit/tools/stagger_gui/images/start_h.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/Stagger Demo.gif",
+      "target": "maya_toolkit/tools/stagger_gui/Stagger Demo.gif"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/Stagger Installation.pdf",
+      "target": "maya_toolkit/tools/stagger_gui/Stagger Installation.pdf"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/tool.py",
+      "target": "maya_toolkit/tools/stagger_gui/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/ui.py",
+      "target": "maya_toolkit/tools/stagger_gui/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/ui_bridge.py",
+      "target": "maya_toolkit/tools/stagger_gui/ui_bridge.py"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/upstream/__init__.py.original",
+      "target": "maya_toolkit/tools/stagger_gui/upstream/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/upstream/images/amount.svg",
+      "target": "maya_toolkit/tools/stagger_gui/upstream/images/amount.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/upstream/images/end.svg",
+      "target": "maya_toolkit/tools/stagger_gui/upstream/images/end.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/upstream/images/end_h.svg",
+      "target": "maya_toolkit/tools/stagger_gui/upstream/images/end_h.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/upstream/images/stagger_icon.svg",
+      "target": "maya_toolkit/tools/stagger_gui/upstream/images/stagger_icon.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/upstream/images/stagger_it.svg",
+      "target": "maya_toolkit/tools/stagger_gui/upstream/images/stagger_it.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/upstream/images/stagger_it_h.svg",
+      "target": "maya_toolkit/tools/stagger_gui/upstream/images/stagger_it_h.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/upstream/images/start.svg",
+      "target": "maya_toolkit/tools/stagger_gui/upstream/images/start.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/upstream/images/start_h.svg",
+      "target": "maya_toolkit/tools/stagger_gui/upstream/images/start_h.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/upstream/Stagger Demo.gif",
+      "target": "maya_toolkit/tools/stagger_gui/upstream/Stagger Demo.gif"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/upstream/Stagger Installation.pdf",
+      "target": "maya_toolkit/tools/stagger_gui/upstream/Stagger Installation.pdf"
+    },
+    {
+      "source": "maya_toolkit/tools/stagger_gui/upstream/ui.py.original",
+      "target": "maya_toolkit/tools/stagger_gui/upstream/ui.py.original"
+    },
+    {
+      "source": "tests/test_stagger_gui.py",
+      "target": "tests/test_stagger_gui.py"
+    },
+    {
+      "source": "tests/test_stagger_gui_maya.py",
+      "target": "tests/test_stagger_gui_maya.py"
+    }
+  ],
+  "resources": [
+    "__init__.py",
+    "images/amount.svg",
+    "images/end.svg",
+    "images/end_h.svg",
+    "images/stagger_icon.svg",
+    "images/stagger_it.svg",
+    "images/stagger_it_h.svg",
+    "images/start.svg",
+    "images/start_h.svg",
+    "Stagger Demo.gif",
+    "Stagger Installation.pdf",
+    "ui.py"
+  ],
+  "dependencies": [
+    "Maya cmds/MEL/OpenMaya (no external Python package)",
+    "All eight SVG images, original demo GIF and three-page installation PDF included"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Full original stagger resampling algorithm, original GUI layout/slider/range buttons and all assets preserved. Scoped curve API, read-only validation, Undo, private UI names and finally progress restoration added.",
+  "verification_limitations": [
+    "Real Maya GUI/timeline/SVG rendering pending",
+    "Weighted/nonlinear production curves and other Maya versions require acceptance",
+    "No separate distribution license supplied; local preparation only",
+    "Original animation outside range is intended preserved via boundary insertion; existing interior keys are not removed"
+  ]
+}

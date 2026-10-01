@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/01_animation/stagger_gui/release_candidate/tests/test_stagger_gui_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "test_constant_boundary_and_shared_curve_rejection (__main__.MayaChecks.test_constant_boundary_and_shared_curve_rejection) ... ok\r\ntest_dry_run_selection_scope_and_undo_redo (__main__.MayaChecks.test_dry_run_selection_scope_and_undo_redo) ... ����: StaggerGuiTool_stagger_gui\n����: StaggerGuiTool_stagger_gui\nok\r\ntest_even_odd_and_minimum_range_match_complete_original (__main__.MayaChecks.test_even_odd_and_minimum_range_match_complete_original) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.026s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "786495200492347648c4a6e41f55521fc08fee3b2988e5b6c482a24c28faa929",
+  "runtime_source_sha256": "f7c2558546b15faaa3f5d4736a4e74f8808aebdaa04b35a138fd531e3d01226f"
+}

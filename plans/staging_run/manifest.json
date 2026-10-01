@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T17:55:00.364170+08:00",
+  "updated_at": "2026-10-01T18:04:44.451562+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "01_animation/spring_magic_v3_5a",
+    "last_completed_tool": "01_animation/stagger_gui",
     "last_usage": {
-      "five_hour_used_percent": 38.0,
-      "weekly_used_percent": 6.0,
-      "recorded_at": "2026-10-01T17:31:41.386775+08:00",
+      "five_hour_used_percent": 47.0,
+      "weekly_used_percent": 7.0,
+      "recorded_at": "2026-10-01T17:55:39.757138+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "01_animation/spring_magic_v3_5a"
+    "current_tool": "01_animation/stagger_gui"
   },
   "entry_repairs": [
     {
@@ -7251,7 +7251,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete original spring/twist/tension/inertia/extension, looping/pose-match, capsule/plane/wind and controller-binding engine retained. Python 3 private imports, safe API/UI bridge, UUID ownership, deterministic helper cleanup, read-only preflight, Undo, complete resources/docs/tests/promotion prepared.",
-      "prepared_at": "2026-10-01T17:54:45.222002+08:00"
+      "prepared_at": "2026-10-01T17:54:45.222002+08:00",
+      "source_commit": "67d278423bbcde5009e5c4e8d19489c663abc3be"
     },
     {
       "source_path": "01_animation/stagger_gui",
@@ -7262,21 +7263,84 @@
       "entry_candidates": [
         "stagger/ui.py"
       ],
-      "source_file_count": 12,
+      "source_file_count": 13,
       "source_files": [
         "stagger/__init__.py",
         "stagger/ui.py"
       ],
       "license_files": [],
       "entry_sha256": "6643fb6a8f9a1602ecd2e12c32e3c13eb4da26a0b0bcf1d9759539c9035f81b7",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "test_complete_assets_credits_and_lazy_import (__main__.Offline.test_complete_assets_credits_and_lazy_import) ... ok\r\ntest_range_and_slider_guards (__main__.Offline.test_range_and_slider_guards) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.021s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"stagger_gui\",\r\n  \"candidate_sha256\": \"0dbff0c8a4b84d4b0d30e1d9f769e609add5e4ca75c009c962b09888ac51b8c5\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\stagger_gui.md\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\images\\\\amount.svg\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\images\\\\end.svg\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\images\\\\end_h.svg\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\images\\\\stagger_icon.svg\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\images\\\\stagger_it.svg\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\images\\\\stagger_it_h.svg\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\images\\\\start.svg\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\images\\\\start_h.svg\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\Stagger Demo.gif\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\Stagger Installation.pdf\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\ui_bridge.py\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\upstream\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\upstream\\\\images\\\\amount.svg\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\upstream\\\\images\\\\end.svg\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\upstream\\\\images\\\\end_h.svg\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\upstream\\\\images\\\\stagger_icon.svg\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\upstream\\\\images\\\\stagger_it.svg\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\upstream\\\\images\\\\stagger_it_h.svg\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\upstream\\\\images\\\\start.svg\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\upstream\\\\images\\\\start_h.svg\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\upstream\\\\Stagger Demo.gif\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\upstream\\\\Stagger Installation.pdf\",\r\n    \"maya_toolkit\\\\tools\\\\stagger_gui\\\\upstream\\\\ui.py.original\",\r\n    \"tests\\\\test_stagger_gui.py\",\r\n    \"tests\\\\test_stagger_gui_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/01_animation/stagger_gui/release_candidate/tests/test_stagger_gui_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "test_constant_boundary_and_shared_curve_rejection (__main__.MayaChecks.test_constant_boundary_and_shared_curve_rejection) ... ok\r\ntest_dry_run_selection_scope_and_undo_redo (__main__.MayaChecks.test_dry_run_selection_scope_and_undo_redo) ... ����: StaggerGuiTool_stagger_gui\n����: StaggerGuiTool_stagger_gui\nok\r\ntest_even_odd_and_minimum_range_match_complete_original (__main__.MayaChecks.test_even_odd_and_minimum_range_match_complete_original) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.026s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "786495200492347648c4a6e41f55521fc08fee3b2988e5b6c482a24c28faa929",
+          "runtime_source_sha256": "f7c2558546b15faaa3f5d4736a4e74f8808aebdaa04b35a138fd531e3d01226f"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya GUI/timeline/SVG and production weighted curves not accepted; isolated original-algorithm parity and curve safety/Undo checks passed."
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "0dbff0c8a4b84d4b0d30e1d9f769e609add5e4ca75c009c962b09888ac51b8c5",
+          "returncode": 0,
+          "output": "test_complete_assets_credits_and_lazy_import (__main__.Offline.test_complete_assets_credits_and_lazy_import) ... ok\r\ntest_range_and_slider_guards (__main__.Offline.test_range_and_slider_guards) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.021s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI/timeline/SVG rendering pending",
+        "Weighted/nonlinear production curves and other Maya versions require acceptance",
+        "No separate distribution license supplied; local preparation only",
+        "Original animation outside range is intended preserved via boundary insertion; existing interior keys are not removed"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 2,
@@ -7285,7 +7349,70 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "ed2734e6a92a6a1e1aa1bc4663980068d2c0a60449955268dff9adc801ec002b"
+      "source_tree_sha256": "9911a2c31059ef5c3ced80a54e6916e4946738276d97b7d12c73389685b96857",
+      "candidate_path": "tools_staging_pool/01_animation/stagger_gui/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/01_animation/stagger_gui/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "stagger_gui",
+        "candidate_sha256": "0dbff0c8a4b84d4b0d30e1d9f769e609add5e4ca75c009c962b09888ac51b8c5",
+        "applied": false,
+        "files": [
+          "docs\\tools\\stagger_gui.md",
+          "maya_toolkit\\tools\\stagger_gui\\__init__.py",
+          "maya_toolkit\\tools\\stagger_gui\\catalog.json",
+          "maya_toolkit\\tools\\stagger_gui\\images\\amount.svg",
+          "maya_toolkit\\tools\\stagger_gui\\images\\end.svg",
+          "maya_toolkit\\tools\\stagger_gui\\images\\end_h.svg",
+          "maya_toolkit\\tools\\stagger_gui\\images\\stagger_icon.svg",
+          "maya_toolkit\\tools\\stagger_gui\\images\\stagger_it.svg",
+          "maya_toolkit\\tools\\stagger_gui\\images\\stagger_it_h.svg",
+          "maya_toolkit\\tools\\stagger_gui\\images\\start.svg",
+          "maya_toolkit\\tools\\stagger_gui\\images\\start_h.svg",
+          "maya_toolkit\\tools\\stagger_gui\\Stagger Demo.gif",
+          "maya_toolkit\\tools\\stagger_gui\\Stagger Installation.pdf",
+          "maya_toolkit\\tools\\stagger_gui\\tool.py",
+          "maya_toolkit\\tools\\stagger_gui\\ui.py",
+          "maya_toolkit\\tools\\stagger_gui\\ui_bridge.py",
+          "maya_toolkit\\tools\\stagger_gui\\upstream\\__init__.py.original",
+          "maya_toolkit\\tools\\stagger_gui\\upstream\\images\\amount.svg",
+          "maya_toolkit\\tools\\stagger_gui\\upstream\\images\\end.svg",
+          "maya_toolkit\\tools\\stagger_gui\\upstream\\images\\end_h.svg",
+          "maya_toolkit\\tools\\stagger_gui\\upstream\\images\\stagger_icon.svg",
+          "maya_toolkit\\tools\\stagger_gui\\upstream\\images\\stagger_it.svg",
+          "maya_toolkit\\tools\\stagger_gui\\upstream\\images\\stagger_it_h.svg",
+          "maya_toolkit\\tools\\stagger_gui\\upstream\\images\\start.svg",
+          "maya_toolkit\\tools\\stagger_gui\\upstream\\images\\start_h.svg",
+          "maya_toolkit\\tools\\stagger_gui\\upstream\\Stagger Demo.gif",
+          "maya_toolkit\\tools\\stagger_gui\\upstream\\Stagger Installation.pdf",
+          "maya_toolkit\\tools\\stagger_gui\\upstream\\ui.py.original",
+          "tests\\test_stagger_gui.py",
+          "tests\\test_stagger_gui_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "__init__.py",
+        "images/amount.svg",
+        "images/end.svg",
+        "images/end_h.svg",
+        "images/stagger_icon.svg",
+        "images/stagger_it.svg",
+        "images/stagger_it_h.svg",
+        "images/start.svg",
+        "images/start_h.svg",
+        "Stagger Demo.gif",
+        "Stagger Installation.pdf",
+        "ui.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/MEL/OpenMaya (no external Python package)",
+        "All eight SVG images, original demo GIF and three-page installation PDF included"
+      ],
+      "source_preserved": true,
+      "change_summary": "Full original stagger resampling algorithm, original GUI layout/slider/range buttons and all assets preserved. Scoped curve API, read-only validation, Undo, private UI names and finally progress restoration added.",
+      "prepared_at": "2026-10-01T18:04:42.178067+08:00"
     },
     {
       "source_path": "01_animation/stagger_offset",
