@@ -566,3 +566,10 @@
 - 精确UUID/DAG匹配拒绝歧义shortname、自身、重复shape/transform别名、缺影响、锁/引用/实例、多skin/多geometry/驱动数据/maintainMaxInfluences/DQ。全部任务预检模拟删除影响，坏后行不让前行偷偷写。API批量读保留，不可Undo的API写改逐顶点cmds写完整归一化与原removeInfluence，顺序读实际前行权重，完整单Undo。
 - 3组离线+4组Maya2025隔离+临时正式布局/注册/rigging/panel/fingerprint全部通过：真实全顶点0/.5/.5/dry场景选择时间Undo不变/oneUndo；源连接自动发现、A->B移除A后B->C最终C=1、Undo恢复影响与原权重；非归一化.8/.4/.8->0/.6/.4及Undo原值；全表错误/已删除影响/自身/alias/锁/实例/GUIbatch拒绝。发现误用了命令flag名skinMethod作属性，修正真实skinningMethod后全部通过，未掩盖错误。
 - core get_skin_cluster/正式weights_copy是不同作用域，复用框架Undo、不改core。GUI/生产大网格性能/其它版本not_run；prepared_unverified。实际5h22%已用、周34%，继续camera_f_fix，heartbeat保持暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：按F相机重置完整候选，累计65/109
+
+- 原完整MEL/SHA字节归档，不自动source。完整默认persp/ResetTransformations/局部T=(1,1,1)保留；读取本机Maya2025已安装performResetTransformations.mel确认底层makeIdentity -apply false及偏好参数，仅查看、不复制Autodesk脚本。默认R/S使用原Maya偏好，API可显式override，偏好不写入；原选相机默认保持，preserve_selection扩展可选。
+- 完整Base/Schema/Undo/只读preflight/相机字段+预检+执行UI/文档/验收/晋级。拒绝非perspective、锁/引用/驱动/关键帧/歧义/真DAG实例/child-transform rig，恢复AutoKey，只改相机本地变换，不宣称修复shape/焦距/裁切或实际F视口异常。
+- 2组Python+3组Maya2025隔离+临时正式布局/注册/modeling_surfacing域/panel/fingerprint全部通过：真实执行原MEL与候选TRS/selection一致、dry所有状态不变/oneUndo原姿态与selection；偏好全部关闭R/S保持与显式override、shape参数/AutoKey/偏好保持；错误目标/orthographic/锁/keyframe/rigchild/实例/GUIbatch拒绝。fixture 15度实际浮点为14.999999999999998，改比较操作前真实值，不改业务伪造通过。
+- 真实F framing/GUI/生产父级camera/其它版本not_run，prepared_unverified。实际5h26%已用、周35%，继续cvwrap_weightdriver；heartbeat暂停，不迁正式/同步/用卡/购买。

@@ -1,0 +1,7 @@
+{
+  "source": "按f相机出错解决.mel",
+  "sha256": "ead24057be5e7fb9b2888b6b791816a62c3186922e9bf7d53fa2a8302886705f",
+  "behavior": "Select persp; ResetTransformations with Maya preferences; set local translate to (1,1,1)",
+  "implementation_evidence": "Installed Maya2025/scripts/startup/performResetTransformations.mel assembleCmd uses makeIdentity -apply false and resetTransformationsTranslate/Rotate/Scale options. No Autodesk script copied into candidate.",
+  "license": "No source attribution/license supplied; no publication rights inferred"
+}

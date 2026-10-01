@@ -1,0 +1,7 @@
+select -r persp;
+string $sel[] = `ls -sl`;
+for ($a in $sel)
+{
+ResetTransformations;
+setAttr ($a+".translate") 1 1 1;
+}

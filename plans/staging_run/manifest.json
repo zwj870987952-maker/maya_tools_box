@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T03:01:01.267958+08:00",
+  "updated_at": "2026-10-02T03:08:49.691106+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "02_rigging_hierarchy/skin_weight_transfer",
+    "last_completed_tool": "03_transforms_modeling/camera_f_fix",
     "last_usage": {
-      "five_hour_used_percent": 18.0,
-      "weekly_used_percent": 33.0,
-      "recorded_at": "2026-10-02T02:53:13.125537+08:00",
+      "five_hour_used_percent": 22.0,
+      "weekly_used_percent": 34.0,
+      "recorded_at": "2026-10-02T03:01:08.512670+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "02_rigging_hierarchy/skin_weight_transfer"
+    "current_tool": "03_transforms_modeling/camera_f_fix"
   },
   "entry_repairs": [
     {
@@ -11326,7 +11326,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete ordered multiline source->target->meshes->DelSkin business retained, original full function and bytes archive, native API bulk reads plus undoable exact influence row writes/normalization, remove source influence, auto discover linked skin meshes, strict scope/full-list simulated influence preflight, whole task-list UI/schema/docs/tests/promotion.",
-      "prepared_at": "2026-10-02T03:00:23.785807+08:00"
+      "prepared_at": "2026-10-02T03:00:23.785807+08:00",
+      "source_commit": "a7a503f41616800a091f3cfca5c6656ec5043be3"
     },
     {
       "source_path": "03_transforms_modeling/camera_f_fix",
@@ -11337,20 +11338,83 @@
       "entry_candidates": [
         "按f相机出错解决.mel"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "按f相机出错解决.mel"
       ],
       "license_files": [],
       "entry_sha256": "ead24057be5e7fb9b2888b6b791816a62c3186922e9bf7d53fa2a8302886705f",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.000s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"camera_f_fix\",\r\n  \"candidate_sha256\": \"f5b6eacbca75f1e6397e01d3d90438b057eb0b31ee971731b76fce6905738af4\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\camera_f_fix.md\",\r\n    \"maya_toolkit\\\\tools\\\\camera_f_fix\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\camera_f_fix\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\camera_f_fix\\\\operations.py\",\r\n    \"maya_toolkit\\\\tools\\\\camera_f_fix\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\camera_f_fix\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\camera_f_fix\\\\upstream\\\\\\u6309f\\u76f8\\u673a\\u51fa\\u9519\\u89e3\\u51b3.mel\",\r\n    \"tests\\\\test_camera_f_fix.py\",\r\n    \"tests\\\\test_camera_f_fix_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/03_transforms_modeling/camera_f_fix/release_candidate/tests/test_camera_f_fix_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "����: CameraFFixTool_camera_f_fix\n...\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.025s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "e6d1b8bac7231270a12dfeed448cbc8dff4da983c38833ea925a303afb141fa8",
+          "runtime_source_sha256": "f82193f7144951b705f00340b3b3b5c0bf6d1b38fab57a3bfea8f3605398deb6"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Actual interactive F framing and GUI acceptance/other versions not_run."
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "f5b6eacbca75f1e6397e01d3d90438b057eb0b31ee971731b76fce6905738af4",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.000s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real interactive F framing behavior/viewport GUI and other versions not_run",
+        "This resets transform only; camera focal/clipping/COI/shape and viewport are not repaired",
+        "Original selects result camera; preserve_selection=True optionally keeps prior selection",
+        "Parented camera local channels reset; does not promise world-space pose or support rigs with transform children"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 0,
@@ -11359,7 +11423,37 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "548824ea8f3f8fc422d793ef5ea4e8e860249b16e19425f88e30b197a04e86c6"
+      "source_tree_sha256": "8768ccb652882b2878f2397e7e64195454aac87611828403da6c57065f5d71b0",
+      "candidate_path": "tools_staging_pool/03_transforms_modeling/camera_f_fix/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/03_transforms_modeling/camera_f_fix/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "camera_f_fix",
+        "candidate_sha256": "f5b6eacbca75f1e6397e01d3d90438b057eb0b31ee971731b76fce6905738af4",
+        "applied": false,
+        "files": [
+          "docs\\tools\\camera_f_fix.md",
+          "maya_toolkit\\tools\\camera_f_fix\\__init__.py",
+          "maya_toolkit\\tools\\camera_f_fix\\catalog.json",
+          "maya_toolkit\\tools\\camera_f_fix\\operations.py",
+          "maya_toolkit\\tools\\camera_f_fix\\tool.py",
+          "maya_toolkit\\tools\\camera_f_fix\\ui.py",
+          "maya_toolkit\\tools\\camera_f_fix\\upstream\\按f相机出错解决.mel",
+          "tests\\test_camera_f_fix.py",
+          "tests\\test_camera_f_fix_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "按f相机出错解决.mel"
+      ],
+      "external_dependencies": [
+        "Maya cmds/API2"
+      ],
+      "source_preserved": true,
+      "change_summary": "Full original persp ResetTransformations plus local (1,1,1), with read-only Maya preference defaults and optional explicit flags, strict perspective target/writability/instance/driver checks, selection behavior preserved, AutoKey restoration, Undo, full API/UI/docs/tests/promotion and original byte archive.",
+      "prepared_at": "2026-10-02T03:08:11.027555+08:00"
     },
     {
       "source_path": "03_transforms_modeling/cvwrap_weightdriver",

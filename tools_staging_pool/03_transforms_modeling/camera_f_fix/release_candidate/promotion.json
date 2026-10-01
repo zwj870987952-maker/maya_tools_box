@@ -1,0 +1,59 @@
+{
+  "tool_id": "camera_f_fix",
+  "registration": {
+    "module": "camera_f_fix",
+    "class_name": "CameraFFixTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/camera_f_fix.md",
+      "target": "docs/tools/camera_f_fix.md"
+    },
+    {
+      "source": "maya_toolkit/tools/camera_f_fix/__init__.py",
+      "target": "maya_toolkit/tools/camera_f_fix/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/camera_f_fix/catalog.json",
+      "target": "maya_toolkit/tools/camera_f_fix/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/camera_f_fix/operations.py",
+      "target": "maya_toolkit/tools/camera_f_fix/operations.py"
+    },
+    {
+      "source": "maya_toolkit/tools/camera_f_fix/tool.py",
+      "target": "maya_toolkit/tools/camera_f_fix/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/camera_f_fix/ui.py",
+      "target": "maya_toolkit/tools/camera_f_fix/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/camera_f_fix/upstream/按f相机出错解决.mel",
+      "target": "maya_toolkit/tools/camera_f_fix/upstream/按f相机出错解决.mel"
+    },
+    {
+      "source": "tests/test_camera_f_fix.py",
+      "target": "tests/test_camera_f_fix.py"
+    },
+    {
+      "source": "tests/test_camera_f_fix_maya.py",
+      "target": "tests/test_camera_f_fix_maya.py"
+    }
+  ],
+  "resources": [
+    "按f相机出错解决.mel"
+  ],
+  "dependencies": [
+    "Maya cmds/API2"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Full original persp ResetTransformations plus local (1,1,1), with read-only Maya preference defaults and optional explicit flags, strict perspective target/writability/instance/driver checks, selection behavior preserved, AutoKey restoration, Undo, full API/UI/docs/tests/promotion and original byte archive.",
+  "verification_limitations": [
+    "Real interactive F framing behavior/viewport GUI and other versions not_run",
+    "This resets transform only; camera focal/clipping/COI/shape and viewport are not repaired",
+    "Original selects result camera; preserve_selection=True optionally keeps prior selection",
+    "Parented camera local channels reset; does not promise world-space pose or support rigs with transform children"
+  ]
+}
