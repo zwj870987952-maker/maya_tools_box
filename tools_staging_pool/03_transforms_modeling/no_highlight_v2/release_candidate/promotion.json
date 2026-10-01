@@ -1,0 +1,56 @@
+{
+  "tool_id": "no_highlight_v2",
+  "registration": {
+    "module": "no_highlight_v2",
+    "class_name": "NoHighlightTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/no_highlight_v2.md",
+      "target": "docs/tools/no_highlight_v2.md"
+    },
+    {
+      "source": "maya_toolkit/tools/no_highlight_v2/__init__.py",
+      "target": "maya_toolkit/tools/no_highlight_v2/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/no_highlight_v2/catalog.json",
+      "target": "maya_toolkit/tools/no_highlight_v2/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/no_highlight_v2/tool.py",
+      "target": "maya_toolkit/tools/no_highlight_v2/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/no_highlight_v2/ui.py",
+      "target": "maya_toolkit/tools/no_highlight_v2/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/no_highlight_v2/upstream/NoHigh_Light_v2.py.original",
+      "target": "maya_toolkit/tools/no_highlight_v2/upstream/NoHigh_Light_v2.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/no_highlight_v2/view.py",
+      "target": "maya_toolkit/tools/no_highlight_v2/view.py"
+    },
+    {
+      "source": "tests/test_no_highlight_v2.py",
+      "target": "tests/test_no_highlight_v2.py"
+    },
+    {
+      "source": "tests/test_no_highlight_v2_maya.py",
+      "target": "tests/test_no_highlight_v2_maya.py"
+    }
+  ],
+  "resources": [
+    "NoHigh_Light_v2.py"
+  ],
+  "dependencies": [
+    "Maya cmds/API2"
+  ],
+  "acceptance_required": true,
+  "change_summary": "完整Start/Stop/SelectionChanged/UI/API；UUID原override/视图/选择模式恢复，显式回调生命周期/Undo暂停与恢复入口，严格预检/测试/晋级",
+  "verification_limitations": [
+    "真实GUI/modelEditor/选择模式mask/原生选择事件递送/uiDeleted及生产跨版本not_run；隔离替换viewport与selection-mode adapter"
+  ]
+}

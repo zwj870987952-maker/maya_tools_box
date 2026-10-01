@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T04:47:20.520995+08:00",
+  "updated_at": "2026-10-02T04:57:31.426658+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "03_transforms_modeling/mirror_tool",
+    "last_completed_tool": "03_transforms_modeling/no_highlight_v2",
     "last_usage": {
-      "five_hour_used_percent": 66.0,
+      "five_hour_used_percent": 68.0,
       "weekly_used_percent": 41.0,
-      "recorded_at": "2026-10-02T04:40:02.083850+08:00",
+      "recorded_at": "2026-10-02T04:47:24.743724+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "03_transforms_modeling/mirror_tool"
+    "current_tool": "03_transforms_modeling/no_highlight_v2"
   },
   "entry_repairs": [
     {
@@ -14967,7 +14967,8 @@
       ],
       "source_preserved": true,
       "change_summary": "完整原三平面三模式层级UI/API；basename/namespace精确配对，全部源预采样与目标父子排序，严格只读预检/Undo/文档测试晋级",
-      "prepared_at": "2026-10-02T04:46:46.707248+08:00"
+      "prepared_at": "2026-10-02T04:46:46.707248+08:00",
+      "source_commit": "9a1ed9f24aaf7f8488546696ecbe2ad21fd02643"
     },
     {
       "source_path": "03_transforms_modeling/no_highlight_v2",
@@ -14978,20 +14979,80 @@
       "entry_candidates": [
         "NoHigh_Light_v2.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "NoHigh_Light_v2.py"
       ],
       "license_files": [],
       "entry_sha256": "c76dd581c7784cb97332bf4d548d9a922c676efb783d76207d55c1ed8b9ad8b3",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.000s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"no_highlight_v2\",\r\n  \"candidate_sha256\": \"d50ef48f19fd628f4f0200033076c97ed21813051c64b285bb7971605b9334fb\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\no_highlight_v2.md\",\r\n    \"maya_toolkit\\\\tools\\\\no_highlight_v2\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\no_highlight_v2\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\no_highlight_v2\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\no_highlight_v2\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\no_highlight_v2\\\\upstream\\\\NoHigh_Light_v2.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\no_highlight_v2\\\\view.py\",\r\n    \"tests\\\\test_no_highlight_v2.py\",\r\n    \"tests\\\\test_no_highlight_v2_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/03_transforms_modeling/no_highlight_v2/release_candidate/tests/test_no_highlight_v2_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": ".����: NoHighlightTool_no_highlight_v2\n.����: NoHighlightTool_no_highlight_v2\n.\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.025s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "a5505b8ef26577ca40011ab887ae1a02617f0a947cdbab14bb8de9cb9fd55ca7",
+          "runtime_source_sha256": "a13dc9aca3657c557b97ad8335aad20357dc70fa10a391192c8bb1d1565ce3ed"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "真实GUI/modelEditor/选择模式mask/SelectionChanged递送/UI删除及跨版本not_run；隔离只替换viewport/selection-mode adapter，实际shape/Undo/六回调/BeforeNew验证通过"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "d50ef48f19fd628f4f0200033076c97ed21813051c64b285bb7971605b9334fb",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.000s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "真实GUI/modelEditor/选择模式mask/原生选择事件递送/uiDeleted及生产跨版本not_run；隔离替换viewport与selection-mode adapter"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -15000,7 +15061,37 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "5646e3a994b40304bbd461b891bf4dc8eb19fe5e26a9f26c17185cab04c987e3"
+      "source_tree_sha256": "90c1a539b13c8681fb01f831d90195ee58eeeb336fff1d6968165c32de8a8f57",
+      "candidate_path": "tools_staging_pool/03_transforms_modeling/no_highlight_v2/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/03_transforms_modeling/no_highlight_v2/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "no_highlight_v2",
+        "candidate_sha256": "d50ef48f19fd628f4f0200033076c97ed21813051c64b285bb7971605b9334fb",
+        "applied": false,
+        "files": [
+          "docs\\tools\\no_highlight_v2.md",
+          "maya_toolkit\\tools\\no_highlight_v2\\__init__.py",
+          "maya_toolkit\\tools\\no_highlight_v2\\catalog.json",
+          "maya_toolkit\\tools\\no_highlight_v2\\tool.py",
+          "maya_toolkit\\tools\\no_highlight_v2\\ui.py",
+          "maya_toolkit\\tools\\no_highlight_v2\\upstream\\NoHigh_Light_v2.py.original",
+          "maya_toolkit\\tools\\no_highlight_v2\\view.py",
+          "tests\\test_no_highlight_v2.py",
+          "tests\\test_no_highlight_v2_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "NoHigh_Light_v2.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/API2"
+      ],
+      "source_preserved": true,
+      "change_summary": "完整Start/Stop/SelectionChanged/UI/API；UUID原override/视图/选择模式恢复，显式回调生命周期/Undo暂停与恢复入口，严格预检/测试/晋级",
+      "prepared_at": "2026-10-02T04:56:22.619638+08:00"
     },
     {
       "source_path": "03_transforms_modeling/quaternion_tool",

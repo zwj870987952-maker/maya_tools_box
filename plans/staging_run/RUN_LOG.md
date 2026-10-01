@@ -614,3 +614,9 @@
 - 原单文件SHA与所有类/方法/完整三平面三模式层级UI保留，UI两写入口转Base API，预制Schema/只读preflight/知识/验收/晋级。原Euler公式保留，不声称任意矩阵几何对称；精确basename/namespace路径匹配、歧义/缺侧对象拒绝、shape排除、实际目标DAG深度排序、全部源提前采样修复双侧污染。
 - 2离线+3隔离Maya2025+临时正式布局/注册/modeling_surfacing/panel/fingerprint全部通过：九组合与完整原mirror_transform实际世界矩阵一致、dry/单Undo/选区时间保持、两侧交换、父子顺序、namespace、全表锁/动画/真DAG实例/歧义拒绝。目标普通transform/正scale/无shear/identity OPM/正均匀父链及计划祖先scale严格条件；GUI/生产rig/pivot/旋转顺序/跨版本not_run，prepared_unverified。
 - 实际5h68%已用（剩32%）、周41%，立即继续no_highlight_v2；heartbeat暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：取消高亮完整候选，累计72/109
+
+- 原单文件SHA归档；完整Start/Stop、第一对象/shape组件选择跟随、原生小UI及旧方法名、Base/Schema/预检/知识/验收/晋级。修正同一对象连续选择清override不再应用，UUID记录两属性原值，恢复原视图/选择模式/facet，不强制0/1；锁/引用/驱动/实例/外部值冲突拒绝。六API回调有显式清理，UI close/delete拆回调，Undo/Redo及其选择递送禁止写，最近Stop Undo用recover，不假称Python生命周期可Undo。
+- 2离线+3隔离Maya2025+临时正式布局/注册/modeling_surfacing/panel/fingerprint全通过：真实override/UUID重命名/Undo Stop+recover、同选重用、锁/坏值/实例、六真实callback注册/移除、真实Undo与BeforeNew清理。初始失败发现standalone selectMode object/component均False；整个viewport/selection-mode adapter显式替换，不伪造原生模式通过。真实modelEditor/mask/GUI SelectionChanged递送/UI删除/生产跨版本not_run，prepared_unverified。
+- 额度首次读取失败后重读实际5h72%已用（剩28%）、周42%，立即继续quaternion_tool；heartbeat暂停，不迁正式/同步/用卡/购买。
