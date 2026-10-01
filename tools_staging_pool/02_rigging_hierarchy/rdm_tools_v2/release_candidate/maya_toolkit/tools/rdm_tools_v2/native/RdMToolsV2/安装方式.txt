@@ -1,0 +1,23 @@
+方法1：
+第一次使用：
+将 install.mel 拖拽到Maya视窗里，即可加载完成
+
+第二次使用:
+import RmdTools_Path,sys,os
+path = RmdTools_Path._RdMlocpath
+if not path in sys.path:sys.path.append(path)
+
+from RdMToolsV2 import ShowUI
+reload(ShowUI)
+RdMV2_ui = ShowUI.RdMV2UI()
+RdMV2_ui.show()
+
+方法2：
+import sys,os
+_RdMlocpath = r'工具路径' # 例如工具路径是：Z:\Script\RdMToolsV2，则_RdMlocpath = r'Z:\Script'
+if not path in sys.path:sys.path.append(_RdMlocpath)
+
+from RdMToolsV2 import ShowUI
+reload(ShowUI)
+RdMV2_ui = ShowUI.RdMV2UI()
+RdMV2_ui.show()

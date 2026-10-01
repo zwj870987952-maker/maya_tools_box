@@ -1,0 +1,1534 @@
+{
+  "tool_id": "rdm_tools_v2",
+  "registration": {
+    "module": "rdm_tools_v2",
+    "class_name": "RdmToolsTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/rdm_tools_v2.md",
+      "target": "docs/tools/rdm_tools_v2.md"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/__init__.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/catalog.json",
+      "target": "maya_toolkit/tools/rdm_tools_v2/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/__init__.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/__init__.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/install.mel",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/install.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RdM Tools v2 Manual.docx",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RdM Tools v2 Manual.docx"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RdMTools V2_Manual.pdf",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RdMTools V2_Manual.pdf"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RdMV2.ui",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RdMV2.ui"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RdMV2Beta.ui",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RdMV2Beta.ui"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/READ ME RdMToolsV2.txt",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/READ ME RdMToolsV2.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Add.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Add.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/AddJoints.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/AddJoints.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/ArrowCC.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/ArrowCC.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Axis.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Axis.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Background.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Background.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/BindSkin.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/BindSkin.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Cabezas.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Cabezas.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Cejas.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Cejas.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Chain.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Chain.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Circle.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Circle.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Connect.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Connect.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Copy.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Copy.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Cube.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Cube.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/CurveText.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/CurveText.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/EditOff.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/EditOff.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/EditOn.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/EditOn.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Eye.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Eye.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Follicle.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Follicle.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Foot.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Foot.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Hand.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Hand.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/iconResources.qrc",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/iconResources.qrc"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/IKFK.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/IKFK.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Joint.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Joint.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/JointCv.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/JointCv.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/KFLOGO.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/KFLOGO.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Labios.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Labios.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/LeftArrow.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/LeftArrow.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/LineArrowCC.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/LineArrowCC.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Locator.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Locator.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/LocatorCv.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/LocatorCv.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/MatchTrasnforms.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/MatchTrasnforms.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/MirroBehavior.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/MirroBehavior.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/MirroBehavior2.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/MirroBehavior2.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Mirror.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Mirror.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/MirrorWeights.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/MirrorWeights.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/MultipleArrowsCC.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/MultipleArrowsCC.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/NoEye.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/NoEye.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/OffsetGrp.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/OffsetGrp.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/OrientConstraint.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/OrientConstraint.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/ParentConstraint.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/ParentConstraint.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Picker.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Picker.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/PointConstraint.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/PointConstraint.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Pringle.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Pringle.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/PyramidsCC.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/PyramidsCC.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/RdM Tools-logo-white.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/RdM Tools-logo-white.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Remove.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Remove.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/RemoveJoints.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/RemoveJoints.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Rename.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Rename.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/RightArrow.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/RightArrow.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/RootAuto.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/RootAuto.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/ScaleConstraint.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/ScaleConstraint.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/SearchReplace.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/SearchReplace.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/SearchReplace2.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/SearchReplace2.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/SideArrowsCC.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/SideArrowsCC.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Slider.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Slider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Sphere.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Sphere.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/SquareCC.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/SquareCC.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Switch.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Switch.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/TorsoNeck.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/TorsoNeck.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Twist.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Twist.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Visor.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/Resources/Visor.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/__init__.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRig/__init__.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRig/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRig/RdMAutoArms.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRig/RdMAutoArms.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRig/RdMAutoChickenHead.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRig/RdMAutoChickenHead.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRig/RdMAutoComplete.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRig/RdMAutoComplete.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRig/RdMAutoHandsv2.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRig/RdMAutoHandsv2.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRig/RdMAutoLegs.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRig/RdMAutoLegs.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRig/RdMAutoSpine.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRig/RdMAutoSpine.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRig/RdMBindSkin.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRig/RdMBindSkin.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/__init__.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/AutoArms_V2.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/AutoArms_V2.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/AutoHands_V3.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/AutoHands_V3.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/AutoHeadV2.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/AutoHeadV2.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/AutoHeadV3.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/AutoHeadV3.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/AutoLegs_V2.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/AutoLegs_V2.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/AutoSpine_V2.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/AutoSpine_V2.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/FootRollLegs.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/FootRollLegs.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/improveParts.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/improveParts.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/RdMAutoCompletev2.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/RdMAutoCompletev2.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/RdMBindSkinV2.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/AutoRigV2/RdMBindSkinV2.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Blend/IKFK_Blend_RdM2.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Blend/IKFK_Blend_RdM2.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Blend/IsolateHead_Blend_RdM2.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Blend/IsolateHead_Blend_RdM2.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Blend/IsolateHeadBlend.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Blend/IsolateHeadBlend.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Blend/LeftLegIKFKBlend.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Blend/LeftLegIKFKBlend.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Blend/RightLegIKFKBlend.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Blend/RightLegIKFKBlend.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/__init__.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/BoxCurve.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/BoxCurve.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/CubeFK.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/CubeFK.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/CurveColors.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/CurveColors.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/curveOnSelection.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/curveOnSelection.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/CurveToJson.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/CurveToJson.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/FistCurve.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/FistCurve.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/FootCurve.mel",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/FootCurve.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/FootCurve.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/FootCurve.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/OffsetGroup.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/OffsetGroup.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/PringleCurve.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/PringleCurve.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/RdMTextCurve.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/RdMTextCurve.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/RootAuto.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/RootAuto.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/SliderCreator.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Curves/SliderCreator.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Facial/__init__.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Facial/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Facial/AutoBrows.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Facial/AutoBrows.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Facial/AutoMouth.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Facial/AutoMouth.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Facial/BS_Divider.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Facial/BS_Divider.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Facial/EdgeToCurve.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Facial/EdgeToCurve.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Facial/ExtraFacial.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Facial/ExtraFacial.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Facial/JointsOnVertex.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Facial/JointsOnVertex.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Facial/MouthToFace.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Facial/MouthToFace.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Game/RdMGameReady.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Game/RdMGameReady.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Game/SegmentScaleOff.mel",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Game/SegmentScaleOff.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/HotKeys.mhk",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/HotKeys.mhk"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Mocap/CustomRigFKSpine.xml",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Mocap/CustomRigFKSpine.xml"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Mocap/CustomRigIKSpine.xml",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Mocap/CustomRigIKSpine.xml"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Mocap/HIk_Definition.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Mocap/HIk_Definition.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Mocap/MixamoDefinition.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Mocap/MixamoDefinition.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Nodes/ListsAttrs.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Nodes/ListsAttrs.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Picker/__init__.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Picker/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Picker/loadPicker.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Picker/loadPicker.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Picker/PickerImages/Switch.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Picker/PickerImages/Switch.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Picker/PickerUI.ui",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Picker/PickerUI.ui"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/PickerUI.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/PickerUI.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/QT/LoadUI_Py.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/QT/LoadUI_Py.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/QT/UItoPY.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/QT/UItoPY.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Quadruped/QuadrupedLegs.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Quadruped/QuadrupedLegs.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/ShowHide/__init__.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/ShowHide/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/ShowHide/RdMHideJoints.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/ShowHide/RdMHideJoints.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/ShowHide/RdMShowJoints.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/ShowHide/RdMShowJoints.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/ShowHide/RdMToggleAxis.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/ShowHide/RdMToggleAxis.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Skin/__init__.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Skin/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Skin/AddRemoveJoints.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Skin/AddRemoveJoints.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Skin/JointsFromSkin.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Skin/JointsFromSkin.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Skin/MoveBindJoints.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Skin/MoveBindJoints.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Skin/RdMBindSkin.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Skin/RdMBindSkin.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Skin/RdMMirrorSkin.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Skin/RdMMirrorSkin.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Skin/SkinHelp.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Skin/SkinHelp.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/__init__.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/AutoIKFK.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/AutoIKFK.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/AutoTwist.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/AutoTwist.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/BendyRibbons.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/BendyRibbons.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/CircleOnCurve.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/CircleOnCurve.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/ConnectPart.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/ConnectPart.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/FollicleOnPositionAlt.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/FollicleOnPositionAlt.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/GlobalAttr.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/GlobalAttr.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/JointResizer.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/JointResizer.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/MirrorBehavior.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/MirrorBehavior.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/PlaneRef.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/PlaneRef.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/RdMOrientJoint.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/RdMOrientJoint.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/RdMSimpleFK.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/RdMSimpleFK.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/Renamer.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/Renamer.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/ResetControllers.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/ResetControllers.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/ShowHideAttr.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/RiggingTools/Tools/ShowHideAttr.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/run_RdMTools.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/run_RdMTools.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/ShowUI.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/ShowUI.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/安装方式.txt",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RdMToolsV2/安装方式.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/native/RmdTools_Path.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/native/RmdTools_Path.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/qt_compat.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/qt_compat.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/runtime.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/support.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/support.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/tool.py",
+      "target": "maya_toolkit/tools/rdm_tools_v2/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/1677524565000.jpg",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/1677524565000.jpg"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/7760d675c481810f88c28dda09af5b6.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/7760d675c481810f88c28dda09af5b6.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/__init__.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/install.mel",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/install.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RdM Tools v2 Manual.docx",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RdM Tools v2 Manual.docx"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RdMTools V2_Manual.pdf",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RdMTools V2_Manual.pdf"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RdMV2.ui",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RdMV2.ui"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RdMV2Beta.ui",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RdMV2Beta.ui"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/READ ME RdMToolsV2.txt",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/READ ME RdMToolsV2.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Add.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Add.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/AddJoints.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/AddJoints.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/ArrowCC.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/ArrowCC.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Axis.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Axis.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Background.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Background.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/BindSkin.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/BindSkin.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Cabezas.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Cabezas.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Cejas.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Cejas.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Chain.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Chain.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Circle.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Circle.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Connect.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Connect.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Copy.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Copy.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Cube.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Cube.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/CurveText.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/CurveText.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/EditOff.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/EditOff.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/EditOn.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/EditOn.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Eye.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Eye.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Follicle.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Follicle.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Foot.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Foot.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Hand.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Hand.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/iconResources.qrc",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/iconResources.qrc"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/IKFK.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/IKFK.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Joint.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Joint.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/JointCv.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/JointCv.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/KFLOGO.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/KFLOGO.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Labios.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Labios.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/LeftArrow.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/LeftArrow.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/LineArrowCC.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/LineArrowCC.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Locator.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Locator.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/LocatorCv.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/LocatorCv.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/MatchTrasnforms.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/MatchTrasnforms.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/MirroBehavior.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/MirroBehavior.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/MirroBehavior2.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/MirroBehavior2.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Mirror.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Mirror.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/MirrorWeights.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/MirrorWeights.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/MultipleArrowsCC.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/MultipleArrowsCC.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/NoEye.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/NoEye.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/OffsetGrp.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/OffsetGrp.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/OrientConstraint.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/OrientConstraint.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/ParentConstraint.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/ParentConstraint.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Picker.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Picker.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/PointConstraint.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/PointConstraint.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Pringle.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Pringle.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/PyramidsCC.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/PyramidsCC.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/RdM Tools-logo-white.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/RdM Tools-logo-white.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Remove.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Remove.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/RemoveJoints.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/RemoveJoints.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Rename.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Rename.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/RightArrow.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/RightArrow.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/RootAuto.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/RootAuto.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/ScaleConstraint.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/ScaleConstraint.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/SearchReplace.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/SearchReplace.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/SearchReplace2.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/SearchReplace2.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/SideArrowsCC.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/SideArrowsCC.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Slider.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Slider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Sphere.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Sphere.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/SquareCC.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/SquareCC.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Switch.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Switch.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/TorsoNeck.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/TorsoNeck.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Twist.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Twist.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Visor.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/Resources/Visor.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/__init__.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRig/__init__.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRig/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRig/RdMAutoArms.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRig/RdMAutoArms.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRig/RdMAutoChickenHead.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRig/RdMAutoChickenHead.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRig/RdMAutoComplete.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRig/RdMAutoComplete.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRig/RdMAutoHandsv2.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRig/RdMAutoHandsv2.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRig/RdMAutoLegs.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRig/RdMAutoLegs.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRig/RdMAutoSpine.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRig/RdMAutoSpine.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRig/RdMBindSkin.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRig/RdMBindSkin.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/__init__.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/AutoArms_V2.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/AutoArms_V2.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/AutoHands_V3.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/AutoHands_V3.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/AutoHeadV2.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/AutoHeadV2.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/AutoHeadV3.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/AutoHeadV3.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/AutoLegs_V2.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/AutoLegs_V2.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/AutoSpine_V2.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/AutoSpine_V2.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/FootRollLegs.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/FootRollLegs.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/improveParts.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/improveParts.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/RdMAutoCompletev2.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/RdMAutoCompletev2.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/RdMBindSkinV2.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/AutoRigV2/RdMBindSkinV2.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Blend/IKFK_Blend_RdM2.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Blend/IKFK_Blend_RdM2.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Blend/IsolateHead_Blend_RdM2.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Blend/IsolateHead_Blend_RdM2.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Blend/IsolateHeadBlend.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Blend/IsolateHeadBlend.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Blend/LeftLegIKFKBlend.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Blend/LeftLegIKFKBlend.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Blend/RightLegIKFKBlend.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Blend/RightLegIKFKBlend.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/__init__.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/BoxCurve.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/BoxCurve.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/CubeFK.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/CubeFK.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/CurveColors.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/CurveColors.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/curveOnSelection.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/curveOnSelection.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/CurveToJson.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/CurveToJson.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/FistCurve.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/FistCurve.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/FootCurve.mel",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/FootCurve.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/FootCurve.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/FootCurve.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/OffsetGroup.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/OffsetGroup.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/PringleCurve.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/PringleCurve.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/RdMTextCurve.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/RdMTextCurve.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/RootAuto.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/RootAuto.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/SliderCreator.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Curves/SliderCreator.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Facial/__init__.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Facial/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Facial/AutoBrows.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Facial/AutoBrows.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Facial/AutoMouth.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Facial/AutoMouth.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Facial/BS_Divider.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Facial/BS_Divider.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Facial/EdgeToCurve.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Facial/EdgeToCurve.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Facial/ExtraFacial.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Facial/ExtraFacial.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Facial/JointsOnVertex.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Facial/JointsOnVertex.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Facial/MouthToFace.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Facial/MouthToFace.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Game/RdMGameReady.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Game/RdMGameReady.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Game/SegmentScaleOff.mel",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Game/SegmentScaleOff.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/HotKeys.mhk",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/HotKeys.mhk"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Mocap/CustomRigFKSpine.xml",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Mocap/CustomRigFKSpine.xml"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Mocap/CustomRigIKSpine.xml",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Mocap/CustomRigIKSpine.xml"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Mocap/HIk_Definition.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Mocap/HIk_Definition.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Mocap/MixamoDefinition.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Mocap/MixamoDefinition.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Nodes/ListsAttrs.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Nodes/ListsAttrs.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Picker/__init__.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Picker/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Picker/loadPicker.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Picker/loadPicker.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Picker/PickerImages/Switch.png",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Picker/PickerImages/Switch.png"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Picker/PickerUI.ui",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Picker/PickerUI.ui"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/PickerUI.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/PickerUI.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/QT/LoadUI_Py.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/QT/LoadUI_Py.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/QT/UItoPY.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/QT/UItoPY.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Quadruped/QuadrupedLegs.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Quadruped/QuadrupedLegs.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/ShowHide/__init__.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/ShowHide/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/ShowHide/RdMHideJoints.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/ShowHide/RdMHideJoints.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/ShowHide/RdMShowJoints.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/ShowHide/RdMShowJoints.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/ShowHide/RdMToggleAxis.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/ShowHide/RdMToggleAxis.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Skin/__init__.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Skin/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Skin/AddRemoveJoints.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Skin/AddRemoveJoints.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Skin/JointsFromSkin.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Skin/JointsFromSkin.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Skin/MoveBindJoints.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Skin/MoveBindJoints.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Skin/RdMBindSkin.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Skin/RdMBindSkin.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Skin/RdMMirrorSkin.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Skin/RdMMirrorSkin.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Skin/SkinHelp.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Skin/SkinHelp.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/__init__.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/AutoIKFK.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/AutoIKFK.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/AutoTwist.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/AutoTwist.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/BendyRibbons.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/BendyRibbons.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/CircleOnCurve.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/CircleOnCurve.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/ConnectPart.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/ConnectPart.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/FollicleOnPositionAlt.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/FollicleOnPositionAlt.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/GlobalAttr.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/GlobalAttr.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/JointResizer.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/JointResizer.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/MirrorBehavior.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/MirrorBehavior.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/PlaneRef.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/PlaneRef.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/RdMOrientJoint.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/RdMOrientJoint.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/RdMSimpleFK.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/RdMSimpleFK.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/Renamer.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/Renamer.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/ResetControllers.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/ResetControllers.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/ShowHideAttr.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/RiggingTools/Tools/ShowHideAttr.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/run_RdMTools.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/run_RdMTools.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/ShowUI.py.original",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/ShowUI.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/安装方式.txt",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2/安装方式.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2哈哈启动说明.doc",
+      "target": "maya_toolkit/tools/rdm_tools_v2/vendor/RdMToolsV2哈哈启动说明.doc"
+    },
+    {
+      "source": "tests/test_rdm_tools_v2.py",
+      "target": "tests/test_rdm_tools_v2.py"
+    },
+    {
+      "source": "tests/test_rdm_tools_v2_maya.py",
+      "target": "tests/test_rdm_tools_v2_maya.py"
+    }
+  ],
+  "resources": [
+    "1677524565000.jpg",
+    "7760d675c481810f88c28dda09af5b6.png",
+    "RdMToolsV2/__init__.py",
+    "RdMToolsV2/install.mel",
+    "RdMToolsV2/RdM Tools v2 Manual.docx",
+    "RdMToolsV2/RdMTools V2_Manual.pdf",
+    "RdMToolsV2/RdMV2.ui",
+    "RdMToolsV2/RdMV2Beta.ui",
+    "RdMToolsV2/READ ME RdMToolsV2.txt",
+    "RdMToolsV2/Resources/Add.png",
+    "RdMToolsV2/Resources/AddJoints.png",
+    "RdMToolsV2/Resources/ArrowCC.png",
+    "RdMToolsV2/Resources/Axis.png",
+    "RdMToolsV2/Resources/Background.png",
+    "RdMToolsV2/Resources/BindSkin.png",
+    "RdMToolsV2/Resources/Cabezas.png",
+    "RdMToolsV2/Resources/Cejas.png",
+    "RdMToolsV2/Resources/Chain.png",
+    "RdMToolsV2/Resources/Circle.png",
+    "RdMToolsV2/Resources/Connect.png",
+    "RdMToolsV2/Resources/Copy.png",
+    "RdMToolsV2/Resources/Cube.png",
+    "RdMToolsV2/Resources/CurveText.png",
+    "RdMToolsV2/Resources/EditOff.png",
+    "RdMToolsV2/Resources/EditOn.png",
+    "RdMToolsV2/Resources/Eye.png",
+    "RdMToolsV2/Resources/Follicle.png",
+    "RdMToolsV2/Resources/Foot.png",
+    "RdMToolsV2/Resources/Hand.png",
+    "RdMToolsV2/Resources/iconResources.qrc",
+    "RdMToolsV2/Resources/IKFK.png",
+    "RdMToolsV2/Resources/Joint.png",
+    "RdMToolsV2/Resources/JointCv.png",
+    "RdMToolsV2/Resources/KFLOGO.png",
+    "RdMToolsV2/Resources/Labios.png",
+    "RdMToolsV2/Resources/LeftArrow.png",
+    "RdMToolsV2/Resources/LineArrowCC.png",
+    "RdMToolsV2/Resources/Locator.png",
+    "RdMToolsV2/Resources/LocatorCv.png",
+    "RdMToolsV2/Resources/MatchTrasnforms.png",
+    "RdMToolsV2/Resources/MirroBehavior.png",
+    "RdMToolsV2/Resources/MirroBehavior2.png",
+    "RdMToolsV2/Resources/Mirror.png",
+    "RdMToolsV2/Resources/MirrorWeights.png",
+    "RdMToolsV2/Resources/MultipleArrowsCC.png",
+    "RdMToolsV2/Resources/NoEye.png",
+    "RdMToolsV2/Resources/OffsetGrp.png",
+    "RdMToolsV2/Resources/OrientConstraint.png",
+    "RdMToolsV2/Resources/ParentConstraint.png",
+    "RdMToolsV2/Resources/Picker.png",
+    "RdMToolsV2/Resources/PointConstraint.png",
+    "RdMToolsV2/Resources/Pringle.png",
+    "RdMToolsV2/Resources/PyramidsCC.png",
+    "RdMToolsV2/Resources/RdM Tools-logo-white.png",
+    "RdMToolsV2/Resources/Remove.png",
+    "RdMToolsV2/Resources/RemoveJoints.png",
+    "RdMToolsV2/Resources/Rename.png",
+    "RdMToolsV2/Resources/RightArrow.png",
+    "RdMToolsV2/Resources/RootAuto.png",
+    "RdMToolsV2/Resources/ScaleConstraint.png",
+    "RdMToolsV2/Resources/SearchReplace.png",
+    "RdMToolsV2/Resources/SearchReplace2.png",
+    "RdMToolsV2/Resources/SideArrowsCC.png",
+    "RdMToolsV2/Resources/Slider.png",
+    "RdMToolsV2/Resources/Sphere.png",
+    "RdMToolsV2/Resources/SquareCC.png",
+    "RdMToolsV2/Resources/Switch.png",
+    "RdMToolsV2/Resources/TorsoNeck.png",
+    "RdMToolsV2/Resources/Twist.png",
+    "RdMToolsV2/Resources/Visor.png",
+    "RdMToolsV2/RiggingTools/__init__.py",
+    "RdMToolsV2/RiggingTools/AutoRig/__init__.py",
+    "RdMToolsV2/RiggingTools/AutoRig/RdMAutoArms.py",
+    "RdMToolsV2/RiggingTools/AutoRig/RdMAutoChickenHead.py",
+    "RdMToolsV2/RiggingTools/AutoRig/RdMAutoComplete.py",
+    "RdMToolsV2/RiggingTools/AutoRig/RdMAutoHandsv2.py",
+    "RdMToolsV2/RiggingTools/AutoRig/RdMAutoLegs.py",
+    "RdMToolsV2/RiggingTools/AutoRig/RdMAutoSpine.py",
+    "RdMToolsV2/RiggingTools/AutoRig/RdMBindSkin.py",
+    "RdMToolsV2/RiggingTools/AutoRigV2/__init__.py",
+    "RdMToolsV2/RiggingTools/AutoRigV2/AutoArms_V2.py",
+    "RdMToolsV2/RiggingTools/AutoRigV2/AutoHands_V3.py",
+    "RdMToolsV2/RiggingTools/AutoRigV2/AutoHeadV2.py",
+    "RdMToolsV2/RiggingTools/AutoRigV2/AutoHeadV3.py",
+    "RdMToolsV2/RiggingTools/AutoRigV2/AutoLegs_V2.py",
+    "RdMToolsV2/RiggingTools/AutoRigV2/AutoSpine_V2.py",
+    "RdMToolsV2/RiggingTools/AutoRigV2/FootRollLegs.py",
+    "RdMToolsV2/RiggingTools/AutoRigV2/improveParts.py",
+    "RdMToolsV2/RiggingTools/AutoRigV2/RdMAutoCompletev2.py",
+    "RdMToolsV2/RiggingTools/AutoRigV2/RdMBindSkinV2.py",
+    "RdMToolsV2/RiggingTools/Blend/IKFK_Blend_RdM2.py",
+    "RdMToolsV2/RiggingTools/Blend/IsolateHead_Blend_RdM2.py",
+    "RdMToolsV2/RiggingTools/Blend/IsolateHeadBlend.py",
+    "RdMToolsV2/RiggingTools/Blend/LeftLegIKFKBlend.py",
+    "RdMToolsV2/RiggingTools/Blend/RightLegIKFKBlend.py",
+    "RdMToolsV2/RiggingTools/Curves/__init__.py",
+    "RdMToolsV2/RiggingTools/Curves/BoxCurve.py",
+    "RdMToolsV2/RiggingTools/Curves/CubeFK.py",
+    "RdMToolsV2/RiggingTools/Curves/CurveColors.py",
+    "RdMToolsV2/RiggingTools/Curves/curveOnSelection.py",
+    "RdMToolsV2/RiggingTools/Curves/CurveToJson.py",
+    "RdMToolsV2/RiggingTools/Curves/FistCurve.py",
+    "RdMToolsV2/RiggingTools/Curves/FootCurve.mel",
+    "RdMToolsV2/RiggingTools/Curves/FootCurve.py",
+    "RdMToolsV2/RiggingTools/Curves/OffsetGroup.py",
+    "RdMToolsV2/RiggingTools/Curves/PringleCurve.py",
+    "RdMToolsV2/RiggingTools/Curves/RdMTextCurve.py",
+    "RdMToolsV2/RiggingTools/Curves/RootAuto.py",
+    "RdMToolsV2/RiggingTools/Curves/SliderCreator.py",
+    "RdMToolsV2/RiggingTools/Facial/__init__.py",
+    "RdMToolsV2/RiggingTools/Facial/AutoBrows.py",
+    "RdMToolsV2/RiggingTools/Facial/AutoMouth.py",
+    "RdMToolsV2/RiggingTools/Facial/BS_Divider.py",
+    "RdMToolsV2/RiggingTools/Facial/EdgeToCurve.py",
+    "RdMToolsV2/RiggingTools/Facial/ExtraFacial.py",
+    "RdMToolsV2/RiggingTools/Facial/JointsOnVertex.py",
+    "RdMToolsV2/RiggingTools/Facial/MouthToFace.py",
+    "RdMToolsV2/RiggingTools/Game/RdMGameReady.py",
+    "RdMToolsV2/RiggingTools/Game/SegmentScaleOff.mel",
+    "RdMToolsV2/RiggingTools/HotKeys.mhk",
+    "RdMToolsV2/RiggingTools/Mocap/CustomRigFKSpine.xml",
+    "RdMToolsV2/RiggingTools/Mocap/CustomRigIKSpine.xml",
+    "RdMToolsV2/RiggingTools/Mocap/HIk_Definition.py",
+    "RdMToolsV2/RiggingTools/Mocap/MixamoDefinition.py",
+    "RdMToolsV2/RiggingTools/Nodes/ListsAttrs.py",
+    "RdMToolsV2/RiggingTools/Picker/__init__.py",
+    "RdMToolsV2/RiggingTools/Picker/loadPicker.py",
+    "RdMToolsV2/RiggingTools/Picker/PickerImages/Switch.png",
+    "RdMToolsV2/RiggingTools/Picker/PickerUI.ui",
+    "RdMToolsV2/RiggingTools/PickerUI.py",
+    "RdMToolsV2/RiggingTools/QT/LoadUI_Py.py",
+    "RdMToolsV2/RiggingTools/QT/UItoPY.py",
+    "RdMToolsV2/RiggingTools/Quadruped/QuadrupedLegs.py",
+    "RdMToolsV2/RiggingTools/ShowHide/__init__.py",
+    "RdMToolsV2/RiggingTools/ShowHide/RdMHideJoints.py",
+    "RdMToolsV2/RiggingTools/ShowHide/RdMShowJoints.py",
+    "RdMToolsV2/RiggingTools/ShowHide/RdMToggleAxis.py",
+    "RdMToolsV2/RiggingTools/Skin/__init__.py",
+    "RdMToolsV2/RiggingTools/Skin/AddRemoveJoints.py",
+    "RdMToolsV2/RiggingTools/Skin/JointsFromSkin.py",
+    "RdMToolsV2/RiggingTools/Skin/MoveBindJoints.py",
+    "RdMToolsV2/RiggingTools/Skin/RdMBindSkin.py",
+    "RdMToolsV2/RiggingTools/Skin/RdMMirrorSkin.py",
+    "RdMToolsV2/RiggingTools/Skin/SkinHelp.py",
+    "RdMToolsV2/RiggingTools/Tools/__init__.py",
+    "RdMToolsV2/RiggingTools/Tools/AutoIKFK.py",
+    "RdMToolsV2/RiggingTools/Tools/AutoTwist.py",
+    "RdMToolsV2/RiggingTools/Tools/BendyRibbons.py",
+    "RdMToolsV2/RiggingTools/Tools/CircleOnCurve.py",
+    "RdMToolsV2/RiggingTools/Tools/ConnectPart.py",
+    "RdMToolsV2/RiggingTools/Tools/FollicleOnPositionAlt.py",
+    "RdMToolsV2/RiggingTools/Tools/GlobalAttr.py",
+    "RdMToolsV2/RiggingTools/Tools/JointResizer.py",
+    "RdMToolsV2/RiggingTools/Tools/MirrorBehavior.py",
+    "RdMToolsV2/RiggingTools/Tools/PlaneRef.py",
+    "RdMToolsV2/RiggingTools/Tools/RdMOrientJoint.py",
+    "RdMToolsV2/RiggingTools/Tools/RdMSimpleFK.py",
+    "RdMToolsV2/RiggingTools/Tools/Renamer.py",
+    "RdMToolsV2/RiggingTools/Tools/ResetControllers.py",
+    "RdMToolsV2/RiggingTools/Tools/ShowHideAttr.py",
+    "RdMToolsV2/run_RdMTools.py",
+    "RdMToolsV2/ShowUI.py",
+    "RdMToolsV2/安装方式.txt",
+    "RdMToolsV2哈哈启动说明.doc"
+  ],
+  "dependencies": [
+    "Maya cmds/MEL, Qt6 or Qt5",
+    "PyMel needed by original AutoRig/Facial and other modules; absent in current isolated Maya2025",
+    "pyside2uic required only for original optional UItoPY developer export",
+    "Legacy RdMTools optional button is a separate unbundled original dependency"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete original distribution, docs/UI/icons, all Python functions/classes and legacy script logic preserved in Python3 candidate; import-time scene actions deferred to explicit run_script, full original UI redirected to bundled resources, Qt compatibility and isolated namespaced imports, typed function/script API with read-only inspect/dry, Undo/context restoration and exclusive explicit outputs. No installer/user scripts write.",
+  "verification_limitations": [
+    "Real Qt GUI, complete auto rig/facial/skin/IKFK workflows and production scenes not_run",
+    "PyMel absent in isolated Maya2025; dependent modules are not claimed to execute",
+    "Legacy optional package/template resources missing in original distribution remain explicitly reported",
+    "EULA link inaccessible, original provenance retained without inferring redistribution rights",
+    "Original hardcoded rig naming and broad hierarchy/deletion/callback behaviors require explicit backup-scene scope"
+  ]
+}

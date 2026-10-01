@@ -1,0 +1,21 @@
+#coding=utf-8
+import os,sys
+import maya.cmds as cmds
+
+def RdM_Tools_Install():
+    toolPath = os.path.abspath(os.path.join(os.path.dirname(__file__),".."))
+    print (toolPath)
+    toolInfo = cmds.internalVar(usd=True) + 'RmdTools_Path.py'
+    if os.path.isfile(toolInfo):
+        os.remove(toolInfo)
+    with open(toolInfo, 'w') as f:
+        f.write('_RdMlocpath = "%s"' %toolPath)
+    if toolPath not in sys.path:
+        sys.path.append(toolPath)
+
+    from RdMToolsV2 import ShowUI
+    reload(ShowUI)
+    RdMV2_ui = ShowUI.RdMV2UI()
+    RdMV2_ui.show()
+
+RdM_Tools_Install()

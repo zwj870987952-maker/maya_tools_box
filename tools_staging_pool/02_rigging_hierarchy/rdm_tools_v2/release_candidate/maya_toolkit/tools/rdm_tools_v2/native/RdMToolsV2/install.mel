@@ -1,0 +1,8 @@
+global proc RdM_install(){
+    string $whatIs = `whatIs RdM_install`;
+    string $path = `substring $whatIs 25 999`;
+    string $filename = `substitute "install.mel" $path "run_RdMTools.py"`;
+    python("import imp;imp.load_source('_RdM_install',  '" + $filename+ "')");
+    print ("Path Identification Succeeded!!\n");
+}
+RdM_install();

@@ -506,3 +506,10 @@
 - 初次Windows source在321行唯一CP1251字母被本机CP936误读，Unterminated string失败报告保留；完整原字节在内存decode CP1251→Unicode mel.eval后全部143过程编译，无修改源码。第二次仅fixture残留实例选择失败，修正fixture明确选择后四组真实Maya2025+两组普通Python+临时正式布局全部通过，候选fingerprint匹配；不冒充GUI实测。
 - 同步修正第51项OverRig原allPaths(fullPath)实例误判，改API2 MDagPath.getAllPathsTo，新增真实多父DAG检查；其五组隔离Maya/两组普通Python/晋级布局及重记录均通过。
 - GUI、组件、链增删/朝向/镜像/烘焙/生产rig与其他版本not_run，prepared_unverified。实际额度已用5h59%、周25%，继续第57项；heartbeat保持暂停，未迁正式库/同步Obsidian/用卡或购买。
+# 2026-10-01：RdM Tools v2完整候选，累计57/109
+
+- 原164文件/86 Python模块/126函数/3界面类与全部方法完整SHA归档，native全Python3/Qt6→Qt5兼容，全部主UI/Picker/图标/MEL/PDF/docx资源随包。EULA源链接本轮不可访问，保留出处无公开许可推断，不运行installer/不写用户RmdTools_Path。
+- 将原import-time创建/删除/场景查询/示例完整保留为显式run_script，保留原常量重置/顺序与显式main界面动作；GUI reload改定义加载后显式原动作。私有namespace import/随包paths/defaultparent构造时读取，原AddRemoveJoints语法+漏mel修正留原件；完整普通函数/脚本API、JSON签名/明确scope/真实DAG实例/锁驱动/命名/空选择防全场景、原mode名字删除保护。
+- 74原模块在真实隔离Maya2025import不改scene/环境，12模块因PyMel或pyside2uic延后；PyMel缺失明确失败，无stub/GUI模拟。两组普通Python+七组真实Maya通过：全部11原曲线模式位置/Undo、Box显式创建/UndoRedo、原颜色/骨骼轴/dry/scope、RootAuto/Offset真实分组/Undo、全场景曲线JSON重复不累积/不覆盖、实例/锁/空scope。初次fixture source→实际source1修正，完整import曾发现scene变量表达式误判常量，改仅字面量/Qt别名后所有复跑通过。
+- 原CurveToJson/UItoPY硬编码输出改明确绝对独占新文件/明确.ui输入，保留原算法、文件不受Undo，Maya权重GUI对话框留待临时目录验收；原未随包提供RdMTools Legacy/旧Picker图片/开发模板列明，不假造补齐资产。临时正式布局/注册/rigging域/Schema/panel与fingerprint匹配。
+- 完整Qt/PyMel/AutoRig/Facial/skin/IKFK/生产及跨版本not_run，prepared_unverified。实际额度5h已用69%、周26%，继续第58项；heartbeat暂停，不迁正式库/Obsidian/用卡/购买。
