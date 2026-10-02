@@ -667,3 +667,10 @@
 - 两Python2原稿逐字节SHA归档；完整两原生UI全部控件与随机Lambert/SG按钮保留Python3函数回调，模型列表/选择集/quoted AbcExport全部flags/Schema/只读预检/知识验收晋级齐备。修正原动态exec/boolean值塞flag/不quoted文件路径/缺集沿用旧选区/强制丢弃当前scene/覆盖输出。batch真实逐scene独立mayapy，scriptNodes禁用，当前scene不打开/关闭/保存。
 - 2离线+3隔离Maya2025+临时正式布局/注册/panel/fingerprint全部通过：实际带空格ABC写出并AbcImport回读两mesh/UV/动画最后帧6单位、选区时间AutoKey/node/modified不改、dry不加载exporter/创建file、既有cache bytes不覆盖；缺空set/stripNamespace冲突/随机材质真实分配与oneUndo；真实childmayapy分别导出good.ma及missing.mb失败且保留成功文件，dirty liveUnsaved scene完整，输出已存在及同stem冲突全批前拒绝。
 - GUI双窗/颜色faceSets全部语义/生产引用资产/跨版本not_run，prepared_unverified。文件/plugin加载非sceneUndo，worker超时可能遗留独有临时或partial文件明确说明。实际5h8%已用（剩92%）、周47%，立即继续asset_it_v1_2，heartbeat保持暂停。
+
+# 2026-10-02：AssetIt完整原套件候选，累计80/109
+
+- 978原文件159310854 bytes、18 Python/225函数、290图库模型+3缩略图模板scene、354PNG/309JSON/HDR/TX/JPG完整字节保留。许可限制原软件修改/第三方分发，不改任何原套件代码；原危险Drag安装器仅.py.original归档。完整所有原UI/浏览/搜索收藏/标签/metadata/放置drag/replace/import/ref/场景文件多资产/渲染/设置业务和资源齐备；单独Base/Schema/只读库存metadata/独占namespace导入/新目录复制安装/原版完整UI启动预检/知识验收晋级。
+- 2离线+2隔离Maya2025+临时正式布局/注册/panel/fingerprint通过：全部978 SHA/18语法/225defs/290 metadata-thumbnail；真实原Bolt模型导入/new group/scale/current namespace/selection/time/AutoKey、已有NS全表前拒绝、真实全部DAG/DG一次Undo+Redo及临时原文件移走仍Redo；159MB新临时目录独占copy/codebytes/安装副本UserLibPath指向自身独立库/旧目录不覆盖/dry不写file。Arnold原生requires实际autoload，PyMel缺；完整GUI/render等未运行，prepared_unverified。
+- 修复真实file import不能由外层Undo回滚，独占MPxCommand以新UUID控制MDagModifier lifetime，既有Undo队列保留。发现删除空NS后API Redo ls能列出但objExists解析失败，改Undo保留占用空NS、Redo无文件读取；明确限制新导入换NS，手工删保留NS后Redo拒绝。current namespace使用absoluteName，验证已有NS不能因当前userScope而绕过。最初293总MA误等同图库数量，精确改290+3模板。所有问题修复后检查通过，无伪造GUI验收。
+- 原完整UI后续native callbacks仍有原rmtree/rename/偏好/renderSetup/固定名cleanup等不可自动Undo行为，按许可保持原状，如实列备份库集中验收边界；adapter launch前依赖/安装代码SHA/库路径/固定名冲突检查。实际5h19%已用（剩81%）、周49%，立即继续batch_importer_v3，heartbeat保持暂停；不迁正式/同步/用卡/购买。
