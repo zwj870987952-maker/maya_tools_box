@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T09:03:20.565702+08:00",
+  "updated_at": "2026-10-02T09:04:37.315592+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -18564,8 +18564,8 @@
       ],
       "license_files": [],
       "entry_sha256": "a54c71f8f4c4197f9473217bc736a564809332dceb7afcbcd2e7ed6a0003033f",
-      "status": "pending",
-      "candidate_complete": false,
+      "status": "prepared_unverified",
+      "candidate_complete": true,
       "offline_checks": [
         {
           "kind": "python_static_parse",
@@ -18630,8 +18630,7 @@
       "issues": [
         "Real Maya GUI acceptance pending",
         "Other Maya/Python versions unverified",
-        "GUI/highlight/all legacy FBX versions/production animation layers/UE import/cross-version acceptance not_run",
-        "Original source/resources changed; candidate must be reviewed again"
+        "GUI/highlight/all legacy FBX versions/production animation layers/UE import/cross-version acceptance not_run"
       ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
@@ -18672,7 +18671,7 @@
       ],
       "source_preserved": true,
       "change_summary": "完整V7 native form与预设管理、group/range真实FBX与全flags状态恢复、SSC层级bake、Schema知识测试晋级",
-      "prepared_at": "2026-10-02T09:02:11.615480+08:00"
+      "prepared_at": "2026-10-02T09:04:33.933127+08:00"
     },
     {
       "source_path": "04_pipeline_io/per_frame_bs_fbx",
