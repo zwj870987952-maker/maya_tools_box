@@ -1,0 +1,656 @@
+[
+  {
+    "path": "__init__.py",
+    "lines": 0,
+    "imports": [],
+    "classes": []
+  },
+  {
+    "path": "experimental/__init__.py",
+    "lines": 0,
+    "imports": [],
+    "classes": []
+  },
+  {
+    "path": "experimental/Physics.py",
+    "lines": 50,
+    "imports": [
+      "import maya.cmds as cmds"
+    ],
+    "classes": []
+  },
+  {
+    "path": "experimental/PhysicsHair.py",
+    "lines": 118,
+    "imports": [
+      "import maya.mel as mel",
+      "import maya.cmds as cmds",
+      "from ..utils import Selector"
+    ],
+    "classes": []
+  },
+  {
+    "path": "experimental/PhysicsParticle.py",
+    "lines": 311,
+    "imports": [
+      "import maya.cmds as cmds",
+      "import maya.mel as mel",
+      "from ..utils import Selector",
+      "from ..utils import Text",
+      "from ..experimental import Physics"
+    ],
+    "classes": []
+  },
+  {
+    "path": "modules/__init__.py",
+    "lines": 0,
+    "imports": [],
+    "classes": []
+  },
+  {
+    "path": "modules/CenterOfMass.py",
+    "lines": 335,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from functools import partial",
+      "from .. import Settings",
+      "from ..utils import Baker",
+      "from ..utils import Colors",
+      "from ..utils import Constraints",
+      "from ..utils import Locators",
+      "from ..utils import Selector",
+      "from ..utils import Text",
+      "from ..modules import Options"
+    ],
+    "classes": [
+      "CenterOfMassAnnotations",
+      "CenterOfMassSettings",
+      "CenterOfMass"
+    ]
+  },
+  {
+    "path": "modules/Experimental.py",
+    "lines": 93,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from .. import Settings",
+      "from ..utils import File",
+      "from ..utils import Layers",
+      "from ..utils import Selector",
+      "from ..experimental import PhysicsParticle",
+      "from ..modules import Options"
+    ],
+    "classes": [
+      "Experimental"
+    ]
+  },
+  {
+    "path": "modules/GeneralWindow.py",
+    "lines": 540,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from functools import partial",
+      "from .. import Settings",
+      "from ..modules import Options",
+      "from ..modules import Transformations",
+      "from ..modules import Tools",
+      "from ..modules import Rigging",
+      "from ..modules import Overlappy",
+      "from ..modules import CenterOfMass",
+      "from ..modules import Experimental",
+      "from ..utils import Annotation",
+      "from ..utils import Blendshapes",
+      "from ..utils import Colors",
+      "from ..utils import Install",
+      "from ..utils import MayaSettings",
+      "from ..utils import MotionTrail",
+      "from ..utils import Parent",
+      "from ..utils import Print",
+      "from ..utils import Scene",
+      "from ..utils import Selector",
+      "from ..utils import Shelf",
+      "from ..utils import Skinning",
+      "from ..utils import Toggles",
+      "from ..utils import UI",
+      "from ..values import Icons"
+    ],
+    "classes": [
+      "GeneralWindow"
+    ]
+  },
+  {
+    "path": "modules/Options.py",
+    "lines": 38,
+    "imports": [
+      "import maya.cmds as cmds"
+    ],
+    "classes": [
+      "PluginVariables"
+    ]
+  },
+  {
+    "path": "modules/Overlappy.py",
+    "lines": 1182,
+    "imports": [
+      "import os",
+      "import datetime",
+      "import maya.cmds as cmds",
+      "from functools import partial",
+      "from .. import Settings",
+      "from ..utils import Animation",
+      "from ..utils import Attributes",
+      "from ..utils import Baker",
+      "from ..utils import Colors",
+      "from ..utils import Constraints",
+      "from ..utils import File",
+      "from ..utils import Layers",
+      "from ..utils import MayaSettings",
+      "from ..utils import Selector",
+      "from ..utils import Text",
+      "from ..utils import Timeline",
+      "from ..utils import UI",
+      "from ..values import Enums",
+      "from ..values import Icons",
+      "from ..experimental import Physics",
+      "from ..experimental import PhysicsParticle",
+      "from ..modules import Options"
+    ],
+    "classes": [
+      "OverlappyAnnotations",
+      "OverlappySettings",
+      "OverlappyVariables",
+      "Overlappy"
+    ]
+  },
+  {
+    "path": "modules/Rigging.py",
+    "lines": 217,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from functools import partial",
+      "from .. import Settings",
+      "from ..utils import Blendshapes",
+      "from ..utils import Colors",
+      "from ..utils import Constraints",
+      "from ..utils import Create",
+      "from ..utils import Curves",
+      "from ..utils import Deformers",
+      "from ..utils import Other",
+      "from ..utils import Skinning",
+      "from ..modules import Options"
+    ],
+    "classes": [
+      "RiggingAnnotations",
+      "Rigging"
+    ]
+  },
+  {
+    "path": "modules/Tools.py",
+    "lines": 507,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from functools import partial",
+      "from .. import Settings",
+      "from ..utils import Animation",
+      "from ..utils import Baker",
+      "from ..utils import ChainDistributionRig",
+      "from ..utils import Colors",
+      "from ..utils import Locators",
+      "from ..utils import Selector",
+      "from ..utils import Timeline",
+      "from ..values import Enums",
+      "from ..modules import Options"
+    ],
+    "classes": [
+      "ToolsAnnotations",
+      "ToolsSettings",
+      "Tools"
+    ]
+  },
+  {
+    "path": "modules/Transformations.py",
+    "lines": 207,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from functools import partial",
+      "from .. import Settings",
+      "from ..utils import Colors",
+      "from . import Options"
+    ],
+    "classes": [
+      "TransformationsAnnotations",
+      "Transformations"
+    ]
+  },
+  {
+    "path": "Settings.py",
+    "lines": 54,
+    "imports": [
+      "from .utils import Colors"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/__init__.py",
+    "lines": 0,
+    "imports": [],
+    "classes": []
+  },
+  {
+    "path": "utils/Animation.py",
+    "lines": 141,
+    "imports": [
+      "import maya.cmds as cmds",
+      "import maya.mel as mel",
+      "from ..utils import Attributes",
+      "from ..utils import Selector",
+      "from ..utils import Timeline"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/Annotation.py",
+    "lines": 56,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from ..utils import Parent",
+      "from ..utils import Text"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/Attributes.py",
+    "lines": 127,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from ..utils import Selector",
+      "from ..values import Enums"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/Baker.py",
+    "lines": 116,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from ..utils import Animation",
+      "from ..utils import Attributes",
+      "from ..utils import Constraints",
+      "from ..utils import Selector",
+      "from ..utils import Timeline"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/Blendshapes.py",
+    "lines": 164,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from ..utils import Selector"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/ChainDistributionRig.py",
+    "lines": 215,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from ..utils import Selector",
+      "from ..utils import Text"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/Colors.py",
+    "lines": 138,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from functools import partial"
+    ],
+    "classes": [
+      "ColorsPalette"
+    ]
+  },
+  {
+    "path": "utils/Constraints.py",
+    "lines": 188,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from ..utils import Attributes",
+      "from ..utils import Selector",
+      "from ..values import Enums"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/Create.py",
+    "lines": 94,
+    "imports": [
+      "import maya.cmds as cmds",
+      "import math",
+      "from ..utils import Text"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/Curves.py",
+    "lines": 85,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from ..utils import Selector",
+      "from ..values import Enums"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/Deformers.py",
+    "lines": 168,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from ..utils import Blendshapes",
+      "from ..utils import Selector"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/File.py",
+    "lines": 89,
+    "imports": [
+      "import os",
+      "import ast",
+      "import maya.cmds as cmds"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/Install.py",
+    "lines": 319,
+    "imports": [
+      "import maya.cmds as cmds",
+      "import os",
+      "import sys",
+      "import inspect",
+      "from ..utils import Attributes",
+      "from ..utils import Shelf",
+      "from ..values import CodeSamples",
+      "from ..values import Enums"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/Layers.py",
+    "lines": 91,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from ..utils import Text"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/Locators.py",
+    "lines": 275,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from ..utils import Animation",
+      "from ..utils import Baker",
+      "from ..utils import Constraints",
+      "from ..utils import Parent",
+      "from ..utils import Selector",
+      "from ..utils import Text",
+      "from ..values import Enums"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/MayaSettings.py",
+    "lines": 43,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from ..values import Enums"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/MotionTrail.py",
+    "lines": 62,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from ..utils import Selector",
+      "from ..values import Enums"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/Other.py",
+    "lines": 63,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from ..utils import Selector",
+      "from ..values import Enums"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/Parent.py",
+    "lines": 61,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from ..utils import Selector"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/Print.py",
+    "lines": 58,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from ..utils import Attributes",
+      "from ..utils import Selector"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/Scene.py",
+    "lines": 36,
+    "imports": [
+      "import maya.cmds as cmds"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/Selector.py",
+    "lines": 81,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from ..values import Enums"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/Shelf.py",
+    "lines": 83,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from .. import Settings",
+      "from GETOOLS_SOURCE.values import Icons"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/Skinning.py",
+    "lines": 126,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from ..utils import Selector",
+      "from ..values import Enums"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/Text.py",
+    "lines": 56,
+    "imports": [
+      "import maya.cmds as cmds"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/Timeline.py",
+    "lines": 95,
+    "imports": [
+      "import maya.cmds as cmds",
+      "import maya.mel as mel"
+    ],
+    "classes": [
+      "TimeRangeHandler"
+    ]
+  },
+  {
+    "path": "utils/Toggles.py",
+    "lines": 71,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from ..values import Enums"
+    ],
+    "classes": []
+  },
+  {
+    "path": "utils/UI.py",
+    "lines": 288,
+    "imports": [
+      "import maya.cmds as cmds",
+      "from .. import Settings",
+      "from ..utils import Colors"
+    ],
+    "classes": [
+      "Window",
+      "FloatFieldButtons",
+      "ButtonLeftRight",
+      "FloatField",
+      "Checkbox",
+      "Slider",
+      "MenuCheckbox"
+    ]
+  },
+  {
+    "path": "values/__init__.py",
+    "lines": 0,
+    "imports": [],
+    "classes": []
+  },
+  {
+    "path": "values/CodeSamples.py",
+    "lines": 365,
+    "imports": [
+      "import GETOOLS_SOURCE.modules.GeneralWindow as gtwindow",
+      "import GETOOLS_SOURCE.utils.Scene as Scene",
+      "import GETOOLS_SOURCE.utils.Scene as Scene",
+      "import GETOOLS_SOURCE.utils.Selector as Selector",
+      "import GETOOLS_SOURCE.utils.Selector as Selector",
+      "import GETOOLS_SOURCE.utils.Install as Install",
+      "import GETOOLS_SOURCE.utils.Parent as Parent",
+      "import GETOOLS_SOURCE.utils.Annotation as Annotation",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Toggles as Toggles",
+      "import GETOOLS_SOURCE.utils.Locators as Locators",
+      "import GETOOLS_SOURCE.utils.Locators as Locators",
+      "import GETOOLS_SOURCE.utils.Locators as Locators",
+      "import GETOOLS_SOURCE.utils.Locators as Locators",
+      "import GETOOLS_SOURCE.utils.Locators as Locators",
+      "import GETOOLS_SOURCE.utils.Locators as Locators",
+      "import GETOOLS_SOURCE.utils.Locators as Locators",
+      "import GETOOLS_SOURCE.utils.Locators as Locators",
+      "import GETOOLS_SOURCE.utils.Locators as Locators",
+      "import GETOOLS_SOURCE.utils.Locators as Locators",
+      "import GETOOLS_SOURCE.utils.Locators as Locators",
+      "import GETOOLS_SOURCE.utils.Locators as Locators",
+      "import GETOOLS_SOURCE.utils.ChainDistributionRig as ChainDistributionRig",
+      "import GETOOLS_SOURCE.utils.ChainDistributionRig as ChainDistributionRig",
+      "import GETOOLS_SOURCE.utils.Locators as Locators",
+      "import GETOOLS_SOURCE.utils.Baker as Baker",
+      "import GETOOLS_SOURCE.utils.Baker as Baker",
+      "import GETOOLS_SOURCE.utils.Baker as Baker",
+      "import GETOOLS_SOURCE.utils.Baker as Baker",
+      "import GETOOLS_SOURCE.utils.Animation as Animation",
+      "import GETOOLS_SOURCE.utils.Animation as Animation",
+      "import GETOOLS_SOURCE.utils.Animation as Animation",
+      "import GETOOLS_SOURCE.utils.Animation as Animation",
+      "import GETOOLS_SOURCE.utils.Animation as Animation",
+      "import GETOOLS_SOURCE.utils.Animation as Animation",
+      "import GETOOLS_SOURCE.utils.Timeline as Timeline",
+      "import GETOOLS_SOURCE.utils.Constraints as Constraints",
+      "import GETOOLS_SOURCE.utils.Constraints as Constraints",
+      "import GETOOLS_SOURCE.utils.Constraints as Constraints",
+      "import GETOOLS_SOURCE.utils.Other as Other",
+      "import GETOOLS_SOURCE.utils.Other as Other",
+      "import GETOOLS_SOURCE.utils.Other as Other",
+      "import GETOOLS_SOURCE.utils.Skinning as Skinning",
+      "import GETOOLS_SOURCE.utils.Skinning as Skinning",
+      "import GETOOLS_SOURCE.utils.Deformers as Deformers",
+      "import GETOOLS_SOURCE.utils.Deformers as Deformers",
+      "import GETOOLS_SOURCE.utils.Deformers as Deformers",
+      "import GETOOLS_SOURCE.utils.Blendshapes as Blendshapes",
+      "import GETOOLS_SOURCE.utils.Blendshapes as Blendshapes",
+      "import GETOOLS_SOURCE.utils.Curves as Curves",
+      "import GETOOLS_SOURCE.utils.Curves as Curves",
+      "import GETOOLS_SOURCE.utils.MotionTrail as MotionTrail",
+      "import GETOOLS_SOURCE.utils.MotionTrail as MotionTrail",
+      "import GETOOLS_SOURCE.utils.MotionTrail as MotionTrail"
+    ],
+    "classes": []
+  },
+  {
+    "path": "values/Enums.py",
+    "lines": 138,
+    "imports": [],
+    "classes": [
+      "Types",
+      "Attributes",
+      "Constraints",
+      "Infinity",
+      "MotionTrail",
+      "Particle",
+      "Other",
+      "ModelEditor"
+    ]
+  },
+  {
+    "path": "values/Icons.py",
+    "lines": 124,
+    "imports": [],
+    "classes": []
+  },
+  {
+    "path": "values/License.py",
+    "lines": 25,
+    "imports": [],
+    "classes": []
+  }
+]

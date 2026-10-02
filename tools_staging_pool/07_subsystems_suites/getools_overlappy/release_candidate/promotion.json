@@ -1,0 +1,601 @@
+{
+  "tool_id": "getools_overlappy",
+  "registration": {
+    "module": "getools_overlappy",
+    "class_name": "GEToolsOverlappyTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/getools_overlappy.md",
+      "target": "docs/tools/getools_overlappy.md"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/__init__.py",
+      "target": "maya_toolkit/tools/getools_overlappy/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/__init__.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/__init__.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/experimental/__init__.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/experimental/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/experimental/Physics.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/experimental/Physics.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/experimental/PhysicsHair.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/experimental/PhysicsHair.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/experimental/PhysicsParticle.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/experimental/PhysicsParticle.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/icons/GET1.png",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/icons/GET1.png"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/icons/GET1_face.png",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/icons/GET1_face.png"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/icons/GET2.png",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/icons/GET2.png"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/icons/GET2_face.png",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/icons/GET2_face.png"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/modules/__init__.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/modules/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/modules/CenterOfMass.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/modules/CenterOfMass.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/modules/Experimental.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/modules/Experimental.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/modules/GeneralWindow.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/modules/GeneralWindow.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/modules/Options.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/modules/Options.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/modules/Overlappy.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/modules/Overlappy.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/modules/Rigging.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/modules/Rigging.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/modules/Tools.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/modules/Tools.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/modules/Transformations.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/modules/Transformations.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/PRESETS/overlappyDefault.txt",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/PRESETS/overlappyDefault.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/PRESETS/overlappyLegacy.txt",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/PRESETS/overlappyLegacy.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/PRESETS/overlappySoft.txt",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/PRESETS/overlappySoft.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/Settings.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/Settings.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/__init__.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Animation.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Animation.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Annotation.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Annotation.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Attributes.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Attributes.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Baker.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Baker.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Blendshapes.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Blendshapes.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/ChainDistributionRig.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/ChainDistributionRig.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Colors.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Colors.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Constraints.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Constraints.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Create.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Create.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Curves.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Curves.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Deformers.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Deformers.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/File.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/File.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Install.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Install.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Layers.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Layers.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Locators.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Locators.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/MayaSettings.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/MayaSettings.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/MotionTrail.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/MotionTrail.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Other.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Other.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Parent.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Parent.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Print.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Print.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Scene.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Scene.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Selector.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Selector.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Shelf.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Shelf.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Skinning.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Skinning.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Text.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Text.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Timeline.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Timeline.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Toggles.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/Toggles.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/UI.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/utils/UI.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/values/__init__.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/values/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/values/CodeSamples.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/values/CodeSamples.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/values/Enums.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/values/Enums.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/values/Icons.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/values/Icons.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/values/License.py",
+      "target": "maya_toolkit/tools/getools_overlappy/bundle/GETOOLS_SOURCE/values/License.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/catalog.json",
+      "target": "maya_toolkit/tools/getools_overlappy/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/dependency_provenance.json",
+      "target": "maya_toolkit/tools/getools_overlappy/dependency_provenance.json"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/ownership.py",
+      "target": "maya_toolkit/tools/getools_overlappy/ownership.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/preset_io.py",
+      "target": "maya_toolkit/tools/getools_overlappy/preset_io.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/runtime.py",
+      "target": "maya_toolkit/tools/getools_overlappy/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/source_review.json",
+      "target": "maya_toolkit/tools/getools_overlappy/source_review.json"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream/__init__.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream/CenterOfMass.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream/CenterOfMass.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream/Experimental.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream/Experimental.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream/GeneralWindow.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream/GeneralWindow.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream/Options.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream/Options.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream/Overlappy.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream/Overlappy.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream/Rigging.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream/Rigging.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream/Tools.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream/Tools.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream/Transformations.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream/Transformations.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/changelog.txt",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/changelog.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/__init__.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/_prototypes/Dialogs.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/_prototypes/Dialogs.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/_prototypes/Namespaces.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/_prototypes/Namespaces.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/_prototypes/SetAttributesBySimpleName.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/_prototypes/SetAttributesBySimpleName.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/_prototypes/Sets.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/_prototypes/Sets.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/_prototypes/TESTING.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/_prototypes/TESTING.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/_prototypes/ToggleChannelBoxAndAttributeEditor.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/_prototypes/ToggleChannelBoxAndAttributeEditor.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/_prototypes/ToggleValues.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/_prototypes/ToggleValues.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/_prototypes/UItest.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/_prototypes/UItest.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/experimental/__init__.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/experimental/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/experimental/Physics.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/experimental/Physics.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/experimental/PhysicsHair.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/experimental/PhysicsHair.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/experimental/PhysicsParticle.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/experimental/PhysicsParticle.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/icons/GET1.png",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/icons/GET1.png"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/icons/GET1_face.png",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/icons/GET1_face.png"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/icons/GET2.png",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/icons/GET2.png"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/icons/GET2_face.png",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/icons/GET2_face.png"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/modules/__init__.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/modules/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/modules/CenterOfMass.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/modules/CenterOfMass.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/modules/Experimental.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/modules/Experimental.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/modules/GeneralWindow.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/modules/GeneralWindow.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/modules/Options.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/modules/Options.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/modules/Overlappy.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/modules/Overlappy.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/modules/Rigging.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/modules/Rigging.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/modules/Tools.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/modules/Tools.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/modules/Transformations.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/modules/Transformations.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/PRESETS/overlappyDefault.txt",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/PRESETS/overlappyDefault.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/PRESETS/overlappyLegacy.txt",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/PRESETS/overlappyLegacy.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/PRESETS/overlappySoft.txt",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/PRESETS/overlappySoft.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/Settings.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/Settings.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/__init__.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Animation.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Animation.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Annotation.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Annotation.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Attributes.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Attributes.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Baker.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Baker.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Blendshapes.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Blendshapes.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/ChainDistributionRig.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/ChainDistributionRig.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Colors.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Colors.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Constraints.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Constraints.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Create.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Create.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Curves.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Curves.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Deformers.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Deformers.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/File.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/File.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Install.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Install.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Layers.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Layers.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Locators.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Locators.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/MayaSettings.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/MayaSettings.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/MotionTrail.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/MotionTrail.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Other.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Other.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Parent.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Parent.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Print.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Print.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Scene.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Scene.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Selector.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Selector.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Shelf.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Shelf.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Skinning.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Skinning.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Text.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Text.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Timeline.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Timeline.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Toggles.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/Toggles.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/UI.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/utils/UI.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/values/__init__.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/values/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/values/CodeSamples.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/values/CodeSamples.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/values/Enums.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/values/Enums.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/values/Icons.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/values/Icons.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/values/License.py.original",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/GETOOLS_SOURCE/values/License.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/LICENSE",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/LICENSE"
+    },
+    {
+      "source": "maya_toolkit/tools/getools_overlappy/upstream_dependency/README.md",
+      "target": "maya_toolkit/tools/getools_overlappy/upstream_dependency/README.md"
+    },
+    {
+      "source": "tests/test_getools_overlappy.py",
+      "target": "tests/test_getools_overlappy.py"
+    },
+    {
+      "source": "tests/test_getools_overlappy_maya.py",
+      "target": "tests/test_getools_overlappy_maya.py"
+    }
+  ],
+  "resources": [
+    "__init__.py",
+    "CenterOfMass.py",
+    "Experimental.py",
+    "GeneralWindow.py",
+    "Options.py",
+    "Overlappy.py",
+    "Rigging.py",
+    "Tools.py",
+    "Transformations.py"
+  ],
+  "dependencies": [
+    "Maya cmds/MEL nParticle/nucleus",
+    "Bundled fixed MIT GETools dependencies"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete localized seven-module GETools with pinned MIT dependencies/resources, COM and preset API, owned setup guards and explicit native GUI physics",
+  "verification_limitations": [
+    "Full Maya GUI, physics bake, native broad operations and cross-version acceptance not_run"
+  ]
+}

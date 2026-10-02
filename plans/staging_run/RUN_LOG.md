@@ -774,3 +774,10 @@
 - 2离线配置原子/坏最后ID/重复/位置/严格bool/全preset/英文对齐检查、1隔离Maya2025 cube tx7/dirty/nodes/Undo保持与batchUI拒绝、1单独Qt离屏全主/graph/workspace构造/所有preset/双向显示同步/DeferredDelete后singleton无dead callback、临时正式注册/domain/panel/fingerprint通过。第一次把Qt QWidget构造放在maya.standalone.initialize后原生fastfail3221226505；逐步定位在主toolbar构造，失败原始报告保留。拆为无Maya初始化的独立Qt构造测试后正常exit0；场景API单独隔离测试亦exit0，不将离屏替代实际Maya GUI。Qt退出有SWIG MObject leak warning，记录为重复真实GUI生命周期待核对，没有声称无内存泄漏。
 - 实际5小时95%已用（剩5%）、周60%已用（剩40%），本轮78–96共19项完成，按用户低于6%规则保存，下一项07_subsystems_suites/getools_overlappy。全部候选保持待整理池，真实Maya/UE验收not_run，不运行Obsidian同步、不用重置卡、不购买。
 - 96候选提交58ca44c4f07876af165410575ed41e0da0b6e3a0，manifest检查点保存；App将同聊天30分钟heartbeat改ACTIVE，enter_quota_wait核对本地配置确实ACTIVE并记录waiting_for_quota/96 complete，动态重扫109项入口全部存在，下一项pending。恢复须实际五小时剩余>95%、周额度允许且无另一运行回合，不以预测刷新时间代替额度读数。
+
+# 2026-10-02：GETools/Overlappy完整候选，累计97/109
+
+- 开始实际5h0%已用、周61%，无其他写入回合；App暂停heartbeat且resume_run核验。109项动态对账全部入口存在。原8中文模块缺Settings/utils/experimental/values及素材；官方GitHub固定commit 45c4e17504fded01262941843ed186e9ac73c477，直接Git/下载超时，固定SHA的jsDelivr源清单/每文件SHA256核验成功，67项MIT依赖完整归档、原9文件SHA保留，全7模块GUI/相对图标/内置preset保留，未运行未完成prototype。
+- 完整Base/Schema/ToolResult、COM create/activate/targets/project/delete、native overlap setup/bake/clear、预设read/save及UI，默认inspect。借用COM不删，固定group须实例UUID匹配；scene操作复用UndoChunk、恢复时间/范围/选择/refresh/cachedPlayback，修正恢复在chunk外造成一次Undo只撤选择的实际缺陷，保持严格一次Undo断言。原COM nested list参数修正。literal preset不exec/globals.update，1MiB上限/独占新文件/已有parent；启动不mkdir、不改全局HelpPopup/CachedPlayback，Reload/Quit显式默认Cancel。
+- 2离线+2隔离Maya2025+临时最终注册/domain/panel/fingerprint通过：全模块import无新节点、COM两目标tx5/一次Undo恢复tx0、删除一次Undo准确UUID恢复、借用/foreign拒绝、native默认preset无globals污染。下载快照Python2 prototypes仅原文归档.py.original不作为候选可执行代码；复核全部可执行Python静态通过，mayapy正常exit0，最终Python指纹628a34b0f417f22a109f5fffd6c58d2e2ce8241535137fb608bc1b836cbe50fb与runtime报告匹配。
+- 完整真实GUI、nParticle物理/solver缓存/bake/跨版本及native广范围菜单not_run，prepared_unverified。实际5h14%已用（剩86%）、周63%（剩37%）；继续malcolm341_mega_pack，heartbeat保持暂停，不迁正式/同步/用卡/购买。
