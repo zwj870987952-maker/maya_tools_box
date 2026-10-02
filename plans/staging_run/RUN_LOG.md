@@ -693,3 +693,10 @@
 - 原Python/README两件SHA归档，完整双窗/路径明细/选择刷新/单全删除/作者保留，补ascii/cjk/replacement策略与整引用显式选项。所有原renderer类型/动态已加载扩展、全部现存path attrs、Alembic真实abc_File/cacheName、容器循环有界全部上游实际owner，非ASCII不假称文件损坏，默认scan/readonly dry，无外部文件写入删除。
 - 2离线+3隔离Maya2025+临时正式布局/注册/panel/fingerprint通过：实际file混合Unicode、ASCII缺失不报、layered第二条上游实际owner且容器拒删；纹理DG原UUID/连接oneUndoRedo；gpuCache/imagePlane shape删后父transform保留/Undo；锁后行全表拒绝；中文源顶层完整reference native removal/Undo恢复selection/load/RN/name-lock/Redo，仅显式允许，edited拒绝。MDagModifier.deleteNode默认includeParents=True实测仍删空父，改False后通过，不以API封装假设父保留。
 - 标准Base/Schema、专用MPx local-node snapshot+整引用恢复、self-contained reference helper（不依赖其他待池）、函数绑定UI/UUID行删除/预检确认、知识验收晋级齐备。Maya reference Undo仍须同SHA源文件/空namespace且UUID可能改变；嵌套/edits/源不可读拒绝。GUI/全部renderer schema/生产plugin副作用/源变化Undo/跨版本not_run，prepared_unverified。实际5h36%已用（剩64%）、周51%，继续fbx_batch_exporter_v7，heartbeat暂停；不迁正式/同步/用卡/购买。
+
+# 2026-10-02：分组分段FBX V7完整候选，累计84/109
+
+- 原主窗/配套预设两件SHA归档；完整native form/两组列表与计数/高亮范围/前缀/全部FBX flags、axis、十版本/配置窗/SSC/层级bake/ZWJ水印保留。Base/Schema/readonly inspect/全表配对预检/小数范围、独占输出自动序号保prefix、显式新JSON/原两预设schema加载、知识验收晋级齐备。未保存scene明确选择输出目录，配置不自动覆盖共享JSON。
+- 2离线+3隔离Maya2025+临时正式布局/注册/panel/fingerprint通过：实际ASCII FBX写两文件/序号保prefix/原生FBX再导入模型与第3帧tx=6；所有所用FBX flag及animation property恢复、selection/time/AutoKey/四独立播放范围/dirty flag/Undo队列不变；真实SSC UndoRedo与约束对象bake 1,2,3 keys/tx/oneUndo恢复驱动；JSON新写/dry/读回/已有文件byte不覆盖/坏后行不写FBX。
+- 本机FBXPushSettings尝试写settings file Permission denied，改全部使用query逐项finally还原，不Push/Pop/ResetExport。初测bake层级含constraint伪keyable多属性，排除constraint作为烘焙目标并multi=True列真实属性后通过；FBX导入namespace不是预期测试范围，按实际mesh回读而非误判导出缺mesh。全部原范围和层级业务保留，不把export文件影响包装为可Undo。
+- GUI/highlight/全部flags组合及旧FBX版本/生产动画层/UE实际导入/跨版本not_run，prepared_unverified。实际5h41%已用（剩59%）、周52%，继续per_frame_bs_fbx；heartbeat保持暂停，不迁正式/同步/用卡/购买。

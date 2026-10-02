@@ -1,0 +1,57 @@
+{
+  "tool_id": "fbx_batch_exporter_v7",
+  "registration": {
+    "module": "fbx_batch_exporter_v7",
+    "class_name": "FbxBatchExporterV7Tool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/fbx_batch_exporter_v7.md",
+      "target": "docs/tools/fbx_batch_exporter_v7.md"
+    },
+    {
+      "source": "maya_toolkit/tools/fbx_batch_exporter_v7/__init__.py",
+      "target": "maya_toolkit/tools/fbx_batch_exporter_v7/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/fbx_batch_exporter_v7/catalog.json",
+      "target": "maya_toolkit/tools/fbx_batch_exporter_v7/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/fbx_batch_exporter_v7/tool.py",
+      "target": "maya_toolkit/tools/fbx_batch_exporter_v7/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/fbx_batch_exporter_v7/ui.py",
+      "target": "maya_toolkit/tools/fbx_batch_exporter_v7/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/fbx_batch_exporter_v7/upstream/fbx_export_CHS_v7.py.original",
+      "target": "maya_toolkit/tools/fbx_batch_exporter_v7/upstream/fbx_export_CHS_v7.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/fbx_batch_exporter_v7/upstream/批量导出fbx配套预设.py.original",
+      "target": "maya_toolkit/tools/fbx_batch_exporter_v7/upstream/批量导出fbx配套预设.py.original"
+    },
+    {
+      "source": "tests/test_fbx_batch_exporter_v7.py",
+      "target": "tests/test_fbx_batch_exporter_v7.py"
+    },
+    {
+      "source": "tests/test_fbx_batch_exporter_v7_maya.py",
+      "target": "tests/test_fbx_batch_exporter_v7_maya.py"
+    }
+  ],
+  "resources": [
+    "fbx_export_CHS_v7.py",
+    "批量导出fbx配套预设.py"
+  ],
+  "dependencies": [
+    "Maya cmds/native FBX plugin"
+  ],
+  "acceptance_required": true,
+  "change_summary": "完整V7 native form与预设管理、group/range真实FBX与全flags状态恢复、SSC层级bake、Schema知识测试晋级",
+  "verification_limitations": [
+    "GUI/highlight/all legacy FBX versions/production animation layers/UE import/cross-version acceptance not_run"
+  ]
+}

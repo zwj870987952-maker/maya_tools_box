@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T08:50:49.175979+08:00",
+  "updated_at": "2026-10-02T09:03:20.565702+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "04_pipeline_io/clean_invalid_paths",
+    "last_completed_tool": "04_pipeline_io/fbx_batch_exporter_v7",
     "last_usage": {
-      "five_hour_used_percent": 32.0,
+      "five_hour_used_percent": 36.0,
       "weekly_used_percent": 51.0,
-      "recorded_at": "2026-10-02T08:40:46.566625+08:00",
+      "recorded_at": "2026-10-02T08:50:54.845176+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "04_pipeline_io/clean_invalid_paths"
+    "current_tool": "04_pipeline_io/fbx_batch_exporter_v7"
   },
   "entry_repairs": [
     {
@@ -18545,7 +18545,8 @@
       ],
       "source_preserved": true,
       "change_summary": "完整双窗与全部renderer路径类型、字符策略只读扫描、真实所有者清理与整引用Undo、Schema知识测试晋级",
-      "prepared_at": "2026-10-02T08:50:45.763010+08:00"
+      "prepared_at": "2026-10-02T08:50:45.763010+08:00",
+      "source_commit": "07b6dd4b692e6bdef4452f0fb91fe748bf456805"
     },
     {
       "source_path": "04_pipeline_io/fbx_batch_exporter_v7",
@@ -18556,7 +18557,7 @@
       "entry_candidates": [
         "fbx_export_CHS_v7.py"
       ],
-      "source_file_count": 2,
+      "source_file_count": 3,
       "source_files": [
         "fbx_export_CHS_v7.py",
         "批量导出fbx配套预设.py"
@@ -18565,12 +18566,73 @@
       "entry_sha256": "a54c71f8f4c4197f9473217bc736a564809332dceb7afcbcd2e7ed6a0003033f",
       "status": "pending",
       "candidate_complete": false,
-      "offline_checks": [],
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"fbx_batch_exporter_v7\",\r\n  \"candidate_sha256\": \"b299488534d76b8b9b5199ecc24c235c41a02fd5d4d117fdd4bd9df608b3304c\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\fbx_batch_exporter_v7.md\",\r\n    \"maya_toolkit\\\\tools\\\\fbx_batch_exporter_v7\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\fbx_batch_exporter_v7\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\fbx_batch_exporter_v7\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\fbx_batch_exporter_v7\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\fbx_batch_exporter_v7\\\\upstream\\\\fbx_export_CHS_v7.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\fbx_batch_exporter_v7\\\\upstream\\\\\\u6279\\u91cf\\u5bfc\\u51fafbx\\u914d\\u5957\\u9884\\u8bbe.py.original\",\r\n    \"tests\\\\test_fbx_batch_exporter_v7.py\",\r\n    \"tests\\\\test_fbx_batch_exporter_v7_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/04_pipeline_io/fbx_batch_exporter_v7/release_candidate/tests/test_fbx_batch_exporter_v7_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "Logfile: \"C:\\Users\\zwj87\\AppData\\Local\\Temp\\staging_maya_3p4xjnc0\\FBX\\Logs\\2020.3.6\\maya2025exp.log\"\nLogfile: \"C:\\Users\\zwj87\\AppData\\Local\\Temp\\staging_maya_3p4xjnc0\\FBX\\Logs\\2020.3.6\\maya2025exp.log\"\nLogfile: \"C:\\Users\\zwj87\\AppData\\Local\\Temp\\staging_maya_3p4xjnc0\\FBX\\Logs\\2020.3.6\\maya2025imp.log\"\n�ļ���ȡ����ʱ��Ϊ  0.38 �롣\n.����: FbxBatchExporterV7Tool_fbx_batch_exporter_v7\n����: FbxBatchExporterV7Tool_fbx_batch_exporter_v7\n����: FbxBatchExporterV7Tool_fbx_batch_exporter_v7\n����: FbxBatchExporterV7Tool_fbx_batch_exporter_v7\n..\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.550s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "49cbe413b1e39a48050e8c055f04732b6c7b6dab872c38a7e6cedc07e26f4c74",
+          "runtime_source_sha256": "034f08bbca20d67f11a9e71554dce9ec3fa3432f92e4ad497cab1c717bc6788e"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "GUI/highlight/all flags/legacy FBX versions/production animation layers/UE import/cross-version acceptance not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "b299488534d76b8b9b5199ecc24c235c41a02fd5d4d117fdd4bd9df608b3304c",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "GUI/highlight/all legacy FBX versions/production animation layers/UE import/cross-version acceptance not_run",
+        "Original source/resources changed; candidate must be reviewed again"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 2,
@@ -18579,7 +18641,38 @@
         "possible_top_level_calls": 2,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "ca978e3a73125486c4ad1a22cc56732cf83878a02cf35c34d01c87494c60e472"
+      "source_tree_sha256": "a2f6ba021ce8b95c83f84dd318cc5341ebb8ec514c769ee7911cc54cea4eba0c",
+      "candidate_path": "tools_staging_pool/04_pipeline_io/fbx_batch_exporter_v7/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/04_pipeline_io/fbx_batch_exporter_v7/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "fbx_batch_exporter_v7",
+        "candidate_sha256": "b299488534d76b8b9b5199ecc24c235c41a02fd5d4d117fdd4bd9df608b3304c",
+        "applied": false,
+        "files": [
+          "docs\\tools\\fbx_batch_exporter_v7.md",
+          "maya_toolkit\\tools\\fbx_batch_exporter_v7\\__init__.py",
+          "maya_toolkit\\tools\\fbx_batch_exporter_v7\\catalog.json",
+          "maya_toolkit\\tools\\fbx_batch_exporter_v7\\tool.py",
+          "maya_toolkit\\tools\\fbx_batch_exporter_v7\\ui.py",
+          "maya_toolkit\\tools\\fbx_batch_exporter_v7\\upstream\\fbx_export_CHS_v7.py.original",
+          "maya_toolkit\\tools\\fbx_batch_exporter_v7\\upstream\\批量导出fbx配套预设.py.original",
+          "tests\\test_fbx_batch_exporter_v7.py",
+          "tests\\test_fbx_batch_exporter_v7_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "fbx_export_CHS_v7.py",
+        "批量导出fbx配套预设.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/native FBX plugin"
+      ],
+      "source_preserved": true,
+      "change_summary": "完整V7 native form与预设管理、group/range真实FBX与全flags状态恢复、SSC层级bake、Schema知识测试晋级",
+      "prepared_at": "2026-10-02T09:02:11.615480+08:00"
     },
     {
       "source_path": "04_pipeline_io/per_frame_bs_fbx",
