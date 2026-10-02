@@ -1,0 +1,13 @@
+# TheKeyMachine 完整待验候选
+
+用户186文件原始SHA归档，GPL3 source_version0.1.4 build306 Gort，完整toolbar/selection sets/customGraph、bar/keyTools/selSets/hotkeys/helper/general/ui/media/style、connect菜单脚本、原中文词典、全部png/svg/cert/config/许可自包含；operations.json逐函数来源/行号/参数/默认/varargs/写场景命令，完整原业务源仍在native/TheKeyMachine，不依赖原池目录。缺失mods/core/connect包init补齐。README提及chinese_installer.py原缺失，已用完整memory语言API替代安装文件改写；不运行原汉化改源/卸载删package/Maya.env/userSetup。
+
+Base/Schema/ToolResult：inspect默认纯元数据，show_ui/close_ui、set_language、invoke完整公开源操作enum/arguments/objects。validate只参数/当前节点，native UI context checks真实执行前/原函数内检查，不假称dry创建临时pivot/camera/hotkeys/job。show选择已有独立data_root，严禁候选目录当数据目录；一次会话固定root，外来TheKeyMachine已加载拒绝混用；INSTALL_PATH固定自有完整native。MTB_TheKeyMachine_user_data自有namespace，首次显式激活才创建默认prefs/connect模板，已有文件不自动覆盖；prefs/connect只literal AST assignment导入、不在激活执行用户模块代码。自定义菜单command字符串保留原MEL/Python，只有用户选该菜单才执行，属于用户主动脚本功能。
+
+原线程循环改为Qt主线程自有QTimer/停止flag，模块import不实例化tb/重载所有module；显式show启动原整toolbar，reload先close清自有timer/job/UI再重建，同session未导入外国模块。UI workspace使用MTB_TKM_k/s，创建UI/SceneOpened和SelectionChanged jobs/runtimeCommands记录自有handle，close只撤自有、停止动画offset/micro长Undo、清本工具callback，不删除scene helper nodes/库/数据，也不改用户安装环境。原customGraph/bake/micro/input上下文在真实GUI中验收，不在mayapy强建QWidgets。汉化通过本模块cmds proxy转换label/title/annotation/message，不覆盖全局Maya cmds或磁盘源；en_US/zh_CN可重建原toolbar，Qt文本的完整翻译覆盖范围逐项验收。
+
+完整native API operation catalog，字面参数含严格bool/有限JSON与上限、未知或缺required参数拒绝。objects精确存在/唯一/无wildcard，原直接场景写函数预检全部选中keyable attrs locked/reference/non-animCurve驱动，避免坏最后对象导致前项改动；复杂原互调/GUI控件依赖在invoke如实执行并收集proxy errors，原catch不能吞成全成功。场景Undo共享原context，每次invoke保存当前时间与非selection类操作的selection；选择/隔离动作保留实际新选择。原高级业务算法保持，不把标准化当已验证生产rig。删除只当前选中层级或本session创建UUID节点，unknown/foreign UI/jobs/runtimecommand拒绝，避免原通用短名删除外来节点；运行时命令加MTB_TKM_前缀，不删用户同名原命令，不自动绑定按键。
+
+open/os/shutil/json为native module局部proxy，不修改全局builtins或stdlib。文件write只能data_root或用户明确Save Dialog返回文件，已有文件先exclusive精确backup/hash receipt再写，删除移到自有.mtb_deleted而不是rmtree，数据目录本身/不可归属路径/symlink拒绝。JSON bounded64MiB/重复key/非有限值拒绝，所有写allow_nan=False。copy/paste pose/anim/worldspace/mirror exceptions/reset defaults/pivot/selection-set配置仍完整原格式；外部这些文件不由Maya Undo撤销，备份为恢复依据；原native JSON类型/目标映射复杂异常按真实验收修复。UPDATER/BUG_REPORT默认false，不自动向外部发送或运行安装器；界面卸载=关闭自有会话保留原数据，升级与报告属于维护，不影响动画业务。
+
+例：TheKeyMachineTool().run(action='invoke', data_root=r'C:/temp/tkm_data', operation='TheKeyMachine.mods.keyToolsMod.copy_pose', objects=['control'])，然后paste_pose，一次scene Undo；t.show_ui()选择root启动全部原工具，close_ui显式清理；dry使用原operation/arguments而不调用native。可与姿态/曲线/时间范围工具衔接，原静态imports不是复杂动画组合已验收。离线完整layout/registry/domain/panel/schema/source资源检查，隔离mayapy原pose业务+Undo和坏末项/foreign删除/job保护；真实Maya GUI、全部source catalog业务、customGraph/micro/offset/callback生命周期、多命名空间生产rig、镜像/复杂clip和跨版本not_run。验收前仅待整理池，不迁正式。

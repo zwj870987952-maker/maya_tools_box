@@ -1,0 +1,1746 @@
+{
+  "tool_id": "the_key_machine",
+  "registration": {
+    "module": "the_key_machine",
+    "class_name": "TheKeyMachineTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/the_key_machine.md",
+      "target": "docs/tools/the_key_machine.md"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/__init__.py",
+      "target": "maya_toolkit/tools/the_key_machine/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/catalog.json",
+      "target": "maya_toolkit/tools/the_key_machine/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/__init__.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/connect/__init__.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/connect/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/connect/scripts/__init__.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/connect/scripts/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/connect/scripts/scripts.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/connect/scripts/scripts.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/connect/tools/__init__.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/connect/tools/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/connect/tools/tools.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/connect/tools/tools.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/core/__init__.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/core/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/core/customGraph.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/core/customGraph.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/core/toolbar.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/core/toolbar.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/core/toolbar_patch.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/core/toolbar_patch.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/cert/thekeymachine.pem",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/cert/thekeymachine.pem"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/config/config.json",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/config/config.json"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/add_selection_set_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/add_selection_set_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/animation_offset_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/animation_offset_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/auto_tangent_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/auto_tangent_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/bake_animation_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/bake_animation_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/bouncy_curve.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/bouncy_curve.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/camera_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/camera_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/copy_opposite_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/copy_opposite_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/copy_paste_animation_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/copy_paste_animation_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/copy_pose_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/copy_pose_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/copy_worldspace_animation_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/copy_worldspace_animation_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/copy_worldspace_frame_animation_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/copy_worldspace_frame_animation_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/cube_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/cube_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/customGraph_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/customGraph_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/depth_mover_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/depth_mover_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/discord_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/discord_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/eraser_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/eraser_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/isolate_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/isolate_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/linear_tangent_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/linear_tangent_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/link_relative_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/link_relative_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/link_relative_on_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/link_relative_on_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/magnet_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/magnet_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/match_curve_cycle.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/match_curve_cycle.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/mirror_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/mirror_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/paste_animation_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/paste_animation_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/paste_insert_animation_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/paste_insert_animation_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/paste_opposite_animation_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/paste_opposite_animation_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/paste_pose_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/paste_pose_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/paste_worldspace_frame_animation_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/paste_worldspace_frame_animation_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/playblast_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/playblast_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/pointer_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/pointer_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/reblock_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/reblock_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/ruler_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/ruler_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/scripts_folder_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/scripts_folder_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/select_animated_rig_controls_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/select_animated_rig_controls_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/select_hierarchy_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/select_hierarchy_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/select_opposite_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/select_opposite_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/select_rig_controls_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/select_rig_controls_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/selection_sets_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/selection_sets_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/selector_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/selector_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/settings_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/settings_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/settings_75.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/settings_75.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/settings_update_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/settings_update_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/share_keys_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/share_keys_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/spline_tangent_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/spline_tangent_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/step_tangent_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/step_tangent_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/temp_pivot_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/temp_pivot_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/tools_folder_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/tools_folder_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/tracer_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/tracer_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/trash_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/trash_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/unlock_license_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/unlock_license_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/youtube_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/100/youtube_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/_02.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/_02.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/_03.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/_03.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/_04.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/_04.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/_05.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/_05.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/_06.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/_06.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/_07.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/_07.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/_08.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/_08.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/about.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/about.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/about.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/about.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/add_selection_set.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/add_selection_set.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/add_selection_set.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/add_selection_set.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/add_to_selection_set.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/add_to_selection_set.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/animation_offset.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/animation_offset.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/auto_tangent.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/auto_tangent.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/bake_animation.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/bake_animation.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/blue_dot.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/blue_dot.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/bouncy_curve.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/bouncy_curve.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/bug.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/bug.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/bug.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/bug.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/camera.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/camera.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/center.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/center.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/change_selection_set_color.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/change_selection_set_color.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/close.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/close.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/copy_opposite.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/copy_opposite.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/copy_paste_animation.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/copy_paste_animation.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/copy_pose.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/copy_pose.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/copy_worldspace_animation.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/copy_worldspace_animation.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/copy_worldspace_frame_animation.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/copy_worldspace_frame_animation.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/cube.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/cube.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/cube.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/cube.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/customGraph.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/customGraph.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/depth_mover.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/depth_mover.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/discord.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/discord.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/donate_01.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/donate_01.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/drop_down_arrow.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/drop_down_arrow.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/enable.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/enable.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/end_tangent_match.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/end_tangent_match.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/eraser.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/eraser.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/eraser.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/eraser.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/green.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/green.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/green_dot.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/green_dot.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/grey_dot.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/grey_dot.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/help.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/help.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/help_menu.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/help_menu.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/ibookmarks_menu.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/ibookmarks_menu.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/isolate.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/isolate.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/isolate.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/isolate.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/linear_tangent.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/linear_tangent.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/link_relative.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/link_relative.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/link_relative_on.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/link_relative_on.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/magnet.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/magnet.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/magnet.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/magnet.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/match_curve_cycle.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/match_curve_cycle.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/mirror.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/mirror.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/move_selection_set.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/move_selection_set.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/paste_animation.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/paste_animation.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/paste_insert_animation.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/paste_insert_animation.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/paste_opposite_animation.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/paste_opposite_animation.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/paste_pose.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/paste_pose.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/paste_worldspace_animation.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/paste_worldspace_animation.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/paste_worldspace_frame_animation.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/paste_worldspace_frame_animation.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/playblast.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/playblast.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/pointer.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/pointer.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/reblock.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/reblock.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/reblock_keys.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/reblock_keys.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/red_dot.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/red_dot.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/reload.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/reload.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/remove_followCam.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/remove_followCam.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/remove_from_selection_set.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/remove_from_selection_set.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/remove_selection_set.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/remove_selection_set.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/remove_small.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/remove_small.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/remove_tracer.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/remove_tracer.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/rename_selection_set.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/rename_selection_set.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/ruler.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/ruler.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/scripts_folder.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/scripts_folder.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/select_animated_rig_controls.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/select_animated_rig_controls.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/select_hierarchy.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/select_hierarchy.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/select_opposite.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/select_opposite.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/select_rig_controls.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/select_rig_controls.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/selection_sets.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/selection_sets.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/selector.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/selector.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/selector_30.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/selector_30.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/selector_selection_set.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/selector_selection_set.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/settings.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/settings.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/settings_update.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/settings_update.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/share_keys.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/share_keys.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/spline_tangent.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/spline_tangent.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/step_tangent.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/step_tangent.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/stripe.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/stripe.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/temp_pivot.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/temp_pivot.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/TheKeyMachine_logo_250.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/TheKeyMachine_logo_250.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/TheKeyMachine_logo_500.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/TheKeyMachine_logo_500.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/TheKeyMachine_shelf_icon.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/TheKeyMachine_shelf_icon.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tkm_node.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tkm_node.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tools_folder.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tools_folder.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tracer.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tracer.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tracer.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tracer.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tracer_blue.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tracer_blue.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tracer_grey.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tracer_grey.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tracer_red.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tracer_red.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tracer_refresh.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tracer_refresh.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tracer_select_offset.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tracer_select_offset.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tracer_set_color.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tracer_set_color.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tracer_show_hide.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/tracer_show_hide.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/trash.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/trash.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/trash.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/trash.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/uninstall.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/uninstall.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/uninstall_menu.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/uninstall_menu.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/unlock_license.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/unlock_license.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/unlock_license.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/unlock_license.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/update.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/update.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/yellow_dot.png",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/yellow_dot.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/youtube.svg",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/data/img/youtube.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/direct_translator.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/direct_translator.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/license_gpl-3.0.txt",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/license_gpl-3.0.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/mods/__init__.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/mods/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/mods/barMod.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/mods/barMod.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/mods/generalMod.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/mods/generalMod.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/mods/helperMod.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/mods/helperMod.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/mods/hotkeysMod.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/mods/hotkeysMod.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/mods/keyToolsMod.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/mods/keyToolsMod.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/mods/mediaMod.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/mods/mediaMod.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/mods/selSetsMod.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/mods/selSetsMod.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/mods/styleMod.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/mods/styleMod.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/mods/uiMod.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/mods/uiMod.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/README_CN.md",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/README_CN.md"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/styleMod_cn.py",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/styleMod_cn.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/直接汉化说明.txt",
+      "target": "maya_toolkit/tools/the_key_machine/native/TheKeyMachine/直接汉化说明.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/operations.json",
+      "target": "maya_toolkit/tools/the_key_machine/operations.json"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/session.py",
+      "target": "maya_toolkit/tools/the_key_machine/session.py"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/__init__.py.original",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/connect/scripts/scripts.py.original",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/connect/scripts/scripts.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/connect/tools/tools.py.original",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/connect/tools/tools.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/core/customGraph.py.original",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/core/customGraph.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/core/toolbar.py.original",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/core/toolbar.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/core/toolbar_patch.py.original",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/core/toolbar_patch.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/cert/thekeymachine.pem",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/cert/thekeymachine.pem"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/config/config.json",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/config/config.json"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/add_selection_set_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/add_selection_set_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/animation_offset_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/animation_offset_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/auto_tangent_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/auto_tangent_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/bake_animation_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/bake_animation_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/bouncy_curve.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/bouncy_curve.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/camera_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/camera_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/copy_opposite_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/copy_opposite_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/copy_paste_animation_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/copy_paste_animation_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/copy_pose_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/copy_pose_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/copy_worldspace_animation_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/copy_worldspace_animation_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/copy_worldspace_frame_animation_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/copy_worldspace_frame_animation_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/cube_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/cube_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/customGraph_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/customGraph_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/depth_mover_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/depth_mover_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/discord_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/discord_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/eraser_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/eraser_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/isolate_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/isolate_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/linear_tangent_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/linear_tangent_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/link_relative_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/link_relative_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/link_relative_on_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/link_relative_on_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/magnet_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/magnet_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/match_curve_cycle.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/match_curve_cycle.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/mirror_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/mirror_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/paste_animation_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/paste_animation_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/paste_insert_animation_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/paste_insert_animation_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/paste_opposite_animation_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/paste_opposite_animation_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/paste_pose_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/paste_pose_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/paste_worldspace_frame_animation_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/paste_worldspace_frame_animation_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/playblast_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/playblast_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/pointer_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/pointer_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/reblock_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/reblock_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/ruler_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/ruler_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/scripts_folder_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/scripts_folder_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/select_animated_rig_controls_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/select_animated_rig_controls_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/select_hierarchy_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/select_hierarchy_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/select_opposite_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/select_opposite_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/select_rig_controls_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/select_rig_controls_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/selection_sets_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/selection_sets_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/selector_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/selector_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/settings_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/settings_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/settings_75.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/settings_75.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/settings_update_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/settings_update_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/share_keys_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/share_keys_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/spline_tangent_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/spline_tangent_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/step_tangent_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/step_tangent_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/temp_pivot_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/temp_pivot_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/tools_folder_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/tools_folder_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/tracer_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/tracer_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/trash_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/trash_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/unlock_license_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/unlock_license_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/youtube_105.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/100/youtube_105.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/_02.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/_02.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/_03.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/_03.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/_04.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/_04.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/_05.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/_05.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/_06.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/_06.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/_07.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/_07.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/_08.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/_08.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/about.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/about.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/about.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/about.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/add_selection_set.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/add_selection_set.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/add_selection_set.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/add_selection_set.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/add_to_selection_set.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/add_to_selection_set.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/animation_offset.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/animation_offset.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/auto_tangent.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/auto_tangent.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/bake_animation.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/bake_animation.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/blue_dot.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/blue_dot.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/bouncy_curve.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/bouncy_curve.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/bug.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/bug.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/bug.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/bug.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/camera.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/camera.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/center.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/center.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/change_selection_set_color.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/change_selection_set_color.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/close.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/close.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/copy_opposite.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/copy_opposite.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/copy_paste_animation.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/copy_paste_animation.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/copy_pose.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/copy_pose.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/copy_worldspace_animation.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/copy_worldspace_animation.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/copy_worldspace_frame_animation.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/copy_worldspace_frame_animation.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/cube.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/cube.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/cube.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/cube.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/customGraph.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/customGraph.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/depth_mover.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/depth_mover.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/discord.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/discord.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/donate_01.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/donate_01.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/drop_down_arrow.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/drop_down_arrow.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/enable.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/enable.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/end_tangent_match.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/end_tangent_match.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/eraser.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/eraser.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/eraser.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/eraser.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/green.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/green.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/green_dot.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/green_dot.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/grey_dot.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/grey_dot.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/help.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/help.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/help_menu.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/help_menu.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/ibookmarks_menu.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/ibookmarks_menu.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/isolate.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/isolate.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/isolate.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/isolate.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/linear_tangent.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/linear_tangent.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/link_relative.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/link_relative.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/link_relative_on.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/link_relative_on.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/magnet.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/magnet.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/magnet.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/magnet.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/match_curve_cycle.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/match_curve_cycle.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/mirror.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/mirror.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/move_selection_set.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/move_selection_set.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/paste_animation.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/paste_animation.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/paste_insert_animation.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/paste_insert_animation.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/paste_opposite_animation.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/paste_opposite_animation.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/paste_pose.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/paste_pose.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/paste_worldspace_animation.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/paste_worldspace_animation.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/paste_worldspace_frame_animation.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/paste_worldspace_frame_animation.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/playblast.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/playblast.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/pointer.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/pointer.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/reblock.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/reblock.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/reblock_keys.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/reblock_keys.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/red_dot.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/red_dot.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/reload.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/reload.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/remove_followCam.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/remove_followCam.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/remove_from_selection_set.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/remove_from_selection_set.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/remove_selection_set.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/remove_selection_set.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/remove_small.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/remove_small.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/remove_tracer.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/remove_tracer.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/rename_selection_set.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/rename_selection_set.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/ruler.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/ruler.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/scripts_folder.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/scripts_folder.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/select_animated_rig_controls.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/select_animated_rig_controls.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/select_hierarchy.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/select_hierarchy.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/select_opposite.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/select_opposite.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/select_rig_controls.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/select_rig_controls.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/selection_sets.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/selection_sets.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/selector.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/selector.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/selector_30.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/selector_30.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/selector_selection_set.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/selector_selection_set.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/settings.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/settings.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/settings_update.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/settings_update.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/share_keys.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/share_keys.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/spline_tangent.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/spline_tangent.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/step_tangent.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/step_tangent.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/stripe.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/stripe.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/temp_pivot.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/temp_pivot.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/TheKeyMachine_logo_250.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/TheKeyMachine_logo_250.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/TheKeyMachine_logo_500.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/TheKeyMachine_logo_500.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/TheKeyMachine_shelf_icon.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/TheKeyMachine_shelf_icon.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/tkm_node.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/tkm_node.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/tools_folder.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/tools_folder.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/tracer.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/tracer.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/tracer.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/tracer.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/tracer_blue.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/tracer_blue.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/tracer_grey.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/tracer_grey.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/tracer_red.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/tracer_red.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/tracer_refresh.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/tracer_refresh.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/tracer_select_offset.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/tracer_select_offset.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/tracer_set_color.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/tracer_set_color.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/tracer_show_hide.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/tracer_show_hide.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/trash.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/trash.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/trash.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/trash.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/uninstall.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/uninstall.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/uninstall_menu.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/uninstall_menu.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/unlock_license.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/unlock_license.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/unlock_license.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/unlock_license.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/update.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/update.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/yellow_dot.png",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/yellow_dot.png"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/data/img/youtube.svg",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/data/img/youtube.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/direct_translator.py.original",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/direct_translator.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/license_gpl-3.0.txt",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/license_gpl-3.0.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/mods/barMod.py.original",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/mods/barMod.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/mods/generalMod.py.original",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/mods/generalMod.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/mods/helperMod.py.original",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/mods/helperMod.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/mods/hotkeysMod.py.original",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/mods/hotkeysMod.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/mods/keyToolsMod.py.original",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/mods/keyToolsMod.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/mods/mediaMod.py.original",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/mods/mediaMod.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/mods/selSetsMod.py.original",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/mods/selSetsMod.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/mods/styleMod.py.original",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/mods/styleMod.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/mods/uiMod.py.original",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/mods/uiMod.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/README_CN.md",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/README_CN.md"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/styleMod_cn.py.original",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/styleMod_cn.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/the_key_machine/upstream/直接汉化说明.txt",
+      "target": "maya_toolkit/tools/the_key_machine/upstream/直接汉化说明.txt"
+    },
+    {
+      "source": "tests/test_the_key_machine.py",
+      "target": "tests/test_the_key_machine.py"
+    },
+    {
+      "source": "tests/test_the_key_machine_maya.py",
+      "target": "tests/test_the_key_machine_maya.py"
+    },
+    {
+      "source": "tests/test_the_key_machine_qt.py",
+      "target": "tests/test_the_key_machine_qt.py"
+    }
+  ],
+  "resources": [
+    "__init__.py",
+    "connect/scripts/scripts.py",
+    "connect/tools/tools.py",
+    "core/customGraph.py",
+    "core/toolbar.py",
+    "core/toolbar_patch.py",
+    "data/cert/thekeymachine.pem",
+    "data/config/config.json",
+    "data/img/100/add_selection_set_105.svg",
+    "data/img/100/animation_offset_105.svg",
+    "data/img/100/auto_tangent_105.svg",
+    "data/img/100/bake_animation_105.svg",
+    "data/img/100/bouncy_curve.svg",
+    "data/img/100/camera_105.svg",
+    "data/img/100/copy_opposite_105.svg",
+    "data/img/100/copy_paste_animation_105.svg",
+    "data/img/100/copy_pose_105.svg",
+    "data/img/100/copy_worldspace_animation_105.svg",
+    "data/img/100/copy_worldspace_frame_animation_105.svg",
+    "data/img/100/cube_105.svg",
+    "data/img/100/customGraph_105.svg",
+    "data/img/100/depth_mover_105.svg",
+    "data/img/100/discord_105.svg",
+    "data/img/100/eraser_105.svg",
+    "data/img/100/isolate_105.svg",
+    "data/img/100/linear_tangent_105.svg",
+    "data/img/100/link_relative_105.svg",
+    "data/img/100/link_relative_on_105.svg",
+    "data/img/100/magnet_105.svg",
+    "data/img/100/match_curve_cycle.svg",
+    "data/img/100/mirror_105.svg",
+    "data/img/100/paste_animation_105.svg",
+    "data/img/100/paste_insert_animation_105.svg",
+    "data/img/100/paste_opposite_animation_105.svg",
+    "data/img/100/paste_pose_105.svg",
+    "data/img/100/paste_worldspace_frame_animation_105.svg",
+    "data/img/100/playblast_105.svg",
+    "data/img/100/pointer_105.svg",
+    "data/img/100/reblock_105.svg",
+    "data/img/100/ruler_105.svg",
+    "data/img/100/scripts_folder_105.svg",
+    "data/img/100/select_animated_rig_controls_105.svg",
+    "data/img/100/select_hierarchy_105.svg",
+    "data/img/100/select_opposite_105.svg",
+    "data/img/100/select_rig_controls_105.svg",
+    "data/img/100/selection_sets_105.svg",
+    "data/img/100/selector_105.svg",
+    "data/img/100/settings_105.svg",
+    "data/img/100/settings_75.svg",
+    "data/img/100/settings_update_105.svg",
+    "data/img/100/share_keys_105.svg",
+    "data/img/100/spline_tangent_105.svg",
+    "data/img/100/step_tangent_105.svg",
+    "data/img/100/temp_pivot_105.svg",
+    "data/img/100/tools_folder_105.svg",
+    "data/img/100/tracer_105.svg",
+    "data/img/100/trash_105.svg",
+    "data/img/100/unlock_license_105.svg",
+    "data/img/100/youtube_105.svg",
+    "data/img/_02.svg",
+    "data/img/_03.svg",
+    "data/img/_04.svg",
+    "data/img/_05.svg",
+    "data/img/_06.svg",
+    "data/img/_07.svg",
+    "data/img/_08.svg",
+    "data/img/about.png",
+    "data/img/about.svg",
+    "data/img/add_selection_set.png",
+    "data/img/add_selection_set.svg",
+    "data/img/add_to_selection_set.svg",
+    "data/img/animation_offset.svg",
+    "data/img/auto_tangent.svg",
+    "data/img/bake_animation.svg",
+    "data/img/blue_dot.png",
+    "data/img/bouncy_curve.svg",
+    "data/img/bug.png",
+    "data/img/bug.svg",
+    "data/img/camera.svg",
+    "data/img/center.png",
+    "data/img/change_selection_set_color.svg",
+    "data/img/close.png",
+    "data/img/copy_opposite.svg",
+    "data/img/copy_paste_animation.svg",
+    "data/img/copy_pose.svg",
+    "data/img/copy_worldspace_animation.svg",
+    "data/img/copy_worldspace_frame_animation.svg",
+    "data/img/cube.png",
+    "data/img/cube.svg",
+    "data/img/customGraph.svg",
+    "data/img/depth_mover.svg",
+    "data/img/discord.svg",
+    "data/img/donate_01.svg",
+    "data/img/drop_down_arrow.svg",
+    "data/img/enable.png",
+    "data/img/end_tangent_match.svg",
+    "data/img/eraser.png",
+    "data/img/eraser.svg",
+    "data/img/green.png",
+    "data/img/green_dot.png",
+    "data/img/grey_dot.png",
+    "data/img/help.svg",
+    "data/img/help_menu.png",
+    "data/img/ibookmarks_menu.png",
+    "data/img/isolate.png",
+    "data/img/isolate.svg",
+    "data/img/linear_tangent.svg",
+    "data/img/link_relative.svg",
+    "data/img/link_relative_on.svg",
+    "data/img/magnet.png",
+    "data/img/magnet.svg",
+    "data/img/match_curve_cycle.svg",
+    "data/img/mirror.svg",
+    "data/img/move_selection_set.svg",
+    "data/img/paste_animation.svg",
+    "data/img/paste_insert_animation.svg",
+    "data/img/paste_opposite_animation.svg",
+    "data/img/paste_pose.svg",
+    "data/img/paste_worldspace_animation.svg",
+    "data/img/paste_worldspace_frame_animation.svg",
+    "data/img/playblast.svg",
+    "data/img/pointer.svg",
+    "data/img/reblock.svg",
+    "data/img/reblock_keys.png",
+    "data/img/red_dot.png",
+    "data/img/reload.png",
+    "data/img/remove_followCam.svg",
+    "data/img/remove_from_selection_set.svg",
+    "data/img/remove_selection_set.svg",
+    "data/img/remove_small.png",
+    "data/img/remove_tracer.svg",
+    "data/img/rename_selection_set.svg",
+    "data/img/ruler.svg",
+    "data/img/scripts_folder.svg",
+    "data/img/select_animated_rig_controls.svg",
+    "data/img/select_hierarchy.svg",
+    "data/img/select_opposite.svg",
+    "data/img/select_rig_controls.svg",
+    "data/img/selection_sets.svg",
+    "data/img/selector.svg",
+    "data/img/selector_30.svg",
+    "data/img/selector_selection_set.svg",
+    "data/img/settings.svg",
+    "data/img/settings_update.svg",
+    "data/img/share_keys.svg",
+    "data/img/spline_tangent.svg",
+    "data/img/step_tangent.svg",
+    "data/img/stripe.png",
+    "data/img/temp_pivot.svg",
+    "data/img/TheKeyMachine_logo_250.png",
+    "data/img/TheKeyMachine_logo_500.png",
+    "data/img/TheKeyMachine_shelf_icon.png",
+    "data/img/tkm_node.png",
+    "data/img/tools_folder.svg",
+    "data/img/tracer.png",
+    "data/img/tracer.svg",
+    "data/img/tracer_blue.svg",
+    "data/img/tracer_grey.svg",
+    "data/img/tracer_red.svg",
+    "data/img/tracer_refresh.svg",
+    "data/img/tracer_select_offset.svg",
+    "data/img/tracer_set_color.svg",
+    "data/img/tracer_show_hide.svg",
+    "data/img/trash.png",
+    "data/img/trash.svg",
+    "data/img/uninstall.svg",
+    "data/img/uninstall_menu.png",
+    "data/img/unlock_license.png",
+    "data/img/unlock_license.svg",
+    "data/img/update.svg",
+    "data/img/yellow_dot.png",
+    "data/img/youtube.svg",
+    "direct_translator.py",
+    "license_gpl-3.0.txt",
+    "mods/barMod.py",
+    "mods/generalMod.py",
+    "mods/helperMod.py",
+    "mods/hotkeysMod.py",
+    "mods/keyToolsMod.py",
+    "mods/mediaMod.py",
+    "mods/selSetsMod.py",
+    "mods/styleMod.py",
+    "mods/uiMod.py",
+    "README_CN.md",
+    "styleMod_cn.py",
+    "直接汉化说明.txt"
+  ],
+  "dependencies": [
+    "Maya cmds/MEL/API and real GUI contexts",
+    "PySide6/PySide2; full GPL3 original native source/resources bundled"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete original GPL TheKeyMachine toolbar and native API with isolated data, literal config, backups, owned lifecycle and memory localization",
+  "verification_limitations": [
+    "Real Maya GUI, complete source-operation coverage, complex rigs/graph/offset/micro/callback lifecycle and cross-version acceptance not_run"
+  ]
+}

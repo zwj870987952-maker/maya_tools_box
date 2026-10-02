@@ -1,0 +1,935 @@
+{
+  "files": [
+    {
+      "path": "__init__.py",
+      "archive": "upstream/__init__.py.original",
+      "sha256": "b84a0334311b81e5e0cc4b1d95e1c96d9836192d87dc3eb2ad2e536451809010"
+    },
+    {
+      "path": "connect/scripts/scripts.py",
+      "archive": "upstream/connect/scripts/scripts.py.original",
+      "sha256": "05da71a5518591c22404529e5822d6d350f7e5e685be1097bbd74e2d51d398c8"
+    },
+    {
+      "path": "connect/tools/tools.py",
+      "archive": "upstream/connect/tools/tools.py.original",
+      "sha256": "7ae32a63aeac8ddeef79c23764cb27f164113cd8bd9fa943ea3b4595346dcd93"
+    },
+    {
+      "path": "core/customGraph.py",
+      "archive": "upstream/core/customGraph.py.original",
+      "sha256": "c5c1a790a9b996c3a75c0a8b6ea3515491aed4a03f5bf8ed89b73cd10a4bb9f1"
+    },
+    {
+      "path": "core/toolbar.py",
+      "archive": "upstream/core/toolbar.py.original",
+      "sha256": "8458704e387e40106c8e01eb466f87acc8fd2f19c73db11f64d412ddb350f7bb"
+    },
+    {
+      "path": "core/toolbar_patch.py",
+      "archive": "upstream/core/toolbar_patch.py.original",
+      "sha256": "693db385463d76bc9e6950f2d84aa2d1932bb3f7037ba63c461f873c31c71cf9"
+    },
+    {
+      "path": "data/cert/thekeymachine.pem",
+      "archive": "upstream/data/cert/thekeymachine.pem",
+      "sha256": "ce58c4d65826a6ebe4c7f517192f8ea0c7e0621eb55077f59da6e2bc2867a7d7"
+    },
+    {
+      "path": "data/config/config.json",
+      "archive": "upstream/data/config/config.json",
+      "sha256": "6c0ab275549354151409e5da0339a732d6f08352d343697e41622ac914d90fa5"
+    },
+    {
+      "path": "data/img/100/add_selection_set_105.svg",
+      "archive": "upstream/data/img/100/add_selection_set_105.svg",
+      "sha256": "280afd6d3bce7808ee0e21b364f9ac0f70cf721d9768a4ad2d9fb37d003d33d6"
+    },
+    {
+      "path": "data/img/100/animation_offset_105.svg",
+      "archive": "upstream/data/img/100/animation_offset_105.svg",
+      "sha256": "2b023265e0ff3c95529d447900c2aa1615e2510996ab4974e38bbafad127abc1"
+    },
+    {
+      "path": "data/img/100/auto_tangent_105.svg",
+      "archive": "upstream/data/img/100/auto_tangent_105.svg",
+      "sha256": "69bf42bba5a9d9507419cbc520e5b88493c11b8bc69a9ef0e9f0c391929100fc"
+    },
+    {
+      "path": "data/img/100/bake_animation_105.svg",
+      "archive": "upstream/data/img/100/bake_animation_105.svg",
+      "sha256": "ee96382f05cef7c43792e292abe812ccca1532734638adf5b6c5e8ef0df756d4"
+    },
+    {
+      "path": "data/img/100/bouncy_curve.svg",
+      "archive": "upstream/data/img/100/bouncy_curve.svg",
+      "sha256": "8140769a4f08fc58b80f37ff2452cb894cd62ebb6a2a71933f55c503efba9bd1"
+    },
+    {
+      "path": "data/img/100/camera_105.svg",
+      "archive": "upstream/data/img/100/camera_105.svg",
+      "sha256": "c5a0691eecfd4f8e9aaa0fa0a1fb2fb6ece4a1074d4e54c76b74536fbb90c16f"
+    },
+    {
+      "path": "data/img/100/copy_opposite_105.svg",
+      "archive": "upstream/data/img/100/copy_opposite_105.svg",
+      "sha256": "18a981a7d5501f9d9b0091ad1dc91cb490c4af189bdc9c784ad9bd3fa5b98281"
+    },
+    {
+      "path": "data/img/100/copy_paste_animation_105.svg",
+      "archive": "upstream/data/img/100/copy_paste_animation_105.svg",
+      "sha256": "2ffee0ad906d53009971ce299dd65202621bc95f61d0d5d119769eaf90842ef2"
+    },
+    {
+      "path": "data/img/100/copy_pose_105.svg",
+      "archive": "upstream/data/img/100/copy_pose_105.svg",
+      "sha256": "904403a2b9debf4701e2aded9805e479050a24144ddc8013a1a01e4b73942032"
+    },
+    {
+      "path": "data/img/100/copy_worldspace_animation_105.svg",
+      "archive": "upstream/data/img/100/copy_worldspace_animation_105.svg",
+      "sha256": "79246c9f3620147298be8dc1688d95971c2bbc64134cf5ea9f7fbb43ce4de590"
+    },
+    {
+      "path": "data/img/100/copy_worldspace_frame_animation_105.svg",
+      "archive": "upstream/data/img/100/copy_worldspace_frame_animation_105.svg",
+      "sha256": "dde1a4b2e96874848eb23b030bd68180c7a41f37d9128a9b8aac202f7be904d8"
+    },
+    {
+      "path": "data/img/100/cube_105.svg",
+      "archive": "upstream/data/img/100/cube_105.svg",
+      "sha256": "92187d87f2515b2c639d2941574fd546f1f60f8b5636c1345db9802b0d575ffa"
+    },
+    {
+      "path": "data/img/100/customGraph_105.svg",
+      "archive": "upstream/data/img/100/customGraph_105.svg",
+      "sha256": "e3401ca402a39eaeed8f0b12c15b37917905afe1371dcf162307227171687c06"
+    },
+    {
+      "path": "data/img/100/depth_mover_105.svg",
+      "archive": "upstream/data/img/100/depth_mover_105.svg",
+      "sha256": "51bf676f345451a944c2404b682bfdb20456d6abea1f98d7f4be9da08c5d5aea"
+    },
+    {
+      "path": "data/img/100/discord_105.svg",
+      "archive": "upstream/data/img/100/discord_105.svg",
+      "sha256": "3d0dec0b533d9f484234afc92e21c71ed51cabfdfeb21d87c6c3b8e8460825dd"
+    },
+    {
+      "path": "data/img/100/eraser_105.svg",
+      "archive": "upstream/data/img/100/eraser_105.svg",
+      "sha256": "0393bdd8ef9c48edc7dc81dd94e4de98c1c7585af9731762ee3183f462dfd8d1"
+    },
+    {
+      "path": "data/img/100/isolate_105.svg",
+      "archive": "upstream/data/img/100/isolate_105.svg",
+      "sha256": "a6c521ef53df6d946bf3e5459e84f728bfdd52336f0bba7aa85c41bdf28a95a8"
+    },
+    {
+      "path": "data/img/100/linear_tangent_105.svg",
+      "archive": "upstream/data/img/100/linear_tangent_105.svg",
+      "sha256": "acfbf7186859750cc3af5f420dd7788be86bb798d05bb497f336f1b6f02cdb04"
+    },
+    {
+      "path": "data/img/100/link_relative_105.svg",
+      "archive": "upstream/data/img/100/link_relative_105.svg",
+      "sha256": "6ce823ed92a42857d379056bf8d530e97d2f717bc1d1ed28b66dc271d25fc5e6"
+    },
+    {
+      "path": "data/img/100/link_relative_on_105.svg",
+      "archive": "upstream/data/img/100/link_relative_on_105.svg",
+      "sha256": "b43a9ff129e78f2b09c9d8f10e5e356c8dc39c15521c5ca279a956db5b8b19b8"
+    },
+    {
+      "path": "data/img/100/magnet_105.svg",
+      "archive": "upstream/data/img/100/magnet_105.svg",
+      "sha256": "996597ad152aa4a79e6c42c607000e068aec3329dd0d5115b6750146e7977242"
+    },
+    {
+      "path": "data/img/100/match_curve_cycle.svg",
+      "archive": "upstream/data/img/100/match_curve_cycle.svg",
+      "sha256": "d9b4cf09c8eccf92bd4534873a87b28e472a5ff5998084913cf155ac6e4d5a91"
+    },
+    {
+      "path": "data/img/100/mirror_105.svg",
+      "archive": "upstream/data/img/100/mirror_105.svg",
+      "sha256": "5c8526fbae04b9c8d17bbdd0e86c5d7924ae1949a2f405523943799050f9925e"
+    },
+    {
+      "path": "data/img/100/paste_animation_105.svg",
+      "archive": "upstream/data/img/100/paste_animation_105.svg",
+      "sha256": "b334173e67181f6d6db15dda8f571afb689bbf89d615dd6ff876edc317cff23a"
+    },
+    {
+      "path": "data/img/100/paste_insert_animation_105.svg",
+      "archive": "upstream/data/img/100/paste_insert_animation_105.svg",
+      "sha256": "a2b676369f30ad4a4613cee14311a02f53d0fae60e2e0a8fffa57979da430aaf"
+    },
+    {
+      "path": "data/img/100/paste_opposite_animation_105.svg",
+      "archive": "upstream/data/img/100/paste_opposite_animation_105.svg",
+      "sha256": "29d161a2521c5c8707b638e2048cd73cab84734622df81563a6ec13dbb2cdfd4"
+    },
+    {
+      "path": "data/img/100/paste_pose_105.svg",
+      "archive": "upstream/data/img/100/paste_pose_105.svg",
+      "sha256": "50d0eb38b5ae4e0c20ae5b25e8a6904876df383bc861f135753774e10590c817"
+    },
+    {
+      "path": "data/img/100/paste_worldspace_frame_animation_105.svg",
+      "archive": "upstream/data/img/100/paste_worldspace_frame_animation_105.svg",
+      "sha256": "3d3634aa9d1213be461f8b464332c33b30389ea473ea72c4ca68b571a521b11d"
+    },
+    {
+      "path": "data/img/100/playblast_105.svg",
+      "archive": "upstream/data/img/100/playblast_105.svg",
+      "sha256": "267cfb98985a837cb5ac431b97c7c418f12bbeeba08ec4188d396b502771d939"
+    },
+    {
+      "path": "data/img/100/pointer_105.svg",
+      "archive": "upstream/data/img/100/pointer_105.svg",
+      "sha256": "278a2357bc8fa6039c396b6d2fa65a54e9436740f5cf1830a9323ae91b0a91f3"
+    },
+    {
+      "path": "data/img/100/reblock_105.svg",
+      "archive": "upstream/data/img/100/reblock_105.svg",
+      "sha256": "40f9db4b6d18c9d3a8d616620b9c17b4b49207f11e40c69a6b8cb5262b746bdb"
+    },
+    {
+      "path": "data/img/100/ruler_105.svg",
+      "archive": "upstream/data/img/100/ruler_105.svg",
+      "sha256": "557787c5143671ef5096b8c81fa434d5f9aa21fbd209239f43faf8e4369726c2"
+    },
+    {
+      "path": "data/img/100/scripts_folder_105.svg",
+      "archive": "upstream/data/img/100/scripts_folder_105.svg",
+      "sha256": "e6b01954d74f721a14d299891798c150cba37845e4221f71635ccac0a687ea25"
+    },
+    {
+      "path": "data/img/100/select_animated_rig_controls_105.svg",
+      "archive": "upstream/data/img/100/select_animated_rig_controls_105.svg",
+      "sha256": "16a3872dbdd6993014a4358653c7918b29036130d5ba53ce268b0ec9a442a838"
+    },
+    {
+      "path": "data/img/100/select_hierarchy_105.svg",
+      "archive": "upstream/data/img/100/select_hierarchy_105.svg",
+      "sha256": "c28f3515c6cf5f66bd1568cc2060bc5f572bf8e229fdd09a75c816053ce8ca5f"
+    },
+    {
+      "path": "data/img/100/select_opposite_105.svg",
+      "archive": "upstream/data/img/100/select_opposite_105.svg",
+      "sha256": "061cddf7d5e03fcefa4450c45502cc68ba7449608bd542c46ce6bddc2bcc37fb"
+    },
+    {
+      "path": "data/img/100/select_rig_controls_105.svg",
+      "archive": "upstream/data/img/100/select_rig_controls_105.svg",
+      "sha256": "38526b2f68fb67110072203ab30b826ad976f2307a7f754944723adaab79ff50"
+    },
+    {
+      "path": "data/img/100/selection_sets_105.svg",
+      "archive": "upstream/data/img/100/selection_sets_105.svg",
+      "sha256": "3832eb37702556b98ec61514a8b8ae534ce71f8cb52ce893fc835e0a94acb8ed"
+    },
+    {
+      "path": "data/img/100/selector_105.svg",
+      "archive": "upstream/data/img/100/selector_105.svg",
+      "sha256": "d3b1caa0f0c6e626b0ee0588382a433d7e0146e5e0f6fa14f486076fae4e8b13"
+    },
+    {
+      "path": "data/img/100/settings_105.svg",
+      "archive": "upstream/data/img/100/settings_105.svg",
+      "sha256": "0f2e525519cc67fc8c491bcdfa97f5403e2bc85ef14d23d8f97d81e527cd5450"
+    },
+    {
+      "path": "data/img/100/settings_75.svg",
+      "archive": "upstream/data/img/100/settings_75.svg",
+      "sha256": "a1e1836810db4b0faba88fdb5a7bd082057e89ae01c3c3abaf4593a2ee173be0"
+    },
+    {
+      "path": "data/img/100/settings_update_105.svg",
+      "archive": "upstream/data/img/100/settings_update_105.svg",
+      "sha256": "9f774aa8141019e9778dcef50718511c7593747488c937320e2ef46bd0c69341"
+    },
+    {
+      "path": "data/img/100/share_keys_105.svg",
+      "archive": "upstream/data/img/100/share_keys_105.svg",
+      "sha256": "ddc15ad6a3392245dda16337ae7b5d2a327899140d81fdd04ef3182fc9b56b30"
+    },
+    {
+      "path": "data/img/100/spline_tangent_105.svg",
+      "archive": "upstream/data/img/100/spline_tangent_105.svg",
+      "sha256": "6842674d57c73fbdc0bd88e245eadcbf93bbed88a31a75bb7cbe0b41807e67b8"
+    },
+    {
+      "path": "data/img/100/step_tangent_105.svg",
+      "archive": "upstream/data/img/100/step_tangent_105.svg",
+      "sha256": "c88a8a8f62f8fa45866a5433dc32833a009c0a181ff99577b418749630f90022"
+    },
+    {
+      "path": "data/img/100/temp_pivot_105.svg",
+      "archive": "upstream/data/img/100/temp_pivot_105.svg",
+      "sha256": "f582044c1a37d5db013f745d04d5f4f0b7899fa3b84b9b4555bd2979d0e3207f"
+    },
+    {
+      "path": "data/img/100/tools_folder_105.svg",
+      "archive": "upstream/data/img/100/tools_folder_105.svg",
+      "sha256": "523e0e7a4ae94f3cc16db7db85dff0705e3548b013e36db2a7381392f25e5fd7"
+    },
+    {
+      "path": "data/img/100/tracer_105.svg",
+      "archive": "upstream/data/img/100/tracer_105.svg",
+      "sha256": "8650a4222b1ca647edb12ce41488769b257560f0c4370c925d7f8d2e66704700"
+    },
+    {
+      "path": "data/img/100/trash_105.svg",
+      "archive": "upstream/data/img/100/trash_105.svg",
+      "sha256": "0c667557ba3cf2193841d50e5d46ae7135f3a8d7127e1c56c010eadd29b6b50b"
+    },
+    {
+      "path": "data/img/100/unlock_license_105.svg",
+      "archive": "upstream/data/img/100/unlock_license_105.svg",
+      "sha256": "cee98aab5fb290bad11ed1c1a29dde4ffc1f94a8bbbe02c86adbe653534a31c4"
+    },
+    {
+      "path": "data/img/100/youtube_105.svg",
+      "archive": "upstream/data/img/100/youtube_105.svg",
+      "sha256": "433b62623c25a6dc0fe45a9ea29c92cb1554d58ae3f9392db03d912f7b68a21c"
+    },
+    {
+      "path": "data/img/_02.svg",
+      "archive": "upstream/data/img/_02.svg",
+      "sha256": "017ba688480b765c50b6195361bab054c53ca5c5dd0d14b9b07f029756b2e263"
+    },
+    {
+      "path": "data/img/_03.svg",
+      "archive": "upstream/data/img/_03.svg",
+      "sha256": "6476e06ca26daf90c4d893f51df33a23c5f36880dd028e51a7a01bea3a77d712"
+    },
+    {
+      "path": "data/img/_04.svg",
+      "archive": "upstream/data/img/_04.svg",
+      "sha256": "848ad01c3691ccdaff147f6fb87826fb500c333aafd7e2436d64a7364dcb0668"
+    },
+    {
+      "path": "data/img/_05.svg",
+      "archive": "upstream/data/img/_05.svg",
+      "sha256": "4accb54c2c36cbf9bda9b53cfbb7b76f44e710a1245a3a51302d94c94a7fbe81"
+    },
+    {
+      "path": "data/img/_06.svg",
+      "archive": "upstream/data/img/_06.svg",
+      "sha256": "9ab7b46ec9a42d0fa8cc30aad56b1216bc27b5180f770bd3d251d7cd490b85f0"
+    },
+    {
+      "path": "data/img/_07.svg",
+      "archive": "upstream/data/img/_07.svg",
+      "sha256": "3daab268ea5c3e8171ffe617d303285234c763ae75480cc12e58ea47bd01b08f"
+    },
+    {
+      "path": "data/img/_08.svg",
+      "archive": "upstream/data/img/_08.svg",
+      "sha256": "a8c3e0570cb29f82ceccb5607f4d520c7f1919fd2d7480c071f2631545a6cbac"
+    },
+    {
+      "path": "data/img/about.png",
+      "archive": "upstream/data/img/about.png",
+      "sha256": "54ea529052312bd70558f1bc44d64a582d8032b88ba0d7453fa1164dae299268"
+    },
+    {
+      "path": "data/img/about.svg",
+      "archive": "upstream/data/img/about.svg",
+      "sha256": "ed9c111473c36a3b0d6f3f79d2c5a347a6e00e0950a9464d5bb2334d9f165ecd"
+    },
+    {
+      "path": "data/img/add_selection_set.png",
+      "archive": "upstream/data/img/add_selection_set.png",
+      "sha256": "8ec7e311ca845ffd1afdfc2da6e7555dc5e6097f4af1a1e6cae2bb0c2f2aa862"
+    },
+    {
+      "path": "data/img/add_selection_set.svg",
+      "archive": "upstream/data/img/add_selection_set.svg",
+      "sha256": "4c5d229c101c19fa8467f4135f660be0c9f4f53ac8e139678ec797d7125e0a01"
+    },
+    {
+      "path": "data/img/add_to_selection_set.svg",
+      "archive": "upstream/data/img/add_to_selection_set.svg",
+      "sha256": "dcefac800064d75960c8d5c7cbe1cbe53dc85e992b0691e7e3539211f26a698b"
+    },
+    {
+      "path": "data/img/animation_offset.svg",
+      "archive": "upstream/data/img/animation_offset.svg",
+      "sha256": "02695c99553a282f68891abef90739523a1bc2ab65fa93978819151ddb3eeb1b"
+    },
+    {
+      "path": "data/img/auto_tangent.svg",
+      "archive": "upstream/data/img/auto_tangent.svg",
+      "sha256": "d067857604016dfd7ab0bb286c46a04b34acd552788b1ec750d528d148d61227"
+    },
+    {
+      "path": "data/img/bake_animation.svg",
+      "archive": "upstream/data/img/bake_animation.svg",
+      "sha256": "dc84f2c6e45a2cfaa49563414685545f25bea4f0cdb10438867c8ff4f5e8dfef"
+    },
+    {
+      "path": "data/img/blue_dot.png",
+      "archive": "upstream/data/img/blue_dot.png",
+      "sha256": "31d9ae69c3357999258e0cd50035ac331f24fca3a93566b5c39041ae3f814a24"
+    },
+    {
+      "path": "data/img/bouncy_curve.svg",
+      "archive": "upstream/data/img/bouncy_curve.svg",
+      "sha256": "10a05cb65bcdea4930e1fea8fc341023b2d17c31ff0ba4b7a8716225baf8f8de"
+    },
+    {
+      "path": "data/img/bug.png",
+      "archive": "upstream/data/img/bug.png",
+      "sha256": "e792bd52999a12ed9f59b380214035cd9edb469e4606365f63385cffbc2721b0"
+    },
+    {
+      "path": "data/img/bug.svg",
+      "archive": "upstream/data/img/bug.svg",
+      "sha256": "e1492ba3534773d4c668c43e79b2e86f7ba9404e03f266fbd70b669c568d980d"
+    },
+    {
+      "path": "data/img/camera.svg",
+      "archive": "upstream/data/img/camera.svg",
+      "sha256": "f113d3adf5f29d5211e519c9979521fecf657a766b5c5e5ffcba4bb6ad50e88b"
+    },
+    {
+      "path": "data/img/center.png",
+      "archive": "upstream/data/img/center.png",
+      "sha256": "26a5ae4c1fea5c034bafe1f13380cd5267d796134120426d97a5a10e67458729"
+    },
+    {
+      "path": "data/img/change_selection_set_color.svg",
+      "archive": "upstream/data/img/change_selection_set_color.svg",
+      "sha256": "d2d85a74b589f4dd922c099d36901e657ebad0f5a39308c4e9d4e8f7c4faa522"
+    },
+    {
+      "path": "data/img/close.png",
+      "archive": "upstream/data/img/close.png",
+      "sha256": "0e8cad7aaeb9606980c668ca2bf43a239ac864dd2dda78ebc227b97314f9ebcd"
+    },
+    {
+      "path": "data/img/copy_opposite.svg",
+      "archive": "upstream/data/img/copy_opposite.svg",
+      "sha256": "854e81119d595d92f1942bf895947d0818f500664d20706df78c1ec96257dfd2"
+    },
+    {
+      "path": "data/img/copy_paste_animation.svg",
+      "archive": "upstream/data/img/copy_paste_animation.svg",
+      "sha256": "906e81dd598bda86b3dd5708a45f37a18ecd3ddb8a20e286311b101e60b1c5fa"
+    },
+    {
+      "path": "data/img/copy_pose.svg",
+      "archive": "upstream/data/img/copy_pose.svg",
+      "sha256": "4f7f4955b1d5e5ac157119e1b413d3cbed56e606f3399e68e2c29e7705541fe9"
+    },
+    {
+      "path": "data/img/copy_worldspace_animation.svg",
+      "archive": "upstream/data/img/copy_worldspace_animation.svg",
+      "sha256": "9a3b6954c1c7e523debe47787987a27001c2312c0d00fa8b130680dfb9d19dfc"
+    },
+    {
+      "path": "data/img/copy_worldspace_frame_animation.svg",
+      "archive": "upstream/data/img/copy_worldspace_frame_animation.svg",
+      "sha256": "9f31c77056cccbd7762734365d998d9751ded36d8e4e8bd3997f8ce8965453b2"
+    },
+    {
+      "path": "data/img/cube.png",
+      "archive": "upstream/data/img/cube.png",
+      "sha256": "63ceaebbdeec69538ddc4fbbc93b35fe54ccdb9a9f5aacf96ae3c6bab7a2c975"
+    },
+    {
+      "path": "data/img/cube.svg",
+      "archive": "upstream/data/img/cube.svg",
+      "sha256": "9f64cabce8c305ea26c256b02d84b1bce20092c124a558302f9dd58470c4dd75"
+    },
+    {
+      "path": "data/img/customGraph.svg",
+      "archive": "upstream/data/img/customGraph.svg",
+      "sha256": "71b12a18c5f698f1cae42a499c3ea0738c348058df3bac17961b17fbe419dd09"
+    },
+    {
+      "path": "data/img/depth_mover.svg",
+      "archive": "upstream/data/img/depth_mover.svg",
+      "sha256": "5faeef9c3a0037253464c64aa9f4831022af3b5ff5992c8eb8a4482bcb964ece"
+    },
+    {
+      "path": "data/img/discord.svg",
+      "archive": "upstream/data/img/discord.svg",
+      "sha256": "c6833b7c837e5912a809cf7871782d9be37043eda683c260a154d71babfaf89b"
+    },
+    {
+      "path": "data/img/donate_01.svg",
+      "archive": "upstream/data/img/donate_01.svg",
+      "sha256": "f724b20e8e5a1a753f0442c01856b51d1b623990293eb7d7e4a10ae5c1fd1e51"
+    },
+    {
+      "path": "data/img/drop_down_arrow.svg",
+      "archive": "upstream/data/img/drop_down_arrow.svg",
+      "sha256": "2c06c001feb2f01aeb106941f4d4340556d30ccd3d2ddaa70d31423253b7fb0b"
+    },
+    {
+      "path": "data/img/enable.png",
+      "archive": "upstream/data/img/enable.png",
+      "sha256": "fc90692a2676c13f200fc93dd6c05c88af63216c50671e330447d98e7a50e2ee"
+    },
+    {
+      "path": "data/img/end_tangent_match.svg",
+      "archive": "upstream/data/img/end_tangent_match.svg",
+      "sha256": "7292a2e3f2136f360d08ff57d616d06f619660f8ab2aa6f1f8eb80cbe030b830"
+    },
+    {
+      "path": "data/img/eraser.png",
+      "archive": "upstream/data/img/eraser.png",
+      "sha256": "98281fc6421d271d0f3287a403176f54187ee16b10cf0268fb9cf37025ebacab"
+    },
+    {
+      "path": "data/img/eraser.svg",
+      "archive": "upstream/data/img/eraser.svg",
+      "sha256": "7164b98d760c4cbc2b57583332005bf14d4ba80286e73d10d24b17840acc9066"
+    },
+    {
+      "path": "data/img/green.png",
+      "archive": "upstream/data/img/green.png",
+      "sha256": "8687af760ac3383d55777b9eac300629136bff3ce3ee01adbe0336118d65582c"
+    },
+    {
+      "path": "data/img/green_dot.png",
+      "archive": "upstream/data/img/green_dot.png",
+      "sha256": "f71866a03e6fd45026600ea9b3bc6772243d5fd4555db277211615453bac878a"
+    },
+    {
+      "path": "data/img/grey_dot.png",
+      "archive": "upstream/data/img/grey_dot.png",
+      "sha256": "a353af6cac87e1de569b04be91cd47532eeaf228e0935a291f84dc28233c47a4"
+    },
+    {
+      "path": "data/img/help.svg",
+      "archive": "upstream/data/img/help.svg",
+      "sha256": "8665fefcec52333ce87bb669407e5de8d5b058856f8eec27186c4a355dc472a1"
+    },
+    {
+      "path": "data/img/help_menu.png",
+      "archive": "upstream/data/img/help_menu.png",
+      "sha256": "35cae8bfcffa7e1b5a523b63d9259eb03b74e47ac8298e37842094d33ebde2e0"
+    },
+    {
+      "path": "data/img/ibookmarks_menu.png",
+      "archive": "upstream/data/img/ibookmarks_menu.png",
+      "sha256": "db4c0147d96ffe3586334fbc4fc8d9a7af0d7f3b497932bfcf7cd137207efbdd"
+    },
+    {
+      "path": "data/img/isolate.png",
+      "archive": "upstream/data/img/isolate.png",
+      "sha256": "9b06667990c027cf59c590cf271a0ef921edd8b13e4d2a30d412e36dce1e5b61"
+    },
+    {
+      "path": "data/img/isolate.svg",
+      "archive": "upstream/data/img/isolate.svg",
+      "sha256": "af7d4c5059aca466d18e980661277bc135c363015a5169f8c90099a08527cbb5"
+    },
+    {
+      "path": "data/img/linear_tangent.svg",
+      "archive": "upstream/data/img/linear_tangent.svg",
+      "sha256": "5c7cb54abdbdd212248177b6e0eb4b70e8f8920f6cfd607412ecfe00e15da551"
+    },
+    {
+      "path": "data/img/link_relative.svg",
+      "archive": "upstream/data/img/link_relative.svg",
+      "sha256": "5a462dc288d9dba9d26c7c2e942ce347a926e713be7259f846f58ea245221003"
+    },
+    {
+      "path": "data/img/link_relative_on.svg",
+      "archive": "upstream/data/img/link_relative_on.svg",
+      "sha256": "2a4221c948b9412a6828bd5608081f8519636c791abe7fa6031e658dc659667d"
+    },
+    {
+      "path": "data/img/magnet.png",
+      "archive": "upstream/data/img/magnet.png",
+      "sha256": "f1a54dfa0cc8210e4a56020a5c10c71df7c647de8930d5cd714bfc6aaae0feff"
+    },
+    {
+      "path": "data/img/magnet.svg",
+      "archive": "upstream/data/img/magnet.svg",
+      "sha256": "e45fc757e4541c717fd3fc984f140504ff3331322cdb8d098896f8d05cbee033"
+    },
+    {
+      "path": "data/img/match_curve_cycle.svg",
+      "archive": "upstream/data/img/match_curve_cycle.svg",
+      "sha256": "a4040fb4d75de92124ecb7c7a91d711f2d9f8d7988db019c933cf6a600685c92"
+    },
+    {
+      "path": "data/img/mirror.svg",
+      "archive": "upstream/data/img/mirror.svg",
+      "sha256": "54847efc17d5a5d8cee3890f7a039d5a24cde995aadb96ef16c777a151fb0f70"
+    },
+    {
+      "path": "data/img/move_selection_set.svg",
+      "archive": "upstream/data/img/move_selection_set.svg",
+      "sha256": "5c44ddd091dd6579ae29fd90c166f3e2e43119d87e9b5abfa876bb821b7fa9fe"
+    },
+    {
+      "path": "data/img/paste_animation.svg",
+      "archive": "upstream/data/img/paste_animation.svg",
+      "sha256": "25b55dbe20de2cc65b860e6ceb8d2370c466a1a839c01e251436b13ae8799e06"
+    },
+    {
+      "path": "data/img/paste_insert_animation.svg",
+      "archive": "upstream/data/img/paste_insert_animation.svg",
+      "sha256": "b2c9acae2bbc0e456e58c478d21be70654a635fcecd2aede2d98b5b6aa5edcb0"
+    },
+    {
+      "path": "data/img/paste_opposite_animation.svg",
+      "archive": "upstream/data/img/paste_opposite_animation.svg",
+      "sha256": "bbc188c11411595f0a99ccefc87ae83cbe131582898e4882a4ff10e4666a1873"
+    },
+    {
+      "path": "data/img/paste_pose.svg",
+      "archive": "upstream/data/img/paste_pose.svg",
+      "sha256": "2d4371c0f8a0207a0714896cb3f51f8147def273eb170a4173d11b9867955b27"
+    },
+    {
+      "path": "data/img/paste_worldspace_animation.svg",
+      "archive": "upstream/data/img/paste_worldspace_animation.svg",
+      "sha256": "11d08b356fa2a7a57a9da89efdab316498bd760846995319f3a884c0fa3fec25"
+    },
+    {
+      "path": "data/img/paste_worldspace_frame_animation.svg",
+      "archive": "upstream/data/img/paste_worldspace_frame_animation.svg",
+      "sha256": "121cbfa0352b4095ca3410e648f0d2bdfbc0f092ff4f82c30316f4a0e25cb1a8"
+    },
+    {
+      "path": "data/img/playblast.svg",
+      "archive": "upstream/data/img/playblast.svg",
+      "sha256": "f98c693297e17a617b1dc797ca6ba7502f1c7a2757862059056b779d1a966db7"
+    },
+    {
+      "path": "data/img/pointer.svg",
+      "archive": "upstream/data/img/pointer.svg",
+      "sha256": "47d9dc9b210e3ff7ca447cfe3abac82a1162357117df7b1644f0900a73106eba"
+    },
+    {
+      "path": "data/img/reblock.svg",
+      "archive": "upstream/data/img/reblock.svg",
+      "sha256": "6f19367c41fce7e2ae7384124d5ad3086e28e5451a78114c90cbe9777e495697"
+    },
+    {
+      "path": "data/img/reblock_keys.png",
+      "archive": "upstream/data/img/reblock_keys.png",
+      "sha256": "9627dcacb9522573f79452e1b9ed867e42d7c01d51c2fd70a4a1d72f8e7da7fe"
+    },
+    {
+      "path": "data/img/red_dot.png",
+      "archive": "upstream/data/img/red_dot.png",
+      "sha256": "2647203e7c21f3124459c45871bf84b0bac9bc1ab221489395cb0910ee5563ef"
+    },
+    {
+      "path": "data/img/reload.png",
+      "archive": "upstream/data/img/reload.png",
+      "sha256": "21208ccd15fe30e6dd635bc09b258f522149e852f5ef9c2ebe829651e906570c"
+    },
+    {
+      "path": "data/img/remove_followCam.svg",
+      "archive": "upstream/data/img/remove_followCam.svg",
+      "sha256": "558c37052d093af3c62aa421167c1116d693891b25d1a6ceedb2a51257a2e804"
+    },
+    {
+      "path": "data/img/remove_from_selection_set.svg",
+      "archive": "upstream/data/img/remove_from_selection_set.svg",
+      "sha256": "ce7dde07c30d5a5ad1afeba5a1cac638cd28bfa4ca3fea74855e0f4b605b0a88"
+    },
+    {
+      "path": "data/img/remove_selection_set.svg",
+      "archive": "upstream/data/img/remove_selection_set.svg",
+      "sha256": "041cc44d2260829159537e86edd000d683f686420d0d5a257d9f1a79ab3b4b54"
+    },
+    {
+      "path": "data/img/remove_small.png",
+      "archive": "upstream/data/img/remove_small.png",
+      "sha256": "8e9e749d78f2d0cc1cb10eaf3fbbf323eefbd9a122ef42731b4fbf5f524432c5"
+    },
+    {
+      "path": "data/img/remove_tracer.svg",
+      "archive": "upstream/data/img/remove_tracer.svg",
+      "sha256": "558c37052d093af3c62aa421167c1116d693891b25d1a6ceedb2a51257a2e804"
+    },
+    {
+      "path": "data/img/rename_selection_set.svg",
+      "archive": "upstream/data/img/rename_selection_set.svg",
+      "sha256": "460d42a2bdb62eef26c2a2bf36a783cf8f249286b8e2ef31e5b6edf5571bb794"
+    },
+    {
+      "path": "data/img/ruler.svg",
+      "archive": "upstream/data/img/ruler.svg",
+      "sha256": "4940adb25c88884422aba8110fb1cf445016508b2d73cfa9c53aa08d4d759f39"
+    },
+    {
+      "path": "data/img/scripts_folder.svg",
+      "archive": "upstream/data/img/scripts_folder.svg",
+      "sha256": "b26cd84f8d475c0dc970d3db652e32e8373c4ac1c53ba91308d54d6aedfb05be"
+    },
+    {
+      "path": "data/img/select_animated_rig_controls.svg",
+      "archive": "upstream/data/img/select_animated_rig_controls.svg",
+      "sha256": "d3b00109a6ad8d6d9d3f22f1347e6107a1d91e42a63e35d4484a18fb28f0e211"
+    },
+    {
+      "path": "data/img/select_hierarchy.svg",
+      "archive": "upstream/data/img/select_hierarchy.svg",
+      "sha256": "7a54f91b4d3a1b21cb35bbef96942e26e6a481fed2a311d7dc754f5194574a73"
+    },
+    {
+      "path": "data/img/select_opposite.svg",
+      "archive": "upstream/data/img/select_opposite.svg",
+      "sha256": "940f13b2fdaa1d47d964dfb151a717eb662ddc640ba83614d81d0c51babc7bb4"
+    },
+    {
+      "path": "data/img/select_rig_controls.svg",
+      "archive": "upstream/data/img/select_rig_controls.svg",
+      "sha256": "2d82971d967ae301833154f294e182a68801f231dfc877c8311cfca8a67755b0"
+    },
+    {
+      "path": "data/img/selection_sets.svg",
+      "archive": "upstream/data/img/selection_sets.svg",
+      "sha256": "fd9a9ba12230af2e837d08476b7ca38e6278e5f4cb97c060756fb093ecffd46a"
+    },
+    {
+      "path": "data/img/selector.svg",
+      "archive": "upstream/data/img/selector.svg",
+      "sha256": "0c7673bef13de96218b5508cafdae04cbf6fd476d49bb7815e0bf4638bf86e11"
+    },
+    {
+      "path": "data/img/selector_30.svg",
+      "archive": "upstream/data/img/selector_30.svg",
+      "sha256": "96af1e66d7f001f25d2472af75f607319d842e226ed39a21ae33e38cca28c4a5"
+    },
+    {
+      "path": "data/img/selector_selection_set.svg",
+      "archive": "upstream/data/img/selector_selection_set.svg",
+      "sha256": "7ea1cca754a97f20f4f1e49d007351f088cbcc5b3fbb23ce2a17f806678b8d22"
+    },
+    {
+      "path": "data/img/settings.svg",
+      "archive": "upstream/data/img/settings.svg",
+      "sha256": "43db1e1e5c9ff58b2f77982b4c7c0495955365d2b4f67170311e68c8146f8968"
+    },
+    {
+      "path": "data/img/settings_update.svg",
+      "archive": "upstream/data/img/settings_update.svg",
+      "sha256": "f7c69f76ca075c7f6688f82ad24b007a516cc44f9711c1fb8aeca4463e4d59be"
+    },
+    {
+      "path": "data/img/share_keys.svg",
+      "archive": "upstream/data/img/share_keys.svg",
+      "sha256": "f4d9f52d0d680e99d9a97582012a7c11199186171dcf48c0f08974de657e1de6"
+    },
+    {
+      "path": "data/img/spline_tangent.svg",
+      "archive": "upstream/data/img/spline_tangent.svg",
+      "sha256": "141f3723254a1eb1341848fc5f0de294db1937b9049a939eb48914be95463ca4"
+    },
+    {
+      "path": "data/img/step_tangent.svg",
+      "archive": "upstream/data/img/step_tangent.svg",
+      "sha256": "53fd52467d540dd97e46665aad6af58b40e2f392598f25eb9461746cf0b65b3e"
+    },
+    {
+      "path": "data/img/stripe.png",
+      "archive": "upstream/data/img/stripe.png",
+      "sha256": "31d34ad5e43aa5143d69fb97349a68029b6029cd857929d0f13a92684a3f89a2"
+    },
+    {
+      "path": "data/img/temp_pivot.svg",
+      "archive": "upstream/data/img/temp_pivot.svg",
+      "sha256": "592cd2495b2ba87f6de54e25fa203398a5c9d64ccf01804895778853330f38e0"
+    },
+    {
+      "path": "data/img/TheKeyMachine_logo_250.png",
+      "archive": "upstream/data/img/TheKeyMachine_logo_250.png",
+      "sha256": "664f9e76cdda1ef2d68d5db711fb8a60f80cd2a9edb924ab26c0ffb0ee626721"
+    },
+    {
+      "path": "data/img/TheKeyMachine_logo_500.png",
+      "archive": "upstream/data/img/TheKeyMachine_logo_500.png",
+      "sha256": "57d7424215eec0de62c0106a46cbbe1e5f21d6c425c02aebcbd4bc47284b30eb"
+    },
+    {
+      "path": "data/img/TheKeyMachine_shelf_icon.png",
+      "archive": "upstream/data/img/TheKeyMachine_shelf_icon.png",
+      "sha256": "c2b30b380f3c5089b314d0dcb653073c024c83604ec74076440f7cb329d3a149"
+    },
+    {
+      "path": "data/img/tkm_node.png",
+      "archive": "upstream/data/img/tkm_node.png",
+      "sha256": "31e593c1f1ab443103f6379421f0ed3b6d23be7cb717c8957b9dab97b6463da9"
+    },
+    {
+      "path": "data/img/tools_folder.svg",
+      "archive": "upstream/data/img/tools_folder.svg",
+      "sha256": "18117416085ad968c59116852c9e8b417505bc7268ac5cd9f6b6748c173614d9"
+    },
+    {
+      "path": "data/img/tracer.png",
+      "archive": "upstream/data/img/tracer.png",
+      "sha256": "0a1ca73e63187b2da4cab116fb0899b4d4cc81dd575cc23630091b45968e3d45"
+    },
+    {
+      "path": "data/img/tracer.svg",
+      "archive": "upstream/data/img/tracer.svg",
+      "sha256": "db087b95a68b739cd8a36088c4e9e2ace3af0cd7286a493a1fb1086021bcd32c"
+    },
+    {
+      "path": "data/img/tracer_blue.svg",
+      "archive": "upstream/data/img/tracer_blue.svg",
+      "sha256": "a0872d42e2972e957405d7b56200fe22078d6005efbbf58c9357f3a8759120a3"
+    },
+    {
+      "path": "data/img/tracer_grey.svg",
+      "archive": "upstream/data/img/tracer_grey.svg",
+      "sha256": "b2ce9fcaaabdb1f7fc381162d404a4fa34e6595773e3d88e2b73de17b4567714"
+    },
+    {
+      "path": "data/img/tracer_red.svg",
+      "archive": "upstream/data/img/tracer_red.svg",
+      "sha256": "db087b95a68b739cd8a36088c4e9e2ace3af0cd7286a493a1fb1086021bcd32c"
+    },
+    {
+      "path": "data/img/tracer_refresh.svg",
+      "archive": "upstream/data/img/tracer_refresh.svg",
+      "sha256": "1d53d8aac7bf45e03e77a5e9a20f75bd5a06ba6c6d4ef2cbe02dfc736f5f3fd9"
+    },
+    {
+      "path": "data/img/tracer_select_offset.svg",
+      "archive": "upstream/data/img/tracer_select_offset.svg",
+      "sha256": "1766cdb834d1ed1a02edc610c0696e371ef6b36d51260183fcd0ef08356929cf"
+    },
+    {
+      "path": "data/img/tracer_set_color.svg",
+      "archive": "upstream/data/img/tracer_set_color.svg",
+      "sha256": "1124086f7980bd9c143bf8af3fa6159ebcb1684f5b75c9d497a57e99176d5539"
+    },
+    {
+      "path": "data/img/tracer_show_hide.svg",
+      "archive": "upstream/data/img/tracer_show_hide.svg",
+      "sha256": "2e3080713945b3b1ecc07d39ea4316246ea7def67c500a5dec7bdc2906e1c427"
+    },
+    {
+      "path": "data/img/trash.png",
+      "archive": "upstream/data/img/trash.png",
+      "sha256": "08cf853db308798bd23e6a383d7f6e1706fedfafb36099422f0bfdbeac0aa3a6"
+    },
+    {
+      "path": "data/img/trash.svg",
+      "archive": "upstream/data/img/trash.svg",
+      "sha256": "a0ba727ef0d6986bcac68a978544e14152944dd879838b24fa236173700f9930"
+    },
+    {
+      "path": "data/img/uninstall.svg",
+      "archive": "upstream/data/img/uninstall.svg",
+      "sha256": "8c2e6c330dad060b12955ace823754dc1d660e5dda7625cddf40a6e4ca96ed36"
+    },
+    {
+      "path": "data/img/uninstall_menu.png",
+      "archive": "upstream/data/img/uninstall_menu.png",
+      "sha256": "0e8cad7aaeb9606980c668ca2bf43a239ac864dd2dda78ebc227b97314f9ebcd"
+    },
+    {
+      "path": "data/img/unlock_license.png",
+      "archive": "upstream/data/img/unlock_license.png",
+      "sha256": "31e593c1f1ab443103f6379421f0ed3b6d23be7cb717c8957b9dab97b6463da9"
+    },
+    {
+      "path": "data/img/unlock_license.svg",
+      "archive": "upstream/data/img/unlock_license.svg",
+      "sha256": "e63aa6a3c099affaf3196e8266cfbb146fa9f3c7e77b5e34042a15d66e9902b8"
+    },
+    {
+      "path": "data/img/update.svg",
+      "archive": "upstream/data/img/update.svg",
+      "sha256": "d733ad414d174f132ce4e026f419828060d4b979acbc5453f33d66d945db09a6"
+    },
+    {
+      "path": "data/img/yellow_dot.png",
+      "archive": "upstream/data/img/yellow_dot.png",
+      "sha256": "f9cc533fba19af353b90fd6bb7822ad8048a2bb3b09f4db6e2af9a9ffbb4162e"
+    },
+    {
+      "path": "data/img/youtube.svg",
+      "archive": "upstream/data/img/youtube.svg",
+      "sha256": "d20fc6b916dc6f9ef185403b1514788c42abc6fb7365b3115a2258cfcca3fc99"
+    },
+    {
+      "path": "direct_translator.py",
+      "archive": "upstream/direct_translator.py.original",
+      "sha256": "dccac693567cd81f1283efddf1123cbf1083023e90e4c4ad768e142343ff2781"
+    },
+    {
+      "path": "license_gpl-3.0.txt",
+      "archive": "upstream/license_gpl-3.0.txt",
+      "sha256": "230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809"
+    },
+    {
+      "path": "mods/barMod.py",
+      "archive": "upstream/mods/barMod.py.original",
+      "sha256": "938a70a9e2ea4277640e717de8629963b45bacd8405142cb3bca0a0e24075c07"
+    },
+    {
+      "path": "mods/generalMod.py",
+      "archive": "upstream/mods/generalMod.py.original",
+      "sha256": "c04c654684418d167a9a7ad82c25a47e8c6cd396220089f8c04a7424d5a32a90"
+    },
+    {
+      "path": "mods/helperMod.py",
+      "archive": "upstream/mods/helperMod.py.original",
+      "sha256": "f0f04fa4d56e550213966d25418c50ebe2cf53ad22b7d14509a4a83312b93e34"
+    },
+    {
+      "path": "mods/hotkeysMod.py",
+      "archive": "upstream/mods/hotkeysMod.py.original",
+      "sha256": "215a163951cd8c72863ecf1bd1a2966aea0f1612abe66fef27728984f89139a9"
+    },
+    {
+      "path": "mods/keyToolsMod.py",
+      "archive": "upstream/mods/keyToolsMod.py.original",
+      "sha256": "be4e188ac6641d52e15d3ca267d6f97cbf28f36df7c687d8fff8503bd3a00d8c"
+    },
+    {
+      "path": "mods/mediaMod.py",
+      "archive": "upstream/mods/mediaMod.py.original",
+      "sha256": "77057ed0d814d91864a6a9b51e2b11e0ad461973abd4b6154456f4298166369f"
+    },
+    {
+      "path": "mods/selSetsMod.py",
+      "archive": "upstream/mods/selSetsMod.py.original",
+      "sha256": "5ef4ba004b853bf425d4e7ee648fd923bd519b1e8656834d73aa8c9de39af7dd"
+    },
+    {
+      "path": "mods/styleMod.py",
+      "archive": "upstream/mods/styleMod.py.original",
+      "sha256": "80446f498a08e08608c80e1668a20f7544577bac715e151909fcf2f07ea97cea"
+    },
+    {
+      "path": "mods/uiMod.py",
+      "archive": "upstream/mods/uiMod.py.original",
+      "sha256": "2bb7df0c1ea2560ad51a3f013ac424a65c94d917a23d5aaefb265ef88fbcbd88"
+    },
+    {
+      "path": "README_CN.md",
+      "archive": "upstream/README_CN.md",
+      "sha256": "ce194683a0a1b4dc089d66978d508018514f6a70dd02890580305cf3c9957f6c"
+    },
+    {
+      "path": "styleMod_cn.py",
+      "archive": "upstream/styleMod_cn.py.original",
+      "sha256": "d822553b813ecc47043f182e08f4ffdeb46aff766dee42dfa42d09e489372fae"
+    },
+    {
+      "path": "直接汉化说明.txt",
+      "archive": "upstream/直接汉化说明.txt",
+      "sha256": "4475fecb3562be9a9194bce9a0f6af52ce2f67f1266edd7bc15cb8d234214fdd"
+    }
+  ],
+  "license": "Supplied original source notices preserved; no redistribution grant inferred"
+}

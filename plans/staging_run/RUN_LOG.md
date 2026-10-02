@@ -811,3 +811,11 @@
 - world JSON严格有限/向量/matrix/重复key/范围/样本边界，全目标锁轴/外来驱动检查先于写入和cutKey，capture时间与选择在UndoChunk内恢复；完整新.wpose标准pose+world、.wanim world-only原pose分支或native custom动画anim.ma分支，保存异常保留新部分资产，外部文件不可Undo。覆盖历史失败恢复原资产本体+.history并保留failed半成品；成功旧版本不丢失，新v0002精确旧payload，历史碰撞拒绝静默删版本，未知stage/symlink拒绝。
 - 2离线+3隔离Maya2025+独立Qt未初始化Maya的完整LibraryWindow构造/Theme/菜单/本地化callback不深拷贝/原hooks接口与foreign恢复+临时完整layout/registry/domain/panel/fingerprint通过。初轮测试缺standalone初始化、构建补丁误插入guards.asset已修并重验；不把失败冒充通过。真实Maya GUI/生产复杂rig/镜像bake/custom native动画导出/history overwrite/cache/跨版本not_run，prepared_unverified。
 - 实际5h45%已用（剩55%）、周68%（剩32%）；继续the_key_machine。heartbeat暂停，不迁正式、不同步、不用卡、不购买。
+
+# 2026-10-02：TheKeyMachine完整候选，累计102/109
+
+- 186原文件精确归档，GPL3 0.1.4 build306完整toolbar/selection sets/customGraph/bar/keyTools/selSets/hotkeys/helper/general/ui/media/style、中文词典与全部图标/config/connect/cert资源；源函数catalog枚举原公开API及参数/默认/写入能力，Base/Schema/ToolResult/完整业务调用与独立future layout预制。无原目录依赖、补缺包init，源码/资源/许可完整，不用启动壳冒充最终候选。
+- 移除import时toolbar实例化/隐式reload/用户目录setup，显式固定独立data_root和MTB用户数据namespace、配置/偏好/connect AST literal导入。原loop线程改自有Qt主线程周期timer/singleShot、stop flags与native工作完整，reload清自有会话后更新literal配置并重建；汉化内存转换Maya控件与自有Qt widget，不改磁盘源。卸载=清本会话而非rmtree安装/Maya.env/userSetup，数据和helper nodes保留。
+- native模块局部open/os/shutil/json保护：限定自有root/明确Save Dialog路径、已有文件先exclusive精确backup/hash receipt、删除移.mtb_deleted、重复key/非有限/64MiB限制；默认不更新/上报。原写场景函数补全选择表预检，锁/reference/非动画驱动拒绝；捕获范围限10000帧。source errors即使原catch也返回不完整而非冒充成功，单invoke Undo与时间/非选择动作的selection恢复；UI/job/runtimeCommand只自有handle，命令前缀、foreign后来替换/未知删除保护。
+- 2离线+2隔离Maya2025原pose copy/paste/一次Undo、坏末项锁拒绝保持首对象、foreign node-delete/job-kill gate拒绝+独立Qt原完整module导入/资源/中文label/周期timer/关闭后取消singleShot/销毁自有widget+临时注册/domain/panel/fingerprint通过。standalone scriptJobs不可用，未把None当active GUI job；Qt已销毁wrapper用shiboken有效性核对，timer回调达终止predicate立即停止。真实Maya完整工具栏/全部source分支/图编辑器/复杂rig/镜像/micro/offset/真实callback生命周期/跨版本not_run，prepared_unverified。
+- 实际5h56%已用（剩44%）、周70%（剩30%）；继续08_utilities_system/floating_toolbar，heartbeat暂停，无正式迁移/同步/用卡/购买。

@@ -1,0 +1,3145 @@
+[
+  {
+    "id": "TheKeyMachine.core.customGraph.get_screen_resolution",
+    "module": "TheKeyMachine.core.customGraph",
+    "function": "get_screen_resolution",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 98,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.core.customGraph.apply_base_stylesheet",
+    "module": "TheKeyMachine.core.customGraph",
+    "function": "apply_base_stylesheet",
+    "parameters": [
+      {
+        "name": "button",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 119,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.core.customGraph.createCustomGraph",
+    "module": "TheKeyMachine.core.customGraph",
+    "function": "createCustomGraph",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 177,
+    "scene_writes": [
+      "keyframe",
+      "setKeyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.core.toolbar_patch.apply_chinese_patch",
+    "module": "TheKeyMachine.core.toolbar_patch",
+    "function": "apply_chinese_patch",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 21,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.core.toolbar_patch.patch_toolbar_file",
+    "module": "TheKeyMachine.core.toolbar_patch",
+    "function": "patch_toolbar_file",
+    "parameters": [
+      {
+        "name": "file_path",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 78,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.core.toolbar_patch.patch_labels",
+    "module": "TheKeyMachine.core.toolbar_patch",
+    "function": "patch_labels",
+    "parameters": [
+      {
+        "name": "content",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 105,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.core.toolbar_patch.patch_button_labels",
+    "module": "TheKeyMachine.core.toolbar_patch",
+    "function": "patch_button_labels",
+    "parameters": [
+      {
+        "name": "content",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 129,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.core.toolbar_patch.reload_toolbar",
+    "module": "TheKeyMachine.core.toolbar_patch",
+    "function": "reload_toolbar",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 146,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.get_screen_resolution",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "get_screen_resolution",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 73,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.set_temp_timeslider_colors",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "set_temp_timeslider_colors",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 95,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.restore_timeslider_colors",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "restore_timeslider_colors",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 123,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.openCustomGraph",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "openCustomGraph",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 145,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.mod_delete_animation",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "mod_delete_animation",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 155,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.delete_time_slider_animation",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "delete_time_slider_animation",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 167,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.delete_animation",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "delete_animation",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 181,
+    "scene_writes": [
+      "cutKey"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.createLocator",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "createLocator",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 207,
+    "scene_writes": [
+      "group",
+      "parent",
+      "rename",
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.selectTempLocators",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "selectTempLocators",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 241,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.deleteTempLocators",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "deleteTempLocators",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 254,
+    "scene_writes": [
+      "delete"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.getSelectedCurves",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "getSelectedCurves",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 270,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.get_graph_editor_selected_keyframes",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "get_graph_editor_selected_keyframes",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 293,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.setTangent",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "setTangent",
+    "parameters": [
+      {
+        "name": "tangent_type",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 306,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.align_selected_objects",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "align_selected_objects",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 320,
+    "scene_writes": [
+      "setKeyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.toggle_down_one_level",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "toggle_down_one_level",
+    "parameters": [
+      {
+        "name": "value",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 388,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.get_root_node",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "get_root_node",
+    "parameters": [
+      {
+        "name": "node",
+        "required": true
+      },
+      {
+        "name": "down_one_level",
+        "required": false,
+        "default": false
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 395,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.isolate_master",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "isolate_master",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 419,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.select_curves_with_ctrl",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "select_curves_with_ctrl",
+    "parameters": [
+      {
+        "name": "obj",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 531,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.selectHierarchy",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "selectHierarchy",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 550,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.create_temp_pivot",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "create_temp_pivot",
+    "parameters": [
+      {
+        "name": "use_saved_position",
+        "required": false,
+        "default": false
+      }
+    ],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 573,
+    "scene_writes": [
+      "createNode",
+      "delete",
+      "parent",
+      "setAttr",
+      "xform"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.mod_copy_worldspace_animation",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "mod_copy_worldspace_animation",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 850,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.color_copy_worldspace_animation",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "color_copy_worldspace_animation",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 862,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.color_paste_worldspace_animation",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "color_paste_worldspace_animation",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 869,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.copy_worldspace_animation",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "copy_worldspace_animation",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 875,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.copy_range_worldspace_animation",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "copy_range_worldspace_animation",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 947,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.copy_worldspace_single_frame",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "copy_worldspace_single_frame",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1023,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.paste_worldspace_single_frame",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "paste_worldspace_single_frame",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1053,
+    "scene_writes": [
+      "xform"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.paste_worldspace_animation",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "paste_worldspace_animation",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1081,
+    "scene_writes": [
+      "cutKey",
+      "setKeyframe",
+      "xform"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.mod_tracer",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "mod_tracer",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1143,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.create_tracer",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "create_tracer",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1163,
+    "scene_writes": [
+      "createNode",
+      "delete",
+      "disconnectAttr",
+      "parent",
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.select_tracer_offset_node",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "select_tracer_offset_node",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1215,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.remove_tracer_node",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "remove_tracer_node",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1222,
+    "scene_writes": [
+      "delete"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.tracer_connected",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "tracer_connected",
+    "parameters": [
+      {
+        "name": "connected",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "update_cb",
+        "required": false,
+        "default": null
+      }
+    ],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1229,
+    "scene_writes": [
+      "connectAttr",
+      "disconnectAttr",
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.tracer_update_checkbox",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "tracer_update_checkbox",
+    "parameters": [
+      {
+        "name": "value",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1253,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.tracer_refresh",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "tracer_refresh",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1258,
+    "scene_writes": [
+      "connectAttr",
+      "disconnectAttr",
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.set_tracer_blue_color",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "set_tracer_blue_color",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1273,
+    "scene_writes": [
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.set_tracer_red_color",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "set_tracer_red_color",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1282,
+    "scene_writes": [
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.set_tracer_grey_color",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "set_tracer_grey_color",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1291,
+    "scene_writes": [
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.tracer_show_hide",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "tracer_show_hide",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1300,
+    "scene_writes": [
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.create_follow_cam",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "create_follow_cam",
+    "parameters": [
+      {
+        "name": "translation",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "rotation",
+        "required": false,
+        "default": true
+      }
+    ],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1315,
+    "scene_writes": [
+      "delete",
+      "group",
+      "parent",
+      "rename"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.remove_followCam",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "remove_followCam",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1388,
+    "scene_writes": [
+      "delete"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.selektor_window",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "selektor_window",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1414,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.select_objects_from_list",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "select_objects_from_list",
+    "parameters": [
+      {
+        "name": "list_name",
+        "required": true
+      }
+    ],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1428,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.reload_selected_objects",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "reload_selected_objects",
+    "parameters": [
+      {
+        "name": "list_name",
+        "required": true
+      }
+    ],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1435,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.select_rig_controls",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "select_rig_controls",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1450,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.select_animated_rig_controls",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "select_animated_rig_controls",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1513,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.activeCamera",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "activeCamera",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1607,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.depth_mover",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "depth_mover",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1714,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.gimbal_fixer_window",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "gimbal_fixer_window",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1745,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.update_rotation_order",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "update_rotation_order",
+    "parameters": [
+      {
+        "name": "window",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1756,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.rotate_gimbal_state",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "rotate_gimbal_state",
+    "parameters": [
+      {
+        "name": "obj",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1808,
+    "scene_writes": [
+      "delete",
+      "xform"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.get_gimbal_quality",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "get_gimbal_quality",
+    "parameters": [
+      {
+        "name": "tolerances",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1819,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.gimbal_tolerence",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "gimbal_tolerence",
+    "parameters": [
+      {
+        "name": "obj",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1824,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.get_order_from_button",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "get_order_from_button",
+    "parameters": [
+      {
+        "name": "button",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1830,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.xyz",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "xyz",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1833,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.yzx",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "yzx",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1836,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.zxy",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "zxy",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1839,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.xzy",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "xzy",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1842,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.yxz",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "yxz",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1845,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.zyx",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "zyx",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1848,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.convert_rotation_order",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "convert_rotation_order",
+    "parameters": [
+      {
+        "name": "rot_order",
+        "required": false,
+        "default": "zxy"
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1851,
+    "scene_writes": [
+      "setKeyframe",
+      "xform"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.gimbal_fixer_build",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "gimbal_fixer_build",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1912,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.micro_move_copy_animation",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "micro_move_copy_animation",
+    "parameters": [
+      {
+        "name": "object_name",
+        "required": true
+      },
+      {
+        "name": "attributes",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 2255,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.micro_move_paste_animation",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "micro_move_paste_animation",
+    "parameters": [
+      {
+        "name": "object_name",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 2272,
+    "scene_writes": [
+      "setKeyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.micro_move_attribute_callback_function",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "micro_move_attribute_callback_function",
+    "parameters": [
+      {
+        "name": "msg",
+        "required": true
+      },
+      {
+        "name": "plug",
+        "required": true
+      },
+      {
+        "name": "other_plug",
+        "required": true
+      },
+      {
+        "name": "client_data",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 2285,
+    "scene_writes": [
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.add_micro_move_callback",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "add_micro_move_callback",
+    "parameters": [
+      {
+        "name": "object_name",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 2298,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.micro_move_pre_drag",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "micro_move_pre_drag",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 2307,
+    "scene_writes": [
+      "connectAttr",
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.micro_move_post_drag",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "micro_move_post_drag",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 2350,
+    "scene_writes": [
+      "delete",
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.remove_micro_move_callbacks",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "remove_micro_move_callbacks",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 2385,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.micro_move_post_drag_deferred",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "micro_move_post_drag_deferred",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 2391,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.micro_rotate_copy_animation",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "micro_rotate_copy_animation",
+    "parameters": [
+      {
+        "name": "object_name",
+        "required": true
+      },
+      {
+        "name": "attributes",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 2408,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.micro_rotate_paste_animation",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "micro_rotate_paste_animation",
+    "parameters": [
+      {
+        "name": "object_name",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 2425,
+    "scene_writes": [
+      "setKeyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.micro_rotate_pack_funtion",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "micro_rotate_pack_funtion",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 2438,
+    "scene_writes": [
+      "connectAttr",
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.micro_rotate_pre_drag",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "micro_rotate_pre_drag",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 2502,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.micro_rotate_post_deferred",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "micro_rotate_post_deferred",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 2506,
+    "scene_writes": [
+      "delete",
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.remove_micro_rotate_callbacks",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "remove_micro_rotate_callbacks",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 2543,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.micro_rotate_post_drag",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "micro_rotate_post_drag",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 2549,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.barMod.activate_micro_move",
+    "module": "TheKeyMachine.mods.barMod",
+    "function": "activate_micro_move",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 2557,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.load_config",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "load_config",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 55,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.get_thekeymachine_version",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "get_thekeymachine_version",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 104,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.get_thekeymachine_build_version",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "get_thekeymachine_build_version",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 108,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.get_thekeymachine_codename",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "get_thekeymachine_codename",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 112,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.get_mirror_exceptions_file",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "get_mirror_exceptions_file",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 122,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.get_mirror_exceptions_folder",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "get_mirror_exceptions_folder",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 127,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.get_set_default_data_file",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "get_set_default_data_file",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 133,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.get_set_default_data_folder",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "get_set_default_data_folder",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 138,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.get_copy_paste_animation_file",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "get_copy_paste_animation_file",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 143,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.get_copy_paste_pose_file",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "get_copy_paste_pose_file",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 150,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.get_temp_pivot_data_file",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "get_temp_pivot_data_file",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 157,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.get_temp_pivot_data_folder",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "get_temp_pivot_data_folder",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 162,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.get_copy_link_data_file",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "get_copy_link_data_file",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 167,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.get_copy_link_data_folder",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "get_copy_link_data_folder",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 172,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.get_copy_worldspace_data_file",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "get_copy_worldspace_data_file",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 177,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.get_copy_worldspace_data_folder",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "get_copy_worldspace_data_folder",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 182,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.get_copy_worldspace_single_frame_data_file",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "get_copy_worldspace_single_frame_data_file",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 187,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.get_copy_worldspace_single_frame_data_folder",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "get_copy_worldspace_single_frame_data_folder",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 192,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.getImage",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "getImage",
+    "parameters": [
+      {
+        "name": "image",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 200,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.create_TheKeyMachine_node",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "create_TheKeyMachine_node",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 207,
+    "scene_writes": [
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.create_ibookmarks_node",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "create_ibookmarks_node",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 241,
+    "scene_writes": [
+      "createNode",
+      "parent",
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.get_local_config_file",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "get_local_config_file",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 264,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.get_maya_window_size",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "get_maya_window_size",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 274,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.get_maya_window_geometry",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "get_maya_window_geometry",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 286,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.open_url",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "open_url",
+    "parameters": [
+      {
+        "name": "url",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 292,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.generalMod.open_file",
+    "module": "TheKeyMachine.mods.generalMod",
+    "function": "open_file",
+    "parameters": [
+      {
+        "name": "sub_directory",
+        "required": true
+      },
+      {
+        "name": "file_name",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 297,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.helperMod.getImage",
+    "module": "TheKeyMachine.mods.helperMod",
+    "function": "getImage",
+    "parameters": [
+      {
+        "name": "image",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 45,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.helperMod.get_screen_resolution",
+    "module": "TheKeyMachine.mods.helperMod",
+    "function": "get_screen_resolution",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 67,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.helperMod.get_font_sizes",
+    "module": "TheKeyMachine.mods.helperMod",
+    "function": "get_font_sizes",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 88,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.hotkeysMod.create_TheKeyMachine_hotkeys",
+    "module": "TheKeyMachine.mods.hotkeysMod",
+    "function": "create_TheKeyMachine_hotkeys",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 34,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.hotkeysMod.set_smart_key",
+    "module": "TheKeyMachine.mods.hotkeysMod",
+    "function": "set_smart_key",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 215,
+    "scene_writes": [
+      "setKeyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.hotkeysMod.smart_rotation_manipulator",
+    "module": "TheKeyMachine.mods.hotkeysMod",
+    "function": "smart_rotation_manipulator",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 236,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.hotkeysMod.smart_rotation_manipulator_release",
+    "module": "TheKeyMachine.mods.hotkeysMod",
+    "function": "smart_rotation_manipulator_release",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 260,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.hotkeysMod.smart_translate_manipulator",
+    "module": "TheKeyMachine.mods.hotkeysMod",
+    "function": "smart_translate_manipulator",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 269,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.hotkeysMod.smart_translate_manipulator_release",
+    "module": "TheKeyMachine.mods.hotkeysMod",
+    "function": "smart_translate_manipulator_release",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 291,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.hotkeysMod.add_inbetween",
+    "module": "TheKeyMachine.mods.hotkeysMod",
+    "function": "add_inbetween",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 298,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.hotkeysMod.remove_inbetween",
+    "module": "TheKeyMachine.mods.hotkeysMod",
+    "function": "remove_inbetween",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 305,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.hotkeysMod.move_keyframes_left",
+    "module": "TheKeyMachine.mods.hotkeysMod",
+    "function": "move_keyframes_left",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 312,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.hotkeysMod.move_keyframes_right",
+    "module": "TheKeyMachine.mods.hotkeysMod",
+    "function": "move_keyframes_right",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 321,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.get_screen_resolution",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "get_screen_resolution",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 78,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.clear_timeslider_selection",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "clear_timeslider_selection",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 100,
+    "scene_writes": [
+      "createNode",
+      "delete"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.get_time_range_selected",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "get_time_range_selected",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 116,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.get_selected_time_range",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "get_selected_time_range",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 129,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.get_graph_editor_selected_keyframes",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "get_graph_editor_selected_keyframes",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 141,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.getSelectedCurves",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "getSelectedCurves",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 153,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.get_selected_channels",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "get_selected_channels",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 177,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.find_root_in_selection",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "find_root_in_selection",
+    "parameters": [
+      {
+        "name": "objects",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 192,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.find_all_roots_in_selection",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "find_all_roots_in_selection",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 215,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.mod_link_objects",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "mod_link_objects",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 245,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.load_relative_data",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "load_relative_data",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 261,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.copy_link",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "copy_link",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 277,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.paste_link",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "paste_link",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 324,
+    "scene_writes": [
+      "setKeyframe",
+      "xform"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.paste_link_callback",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "paste_link_callback",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 379,
+    "scene_writes": [
+      "xform"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.add_link_obj_callbacks",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "add_link_obj_callbacks",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 420,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.attribute_callback_function",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "attribute_callback_function",
+    "parameters": [
+      {
+        "name": "msg",
+        "required": true
+      },
+      {
+        "name": "plug",
+        "required": true
+      },
+      {
+        "name": "otherPlug",
+        "required": true
+      },
+      {
+        "name": "clientData",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 449,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.time_callback_function",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "time_callback_function",
+    "parameters": [
+      {
+        "name": "clientData",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 461,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.remove_link_obj_callbacks",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "remove_link_obj_callbacks",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 472,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.share_keys",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "share_keys",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 493,
+    "scene_writes": [
+      "cutKey",
+      "setKeyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.reblock_move",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "reblock_move",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 544,
+    "scene_writes": [
+      "cutKey",
+      "keyframe",
+      "setKeyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.reblock_insert",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "reblock_insert",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 637,
+    "scene_writes": [
+      "cutKey",
+      "setKeyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.bake_animation",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "bake_animation",
+    "parameters": [
+      {
+        "name": "bake_interval",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "window",
+        "required": false,
+        "default": null
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 682,
+    "scene_writes": [
+      "bakeResults"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.bake_anim_window",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "bake_anim_window",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 731,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.delete_keyframes_before_current_time",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "delete_keyframes_before_current_time",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 897,
+    "scene_writes": [
+      "cutKey"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.delete_keyframes_after_current_time",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "delete_keyframes_after_current_time",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 922,
+    "scene_writes": [
+      "cutKey"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.select_all_animation_curves",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "select_all_animation_curves",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 947,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.clear_selected_keys",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "clear_selected_keys",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 968,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.hotkey_move_keyframes_left",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "hotkey_move_keyframes_left",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 975,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.hotkey_move_keyframes_right",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "hotkey_move_keyframes_right",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 981,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.add_inbetween",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "add_inbetween",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 988,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.remove_inbetween",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "remove_inbetween",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 995,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.move_keyframes_in_range",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "move_keyframes_in_range",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1002,
+    "scene_writes": [
+      "keyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.handle_autokey_start",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "handle_autokey_start",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1095,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.handle_autokey_end",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "handle_autokey_end",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1103,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.blend_pull_and_push",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "blend_pull_and_push",
+    "parameters": [
+      {
+        "name": "value",
+        "required": true
+      },
+      {
+        "name": "objs",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "selection",
+        "required": false,
+        "default": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1114,
+    "scene_writes": [
+      "keyframe",
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.cache_keyframe_data",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "cache_keyframe_data",
+    "parameters": [
+      {
+        "name": "objs",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1220,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.blend_to_key",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "blend_to_key",
+    "parameters": [
+      {
+        "name": "percentage",
+        "required": true
+      },
+      {
+        "name": "objs",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "selection",
+        "required": false,
+        "default": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1266,
+    "scene_writes": [
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.cache_blend_frame_data",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "cache_blend_frame_data",
+    "parameters": [
+      {
+        "name": "objs",
+        "required": true
+      },
+      {
+        "name": "left_frame",
+        "required": true
+      },
+      {
+        "name": "right_frame",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1317,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.blend_to_frame",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "blend_to_frame",
+    "parameters": [
+      {
+        "name": "percentage",
+        "required": true
+      },
+      {
+        "name": "left_frame",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "right_frame",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "objs",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "selection",
+        "required": false,
+        "default": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1354,
+    "scene_writes": [
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.blendSliderReset",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "blendSliderReset",
+    "parameters": [
+      {
+        "name": "slider",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1409,
+    "scene_writes": [
+      "setKeyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.prepare_tween_data",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "prepare_tween_data",
+    "parameters": [
+      {
+        "name": "objs",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "attrs",
+        "required": false,
+        "default": null
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1451,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.tween",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "tween",
+    "parameters": [
+      {
+        "name": "percentage",
+        "required": true
+      },
+      {
+        "name": "slider_name",
+        "required": false,
+        "default": "bar_tween_slider"
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1503,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.apply_tween_adjustments",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "apply_tween_adjustments",
+    "parameters": [
+      {
+        "name": "adjustments",
+        "required": true
+      },
+      {
+        "name": "currentTime",
+        "required": true
+      },
+      {
+        "name": "tween_frame_data_cache",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1541,
+    "scene_writes": [
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.tweenSliderReset",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "tweenSliderReset",
+    "parameters": [
+      {
+        "name": "slider",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1557,
+    "scene_writes": [
+      "setAttr",
+      "setKeyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.deleteStaticCurves",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "deleteStaticCurves",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1601,
+    "scene_writes": [
+      "delete"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.snapKeyframes",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "snapKeyframes",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1631,
+    "scene_writes": [
+      "cutKey",
+      "setKeyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.shareKeys",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "shareKeys",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1681,
+    "scene_writes": [
+      "setKeyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.match_keys",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "match_keys",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1718,
+    "scene_writes": [
+      "cutKey",
+      "setKeyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.flipCurves",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "flipCurves",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1747,
+    "scene_writes": [
+      "keyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.flipKeyGroup",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "flipKeyGroup",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1765,
+    "scene_writes": [
+      "keyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.flipFromKeyframe",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "flipFromKeyframe",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1792,
+    "scene_writes": [
+      "keyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.mod_overlap_animation",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "mod_overlap_animation",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1812,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.get_selected_objects",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "get_selected_objects",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1825,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.overlap_forward",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "overlap_forward",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1832,
+    "scene_writes": [
+      "keyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.overlap_backward",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "overlap_backward",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1861,
+    "scene_writes": [
+      "keyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.isolateCurve",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "isolateCurve",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1895,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.toggleMute",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "toggleMute",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1906,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.toggleLock",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "toggleLock",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1929,
+    "scene_writes": [
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.reset_objects_mods",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "reset_objects_mods",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1963,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.save_default_values",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "save_default_values",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1977,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.restore_default_data",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "restore_default_data",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 2022,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.remove_default_values_for_selected_object",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "remove_default_values_for_selected_object",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 2038,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.reset_object_values",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "reset_object_values",
+    "parameters": [
+      {
+        "name": "reset_translations",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "reset_rotations",
+        "required": false,
+        "default": false
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 2081,
+    "scene_writes": [
+      "disconnectAttr",
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.get_default_value",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "get_default_value",
+    "parameters": [
+      {
+        "name": "node",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 2151,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.get_default_value_main",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "get_default_value_main",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 2173,
+    "scene_writes": [
+      "keyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.get_namespace_from_selection",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "get_namespace_from_selection",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 2192,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.select_objects_from_selected_curves",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "select_objects_from_selected_curves",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 2202,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.find_opposite_name",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "find_opposite_name",
+    "parameters": [
+      {
+        "name": "name",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 2282,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.selectOpposite",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "selectOpposite",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 2301,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.copyOpposite",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "copyOpposite",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 2337,
+    "scene_writes": [
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.load_exceptions",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "load_exceptions",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 2403,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.mirror",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "mirror",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 2413,
+    "scene_writes": [
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.mirror_to_opposite",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "mirror_to_opposite",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 2554,
+    "scene_writes": [
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.add_mirror_invert_exception",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "add_mirror_invert_exception",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 2678,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.add_mirror_keep_exception",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "add_mirror_keep_exception",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 2728,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.remove_mirror_invert_exception",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "remove_mirror_invert_exception",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 2780,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.copy_animation",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "copy_animation",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 2830,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.paste_animation",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "paste_animation",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 2890,
+    "scene_writes": [
+      "cutKey",
+      "setKeyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.paste_insert_animation",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "paste_insert_animation",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 2928,
+    "scene_writes": [
+      "setKeyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.paste_opposite_animation",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "paste_opposite_animation",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 2969,
+    "scene_writes": [
+      "cutKey",
+      "setKeyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.copy_pose",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "copy_pose",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 3033,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.paste_pose",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "paste_pose",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 3079,
+    "scene_writes": [
+      "setAttr"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.getSelectedCurves",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "getSelectedCurves",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 3141,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.match_curve_cycle",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "match_curve_cycle",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 3165,
+    "scene_writes": [
+      "keyframe"
+    ]
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.get_graph_editor_selected_keyframes",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "get_graph_editor_selected_keyframes",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 3195,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.calculateTangentAngle",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "calculateTangentAngle",
+    "parameters": [
+      {
+        "name": "curve",
+        "required": true
+      },
+      {
+        "name": "time1",
+        "required": true
+      },
+      {
+        "name": "value1",
+        "required": true
+      },
+      {
+        "name": "time2",
+        "required": true
+      },
+      {
+        "name": "value2",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 3206,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.keyToolsMod.bouncy_tangets",
+    "module": "TheKeyMachine.mods.keyToolsMod",
+    "function": "bouncy_tangets",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 3214,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.mediaMod.getImage",
+    "module": "TheKeyMachine.mods.mediaMod",
+    "function": "getImage",
+    "parameters": [
+      {
+        "name": "image",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 35,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.selSetsMod.set_button_value",
+    "module": "TheKeyMachine.mods.selSetsMod",
+    "function": "set_button_value",
+    "parameters": [
+      {
+        "name": "button_name",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 60,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.selSetsMod.lock_button_selection",
+    "module": "TheKeyMachine.mods.selSetsMod",
+    "function": "lock_button_selection",
+    "parameters": [
+      {
+        "name": "button_name",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 70,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.selSetsMod.unlock_button_selection",
+    "module": "TheKeyMachine.mods.selSetsMod",
+    "function": "unlock_button_selection",
+    "parameters": [
+      {
+        "name": "button_name",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 78,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.selSetsMod.load_button_selection",
+    "module": "TheKeyMachine.mods.selSetsMod",
+    "function": "load_button_selection",
+    "parameters": [
+      {
+        "name": "button_name",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 87,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.selSetsMod.load_button_selections",
+    "module": "TheKeyMachine.mods.selSetsMod",
+    "function": "load_button_selections",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 100,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.selSetsMod.add_button_selection",
+    "module": "TheKeyMachine.mods.selSetsMod",
+    "function": "add_button_selection",
+    "parameters": [
+      {
+        "name": "button_name",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 109,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.selSetsMod.remove_button_selection",
+    "module": "TheKeyMachine.mods.selSetsMod",
+    "function": "remove_button_selection",
+    "parameters": [
+      {
+        "name": "button_name",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 135,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.selSetsMod.handle_button_selection",
+    "module": "TheKeyMachine.mods.selSetsMod",
+    "function": "handle_button_selection",
+    "parameters": [
+      {
+        "name": "button_name",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 162,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.selSetsMod.save_button_selections",
+    "module": "TheKeyMachine.mods.selSetsMod",
+    "function": "save_button_selections",
+    "parameters": [
+      {
+        "name": "button_selections",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 174,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.styleMod.translate",
+    "module": "TheKeyMachine.mods.styleMod",
+    "function": "translate",
+    "parameters": [
+      {
+        "name": "text",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 115,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.getImage",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "getImage",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 85,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.toggle_shelf",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "toggle_shelf",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 94,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.ref",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "ref",
+    "parameters": [
+      {
+        "name": "value",
+        "required": true
+      },
+      {
+        "name": "widget",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 98,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.desactivado",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "desactivado",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 102,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.reloadUI",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "reloadUI",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 106,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.getUiName",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "getUiName",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 110,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.get_screen_resolution",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "get_screen_resolution",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 115,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.filterMode_sync_on",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "filterMode_sync_on",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 179,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.filterMode_sync_off",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "filterMode_sync_off",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 182,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.customGraph_filter_mods",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "customGraph_filter_mods",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 186,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.uninstall",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "uninstall",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 203,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.accion_temp_pivot",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "accion_temp_pivot",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 309,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.ejecutar_accion",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "ejecutar_accion",
+    "parameters": [
+      {
+        "name": "identificador",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 361,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.guardar_configuracion_botones",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "guardar_configuracion_botones",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 402,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.leer_configuracion_orbit",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "leer_configuracion_orbit",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 425,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.orbit_window",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "orbit_window",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 596,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.orbit_window_close",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "orbit_window_close",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 749,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.donate_window",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "donate_window",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 761,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.about_window",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "about_window",
+    "parameters": [],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 901,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.on_send_click",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "on_send_click",
+    "parameters": [
+      {
+        "name": "name_input",
+        "required": true
+      },
+      {
+        "name": "email_input",
+        "required": true
+      },
+      {
+        "name": "explanation_textbox",
+        "required": true
+      },
+      {
+        "name": "script_error_textbox",
+        "required": true
+      },
+      {
+        "name": "confirmation_label",
+        "required": true
+      },
+      {
+        "name": "window",
+        "required": true
+      },
+      {
+        "name": "send_button",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1058,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.send_bug_report",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "send_bug_report",
+    "parameters": [
+      {
+        "name": "name",
+        "required": true
+      },
+      {
+        "name": "email",
+        "required": true
+      },
+      {
+        "name": "explanation",
+        "required": true
+      },
+      {
+        "name": "script_error",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1078,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.validate_form",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "validate_form",
+    "parameters": [
+      {
+        "name": "name",
+        "required": true
+      },
+      {
+        "name": "explanation",
+        "required": true
+      }
+    ],
+    "varargs": false,
+    "varkw": false,
+    "source_line": 1113,
+    "scene_writes": []
+  },
+  {
+    "id": "TheKeyMachine.mods.uiMod.bug_report_window",
+    "module": "TheKeyMachine.mods.uiMod",
+    "function": "bug_report_window",
+    "parameters": [],
+    "varargs": true,
+    "varkw": false,
+    "source_line": 1118,
+    "scene_writes": []
+  }
+]

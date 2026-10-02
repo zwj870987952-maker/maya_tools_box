@@ -1,0 +1,60 @@
+TheKeyMachine 直接汉化说明
+==========================
+
+这是一个将TheKeyMachine工具直接汉化为中文界面的工具，无需额外的补丁安装和其他复杂步骤。
+现在提供了全面的汉化方案，不仅包括主界面，还包括所有模块的文本内容。
+
+使用方法
+--------
+
+1. 确保已经安装好TheKeyMachine并能正常使用
+2. 将以下文件放置在对应位置：
+   - styleMod_cn.py 文件复制到 TheKeyMachine/ 主目录中
+   - direct_translator.py 文件复制到 TheKeyMachine/ 主目录下
+
+3. 在Maya中打开脚本编辑器(Script Editor)
+4. 执行以下Python代码：
+   ```python
+   import TheKeyMachine.direct_translator
+   print(TheKeyMachine.direct_translator.direct_translate())
+   ```
+
+5. 如果看到"汉化成功！TheKeyMachine界面已改为中文。所有模块文件已汉化。"的消息，表示汉化成功
+6. 重新启动TheKeyMachine工具即可看到中文界面
+
+注意事项
+--------
+
+- 此工具会自动备份原始文件，备份文件名为:
+  - TheKeyMachine/core/toolbar_original.py
+  - TheKeyMachine/mods/barMod_original.py
+  - TheKeyMachine/mods/styleMod_original.py
+  - TheKeyMachine/mods/uiMod_original.py
+  - TheKeyMachine/mods/helperMod_original.py
+  - TheKeyMachine/mods/keyToolsMod_original.py
+
+- 如需恢复英文界面，只需将备份文件重命名回原来的文件名即可
+  例如：将 toolbar_original.py 重命名为 toolbar.py
+
+- 如果使用过程中遇到问题，请确保：
+  1. 有足够的文件权限
+  2. TheKeyMachine已经正确安装
+  3. 文件放在了正确的位置
+
+汉化内容
+--------
+此次汉化包含以下全面的中文元素：
+- 工具栏上的所有菜单项和按钮标签
+- 选集功能的相关操作
+- 工具提示和帮助文本
+- 所有模块中的常用功能名称
+- 窗口和对话框中的文本
+- 错误和提示信息
+
+翻译字典
+--------
+- styleMod_cn.py 文件包含了扩展的翻译字典，如需添加更多翻译，可以编辑此文件
+
+后续更新
+--------
+如果TheKeyMachine官方更新了版本，可能需要重新运行汉化工具。 
