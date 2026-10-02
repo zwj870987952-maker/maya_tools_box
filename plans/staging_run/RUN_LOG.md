@@ -864,3 +864,10 @@
 - enable_drop只当前modelPanel自有Qt eventFilter、disable只remove自己；只拦单local ma/mb，其余格式默认Maya，已有namespace拒绝合并，file加载executeScriptNodes=False。Open替换scene/保存不可Undo。Maya2025实测file import没有可撤销命令；UndoChunk只分组不能让file命令可撤销，API返回undo_guaranteed=False，Import/Reference/Open全部按需备份scene处理，未把原失败Undo测试作通过。
 - 离线path/namespace、隔离Maya2025实际临时ma import/reference/dry不改scene/未确认Open拒绝保留参考cube/确认Open/MEL桥编译、future注册/domain/panel/fingerprint通过。真实viewport drag/Save dialogs/跨版本not_run，prepared_unverified。
 - 实际5h88%已用（剩12%）、周75%（剩25%），继续最后shelf_manager，heartbeat暂停，无正式迁移/同步/用卡/购买。
+
+# 2026-10-02：工具架管理器完整候选，累计109/109
+
+- 原脚本精确SHA归档，完整cmds版本/中英文双列/默认shelf toggle/扫描/选择/加载/迁移/隔离交互；Base/Schema/业务API/目标文档测试及注册面板晋级布局齐备。默认不导入Maya、不执行MEL、不修改prefs。只扫描显式既存根2018-2026 shelves子目录，不递归整盘；多根同名以完整路径区分。
+- 迁移为保留源的复制，整批碰撞/坏末项先拒绝；覆写须明确允许，精确备份、SHA核验、并发改动保护。IO异常可能留下前项目标及备份，失败结果不含完整已完成列表，验收说明要求按目录逐项核对。删除改可恢复隔离和SHA receipt，保留foreign已加载shelf UI；加载MEL独立确认，窗口只清自有MQt对象。
+- 离线文件扫描/复制/精确备份/坏末项/可恢复隔离、完整native UI mock/版本与路径映射，以及临时future layout注册/domain/panel/fingerprint检查通过。真实Maya GUI/MEL加载/外部图标/跨版本仍not_run，prepared_unverified；native mock不是实际Maya验收。
+- 最新实际5小时已用92%（剩8%）、周已用75%（剩25%）。全部动态候选已处理，结束整理循环，保持heartbeat停用；正在进行最终范围/候选/验收总表对账。没有正式迁移、Obsidian同步、用卡或购买。

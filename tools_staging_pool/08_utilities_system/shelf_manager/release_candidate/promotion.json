@@ -1,0 +1,57 @@
+{
+  "tool_id": "shelf_manager",
+  "registration": {
+    "module": "shelf_manager",
+    "class_name": "ShelfManagerTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/shelf_manager.md",
+      "target": "docs/tools/shelf_manager.md"
+    },
+    {
+      "source": "maya_toolkit/tools/shelf_manager/__init__.py",
+      "target": "maya_toolkit/tools/shelf_manager/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/shelf_manager/backend.py",
+      "target": "maya_toolkit/tools/shelf_manager/backend.py"
+    },
+    {
+      "source": "maya_toolkit/tools/shelf_manager/catalog.json",
+      "target": "maya_toolkit/tools/shelf_manager/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/shelf_manager/native.py",
+      "target": "maya_toolkit/tools/shelf_manager/native.py"
+    },
+    {
+      "source": "maya_toolkit/tools/shelf_manager/session.py",
+      "target": "maya_toolkit/tools/shelf_manager/session.py"
+    },
+    {
+      "source": "maya_toolkit/tools/shelf_manager/upstream/shelf_manager.py.original",
+      "target": "maya_toolkit/tools/shelf_manager/upstream/shelf_manager.py.original"
+    },
+    {
+      "source": "tests/test_shelf_manager.py",
+      "target": "tests/test_shelf_manager.py"
+    },
+    {
+      "source": "tests/test_shelf_manager_native.py",
+      "target": "tests/test_shelf_manager_native.py"
+    }
+  ],
+  "resources": [
+    "shelf_manager.py"
+  ],
+  "dependencies": [
+    "Real Maya shelf cmds/MEL GUI",
+    "Original shelf MEL and external icon dependencies require target-version acceptance"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete native bilingual/version shelf manager with scoped scans, recoverable quarantine, explicit MEL execution and collision-safe migration",
+  "verification_limitations": [
+    "Real Maya shelf UI/loading/production MEL/cross-version/external icon dependency acceptance not_run; IO failures may leave prior completed file operations recoverable"
+  ]
+}

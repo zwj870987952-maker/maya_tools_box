@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T16:11:13.082345+08:00",
+  "updated_at": "2026-10-02T16:21:18.011232+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "08_utilities_system/perform_file_drop_action",
+    "last_completed_tool": "08_utilities_system/shelf_manager",
     "last_usage": {
-      "five_hour_used_percent": 84.0,
-      "weekly_used_percent": 74.0,
-      "recorded_at": "2026-10-02T16:07:22.953012+08:00",
+      "five_hour_used_percent": 88.0,
+      "weekly_used_percent": 75.0,
+      "recorded_at": "2026-10-02T16:14:52.207357+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "08_utilities_system/perform_file_drop_action"
+    "current_tool": "08_utilities_system/shelf_manager"
   },
   "entry_repairs": [
     {
@@ -23538,7 +23538,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete Import/Open/Reference/Cancel with explicit owned viewport filters, literal paths and modified-scene protection",
-      "prepared_at": "2026-10-02T16:14:03.919420+08:00"
+      "prepared_at": "2026-10-02T16:14:03.919420+08:00",
+      "source_commit": "63c4b52bb44a8e70f6a55316a660bf58037b6682"
     },
     {
       "source_path": "08_utilities_system/shelf_manager",
@@ -23549,20 +23550,71 @@
       "entry_candidates": [
         "shelf_manager.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "shelf_manager.py"
       ],
       "license_files": [],
       "entry_sha256": "83a2858c7dc7f30fb9ebe114f25e79ba469cfa6bc1fbe69d8ad584342312cd2f",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.062s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"shelf_manager\",\r\n  \"candidate_sha256\": \"b86305274203539c81f3f5c70dd2e8d5436908a7c847425c4e894dc8e0f9c4ef\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\shelf_manager.md\",\r\n    \"maya_toolkit\\\\tools\\\\shelf_manager\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\shelf_manager\\\\backend.py\",\r\n    \"maya_toolkit\\\\tools\\\\shelf_manager\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\shelf_manager\\\\native.py\",\r\n    \"maya_toolkit\\\\tools\\\\shelf_manager\\\\session.py\",\r\n    \"maya_toolkit\\\\tools\\\\shelf_manager\\\\upstream\\\\shelf_manager.py.original\",\r\n    \"tests\\\\test_shelf_manager.py\",\r\n    \"tests\\\\test_shelf_manager_native.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true,\r\n  \"runtime_acceptance_required\": true,\r\n  \"runtime\": \"maya\"\r\n}\r\n"
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya native shelf UI/loading/production MEL/version and external icon acceptance not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "b86305274203539c81f3f5c70dd2e8d5436908a7c847425c4e894dc8e0f9c4ef",
+          "returncode": 0,
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.062s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "native_ui_mock",
+          "passed": true,
+          "returncode": 0,
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.007s\r\n\r\nOK\r\n",
+          "python_source_sha256": "cc34b6fa46a0f5cc5260ae0ad6b080c047123248a059f3243eb7ada14e90fa0b",
+          "runtime_source_sha256": "a9395c19665a7e3b417584ca5ad9d71186cf4d408738b5bfbc871ae35ffbcc43",
+          "gui_acceptance": false,
+          "evidence_path": "plans/staging_run/shelf_manager_native_mock.json"
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya shelf UI/loading/production MEL/cross-version/external icon dependency acceptance not_run; IO failures may leave prior completed file operations recoverable"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -23571,7 +23623,40 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "b7f29ceb1439d8cf4ceb02f0f84fca91480b9f71c2360cd56f593f704bfaf89c"
+      "source_tree_sha256": "a035df48c370f5478291900cbe6d41df3100fd59967e36e07ab474aa6938a199",
+      "candidate_path": "tools_staging_pool/08_utilities_system/shelf_manager/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/08_utilities_system/shelf_manager/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "shelf_manager",
+        "candidate_sha256": "b86305274203539c81f3f5c70dd2e8d5436908a7c847425c4e894dc8e0f9c4ef",
+        "applied": false,
+        "files": [
+          "docs\\tools\\shelf_manager.md",
+          "maya_toolkit\\tools\\shelf_manager\\__init__.py",
+          "maya_toolkit\\tools\\shelf_manager\\backend.py",
+          "maya_toolkit\\tools\\shelf_manager\\catalog.json",
+          "maya_toolkit\\tools\\shelf_manager\\native.py",
+          "maya_toolkit\\tools\\shelf_manager\\session.py",
+          "maya_toolkit\\tools\\shelf_manager\\upstream\\shelf_manager.py.original",
+          "tests\\test_shelf_manager.py",
+          "tests\\test_shelf_manager_native.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true,
+        "runtime_acceptance_required": true,
+        "runtime": "maya"
+      },
+      "resources": [
+        "shelf_manager.py"
+      ],
+      "external_dependencies": [
+        "Real Maya shelf cmds/MEL GUI",
+        "Original shelf MEL and external icon dependencies require target-version acceptance"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete native bilingual/version shelf manager with scoped scans, recoverable quarantine, explicit MEL execution and collision-safe migration",
+      "prepared_at": "2026-10-02T16:27:46.460410+08:00"
     }
   ]
 }
