@@ -1,0 +1,1793 @@
+global proc MTB_shelf_malcolm341_mega_pack () {
+    global string $gBuffStr;
+    global string $gBuffStr0;
+    global string $gBuffStr1;
+
+
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "Help"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "Help"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "render.png"
+        -image1 "render.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_001', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "tbExp"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "tbExp"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "polyCube.png"
+        -image1 "polyCube.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_002', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168597 0.168597 0.168597
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "uvEdge"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "uvEdge"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.1333 0.1333 0.1333 0.7
+        -image "polyHardEdge.png"
+        -image1 "polyHardEdge.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_003', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "normR"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "normR"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "render_swColorPerVertex.png"
+        -image1 "render_swColorPerVertex.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_004', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help normR" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_004', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "obj"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "obj"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "torus.png"
+        -image1 "torus.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_005', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168597 0.168597 0.168597
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "export"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "export"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.1333 0.1333 0.1333 0.7
+        -image "menuIconFile.png"
+        -image1 "menuIconFile.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_006', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Export Temp .obj" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_006', 'menu_002')\");" )
+        -mi "Export Temp .fbx" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_006', 'menu_003')\");" )
+        -mi "Find File Location" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_006', 'menu_004')\");" )
+        -mi "Help export" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_006', 'menu_005')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168597 0.168597 0.168597
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "import"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "import"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.1333 0.1333 0.1333 0.7
+        -image "menuIconFile.png"
+        -image1 "menuIconFile.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_007', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Import Temp .obj" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_007', 'menu_002')\");" )
+        -mi "Import Temp .fbx" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_007', 'menu_003')\");" )
+        -mi "Find File Location" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_007', 'menu_004')\");" )
+        -mi "Help import" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_007', 'menu_005')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "Xray"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "Xray"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "menuIconConnect.png"
+        -image1 "menuIconConnect.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_008', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help Xray" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_008', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "wire"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "wire"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "menuIconConnect.png"
+        -image1 "menuIconConnect.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_009', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help wire" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_009', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "imgRef"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "imgRef"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "file.png"
+        -image1 "file.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_010', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "DEG"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "DEG"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "deleteActive.png"
+        -image1 "deleteActive.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_011', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help DEG" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_011', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "sPlugin"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "sPlugin"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "menuIconList.png"
+        -image1 "menuIconList.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_012', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "close"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "close"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "SP_MessageBoxCritical.png"
+        -image1 "SP_MessageBoxCritical.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_013', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help close" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_013', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "sPref"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "sPref"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "menuIconEdit.png"
+        -image1 "menuIconEdit.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_014', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help sPref" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_014', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "shelf"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "shelf"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "menuIconSort.png"
+        -image1 "menuIconSort.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_015', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "HUD"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "HUD"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "menuIconDisplay.png"
+        -image1 "menuIconDisplay.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_016', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "DM"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "DM"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "distanceDim.png"
+        -image1 "distanceDim.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_017', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "pivot"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "pivot"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "menuIconModify.png"
+        -image1 "menuIconModify.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_018', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help pivot" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_018', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "reBuild"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "reBuild"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "menuIconModify.png"
+        -image1 "menuIconModify.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_019', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help reBuild" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_019', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "faceY"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "faceY"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "menuIconModify.png"
+        -image1 "menuIconModify.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_020', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help faceY" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_020', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "stSurf"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "stSurf"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "menuIconModify.png"
+        -image1 "menuIconModify.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_021', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help stSurf" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_021', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "stCent"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "stCent"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "menuIconModify.png"
+        -image1 "menuIconModify.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_022', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help stCent" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_022', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "vSnap"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "vSnap"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "curveCV.png"
+        -image1 "curveCV.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_023', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "weldTC"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "weldTC"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "polyCollapseEdge.png"
+        -image1 "polyCollapseEdge.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_024', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help weldTC" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_024', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "weldTT"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "weldTT"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "weld_NEX32.png"
+        -image1 "weld_NEX32.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_025', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help weldTT" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_025', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "CPAS"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "CPAS"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "locator.png"
+        -image1 "locator.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_026', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "lattice"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "lattice"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "lattice.png"
+        -image1 "lattice.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_027', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help lattice" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_027', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168597 0.168597 0.168597
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "miror"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "miror"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.1333 0.1333 0.1333 0.7
+        -image "polyMirrorGeometry.png"
+        -image1 "polyMirrorGeometry.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_028', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "cmbine"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "cmbine"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "polySubdFacet.png"
+        -image1 "polySubdFacet.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_029', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help cmbine" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_029', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "extract"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "extract"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "polySplitVertex.png"
+        -image1 "polySplitVertex.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_030', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help extract" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_030', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "dupeF"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "dupeF"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "polyDuplicateFacet.png"
+        -image1 "polyDuplicateFacet.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_031', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help dupeF" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_031', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "dotPat"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "dotPat"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "polyDuplicateEdgeLoop.png"
+        -image1 "polyDuplicateEdgeLoop.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_032', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "Half"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "Half"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "polyConvertToEdgeLoop.png"
+        -image1 "polyConvertToEdgeLoop.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_033', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help Half" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_033', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "findGB"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "findGB"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "menuIconSubdivSurf.png"
+        -image1 "menuIconSubdivSurf.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_034', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Merge Selected findGB" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_034', 'menu_002')\");" )
+        -mi "Help findGB" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_034', 'menu_003')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "Name"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "Name"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "menuIconCopy.png"
+        -image1 "menuIconCopy.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_035', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168597 0.168597 0.168597
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "copy"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "copy"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "polyTransferShadingSets.png"
+        -image1 "polyTransferShadingSets.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_036', 'primary')\");"
+        -sourceType "mel"
+        -doubleClickCommand "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_036', 'double')\");"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help copy" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_036', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "paste"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "paste"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "polyTransferShadingSets.png"
+        -image1 "polyTransferShadingSets.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_037', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help paste" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_037', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "replace"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "replace"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "polyTransferShadingSets.png"
+        -image1 "polyTransferShadingSets.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_038', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help replace" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_038', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "default"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "default"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "render_lambert.png"
+        -image1 "render_lambert.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_039', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "matID"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "matID"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "UVEditorFace.png"
+        -image1 "UVEditorFace.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_040', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help matID" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_040', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "graph"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "graph"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "hypergraph.png"
+        -image1 "hypergraph.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_041', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help graph" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_041', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "checker"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "checker"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "menuIconTexturing.png"
+        -image1 "menuIconTexturing.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_042', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "uvGrab"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "uvGrab"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "polyNormalizeUVs.png"
+        -image1 "polyNormalizeUVs.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_043', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_043', 'menu_001')\");" )
+        -mi "8192 x 8192" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_043', 'menu_002')\");" )
+        -mi "4096 x 4096" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_043', 'menu_003')\");" )
+        -mi "2048 x 2048" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_043', 'menu_004')\");" )
+        -mi "1024 x 1024" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_043', 'menu_005')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "Udim"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "Udim"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "UVEditorUV.png"
+        -image1 "UVEditorUV.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_044', 'primary')\");"
+        -sourceType "mel"
+        -doubleClickCommand "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_044', 'double')\");"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "LMap"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "LMap"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "UVEditorShell.png"
+        -image1 "UVEditorShell.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_045', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168597 0.168597 0.168597
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "unwrap"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "unwrap"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "polyLayoutUVLarge.png"
+        -image1 "polyLayoutUVLarge.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_046', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "gridUV"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "gridUV"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "UVTkUVShell.png"
+        -image1 "UVTkUVShell.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_047', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help gridUV" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_047', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Right click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "recUV"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "recUV"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "UVTkUVShell.png"
+        -image1 "UVTkUVShell.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_048', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+        -mi "" ( "" )
+        -mi "Help recUV" ( "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_048', 'menu_002')\");" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+
+
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Left click for help"
+        -enableBackground 1
+        -backgroundColor 0.168627 0.168627 0.168627
+        -highlightColor 0.321569 0.521569 0.65098
+        -align "center"
+        -label "uvMap"
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont"
+        -imageOverlayLabel "uvMap"
+        -overlayLabelColor 0.8 0.8 0.8
+        -overlayLabelBackColor 0.133333 0.133333 0.133333 0.7
+        -image "polyAutoProjLarge.png"
+        -image1 "polyAutoProjLarge.png"
+        -style "iconOnly"
+        -marginWidth 1
+        -marginHeight 1
+        -command "python(\"from maya_toolkit.tools.malcolm341_mega_pack.runtime import dispatch; dispatch('button_049', 'primary')\");"
+        -sourceType "mel"
+        -commandRepeatable 1
+        -flat 1
+    ;
+
+}

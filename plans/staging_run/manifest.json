@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T13:08:23.315070+08:00",
+  "updated_at": "2026-10-02T13:23:38.161459+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "07_subsystems_suites/getools_overlappy",
+    "last_completed_tool": "07_subsystems_suites/malcolm341_mega_pack",
     "last_usage": {
-      "five_hour_used_percent": 0.0,
-      "weekly_used_percent": 61.0,
-      "recorded_at": "2026-10-02T12:40:29.020658+08:00",
-      "note": "Actual caller read: ordinaryUsageAllowed true; app thread list showed no other active writer in this checkout"
+      "five_hour_used_percent": 14.0,
+      "weekly_used_percent": 63.0,
+      "recorded_at": "2026-10-02T13:09:07.338877+08:00",
+      "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "07_subsystems_suites/getools_overlappy"
+    "current_tool": "07_subsystems_suites/malcolm341_mega_pack"
   },
   "entry_repairs": [
     {
@@ -20658,7 +20658,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete localized seven-module GETools with pinned MIT dependencies/resources, COM and preset API, owned setup guards and explicit native GUI physics",
-      "prepared_at": "2026-10-02T13:08:24.317840+08:00"
+      "prepared_at": "2026-10-02T13:08:24.317840+08:00",
+      "source_commit": "55b9529076e3fba7d075a0255c91b1f2986feea3"
     },
     {
       "source_path": "07_subsystems_suites/malcolm341_mega_pack",
@@ -20669,19 +20670,79 @@
       "entry_candidates": [
         "malcolm341_mega_pack_20230114/shelf_malcolm341_mega_pack.mel"
       ],
-      "source_file_count": 2,
+      "source_file_count": 3,
       "source_files": [
         "malcolm341_mega_pack_20230114/shelf_malcolm341_mega_pack.mel"
       ],
       "license_files": [],
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.031s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"malcolm341_mega_pack\",\r\n  \"candidate_sha256\": \"a8d5922b20089deea659903d91822993f1bd204c17e4cf2d3fc8c736aac57ed0\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\malcolm341_mega_pack.md\",\r\n    \"maya_toolkit\\\\tools\\\\malcolm341_mega_pack\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\malcolm341_mega_pack\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\malcolm341_mega_pack\\\\file_guard.py\",\r\n    \"maya_toolkit\\\\tools\\\\malcolm341_mega_pack\\\\native\\\\commands.json\",\r\n    \"maya_toolkit\\\\tools\\\\malcolm341_mega_pack\\\\native\\\\guards.mel\",\r\n    \"maya_toolkit\\\\tools\\\\malcolm341_mega_pack\\\\native\\\\shelf.mel\",\r\n    \"maya_toolkit\\\\tools\\\\malcolm341_mega_pack\\\\runtime.py\",\r\n    \"maya_toolkit\\\\tools\\\\malcolm341_mega_pack\\\\upstream\\\\malcolm341_mega_pack_20230114\\\\install_script_pack.txt\",\r\n    \"maya_toolkit\\\\tools\\\\malcolm341_mega_pack\\\\upstream\\\\malcolm341_mega_pack_20230114\\\\shelf_malcolm341_mega_pack.mel\",\r\n    \"tests\\\\test_malcolm341_mega_pack.py\",\r\n    \"tests\\\\test_malcolm341_mega_pack_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true,\r\n  \"runtime_acceptance_required\": true,\r\n  \"runtime\": \"maya\"\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/07_subsystems_suites/malcolm341_mega_pack/release_candidate/tests/test_malcolm341_mega_pack_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "����: Existing output is preserved: C:\\Users\\zwj87\\AppData\\Local\\Temp\\tmps0fxklwi\\original.ma\n# Traceback (most recent call last):\n#   File \"<maya console>\", line 1, in <module>\n#   File \"E:\\GitHub\\maya_tools_box\\tools_staging_pool\\07_subsystems_suites\\malcolm341_mega_pack\\release_candidate\\maya_toolkit\\tools\\malcolm341_mega_pack\\file_guard.py\", line 18, in require_new\n#     if path.exists():raise FileExistsError('Existing output is preserved: '+str(path))\n# FileExistsError: Existing output is preserved: C:\\Users\\zwj87\\AppData\\Local\\Temp\\tmps0fxklwi\\original.ma\n.Pivot moved to selection center����: Malcolm341_button_018\n.\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.065s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "e40a1ee062ef7cf80a98da78c93f5895f155623602eb16fe8d997a527fadc27e",
+          "runtime_source_sha256": "b57af5029d278e068e4dee5a93729d901d04251ef0a5c0fea74879cecfa3e956"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "All 49 real Maya native GUI tools, menus, plugin exports, deferred jobs and global preference/exit operations not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "a8d5922b20089deea659903d91822993f1bd204c17e4cf2d3fc8c736aac57ed0",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.038s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "All 49 native GUI windows/actions, deferred jobs, broad preference/file operations and cross-version acceptance not_run"
+      ],
       "entry_review": {
         "evidence": "Actual source declares shelf_malcolm341_mega_pack and creates shelf buttons; installation changes UI configuration and is not a no-op test.",
         "kind": "mel_shelf_suite",
@@ -20696,7 +20757,44 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "b2cf6c3eebe50d2c4ce040007c275cbbc045c7f1c88ec957ed12ee50b05bad88"
+      "source_tree_sha256": "7fe43128d97d9ff8596153de62219e30b2d6deda256c2e02a2a8c3c212da1bb7",
+      "candidate_path": "tools_staging_pool/07_subsystems_suites/malcolm341_mega_pack/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/07_subsystems_suites/malcolm341_mega_pack/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "malcolm341_mega_pack",
+        "candidate_sha256": "a8d5922b20089deea659903d91822993f1bd204c17e4cf2d3fc8c736aac57ed0",
+        "applied": false,
+        "files": [
+          "docs\\tools\\malcolm341_mega_pack.md",
+          "maya_toolkit\\tools\\malcolm341_mega_pack\\__init__.py",
+          "maya_toolkit\\tools\\malcolm341_mega_pack\\catalog.json",
+          "maya_toolkit\\tools\\malcolm341_mega_pack\\file_guard.py",
+          "maya_toolkit\\tools\\malcolm341_mega_pack\\native\\commands.json",
+          "maya_toolkit\\tools\\malcolm341_mega_pack\\native\\guards.mel",
+          "maya_toolkit\\tools\\malcolm341_mega_pack\\native\\shelf.mel",
+          "maya_toolkit\\tools\\malcolm341_mega_pack\\runtime.py",
+          "maya_toolkit\\tools\\malcolm341_mega_pack\\upstream\\malcolm341_mega_pack_20230114\\install_script_pack.txt",
+          "maya_toolkit\\tools\\malcolm341_mega_pack\\upstream\\malcolm341_mega_pack_20230114\\shelf_malcolm341_mega_pack.mel",
+          "tests\\test_malcolm341_mega_pack.py",
+          "tests\\test_malcolm341_mega_pack_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true,
+        "runtime_acceptance_required": true,
+        "runtime": "maya"
+      },
+      "resources": [
+        "malcolm341_mega_pack_20230114/install_script_pack.txt",
+        "malcolm341_mega_pack_20230114/shelf_malcolm341_mega_pack.mel"
+      ],
+      "external_dependencies": [
+        "Maya native MEL/UI and builtin icons",
+        "Optional OBJ/FBX/Unfold3D plugins for corresponding native functions"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete supplied 49-button paid MEL suite, owned shelf and all callbacks, bounded API, namespace isolation and guarded external file operations",
+      "prepared_at": "2026-10-02T13:23:39.135700+08:00"
     },
     {
       "source_path": "07_subsystems_suites/maya_blueprint_toolbox",

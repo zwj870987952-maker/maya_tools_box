@@ -781,3 +781,10 @@
 - 完整Base/Schema/ToolResult、COM create/activate/targets/project/delete、native overlap setup/bake/clear、预设read/save及UI，默认inspect。借用COM不删，固定group须实例UUID匹配；scene操作复用UndoChunk、恢复时间/范围/选择/refresh/cachedPlayback，修正恢复在chunk外造成一次Undo只撤选择的实际缺陷，保持严格一次Undo断言。原COM nested list参数修正。literal preset不exec/globals.update，1MiB上限/独占新文件/已有parent；启动不mkdir、不改全局HelpPopup/CachedPlayback，Reload/Quit显式默认Cancel。
 - 2离线+2隔离Maya2025+临时最终注册/domain/panel/fingerprint通过：全模块import无新节点、COM两目标tx5/一次Undo恢复tx0、删除一次Undo准确UUID恢复、借用/foreign拒绝、native默认preset无globals污染。下载快照Python2 prototypes仅原文归档.py.original不作为候选可执行代码；复核全部可执行Python静态通过，mayapy正常exit0，最终Python指纹628a34b0f417f22a109f5fffd6c58d2e2ce8241535137fb608bc1b836cbe50fb与runtime报告匹配。
 - 完整真实GUI、nParticle物理/solver缓存/bake/跨版本及native广范围菜单not_run，prepared_unverified。实际5h14%已用（剩86%）、周63%（剩37%）；继续malcolm341_mega_pack，heartbeat保持暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：Malcolm341 Mega Pack完整候选，累计98/109
+
+- 用户提供付费MEL shelf/安装说明2文件SHA完整原bytes归档，个人候选不推定公开再分发许可。完整49按钮、119回调位（含空菜单分隔）、全部右键/双击/布局保留；MEL字符串/comment lexer提取精确callbacks，无执行原入口。自有MTB Shelf、所有m341_窗口/optionVar/函数隔离命名，固定id/event API、Base/Schema/ToolResult/default inspect，scene UndoChunk，真实GUI要求与显式confirm_native。
+- pivot非空单poly mesh/组件、锁/reference/pivot锁/坏选择预检；临时ma/obj/fbx转移显式绝对file_path、parent存在、导出新文件、导入不执行MA scriptNodes，取消不运行。native所有明确file-export/FBXExport/UV快照路径guard拒绝已存在文件；原fopen a/w的userSetup及UV snapshot删除前同目录独占精确byte备份/SHA验证。其他原prefs/系统/插件/延迟jobs/硬退出不假称由scene Undo恢复，完整影响和逐项备份场景验收文档。
+- 2离线+2隔离Maya2025+最终临时注册/domain/panel/fingerprint通过：完整Shelf只编译不安装、不增加场景nodes，fileguard旧bytes保持/真正native fopen追加前精确备份、nativecube顶点中心pivot/dry不动/一次Undo与选择恢复/锁与多mesh拒绝。分类初版不属于六个domain，修正modeling_surfacing并重验通过。完整49实际UI/原子窗口/全部菜单/导出插件/偏好/退出/跨版本not_run，prepared_unverified。
+- 实际5h20%已用（剩80%）、周64%（剩36%）；继续maya_blueprint_toolbox，heartbeat保持暂停，不迁正式/同步/用卡/购买。

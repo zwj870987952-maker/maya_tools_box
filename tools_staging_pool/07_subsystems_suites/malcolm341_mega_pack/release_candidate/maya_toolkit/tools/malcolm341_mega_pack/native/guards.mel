@@ -1,0 +1,11 @@
+// Candidate guards: compile only; no automatic file writes.
+global proc mtbM341NewFile(string $path) {
+    python("from maya_toolkit.tools.malcolm341_mega_pack.file_guard import require_new; require_new(\"" + encodeString($path) + "\")");
+}
+global proc mtbM341Backup(string $path) {
+    python("from maya_toolkit.tools.malcolm341_mega_pack.file_guard import backup_existing; backup_existing(\"" + encodeString($path) + "\")");
+}
+global proc int mtbM341Fopen(string $path, string $mode) {
+    if ($mode == "w" || $mode == "a") { mtbM341Backup($path); }
+    return `fopen $path $mode`;
+}

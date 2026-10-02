@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/07_subsystems_suites/malcolm341_mega_pack/release_candidate/tests/test_malcolm341_mega_pack_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "����: Existing output is preserved: C:\\Users\\zwj87\\AppData\\Local\\Temp\\tmps0fxklwi\\original.ma\n# Traceback (most recent call last):\n#   File \"<maya console>\", line 1, in <module>\n#   File \"E:\\GitHub\\maya_tools_box\\tools_staging_pool\\07_subsystems_suites\\malcolm341_mega_pack\\release_candidate\\maya_toolkit\\tools\\malcolm341_mega_pack\\file_guard.py\", line 18, in require_new\n#     if path.exists():raise FileExistsError('Existing output is preserved: '+str(path))\n# FileExistsError: Existing output is preserved: C:\\Users\\zwj87\\AppData\\Local\\Temp\\tmps0fxklwi\\original.ma\n.Pivot moved to selection center����: Malcolm341_button_018\n.\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.065s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "e40a1ee062ef7cf80a98da78c93f5895f155623602eb16fe8d997a527fadc27e",
+  "runtime_source_sha256": "b57af5029d278e068e4dee5a93729d901d04251ef0a5c0fea74879cecfa3e956"
+}

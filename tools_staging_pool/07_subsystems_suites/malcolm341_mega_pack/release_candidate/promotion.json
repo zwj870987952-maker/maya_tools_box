@@ -1,0 +1,70 @@
+{
+  "tool_id": "malcolm341_mega_pack",
+  "registration": {
+    "module": "malcolm341_mega_pack",
+    "class_name": "Malcolm341MegaPackTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/malcolm341_mega_pack.md",
+      "target": "docs/tools/malcolm341_mega_pack.md"
+    },
+    {
+      "source": "maya_toolkit/tools/malcolm341_mega_pack/__init__.py",
+      "target": "maya_toolkit/tools/malcolm341_mega_pack/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/malcolm341_mega_pack/catalog.json",
+      "target": "maya_toolkit/tools/malcolm341_mega_pack/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/malcolm341_mega_pack/file_guard.py",
+      "target": "maya_toolkit/tools/malcolm341_mega_pack/file_guard.py"
+    },
+    {
+      "source": "maya_toolkit/tools/malcolm341_mega_pack/native/commands.json",
+      "target": "maya_toolkit/tools/malcolm341_mega_pack/native/commands.json"
+    },
+    {
+      "source": "maya_toolkit/tools/malcolm341_mega_pack/native/guards.mel",
+      "target": "maya_toolkit/tools/malcolm341_mega_pack/native/guards.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/malcolm341_mega_pack/native/shelf.mel",
+      "target": "maya_toolkit/tools/malcolm341_mega_pack/native/shelf.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/malcolm341_mega_pack/runtime.py",
+      "target": "maya_toolkit/tools/malcolm341_mega_pack/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/malcolm341_mega_pack/upstream/malcolm341_mega_pack_20230114/install_script_pack.txt",
+      "target": "maya_toolkit/tools/malcolm341_mega_pack/upstream/malcolm341_mega_pack_20230114/install_script_pack.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/malcolm341_mega_pack/upstream/malcolm341_mega_pack_20230114/shelf_malcolm341_mega_pack.mel",
+      "target": "maya_toolkit/tools/malcolm341_mega_pack/upstream/malcolm341_mega_pack_20230114/shelf_malcolm341_mega_pack.mel"
+    },
+    {
+      "source": "tests/test_malcolm341_mega_pack.py",
+      "target": "tests/test_malcolm341_mega_pack.py"
+    },
+    {
+      "source": "tests/test_malcolm341_mega_pack_maya.py",
+      "target": "tests/test_malcolm341_mega_pack_maya.py"
+    }
+  ],
+  "resources": [
+    "malcolm341_mega_pack_20230114/install_script_pack.txt",
+    "malcolm341_mega_pack_20230114/shelf_malcolm341_mega_pack.mel"
+  ],
+  "dependencies": [
+    "Maya native MEL/UI and builtin icons",
+    "Optional OBJ/FBX/Unfold3D plugins for corresponding native functions"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete supplied 49-button paid MEL suite, owned shelf and all callbacks, bounded API, namespace isolation and guarded external file operations",
+  "verification_limitations": [
+    "All 49 native GUI windows/actions, deferred jobs, broad preference/file operations and cross-version acceptance not_run"
+  ]
+}
