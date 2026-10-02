@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T10:12:57.002901+08:00",
+  "updated_at": "2026-10-02T10:18:46.235011+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "05_ue_pipeline/ue_reference_checker",
+    "last_completed_tool": "05_ue_pipeline/ue_source_finder",
     "last_usage": {
-      "five_hour_used_percent": 68.0,
-      "weekly_used_percent": 56.0,
-      "recorded_at": "2026-10-02T10:09:59.947347+08:00",
+      "five_hour_used_percent": 70.0,
+      "weekly_used_percent": 57.0,
+      "recorded_at": "2026-10-02T10:13:51.164752+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "05_ue_pipeline/ue_reference_checker"
+    "current_tool": "05_ue_pipeline/ue_source_finder"
   },
   "entry_repairs": [
     {
@@ -19533,7 +19533,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete UE referencer regex checker and original dark Tk table/browser navigation with unknown/error states and single-main-thread Slate lifecycle",
-      "prepared_at": "2026-10-02T10:12:53.608837+08:00"
+      "prepared_at": "2026-10-02T10:12:53.608837+08:00",
+      "source_commit": "02c7d3fb1fb2ba398bad818b70cfd7a5470ccf56"
     },
     {
       "source_path": "05_ue_pipeline/ue_source_finder",
@@ -19544,20 +19545,60 @@
       "entry_candidates": [
         "UE源文件迁移.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "UE源文件迁移.py"
       ],
       "license_files": [],
       "entry_sha256": "6362510de8deb86a1ba954e53f7b85c7b8df8cc6a19a07d1eeb2f1a4e6964b58",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "...\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.028s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"ue_source_finder\",\r\n  \"candidate_sha256\": \"cdbeb16b56c443f0a2a26d320bdab377c7e665a4e4b5a701a00ac983f28d9eba\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\ue_source_finder.md\",\r\n    \"engine_toolkit\\\\tools\\\\ue_source_finder\\\\__init__.py\",\r\n    \"engine_toolkit\\\\tools\\\\ue_source_finder\\\\catalog.json\",\r\n    \"engine_toolkit\\\\tools\\\\ue_source_finder\\\\source_paths.py\",\r\n    \"engine_toolkit\\\\tools\\\\ue_source_finder\\\\upstream\\\\UE\\u6e90\\u6587\\u4ef6\\u8fc1\\u79fb.py.original\",\r\n    \"tests\\\\test_ue_source_finder.py\"\r\n  ],\r\n  \"registry\": null,\r\n  \"panel\": \"Original no-window source-copy workflow; explicit API and Output Log preview\",\r\n  \"maya_acceptance_required\": false,\r\n  \"runtime_acceptance_required\": true,\r\n  \"runtime\": \"unreal_editor\"\r\n}\r\n"
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real UE import metadata/source assets and native Explorer invocation not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "cdbeb16b56c443f0a2a26d320bdab377c7e665a4e4b5a701a00ac983f28d9eba",
+          "returncode": 0,
+          "output": "...\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.028s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Native runtime package imports without Maya or Unreal; entry and schema available\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real native runtime acceptance pending",
+        "Real UE source metadata/types and Explorer invocation/target versions not_run"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -19566,7 +19607,42 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "ee9787591ed03c786577954458329bd17e4323b5b474c2543a398248c6b4064d"
+      "source_tree_sha256": "cb76e15c86388788f58abcad6370d716666681b698455ffcf8e53dbab8edb335",
+      "runtime_acceptance": {
+        "runtime": "unreal_editor",
+        "status": "not_run",
+        "versions": []
+      },
+      "candidate_path": "tools_staging_pool/05_ue_pipeline/ue_source_finder/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/05_ue_pipeline/ue_source_finder/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "ue_source_finder",
+        "candidate_sha256": "cdbeb16b56c443f0a2a26d320bdab377c7e665a4e4b5a701a00ac983f28d9eba",
+        "applied": false,
+        "files": [
+          "docs\\tools\\ue_source_finder.md",
+          "engine_toolkit\\tools\\ue_source_finder\\__init__.py",
+          "engine_toolkit\\tools\\ue_source_finder\\catalog.json",
+          "engine_toolkit\\tools\\ue_source_finder\\source_paths.py",
+          "engine_toolkit\\tools\\ue_source_finder\\upstream\\UE源文件迁移.py.original",
+          "tests\\test_ue_source_finder.py"
+        ],
+        "registry": null,
+        "panel": "Original no-window source-copy workflow; explicit API and Output Log preview",
+        "maya_acceptance_required": false,
+        "runtime_acceptance_required": true,
+        "runtime": "unreal_editor"
+      },
+      "resources": [
+        "UE源文件迁移.py"
+      ],
+      "external_dependencies": [
+        "Unreal Editor PythonScriptPlugin/EditorScriptingUtilities",
+        "Windows Explorer only for optional open_folders"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete UE source file tracing/copy/rename, per-folder success/missing/failure/list reports, summary and explicit Explorer opening; new exclusive session tree and first/all modes",
+      "prepared_at": "2026-10-02T10:18:42.746541+08:00"
     },
     {
       "source_path": "06_diagnostics_security/clean_junk_nodes",

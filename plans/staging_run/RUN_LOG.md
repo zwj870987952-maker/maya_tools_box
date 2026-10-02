@@ -743,3 +743,8 @@
 - 原单文件SHA归档，完整direct hard/soft包引用+_zoo忽略大小写pattern、原深色Tk表格/统计/滚动/异常优先/右键定位/关闭保留。显式Schema/API/dry-run、无自动窗口；query异常/None为unknown并success false，registry loading拒绝提前判定，不返回假空引用；package身份去重，同名显示不混淆。
 - UI改UE Slate主线程pump Tk，不worker destroy/quit，不mainloop堵塞；单例/callback close与queue bounded100生命周期齐备。locate ARFilter exact包，按Epic文档修正sync_browser_to_objects为object path strings而非Object，加载缓存与浏览器选择影响明确，资产/文件不保存。
 - 3离线mock+临时最终布局/fingerprint通过，重复同名不同包/regex/真实errorunknown/空refs/directoptions/loading与invalidregex拒绝、dry locate不sync/实际path数组sync/mainthreadguard；真实UE registry/ReferenceViewer/Tk-Tcl/GUI/Slate close热重载not_run，prepared_unverified。实际5h70%已用（剩30%）、周57%，继续ue_source_finder；heartbeat保持暂停。
+
+# 2026-10-02：UE源文件复制完整候选，累计92/109
+
+- 原单文件SHA归档，完整源查找/按资产名重命名/copy2元数据/成功缺失失败TXT+名单+汇总+Explorer功能保留；取消import自动复制，default inspect/dry，Schema/结构化原生API。reviewed source reader独立复制自包含，多源default first保原，all额外_srcN；raw相对不猜cwd。独占fresh会话目录/full UE父路径/Windows名与collision预检保护原桌面文件，源SHA/size复核+copy独占+目标SHA+copystat，失败只删自己的partial且报告；mkdir/log失败也进入summary。Explorer default False，显式True用参数数组无shell。
+- 3离线真实临时IO与mock+临时最终布局/fingerprint通过，distinct /Game/A/Hero与B/Hero/同asset名不碰、first/all/三份bytes一致/source不改/四TXT与summary/missing/已存在session拒绝/真实模拟copy失败partial清理与失败日志/相对路径与escape拒绝。源读取pattern构建含control字符初测语法失败已修，最终静态/单测通过。真实UE/Explorer/跨版本not_run，prepared_unverified。实际5h72%已用（剩28%）、周57%，继续06_diagnostics_security/clean_junk_nodes；heartbeat保持暂停。

@@ -1,0 +1,45 @@
+{
+  "tool_id": "ue_source_finder",
+  "runtime": "unreal_editor",
+  "registration": null,
+  "entry_module": "engine_toolkit.tools.ue_source_finder",
+  "panel": "Original no-window source-copy workflow; explicit API and Output Log preview",
+  "files": [
+    {
+      "source": "docs/tools/ue_source_finder.md",
+      "target": "docs/tools/ue_source_finder.md"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_source_finder/__init__.py",
+      "target": "engine_toolkit/tools/ue_source_finder/__init__.py"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_source_finder/catalog.json",
+      "target": "engine_toolkit/tools/ue_source_finder/catalog.json"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_source_finder/source_paths.py",
+      "target": "engine_toolkit/tools/ue_source_finder/source_paths.py"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_source_finder/upstream/UE源文件迁移.py.original",
+      "target": "engine_toolkit/tools/ue_source_finder/upstream/UE源文件迁移.py.original"
+    },
+    {
+      "source": "tests/test_ue_source_finder.py",
+      "target": "tests/test_ue_source_finder.py"
+    }
+  ],
+  "resources": [
+    "UE源文件迁移.py"
+  ],
+  "dependencies": [
+    "Unreal Editor PythonScriptPlugin/EditorScriptingUtilities",
+    "Windows Explorer only for optional open_folders"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete UE source file tracing/copy/rename, per-folder success/missing/failure/list reports, summary and explicit Explorer opening; new exclusive session tree and first/all modes",
+  "verification_limitations": [
+    "Real UE source metadata/types and Explorer invocation/target versions not_run"
+  ]
+}
