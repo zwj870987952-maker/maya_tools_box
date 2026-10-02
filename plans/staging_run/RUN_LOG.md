@@ -760,3 +760,9 @@
 - 原单文件SHA归档；完整多目录拖放/list/clear/progress/cancel/备份/批量过滤保留，Base/Schema/ToolResult/scene_hygiene/预检UI。原输入覆盖+errors ignore+固定history覆盖改为完全新output/history精确原bytes/report，原file与caller永不保存；默认known准确script names（仅策略，不等于病毒signature），all_scripts+confirm与非maya requires显式原广泛模式保留，scene/ui config两默认保留（原只scene）。
 - 自包含byte MEL lexer，strings/escape/line-block comments/embedded semicolons/多行payload准确分界；不执行源、保ANSI/UTF8与换行，删除script块与其实际connect/select引用，字符串metadata里含同名保持；缺semicolon/引号block不闭/混select/超128MB/非MA/坏最后file全表拒绝。输出path源路径hash防同名，写前SHA复核、backupSHA验证、不完整ownbackup/output清理，成功备份保留、cancel/错误partial报告如实。
 - 3离线真实bytes/CRLF/非UTF8尾/quotedpayload/合法script/plugin/string保持/newoutput exactbackup/source不改/坏最后file不mkdir/取消保完成报告+1隔离Maya2025真实保存MA/过滤/ScriptNodes=False读回cube tx7+合法script/known删除/caller dirtyscene全部nodes/Undo/ty9保持+临时注册/domain/panel/fingerprint通过。真正GUI/复杂生产MA/plugin与手写MEL语义/跨版本not_run；未称完整杀毒，prepared_unverified。实际5h80%已用（剩20%）、周58%，继续undo_checkpoint，heartbeat暂停。
+
+# 2026-10-02：Undo记录点完整候选，累计95/109
+
+- 原六文件SHA归档，完整Qt窗口/名称时间状态/创建/选中或最近回退/清空/双击/确认/viewport提示与四个Shelf快捷入口保留。Base/Schema/ToolResult/default inspect；静态MPx无场景marker、session元数据、唯一命名native Undo chunk和只读queue完整预检，max_steps不足/flush/stale/foreign id在首次Undo前拒绝。逐步Undo复核queue，Redo同步applied；clear/overwrite只清元数据，不flush用户Undo。原始文件不改、不自动加载、Shelf仅docTag自有项，实际GUI/开放外层chunk/跨版本not_run。
+- 2离线+3隔离Maya2025+临时最终注册/domain/panel/fingerprint通过，cube tx1/A/tx2/B/tx3→B与A准确回退/Redo、dry队列和scene无变、max_steps拒绝/flush旧ID与陌生ID不回退、overwrite/clear与Undo禁用保护。初版输出过滤回调虽然功能断言通过但进程退出CPython bool_dealloc崩溃，失败报告保留；改MCommandMessage普通输出回调finally remove后断言通过且正常exit0，未把崩溃写成成功。
+- 补修90双运行时候选launch_candidate缺engine_toolkit搜索路径：launcher自身添加候选根，移除测试预置路径后再验真实隔离配置API与最终布局均通过，未来正式布局不依赖staging。实际5h87%已用（剩13%）、周59%，继续07_subsystems_suites/animbot_copy，heartbeat暂停。

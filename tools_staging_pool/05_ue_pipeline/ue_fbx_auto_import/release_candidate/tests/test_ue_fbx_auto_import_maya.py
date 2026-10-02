@@ -7,7 +7,7 @@ import maya.standalone
 maya.standalone.initialize(name='python')
 from maya import cmds
 candidate = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(candidate))
+# Staging launch must supply the independent engine package path itself.
 import importlib.util
 spec = importlib.util.spec_from_file_location('candidate_launcher', candidate / 'launch_candidate.py')
 launcher = importlib.util.module_from_spec(spec); spec.loader.exec_module(launcher)

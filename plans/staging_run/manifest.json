@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T10:36:17.535799+08:00",
+  "updated_at": "2026-10-02T10:53:38.663631+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "06_diagnostics_security/scene_virus_cleaner",
+    "last_completed_tool": "06_diagnostics_security/undo_checkpoint",
     "last_usage": {
-      "five_hour_used_percent": 77.0,
+      "five_hour_used_percent": 80.0,
       "weekly_used_percent": 58.0,
-      "recorded_at": "2026-10-02T10:29:55.630532+08:00",
+      "recorded_at": "2026-10-02T10:36:53.294740+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "06_diagnostics_security/scene_virus_cleaner"
+    "current_tool": "06_diagnostics_security/undo_checkpoint"
   },
   "entry_repairs": [
     {
@@ -19325,7 +19325,7 @@
           "kind": "promotion_preview",
           "passed": true,
           "returncode": 0,
-          "output": "{\r\n  \"tool_id\": \"ue_fbx_auto_import\",\r\n  \"candidate_sha256\": \"4177246b4e71f96d9fddd20992429acd148208163297c062c5407915ce456c1a\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\ue_fbx_auto_import.md\",\r\n    \"maya_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\upstream\\\\ue\\u5bfc\\u5165fbx\\u672c\\u4f53\\u811a\\u672c.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\upstream\\\\ue\\u5bfc\\u5165fbx\\u914d\\u7f6e.py.original\",\r\n    \"tests\\\\test_ue_fbx_auto_import.py\",\r\n    \"tests\\\\test_ue_fbx_auto_import_maya.py\",\r\n    \"engine_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\__init__.py\",\r\n    \"engine_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\config.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true,\r\n  \"runtime_acceptance_required\": true,\r\n  \"runtime\": \"maya_unreal\"\r\n}\r\n"
+          "output": "{\r\n  \"tool_id\": \"ue_fbx_auto_import\",\r\n  \"candidate_sha256\": \"78e606194786ec5415814b0487329e292ba89c5d4378ff6a1591475d5adeb4f9\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\ue_fbx_auto_import.md\",\r\n    \"maya_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\upstream\\\\ue\\u5bfc\\u5165fbx\\u672c\\u4f53\\u811a\\u672c.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\upstream\\\\ue\\u5bfc\\u5165fbx\\u914d\\u7f6e.py.original\",\r\n    \"tests\\\\test_ue_fbx_auto_import.py\",\r\n    \"tests\\\\test_ue_fbx_auto_import_maya.py\",\r\n    \"engine_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\__init__.py\",\r\n    \"engine_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\config.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true,\r\n  \"runtime_acceptance_required\": true,\r\n  \"runtime\": \"maya_unreal\"\r\n}\r\n"
         },
         {
           "kind": "mayapy_standalone",
@@ -19333,10 +19333,10 @@
           "test": "tools_staging_pool/05_ue_pipeline/ue_fbx_auto_import/release_candidate/tests/test_ue_fbx_auto_import_maya.py",
           "returncode": 0,
           "passed": true,
-          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.033s\r\n\r\nOK\r\n",
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.014s\r\n\r\nOK\r\n",
           "gui_acceptance": false,
-          "python_source_sha256": "ffea1dcf641e277060ff9137f2c5851666a5086ebe8ad2594b6d9bc6e2d20c70",
-          "runtime_source_sha256": "7327b4cef54211f3f4e4628a642c3be22e5cec7bf930e98339ecf69c7c7586f6"
+          "python_source_sha256": "bbcd41c9efd5b7e768998f1dc958723a20546beaf96e19cf22b39944b8939778",
+          "runtime_source_sha256": "bb67026b569bb22c1a71a7fbba7314523b8c20548a363135dc732f88fc8d2d9a"
         },
         {
           "kind": "mayapy_report_matches_candidate",
@@ -19349,12 +19349,12 @@
         {
           "kind": "required_runtime_evidence",
           "passed": false,
-          "reason": "Real Maya Qt config UI and Unreal Editor native animation import, assets, skeleton changes and Interchange compatibility not_run"
+          "reason": "Maya GUI and Unreal Editor acceptance not_run; staging launcher now resolves engine package without test path injection"
         },
         {
           "kind": "promoted_layout_offline",
           "passed": true,
-          "candidate_sha256": "4177246b4e71f96d9fddd20992429acd148208163297c062c5407915ce456c1a",
+          "candidate_sha256": "78e606194786ec5415814b0487329e292ba89c5d4378ff6a1591475d5adeb4f9",
           "returncode": 0,
           "output": "...\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.024s\r\n\r\nOK\r\n",
           "registry_returncode": 0,
@@ -19394,7 +19394,7 @@
       "acceptance_instructions": "tools_staging_pool/05_ue_pipeline/ue_fbx_auto_import/release_candidate/acceptance.md",
       "promotion": {
         "tool_id": "ue_fbx_auto_import",
-        "candidate_sha256": "4177246b4e71f96d9fddd20992429acd148208163297c062c5407915ce456c1a",
+        "candidate_sha256": "78e606194786ec5415814b0487329e292ba89c5d4378ff6a1591475d5adeb4f9",
         "applied": false,
         "files": [
           "docs\\tools\\ue_fbx_auto_import.md",
@@ -19424,7 +19424,7 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete Maya Qt config generator plus standalone UE legacy animation importer with whole-batch preflight and fresh destinations",
-      "prepared_at": "2026-10-02T10:08:09.104935+08:00",
+      "prepared_at": "2026-10-02T10:53:04.236851+08:00",
       "source_commit": "ae48f07d9974385c6141eb982c80da4b15b9051f"
     },
     {
@@ -19892,7 +19892,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete folder batch Maya ASCII policy cleaner with byte-preserving lexer, new exclusive cleaned files, exact source backups, GUI progress/cancel and no malware-free guarantee",
-      "prepared_at": "2026-10-02T10:36:14.079148+08:00"
+      "prepared_at": "2026-10-02T10:36:14.079148+08:00",
+      "source_commit": "50f7f33dbf8f9b4effea4b3255f491dba14b7779"
     },
     {
       "source_path": "06_diagnostics_security/undo_checkpoint",
@@ -19903,7 +19904,7 @@
       "entry_candidates": [
         "maya_undo_checkpoint.py"
       ],
-      "source_file_count": 6,
+      "source_file_count": 7,
       "source_files": [
         "clear_checkpoints.py",
         "create_checkpoint.py",
@@ -19913,14 +19914,74 @@
       ],
       "license_files": [],
       "entry_sha256": "306808db0484dbe246cb38ba068aa0f03aeb794d12cc090d82e2758995f9f24c",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.000s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"undo_checkpoint\",\r\n  \"candidate_sha256\": \"3e8d7532d2464abf0f06f203594554c448dd34481925394bad725807aa111642\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\undo_checkpoint.md\",\r\n    \"maya_toolkit\\\\tools\\\\undo_checkpoint\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\undo_checkpoint\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\undo_checkpoint\\\\clear_checkpoints.py\",\r\n    \"maya_toolkit\\\\tools\\\\undo_checkpoint\\\\create_checkpoint.py\",\r\n    \"maya_toolkit\\\\tools\\\\undo_checkpoint\\\\install_shelf.py\",\r\n    \"maya_toolkit\\\\tools\\\\undo_checkpoint\\\\manager.py\",\r\n    \"maya_toolkit\\\\tools\\\\undo_checkpoint\\\\marker_command.py\",\r\n    \"maya_toolkit\\\\tools\\\\undo_checkpoint\\\\restore_checkpoint.py\",\r\n    \"maya_toolkit\\\\tools\\\\undo_checkpoint\\\\shelf.py\",\r\n    \"maya_toolkit\\\\tools\\\\undo_checkpoint\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\undo_checkpoint\\\\upstream\\\\clear_checkpoints.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\undo_checkpoint\\\\upstream\\\\create_checkpoint.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\undo_checkpoint\\\\upstream\\\\install_shelf.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\undo_checkpoint\\\\upstream\\\\maya_undo_checkpoint.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\undo_checkpoint\\\\upstream\\\\README.md\",\r\n    \"maya_toolkit\\\\tools\\\\undo_checkpoint\\\\upstream\\\\restore_checkpoint.py.original\",\r\n    \"tests\\\\test_undo_checkpoint.py\",\r\n    \"tests\\\\test_undo_checkpoint_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true,\r\n  \"runtime_acceptance_required\": true,\r\n  \"runtime\": \"maya\"\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/06_diagnostics_security/undo_checkpoint/release_candidate/tests/test_undo_checkpoint_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "0: \n0: \n0: \n1: mtbCheckpoint_cp_d915950aaff940e98e0639d8445298bc\n0: \n1: mtbCheckpoint_cp_d915950aaff940e98e0639d8445298bc\n0: \n1: mtbCheckpoint_cp_d915950aaff940e98e0639d8445298bc\n0: \n1: mtbCheckpoint_cp_d915950aaff940e98e0639d8445298bc\n2: mtbCheckpoint_cp_0821a3800ff04d4b842f3f37aeff6599\n0: \n1: mtbCheckpoint_cp_d915950aaff940e98e0639d8445298bc\n2: mtbCheckpoint_cp_0821a3800ff04d4b842f3f37aeff6599\n0: \n1: mtbCheckpoint_cp_d915950aaff940e98e0639d8445298bc\n2: mtbCheckpoint_cp_0821a3800ff04d4b842f3f37aeff6599\n0: \n1: mtbCheckpoint_cp_d915950aaff940e98e0639d8445298bc\n2: mtbCheckpoint_cp_0821a3800ff04d4b842f3f37aeff6599\n0: \n1: mtbCheckpoint_cp_d915950aaff940e98e0639d8445298bc\n2: mtbCheckpoint_cp_0821a3800ff04d4b842f3f37aeff6599\n.0: \n0: \n0: \n1: mtbCheckpoint_cp_9bbc5334bdcf4cbaa056159ad97e476e\n0: \n0: \n0: \n.0: \n1: \n0: \n1: \n0: \n1: \n0: \n1: \n0: \n1: \n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n3: \n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n3: \n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n3: \n4: mtbCheckpoint_cp_7dae702de87b4f76b588098f7b01ae5b\n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n3: \n4: mtbCheckpoint_cp_7dae702de87b4f76b588098f7b01ae5b\n5: \n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n3: \n4: mtbCheckpoint_cp_7dae702de87b4f76b588098f7b01ae5b\n5: \n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n3: \n4: mtbCheckpoint_cp_7dae702de87b4f76b588098f7b01ae5b\n5: \n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n3: \n4: mtbCheckpoint_cp_7dae702de87b4f76b588098f7b01ae5b\n5: \n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n3: \n4: mtbCheckpoint_cp_7dae702de87b4f76b588098f7b01ae5b\n5: \n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n3: \n4: mtbCheckpoint_cp_7dae702de87b4f76b588098f7b01ae5b\n5: \n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n3: \n4: mtbCheckpoint_cp_7dae702de87b4f76b588098f7b01ae5b\n5: \n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n3: \n4: mtbCheckpoint_cp_7dae702de87b4f76b588098f7b01ae5b\n5: \n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n3: \n4: mtbCheckpoint_cp_7dae702de87b4f76b588098f7b01ae5b\n5: \n����: \n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n3: \n4: mtbCheckpoint_cp_7dae702de87b4f76b588098f7b01ae5b\n����: mtbCheckpoint_cp_7dae702de87b4f76b588098f7b01ae5b\n����: mtbCheckpoint_cp_7dae702de87b4f76b588098f7b01ae5b\n����: \n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n3: \n4: mtbCheckpoint_cp_7dae702de87b4f76b588098f7b01ae5b\n5: \n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n3: \n4: mtbCheckpoint_cp_7dae702de87b4f76b588098f7b01ae5b\n5: \n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n3: \n4: mtbCheckpoint_cp_7dae702de87b4f76b588098f7b01ae5b\n5: \n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n3: \n4: mtbCheckpoint_cp_7dae702de87b4f76b588098f7b01ae5b\n5: \n����: \n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n3: \n4: mtbCheckpoint_cp_7dae702de87b4f76b588098f7b01ae5b\n����: mtbCheckpoint_cp_7dae702de87b4f76b588098f7b01ae5b\n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n3: \n����: \n0: \n1: \n2: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n����: mtbCheckpoint_cp_a5c738db35774ec69937228d8dec5c56\n.\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.076s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "c1d8613d11f092d1fb2f16d0a8572b1794d548f866be9ebcf51c545fa0825f21",
+          "runtime_source_sha256": "aaa31e810f5612505180871fdb21a250767cfb12d29b71c2015749085493e64a"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya GUI, shelf, viewport refresh and cross-version acceptance not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "3e8d7532d2464abf0f06f203594554c448dd34481925394bad725807aa111642",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.000s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI/Shelf/viewport refresh, nesting/queue concurrency and cross-version acceptance not_run"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 5,
@@ -19929,7 +19990,54 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "4d8ae995b455e2334d99e3fd361f1f0b3115aa13cc15bca561e4a6894449eadc"
+      "source_tree_sha256": "bb5baa59039146dcabf1a164ee6aed0d08d05eb1153ac397344e5abb4e8be964",
+      "candidate_path": "tools_staging_pool/06_diagnostics_security/undo_checkpoint/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/06_diagnostics_security/undo_checkpoint/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "undo_checkpoint",
+        "candidate_sha256": "3e8d7532d2464abf0f06f203594554c448dd34481925394bad725807aa111642",
+        "applied": false,
+        "files": [
+          "docs\\tools\\undo_checkpoint.md",
+          "maya_toolkit\\tools\\undo_checkpoint\\__init__.py",
+          "maya_toolkit\\tools\\undo_checkpoint\\catalog.json",
+          "maya_toolkit\\tools\\undo_checkpoint\\clear_checkpoints.py",
+          "maya_toolkit\\tools\\undo_checkpoint\\create_checkpoint.py",
+          "maya_toolkit\\tools\\undo_checkpoint\\install_shelf.py",
+          "maya_toolkit\\tools\\undo_checkpoint\\manager.py",
+          "maya_toolkit\\tools\\undo_checkpoint\\marker_command.py",
+          "maya_toolkit\\tools\\undo_checkpoint\\restore_checkpoint.py",
+          "maya_toolkit\\tools\\undo_checkpoint\\shelf.py",
+          "maya_toolkit\\tools\\undo_checkpoint\\ui.py",
+          "maya_toolkit\\tools\\undo_checkpoint\\upstream\\clear_checkpoints.py.original",
+          "maya_toolkit\\tools\\undo_checkpoint\\upstream\\create_checkpoint.py.original",
+          "maya_toolkit\\tools\\undo_checkpoint\\upstream\\install_shelf.py.original",
+          "maya_toolkit\\tools\\undo_checkpoint\\upstream\\maya_undo_checkpoint.py.original",
+          "maya_toolkit\\tools\\undo_checkpoint\\upstream\\README.md",
+          "maya_toolkit\\tools\\undo_checkpoint\\upstream\\restore_checkpoint.py.original",
+          "tests\\test_undo_checkpoint.py",
+          "tests\\test_undo_checkpoint_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true,
+        "runtime_acceptance_required": true,
+        "runtime": "maya"
+      },
+      "resources": [
+        "clear_checkpoints.py",
+        "create_checkpoint.py",
+        "install_shelf.py",
+        "maya_undo_checkpoint.py",
+        "README.md",
+        "restore_checkpoint.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/API2"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete Maya checkpoint marker/API/original Qt panel/standalone shortcuts/four Shelf buttons with read-only queue preflight and bounded guarded Undo restoration",
+      "prepared_at": "2026-10-02T10:53:33.880159+08:00"
     },
     {
       "source_path": "07_subsystems_suites/animbot_copy",

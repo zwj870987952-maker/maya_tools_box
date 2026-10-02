@@ -4,11 +4,10 @@ import sys
 
 
 def load_tool():
-    sys.path.insert(0, str(Path(__file__).resolve().parent))
     sys.path.insert(0, str(Path(__file__).resolve().parents[4]))
     import maya_toolkit.tools
-    name = 'maya_toolkit.tools.ue_fbx_auto_import'
-    path = Path(__file__).parent / 'maya_toolkit/tools/ue_fbx_auto_import/__init__.py'
+    name = 'maya_toolkit.tools.undo_checkpoint'
+    path = Path(__file__).parent / 'maya_toolkit/tools/undo_checkpoint/__init__.py'
     if name in sys.modules:
         module = sys.modules[name]
         if Path(module.__file__).resolve() != path.resolve():
@@ -18,7 +17,7 @@ def load_tool():
         module = importlib.util.module_from_spec(spec)
         sys.modules[name] = module
         spec.loader.exec_module(module)
-    return module.UEFbxAutoImportTool()
+    return module.UndoCheckpointTool()
 
 
 def show_ui():

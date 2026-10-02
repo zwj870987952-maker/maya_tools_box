@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "plans/staging_run/probe_undo_queue.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "0: \n1: mtbCheckpoint_PROBE\n2: \n{\"result\": null, \"messages\": [\"0: \", \"1: mtbCheckpoint_PROBE\", \"2: \"], \"top\": \"\"}\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "cd6acbc86de1c2ae9bff470d6eeb8a0a3d569cc2ad1ea7d6ddf0d63aa102b978",
+  "runtime_source_sha256": "cd6acbc86de1c2ae9bff470d6eeb8a0a3d569cc2ad1ea7d6ddf0d63aa102b978"
+}

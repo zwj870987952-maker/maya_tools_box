@@ -359,7 +359,7 @@ import maya.standalone
 maya.standalone.initialize(name='python')
 from maya import cmds
 candidate = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(candidate))
+# Staging launch must supply the independent engine package path itself.
 import importlib.util
 spec = importlib.util.spec_from_file_location('candidate_launcher', candidate / 'launch_candidate.py')
 launcher = importlib.util.module_from_spec(spec); spec.loader.exec_module(launcher)
@@ -420,3 +420,5 @@ desc['verification_limitations'].append('Both Maya GUI and UE import acceptance 
 for p in sorted((RC / 'engine_toolkit').rglob('*')):
     if p.is_file() and '__pycache__' not in p.parts and p.suffix != '.pyc': desc['files'].append({'source':p.relative_to(RC).as_posix(), 'target':p.relative_to(RC).as_posix()})
 put(RC / 'promotion.json', json.dumps(desc, ensure_ascii=False, indent=2))
+launcher = RC / 'launch_candidate.py'
+put(launcher, launcher.read_text(encoding='utf-8').replace('def load_tool():\n', 'def load_tool():\n    sys.path.insert(0, str(Path(__file__).resolve().parent))\n'))

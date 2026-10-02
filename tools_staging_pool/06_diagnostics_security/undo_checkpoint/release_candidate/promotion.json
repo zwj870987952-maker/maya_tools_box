@@ -1,0 +1,101 @@
+{
+  "tool_id": "undo_checkpoint",
+  "registration": {
+    "module": "undo_checkpoint",
+    "class_name": "UndoCheckpointTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/undo_checkpoint.md",
+      "target": "docs/tools/undo_checkpoint.md"
+    },
+    {
+      "source": "maya_toolkit/tools/undo_checkpoint/__init__.py",
+      "target": "maya_toolkit/tools/undo_checkpoint/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/undo_checkpoint/catalog.json",
+      "target": "maya_toolkit/tools/undo_checkpoint/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/undo_checkpoint/clear_checkpoints.py",
+      "target": "maya_toolkit/tools/undo_checkpoint/clear_checkpoints.py"
+    },
+    {
+      "source": "maya_toolkit/tools/undo_checkpoint/create_checkpoint.py",
+      "target": "maya_toolkit/tools/undo_checkpoint/create_checkpoint.py"
+    },
+    {
+      "source": "maya_toolkit/tools/undo_checkpoint/install_shelf.py",
+      "target": "maya_toolkit/tools/undo_checkpoint/install_shelf.py"
+    },
+    {
+      "source": "maya_toolkit/tools/undo_checkpoint/manager.py",
+      "target": "maya_toolkit/tools/undo_checkpoint/manager.py"
+    },
+    {
+      "source": "maya_toolkit/tools/undo_checkpoint/marker_command.py",
+      "target": "maya_toolkit/tools/undo_checkpoint/marker_command.py"
+    },
+    {
+      "source": "maya_toolkit/tools/undo_checkpoint/restore_checkpoint.py",
+      "target": "maya_toolkit/tools/undo_checkpoint/restore_checkpoint.py"
+    },
+    {
+      "source": "maya_toolkit/tools/undo_checkpoint/shelf.py",
+      "target": "maya_toolkit/tools/undo_checkpoint/shelf.py"
+    },
+    {
+      "source": "maya_toolkit/tools/undo_checkpoint/ui.py",
+      "target": "maya_toolkit/tools/undo_checkpoint/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/undo_checkpoint/upstream/clear_checkpoints.py.original",
+      "target": "maya_toolkit/tools/undo_checkpoint/upstream/clear_checkpoints.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/undo_checkpoint/upstream/create_checkpoint.py.original",
+      "target": "maya_toolkit/tools/undo_checkpoint/upstream/create_checkpoint.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/undo_checkpoint/upstream/install_shelf.py.original",
+      "target": "maya_toolkit/tools/undo_checkpoint/upstream/install_shelf.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/undo_checkpoint/upstream/maya_undo_checkpoint.py.original",
+      "target": "maya_toolkit/tools/undo_checkpoint/upstream/maya_undo_checkpoint.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/undo_checkpoint/upstream/README.md",
+      "target": "maya_toolkit/tools/undo_checkpoint/upstream/README.md"
+    },
+    {
+      "source": "maya_toolkit/tools/undo_checkpoint/upstream/restore_checkpoint.py.original",
+      "target": "maya_toolkit/tools/undo_checkpoint/upstream/restore_checkpoint.py.original"
+    },
+    {
+      "source": "tests/test_undo_checkpoint.py",
+      "target": "tests/test_undo_checkpoint.py"
+    },
+    {
+      "source": "tests/test_undo_checkpoint_maya.py",
+      "target": "tests/test_undo_checkpoint_maya.py"
+    }
+  ],
+  "resources": [
+    "clear_checkpoints.py",
+    "create_checkpoint.py",
+    "install_shelf.py",
+    "maya_undo_checkpoint.py",
+    "README.md",
+    "restore_checkpoint.py"
+  ],
+  "dependencies": [
+    "Maya cmds/API2"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete Maya checkpoint marker/API/original Qt panel/standalone shortcuts/four Shelf buttons with read-only queue preflight and bounded guarded Undo restoration",
+  "verification_limitations": [
+    "Real Maya GUI/Shelf/viewport refresh, nesting/queue concurrency and cross-version acceptance not_run"
+  ]
+}
