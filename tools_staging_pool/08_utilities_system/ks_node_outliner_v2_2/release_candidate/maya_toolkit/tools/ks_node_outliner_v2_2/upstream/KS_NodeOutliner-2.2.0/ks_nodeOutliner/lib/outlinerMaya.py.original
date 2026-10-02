@@ -1,0 +1,416 @@
+from __future__ import absolute_import
+from __future__ import print_function
+from PySide2 import QtCore, QtGui, QtWidgets
+
+from maya import cmds
+from maya import mel
+
+from ks_nodeOutliner.lib import libMaya, libCommon, config
+
+# import time
+_OUTLINERS_ = {}
+
+def getOutlinerCustomOutput(outlinerName):
+    outliner = _OUTLINERS_[outlinerName]
+    output = outliner.customOutput_get()
+    return output
+
+##
+## It is super important that all parents of this widget have specific and unique object names assigned. Or else Maya throws a hissyfit when re-parenting outliners.
+##
+class outlinerWidget(QtWidgets.QWidget):
+    selectionFilter_global = []
+
+    def __init__(self, parent=None, outlinerName=None, **kwargs):
+        super(outlinerWidget, self).__init__(parent=parent, **kwargs)
+        self.setObjectName(outlinerName + '_wrapperWidget')
+        self.outlinerName = outlinerName
+        self.rootLayout = QtWidgets.QVBoxLayout(self)
+        self.rootLayout.setObjectName(outlinerName + '_outlinerLayout')
+        self.rootLayout.setContentsMargins(0, 0, 0, 0)
+        self.rootLayout.setSpacing(0)
+        self.rootLayout.setAlignment(QtCore.Qt.AlignTop | QtCore.Qt.AlignHCenter)
+        self.setLayout(self.rootLayout)
+
+        self.buildUI()
+
+        # self.itemFilter_searchString = cmds.itemFilter(byName='*', classification="user")
+        # self.itemFilter_nodeType = cmds.itemFilter(classification="user")
+        # self.itemFilter_intersect = cmds.itemFilter(classification="user")
+
+        self.itemFilter_trashbin = []
+
+        _OUTLINERS_[self.outlinerName] = self
+        self.itemFilter_customOutput = scriptFilter_makeItemFilter(self.outlinerName)
+
+        self.filterNode_empty = config.FilterNode('emptyFilter')
+
+        self.activeFilterNode = {}
+        self.activeAttributes = {}
+        self.activeBaseFilter = None
+
+        self.slowModeActive = False
+        self.selectionFilterActive = False
+        self.scriptFilterActive = None
+        self.searchFilterString = ''
+        self.searchFilterString_inverted = False
+
+        self.OUTLINER_OUTPUT = []
+        self.selectionFilter_local = []
+
+
+    def buildUI(self):
+        if cmds.outlinerEditor(self.outlinerName, ex=True):
+            cmds.deleteUI(self.outlinerName)
+
+        rootLayoutMaya = libMaya.getMayaFullDagPath(self.rootLayout)
+        self.outliner = cmds.outlinerEditor(self.outlinerName, panel=None, parent=rootLayoutMaya)
+        cmds.outlinerEditor(self.outliner,
+                            edit=True,
+                            mainListConnection='worldList',
+                            selectionConnection='modelList',
+                            showReferenceNodes=True,
+                            setFilter='defaultSetFilter',
+                            showShapes=False,
+                            showDagOnly=False,
+                            showSetMembers=True,
+                            showReferenceMembers=True,
+                            )
+
+        self.outlinerWidget = libMaya.getWorkspaceQtPointer(self.outliner)
+        self.outlinerWidget.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        self.rootLayout.addWidget(self.outlinerWidget)
+
+        self.setFocusPolicy(QtCore.Qt.ClickFocus)
+        self.setMouseTracking(True)
+        self.hotkey_revealSelected = QtWidgets.QShortcut(QtGui.QKeySequence("F"), self)
+        self.hotkey_revealSelected.setEnabled(False)
+        self.hotkey_revealSelected.activated.connect(self.revealSelected)
+
+
+    def revealSelected(self):
+        if cmds.outlinerEditor(self.outliner, q=True, exists=True):
+            cmds.outlinerEditor(self.outliner, edit=True, sc=True)
+
+    def enterEvent(self, event):
+        self.hotkey_revealSelected.setEnabled(True)
+
+    def leaveEvent(self, event):
+        self.hotkey_revealSelected.setEnabled(False)
+
+    def itemFilter_addToTrashbin(self, itemFilter):
+        self.itemFilter_trashbin.append(itemFilter)
+
+    def itemFilter_deleteTrashbin(self):
+        currentFilter = cmds.outlinerEditor(self.outliner, query=True, filter=True)
+        for itemFilter in self.itemFilter_trashbin:
+            if itemFilter == currentFilter:
+                continue
+            try: cmds.delete(itemFilter)
+            except Exception: pass
+            self.itemFilter_trashbin.remove(itemFilter)
+
+
+    def filter_searchFilter(self, string, inverted, updateFilter=True):
+        self.searchFilterString = string
+        self.searchFilterString_inverted = inverted
+        if updateFilter:
+            self.filter_updateActive(customOutputRefresh=False)
+
+    def filter_byNodeType(self, nodeTypes):
+        filterData = {'baseFilter': True,
+                    'baseFilterType': 'nodeTypes',
+                    'nodeTypes': nodeTypes,
+                    # 'ignoreDagHierarchy': False,
+                    # 'expandObjects': False,
+                    # 'showDagOnly': False
+                    }
+        self.filterNode_empty.mergeFilterData(filterData)
+        self.assignFilter(self.filterNode_empty)
+        self.filter_updateActive()
+
+    def filter_clear(self):
+        filterData = {'baseFilter': False,
+                    # 'ignoreDagHierarchy': False,
+                    # 'expandObjects': False,
+                    # 'showDagOnly': False
+                    }
+        self.filterNode_empty.mergeFilterData(filterData)
+        self.assignFilter(self.filterNode_empty)
+        self.filter_updateActive()
+
+    def filter_customOutput(self, nodeList, ignoreHierarchy=False):
+        filterData = {'baseFilter': False,
+                    # 'ignoreDagHierarchy': False,
+                    # 'expandObjects': False,
+                    # 'showDagOnly': False
+                    }
+        self.filterNode_empty.mergeFilterData(filterData)
+        self.assignFilter(self.filterNode_empty)
+
+        self.scriptFilterActive = True
+        self.customOutput_set(nodeList)
+        self.filter_updateActive(customOutputRefresh=False)
+
+    def assignFilter(self, filterNode):
+        attributes = {}
+        attributes['displayMode'] = "DAG"
+        attributes['showDagOnly'] = False
+        attributes['expandObjects'] = filterNode.getData('expandObjects')
+        attributes['showShapes'] = filterNode.getData('showShapes')
+
+        if filterNode.getData('ignoreHierarchy'):
+            attributes['displayMode'] = "List"
+            attributes['expandObjects'] = False
+            attributes['showShapes'] = True
+
+        self.activeFilterNode = filterNode
+        self.activeAttributes = attributes
+
+        if filterNode.getData("scriptFilter"):
+            self.scriptFilterActive = True
+            moduleName = filterNode.getData("scriptModule")
+            functionName = filterNode.getData("scriptFunction")
+            functionArgs = filterNode.getData("scriptArgs")
+            self.activeScript_function = [moduleName, functionName, functionArgs]
+
+        else:
+            self.scriptFilterActive = False
+            self.activeScript_function = None
+
+        return
+
+
+
+    def filter_updateActive(self, customOutputRefresh=True):
+
+        if self.slowMode_validCheck() is False:
+            libMaya.warning('KS_NodeOutliner - SlowMode is Active. Will not update unless a Selection Filter or Script Filter is used.')
+            return
+
+        filterNode = self.activeFilterNode
+
+        baseFilter = ''
+        if filterNode.getData('baseFilter'):
+            baseFilterType = filterNode.getData('baseFilterType')
+            if baseFilterType == 'internalFilter':
+                baseFilter = filterNode.getData('internalFilter')
+            elif baseFilterType == 'nodeTypes':
+                nodeTypes = filterNode.getData('nodeTypes')
+                if nodeTypes:
+                    baseFilter = cmds.itemFilter(byType=nodeTypes, classification="user")
+                    self.itemFilter_addToTrashbin(baseFilter)
+        self.activeBaseFilter = baseFilter
+        itemFilter = baseFilter
+
+        if self.scriptFilterActive or self.selectionFilterActive:
+            itemFilter = self.itemFilter_customOutput
+            if customOutputRefresh:
+                self.customOutput_update()
+
+        if self.searchFilterString:
+            searchString = '*%s*' %(self.searchFilterString)
+            itemFilter_search = cmds.itemFilter(byName=searchString, negate=self.searchFilterString_inverted)
+            self.itemFilter_addToTrashbin(itemFilter_search)
+
+            if itemFilter:
+                itemFilter = cmds.itemFilter(intersect=(itemFilter_search, itemFilter), classification="user")
+                self.itemFilter_addToTrashbin(itemFilter)
+            else:
+                itemFilter = itemFilter_search
+
+
+        cmds.outlinerEditor(self.outliner, edit=True, filter=itemFilter, refresh=True, **self.activeAttributes)
+        self.itemFilter_deleteTrashbin()
+
+
+    def customOutput_get(self):
+        return self.OUTLINER_OUTPUT
+
+    def customOutput_set(self, nodeList):
+        nodeList = libMaya.nodeList_makeShortNames(nodeList)
+        self.OUTLINER_OUTPUT = nodeList
+
+    # def customOutput_update(self):
+    #     nodeOutput = []
+
+    #     selectionFilterOutput = []
+    #     if self.selectionFilterActive:
+    #         selectionFilterOutput = self.selectionFilter_local_get()
+    #         if not selectionFilterOutput:
+    #             selectionFilterOutput = self.selectionFilter_global_get()
+
+    #     baseFilterOutput = []
+    #     if self.activeBaseFilter:
+    #         if selectionFilterOutput:
+    #             baseFilterOutput = cmds.lsThroughFilter(self.activeBaseFilter, na=True, item=selectionFilterOutput)
+    #         else:
+    #             baseFilterOutput = cmds.lsThroughFilter(self.activeBaseFilter, na=True)
+
+    #     if baseFilterOutput:
+    #         nodeOutput = baseFilterOutput
+    #     else:
+    #         nodeOutput = selectionFilterOutput
+
+    #     if self.activeScript_function:
+    #         nodeOutput = scriptFilter_runFunction(nodeInput=nodeOutput, moduleName=self.activeScript_function[0], functionName=self.activeScript_function[1], functionArgs=self.activeScript_function[2])
+
+    #     self.customOutput_set(nodeOutput)
+    def customOutput_update(self):
+        nodeOutput = []
+
+        if self.selectionFilterActive:
+            selectionFilterOutput = self.selectionFilter_local_get()
+            if not selectionFilterOutput:
+                selectionFilterOutput = self.selectionFilter_global_get()
+            nodeOutput = selectionFilterOutput
+
+        if self.activeBaseFilter:
+            if nodeOutput:
+                nodeOutput = cmds.lsThroughFilter(self.activeBaseFilter, na=True, item=nodeOutput)
+            else:
+                nodeOutput = cmds.lsThroughFilter(self.activeBaseFilter, na=True)
+
+        if self.activeScript_function:
+            nodeOutput = scriptFilter_runFunction(nodeInput=nodeOutput, moduleName=self.activeScript_function[0], functionName=self.activeScript_function[1], functionArgs=self.activeScript_function[2])
+
+        self.customOutput_set(nodeOutput)
+
+    def selectionFilter_add(self, nodeList, local=False, inclHierarchy=False, inclShaders=False, inclInputs=False):
+        nodeList = libMaya.getRelatedNodes(nodeList, inclHierarchy=inclHierarchy, inclShaders=inclShaders, inclInputs=inclInputs)
+        if local:
+            self.selectionFilter_local_add(nodeList)
+        else:
+            self.selectionFilter_global_add(nodeList)
+        self.selectionFilter_check()
+        return
+
+    def selectionFilter_reset(self, local=False):
+        if local:
+            self.selectionFilter_local_reset()
+        else:
+            self.selectionFilter_global_reset()
+        self.selectionFilter_check()
+        return
+
+    def selectionFilter_get(self, local=False):
+        if local:
+            return self.selectionFilter_local_get()
+        else:
+            return self.selectionFilter_global_get()
+
+
+    def selectionFilter_global_get(cls):
+        return cls.selectionFilter_global
+
+    def selectionFilter_global_add(cls, nodeList):
+        nodeList = list(set(cls.selectionFilter_global) | set(nodeList))
+        cls.selectionFilter_global += nodeList
+
+    def selectionFilter_global_reset(cls):
+        cls.selectionFilter_global[:] = []
+
+    def selectionFilter_local_get(self):
+        return self.selectionFilter_local
+
+    def selectionFilter_local_add(self, nodeList):
+        nodeList = list(set(self.selectionFilter_local) | set(nodeList))
+        self.selectionFilter_local += nodeList
+
+    def selectionFilter_local_reset(self):
+        self.selectionFilter_local[:] = []
+
+    def selectionFilter_check(self):
+        if self.selectionFilter_local_get() or self.selectionFilter_global_get():
+            checkState = True
+        else:
+            checkState = False
+
+        self.selectionFilterActive = checkState
+        return checkState
+
+
+    def slowMode_toggle(self, state):
+        self.slowModeActive = state
+
+    def slowMode_activate(self):
+        self.slowModeActive = True
+
+    def slowMode_deactivate(self):
+        self.slowModeActive = False
+
+    def slowMode_validCheck(self):
+        if self.slowModeActive:
+            if self.scriptFilterActive or self.selectionFilterActive:
+                return True
+            else:
+                return False
+        return True
+
+    def queryFilter(self):
+        activefilter = cmds.outlinerEditor(self.outliner, q=True, filter=True)
+        output = cmds.lsThroughFilter(activefilter, na=True)
+        return output
+
+
+    # def querySelectionLock(self):
+    #     selectionFilterOutput_global = self.selectionFilter_get(local=False)
+    #     print 'Selection Filter Query - Global:', len(selectionFilterOutput_global), selectionFilterOutput_global
+
+    #     selectionFilterOutput_local = self.selectionFilter_get(local=True)
+    #     print 'Selection Filter Query - Local:', len(selectionFilterOutput_local), selectionFilterOutput_local
+
+    #     activefilter = cmds.outlinerEditor(self.outliner, q=True, filter=True)
+    #     if activefilter:
+    #         print 'ActiveFilter:', activefilter, cmds.itemFilter(activefilter, q=True, byType=True), cmds.itemFilter(activefilter, q=True, ss=True),  cmds.itemFilter(activefilter, q=True, intersect=True)
+    #     else:
+    #         print 'ActiveFilter: None'
+
+
+
+
+def scriptFilter_makeItemFilter(outlinerName):
+    mel.eval('python("import ks_nodeOutliner.lib.outlinerMaya as outlinerMaya")')
+    pyCommand = "outlinerMaya.getOutlinerCustomOutput(outlinerName='%s')" %(outlinerName)
+    melInit = ('global proc string[] ks_getOutlinerCustomOutput_%s( string $name[] ) {\n' %(outlinerName) +
+        '    string $outlinerOutputList[];\n' +
+        '    $outlinerOutputList = python("'+pyCommand+'");\n' +
+        '    return $outlinerOutputList;\n' +
+        '}')
+    mel.eval(melInit)
+    return cmds.itemFilter(secondScript='ks_getOutlinerCustomOutput_%s' %(outlinerName), classification="user", uniqueNodeNames=True)
+
+
+
+def scriptFilter_runFunction(moduleName, functionName, nodeInput=[], functionArgs=''):
+    nodeOutput = []
+    module = libCommon.getModule(moduleName, reloadModule=False)
+    if not module:
+        return nodeOutput
+    function = libCommon.getModuleFunction(module, functionName)
+    if not function:
+        return nodeOutput
+
+    argList = []
+    if functionArgs:
+        argList = functionArgs.split(',')
+        argList = [int(arg) if arg.isdigit() else arg for arg in argList]
+
+    try:
+        nodeOutput = function(nodeInput, *argList)
+    except:
+        print(('\n------------\nKS_NodeOutliner ScriptFilter - Error running scriptFilter:', moduleName, functionName, function, '\n\n------------'))
+
+    return nodeOutput
+
+
+
+if __name__ == "__main__":
+    # app = QtWidgets.QApplication([])
+    outlinerGUI = outlinerWidget(outlinerName='dummyoutliner')
+    outlinerGUI.setWindowTitle('CustomOutlinerA')
+    outlinerGUI.setWindowFlags(outlinerGUI.windowFlags() | QtCore.Qt.WindowStaysOnTopHint)
+    outlinerGUI.resize(600,350)
+
+    outlinerGUI.show()
+    # app.exec_()

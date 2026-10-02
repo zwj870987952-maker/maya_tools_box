@@ -826,3 +826,11 @@
 - PNG32x32内嵌base64配置跨目录便携，不覆写icon_i.png；全JSON/语言/Python AST/PNG预检成功后再替换按钮，clear用takeAt真实移item立即归零，新JSONexclusive/已有parent/16MiB/256buttons/重复key拒绝。图标先解码再更新单按钮。Shift中键每原shelf QWidget自有eventFilter发送只读shelf引用，不篡改command/sourceType/dragCallback/mousePress，左键不吞，close撤自有filters，不叠加foreign hooks。
 - 1离线+1隔离Maya2025真实多行Python语句与无末尾分号MEL、无confirm不执行、二者单Undo+独立Qt原完整10按钮FlowLayout/可重载PNG/坏最后不清原配置/clear/left-click filter通过；未来layout注册/domain/panel/fingerprint通过。首轮Qt setParent后再向QLayoutItem取widget导致None已改强局部引用，SyntaxError统一为ValueError；两项不是运行环境原因，修复后通过。
 - 真实MayaGUI/shelf Drag/资源icon/生产command/跨版本not_run，prepared_unverified。实际5h61%已用（剩39%）、周70%（剩30%），继续ks_node_outliner_v2_2，heartbeat暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：KS Node Outliner完整候选，累计104/109
+
+- 18原文件SHA归档，完整双Outliner/FilterManager/preset/选择层级/脚本过滤/配置/license及EULA保留，six MIT自包含。Qt5/6 facade、Python3、脚本目录大小写/optionVar确定兼容修复；默认inspect/validate不导入Qt/native、不建过滤器或写配置。
+- 外部独立JSON固定session；原16个默认过滤器完整保留，description/hierarchyBehavior/updateSelectionFilter历史字段严格string/bool兼容。先全量验证后保存，已有当前配置先精确backup后atomic；增删改名及snapshot同步FILTERORDER。旧six多重metaclass令Shiboken6 QObject构造卡死，改显式单QObject实例同名工厂；过期desktop preview签名同步，只验控件不作Maya证据。
+- 自有MTB Outliner/editor/workspace按MQt指针、itemFilter按UUID保护，外来同名拒绝清理；关闭X清自有session。MTB optionVar只明确保存/恢复且保护外来后来改动；未知自定义script模块必须显式允许。原NGon选择/constraint副作用改MFnMesh只读拓扑，原vertexCount占位行为明确未实现统计。
+- 离线配置/严格bool/精确备份、隔离Maya2025层级查询/NGon选择时间约束不变/自有过滤器清理保留foreign、独立Qt完整双preview/FilterManager/共享config/增删改保存恢复、future layout注册/domain/panel及fingerprint通过。真实Maya嵌入/完整preset/自定义scripts/dock生命周期/复杂重名/跨版本not_run，prepared_unverified。
+- 实际5h72%已用（剩28%）、周72%（剩28%），继续ks_save_timer_v1_3_0，heartbeat暂停；无正式迁移/Obsidian同步/用卡/购买。

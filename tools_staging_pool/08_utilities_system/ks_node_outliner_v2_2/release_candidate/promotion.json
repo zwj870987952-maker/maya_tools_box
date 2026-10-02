@@ -1,0 +1,222 @@
+{
+  "tool_id": "ks_node_outliner_v2_2",
+  "registration": {
+    "module": "ks_node_outliner_v2_2",
+    "class_name": "KSNodeOutlinerTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/ks_node_outliner_v2_2.md",
+      "target": "docs/tools/ks_node_outliner_v2_2.md"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/__init__.py",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/catalog.json",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/compat_six.py",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/compat_six.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/config_io.py",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/config_io.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/EULA-KS_NodeOutliner.pdf",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/EULA-KS_NodeOutliner.pdf"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/__init__.py",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/ksNodeOutliner.py",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/ksNodeOutliner.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/ksNodeOutliner_filterData.json",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/ksNodeOutliner_filterData.json"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/lib/__init__.py",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/lib/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/lib/config.py",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/lib/config.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/lib/GUI_FilterManager.py",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/lib/GUI_FilterManager.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/lib/GUI_NodeOutliner.py",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/lib/GUI_NodeOutliner.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/lib/GUI_OutlinerContainer.py",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/lib/GUI_OutlinerContainer.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/lib/libCommon.py",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/lib/libCommon.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/lib/libDesktop.py",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/lib/libDesktop.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/lib/libMaya.py",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/lib/libMaya.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/lib/outlinerDesktop.py",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/lib/outlinerDesktop.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/lib/outlinerMaya.py",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/lib/outlinerMaya.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/license.txt",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/license.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/SCRIPTFILTERS/__init__.py",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/SCRIPTFILTERS/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/SCRIPTFILTERS/ksMiscFilters.py",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/native/ks_nodeOutliner/SCRIPTFILTERS/ksMiscFilters.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/original_README.md",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/original_README.md"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/qt_compat.py",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/qt_compat.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/session.py",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/session.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/EULA-KS_NodeOutliner.pdf",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/EULA-KS_NodeOutliner.pdf"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/__init__.py.original",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/ksNodeOutliner.py.original",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/ksNodeOutliner.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/ksNodeOutliner_filterData.json",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/ksNodeOutliner_filterData.json"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/__init__.py.original",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/config.py.original",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/config.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/GUI_FilterManager.py.original",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/GUI_FilterManager.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/GUI_NodeOutliner.py.original",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/GUI_NodeOutliner.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/GUI_OutlinerContainer.py.original",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/GUI_OutlinerContainer.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/libCommon.py.original",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/libCommon.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/libDesktop.py.original",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/libDesktop.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/libMaya.py.original",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/libMaya.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/outlinerDesktop.py.original",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/outlinerDesktop.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/outlinerMaya.py.original",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/outlinerMaya.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/license.txt",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/license.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/SCRIPTFILTERS/__init__.py.original",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/SCRIPTFILTERS/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/SCRIPTFILTERS/ksMiscFilters.py.original",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/ks_nodeOutliner/SCRIPTFILTERS/ksMiscFilters.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/README.md",
+      "target": "maya_toolkit/tools/ks_node_outliner_v2_2/upstream/KS_NodeOutliner-2.2.0/README.md"
+    },
+    {
+      "source": "tests/test_ks_node_outliner_v2_2.py",
+      "target": "tests/test_ks_node_outliner_v2_2.py"
+    },
+    {
+      "source": "tests/test_ks_node_outliner_v2_2_maya.py",
+      "target": "tests/test_ks_node_outliner_v2_2_maya.py"
+    },
+    {
+      "source": "tests/test_ks_node_outliner_v2_2_qt.py",
+      "target": "tests/test_ks_node_outliner_v2_2_qt.py"
+    }
+  ],
+  "resources": [
+    "KS_NodeOutliner-2.2.0/EULA-KS_NodeOutliner.pdf",
+    "KS_NodeOutliner-2.2.0/ks_nodeOutliner/__init__.py",
+    "KS_NodeOutliner-2.2.0/ks_nodeOutliner/ksNodeOutliner.py",
+    "KS_NodeOutliner-2.2.0/ks_nodeOutliner/ksNodeOutliner_filterData.json",
+    "KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/__init__.py",
+    "KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/config.py",
+    "KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/GUI_FilterManager.py",
+    "KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/GUI_NodeOutliner.py",
+    "KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/GUI_OutlinerContainer.py",
+    "KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/libCommon.py",
+    "KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/libDesktop.py",
+    "KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/libMaya.py",
+    "KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/outlinerDesktop.py",
+    "KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/outlinerMaya.py",
+    "KS_NodeOutliner-2.2.0/ks_nodeOutliner/license.txt",
+    "KS_NodeOutliner-2.2.0/ks_nodeOutliner/SCRIPTFILTERS/__init__.py",
+    "KS_NodeOutliner-2.2.0/ks_nodeOutliner/SCRIPTFILTERS/ksMiscFilters.py",
+    "KS_NodeOutliner-2.2.0/README.md"
+  ],
+  "dependencies": [
+    "Maya real Outliner/Qt widgets and cmds/API",
+    "Bundled six MIT notice; original license/EULA retained"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete original double Outliner/filter manager with scoped config backups, Qt5/6 facade and owned filter cleanup",
+  "verification_limitations": [
+    "Real Maya GUI embedding/dock/full presets/custom scripts/ambiguous short-name display/cross-version acceptance not_run; original vertex-count function is passthrough placeholder"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T15:02:10.494445+08:00",
+  "updated_at": "2026-10-02T15:30:10.521001+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "08_utilities_system/floating_toolbar",
+    "last_completed_tool": "08_utilities_system/ks_node_outliner_v2_2",
     "last_usage": {
-      "five_hour_used_percent": 56.0,
+      "five_hour_used_percent": 61.0,
       "weekly_used_percent": 70.0,
-      "recorded_at": "2026-10-02T14:53:24.049997+08:00",
+      "recorded_at": "2026-10-02T15:03:18.173184+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "08_utilities_system/floating_toolbar"
+    "current_tool": "08_utilities_system/ks_node_outliner_v2_2"
   },
   "entry_repairs": [
     {
@@ -22565,7 +22565,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete floating toolbar with explicit script languages, portable icon JSON, transactional load and reversible shelf drag filters",
-      "prepared_at": "2026-10-02T15:02:11.042273+08:00"
+      "prepared_at": "2026-10-02T15:02:11.042273+08:00",
+      "source_commit": "d6e089e109531e602e52b76f96927c8f988dd7a7"
     },
     {
       "source_path": "08_utilities_system/ks_node_outliner_v2_2",
@@ -22576,7 +22577,7 @@
       "entry_candidates": [
         "KS_NodeOutliner-2.2.0/ks_nodeOutliner/ksNodeOutliner.py"
       ],
-      "source_file_count": 18,
+      "source_file_count": 19,
       "source_files": [
         "KS_NodeOutliner-2.2.0/ks_nodeOutliner/__init__.py",
         "KS_NodeOutliner-2.2.0/ks_nodeOutliner/ksNodeOutliner.py",
@@ -22597,14 +22598,86 @@
         "KS_NodeOutliner-2.2.0/ks_nodeOutliner/license.txt"
       ],
       "entry_sha256": "b5e6c123e27cfc4c8b92931df147617c186c3618093d324c75016487655daad6",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.015s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"ks_node_outliner_v2_2\",\r\n  \"candidate_sha256\": \"527ee6d35934a0e838915b1e1a21bc5ad22ad90324667bdd16fe42598941b26a\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\ks_node_outliner_v2_2.md\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\compat_six.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\config_io.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\EULA-KS_NodeOutliner.pdf\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\native\\\\ks_nodeOutliner\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\native\\\\ks_nodeOutliner\\\\ksNodeOutliner.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\native\\\\ks_nodeOutliner\\\\ksNodeOutliner_filterData.json\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\native\\\\ks_nodeOutliner\\\\lib\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\native\\\\ks_nodeOutliner\\\\lib\\\\config.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\native\\\\ks_nodeOutliner\\\\lib\\\\GUI_FilterManager.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\native\\\\ks_nodeOutliner\\\\lib\\\\GUI_NodeOutliner.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\native\\\\ks_nodeOutliner\\\\lib\\\\GUI_OutlinerContainer.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\native\\\\ks_nodeOutliner\\\\lib\\\\libCommon.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\native\\\\ks_nodeOutliner\\\\lib\\\\libDesktop.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\native\\\\ks_nodeOutliner\\\\lib\\\\libMaya.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\native\\\\ks_nodeOutliner\\\\lib\\\\outlinerDesktop.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\native\\\\ks_nodeOutliner\\\\lib\\\\outlinerMaya.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\native\\\\ks_nodeOutliner\\\\license.txt\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\native\\\\ks_nodeOutliner\\\\SCRIPTFILTERS\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\native\\\\ks_nodeOutliner\\\\SCRIPTFILTERS\\\\ksMiscFilters.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\original_README.md\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\qt_compat.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\session.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\upstream\\\\KS_NodeOutliner-2.2.0\\\\EULA-KS_NodeOutliner.pdf\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\upstream\\\\KS_NodeOutliner-2.2.0\\\\ks_nodeOutliner\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\upstream\\\\KS_NodeOutliner-2.2.0\\\\ks_nodeOutliner\\\\ksNodeOutliner.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\upstream\\\\KS_NodeOutliner-2.2.0\\\\ks_nodeOutliner\\\\ksNodeOutliner_filterData.json\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\upstream\\\\KS_NodeOutliner-2.2.0\\\\ks_nodeOutliner\\\\lib\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\upstream\\\\KS_NodeOutliner-2.2.0\\\\ks_nodeOutliner\\\\lib\\\\config.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\upstream\\\\KS_NodeOutliner-2.2.0\\\\ks_nodeOutliner\\\\lib\\\\GUI_FilterManager.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\upstream\\\\KS_NodeOutliner-2.2.0\\\\ks_nodeOutliner\\\\lib\\\\GUI_NodeOutliner.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\upstream\\\\KS_NodeOutliner-2.2.0\\\\ks_nodeOutliner\\\\lib\\\\GUI_OutlinerContainer.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\upstream\\\\KS_NodeOutliner-2.2.0\\\\ks_nodeOutliner\\\\lib\\\\libCommon.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\upstream\\\\KS_NodeOutliner-2.2.0\\\\ks_nodeOutliner\\\\lib\\\\libDesktop.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\upstream\\\\KS_NodeOutliner-2.2.0\\\\ks_nodeOutliner\\\\lib\\\\libMaya.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\upstream\\\\KS_NodeOutliner-2.2.0\\\\ks_nodeOutliner\\\\lib\\\\outlinerDesktop.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\upstream\\\\KS_NodeOutliner-2.2.0\\\\ks_nodeOutliner\\\\lib\\\\outlinerMaya.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\upstream\\\\KS_NodeOutliner-2.2.0\\\\ks_nodeOutliner\\\\license.txt\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\upstream\\\\KS_NodeOutliner-2.2.0\\\\ks_nodeOutliner\\\\SCRIPTFILTERS\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\upstream\\\\KS_NodeOutliner-2.2.0\\\\ks_nodeOutliner\\\\SCRIPTFILTERS\\\\ksMiscFilters.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_node_outliner_v2_2\\\\upstream\\\\KS_NodeOutliner-2.2.0\\\\README.md\",\r\n    \"tests\\\\test_ks_node_outliner_v2_2.py\",\r\n    \"tests\\\\test_ks_node_outliner_v2_2_maya.py\",\r\n    \"tests\\\\test_ks_node_outliner_v2_2_qt.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true,\r\n  \"runtime_acceptance_required\": true,\r\n  \"runtime\": \"maya\"\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/08_utilities_system/ks_node_outliner_v2_2/release_candidate/tests/test_ks_node_outliner_v2_2_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.021s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "11b49dfacab8707c14582b432bf0e402b2518bc4299bb90f41f4c24d51dee2be",
+          "runtime_source_sha256": "ab76e8bbd86ef60c98b326c5b24bd629f1aab7b32243bc747f14e00ad9f47632"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya embedded Outliner/dock/presets/custom scripts/ambiguous names and cross-version acceptance not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "527ee6d35934a0e838915b1e1a21bc5ad22ad90324667bdd16fe42598941b26a",
+          "returncode": 0,
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.013s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/08_utilities_system/ks_node_outliner_v2_2/release_candidate/tests/test_ks_node_outliner_v2_2_qt.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "config loaded\r\nnative imports done\r\nRUNNING - ASSIGN FILTER\r\nRUNNING - UPDATE ACTIVE FILTER\r\nDefaultMaterialsAndShaderGlowFilter<br>+<br>itemFilter_searchString\r\nRUNNING - ASSIGN FILTER\r\nRUNNING - UPDATE ACTIVE FILTER\r\nDefaultLightsAndOpticalFXFilter<br>+<br>itemFilter_searchString\r\ndouble Outliner constructed\r\nmanager constructed\r\n.\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.085s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "11b49dfacab8707c14582b432bf0e402b2518bc4299bb90f41f4c24d51dee2be",
+          "runtime_source_sha256": "ab76e8bbd86ef60c98b326c5b24bd629f1aab7b32243bc747f14e00ad9f47632",
+          "evidence_path": "plans/staging_run/ks_node_outliner_v2_2_qt.json"
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI embedding/dock/full presets/custom scripts/ambiguous short-name display/cross-version acceptance not_run; original vertex-count function is passthrough placeholder"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 14,
@@ -22613,7 +22686,94 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "d406fcc22ab011f1ce9b9c5cdc45cfa1003fe404bfb86570b40a25a380d2eaed"
+      "source_tree_sha256": "4f3a56487112b761f72e53cf1fc0f3e9b99b6cd90750eac10702e58f55d6e995",
+      "candidate_path": "tools_staging_pool/08_utilities_system/ks_node_outliner_v2_2/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/08_utilities_system/ks_node_outliner_v2_2/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "ks_node_outliner_v2_2",
+        "candidate_sha256": "527ee6d35934a0e838915b1e1a21bc5ad22ad90324667bdd16fe42598941b26a",
+        "applied": false,
+        "files": [
+          "docs\\tools\\ks_node_outliner_v2_2.md",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\__init__.py",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\catalog.json",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\compat_six.py",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\config_io.py",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\EULA-KS_NodeOutliner.pdf",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\native\\ks_nodeOutliner\\__init__.py",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\native\\ks_nodeOutliner\\ksNodeOutliner.py",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\native\\ks_nodeOutliner\\ksNodeOutliner_filterData.json",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\native\\ks_nodeOutliner\\lib\\__init__.py",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\native\\ks_nodeOutliner\\lib\\config.py",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\native\\ks_nodeOutliner\\lib\\GUI_FilterManager.py",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\native\\ks_nodeOutliner\\lib\\GUI_NodeOutliner.py",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\native\\ks_nodeOutliner\\lib\\GUI_OutlinerContainer.py",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\native\\ks_nodeOutliner\\lib\\libCommon.py",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\native\\ks_nodeOutliner\\lib\\libDesktop.py",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\native\\ks_nodeOutliner\\lib\\libMaya.py",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\native\\ks_nodeOutliner\\lib\\outlinerDesktop.py",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\native\\ks_nodeOutliner\\lib\\outlinerMaya.py",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\native\\ks_nodeOutliner\\license.txt",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\native\\ks_nodeOutliner\\SCRIPTFILTERS\\__init__.py",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\native\\ks_nodeOutliner\\SCRIPTFILTERS\\ksMiscFilters.py",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\original_README.md",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\qt_compat.py",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\session.py",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\upstream\\KS_NodeOutliner-2.2.0\\EULA-KS_NodeOutliner.pdf",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\upstream\\KS_NodeOutliner-2.2.0\\ks_nodeOutliner\\__init__.py.original",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\upstream\\KS_NodeOutliner-2.2.0\\ks_nodeOutliner\\ksNodeOutliner.py.original",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\upstream\\KS_NodeOutliner-2.2.0\\ks_nodeOutliner\\ksNodeOutliner_filterData.json",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\upstream\\KS_NodeOutliner-2.2.0\\ks_nodeOutliner\\lib\\__init__.py.original",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\upstream\\KS_NodeOutliner-2.2.0\\ks_nodeOutliner\\lib\\config.py.original",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\upstream\\KS_NodeOutliner-2.2.0\\ks_nodeOutliner\\lib\\GUI_FilterManager.py.original",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\upstream\\KS_NodeOutliner-2.2.0\\ks_nodeOutliner\\lib\\GUI_NodeOutliner.py.original",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\upstream\\KS_NodeOutliner-2.2.0\\ks_nodeOutliner\\lib\\GUI_OutlinerContainer.py.original",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\upstream\\KS_NodeOutliner-2.2.0\\ks_nodeOutliner\\lib\\libCommon.py.original",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\upstream\\KS_NodeOutliner-2.2.0\\ks_nodeOutliner\\lib\\libDesktop.py.original",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\upstream\\KS_NodeOutliner-2.2.0\\ks_nodeOutliner\\lib\\libMaya.py.original",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\upstream\\KS_NodeOutliner-2.2.0\\ks_nodeOutliner\\lib\\outlinerDesktop.py.original",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\upstream\\KS_NodeOutliner-2.2.0\\ks_nodeOutliner\\lib\\outlinerMaya.py.original",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\upstream\\KS_NodeOutliner-2.2.0\\ks_nodeOutliner\\license.txt",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\upstream\\KS_NodeOutliner-2.2.0\\ks_nodeOutliner\\SCRIPTFILTERS\\__init__.py.original",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\upstream\\KS_NodeOutliner-2.2.0\\ks_nodeOutliner\\SCRIPTFILTERS\\ksMiscFilters.py.original",
+          "maya_toolkit\\tools\\ks_node_outliner_v2_2\\upstream\\KS_NodeOutliner-2.2.0\\README.md",
+          "tests\\test_ks_node_outliner_v2_2.py",
+          "tests\\test_ks_node_outliner_v2_2_maya.py",
+          "tests\\test_ks_node_outliner_v2_2_qt.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true,
+        "runtime_acceptance_required": true,
+        "runtime": "maya"
+      },
+      "resources": [
+        "KS_NodeOutliner-2.2.0/EULA-KS_NodeOutliner.pdf",
+        "KS_NodeOutliner-2.2.0/ks_nodeOutliner/__init__.py",
+        "KS_NodeOutliner-2.2.0/ks_nodeOutliner/ksNodeOutliner.py",
+        "KS_NodeOutliner-2.2.0/ks_nodeOutliner/ksNodeOutliner_filterData.json",
+        "KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/__init__.py",
+        "KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/config.py",
+        "KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/GUI_FilterManager.py",
+        "KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/GUI_NodeOutliner.py",
+        "KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/GUI_OutlinerContainer.py",
+        "KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/libCommon.py",
+        "KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/libDesktop.py",
+        "KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/libMaya.py",
+        "KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/outlinerDesktop.py",
+        "KS_NodeOutliner-2.2.0/ks_nodeOutliner/lib/outlinerMaya.py",
+        "KS_NodeOutliner-2.2.0/ks_nodeOutliner/license.txt",
+        "KS_NodeOutliner-2.2.0/ks_nodeOutliner/SCRIPTFILTERS/__init__.py",
+        "KS_NodeOutliner-2.2.0/ks_nodeOutliner/SCRIPTFILTERS/ksMiscFilters.py",
+        "KS_NodeOutliner-2.2.0/README.md"
+      ],
+      "external_dependencies": [
+        "Maya real Outliner/Qt widgets and cmds/API",
+        "Bundled six MIT notice; original license/EULA retained"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete original double Outliner/filter manager with scoped config backups, Qt5/6 facade and owned filter cleanup",
+      "prepared_at": "2026-10-02T15:30:33.109533+08:00"
     },
     {
       "source_path": "08_utilities_system/ks_save_timer_v1_3_0",
