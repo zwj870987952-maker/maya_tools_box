@@ -871,3 +871,10 @@
 - 迁移为保留源的复制，整批碰撞/坏末项先拒绝；覆写须明确允许，精确备份、SHA核验、并发改动保护。IO异常可能留下前项目标及备份，失败结果不含完整已完成列表，验收说明要求按目录逐项核对。删除改可恢复隔离和SHA receipt，保留foreign已加载shelf UI；加载MEL独立确认，窗口只清自有MQt对象。
 - 离线文件扫描/复制/精确备份/坏末项/可恢复隔离、完整native UI mock/版本与路径映射，以及临时future layout注册/domain/panel/fingerprint检查通过。真实Maya GUI/MEL加载/外部图标/跨版本仍not_run，prepared_unverified；native mock不是实际Maya验收。
 - 最新实际5小时已用92%（剩8%）、周已用75%（剩25%）。全部动态候选已处理，结束整理循环，保持heartbeat停用；正在进行最终范围/候选/验收总表对账。没有正式迁移、Obsidian同步、用卡或购买。
+
+# 2026-10-02：全部动态范围完成，交付集中验收
+
+- 最终重新扫描：109物理单元/109目录记录/109存在入口，34处既有入口路径修正；没有清单缺项、未列单元或重复记录。候选状态4 prepared_verified_offline、105 prepared_unverified，全部candidate_complete=true。
+- FINAL_AUDIT.json通过：109个候选当前指纹与有效晋级预览一致，6164个目标文件存在且互不冲突，文档/测试/验收清单齐备，所有逐项source_commit确实存在；正式Maya/engine工具库、AGENTS.md、DEVELOPMENT_SPEC.md、knowledge/_generated相对main没有变动。全程未执行晋级--apply。
+- 真实运行环境分别103 Maya、1 Maya+Unreal、4 Unreal Editor、1 Windows standalone，全部真实GUI/原生宿主人工验收仍待进行。Anim Filters保留科学计算依赖测试失败：本机Maya解释器缺SciPy，Butterworth/Median需兼容安装后复验；Qt standalone UI测试跳过亦未声称通过。
+- 已生成MAYA_ACCEPTANCE.md逐项验收总表，manifest执行状态completed/current_tool=null；最后候选提交76fe38e096af7e12c801cd962cc2619819943a52已保存。通过automation_update停用同聊天heartbeat，工具与本机配置均核验PAUSED；没有启动用卡守护、消费卡或购买额度。用户实际验收后的修正/晋级另按对应候选记录推进。

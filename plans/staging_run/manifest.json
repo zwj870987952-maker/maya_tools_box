@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T16:21:18.011232+08:00",
+  "updated_at": "2026-10-02T16:29:16.863546+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
-    "state": "working",
+    "state": "completed",
     "heartbeat_id": "automation",
     "heartbeat_status": "PAUSED",
     "heartbeat_verified": true,
@@ -13,12 +13,15 @@
     "heartbeat_transition_verified": true,
     "last_completed_tool": "08_utilities_system/shelf_manager",
     "last_usage": {
-      "five_hour_used_percent": 88.0,
+      "five_hour_used_percent": 92.0,
       "weekly_used_percent": 75.0,
-      "recorded_at": "2026-10-02T16:14:52.207357+08:00",
+      "recorded_at": "2026-10-02T16:28:38.127073+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "08_utilities_system/shelf_manager"
+    "current_tool": null,
+    "completed_at": "2026-10-02T16:33:31.482626+08:00",
+    "completion_audit": "plans/staging_run/FINAL_AUDIT.json",
+    "acceptance_summary": "plans/staging_run/MAYA_ACCEPTANCE.md"
   },
   "entry_repairs": [
     {
@@ -23656,7 +23659,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete native bilingual/version shelf manager with scoped scans, recoverable quarantine, explicit MEL execution and collision-safe migration",
-      "prepared_at": "2026-10-02T16:27:46.460410+08:00"
+      "prepared_at": "2026-10-02T16:27:46.460410+08:00",
+      "source_commit": "76fe38e096af7e12c801cd962cc2619819943a52"
     }
   ]
 }
