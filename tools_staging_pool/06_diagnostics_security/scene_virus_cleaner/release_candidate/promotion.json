@@ -1,0 +1,52 @@
+{
+  "tool_id": "scene_virus_cleaner",
+  "registration": {
+    "module": "scene_virus_cleaner",
+    "class_name": "SceneVirusCleanerTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/scene_virus_cleaner.md",
+      "target": "docs/tools/scene_virus_cleaner.md"
+    },
+    {
+      "source": "maya_toolkit/tools/scene_virus_cleaner/__init__.py",
+      "target": "maya_toolkit/tools/scene_virus_cleaner/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/scene_virus_cleaner/ascii_filter.py",
+      "target": "maya_toolkit/tools/scene_virus_cleaner/ascii_filter.py"
+    },
+    {
+      "source": "maya_toolkit/tools/scene_virus_cleaner/catalog.json",
+      "target": "maya_toolkit/tools/scene_virus_cleaner/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/scene_virus_cleaner/ui.py",
+      "target": "maya_toolkit/tools/scene_virus_cleaner/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/scene_virus_cleaner/upstream/文件病毒清理魔改版.py.original",
+      "target": "maya_toolkit/tools/scene_virus_cleaner/upstream/文件病毒清理魔改版.py.original"
+    },
+    {
+      "source": "tests/test_scene_virus_cleaner.py",
+      "target": "tests/test_scene_virus_cleaner.py"
+    },
+    {
+      "source": "tests/test_scene_virus_cleaner_maya.py",
+      "target": "tests/test_scene_virus_cleaner_maya.py"
+    }
+  ],
+  "resources": [
+    "文件病毒清理魔改版.py"
+  ],
+  "dependencies": [
+    "Maya cmds/API2"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete folder batch Maya ASCII policy cleaner with byte-preserving lexer, new exclusive cleaned files, exact source backups, GUI progress/cancel and no malware-free guarantee",
+  "verification_limitations": [
+    "Real GUI, complex production MA/plugin semantics and cross-version Maya acceptance not_run"
+  ]
+}

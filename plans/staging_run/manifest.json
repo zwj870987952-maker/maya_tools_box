@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T10:28:32.729104+08:00",
+  "updated_at": "2026-10-02T10:36:17.535799+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "06_diagnostics_security/clean_junk_nodes",
+    "last_completed_tool": "06_diagnostics_security/scene_virus_cleaner",
     "last_usage": {
-      "five_hour_used_percent": 72.0,
-      "weekly_used_percent": 57.0,
-      "recorded_at": "2026-10-02T10:18:51.605168+08:00",
+      "five_hour_used_percent": 77.0,
+      "weekly_used_percent": 58.0,
+      "recorded_at": "2026-10-02T10:29:55.630532+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "06_diagnostics_security/clean_junk_nodes"
+    "current_tool": "06_diagnostics_security/scene_virus_cleaner"
   },
   "entry_repairs": [
     {
@@ -19767,7 +19767,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete HM unknown node/plugin/callback cleanup with explicit scope, lifetime Undo and no PyMel",
-      "prepared_at": "2026-10-02T10:28:29.329527+08:00"
+      "prepared_at": "2026-10-02T10:28:29.329527+08:00",
+      "source_commit": "3666377bcf829bfc5d20b1e72b29914319d89f89"
     },
     {
       "source_path": "06_diagnostics_security/scene_virus_cleaner",
@@ -19778,20 +19779,80 @@
       "entry_candidates": [
         "文件病毒清理魔改版.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "文件病毒清理魔改版.py"
       ],
       "license_files": [],
       "entry_sha256": "f056a785617a161349c7d7985305aa5c2d7e39681331577cafc85754e8f7c3b5",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "...\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.012s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"scene_virus_cleaner\",\r\n  \"candidate_sha256\": \"434f85fb502fe834334dd6380d487d2320502b1685bead81564ea52ad3d2ed4e\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\scene_virus_cleaner.md\",\r\n    \"maya_toolkit\\\\tools\\\\scene_virus_cleaner\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\scene_virus_cleaner\\\\ascii_filter.py\",\r\n    \"maya_toolkit\\\\tools\\\\scene_virus_cleaner\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\scene_virus_cleaner\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\scene_virus_cleaner\\\\upstream\\\\\\u6587\\u4ef6\\u75c5\\u6bd2\\u6e05\\u7406\\u9b54\\u6539\\u7248.py.original\",\r\n    \"tests\\\\test_scene_virus_cleaner.py\",\r\n    \"tests\\\\test_scene_virus_cleaner_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true,\r\n  \"runtime_acceptance_required\": true,\r\n  \"runtime\": \"maya\"\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/06_diagnostics_security/scene_virus_cleaner/release_candidate/tests/test_scene_virus_cleaner_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "�ļ���ȡ����ʱ��Ϊ  0.0036 �롣\n.\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.034s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "13efd1d44e203dc15b2561b2678552fd16de55228ab04ea663be73c3250bdb51",
+          "runtime_source_sha256": "1b15b2eeda32beefac03c884bb6a7b22a2d222af39c510d742de3835c772fa09"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real GUI/complex production MA/custom MEL and plugin semantics/target versions not_run; structural filtering is not complete malware detection"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "434f85fb502fe834334dd6380d487d2320502b1685bead81564ea52ad3d2ed4e",
+          "returncode": 0,
+          "output": "...\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.013s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real GUI, complex production MA/plugin semantics and cross-version Maya acceptance not_run"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -19800,7 +19861,38 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "b51583a58c8fd2f84a29d09e68478375d56bf139f3ebd44513d788678ae25e77"
+      "source_tree_sha256": "78c1cfcaa8d4440c5512938dea6bfea96250daae8a3ea3604ab06cc29ce46fd8",
+      "candidate_path": "tools_staging_pool/06_diagnostics_security/scene_virus_cleaner/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/06_diagnostics_security/scene_virus_cleaner/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "scene_virus_cleaner",
+        "candidate_sha256": "434f85fb502fe834334dd6380d487d2320502b1685bead81564ea52ad3d2ed4e",
+        "applied": false,
+        "files": [
+          "docs\\tools\\scene_virus_cleaner.md",
+          "maya_toolkit\\tools\\scene_virus_cleaner\\__init__.py",
+          "maya_toolkit\\tools\\scene_virus_cleaner\\ascii_filter.py",
+          "maya_toolkit\\tools\\scene_virus_cleaner\\catalog.json",
+          "maya_toolkit\\tools\\scene_virus_cleaner\\ui.py",
+          "maya_toolkit\\tools\\scene_virus_cleaner\\upstream\\文件病毒清理魔改版.py.original",
+          "tests\\test_scene_virus_cleaner.py",
+          "tests\\test_scene_virus_cleaner_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true,
+        "runtime_acceptance_required": true,
+        "runtime": "maya"
+      },
+      "resources": [
+        "文件病毒清理魔改版.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/API2"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete folder batch Maya ASCII policy cleaner with byte-preserving lexer, new exclusive cleaned files, exact source backups, GUI progress/cancel and no malware-free guarantee",
+      "prepared_at": "2026-10-02T10:36:14.079148+08:00"
     },
     {
       "source_path": "06_diagnostics_security/undo_checkpoint",

@@ -754,3 +754,9 @@
 - 原PyMel入口SHA归档；全部unknown节点/unknownPlugin requires/ModelEditor callback与一键UI保留，修正字面量ls_unknownNodes判断与漏cmds、免PyMel。Base/Schema/ToolResult/scene_hygiene/完整UUID与锁/引用/插件元数据/回调scope预检；unknown不等于junk，默认inspect，unknownDag/解锁/插件永久移除/allCallbacks分别显式选择，引用/default/有后代Dag/instance拒绝；自有MPx+MDagModifierFalse保父/原UUID属性连接锁UndoRedo，callback原字串恢复。
 - 2离线+3隔离Maya2025+临时注册/domain/panel/fingerprint通过，真实unknown attr+连接+locked→delete/oneUndoUUID连接锁/Redo、坏最后locked全表无删除、真实MA missing plugin fixture原metadata只查/未确认拒绝/明确confirm永久移除；原plugin remove文档虽称undoable，本机实际Undo不恢复，未谎称可Undo，新增confirm_plugin_metadata_loss/GUI须备份提示并记录不可逆元数据影响。初测MDagModifier对locked节点排队静默不删，修正先解锁再排队后严格测试通过；不降低节点生命周期恢复断言。
 - GUI/modelEditor回调Undo、unknownDag/reference/真实custom data/跨版本not_run，prepared_unverified。实际5h77%已用（剩23%）、周58%，继续scene_virus_cleaner；heartbeat保持暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：Maya ASCII策略文件清理完整候选，累计94/109
+
+- 原单文件SHA归档；完整多目录拖放/list/clear/progress/cancel/备份/批量过滤保留，Base/Schema/ToolResult/scene_hygiene/预检UI。原输入覆盖+errors ignore+固定history覆盖改为完全新output/history精确原bytes/report，原file与caller永不保存；默认known准确script names（仅策略，不等于病毒signature），all_scripts+confirm与非maya requires显式原广泛模式保留，scene/ui config两默认保留（原只scene）。
+- 自包含byte MEL lexer，strings/escape/line-block comments/embedded semicolons/多行payload准确分界；不执行源、保ANSI/UTF8与换行，删除script块与其实际connect/select引用，字符串metadata里含同名保持；缺semicolon/引号block不闭/混select/超128MB/非MA/坏最后file全表拒绝。输出path源路径hash防同名，写前SHA复核、backupSHA验证、不完整ownbackup/output清理，成功备份保留、cancel/错误partial报告如实。
+- 3离线真实bytes/CRLF/非UTF8尾/quotedpayload/合法script/plugin/string保持/newoutput exactbackup/source不改/坏最后file不mkdir/取消保完成报告+1隔离Maya2025真实保存MA/过滤/ScriptNodes=False读回cube tx7+合法script/known删除/caller dirtyscene全部nodes/Undo/ty9保持+临时注册/domain/panel/fingerprint通过。真正GUI/复杂生产MA/plugin与手写MEL语义/跨版本not_run；未称完整杀毒，prepared_unverified。实际5h80%已用（剩20%）、周58%，继续undo_checkpoint，heartbeat暂停。
