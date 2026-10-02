@@ -714,3 +714,9 @@
 - 2离线+3隔离Maya2025+临时正式布局/注册/panel/fingerprint通过：多RN含同份多object/shape去重，真实MA→MB/两namespace/oneUndo恢复旧资产及selection/Redo目标；unloaded depth none保持load状态、保NS/Undo旧path；edited后行全表不写；真实child batch原始SHA/caller dirtyscene/time/AutoKey/Undo不改，新MA打开确为两新sphere；多rule命中拒绝且不生成结果。batch原稿不保存改为独占全新同格式output，保源scene，不force切换caller。
 - file edit namespace必须给reference文件（含copy-number）而非只传RN；Autodesk明确会同搬namespace中local nodes，新增所有成员均属本RN的检查后才改NS，避免扩大影响。Windowsnative query路径slash形式用Path归一比对；原生MA→MB惰性增默认sharedReferenceNode，Undo仅保留该Maya共享元数据（不删默认），测试严格检查其他所有原节点恢复/无其他新增，不声明元数据集合逐字节Undo。
 - GUI/复杂生产refs/损坏file rollback/plugin副作用/跨版本not_run，prepared_unverified。实际5h53%已用（剩47%）、周54%，继续vessel_fbx_exporter；heartbeat暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：舰船自动FBX完整候选，累计87/109
+
+- 原单文件SHA归档，完整All_joints烘焙/Reset_Trans全部keys删除+原9TRS值/全场references import/导出集合与成员NS merge/AAA关键词/原全部FBXflags/每次export后root_NNN rename/可选引用FBX/原备用export-set bake(default False)保留。Base/Schema/readonly inspect/全集preview、候选简UI、self-contained FBX/MA IO、知识验收晋级齐备；原无UI导入自动执行取消，整体仅作用exportAll复制dirty/untitled当前scene的真正独立mayapy snapshot，workspace保持/scene scriptNodes禁用/私有Maya app日志，不改变caller。
+- 2离线+2隔离Maya2025+临时正式布局/注册/panel/fingerprint通过：原dirtycaller全部节点/references/keys/Customkey/selection/time/AutoKey/Undo/modified原样，真实snapshotchild import reference/namespace去除/All_joints keys1,2,3/Reset TRS rx=-90并custom全部keys清后首帧1/root_001；全新prepared MA实际读回这些状态、真实ASCII FBX再导入1mesh；已存在output/锁后行/空全部exportset前拒绝不写。原Reset_Trans cuts所有attrs明确preview，不假称只TRS。
+- 原烘焙reset在reference import之前，候选private import先行避免副本reference edits生成后import丢失，明确记录顺序行为改变；NS merge有副本全namespace扩大搬迁/重名影响，原caller完全保持。文件/日志不Undo，worker失败/timeout可能保留完成outputs。GUI/嵌套引用/动态模拟/备用bake-export-set分支/全部flags/UE与跨版本not_run，prepared_unverified。实际5h57%已用（剩43%）、周55%，继续ue_bone_exporter，heartbeat暂停，不迁正式/同步/用卡/购买。

@@ -1,0 +1,65 @@
+{
+  "tool_id": "vessel_fbx_exporter",
+  "registration": {
+    "module": "vessel_fbx_exporter",
+    "class_name": "VesselFbxExporterTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/vessel_fbx_exporter.md",
+      "target": "docs/tools/vessel_fbx_exporter.md"
+    },
+    {
+      "source": "maya_toolkit/tools/vessel_fbx_exporter/__init__.py",
+      "target": "maya_toolkit/tools/vessel_fbx_exporter/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/vessel_fbx_exporter/catalog.json",
+      "target": "maya_toolkit/tools/vessel_fbx_exporter/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/vessel_fbx_exporter/fbx_io.py",
+      "target": "maya_toolkit/tools/vessel_fbx_exporter/fbx_io.py"
+    },
+    {
+      "source": "maya_toolkit/tools/vessel_fbx_exporter/scene_io.py",
+      "target": "maya_toolkit/tools/vessel_fbx_exporter/scene_io.py"
+    },
+    {
+      "source": "maya_toolkit/tools/vessel_fbx_exporter/tool.py",
+      "target": "maya_toolkit/tools/vessel_fbx_exporter/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/vessel_fbx_exporter/ui.py",
+      "target": "maya_toolkit/tools/vessel_fbx_exporter/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/vessel_fbx_exporter/upstream/fbx导出工具舰船专用_自动版.py.original",
+      "target": "maya_toolkit/tools/vessel_fbx_exporter/upstream/fbx导出工具舰船专用_自动版.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/vessel_fbx_exporter/worker.py",
+      "target": "maya_toolkit/tools/vessel_fbx_exporter/worker.py"
+    },
+    {
+      "source": "tests/test_vessel_fbx_exporter.py",
+      "target": "tests/test_vessel_fbx_exporter.py"
+    },
+    {
+      "source": "tests/test_vessel_fbx_exporter_maya.py",
+      "target": "tests/test_vessel_fbx_exporter_maya.py"
+    }
+  ],
+  "resources": [
+    "fbx导出工具舰船专用_自动版.py"
+  ],
+  "dependencies": [
+    "Maya cmds/API2/native FBX",
+    "matching mayapy"
+  ],
+  "acceptance_required": true,
+  "change_summary": "完整舰船All_joints/Reset_Trans/全references/namespace/root/FBX流程在isolated snapshot、Schema知识测试UI晋级",
+  "verification_limitations": [
+    "GUI/nested refs/dynamics/all flags/UE/cross-version acceptance not_run"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T09:29:04.518652+08:00",
+  "updated_at": "2026-10-02T09:39:27.647357+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "04_pipeline_io/replace_references",
+    "last_completed_tool": "04_pipeline_io/vessel_fbx_exporter",
     "last_usage": {
-      "five_hour_used_percent": 47.0,
-      "weekly_used_percent": 53.0,
-      "recorded_at": "2026-10-02T09:16:59.581607+08:00",
+      "five_hour_used_percent": 53.0,
+      "weekly_used_percent": 54.0,
+      "recorded_at": "2026-10-02T09:29:09.241066+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "04_pipeline_io/replace_references"
+    "current_tool": "04_pipeline_io/vessel_fbx_exporter"
   },
   "entry_repairs": [
     {
@@ -18929,7 +18929,8 @@
       ],
       "source_preserved": true,
       "change_summary": "完整EN/MEL式/batch三UI、真实native reference replacement/namespace/Undo、isolated batch新输出、Schema知识测试晋级",
-      "prepared_at": "2026-10-02T09:28:13.396873+08:00"
+      "prepared_at": "2026-10-02T09:28:13.396873+08:00",
+      "source_commit": "e9606dcf6c9b82a0c8c7c9c599424f82ff3b7cb2"
     },
     {
       "source_path": "04_pipeline_io/vessel_fbx_exporter",
@@ -18940,20 +18941,80 @@
       "entry_candidates": [
         "fbx导出工具舰船专用_自动版.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "fbx导出工具舰船专用_自动版.py"
       ],
       "license_files": [],
       "entry_sha256": "6bcf8822a8963deebac62ca489e73f29d0d765db21fcc63eb198d8dae413fee7",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.000s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"vessel_fbx_exporter\",\r\n  \"candidate_sha256\": \"91cba714bf8b46a98ffcc1ff661c073f587bf27bbc51d63303b3b8e9cd04183d\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\vessel_fbx_exporter.md\",\r\n    \"maya_toolkit\\\\tools\\\\vessel_fbx_exporter\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\vessel_fbx_exporter\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\vessel_fbx_exporter\\\\fbx_io.py\",\r\n    \"maya_toolkit\\\\tools\\\\vessel_fbx_exporter\\\\scene_io.py\",\r\n    \"maya_toolkit\\\\tools\\\\vessel_fbx_exporter\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\vessel_fbx_exporter\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\vessel_fbx_exporter\\\\upstream\\\\fbx\\u5bfc\\u51fa\\u5de5\\u5177\\u8230\\u8239\\u4e13\\u7528_\\u81ea\\u52a8\\u7248.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\vessel_fbx_exporter\\\\worker.py\",\r\n    \"tests\\\\test_vessel_fbx_exporter.py\",\r\n    \"tests\\\\test_vessel_fbx_exporter_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/04_pipeline_io/vessel_fbx_exporter/release_candidate/tests/test_vessel_fbx_exporter_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "�ļ���ȡ����ʱ��Ϊ  0.0027 �롣\n.�ļ���ȡ����ʱ��Ϊ  0.0024 �롣\n�ļ���ȡ����ʱ��Ϊ  0.0047 �롣\nLogfile: \"C:\\Users\\zwj87\\AppData\\Local\\Temp\\staging_maya_qkcvktse\\FBX\\Logs\\2020.3.6\\maya2025imp.log\"\n�ļ���ȡ����ʱ��Ϊ  0.36 �롣\n.\r\n----------------------------------------------------------------------\r\nRan 2 tests in 3.287s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "1b8e55bc01f182b817cae605dc5517568751a7b8f14001e4791f768d9974a497",
+          "runtime_source_sha256": "6ee1e9b54fb038db5b82451f034c4494433e6e2855e01c8793b25803b388063d"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "GUI/nested refs/dynamics/bake export sets/all flags/UE/cross-version acceptance not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "91cba714bf8b46a98ffcc1ff661c073f587bf27bbc51d63303b3b8e9cd04183d",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.000s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "GUI/nested refs/dynamics/all flags/UE/cross-version acceptance not_run"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -18962,7 +19023,40 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "6a833b7cac343679d17a311ddb21d4adf513a4f2f3abe31cb7e1211112ad90a3"
+      "source_tree_sha256": "d87c910912fa947f02451a79c30d31b5d453e74c21936236ad36791844eaff21",
+      "candidate_path": "tools_staging_pool/04_pipeline_io/vessel_fbx_exporter/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/04_pipeline_io/vessel_fbx_exporter/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "vessel_fbx_exporter",
+        "candidate_sha256": "91cba714bf8b46a98ffcc1ff661c073f587bf27bbc51d63303b3b8e9cd04183d",
+        "applied": false,
+        "files": [
+          "docs\\tools\\vessel_fbx_exporter.md",
+          "maya_toolkit\\tools\\vessel_fbx_exporter\\__init__.py",
+          "maya_toolkit\\tools\\vessel_fbx_exporter\\catalog.json",
+          "maya_toolkit\\tools\\vessel_fbx_exporter\\fbx_io.py",
+          "maya_toolkit\\tools\\vessel_fbx_exporter\\scene_io.py",
+          "maya_toolkit\\tools\\vessel_fbx_exporter\\tool.py",
+          "maya_toolkit\\tools\\vessel_fbx_exporter\\ui.py",
+          "maya_toolkit\\tools\\vessel_fbx_exporter\\upstream\\fbx导出工具舰船专用_自动版.py.original",
+          "maya_toolkit\\tools\\vessel_fbx_exporter\\worker.py",
+          "tests\\test_vessel_fbx_exporter.py",
+          "tests\\test_vessel_fbx_exporter_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "fbx导出工具舰船专用_自动版.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/API2/native FBX",
+        "matching mayapy"
+      ],
+      "source_preserved": true,
+      "change_summary": "完整舰船All_joints/Reset_Trans/全references/namespace/root/FBX流程在isolated snapshot、Schema知识测试UI晋级",
+      "prepared_at": "2026-10-02T09:37:40.159785+08:00"
     },
     {
       "source_path": "05_ue_pipeline/ue_bone_exporter",

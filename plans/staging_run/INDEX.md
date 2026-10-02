@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-02T09:29:04.518652+08:00
+更新时间：2026-10-02T09:39:27.647357+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -92,7 +92,7 @@
 | `04_pipeline_io/fbx_batch_exporter_v7` | prepared_unverified | True | True | not_run |
 | `04_pipeline_io/per_frame_bs_fbx` | prepared_unverified | True | True | not_run |
 | `04_pipeline_io/replace_references` | prepared_unverified | True | True | not_run |
-| `04_pipeline_io/vessel_fbx_exporter` | pending | True | False | not_run |
+| `04_pipeline_io/vessel_fbx_exporter` | prepared_unverified | True | True | not_run |
 | `05_ue_pipeline/ue_bone_exporter` | pending | True | False | not_run |
 | `05_ue_pipeline/ue_context_menu` | pending | True | False | not_run |
 | `05_ue_pipeline/ue_fbx_auto_import` | pending | True | False | not_run |
