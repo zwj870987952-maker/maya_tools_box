@@ -44,5 +44,24 @@ class Tests(unittest.TestCase):
             candidate = Path(d)
             desc = {'tool_id': 'ue_test', 'runtime': 'unreal_editor', 'files': [{'source': 'maya_toolkit/tools/injection.py', 'target': 'maya_toolkit/tools/injection.py'}]}
             with self.assertRaisesRegex(ValueError, 'namespace'): m.payload(candidate, desc)
+    def test_hybrid_maya_only_acceptance_is_rejected(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            script = root / 'plans/staging_run/promote_candidate.py'; script.parent.mkdir(parents=True)
+            script.write_bytes((HERE / script.name).read_bytes())
+            registry = root / 'maya_toolkit/tools/__init__.py'; registry.parent.mkdir(parents=True)
+            original = b'ALL_TOOL_CLASSES = []\n__all__ = []\n'; registry.write_bytes(original)
+            rc = root / 'tools_staging_pool/hybrid/release_candidate'
+            src = rc / 'maya_toolkit/tools/hybrid/__init__.py'; src.parent.mkdir(parents=True); src.write_bytes(b'# candidate\n')
+            desc = {'tool_id': 'hybrid', 'runtime': 'maya_unreal', 'registration': {'module': 'hybrid', 'class_name': 'HybridTool'}, 'files': [{'source': 'maya_toolkit/tools/hybrid/__init__.py', 'target': 'maya_toolkit/tools/hybrid/__init__.py'}]}
+            (rc / 'promotion.json').write_text(json.dumps(desc))
+            command = [sys.executable, str(script), '--candidate', str(rc)]
+            preview = subprocess.run(command, capture_output=True); self.assertEqual(preview.returncode, 0, preview.stderr)
+            evidence = {'passed': True, 'tool_id': 'hybrid', 'candidate_sha256': json.loads(preview.stdout)['candidate_sha256'], 'maya_version': 'Maya test', 'accepted_by': 'test', 'date': '2026-10-02'}
+            accepted = root / 'accepted.json'; accepted.write_text(json.dumps(evidence))
+            result = subprocess.run(command + ['--apply', '--acceptance', str(accepted)], capture_output=True)
+            self.assertNotEqual(result.returncode, 0); self.assertIn(b'Unreal runtime', result.stderr)
+            self.assertEqual(registry.read_bytes(), original)
+            self.assertFalse((root / desc['files'][0]['target']).exists())
 
 if __name__ == '__main__': unittest.main()

@@ -731,3 +731,9 @@
 
 - 原单文件SHA归档，完整Print Source Paths/多路径Output Log保留；取消import即注册，显式owned menu register/unregister/dry-run无菜单与日志变化；通用ContentBrowser.AssetContextMenu+自有section，callback正式完整模块名。去除不可靠has_editor_property，保留4级获取方法fallback、错误与raw_relative provenance，不把未解析源误报绝对路径。
 - 2离线mock+临时最终布局/fingerprint通过，真实模拟多源去重/方法错误回退/无property/raw路径/只读注册dry-run/重复注册单entry/注销/空选区log。正式Maya registry byte不变，真实UE菜单和资产类型/版本均not_run，prepared_unverified。实际5h65%已用（剩35%）、周56%，继续ue_fbx_auto_import；heartbeat保持暂停。
+
+# 2026-10-02：Maya配置+UE动画导入双端完整候选，累计90/109
+
+- 原2文件SHA归档；完整Maya Qt5/6配置生成UI（检测Anim/Skeleton、两可编辑combo、FBX拖放/文本、Load/Generate/桌面编号JSON）和UE实际FbxImportUI/AssetImportTask/FbxFactory批量动画导入保留。Maya仅配置生成继承Base/category engine_bridge/Schema/ToolResult，UE independent engine package提供原生结构化API，共享自包含纯config，无虚假UE Maya执行。
+- 源绝对FBX/SHA/三键旧JSON/Content正确relative_to/仅Skeleton uasset/重复basename/坏最后cfg/重叠目标/真实Skeleton类型/全新Game目录预检；dry不创建tasks/options或文件。UE按stem新子目录隔离多take、明确confirm_import、mandatory animation-only flags/no mesh-material-texture、EXPORTED_TIME/replace=False/save原True，原静态mesh对象错误选项取消；native失败停止并保留partial路径；共享Skeleton曲线metadata可能变，不承诺import/save Undo。Maya文件独占创建不覆盖、初测loader缺正式framework修复使用候选launcher；GUI检测异常显示warning。
+- 3离线mock+1隔离Maya2025+临时最终布局/正式注册/domain/panel/fingerprint通过，配置实际JSON/编号旧bytes保持/wholebadcfg不import、native成功/空返回失败；Maya真实dirty scene/节点/场景名/Undo dry/写文件均不改。临时晋级新增双端必须runtime_version，3temp repo测试含只有Maya验收不得晋级。真实Maya配置UI/UE导入与Skeleton/Interchange多take/跨版本not_run，prepared_unverified。实际5h68%已用（剩32%）、周56%，继续ue_reference_checker；heartbeat保持暂停，不用卡/不转正。

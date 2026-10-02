@@ -58,6 +58,8 @@ def main():
     if description.get('runtime') in ('unreal_editor', 'windows_standalone'):
         limitations = ['Real native runtime acceptance pending'] + description.get('verification_limitations', [])
         item['runtime_acceptance'] = {'runtime': description['runtime'], 'status': 'not_run', 'versions': []}
+    elif description.get('runtime') == 'maya_unreal':
+        item['runtime_acceptance'] = {'runtime': 'unreal_editor', 'status': 'not_run', 'versions': []}
     item.update({"status": "prepared_verified_offline" if all(check["passed"] for check in checks) else "prepared_unverified", "candidate_path": candidate.relative_to(scan_pool.ROOT).as_posix(), "candidate_complete": complete, "offline_checks": checks, "acceptance_instructions": (candidate / "acceptance.md").relative_to(scan_pool.ROOT).as_posix(), "promotion": preview, "resources": description.get("resources", []), "external_dependencies": description.get("dependencies", []), "source_preserved": True, "change_summary": description.get("change_summary", "See candidate knowledge document for behavior and safety changes."), "issues": limitations, "prepared_at": datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).isoformat()})
     # Preserve observed heartbeat evidence; candidate checks do not test scheduling.
     manifest["execution"].update({"state": "working", "heartbeat_status": "PAUSED", "last_completed_tool": args.tool})

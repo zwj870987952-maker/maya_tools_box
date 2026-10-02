@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T09:56:14.828327+08:00",
+  "updated_at": "2026-10-02T10:08:12.490846+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "05_ue_pipeline/ue_context_menu",
+    "last_completed_tool": "05_ue_pipeline/ue_fbx_auto_import",
     "last_usage": {
-      "five_hour_used_percent": 63.0,
+      "five_hour_used_percent": 65.0,
       "weekly_used_percent": 56.0,
-      "recorded_at": "2026-10-02T09:52:28.995169+08:00",
+      "recorded_at": "2026-10-02T09:58:18.368058+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "05_ue_pipeline/ue_context_menu"
+    "current_tool": "05_ue_pipeline/ue_fbx_auto_import"
   },
   "entry_repairs": [
     {
@@ -19288,7 +19288,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete explicit UE source-path query/menu lifecycle with all fallback methods, schema, dry-run, provenance and no asset/file writes",
-      "prepared_at": "2026-10-02T09:56:11.340400+08:00"
+      "prepared_at": "2026-10-02T09:56:11.340400+08:00",
+      "source_commit": "48350257482dc39330b347fedb381e8ed77591b7"
     },
     {
       "source_path": "05_ue_pipeline/ue_fbx_auto_import",
@@ -19299,21 +19300,82 @@
       "entry_candidates": [
         "ue导入fbx配置.py"
       ],
-      "source_file_count": 2,
+      "source_file_count": 3,
       "source_files": [
         "ue导入fbx本体脚本.py",
         "ue导入fbx配置.py"
       ],
       "license_files": [],
       "entry_sha256": "ad54b88e50e33f8d35c639dcc07a6110cc57721b49c1d004b8cbc8206f11c77b",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "...\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.022s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"ue_fbx_auto_import\",\r\n  \"candidate_sha256\": \"4177246b4e71f96d9fddd20992429acd148208163297c062c5407915ce456c1a\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\ue_fbx_auto_import.md\",\r\n    \"maya_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\upstream\\\\ue\\u5bfc\\u5165fbx\\u672c\\u4f53\\u811a\\u672c.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\upstream\\\\ue\\u5bfc\\u5165fbx\\u914d\\u7f6e.py.original\",\r\n    \"tests\\\\test_ue_fbx_auto_import.py\",\r\n    \"tests\\\\test_ue_fbx_auto_import_maya.py\",\r\n    \"engine_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\__init__.py\",\r\n    \"engine_toolkit\\\\tools\\\\ue_fbx_auto_import\\\\config.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true,\r\n  \"runtime_acceptance_required\": true,\r\n  \"runtime\": \"maya_unreal\"\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/05_ue_pipeline/ue_fbx_auto_import/release_candidate/tests/test_ue_fbx_auto_import_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.033s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "ffea1dcf641e277060ff9137f2c5851666a5086ebe8ad2594b6d9bc6e2d20c70",
+          "runtime_source_sha256": "7327b4cef54211f3f4e4628a642c3be22e5cec7bf930e98339ecf69c7c7586f6"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya Qt config UI and Unreal Editor native animation import, assets, skeleton changes and Interchange compatibility not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "4177246b4e71f96d9fddd20992429acd148208163297c062c5407915ce456c1a",
+          "returncode": 0,
+          "output": "...\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.024s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya configuration GUI and Unreal Editor animation import not_run",
+        "Both Maya GUI and UE import acceptance required before promotion"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 2,
@@ -19322,7 +19384,47 @@
         "possible_top_level_calls": 2,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "6cf3ffc8b84e03f9adec39bbacc515958450b11a41c096d448206047e3d2be7b"
+      "source_tree_sha256": "27df2a6e4421a73451d438502b56c0346e16565c4ba5cdd2d9a682574dad70b5",
+      "runtime_acceptance": {
+        "runtime": "unreal_editor",
+        "status": "not_run",
+        "versions": []
+      },
+      "candidate_path": "tools_staging_pool/05_ue_pipeline/ue_fbx_auto_import/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/05_ue_pipeline/ue_fbx_auto_import/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "ue_fbx_auto_import",
+        "candidate_sha256": "4177246b4e71f96d9fddd20992429acd148208163297c062c5407915ce456c1a",
+        "applied": false,
+        "files": [
+          "docs\\tools\\ue_fbx_auto_import.md",
+          "maya_toolkit\\tools\\ue_fbx_auto_import\\__init__.py",
+          "maya_toolkit\\tools\\ue_fbx_auto_import\\catalog.json",
+          "maya_toolkit\\tools\\ue_fbx_auto_import\\ui.py",
+          "maya_toolkit\\tools\\ue_fbx_auto_import\\upstream\\ue导入fbx本体脚本.py.original",
+          "maya_toolkit\\tools\\ue_fbx_auto_import\\upstream\\ue导入fbx配置.py.original",
+          "tests\\test_ue_fbx_auto_import.py",
+          "tests\\test_ue_fbx_auto_import_maya.py",
+          "engine_toolkit\\tools\\ue_fbx_auto_import\\__init__.py",
+          "engine_toolkit\\tools\\ue_fbx_auto_import\\config.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true,
+        "runtime_acceptance_required": true,
+        "runtime": "maya_unreal"
+      },
+      "resources": [
+        "ue导入fbx本体脚本.py",
+        "ue导入fbx配置.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/Qt5-or-6",
+        "UE PythonScriptPlugin/EditorScriptingUtilities/FbxFactory"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete Maya Qt config generator plus standalone UE legacy animation importer with whole-batch preflight and fresh destinations",
+      "prepared_at": "2026-10-02T10:08:09.104935+08:00"
     },
     {
       "source_path": "05_ue_pipeline/ue_reference_checker",

@@ -1,0 +1,64 @@
+{
+  "tool_id": "ue_fbx_auto_import",
+  "registration": {
+    "module": "ue_fbx_auto_import",
+    "class_name": "UEFbxAutoImportTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/ue_fbx_auto_import.md",
+      "target": "docs/tools/ue_fbx_auto_import.md"
+    },
+    {
+      "source": "maya_toolkit/tools/ue_fbx_auto_import/__init__.py",
+      "target": "maya_toolkit/tools/ue_fbx_auto_import/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ue_fbx_auto_import/catalog.json",
+      "target": "maya_toolkit/tools/ue_fbx_auto_import/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/ue_fbx_auto_import/ui.py",
+      "target": "maya_toolkit/tools/ue_fbx_auto_import/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/ue_fbx_auto_import/upstream/ue导入fbx本体脚本.py.original",
+      "target": "maya_toolkit/tools/ue_fbx_auto_import/upstream/ue导入fbx本体脚本.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/ue_fbx_auto_import/upstream/ue导入fbx配置.py.original",
+      "target": "maya_toolkit/tools/ue_fbx_auto_import/upstream/ue导入fbx配置.py.original"
+    },
+    {
+      "source": "tests/test_ue_fbx_auto_import.py",
+      "target": "tests/test_ue_fbx_auto_import.py"
+    },
+    {
+      "source": "tests/test_ue_fbx_auto_import_maya.py",
+      "target": "tests/test_ue_fbx_auto_import_maya.py"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_fbx_auto_import/__init__.py",
+      "target": "engine_toolkit/tools/ue_fbx_auto_import/__init__.py"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_fbx_auto_import/config.py",
+      "target": "engine_toolkit/tools/ue_fbx_auto_import/config.py"
+    }
+  ],
+  "resources": [
+    "ue导入fbx本体脚本.py",
+    "ue导入fbx配置.py"
+  ],
+  "dependencies": [
+    "Maya cmds/Qt5-or-6",
+    "UE PythonScriptPlugin/EditorScriptingUtilities/FbxFactory"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete Maya Qt config generator plus standalone UE legacy animation importer with whole-batch preflight and fresh destinations",
+  "verification_limitations": [
+    "Real Maya configuration GUI and Unreal Editor animation import not_run",
+    "Both Maya GUI and UE import acceptance required before promotion"
+  ],
+  "runtime": "maya_unreal"
+}

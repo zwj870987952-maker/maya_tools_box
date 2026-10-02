@@ -107,6 +107,8 @@ def main():
         required = (acceptance.get("passed") is True, acceptance.get("tool_id") == description["tool_id"], acceptance.get("candidate_sha256") == candidate_hash, bool(acceptance.get("runtime_version" if external else "maya_version")), bool(acceptance.get("accepted_by")), bool(acceptance.get("date")))
         if not all(required):
             raise ValueError("Missing/stale human runtime acceptance; refusing promotion")
+        if description.get('runtime') == 'maya_unreal' and not acceptance.get('runtime_version'):
+            raise ValueError('Hybrid tool also requires actual Unreal runtime acceptance/version')
         for source, unused_target in pairs:
             if source.suffix == ".py":
                 compile(source.read_bytes(), str(source), "exec")
