@@ -687,3 +687,9 @@
 - 原单文件SHA归档，完整Qt列表/drag/自然名称日期大小排序/全部所选/三个保存模式/Save/log保留；Base/Schema/readonly预检，默认逐文件隔离mayapy、真实ordered Python/MEL执行，强制覆盖前原始字节备份、全表路径/SHA/冲突预检，正确MA/MB保存，FBX覆盖拒绝，知识验收晋级齐备。脚本为任意用户代码，isolated保护调用者scene但不是OS文件沙箱；交互只允许真实GUI干净已保存scene，结束重开来源恢复有效选区/time/AutoKey/namespace，Undo清空和外部影响明确说明。
 - 2离线+3隔离Maya2025+临时正式布局/注册/panel/fingerprint通过：实际两child场景/Python-MEL顺序/原字节备份/SaveAfter/dirty调用者及Undo不变；MB覆盖实际Binary、脚本失败/换scene不自动保存；save_current freshMB/原MA mandatorybackup、batchGUI模式/FBX覆盖前拒绝、取消前不启动worker。初测MEL utf8-sig非有效codec名，修正utf-8-sig后全通过；原QPlainTextEdit.appendHtml错用改QTextEdit.append+HTML转义。
 - 默认不删除unknown，显式选项保留；保存外部文件不Undo，覆盖先SHA验证但不承诺并发比较交换，cancel/timeout不回滚脚本外部影响。GUI/实际FBX/interactive/MGTools/途中取消/跨版本not_run，prepared_unverified。实际5h32%已用（剩68%）、周51%，继续clean_invalid_paths；heartbeat暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：字符策略路径清理完整候选，累计83/109
+
+- 原Python/README两件SHA归档，完整双窗/路径明细/选择刷新/单全删除/作者保留，补ascii/cjk/replacement策略与整引用显式选项。所有原renderer类型/动态已加载扩展、全部现存path attrs、Alembic真实abc_File/cacheName、容器循环有界全部上游实际owner，非ASCII不假称文件损坏，默认scan/readonly dry，无外部文件写入删除。
+- 2离线+3隔离Maya2025+临时正式布局/注册/panel/fingerprint通过：实际file混合Unicode、ASCII缺失不报、layered第二条上游实际owner且容器拒删；纹理DG原UUID/连接oneUndoRedo；gpuCache/imagePlane shape删后父transform保留/Undo；锁后行全表拒绝；中文源顶层完整reference native removal/Undo恢复selection/load/RN/name-lock/Redo，仅显式允许，edited拒绝。MDagModifier.deleteNode默认includeParents=True实测仍删空父，改False后通过，不以API封装假设父保留。
+- 标准Base/Schema、专用MPx local-node snapshot+整引用恢复、self-contained reference helper（不依赖其他待池）、函数绑定UI/UUID行删除/预检确认、知识验收晋级齐备。Maya reference Undo仍须同SHA源文件/空namespace且UUID可能改变；嵌套/edits/源不可读拒绝。GUI/全部renderer schema/生产plugin副作用/源变化Undo/跨版本not_run，prepared_unverified。实际5h36%已用（剩64%）、周51%，继续fbx_batch_exporter_v7，heartbeat暂停；不迁正式/同步/用卡/购买。

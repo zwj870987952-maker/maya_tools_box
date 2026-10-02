@@ -1,0 +1,66 @@
+{
+  "tool_id": "clean_invalid_paths",
+  "registration": {
+    "module": "clean_invalid_paths",
+    "class_name": "CleanInvalidPathsTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/clean_invalid_paths.md",
+      "target": "docs/tools/clean_invalid_paths.md"
+    },
+    {
+      "source": "maya_toolkit/tools/clean_invalid_paths/__init__.py",
+      "target": "maya_toolkit/tools/clean_invalid_paths/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/clean_invalid_paths/catalog.json",
+      "target": "maya_toolkit/tools/clean_invalid_paths/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/clean_invalid_paths/delete_command.py",
+      "target": "maya_toolkit/tools/clean_invalid_paths/delete_command.py"
+    },
+    {
+      "source": "maya_toolkit/tools/clean_invalid_paths/reference_ops.py",
+      "target": "maya_toolkit/tools/clean_invalid_paths/reference_ops.py"
+    },
+    {
+      "source": "maya_toolkit/tools/clean_invalid_paths/tool.py",
+      "target": "maya_toolkit/tools/clean_invalid_paths/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/clean_invalid_paths/ui.py",
+      "target": "maya_toolkit/tools/clean_invalid_paths/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/clean_invalid_paths/upstream/clean_invalid_paths.py.original",
+      "target": "maya_toolkit/tools/clean_invalid_paths/upstream/clean_invalid_paths.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/clean_invalid_paths/upstream/clean_invalid_paths_README.md",
+      "target": "maya_toolkit/tools/clean_invalid_paths/upstream/clean_invalid_paths_README.md"
+    },
+    {
+      "source": "tests/test_clean_invalid_paths.py",
+      "target": "tests/test_clean_invalid_paths.py"
+    },
+    {
+      "source": "tests/test_clean_invalid_paths_maya.py",
+      "target": "tests/test_clean_invalid_paths_maya.py"
+    }
+  ],
+  "resources": [
+    "clean_invalid_paths.py",
+    "clean_invalid_paths_README.md"
+  ],
+  "dependencies": [
+    "Maya cmds/API2",
+    "optional loaded renderer node types"
+  ],
+  "acceptance_required": true,
+  "change_summary": "完整双窗与全部renderer路径类型、字符策略只读扫描、真实所有者清理与整引用Undo、Schema知识测试晋级",
+  "verification_limitations": [
+    "GUI/all renderer schemas/production plugin side effects/cross-version acceptance not_run"
+  ]
+}

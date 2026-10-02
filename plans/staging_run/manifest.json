@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T08:40:38.399304+08:00",
+  "updated_at": "2026-10-02T08:50:49.175979+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "04_pipeline_io/batch_processor_v3",
+    "last_completed_tool": "04_pipeline_io/clean_invalid_paths",
     "last_usage": {
-      "five_hour_used_percent": 25.0,
-      "weekly_used_percent": 50.0,
-      "recorded_at": "2026-10-02T08:24:42.910961+08:00",
+      "five_hour_used_percent": 32.0,
+      "weekly_used_percent": 51.0,
+      "recorded_at": "2026-10-02T08:40:46.566625+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "04_pipeline_io/batch_processor_v3"
+    "current_tool": "04_pipeline_io/clean_invalid_paths"
   },
   "entry_repairs": [
     {
@@ -18417,7 +18417,8 @@
       ],
       "source_preserved": true,
       "change_summary": "完整原Qt文件脚本批处理UI、隔离mayapy真实脚本执行、精确备份和MA/MB保存格式、Schema文档测试晋级",
-      "prepared_at": "2026-10-02T08:40:01.109686+08:00"
+      "prepared_at": "2026-10-02T08:40:01.109686+08:00",
+      "source_commit": "5f6296510d762c753b7fce6027b6aa6fd6685720"
     },
     {
       "source_path": "04_pipeline_io/clean_invalid_paths",
@@ -18428,20 +18429,80 @@
       "entry_candidates": [
         "clean_invalid_paths.py"
       ],
-      "source_file_count": 2,
+      "source_file_count": 3,
       "source_files": [
         "clean_invalid_paths.py"
       ],
       "license_files": [],
       "entry_sha256": "08298c5b8297426633a73dd940dd1cda4a95c3d1bcf71b8dfc2bee2642f2eda1",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"clean_invalid_paths\",\r\n  \"candidate_sha256\": \"74df378a2d7236c8bb9bab5647a236127f88cbe4222b13284195c1c7d1de1d88\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\clean_invalid_paths.md\",\r\n    \"maya_toolkit\\\\tools\\\\clean_invalid_paths\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\clean_invalid_paths\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\clean_invalid_paths\\\\delete_command.py\",\r\n    \"maya_toolkit\\\\tools\\\\clean_invalid_paths\\\\reference_ops.py\",\r\n    \"maya_toolkit\\\\tools\\\\clean_invalid_paths\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\clean_invalid_paths\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\clean_invalid_paths\\\\upstream\\\\clean_invalid_paths.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\clean_invalid_paths\\\\upstream\\\\clean_invalid_paths_README.md\",\r\n    \"tests\\\\test_clean_invalid_paths.py\",\r\n    \"tests\\\\test_clean_invalid_paths_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/04_pipeline_io/clean_invalid_paths/release_candidate/tests/test_clean_invalid_paths_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "����: CleanInvalidPathsTool_clean_invalid_paths\n����: CleanInvalidPathsTool_clean_invalid_paths\n����: CleanInvalidPathsTool_clean_invalid_paths\n����: CleanInvalidPathsTool_clean_invalid_paths\n.����: CleanInvalidPathsTool_clean_invalid_paths\n����: CleanInvalidPathsTool_clean_invalid_paths\n����: CleanInvalidPathsTool_clean_invalid_paths\n.�ļ���ȡ����ʱ��Ϊ  0.003 �롣\n�ļ���ȡ����ʱ��Ϊ  0.0028 �롣\n����: CleanInvalidPathsTool_clean_invalid_paths\n����: CleanInvalidPathsTool_clean_invalid_paths\n�ļ���ȡ����ʱ��Ϊ  0.0029 �롣\n����: CleanInvalidPathsTool_clean_invalid_paths\n.\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.186s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "77a97275f3c9b02418d25f96c72ede83fc981ec2bb2568299cdf587cd0e84dd8",
+          "runtime_source_sha256": "f3a30998afaa002c930bf926325f1c1b212a98c7b60ada31c0184e89f3734371"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "GUI/all renderer schemas/production plugin side effects/source changes Undo/cross-version acceptance not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "74df378a2d7236c8bb9bab5647a236127f88cbe4222b13284195c1c7d1de1d88",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "GUI/all renderer schemas/production plugin side effects/cross-version acceptance not_run"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -18450,7 +18511,41 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "057ec6bac7c83ce0e0bb62509f0fd3f6af5adf7804de99b9c2fdf4073353980b"
+      "source_tree_sha256": "d25bb7ed1ab62ef002a068aa0dd2d8458d8efc61eda4f13046a98aeb21d6fdb0",
+      "candidate_path": "tools_staging_pool/04_pipeline_io/clean_invalid_paths/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/04_pipeline_io/clean_invalid_paths/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "clean_invalid_paths",
+        "candidate_sha256": "74df378a2d7236c8bb9bab5647a236127f88cbe4222b13284195c1c7d1de1d88",
+        "applied": false,
+        "files": [
+          "docs\\tools\\clean_invalid_paths.md",
+          "maya_toolkit\\tools\\clean_invalid_paths\\__init__.py",
+          "maya_toolkit\\tools\\clean_invalid_paths\\catalog.json",
+          "maya_toolkit\\tools\\clean_invalid_paths\\delete_command.py",
+          "maya_toolkit\\tools\\clean_invalid_paths\\reference_ops.py",
+          "maya_toolkit\\tools\\clean_invalid_paths\\tool.py",
+          "maya_toolkit\\tools\\clean_invalid_paths\\ui.py",
+          "maya_toolkit\\tools\\clean_invalid_paths\\upstream\\clean_invalid_paths.py.original",
+          "maya_toolkit\\tools\\clean_invalid_paths\\upstream\\clean_invalid_paths_README.md",
+          "tests\\test_clean_invalid_paths.py",
+          "tests\\test_clean_invalid_paths_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "clean_invalid_paths.py",
+        "clean_invalid_paths_README.md"
+      ],
+      "external_dependencies": [
+        "Maya cmds/API2",
+        "optional loaded renderer node types"
+      ],
+      "source_preserved": true,
+      "change_summary": "完整双窗与全部renderer路径类型、字符策略只读扫描、真实所有者清理与整引用Undo、Schema知识测试晋级",
+      "prepared_at": "2026-10-02T08:50:45.763010+08:00"
     },
     {
       "source_path": "04_pipeline_io/fbx_batch_exporter_v7",
