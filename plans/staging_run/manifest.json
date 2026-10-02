@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T13:23:38.161459+08:00",
+  "updated_at": "2026-10-02T13:40:39.058807+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "07_subsystems_suites/malcolm341_mega_pack",
+    "last_completed_tool": "07_subsystems_suites/maya_blueprint_toolbox",
     "last_usage": {
-      "five_hour_used_percent": 14.0,
-      "weekly_used_percent": 63.0,
-      "recorded_at": "2026-10-02T13:09:07.338877+08:00",
+      "five_hour_used_percent": 20.0,
+      "weekly_used_percent": 64.0,
+      "recorded_at": "2026-10-02T13:25:38.480502+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "07_subsystems_suites/malcolm341_mega_pack"
+    "current_tool": "07_subsystems_suites/maya_blueprint_toolbox"
   },
   "entry_repairs": [
     {
@@ -20794,7 +20794,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete supplied 49-button paid MEL suite, owned shelf and all callbacks, bounded API, namespace isolation and guarded external file operations",
-      "prepared_at": "2026-10-02T13:23:39.135700+08:00"
+      "prepared_at": "2026-10-02T13:23:39.135700+08:00",
+      "source_commit": "34f4407c37d974daaf75a26adc70fb2523d9f252"
     },
     {
       "source_path": "07_subsystems_suites/maya_blueprint_toolbox",
@@ -20805,7 +20806,7 @@
       "entry_candidates": [
         "main.py"
       ],
-      "source_file_count": 29,
+      "source_file_count": 30,
       "source_files": [
         "__init__.py",
         "core/__init__.py",
@@ -20828,14 +20829,86 @@
       ],
       "license_files": [],
       "entry_sha256": "053f353521c3ebfcb49e9a68fefb1bdc5bbf60bc7b05dad8a2470d34469c19ad",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.010s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"maya_blueprint_toolbox\",\r\n  \"candidate_sha256\": \"5e640617119dd64bbe6437d24a597ba722171a75b16509256bc6df560a548b41\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\maya_blueprint_toolbox.md\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\file_io.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\core\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\core\\\\executor.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\core\\\\node_specs.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\core\\\\types.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\docs\\\\next_chat_04_maya_operation_notes.md\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\docs\\\\node_type_rules.md\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\docs\\\\node_types\\\\01_constant.md\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\docs\\\\node_types\\\\02_data_get.md\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\docs\\\\node_types\\\\03_data_transform.md\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\docs\\\\node_types\\\\04_animation_workflow_nodes.md\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\docs\\\\project_assessment_report_2026-07-10.md\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\docs\\\\tool_breakdowns\\\\world_transform_copy_paste_v4.md\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\examples\\\\workflows\\\\copy_frame_json_test.json\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\examples\\\\workflows\\\\data_transform_test.json\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\main.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\maya_api\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\maya_api\\\\animation.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\maya_api\\\\attributes.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\maya_api\\\\common.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\maya_api\\\\constraints.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\maya_api\\\\export.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\maya_api\\\\io.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\maya_api\\\\scene_nodes.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\maya_api\\\\selection.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\qt_compat.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\README.md\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\ui\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\native\\\\ui\\\\canvas.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\source_review.json\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\core\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\core\\\\executor.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\core\\\\node_specs.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\core\\\\types.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\docs\\\\next_chat_04_maya_operation_notes.md\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\docs\\\\node_type_rules.md\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\docs\\\\node_types\\\\01_constant.md\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\docs\\\\node_types\\\\02_data_get.md\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\docs\\\\node_types\\\\03_data_transform.md\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\docs\\\\node_types\\\\04_animation_workflow_nodes.md\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\docs\\\\project_assessment_report_2026-07-10.md\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\docs\\\\tool_breakdowns\\\\world_transform_copy_paste_v4.md\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\examples\\\\workflows\\\\copy_frame_json_test.json\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\examples\\\\workflows\\\\data_transform_test.json\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\main.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\maya_api\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\maya_api\\\\animation.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\maya_api\\\\attributes.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\maya_api\\\\common.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\maya_api\\\\constraints.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\maya_api\\\\export.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\maya_api\\\\io.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\maya_api\\\\scene_nodes.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\maya_api\\\\selection.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\qt_compat.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\README.md\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\ui\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\upstream\\\\ui\\\\canvas.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\maya_blueprint_toolbox\\\\workflow.py\",\r\n    \"tests\\\\test_maya_blueprint_toolbox.py\",\r\n    \"tests\\\\test_maya_blueprint_toolbox_maya.py\",\r\n    \"tests\\\\test_maya_blueprint_toolbox_qt.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true,\r\n  \"runtime_acceptance_required\": true,\r\n  \"runtime\": \"maya\"\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/07_subsystems_suites/maya_blueprint_toolbox/release_candidate/tests/test_maya_blueprint_toolbox_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "����: Blueprint World Frame Paste\n����: Blueprint World Frame Paste\n.����: Blueprint Complete Workflow\n...\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.043s\r\n\r\nOK\r\nTransform Channels: 6 channel(s).\r\nCopy Frame: 1 node(s), 2 frame(s), 2 sample(s).\r\nMake Attribute Ref: 2 attribute(s).\r\nMake Attribute Ref: 2 attribute(s).\r\nMake Attribute Ref: 2 attribute(s).\r\nMake Attribute Ref: 2 attribute(s).\r\nMake Attribute Ref: 2 attribute(s).\r\nSet Attribute Ref: 2 attribute(s).\r\nMake Attribute Ref: 2 attribute(s).\r\nMaya Blueprint ƥ��ڵ�:\r\n[\r\n  0: 'pCube1'\r\n  1: 'pCube2'\r\n]\r\nMaya Blueprint δƥ��ڵ�:\r\n[\r\n  0: 'pCone1'\r\n  1: 'pSphere1'\r\n]\r\nMaya Blueprint ƥ��ڵ�:\r\n[\r\n  0: 'pCube1'\r\n  1: 'pCube2'\r\n]\r\nMaya Blueprint δƥ��ڵ�:\r\n[\r\n  0: 'pCone1'\r\n  1: 'pSphere1'\r\n]\r\nTransform Channels: 6 channel(s).\r\nCopy Frame: 1 node(s), 2 frame(s), 2 sample(s).\r\nTransform Channels: 6 channel(s).\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "037b58b2cd057f8b084cc5fb05a517b6e846b95fa734a883bc78ab78c9903ee0",
+          "runtime_source_sha256": "86d5086c622a8ccc2755805210c25b74f33a19ce90cedec3ff38de63db6c992c"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya 45-node canvas and production graphs, complex rig world paste, FBX/reference and cross-version acceptance not_run; separate Qt offscreen check passed"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "5e640617119dd64bbe6437d24a597ba722171a75b16509256bc6df560a548b41",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.012s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/07_subsystems_suites/maya_blueprint_toolbox/release_candidate/tests/test_maya_blueprint_toolbox_qt.py",
+          "returncode": 0,
+          "passed": true,
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.012s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "037b58b2cd057f8b084cc5fb05a517b6e846b95fa734a883bc78ab78c9903ee0",
+          "runtime_source_sha256": "86d5086c622a8ccc2755805210c25b74f33a19ce90cedec3ff38de63db6c992c",
+          "evidence_path": "plans/staging_run/maya_blueprint_toolbox_qt.json"
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya canvas, all production graph nodes, complex rig world paste, FBX/reference and cross-version acceptance not_run"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 18,
@@ -20844,7 +20917,127 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "7493e25c74e1a153076147a04998f04caa4b159ae660a1be1dcb7323fa9a6e6d"
+      "source_tree_sha256": "ef62d3cf6aad9edab4393efe5121e6554f1887947e22207b4e1a6c66927e09aa",
+      "candidate_path": "tools_staging_pool/07_subsystems_suites/maya_blueprint_toolbox/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/07_subsystems_suites/maya_blueprint_toolbox/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "maya_blueprint_toolbox",
+        "candidate_sha256": "5e640617119dd64bbe6437d24a597ba722171a75b16509256bc6df560a548b41",
+        "applied": false,
+        "files": [
+          "docs\\tools\\maya_blueprint_toolbox.md",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\__init__.py",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\catalog.json",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\file_io.py",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\__init__.py",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\core\\__init__.py",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\core\\executor.py",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\core\\node_specs.py",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\core\\types.py",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\docs\\next_chat_04_maya_operation_notes.md",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\docs\\node_type_rules.md",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\docs\\node_types\\01_constant.md",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\docs\\node_types\\02_data_get.md",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\docs\\node_types\\03_data_transform.md",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\docs\\node_types\\04_animation_workflow_nodes.md",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\docs\\project_assessment_report_2026-07-10.md",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\docs\\tool_breakdowns\\world_transform_copy_paste_v4.md",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\examples\\workflows\\copy_frame_json_test.json",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\examples\\workflows\\data_transform_test.json",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\main.py",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\maya_api\\__init__.py",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\maya_api\\animation.py",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\maya_api\\attributes.py",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\maya_api\\common.py",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\maya_api\\constraints.py",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\maya_api\\export.py",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\maya_api\\io.py",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\maya_api\\scene_nodes.py",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\maya_api\\selection.py",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\qt_compat.py",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\README.md",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\ui\\__init__.py",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\native\\ui\\canvas.py",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\source_review.json",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\__init__.py.original",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\core\\__init__.py.original",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\core\\executor.py.original",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\core\\node_specs.py.original",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\core\\types.py.original",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\docs\\next_chat_04_maya_operation_notes.md",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\docs\\node_type_rules.md",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\docs\\node_types\\01_constant.md",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\docs\\node_types\\02_data_get.md",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\docs\\node_types\\03_data_transform.md",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\docs\\node_types\\04_animation_workflow_nodes.md",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\docs\\project_assessment_report_2026-07-10.md",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\docs\\tool_breakdowns\\world_transform_copy_paste_v4.md",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\examples\\workflows\\copy_frame_json_test.json",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\examples\\workflows\\data_transform_test.json",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\main.py.original",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\maya_api\\__init__.py.original",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\maya_api\\animation.py.original",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\maya_api\\attributes.py.original",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\maya_api\\common.py.original",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\maya_api\\constraints.py.original",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\maya_api\\export.py.original",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\maya_api\\io.py.original",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\maya_api\\scene_nodes.py.original",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\maya_api\\selection.py.original",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\qt_compat.py.original",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\README.md",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\ui\\__init__.py.original",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\upstream\\ui\\canvas.py.original",
+          "maya_toolkit\\tools\\maya_blueprint_toolbox\\workflow.py",
+          "tests\\test_maya_blueprint_toolbox.py",
+          "tests\\test_maya_blueprint_toolbox_maya.py",
+          "tests\\test_maya_blueprint_toolbox_qt.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true,
+        "runtime_acceptance_required": true,
+        "runtime": "maya"
+      },
+      "resources": [
+        "__init__.py",
+        "core/__init__.py",
+        "core/executor.py",
+        "core/node_specs.py",
+        "core/types.py",
+        "docs/next_chat_04_maya_operation_notes.md",
+        "docs/node_type_rules.md",
+        "docs/node_types/01_constant.md",
+        "docs/node_types/02_data_get.md",
+        "docs/node_types/03_data_transform.md",
+        "docs/node_types/04_animation_workflow_nodes.md",
+        "docs/project_assessment_report_2026-07-10.md",
+        "docs/tool_breakdowns/world_transform_copy_paste_v4.md",
+        "examples/workflows/copy_frame_json_test.json",
+        "examples/workflows/data_transform_test.json",
+        "main.py",
+        "maya_api/__init__.py",
+        "maya_api/animation.py",
+        "maya_api/attributes.py",
+        "maya_api/common.py",
+        "maya_api/constraints.py",
+        "maya_api/export.py",
+        "maya_api/io.py",
+        "maya_api/scene_nodes.py",
+        "maya_api/selection.py",
+        "qt_compat.py",
+        "README.md",
+        "ui/__init__.py",
+        "ui/canvas.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/MEL",
+        "Bundled complete native canvas and PySide6/PySide2",
+        "FBX plugin only for export node"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete Chinese 45-node blueprint canvas, typed bounded graph/API, read-only resolvable preflight, shared Undo and protected workflow/animation/file IO",
+      "prepared_at": "2026-10-02T13:40:40.054651+08:00"
     },
     {
       "source_path": "07_subsystems_suites/smart_assistant",

@@ -1,0 +1,150 @@
+{
+  "files": [
+    {
+      "path": "__init__.py",
+      "archive": "upstream/__init__.py.original",
+      "sha256": "57ca8e2437cbfe4e095dceae5c4d4582e79e7b0c11c6a5a8f48d1d780c7631ba"
+    },
+    {
+      "path": "core/__init__.py",
+      "archive": "upstream/core/__init__.py.original",
+      "sha256": "2f25406e15d0f62d9e5ac83d01da426a81e90d0195f12a7de7633d1e7b53e4cf"
+    },
+    {
+      "path": "core/executor.py",
+      "archive": "upstream/core/executor.py.original",
+      "sha256": "a37fbc7267d7a5df824c6b17e3083ebb81373a4fcfea74e12a44b9d503b39bc4"
+    },
+    {
+      "path": "core/node_specs.py",
+      "archive": "upstream/core/node_specs.py.original",
+      "sha256": "c8e103248e65a41602570a7058c4d9c6336ef59183bc660eb2932c9541417bc9"
+    },
+    {
+      "path": "core/types.py",
+      "archive": "upstream/core/types.py.original",
+      "sha256": "efa16b412b5666eb6a987f8a53d8d30205e0551e913ff32352a2019fcf195456"
+    },
+    {
+      "path": "docs/next_chat_04_maya_operation_notes.md",
+      "archive": "upstream/docs/next_chat_04_maya_operation_notes.md",
+      "sha256": "f55bcb2c84d53888951676392b6761373b8f84a3bfee5e94bc4b111ec08e44ba"
+    },
+    {
+      "path": "docs/node_type_rules.md",
+      "archive": "upstream/docs/node_type_rules.md",
+      "sha256": "722434063d8514c7082d1c40d5dc8e22739b7a30a4ddb78c23098350a582efe4"
+    },
+    {
+      "path": "docs/node_types/01_constant.md",
+      "archive": "upstream/docs/node_types/01_constant.md",
+      "sha256": "2e086d7d9829bf3b9e11bd1d88b1989b3201e47e32eea32e6c60e4027d958b11"
+    },
+    {
+      "path": "docs/node_types/02_data_get.md",
+      "archive": "upstream/docs/node_types/02_data_get.md",
+      "sha256": "69b5cf3c3903a721283da1db29474fb93e1fa546ed7c43fce72846ac27ad80ad"
+    },
+    {
+      "path": "docs/node_types/03_data_transform.md",
+      "archive": "upstream/docs/node_types/03_data_transform.md",
+      "sha256": "54103b1ed1ca16b6a9f6b15cff0108a66d7024b1de3b16a86e452ecd5c28379a"
+    },
+    {
+      "path": "docs/node_types/04_animation_workflow_nodes.md",
+      "archive": "upstream/docs/node_types/04_animation_workflow_nodes.md",
+      "sha256": "e3e1d6eb6faa951f330330a4ecdd75e7ffe36a4a1e81d8f343ff181842f812a6"
+    },
+    {
+      "path": "docs/project_assessment_report_2026-07-10.md",
+      "archive": "upstream/docs/project_assessment_report_2026-07-10.md",
+      "sha256": "ae1db984e2d90bd568a25114acfc112e719cd7948fc6e2340ab6e10c41ea1aa8"
+    },
+    {
+      "path": "docs/tool_breakdowns/world_transform_copy_paste_v4.md",
+      "archive": "upstream/docs/tool_breakdowns/world_transform_copy_paste_v4.md",
+      "sha256": "ad8f59ca7141391e623254337546deff932b372ac99c5953eb190d6805739201"
+    },
+    {
+      "path": "examples/workflows/copy_frame_json_test.json",
+      "archive": "upstream/examples/workflows/copy_frame_json_test.json",
+      "sha256": "5154a75806bac82990fafb253dbab0b1ded48e793067145402142b55036eec73"
+    },
+    {
+      "path": "examples/workflows/data_transform_test.json",
+      "archive": "upstream/examples/workflows/data_transform_test.json",
+      "sha256": "a6dfe57f7045a6f030f737891919f2f1e76459e31f5cbebf8fcb57866d6dd7a5"
+    },
+    {
+      "path": "main.py",
+      "archive": "upstream/main.py.original",
+      "sha256": "053f353521c3ebfcb49e9a68fefb1bdc5bbf60bc7b05dad8a2470d34469c19ad"
+    },
+    {
+      "path": "maya_api/__init__.py",
+      "archive": "upstream/maya_api/__init__.py.original",
+      "sha256": "291d1b4ec312470ea3d0cbf2e8d28999ca58d8a38540ae17be32e7cff3d0a53a"
+    },
+    {
+      "path": "maya_api/animation.py",
+      "archive": "upstream/maya_api/animation.py.original",
+      "sha256": "3072c5b330ec3ba9fc4cd2ccc8fc77e98078b226ed95f15e7957c76969bb6b0f"
+    },
+    {
+      "path": "maya_api/attributes.py",
+      "archive": "upstream/maya_api/attributes.py.original",
+      "sha256": "d2b37ffd1205ed82ead69e7648e530cb1f73c0cc6b30bcdfbdec2e219c53476a"
+    },
+    {
+      "path": "maya_api/common.py",
+      "archive": "upstream/maya_api/common.py.original",
+      "sha256": "d88163cf1347ca5b5ecf0ef0bd5074068e160b0aa095ba3482c4a12cf2fb5589"
+    },
+    {
+      "path": "maya_api/constraints.py",
+      "archive": "upstream/maya_api/constraints.py.original",
+      "sha256": "384cd49d223b3f5c07a76d9d6dee43b87270776102e302c6c492bef1d1efd83f"
+    },
+    {
+      "path": "maya_api/export.py",
+      "archive": "upstream/maya_api/export.py.original",
+      "sha256": "fd3807bc63d269fab658e13c982973df9bbb8ce615267943d5ca655020fcbb61"
+    },
+    {
+      "path": "maya_api/io.py",
+      "archive": "upstream/maya_api/io.py.original",
+      "sha256": "0eea962c8b0c0c207c4f98826156b18e7946c0b88f7bde7f4298d5cbf42cfaa9"
+    },
+    {
+      "path": "maya_api/scene_nodes.py",
+      "archive": "upstream/maya_api/scene_nodes.py.original",
+      "sha256": "8c1c17f0fed2fe490f5f290e741f906fe1dbc4616fcd14303b6b11fc21b7319d"
+    },
+    {
+      "path": "maya_api/selection.py",
+      "archive": "upstream/maya_api/selection.py.original",
+      "sha256": "d2f24702d5340150e8c0974194ca9f9b13b1927ad88196e6b52cc2fb5f63af64"
+    },
+    {
+      "path": "qt_compat.py",
+      "archive": "upstream/qt_compat.py.original",
+      "sha256": "0e65cab3be69926710b894155ab2d79ae8964eef28e24d30b81c00667f704fcd"
+    },
+    {
+      "path": "README.md",
+      "archive": "upstream/README.md",
+      "sha256": "f47b7608b9088af59aaa3141752b3c7557a6c66a441638684bb21e067805097e"
+    },
+    {
+      "path": "ui/__init__.py",
+      "archive": "upstream/ui/__init__.py.original",
+      "sha256": "2276fbd991d443ed8c67637940664bc02bb1f5f5a59037ee349eb839daac18d2"
+    },
+    {
+      "path": "ui/canvas.py",
+      "archive": "upstream/ui/canvas.py.original",
+      "sha256": "626a42914a041e0bcc1092ecc16b46a3849ad81428fa01d35fc286d81afbefc3"
+    }
+  ],
+  "license": "Supplied original source notices preserved; no redistribution grant inferred"
+}

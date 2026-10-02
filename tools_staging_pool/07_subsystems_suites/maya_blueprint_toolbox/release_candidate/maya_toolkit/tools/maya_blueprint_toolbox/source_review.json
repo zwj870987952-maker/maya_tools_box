@@ -1,0 +1,187 @@
+[
+  {
+    "path": "__init__.py",
+    "functions": [
+      "show"
+    ]
+  },
+  {
+    "path": "core/__init__.py",
+    "functions": []
+  },
+  {
+    "path": "core/executor.py",
+    "functions": [
+      "WorkflowExecutionError",
+      "WorkflowExecutor"
+    ]
+  },
+  {
+    "path": "core/node_specs.py",
+    "functions": [
+      "PortSpec",
+      "ParameterSpec",
+      "NodeSpec",
+      "_built_in_specs",
+      "default_node_specs"
+    ]
+  },
+  {
+    "path": "core/types.py",
+    "functions": [
+      "PortTypes",
+      "canonical_port_type",
+      "port_types_compatible",
+      "NodeRef",
+      "AttrRef",
+      "AttrPacket",
+      "TransformFrameData",
+      "normalize_node_list",
+      "normalize_attr_refs"
+    ]
+  },
+  {
+    "path": "main.py",
+    "functions": [
+      "BlueprintToolboxWindow",
+      "show"
+    ]
+  },
+  {
+    "path": "maya_api/__init__.py",
+    "functions": []
+  },
+  {
+    "path": "maya_api/animation.py",
+    "functions": [
+      "current_frame",
+      "frame_range",
+      "transform_channels",
+      "selected_channel_box_channels",
+      "copy_frame",
+      "save_frame_data_json",
+      "normalize_frames",
+      "normalize_channels",
+      "normalize_channel",
+      "_frames_from_range",
+      "_world_transform_values",
+      "_format_frame"
+    ]
+  },
+  {
+    "path": "maya_api/attributes.py",
+    "functions": [
+      "set_attribute",
+      "make_attribute_refs",
+      "make_attribute_refs_from_items",
+      "parse_attribute_items",
+      "common_attribute_names",
+      "selected_node_attribute_names",
+      "selected_channel_box_attribute_names",
+      "inspect_attributes",
+      "set_attribute_refs",
+      "_set_transform_frame_data_attr_refs",
+      "_samples_for_frame",
+      "_sample_for_attr_ref",
+      "_unique_target_nodes",
+      "get_attribute_refs",
+      "get_attribute",
+      "packets_report",
+      "_existing_attr_refs",
+      "_unique_text_items",
+      "_unique_attr_refs",
+      "_inspect_attr_ref",
+      "_attribute_query",
+      "_attr_type",
+      "_semantic_for_attr",
+      "_axis_for_attr",
+      "_is_numeric_attr_type",
+      "_convert_value_for_attr",
+      "_convert_value"
+    ]
+  },
+  {
+    "path": "maya_api/common.py",
+    "functions": [
+      "MayaApiError",
+      "maya_modules",
+      "UndoChunk"
+    ]
+  },
+  {
+    "path": "maya_api/constraints.py",
+    "functions": [
+      "create_constraint",
+      "_constraint_command"
+    ]
+  },
+  {
+    "path": "maya_api/export.py",
+    "functions": [
+      "export_fbx"
+    ]
+  },
+  {
+    "path": "maya_api/io.py",
+    "functions": [
+      "import_file",
+      "_validate_source_path"
+    ]
+  },
+  {
+    "path": "maya_api/scene_nodes.py",
+    "functions": [
+      "parse_node_names",
+      "unique_nodes",
+      "existing_nodes",
+      "nodes_by_type",
+      "parent_transforms",
+      "shape_nodes",
+      "related_skin_clusters",
+      "related_blend_shapes",
+      "related_deformers",
+      "related_materials",
+      "related_constraints",
+      "select_nodes",
+      "rename_nodes",
+      "group_nodes",
+      "delete_nodes",
+      "_is_shape_node"
+    ]
+  },
+  {
+    "path": "maya_api/selection.py",
+    "functions": [
+      "get_current_selection",
+      "replace_selection"
+    ]
+  },
+  {
+    "path": "qt_compat.py",
+    "functions": [
+      "get_qt_enum",
+      "qt_enum",
+      "maya_main_window"
+    ]
+  },
+  {
+    "path": "ui/__init__.py",
+    "functions": []
+  },
+  {
+    "path": "ui/canvas.py",
+    "functions": [
+      "PortGraphicsItem",
+      "ConnectionGraphicsItem",
+      "NodeGraphicsItem",
+      "BlueprintGraphicsScene",
+      "BlueprintCanvasView",
+      "NodeSearchDialog",
+      "ListParameterEditor",
+      "NodeListParameterEditor",
+      "AttributeItemListParameterEditor",
+      "NodePropertiesPanel",
+      "BlueprintCanvasWidget"
+    ]
+  }
+]

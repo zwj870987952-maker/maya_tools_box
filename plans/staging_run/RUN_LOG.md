@@ -788,3 +788,10 @@
 - pivot非空单poly mesh/组件、锁/reference/pivot锁/坏选择预检；临时ma/obj/fbx转移显式绝对file_path、parent存在、导出新文件、导入不执行MA scriptNodes，取消不运行。native所有明确file-export/FBXExport/UV快照路径guard拒绝已存在文件；原fopen a/w的userSetup及UV snapshot删除前同目录独占精确byte备份/SHA验证。其他原prefs/系统/插件/延迟jobs/硬退出不假称由scene Undo恢复，完整影响和逐项备份场景验收文档。
 - 2离线+2隔离Maya2025+最终临时注册/domain/panel/fingerprint通过：完整Shelf只编译不安装、不增加场景nodes，fileguard旧bytes保持/真正native fopen追加前精确备份、nativecube顶点中心pivot/dry不动/一次Undo与选择恢复/锁与多mesh拒绝。分类初版不属于六个domain，修正modeling_surfacing并重验通过。完整49实际UI/原子窗口/全部菜单/导出插件/偏好/退出/跨版本not_run，prepared_unverified。
 - 实际5h20%已用（剩80%）、周64%（剩36%）；继续maya_blueprint_toolbox，heartbeat保持暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：蓝图工具盒完整候选，累计99/109
+
+- 29原文件SHA归档；45原类型节点、完整中文Qt5/6 canvas/数据模型/全部Maya包装/原文档/两示例保留。Base/Schema/ToolResult、完整graph API/default inspect、typed port/strict bool/有限数值/必填/未知节点参数/双来源/重复id/cycle/目标上游范围与8MiB/1000nodes/10000links。无Qt eager launch；自有MTB窗、主线程/已有QApplication、shared UndoChunkContext，不改正式core。
+- dry仅纯结构及当前可解析readonly数据/目标预检，写入依赖结果列deferred，实际每操作前再次全表校验；整graph一个Undo、重入拒绝。missing/ambiguous/锁/reference/default/保护后代拒绝，group/rename碰撞与祖孙混批拒绝，全部attr converted值及目标轴/constraint受驱通道首写前检。JSON exclusive新名、显式overwrite备份+原子替换，CopyFrame唯一temp，不mkdir；FBX文件保护/显式备份/finally恢复选择与三项Bake flags，import MA scriptNodes=False。
+- 修正确定原world samples按local scalar写入错误：Maya xform按parent space/rotateOrder转世界位移/欧拉，部分world轴保持其他world轴并全localXYZ耦合预检/打键，scale保持原relative local语义；全部samples首写前检。隔离parent tx10/ry90/sx2+target rotateOrder3→source世界tx7/ty3/rot15,25,0准确，真正一次Undo/Redo恢复，锁tz耦合轴拒绝不改。首次测试在write之后先scrub时间才Undo，撤的是测试的时间操作，保留初次报告并将一次Undo断言移到真实write后立即执行，没有削弱断言。
+- 2离线+4隔离Maya2025+独立无Maya初始化Qt离屏完整canvas/all45类型/示例序列化与连线+最终临时注册/domain/panel/fingerprint通过，Qt额外报告指纹核验后入manifest。bad最后锁目标/缺失对象前项tx保持、图写两对象一次Undo完整、采样恢复时间/既有JSON bytes保持、原data transform示例准确。真实Maya UI/45 production节点、复杂rig负scale/shear/jointOrient/FBX/reference/跨版本not_run；prepared_unverified。实际5h27%已用（剩73%）、周65%（剩35%），继续smart_assistant；heartbeat暂停。

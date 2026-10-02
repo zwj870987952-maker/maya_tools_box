@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/07_subsystems_suites/maya_blueprint_toolbox/release_candidate/tests/test_maya_blueprint_toolbox_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "����: Blueprint World Frame Paste\n����: Blueprint World Frame Paste\n.����: Blueprint Complete Workflow\n...\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.043s\r\n\r\nOK\r\nTransform Channels: 6 channel(s).\r\nCopy Frame: 1 node(s), 2 frame(s), 2 sample(s).\r\nMake Attribute Ref: 2 attribute(s).\r\nMake Attribute Ref: 2 attribute(s).\r\nMake Attribute Ref: 2 attribute(s).\r\nMake Attribute Ref: 2 attribute(s).\r\nMake Attribute Ref: 2 attribute(s).\r\nSet Attribute Ref: 2 attribute(s).\r\nMake Attribute Ref: 2 attribute(s).\r\nMaya Blueprint ƥ��ڵ�:\r\n[\r\n  0: 'pCube1'\r\n  1: 'pCube2'\r\n]\r\nMaya Blueprint δƥ��ڵ�:\r\n[\r\n  0: 'pCone1'\r\n  1: 'pSphere1'\r\n]\r\nMaya Blueprint ƥ��ڵ�:\r\n[\r\n  0: 'pCube1'\r\n  1: 'pCube2'\r\n]\r\nMaya Blueprint δƥ��ڵ�:\r\n[\r\n  0: 'pCone1'\r\n  1: 'pSphere1'\r\n]\r\nTransform Channels: 6 channel(s).\r\nCopy Frame: 1 node(s), 2 frame(s), 2 sample(s).\r\nTransform Channels: 6 channel(s).\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "037b58b2cd057f8b084cc5fb05a517b6e846b95fa734a883bc78ab78c9903ee0",
+  "runtime_source_sha256": "86d5086c622a8ccc2755805210c25b74f33a19ce90cedec3ff38de63db6c992c"
+}
