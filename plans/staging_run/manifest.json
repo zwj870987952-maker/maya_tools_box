@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T10:08:12.490846+08:00",
+  "updated_at": "2026-10-02T10:12:57.002901+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "05_ue_pipeline/ue_fbx_auto_import",
+    "last_completed_tool": "05_ue_pipeline/ue_reference_checker",
     "last_usage": {
-      "five_hour_used_percent": 65.0,
+      "five_hour_used_percent": 68.0,
       "weekly_used_percent": 56.0,
-      "recorded_at": "2026-10-02T09:58:18.368058+08:00",
+      "recorded_at": "2026-10-02T10:09:59.947347+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "05_ue_pipeline/ue_fbx_auto_import"
+    "current_tool": "05_ue_pipeline/ue_reference_checker"
   },
   "entry_repairs": [
     {
@@ -19424,7 +19424,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete Maya Qt config generator plus standalone UE legacy animation importer with whole-batch preflight and fresh destinations",
-      "prepared_at": "2026-10-02T10:08:09.104935+08:00"
+      "prepared_at": "2026-10-02T10:08:09.104935+08:00",
+      "source_commit": "ae48f07d9974385c6141eb982c80da4b15b9051f"
     },
     {
       "source_path": "05_ue_pipeline/ue_reference_checker",
@@ -19435,20 +19436,60 @@
       "entry_candidates": [
         "UE资产引用检查器.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "UE资产引用检查器.py"
       ],
       "license_files": [],
       "entry_sha256": "c13e699168a78ea8653a27bdb2172909900187c7be24f5f5bb74be948f7af1f7",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "...\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.001s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"ue_reference_checker\",\r\n  \"candidate_sha256\": \"a47c0e18c5a5a8f416803cf76c34fd9cafbca9360354f722eeb9f2ceb6c07b79\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\ue_reference_checker.md\",\r\n    \"engine_toolkit\\\\tools\\\\ue_reference_checker\\\\__init__.py\",\r\n    \"engine_toolkit\\\\tools\\\\ue_reference_checker\\\\catalog.json\",\r\n    \"engine_toolkit\\\\tools\\\\ue_reference_checker\\\\ui.py\",\r\n    \"engine_toolkit\\\\tools\\\\ue_reference_checker\\\\upstream\\\\UE\\u8d44\\u4ea7\\u5f15\\u7528\\u68c0\\u67e5\\u5668.py.original\",\r\n    \"tests\\\\test_ue_reference_checker.py\"\r\n  ],\r\n  \"registry\": null,\r\n  \"panel\": \"Original UE dark Tk reference results table with right-click browser navigation\",\r\n  \"maya_acceptance_required\": false,\r\n  \"runtime_acceptance_required\": true,\r\n  \"runtime\": \"unreal_editor\"\r\n}\r\n"
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real UE Asset Registry/Reference Viewer, Tcl availability, Tk GUI, Slate tick lifecycle and browser sync not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "a47c0e18c5a5a8f416803cf76c34fd9cafbca9360354f722eeb9f2ceb6c07b79",
+          "returncode": 0,
+          "output": "...\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.001s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Native runtime package imports without Maya or Unreal; entry and schema available\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real native runtime acceptance pending",
+        "Real Unreal registry/Reference Viewer/Tk GUI/Slate lifecycle not_run"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -19457,7 +19498,42 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "e8c225958677e0dc0fa55652e56aa8649ea4dee90a744a21e3370541148d4b3e"
+      "source_tree_sha256": "b39a1f18a00b3cdcdbce7d6b08e292582ca7cd5a9195b679a0bed12496d3a596",
+      "runtime_acceptance": {
+        "runtime": "unreal_editor",
+        "status": "not_run",
+        "versions": []
+      },
+      "candidate_path": "tools_staging_pool/05_ue_pipeline/ue_reference_checker/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/05_ue_pipeline/ue_reference_checker/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "ue_reference_checker",
+        "candidate_sha256": "a47c0e18c5a5a8f416803cf76c34fd9cafbca9360354f722eeb9f2ceb6c07b79",
+        "applied": false,
+        "files": [
+          "docs\\tools\\ue_reference_checker.md",
+          "engine_toolkit\\tools\\ue_reference_checker\\__init__.py",
+          "engine_toolkit\\tools\\ue_reference_checker\\catalog.json",
+          "engine_toolkit\\tools\\ue_reference_checker\\ui.py",
+          "engine_toolkit\\tools\\ue_reference_checker\\upstream\\UE资产引用检查器.py.original",
+          "tests\\test_ue_reference_checker.py"
+        ],
+        "registry": null,
+        "panel": "Original UE dark Tk reference results table with right-click browser navigation",
+        "maya_acceptance_required": false,
+        "runtime_acceptance_required": true,
+        "runtime": "unreal_editor"
+      },
+      "resources": [
+        "UE资产引用检查器.py"
+      ],
+      "external_dependencies": [
+        "Unreal Editor PythonScriptPlugin/EditorScriptingUtilities/AssetRegistry",
+        "Target UE Python tkinter/Tcl"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete UE referencer regex checker and original dark Tk table/browser navigation with unknown/error states and single-main-thread Slate lifecycle",
+      "prepared_at": "2026-10-02T10:12:53.608837+08:00"
     },
     {
       "source_path": "05_ue_pipeline/ue_source_finder",

@@ -1,0 +1,45 @@
+{
+  "tool_id": "ue_reference_checker",
+  "runtime": "unreal_editor",
+  "registration": null,
+  "entry_module": "engine_toolkit.tools.ue_reference_checker",
+  "panel": "Original UE dark Tk reference results table with right-click browser navigation",
+  "files": [
+    {
+      "source": "docs/tools/ue_reference_checker.md",
+      "target": "docs/tools/ue_reference_checker.md"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_reference_checker/__init__.py",
+      "target": "engine_toolkit/tools/ue_reference_checker/__init__.py"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_reference_checker/catalog.json",
+      "target": "engine_toolkit/tools/ue_reference_checker/catalog.json"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_reference_checker/ui.py",
+      "target": "engine_toolkit/tools/ue_reference_checker/ui.py"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_reference_checker/upstream/UE资产引用检查器.py.original",
+      "target": "engine_toolkit/tools/ue_reference_checker/upstream/UE资产引用检查器.py.original"
+    },
+    {
+      "source": "tests/test_ue_reference_checker.py",
+      "target": "tests/test_ue_reference_checker.py"
+    }
+  ],
+  "resources": [
+    "UE资产引用检查器.py"
+  ],
+  "dependencies": [
+    "Unreal Editor PythonScriptPlugin/EditorScriptingUtilities/AssetRegistry",
+    "Target UE Python tkinter/Tcl"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete UE referencer regex checker and original dark Tk table/browser navigation with unknown/error states and single-main-thread Slate lifecycle",
+  "verification_limitations": [
+    "Real Unreal registry/Reference Viewer/Tk GUI/Slate lifecycle not_run"
+  ]
+}

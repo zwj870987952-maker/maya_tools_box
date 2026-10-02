@@ -737,3 +737,9 @@
 - 原2文件SHA归档；完整Maya Qt5/6配置生成UI（检测Anim/Skeleton、两可编辑combo、FBX拖放/文本、Load/Generate/桌面编号JSON）和UE实际FbxImportUI/AssetImportTask/FbxFactory批量动画导入保留。Maya仅配置生成继承Base/category engine_bridge/Schema/ToolResult，UE independent engine package提供原生结构化API，共享自包含纯config，无虚假UE Maya执行。
 - 源绝对FBX/SHA/三键旧JSON/Content正确relative_to/仅Skeleton uasset/重复basename/坏最后cfg/重叠目标/真实Skeleton类型/全新Game目录预检；dry不创建tasks/options或文件。UE按stem新子目录隔离多take、明确confirm_import、mandatory animation-only flags/no mesh-material-texture、EXPORTED_TIME/replace=False/save原True，原静态mesh对象错误选项取消；native失败停止并保留partial路径；共享Skeleton曲线metadata可能变，不承诺import/save Undo。Maya文件独占创建不覆盖、初测loader缺正式framework修复使用候选launcher；GUI检测异常显示warning。
 - 3离线mock+1隔离Maya2025+临时最终布局/正式注册/domain/panel/fingerprint通过，配置实际JSON/编号旧bytes保持/wholebadcfg不import、native成功/空返回失败；Maya真实dirty scene/节点/场景名/Undo dry/写文件均不改。临时晋级新增双端必须runtime_version，3temp repo测试含只有Maya验收不得晋级。真实Maya配置UI/UE导入与Skeleton/Interchange多take/跨版本not_run，prepared_unverified。实际5h68%已用（剩32%）、周56%，继续ue_reference_checker；heartbeat保持暂停，不用卡/不转正。
+
+# 2026-10-02：UE引用检查器完整原生候选，累计91/109
+
+- 原单文件SHA归档，完整direct hard/soft包引用+_zoo忽略大小写pattern、原深色Tk表格/统计/滚动/异常优先/右键定位/关闭保留。显式Schema/API/dry-run、无自动窗口；query异常/None为unknown并success false，registry loading拒绝提前判定，不返回假空引用；package身份去重，同名显示不混淆。
+- UI改UE Slate主线程pump Tk，不worker destroy/quit，不mainloop堵塞；单例/callback close与queue bounded100生命周期齐备。locate ARFilter exact包，按Epic文档修正sync_browser_to_objects为object path strings而非Object，加载缓存与浏览器选择影响明确，资产/文件不保存。
+- 3离线mock+临时最终布局/fingerprint通过，重复同名不同包/regex/真实errorunknown/空refs/directoptions/loading与invalidregex拒绝、dry locate不sync/实际path数组sync/mainthreadguard；真实UE registry/ReferenceViewer/Tk-Tcl/GUI/Slate close热重载not_run，prepared_unverified。实际5h70%已用（剩30%）、周57%，继续ue_source_finder；heartbeat保持暂停。
