@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T15:43:49.776431+08:00",
+  "updated_at": "2026-10-02T15:52:25.843858+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "08_utilities_system/ks_save_timer_v1_3_0",
+    "last_completed_tool": "08_utilities_system/maya_process_finder",
     "last_usage": {
-      "five_hour_used_percent": 72.0,
-      "weekly_used_percent": 72.0,
-      "recorded_at": "2026-10-02T15:31:49.323005+08:00",
+      "five_hour_used_percent": 77.0,
+      "weekly_used_percent": 73.0,
+      "recorded_at": "2026-10-02T15:46:56.506697+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "08_utilities_system/ks_save_timer_v1_3_0"
+    "current_tool": "08_utilities_system/maya_process_finder"
   },
   "entry_repairs": [
     {
@@ -23081,7 +23081,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete bilingual original save timer/idle/color/history/config for explicit Maya, Nuke or desktop host with scoped state backups and callback cleanup",
-      "prepared_at": "2026-10-02T15:45:21.168885+08:00"
+      "prepared_at": "2026-10-02T15:45:21.168885+08:00",
+      "source_commit": "3ec648f3514bd8c3e55d8ea65b6dec45acc97e80"
     },
     {
       "source_path": "08_utilities_system/maya_process_finder",
@@ -23092,21 +23093,61 @@
       "entry_candidates": [
         "maya_process_finder.py"
       ],
-      "source_file_count": 2,
+      "source_file_count": 3,
       "source_files": [
         "maya_process_finder.py",
         "MayaFinder.py"
       ],
       "license_files": [],
       "entry_sha256": "bffbd6eabb51a7eaa76b68b7d383c15b3fa45510eaa3a51b44667656c215bc1f",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"maya_process_finder\",\r\n  \"candidate_sha256\": \"9ffeaa9da264d70dea2e985553f5fa9b92e6e3f706971093b7664e6ba4d1d820\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\maya_process_finder.md\",\r\n    \"engine_toolkit\\\\tools\\\\maya_process_finder\\\\__init__.py\",\r\n    \"engine_toolkit\\\\tools\\\\maya_process_finder\\\\__main__.py\",\r\n    \"engine_toolkit\\\\tools\\\\maya_process_finder\\\\catalog.json\",\r\n    \"engine_toolkit\\\\tools\\\\maya_process_finder\\\\upstream\\\\maya_process_finder.py.original\",\r\n    \"engine_toolkit\\\\tools\\\\maya_process_finder\\\\upstream\\\\MayaFinder.py.original\",\r\n    \"tests\\\\test_maya_process_finder.py\"\r\n  ],\r\n  \"registry\": null,\r\n  \"panel\": \"Standalone console entry; no Maya panel registration\",\r\n  \"maya_acceptance_required\": false,\r\n  \"runtime_acceptance_required\": true,\r\n  \"runtime\": \"windows_standalone\"\r\n}\r\n"
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Windows cursor/global hook/Task Manager and disposable Maya termination acceptance not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "9ffeaa9da264d70dea2e985553f5fa9b92e6e3f706971093b7664e6ba4d1d820",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Native runtime package imports without Maya or Unreal; entry and schema available\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real native runtime acceptance pending",
+        "Real Windows cursor/global hook/Task Manager and disposable Maya termination acceptance not_run"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 2,
@@ -23115,7 +23156,44 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "6e112247d312accd66fbc91b3feff5ee55cbb14bf6cb5ebd0d9ad81c981da38d"
+      "source_tree_sha256": "0317bc332023f4057669831dc7a93f8917a261e860fc517ccba8e28365f8428f",
+      "runtime_acceptance": {
+        "runtime": "windows_standalone",
+        "status": "not_run",
+        "versions": []
+      },
+      "candidate_path": "tools_staging_pool/08_utilities_system/maya_process_finder/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/08_utilities_system/maya_process_finder/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "maya_process_finder",
+        "candidate_sha256": "9ffeaa9da264d70dea2e985553f5fa9b92e6e3f706971093b7664e6ba4d1d820",
+        "applied": false,
+        "files": [
+          "docs\\tools\\maya_process_finder.md",
+          "engine_toolkit\\tools\\maya_process_finder\\__init__.py",
+          "engine_toolkit\\tools\\maya_process_finder\\__main__.py",
+          "engine_toolkit\\tools\\maya_process_finder\\catalog.json",
+          "engine_toolkit\\tools\\maya_process_finder\\upstream\\maya_process_finder.py.original",
+          "engine_toolkit\\tools\\maya_process_finder\\upstream\\MayaFinder.py.original",
+          "tests\\test_maya_process_finder.py"
+        ],
+        "registry": null,
+        "panel": "Standalone console entry; no Maya panel registration",
+        "maya_acceptance_required": false,
+        "runtime_acceptance_required": true,
+        "runtime": "windows_standalone"
+      },
+      "resources": [
+        "maya_process_finder.py",
+        "MayaFinder.py"
+      ],
+      "external_dependencies": [
+        "Windows ctypes user32/kernel32",
+        "psutil"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete Windows process finder with polling/hook lifecycle and explicit process identity confirmation",
+      "prepared_at": "2026-10-02T15:53:42.643378+08:00"
     },
     {
       "source_path": "08_utilities_system/maya_tabs_v1_3a",

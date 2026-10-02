@@ -842,3 +842,10 @@
 - Maya自有MSceneMessage Open/New/Save IDs、Nuke明确add/remove同callable、desktop仅明确watch_file限定目录扩展名监听；close清own callbacks/watch/timer/animation/Qt单例，reopen重建不叠加。statusLine独立MTB layout/MQt pointer及foreign同名保护；未注册startup或修改foreign hooks。完整旧Nuke panel源码保留；实际Nuke面板宿主/回调未测。
 - 1离线typed/备份/foreign写拒绝、隔离Maya文件名及dry无callbacks/无文件、独立Qt中英两会话完整timer/options/history/about/保存12分钟/重开/关闭监听与原文件不变、future注册/domain/panel/fingerprint通过。真实Maya GUI save回调/statusLine/idle focus及Nuke/cross-version not_run，prepared_unverified。
 - 实际5h77%已用（剩23%）、周73%（剩27%），继续maya_process_finder，heartbeat暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：Maya进程查找器Windows候选，累计106/109
+
+- 两原版本精确SHA归档，完整光标HWND/PID/title/path/status/lifetime、Ctrl点击poll/hook、持续console、Task Manager及明确结束功能按Windows原生Schema/validate/execute/run制作，无Maya Base/注册混用。import/dry无WinAPI加载/提权/线程/钩子/launch/kill。
+- 原hook版本所谓打开任务管理器实际taskkill /f /pid /t，并可自动结束任意窗口进程；默认改只查询，terminate独立确认/创建时间/exact maya.exe且执行前再核对，不杀child tree。Taskmgr普通shell=False启动，手动Details定位，不伪造/select可用。原始两版逻辑保留档案，行为变动在专项文档说明。
+- Win64 HWND/HHOOK/LRESULT/WINFUNCTYPE/结构字段完整，hook快callback排队/CallNext、bounded256队列、poll rising edge、自有Unhook/WM_QUIT/join；Unhook失败保留handle/callback重试，不冒充停止。两mock确认/PID寿命/dry零副作用/queue bound及独立future布局通过；未启动真实hook、Taskmgr或结束任何进程，真实Windows直验not_run，prepared_unverified。
+- 实际5h80%已用（剩20%）、周73%（剩27%），继续maya_tabs_v1_3a，heartbeat暂停，无正式迁移/同步/用卡/购买。

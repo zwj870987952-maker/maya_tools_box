@@ -1,0 +1,50 @@
+{
+  "tool_id": "maya_process_finder",
+  "runtime": "windows_standalone",
+  "registration": null,
+  "entry_module": "engine_toolkit.tools.maya_process_finder",
+  "panel": "Standalone console entry; no Maya panel registration",
+  "files": [
+    {
+      "source": "docs/tools/maya_process_finder.md",
+      "target": "docs/tools/maya_process_finder.md"
+    },
+    {
+      "source": "engine_toolkit/tools/maya_process_finder/__init__.py",
+      "target": "engine_toolkit/tools/maya_process_finder/__init__.py"
+    },
+    {
+      "source": "engine_toolkit/tools/maya_process_finder/__main__.py",
+      "target": "engine_toolkit/tools/maya_process_finder/__main__.py"
+    },
+    {
+      "source": "engine_toolkit/tools/maya_process_finder/catalog.json",
+      "target": "engine_toolkit/tools/maya_process_finder/catalog.json"
+    },
+    {
+      "source": "engine_toolkit/tools/maya_process_finder/upstream/maya_process_finder.py.original",
+      "target": "engine_toolkit/tools/maya_process_finder/upstream/maya_process_finder.py.original"
+    },
+    {
+      "source": "engine_toolkit/tools/maya_process_finder/upstream/MayaFinder.py.original",
+      "target": "engine_toolkit/tools/maya_process_finder/upstream/MayaFinder.py.original"
+    },
+    {
+      "source": "tests/test_maya_process_finder.py",
+      "target": "tests/test_maya_process_finder.py"
+    }
+  ],
+  "resources": [
+    "maya_process_finder.py",
+    "MayaFinder.py"
+  ],
+  "dependencies": [
+    "Windows ctypes user32/kernel32",
+    "psutil"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete Windows process finder with polling/hook lifecycle and explicit process identity confirmation",
+  "verification_limitations": [
+    "Real Windows cursor/global hook/Task Manager and disposable Maya termination acceptance not_run"
+  ]
+}
