@@ -834,3 +834,11 @@
 - 自有MTB Outliner/editor/workspace按MQt指针、itemFilter按UUID保护，外来同名拒绝清理；关闭X清自有session。MTB optionVar只明确保存/恢复且保护外来后来改动；未知自定义script模块必须显式允许。原NGon选择/constraint副作用改MFnMesh只读拓扑，原vertexCount占位行为明确未实现统计。
 - 离线配置/严格bool/精确备份、隔离Maya2025层级查询/NGon选择时间约束不变/自有过滤器清理保留foreign、独立Qt完整双preview/FilterManager/共享config/增删改保存恢复、future layout注册/domain/panel及fingerprint通过。真实Maya嵌入/完整preset/自定义scripts/dock生命周期/复杂重名/跨版本not_run，prepared_unverified。
 - 实际5h72%已用（剩28%）、周72%（剩28%），继续ks_save_timer_v1_3_0，heartbeat暂停；无正式迁移/Obsidian同步/用卡/购买。
+
+# 2026-10-02：KS SaveTimer完整中英文候选，累计105/109
+
+- 39原文件SHA归档，87完整payload，双语原timer/idle/阈值闪烁/动画/config/history/about/stats/Maya/Nuke/Desktop lib及runApp/EULA手册完整保留。默认无Qt/native/回调/计时，Base/API/Schema/panel晋级布局预制；它提醒保存，不自动保存scene。
+- 显式固定host/language/独立state root，仅两个自有INI/history JSON写入，旧HOME/环境配置不动；全量typed/bounded数据验证，覆盖和native删除历史先exact backup再atomic。修复False字符串bool、idle负数、Qt6 font/screen/单例构造，以及desktop splitext tuple/缺current file等确定问题。原basename历史跨目录合并行为保留并单列人工验收。
+- Maya自有MSceneMessage Open/New/Save IDs、Nuke明确add/remove同callable、desktop仅明确watch_file限定目录扩展名监听；close清own callbacks/watch/timer/animation/Qt单例，reopen重建不叠加。statusLine独立MTB layout/MQt pointer及foreign同名保护；未注册startup或修改foreign hooks。完整旧Nuke panel源码保留；实际Nuke面板宿主/回调未测。
+- 1离线typed/备份/foreign写拒绝、隔离Maya文件名及dry无callbacks/无文件、独立Qt中英两会话完整timer/options/history/about/保存12分钟/重开/关闭监听与原文件不变、future注册/domain/panel/fingerprint通过。真实Maya GUI save回调/statusLine/idle focus及Nuke/cross-version not_run，prepared_unverified。
+- 实际5h77%已用（剩23%）、周73%（剩27%），继续maya_process_finder，heartbeat暂停，不迁正式/同步/用卡/购买。

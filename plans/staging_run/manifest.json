@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T15:30:10.521001+08:00",
+  "updated_at": "2026-10-02T15:43:49.776431+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "08_utilities_system/ks_node_outliner_v2_2",
+    "last_completed_tool": "08_utilities_system/ks_save_timer_v1_3_0",
     "last_usage": {
-      "five_hour_used_percent": 61.0,
-      "weekly_used_percent": 70.0,
-      "recorded_at": "2026-10-02T15:03:18.173184+08:00",
+      "five_hour_used_percent": 72.0,
+      "weekly_used_percent": 72.0,
+      "recorded_at": "2026-10-02T15:31:49.323005+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "08_utilities_system/ks_node_outliner_v2_2"
+    "current_tool": "08_utilities_system/ks_save_timer_v1_3_0"
   },
   "entry_repairs": [
     {
@@ -22773,7 +22773,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete original double Outliner/filter manager with scoped config backups, Qt5/6 facade and owned filter cleanup",
-      "prepared_at": "2026-10-02T15:30:33.109533+08:00"
+      "prepared_at": "2026-10-02T15:30:33.109533+08:00",
+      "source_commit": "355371d0a8b90a7e71c115af1d904ffad07ec484"
     },
     {
       "source_path": "08_utilities_system/ks_save_timer_v1_3_0",
@@ -22785,7 +22786,7 @@
         "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/runApp/runMaya.py",
         "KS_SaveTimer-1.3.0/【汉化版】/ks_saveTimer/runApp/runMaya.py"
       ],
-      "source_file_count": 39,
+      "source_file_count": 40,
       "source_files": [
         "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/__init__.py",
         "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/lib/__init__.py",
@@ -22825,14 +22826,98 @@
         "KS_SaveTimer-1.3.0/【汉化版】/ks_saveTimer/runApp/runNuke.py"
       ],
       "license_files": [],
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.009s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"ks_save_timer_v1_3_0\",\r\n  \"candidate_sha256\": \"edabab6a4e73cf6d28b9becec69d86f7a8c98f28d93507c4010f8d7013705ac2\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\ks_save_timer_v1_3_0.md\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\compat_six.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\en\\\\ks_saveTimer\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\en\\\\ks_saveTimer\\\\lib\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\en\\\\ks_saveTimer\\\\lib\\\\config.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\en\\\\ks_saveTimer\\\\lib\\\\GUI_config.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\en\\\\ks_saveTimer\\\\lib\\\\GUI_saveTimer.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\en\\\\ks_saveTimer\\\\lib\\\\GUI_tracker.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\en\\\\ks_saveTimer\\\\lib\\\\Singleton.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\en\\\\ks_saveTimer\\\\lib\\\\timer.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\en\\\\ks_saveTimer\\\\lib\\\\timerWidget.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\en\\\\ks_saveTimer\\\\lib\\\\tracker.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\en\\\\ks_saveTimer\\\\libApp\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\en\\\\ks_saveTimer\\\\libApp\\\\getLibApp.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\en\\\\ks_saveTimer\\\\libApp\\\\libDesktop.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\en\\\\ks_saveTimer\\\\libApp\\\\libMaya.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\en\\\\ks_saveTimer\\\\libApp\\\\libNuke.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\en\\\\ks_saveTimer\\\\runApp\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\en\\\\ks_saveTimer\\\\runApp\\\\runMaya.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\en\\\\ks_saveTimer\\\\runApp\\\\runNuke.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\zh\\\\ks_saveTimer\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\zh\\\\ks_saveTimer\\\\lib\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\zh\\\\ks_saveTimer\\\\lib\\\\config.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\zh\\\\ks_saveTimer\\\\lib\\\\GUI_config.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\zh\\\\ks_saveTimer\\\\lib\\\\GUI_saveTimer.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\zh\\\\ks_saveTimer\\\\lib\\\\GUI_tracker.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\zh\\\\ks_saveTimer\\\\lib\\\\Singleton.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\zh\\\\ks_saveTimer\\\\lib\\\\timer.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\zh\\\\ks_saveTimer\\\\lib\\\\timerWidget.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\zh\\\\ks_saveTimer\\\\lib\\\\tracker.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\zh\\\\ks_saveTimer\\\\libApp\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\zh\\\\ks_saveTimer\\\\libApp\\\\getLibApp.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\zh\\\\ks_saveTimer\\\\libApp\\\\libDesktop.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\zh\\\\ks_saveTimer\\\\libApp\\\\libMaya.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\zh\\\\ks_saveTimer\\\\libApp\\\\libNuke.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\zh\\\\ks_saveTimer\\\\runApp\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\zh\\\\ks_saveTimer\\\\runApp\\\\runMaya.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\native\\\\zh\\\\ks_saveTimer\\\\runApp\\\\runNuke.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\original_docs\\\\EULA_KS_SaveTimer.pdf\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\original_docs\\\\README_KS_SaveTimer.pdf\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\qt_compat.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\session.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\storage.py\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\docs\\\\EULA_KS_SaveTimer.pdf\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\docs\\\\README_KS_SaveTimer.pdf\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u539f\\u7248\\u3011\\\\ks_saveTimer\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u539f\\u7248\\u3011\\\\ks_saveTimer\\\\lib\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u539f\\u7248\\u3011\\\\ks_saveTimer\\\\lib\\\\config.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u539f\\u7248\\u3011\\\\ks_saveTimer\\\\lib\\\\GUI_config.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u539f\\u7248\\u3011\\\\ks_saveTimer\\\\lib\\\\GUI_saveTimer.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u539f\\u7248\\u3011\\\\ks_saveTimer\\\\lib\\\\GUI_tracker.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u539f\\u7248\\u3011\\\\ks_saveTimer\\\\lib\\\\Singleton.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u539f\\u7248\\u3011\\\\ks_saveTimer\\\\lib\\\\timer.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u539f\\u7248\\u3011\\\\ks_saveTimer\\\\lib\\\\timerWidget.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u539f\\u7248\\u3011\\\\ks_saveTimer\\\\lib\\\\tracker.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u539f\\u7248\\u3011\\\\ks_saveTimer\\\\libApp\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u539f\\u7248\\u3011\\\\ks_saveTimer\\\\libApp\\\\getLibApp.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u539f\\u7248\\u3011\\\\ks_saveTimer\\\\libApp\\\\libDesktop.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u539f\\u7248\\u3011\\\\ks_saveTimer\\\\libApp\\\\libMaya.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u539f\\u7248\\u3011\\\\ks_saveTimer\\\\libApp\\\\libNuke.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u539f\\u7248\\u3011\\\\ks_saveTimer\\\\runApp\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u539f\\u7248\\u3011\\\\ks_saveTimer\\\\runApp\\\\runMaya.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u539f\\u7248\\u3011\\\\ks_saveTimer\\\\runApp\\\\runNuke.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\ks_saveTimer\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\ks_saveTimer\\\\lib\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\ks_saveTimer\\\\lib\\\\config.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\ks_saveTimer\\\\lib\\\\GUI_config.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\ks_saveTimer\\\\lib\\\\GUI_saveTimer.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\ks_saveTimer\\\\lib\\\\GUI_tracker.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\ks_saveTimer\\\\lib\\\\Singleton.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\ks_saveTimer\\\\lib\\\\timer.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\ks_saveTimer\\\\lib\\\\timerWidget.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\ks_saveTimer\\\\lib\\\\tracker.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\ks_saveTimer\\\\libApp\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\ks_saveTimer\\\\libApp\\\\getLibApp.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\ks_saveTimer\\\\libApp\\\\libDesktop.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\ks_saveTimer\\\\libApp\\\\libMaya.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\ks_saveTimer\\\\libApp\\\\libNuke.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\ks_saveTimer\\\\runApp\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\ks_saveTimer\\\\runApp\\\\runMaya.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u3010\\u6c49\\u5316\\u7248\\u3011\\\\ks_saveTimer\\\\runApp\\\\runNuke.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\ks_save_timer_v1_3_0\\\\upstream\\\\KS_SaveTimer-1.3.0\\\\\\u542f\\u52a8\\u4ee3\\u7801Python.txt\",\r\n    \"tests\\\\test_ks_save_timer_v1_3_0.py\",\r\n    \"tests\\\\test_ks_save_timer_v1_3_0_maya.py\",\r\n    \"tests\\\\test_ks_save_timer_v1_3_0_qt.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true,\r\n  \"runtime_acceptance_required\": true,\r\n  \"runtime\": \"maya\"\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/08_utilities_system/ks_save_timer_v1_3_0/release_candidate/tests/test_ks_save_timer_v1_3_0_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.008s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "de139c91ac19240d88cc63a85183c2727d7b4c07022966b971ce5f5847bf777c",
+          "runtime_source_sha256": "a106b90151f9b0bd32405c615afd55f0ff9e3794af8a839c1d55cca7595a7ba3"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya GUI embedding/save callback/idle focus and Nuke GUI callbacks/cross-version not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "edabab6a4e73cf6d28b9becec69d86f7a8c98f28d93507c4010f8d7013705ac2",
+          "returncode": 0,
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.009s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/08_utilities_system/ks_save_timer_v1_3_0/release_candidate/tests/test_ks_save_timer_v1_3_0_qt.py",
+          "returncode": 0,
+          "passed": true,
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.064s\r\n\r\nOK\r\ndirPath: C:\\Users\\zwj87\\AppData\\Local\\Temp\\tmp2wo0p_fb\r\nfileName: asset_v001_work.ma\r\ndir files: ['asset_v001_work.ma']\r\nNow Watching: C:\\Users\\zwj87\\AppData\\Local\\Temp\\tmp2wo0p_fb\\asset_v001_work.ma\r\nKS_SaveTimer -  No Config found.\r\ndirPath: C:\\Users\\zwj87\\AppData\\Local\\Temp\\tmp2wo0p_fb\r\nfileName: asset_v001_work.ma\r\ndir files: ['asset_v001_work.ma']\r\nNow Watching: C:\\Users\\zwj87\\AppData\\Local\\Temp\\tmp2wo0p_fb\\asset_v001_work.ma\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "de139c91ac19240d88cc63a85183c2727d7b4c07022966b971ce5f5847bf777c",
+          "runtime_source_sha256": "a106b90151f9b0bd32405c615afd55f0ff9e3794af8a839c1d55cca7595a7ba3",
+          "evidence_path": "plans/staging_run/ks_save_timer_v1_3_0_qt.json"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/08_utilities_system/ks_save_timer_v1_3_0/release_candidate/tests/test_ks_save_timer_v1_3_0_qt.py",
+          "returncode": 0,
+          "passed": true,
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.051s\r\n\r\nOK\r\ndirPath: C:\\Users\\zwj87\\AppData\\Local\\Temp\\tmpdknek4o4\r\nfileName: asset_v001_work.ma\r\ndir files: ['asset_v001_work.ma']\r\nNow Watching: C:\\Users\\zwj87\\AppData\\Local\\Temp\\tmpdknek4o4\\asset_v001_work.ma\r\nKS_SaveTimer -  No Config found.\r\ndirPath: C:\\Users\\zwj87\\AppData\\Local\\Temp\\tmpdknek4o4\r\nfileName: asset_v001_work.ma\r\ndir files: ['asset_v001_work.ma']\r\nNow Watching: C:\\Users\\zwj87\\AppData\\Local\\Temp\\tmpdknek4o4\\asset_v001_work.ma\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "de139c91ac19240d88cc63a85183c2727d7b4c07022966b971ce5f5847bf777c",
+          "runtime_source_sha256": "a106b90151f9b0bd32405c615afd55f0ff9e3794af8a839c1d55cca7595a7ba3",
+          "evidence_path": "plans/staging_run/ks_save_timer_v1_3_0_en_qt.json"
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya/Nuke GUI embedding/save callback/idle focus/complex version history/cross-version acceptance not_run; original basename-based history may combine same basename across projects"
+      ],
       "entry_review": {
         "evidence": "Bundled launch text imports ks_saveTimer.runApp.runMaya and defers openSaveTimer_maya_embed. Original variant selected; Chinese and Nuke variants retained.",
         "kind": "python_package_function",
@@ -22847,7 +22932,156 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "1f7c3a2f09e435ce728e6fa702bcea15fb747c53070f003e8c9b1a6ab149960a"
+      "source_tree_sha256": "601c9ac70c98d353a9021965661d68b8178290fc2413d7c2dab3703843a7c92e",
+      "candidate_path": "tools_staging_pool/08_utilities_system/ks_save_timer_v1_3_0/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/08_utilities_system/ks_save_timer_v1_3_0/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "ks_save_timer_v1_3_0",
+        "candidate_sha256": "edabab6a4e73cf6d28b9becec69d86f7a8c98f28d93507c4010f8d7013705ac2",
+        "applied": false,
+        "files": [
+          "docs\\tools\\ks_save_timer_v1_3_0.md",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\__init__.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\catalog.json",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\compat_six.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\en\\ks_saveTimer\\__init__.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\en\\ks_saveTimer\\lib\\__init__.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\en\\ks_saveTimer\\lib\\config.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\en\\ks_saveTimer\\lib\\GUI_config.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\en\\ks_saveTimer\\lib\\GUI_saveTimer.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\en\\ks_saveTimer\\lib\\GUI_tracker.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\en\\ks_saveTimer\\lib\\Singleton.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\en\\ks_saveTimer\\lib\\timer.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\en\\ks_saveTimer\\lib\\timerWidget.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\en\\ks_saveTimer\\lib\\tracker.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\en\\ks_saveTimer\\libApp\\__init__.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\en\\ks_saveTimer\\libApp\\getLibApp.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\en\\ks_saveTimer\\libApp\\libDesktop.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\en\\ks_saveTimer\\libApp\\libMaya.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\en\\ks_saveTimer\\libApp\\libNuke.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\en\\ks_saveTimer\\runApp\\__init__.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\en\\ks_saveTimer\\runApp\\runMaya.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\en\\ks_saveTimer\\runApp\\runNuke.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\zh\\ks_saveTimer\\__init__.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\zh\\ks_saveTimer\\lib\\__init__.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\zh\\ks_saveTimer\\lib\\config.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\zh\\ks_saveTimer\\lib\\GUI_config.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\zh\\ks_saveTimer\\lib\\GUI_saveTimer.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\zh\\ks_saveTimer\\lib\\GUI_tracker.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\zh\\ks_saveTimer\\lib\\Singleton.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\zh\\ks_saveTimer\\lib\\timer.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\zh\\ks_saveTimer\\lib\\timerWidget.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\zh\\ks_saveTimer\\lib\\tracker.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\zh\\ks_saveTimer\\libApp\\__init__.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\zh\\ks_saveTimer\\libApp\\getLibApp.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\zh\\ks_saveTimer\\libApp\\libDesktop.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\zh\\ks_saveTimer\\libApp\\libMaya.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\zh\\ks_saveTimer\\libApp\\libNuke.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\zh\\ks_saveTimer\\runApp\\__init__.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\zh\\ks_saveTimer\\runApp\\runMaya.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\native\\zh\\ks_saveTimer\\runApp\\runNuke.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\original_docs\\EULA_KS_SaveTimer.pdf",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\original_docs\\README_KS_SaveTimer.pdf",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\qt_compat.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\session.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\storage.py",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\docs\\EULA_KS_SaveTimer.pdf",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\docs\\README_KS_SaveTimer.pdf",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【原版】\\ks_saveTimer\\__init__.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【原版】\\ks_saveTimer\\lib\\__init__.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【原版】\\ks_saveTimer\\lib\\config.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【原版】\\ks_saveTimer\\lib\\GUI_config.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【原版】\\ks_saveTimer\\lib\\GUI_saveTimer.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【原版】\\ks_saveTimer\\lib\\GUI_tracker.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【原版】\\ks_saveTimer\\lib\\Singleton.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【原版】\\ks_saveTimer\\lib\\timer.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【原版】\\ks_saveTimer\\lib\\timerWidget.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【原版】\\ks_saveTimer\\lib\\tracker.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【原版】\\ks_saveTimer\\libApp\\__init__.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【原版】\\ks_saveTimer\\libApp\\getLibApp.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【原版】\\ks_saveTimer\\libApp\\libDesktop.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【原版】\\ks_saveTimer\\libApp\\libMaya.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【原版】\\ks_saveTimer\\libApp\\libNuke.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【原版】\\ks_saveTimer\\runApp\\__init__.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【原版】\\ks_saveTimer\\runApp\\runMaya.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【原版】\\ks_saveTimer\\runApp\\runNuke.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【汉化版】\\ks_saveTimer\\__init__.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【汉化版】\\ks_saveTimer\\lib\\__init__.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【汉化版】\\ks_saveTimer\\lib\\config.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【汉化版】\\ks_saveTimer\\lib\\GUI_config.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【汉化版】\\ks_saveTimer\\lib\\GUI_saveTimer.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【汉化版】\\ks_saveTimer\\lib\\GUI_tracker.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【汉化版】\\ks_saveTimer\\lib\\Singleton.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【汉化版】\\ks_saveTimer\\lib\\timer.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【汉化版】\\ks_saveTimer\\lib\\timerWidget.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【汉化版】\\ks_saveTimer\\lib\\tracker.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【汉化版】\\ks_saveTimer\\libApp\\__init__.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【汉化版】\\ks_saveTimer\\libApp\\getLibApp.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【汉化版】\\ks_saveTimer\\libApp\\libDesktop.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【汉化版】\\ks_saveTimer\\libApp\\libMaya.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【汉化版】\\ks_saveTimer\\libApp\\libNuke.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【汉化版】\\ks_saveTimer\\runApp\\__init__.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【汉化版】\\ks_saveTimer\\runApp\\runMaya.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\【汉化版】\\ks_saveTimer\\runApp\\runNuke.py.original",
+          "maya_toolkit\\tools\\ks_save_timer_v1_3_0\\upstream\\KS_SaveTimer-1.3.0\\启动代码Python.txt",
+          "tests\\test_ks_save_timer_v1_3_0.py",
+          "tests\\test_ks_save_timer_v1_3_0_maya.py",
+          "tests\\test_ks_save_timer_v1_3_0_qt.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true,
+        "runtime_acceptance_required": true,
+        "runtime": "maya"
+      },
+      "resources": [
+        "KS_SaveTimer-1.3.0/docs/EULA_KS_SaveTimer.pdf",
+        "KS_SaveTimer-1.3.0/docs/README_KS_SaveTimer.pdf",
+        "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/__init__.py",
+        "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/lib/__init__.py",
+        "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/lib/config.py",
+        "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/lib/GUI_config.py",
+        "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/lib/GUI_saveTimer.py",
+        "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/lib/GUI_tracker.py",
+        "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/lib/Singleton.py",
+        "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/lib/timer.py",
+        "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/lib/timerWidget.py",
+        "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/lib/tracker.py",
+        "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/libApp/__init__.py",
+        "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/libApp/getLibApp.py",
+        "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/libApp/libDesktop.py",
+        "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/libApp/libMaya.py",
+        "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/libApp/libNuke.py",
+        "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/runApp/__init__.py",
+        "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/runApp/runMaya.py",
+        "KS_SaveTimer-1.3.0/【原版】/ks_saveTimer/runApp/runNuke.py",
+        "KS_SaveTimer-1.3.0/【汉化版】/ks_saveTimer/__init__.py",
+        "KS_SaveTimer-1.3.0/【汉化版】/ks_saveTimer/lib/__init__.py",
+        "KS_SaveTimer-1.3.0/【汉化版】/ks_saveTimer/lib/config.py",
+        "KS_SaveTimer-1.3.0/【汉化版】/ks_saveTimer/lib/GUI_config.py",
+        "KS_SaveTimer-1.3.0/【汉化版】/ks_saveTimer/lib/GUI_saveTimer.py",
+        "KS_SaveTimer-1.3.0/【汉化版】/ks_saveTimer/lib/GUI_tracker.py",
+        "KS_SaveTimer-1.3.0/【汉化版】/ks_saveTimer/lib/Singleton.py",
+        "KS_SaveTimer-1.3.0/【汉化版】/ks_saveTimer/lib/timer.py",
+        "KS_SaveTimer-1.3.0/【汉化版】/ks_saveTimer/lib/timerWidget.py",
+        "KS_SaveTimer-1.3.0/【汉化版】/ks_saveTimer/lib/tracker.py",
+        "KS_SaveTimer-1.3.0/【汉化版】/ks_saveTimer/libApp/__init__.py",
+        "KS_SaveTimer-1.3.0/【汉化版】/ks_saveTimer/libApp/getLibApp.py",
+        "KS_SaveTimer-1.3.0/【汉化版】/ks_saveTimer/libApp/libDesktop.py",
+        "KS_SaveTimer-1.3.0/【汉化版】/ks_saveTimer/libApp/libMaya.py",
+        "KS_SaveTimer-1.3.0/【汉化版】/ks_saveTimer/libApp/libNuke.py",
+        "KS_SaveTimer-1.3.0/【汉化版】/ks_saveTimer/runApp/__init__.py",
+        "KS_SaveTimer-1.3.0/【汉化版】/ks_saveTimer/runApp/runMaya.py",
+        "KS_SaveTimer-1.3.0/【汉化版】/ks_saveTimer/runApp/runNuke.py",
+        "KS_SaveTimer-1.3.0/启动代码Python.txt"
+      ],
+      "external_dependencies": [
+        "Real Maya/Nuke Qt GUI or desktop QApplication",
+        "Bundled six MIT notice; original EULA/manual retained"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete bilingual original save timer/idle/color/history/config for explicit Maya, Nuke or desktop host with scoped state backups and callback cleanup",
+      "prepared_at": "2026-10-02T15:45:21.168885+08:00"
     },
     {
       "source_path": "08_utilities_system/maya_process_finder",
