@@ -766,3 +766,10 @@
 - 原六文件SHA归档，完整Qt窗口/名称时间状态/创建/选中或最近回退/清空/双击/确认/viewport提示与四个Shelf快捷入口保留。Base/Schema/ToolResult/default inspect；静态MPx无场景marker、session元数据、唯一命名native Undo chunk和只读queue完整预检，max_steps不足/flush/stale/foreign id在首次Undo前拒绝。逐步Undo复核queue，Redo同步applied；clear/overwrite只清元数据，不flush用户Undo。原始文件不改、不自动加载、Shelf仅docTag自有项，实际GUI/开放外层chunk/跨版本not_run。
 - 2离线+3隔离Maya2025+临时最终注册/domain/panel/fingerprint通过，cube tx1/A/tx2/B/tx3→B与A准确回退/Redo、dry队列和scene无变、max_steps拒绝/flush旧ID与陌生ID不回退、overwrite/clear与Undo禁用保护。初版输出过滤回调虽然功能断言通过但进程退出CPython bool_dealloc崩溃，失败报告保留；改MCommandMessage普通输出回调finally remove后断言通过且正常exit0，未把崩溃写成成功。
 - 补修90双运行时候选launch_candidate缺engine_toolkit搜索路径：launcher自身添加候选根，移除测试预置路径后再验真实隔离配置API与最终布局均通过，未来正式布局不依赖staging。实际5h87%已用（剩13%）、周59%，继续07_subsystems_suites/animbot_copy，heartbeat暂停。
+
+# 2026-10-02：animBot Copy完整UI原型候选，累计96/109
+
+- 82源文件包含全部历史截图SHA归档，全部Python AST检查/结构清单、主/Graph Editor工具栏/Workspace全布局、程序绘图图标/各独立slider动态模式/右键菜单/预设/勾选/换行/拖动滚轮/回弹保留。原项目动画按钮缺业务算法，本候选诚实标animation_algorithms_implemented=false，不凭UI标签声称可烘焙/复制姿态；Schema/Base/ToolResult统一配置API只操作session/UI。默认inspect，config全表校验、main/graph独立、dry零Qt初始化/场景/配置/文件修改，run不引入无意义Undo。新窗口主线程/Maya QApplication校验。
+- 修复自建英文left/right预设错误、新名称不覆盖旧preset、取消每次launch广泛reload、旧singleton lambda保留delete控件改bound QtSlot、close全自有窗口及Graph Editor控件。全相对native package、独立Qt5/Qt6导入、原机器图标路径移除使用现有完整QPainter fallback，不依赖商业资源。独立单tab才隐藏并记录恢复，不改共享多tab祖先样式；Viewport原映射TimeSlider限制如实保留。
+- 2离线配置原子/坏最后ID/重复/位置/严格bool/全preset/英文对齐检查、1隔离Maya2025 cube tx7/dirty/nodes/Undo保持与batchUI拒绝、1单独Qt离屏全主/graph/workspace构造/所有preset/双向显示同步/DeferredDelete后singleton无dead callback、临时正式注册/domain/panel/fingerprint通过。第一次把Qt QWidget构造放在maya.standalone.initialize后原生fastfail3221226505；逐步定位在主toolbar构造，失败原始报告保留。拆为无Maya初始化的独立Qt构造测试后正常exit0；场景API单独隔离测试亦exit0，不将离屏替代实际Maya GUI。Qt退出有SWIG MObject leak warning，记录为重复真实GUI生命周期待核对，没有声称无内存泄漏。
+- 实际5小时95%已用（剩5%）、周60%已用（剩40%），本轮78–96共19项完成，按用户低于6%规则保存，下一项07_subsystems_suites/getools_overlappy。全部候选保持待整理池，真实Maya/UE验收not_run，不运行Obsidian同步、不用重置卡、不购买。

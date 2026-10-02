@@ -1,0 +1,543 @@
+{
+  "tool_id": "animbot_copy",
+  "registration": {
+    "module": "animbot_copy",
+    "class_name": "AnimBotCopyTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/animbot_copy.md",
+      "target": "docs/tools/animbot_copy.md"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/__init__.py",
+      "target": "maya_toolkit/tools/animbot_copy/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/catalog.json",
+      "target": "maya_toolkit/tools/animbot_copy/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/library.json",
+      "target": "maya_toolkit/tools/animbot_copy/library.json"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/native/__init__.py",
+      "target": "maya_toolkit/tools/animbot_copy/native/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/native/core/__init__.py",
+      "target": "maya_toolkit/tools/animbot_copy/native/core/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/native/core/icons.py",
+      "target": "maya_toolkit/tools/animbot_copy/native/core/icons.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/native/core/theme.py",
+      "target": "maya_toolkit/tools/animbot_copy/native/core/theme.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/native/core/workspace_manager.py",
+      "target": "maya_toolkit/tools/animbot_copy/native/core/workspace_manager.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/native/qt.py",
+      "target": "maya_toolkit/tools/animbot_copy/native/qt.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/native/ui/__init__.py",
+      "target": "maya_toolkit/tools/animbot_copy/native/ui/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/native/ui/graph_editor_toolbar.py",
+      "target": "maya_toolkit/tools/animbot_copy/native/ui/graph_editor_toolbar.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/native/ui/main_toolbar.py",
+      "target": "maya_toolkit/tools/animbot_copy/native/ui/main_toolbar.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/native/ui/workspace_control.py",
+      "target": "maya_toolkit/tools/animbot_copy/native/ui/workspace_control.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/native/widgets/__init__.py",
+      "target": "maya_toolkit/tools/animbot_copy/native/widgets/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/native/widgets/context_menus.py",
+      "target": "maya_toolkit/tools/animbot_copy/native/widgets/context_menus.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/native/widgets/drag_grip.py",
+      "target": "maya_toolkit/tools/animbot_copy/native/widgets/drag_grip.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/native/widgets/icon_button.py",
+      "target": "maya_toolkit/tools/animbot_copy/native/widgets/icon_button.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/native/widgets/menu.py",
+      "target": "maya_toolkit/tools/animbot_copy/native/widgets/menu.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/native/widgets/slider_widget.py",
+      "target": "maya_toolkit/tools/animbot_copy/native/widgets/slider_widget.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/native/widgets/spinbox.py",
+      "target": "maya_toolkit/tools/animbot_copy/native/widgets/spinbox.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/native/widgets/tool_group.py",
+      "target": "maya_toolkit/tools/animbot_copy/native/widgets/tool_group.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/native/widgets/workspace_window.py",
+      "target": "maya_toolkit/tools/animbot_copy/native/widgets/workspace_window.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/ui.py",
+      "target": "maya_toolkit/tools/animbot_copy/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/__init__.py.original",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/core/__init__.py.original",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/core/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/core/icons.py.original",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/core/icons.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/core/theme.py.original",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/core/theme.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/core/workspace_manager.py.original",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/core/workspace_manager.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/launch.py.original",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/launch.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/README.md",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/README.md"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animBot_1943x103.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animBot_1943x103.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animBot_1943x495.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animBot_1943x495.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_2letter_sliders.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_2letter_sliders.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_canonical_ordered_sliders.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_canonical_ordered_sliders.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_all_tools.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_all_tools.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_expert_all_tools.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_expert_all_tools.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_extra_tools_activated.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_extra_tools_activated.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_live_customized.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_live_customized.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_render.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_render.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_toolbar_exact.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_toolbar_exact.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_v2.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_v2.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_v3.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_v3.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_v4.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_v4.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_v5_clean.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_v5_clean.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_v6_clean.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_v6_clean.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_workspace_control.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_workspace_control.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_workspace_full.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_workspace_full.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_workspace_window.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_clone_workspace_window.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_copy_docked_84px.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_copy_docked_84px.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_copy_docked_clean_live.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_copy_docked_clean_live.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_copy_docked_final_tabless.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_copy_docked_final_tabless.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_copy_docked_splitter_adjusted.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_copy_docked_splitter_adjusted.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_copy_docked_splitter_exact.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_copy_docked_splitter_exact.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_copy_docked_splitter_unlocked.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_copy_docked_splitter_unlocked.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_copy_docked_tabless_grip.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_copy_docked_tabless_grip.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_copy_toolbar_with_grip.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_copy_toolbar_with_grip.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_docked_full_view.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_docked_full_view.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_ge_clean_bottom.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_ge_clean_bottom.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_ge_clean_top.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_ge_clean_top.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_ge_clean_under_menu.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_ge_clean_under_menu.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_ge_location_bottom.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_ge_location_bottom.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_ge_location_top.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_ge_location_top.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_ge_location_under_menu.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_ge_location_under_menu.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_ge_under_menu_test.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_ge_under_menu_test.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_graph_editor_toolbar_clean.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_graph_editor_toolbar_clean.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_maya_bottom_docked.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_maya_bottom_docked.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_multi_row_live.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_multi_row_live.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_multirow_left.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_multirow_left.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_multirow_wrap.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_multirow_wrap.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_multirow_wrap_center_exact.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_multirow_wrap_center_exact.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_multirow_wrap_left_exact.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_multirow_wrap_left_exact.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_multirow_wrap_right_exact.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_multirow_wrap_right_exact.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_ordered_sliders.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_ordered_sliders.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_real_left_grip.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_real_left_grip.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_single_row_center.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_single_row_center.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_single_row_drag_panned.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_single_row_drag_panned.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_single_row_exact.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_single_row_exact.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_single_row_live.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_single_row_live.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_single_row_panned_exact.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_single_row_panned_exact.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_workspace_graph_editor_mode.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_workspace_graph_editor_mode.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_workspace_no_overlap.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_workspace_no_overlap.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_workspace_sync_slider.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_workspace_sync_slider.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_workspace_sync_slider_live.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_workspace_sync_slider_live.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_workspace_synced_canonical.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_workspace_synced_canonical.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_workspace_synced_canonical_live.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_workspace_synced_canonical_live.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_workspace_window.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animbot_workspace_window.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animBotWorkspaceControl_1943x103.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/animBotWorkspaceControl_1943x103.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/test_flow_wrap_center.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/test_flow_wrap_center.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/test_flow_wrap_left.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/test_flow_wrap_left.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/test_graph_editor_toolbar.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/test_graph_editor_toolbar.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/test_multiple_sliders_active.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/test_multiple_sliders_active.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/screenshots/test_single_row_panned.png",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/screenshots/test_single_row_panned.png"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/ui/__init__.py.original",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/ui/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/ui/graph_editor_toolbar.py.original",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/ui/graph_editor_toolbar.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/ui/main_toolbar.py.original",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/ui/main_toolbar.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/ui/workspace_control.py.original",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/ui/workspace_control.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/widgets/__init__.py.original",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/widgets/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/widgets/context_menus.py.original",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/widgets/context_menus.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/widgets/drag_grip.py.original",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/widgets/drag_grip.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/widgets/icon_button.py.original",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/widgets/icon_button.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/widgets/menu.py.original",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/widgets/menu.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/widgets/slider_widget.py.original",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/widgets/slider_widget.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/widgets/spinbox.py.original",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/widgets/spinbox.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/widgets/tool_group.py.original",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/widgets/tool_group.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/upstream/widgets/workspace_window.py.original",
+      "target": "maya_toolkit/tools/animbot_copy/upstream/widgets/workspace_window.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/animbot_copy/workspace.py",
+      "target": "maya_toolkit/tools/animbot_copy/workspace.py"
+    },
+    {
+      "source": "tests/test_animbot_copy.py",
+      "target": "tests/test_animbot_copy.py"
+    },
+    {
+      "source": "tests/test_animbot_copy_maya.py",
+      "target": "tests/test_animbot_copy_maya.py"
+    },
+    {
+      "source": "tests/test_animbot_copy_qt.py",
+      "target": "tests/test_animbot_copy_qt.py"
+    }
+  ],
+  "resources": [
+    "__init__.py",
+    "core/__init__.py",
+    "core/icons.py",
+    "core/theme.py",
+    "core/workspace_manager.py",
+    "launch.py",
+    "README.md",
+    "screenshots/animBot_1943x103.png",
+    "screenshots/animBot_1943x495.png",
+    "screenshots/animbot_2letter_sliders.png",
+    "screenshots/animbot_canonical_ordered_sliders.png",
+    "screenshots/animbot_clone_all_tools.png",
+    "screenshots/animbot_clone_expert_all_tools.png",
+    "screenshots/animbot_clone_extra_tools_activated.png",
+    "screenshots/animbot_clone_live_customized.png",
+    "screenshots/animbot_clone_render.png",
+    "screenshots/animbot_clone_toolbar_exact.png",
+    "screenshots/animbot_clone_v2.png",
+    "screenshots/animbot_clone_v3.png",
+    "screenshots/animbot_clone_v4.png",
+    "screenshots/animbot_clone_v5_clean.png",
+    "screenshots/animbot_clone_v6_clean.png",
+    "screenshots/animbot_clone_workspace_control.png",
+    "screenshots/animbot_clone_workspace_full.png",
+    "screenshots/animbot_clone_workspace_window.png",
+    "screenshots/animbot_copy_docked_84px.png",
+    "screenshots/animbot_copy_docked_clean_live.png",
+    "screenshots/animbot_copy_docked_final_tabless.png",
+    "screenshots/animbot_copy_docked_splitter_adjusted.png",
+    "screenshots/animbot_copy_docked_splitter_exact.png",
+    "screenshots/animbot_copy_docked_splitter_unlocked.png",
+    "screenshots/animbot_copy_docked_tabless_grip.png",
+    "screenshots/animbot_copy_toolbar_with_grip.png",
+    "screenshots/animbot_docked_full_view.png",
+    "screenshots/animbot_ge_clean_bottom.png",
+    "screenshots/animbot_ge_clean_top.png",
+    "screenshots/animbot_ge_clean_under_menu.png",
+    "screenshots/animbot_ge_location_bottom.png",
+    "screenshots/animbot_ge_location_top.png",
+    "screenshots/animbot_ge_location_under_menu.png",
+    "screenshots/animbot_ge_under_menu_test.png",
+    "screenshots/animbot_graph_editor_toolbar_clean.png",
+    "screenshots/animbot_maya_bottom_docked.png",
+    "screenshots/animbot_multi_row_live.png",
+    "screenshots/animbot_multirow_left.png",
+    "screenshots/animbot_multirow_wrap.png",
+    "screenshots/animbot_multirow_wrap_center_exact.png",
+    "screenshots/animbot_multirow_wrap_left_exact.png",
+    "screenshots/animbot_multirow_wrap_right_exact.png",
+    "screenshots/animbot_ordered_sliders.png",
+    "screenshots/animbot_real_left_grip.png",
+    "screenshots/animbot_single_row_center.png",
+    "screenshots/animbot_single_row_drag_panned.png",
+    "screenshots/animbot_single_row_exact.png",
+    "screenshots/animbot_single_row_live.png",
+    "screenshots/animbot_single_row_panned_exact.png",
+    "screenshots/animbot_workspace_graph_editor_mode.png",
+    "screenshots/animbot_workspace_no_overlap.png",
+    "screenshots/animbot_workspace_sync_slider.png",
+    "screenshots/animbot_workspace_sync_slider_live.png",
+    "screenshots/animbot_workspace_synced_canonical.png",
+    "screenshots/animbot_workspace_synced_canonical_live.png",
+    "screenshots/animbot_workspace_window.png",
+    "screenshots/animBotWorkspaceControl_1943x103.png",
+    "screenshots/test_flow_wrap_center.png",
+    "screenshots/test_flow_wrap_left.png",
+    "screenshots/test_graph_editor_toolbar.png",
+    "screenshots/test_multiple_sliders_active.png",
+    "screenshots/test_single_row_panned.png",
+    "ui/__init__.py",
+    "ui/graph_editor_toolbar.py",
+    "ui/main_toolbar.py",
+    "ui/workspace_control.py",
+    "widgets/__init__.py",
+    "widgets/context_menus.py",
+    "widgets/drag_grip.py",
+    "widgets/icon_button.py",
+    "widgets/menu.py",
+    "widgets/slider_widget.py",
+    "widgets/spinbox.py",
+    "widgets/tool_group.py",
+    "widgets/workspace_window.py"
+  ],
+  "dependencies": [
+    "Maya UI cmds/OpenMayaUI",
+    "PySide6/shiboken6 or PySide2/shiboken2"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete supplied toolbar/Graph Editor/workspace UI prototype, honest missing animation algorithms, validated in-memory config and lazy lifecycle",
+  "verification_limitations": [
+    "Real Maya docking, mouse/menu/slider lifecycle and cross-version GUI not_run",
+    "Original is UI prototype, not animBot animation algorithms"
+  ]
+}

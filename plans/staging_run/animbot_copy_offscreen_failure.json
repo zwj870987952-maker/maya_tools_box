@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/07_subsystems_suites/animbot_copy/release_candidate/tests/test_animbot_copy_maya.py",
+  "returncode": 3221226505,
+  "passed": false,
+  "output": "probe: importing Qt\r\nprobe: Qt binding 6.5.3 Maya Qt 6.5.3\r\nprobe: creating QApplication\r\nprobe: importing complete widgets\r\nprobe: constructing main toolbar\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "c3b2a0c3ad708742d3a2621e60d40db5c029eb757a2c2089f0fe6462d2a2047c",
+  "runtime_source_sha256": "9c69b80db20cc880040804a4681f6ed4079ec19ed27641cf6a57bd683b597143"
+}

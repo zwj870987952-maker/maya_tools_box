@@ -1,0 +1,415 @@
+{
+  "files": [
+    {
+      "path": "__init__.py",
+      "archive": "upstream/__init__.py.original",
+      "sha256": "464c9cf59edfef77b2733e7baa37de9770a35c6ba10fff8c25794621017635ba"
+    },
+    {
+      "path": "core/__init__.py",
+      "archive": "upstream/core/__init__.py.original",
+      "sha256": "3fa19efec118630ee313280d7ca7890f85bee8cbc53c244d70011dfd0a8b9d3a"
+    },
+    {
+      "path": "core/icons.py",
+      "archive": "upstream/core/icons.py.original",
+      "sha256": "c9a210dfa759af8b001ab887fca5c8d65ff6b8e5b6c435c94d40e20ce39261e3"
+    },
+    {
+      "path": "core/theme.py",
+      "archive": "upstream/core/theme.py.original",
+      "sha256": "7f9c8cfbfa049bf9fc2e28447c0b73304c48ef442805231610179ae913442454"
+    },
+    {
+      "path": "core/workspace_manager.py",
+      "archive": "upstream/core/workspace_manager.py.original",
+      "sha256": "6616cf79e1019af133b80a84eecdfc866c084ebf02f6828c8056c55cc5c99f2c"
+    },
+    {
+      "path": "launch.py",
+      "archive": "upstream/launch.py.original",
+      "sha256": "af772cc969784a25090b3a8812acea78babc3e5a3a2634c78e09b82f96057da7"
+    },
+    {
+      "path": "README.md",
+      "archive": "upstream/README.md",
+      "sha256": "347ffa972a04ccb68f705b7016c68c6e6a82e4eaeac6874835d2feb32fa0b85d"
+    },
+    {
+      "path": "screenshots/animBot_1943x103.png",
+      "archive": "upstream/screenshots/animBot_1943x103.png",
+      "sha256": "7d218860504cdc3883d6bd0b0bae8c5475232d2daf5b97c834511878a479a390"
+    },
+    {
+      "path": "screenshots/animBot_1943x495.png",
+      "archive": "upstream/screenshots/animBot_1943x495.png",
+      "sha256": "00138fb3eec6c5a9300eda70800989acf070eaf82ee4be14204807ac1999cd59"
+    },
+    {
+      "path": "screenshots/animbot_2letter_sliders.png",
+      "archive": "upstream/screenshots/animbot_2letter_sliders.png",
+      "sha256": "20fc70e4d7b96836c19a9cc98a778ab4508d8ebf78d405294e6e56ae36459ee2"
+    },
+    {
+      "path": "screenshots/animbot_canonical_ordered_sliders.png",
+      "archive": "upstream/screenshots/animbot_canonical_ordered_sliders.png",
+      "sha256": "37c16659b5bfe87f6769d72c32ae5558ea9d46346dc05317e1dd460bce4acc4e"
+    },
+    {
+      "path": "screenshots/animbot_clone_all_tools.png",
+      "archive": "upstream/screenshots/animbot_clone_all_tools.png",
+      "sha256": "903891802a50d33473b5adc09b8eecd55c488034c229a7e28000f59b42f22b5c"
+    },
+    {
+      "path": "screenshots/animbot_clone_expert_all_tools.png",
+      "archive": "upstream/screenshots/animbot_clone_expert_all_tools.png",
+      "sha256": "3f1deb7f88d692543a6246b78e4b9eaf6ef1a305f83624e0b93b0b98eed605ce"
+    },
+    {
+      "path": "screenshots/animbot_clone_extra_tools_activated.png",
+      "archive": "upstream/screenshots/animbot_clone_extra_tools_activated.png",
+      "sha256": "c0feef5340bba8f3effb45987a6dc66731a87a4d2faa7866ee87ab342d6ae342"
+    },
+    {
+      "path": "screenshots/animbot_clone_live_customized.png",
+      "archive": "upstream/screenshots/animbot_clone_live_customized.png",
+      "sha256": "ce4d23aa05b2e23559b65a928b1830bff93b8373a4c4d848f1a19f5fd4381e7e"
+    },
+    {
+      "path": "screenshots/animbot_clone_render.png",
+      "archive": "upstream/screenshots/animbot_clone_render.png",
+      "sha256": "ec264e9a0860875b5cbd22341b33975e485ba5efb3bb539a47c020b4ca35be5a"
+    },
+    {
+      "path": "screenshots/animbot_clone_toolbar_exact.png",
+      "archive": "upstream/screenshots/animbot_clone_toolbar_exact.png",
+      "sha256": "f5111a2a8f25cc1cf43b86cd5a978357bb2dd7fbfe21566054a1b1574d83e4fd"
+    },
+    {
+      "path": "screenshots/animbot_clone_v2.png",
+      "archive": "upstream/screenshots/animbot_clone_v2.png",
+      "sha256": "fe3584e74217e8ca15828d757b15018c48502e332757f13ec2d16c43c738b9aa"
+    },
+    {
+      "path": "screenshots/animbot_clone_v3.png",
+      "archive": "upstream/screenshots/animbot_clone_v3.png",
+      "sha256": "79c8e3c8f63a616eb5740d67833e81ec36fcfd1468374be3cb4c4cf0f7731c86"
+    },
+    {
+      "path": "screenshots/animbot_clone_v4.png",
+      "archive": "upstream/screenshots/animbot_clone_v4.png",
+      "sha256": "451df709cba501d9eeef4df05227e45df0db341541c20725462f3fdc13d1e41a"
+    },
+    {
+      "path": "screenshots/animbot_clone_v5_clean.png",
+      "archive": "upstream/screenshots/animbot_clone_v5_clean.png",
+      "sha256": "d018904d0ab88d4ca3bfde70113467db92b1eb0bbbac32e5b3c6b74b37567dca"
+    },
+    {
+      "path": "screenshots/animbot_clone_v6_clean.png",
+      "archive": "upstream/screenshots/animbot_clone_v6_clean.png",
+      "sha256": "2c3b2ec61f8df19949673de3289d716ce81a8fc047750619b860148e546950a9"
+    },
+    {
+      "path": "screenshots/animbot_clone_workspace_control.png",
+      "archive": "upstream/screenshots/animbot_clone_workspace_control.png",
+      "sha256": "7c00893e5ee7430f2e02c5e5301266802058aa73b93a48355240cc13f37dafd9"
+    },
+    {
+      "path": "screenshots/animbot_clone_workspace_full.png",
+      "archive": "upstream/screenshots/animbot_clone_workspace_full.png",
+      "sha256": "dacf566023dd56a35c14b765d3755c716d8f7e5790bc2e39ec4b45763ceea0d1"
+    },
+    {
+      "path": "screenshots/animbot_clone_workspace_window.png",
+      "archive": "upstream/screenshots/animbot_clone_workspace_window.png",
+      "sha256": "3ea6e5ed2b9d906029884642323f50bf74be9408e46d66b982b8caa3e1e8a192"
+    },
+    {
+      "path": "screenshots/animbot_copy_docked_84px.png",
+      "archive": "upstream/screenshots/animbot_copy_docked_84px.png",
+      "sha256": "370045e8d40d82897a11029ca6d34654068120b55110607d041246bf24228ee8"
+    },
+    {
+      "path": "screenshots/animbot_copy_docked_clean_live.png",
+      "archive": "upstream/screenshots/animbot_copy_docked_clean_live.png",
+      "sha256": "4c13482fdd68211882124fc2e82c867fbacbe1df8bdad0622bddf9bf9f633c44"
+    },
+    {
+      "path": "screenshots/animbot_copy_docked_final_tabless.png",
+      "archive": "upstream/screenshots/animbot_copy_docked_final_tabless.png",
+      "sha256": "8460030836c91f7456c2e628ded138dc686937beb1dd2de497343150422baec7"
+    },
+    {
+      "path": "screenshots/animbot_copy_docked_splitter_adjusted.png",
+      "archive": "upstream/screenshots/animbot_copy_docked_splitter_adjusted.png",
+      "sha256": "c2f0409af87ad6890f62a7f63fb47e3c5506d1df387a57ff99f430c20e787827"
+    },
+    {
+      "path": "screenshots/animbot_copy_docked_splitter_exact.png",
+      "archive": "upstream/screenshots/animbot_copy_docked_splitter_exact.png",
+      "sha256": "f95d26c5a0e4ca675c8263ee00e383ba2cecfd0ebfca8e76a1551a4620768f44"
+    },
+    {
+      "path": "screenshots/animbot_copy_docked_splitter_unlocked.png",
+      "archive": "upstream/screenshots/animbot_copy_docked_splitter_unlocked.png",
+      "sha256": "6b082e39c37f0f4756bfed2e8c46280b86cd9ea5eec76c9eb617413ba4d21e0f"
+    },
+    {
+      "path": "screenshots/animbot_copy_docked_tabless_grip.png",
+      "archive": "upstream/screenshots/animbot_copy_docked_tabless_grip.png",
+      "sha256": "9cf3aa9c3eb0a6bb82a00f690a47e6548b96413f45a3ac9de7f1a1171d91d09a"
+    },
+    {
+      "path": "screenshots/animbot_copy_toolbar_with_grip.png",
+      "archive": "upstream/screenshots/animbot_copy_toolbar_with_grip.png",
+      "sha256": "a8e6db7c4df42e6405cdb73687678a4ee5b1c59295d075b6ca5486510cc2c91d"
+    },
+    {
+      "path": "screenshots/animbot_docked_full_view.png",
+      "archive": "upstream/screenshots/animbot_docked_full_view.png",
+      "sha256": "259f89dbc058e94328502074d7138c28e0a1f7fc8cda1df2c28bcd6aae21a5c2"
+    },
+    {
+      "path": "screenshots/animbot_ge_clean_bottom.png",
+      "archive": "upstream/screenshots/animbot_ge_clean_bottom.png",
+      "sha256": "c42716c70fc65a74a4ad32bbf815e18e4b109168913f29c2b2950ac3b85631c9"
+    },
+    {
+      "path": "screenshots/animbot_ge_clean_top.png",
+      "archive": "upstream/screenshots/animbot_ge_clean_top.png",
+      "sha256": "90210aa41512630b45e0343fa92af81af2e7d504edf822f9f5420321f16b1400"
+    },
+    {
+      "path": "screenshots/animbot_ge_clean_under_menu.png",
+      "archive": "upstream/screenshots/animbot_ge_clean_under_menu.png",
+      "sha256": "6eb2dfa6d33d08147d8d42787fa378a0aebecc0f3bee6b523b6bae6bbe6737ac"
+    },
+    {
+      "path": "screenshots/animbot_ge_location_bottom.png",
+      "archive": "upstream/screenshots/animbot_ge_location_bottom.png",
+      "sha256": "84cda536ccfd1af98481f26a70e5943721c618b3f849e8e7f3f89eb3b7ff54dc"
+    },
+    {
+      "path": "screenshots/animbot_ge_location_top.png",
+      "archive": "upstream/screenshots/animbot_ge_location_top.png",
+      "sha256": "402416f63bb3c1ee64f8522008493148bd9fa78113818e104d0e5cba73c4151e"
+    },
+    {
+      "path": "screenshots/animbot_ge_location_under_menu.png",
+      "archive": "upstream/screenshots/animbot_ge_location_under_menu.png",
+      "sha256": "bd3b76a17be063ad1928d8032c8cb6157fe394adf316b65d02852e92e22132fc"
+    },
+    {
+      "path": "screenshots/animbot_ge_under_menu_test.png",
+      "archive": "upstream/screenshots/animbot_ge_under_menu_test.png",
+      "sha256": "09b5b4917fa476601219a672dd15b4dd6b878eb9943a55162d30c6915a48e286"
+    },
+    {
+      "path": "screenshots/animbot_graph_editor_toolbar_clean.png",
+      "archive": "upstream/screenshots/animbot_graph_editor_toolbar_clean.png",
+      "sha256": "e1d1a25b50e4c462ec5974484cd1c46b8c706b72b15cfaaeda4ada24878da190"
+    },
+    {
+      "path": "screenshots/animbot_maya_bottom_docked.png",
+      "archive": "upstream/screenshots/animbot_maya_bottom_docked.png",
+      "sha256": "e93671060f896ae53b7f21fe52d58b3c9b1ae15b20f57bc3d2a4b3b82b6b0225"
+    },
+    {
+      "path": "screenshots/animbot_multi_row_live.png",
+      "archive": "upstream/screenshots/animbot_multi_row_live.png",
+      "sha256": "b33d6986579fed8d23ad2c4a79bece05d7f24f03a79408808905bbdc8fa158ea"
+    },
+    {
+      "path": "screenshots/animbot_multirow_left.png",
+      "archive": "upstream/screenshots/animbot_multirow_left.png",
+      "sha256": "9e084f92ca6540d340bd30f77cc17a5c179db5e60a382a1d691e013ef68985c0"
+    },
+    {
+      "path": "screenshots/animbot_multirow_wrap.png",
+      "archive": "upstream/screenshots/animbot_multirow_wrap.png",
+      "sha256": "9e084f92ca6540d340bd30f77cc17a5c179db5e60a382a1d691e013ef68985c0"
+    },
+    {
+      "path": "screenshots/animbot_multirow_wrap_center_exact.png",
+      "archive": "upstream/screenshots/animbot_multirow_wrap_center_exact.png",
+      "sha256": "5e86e8763ca2d2d75acc6d5a016002a42dd7e7161c37d3b4a9f848169408b510"
+    },
+    {
+      "path": "screenshots/animbot_multirow_wrap_left_exact.png",
+      "archive": "upstream/screenshots/animbot_multirow_wrap_left_exact.png",
+      "sha256": "5e86e8763ca2d2d75acc6d5a016002a42dd7e7161c37d3b4a9f848169408b510"
+    },
+    {
+      "path": "screenshots/animbot_multirow_wrap_right_exact.png",
+      "archive": "upstream/screenshots/animbot_multirow_wrap_right_exact.png",
+      "sha256": "5e86e8763ca2d2d75acc6d5a016002a42dd7e7161c37d3b4a9f848169408b510"
+    },
+    {
+      "path": "screenshots/animbot_ordered_sliders.png",
+      "archive": "upstream/screenshots/animbot_ordered_sliders.png",
+      "sha256": "601652f46229210a3a1df40cca614ad3af8aaf7448a7ffa4d12bbcdca52eadb6"
+    },
+    {
+      "path": "screenshots/animbot_real_left_grip.png",
+      "archive": "upstream/screenshots/animbot_real_left_grip.png",
+      "sha256": "a504cb8408be66449bd146eb4934ad4ae35e1f929a7276acd2bd92964f582d4f"
+    },
+    {
+      "path": "screenshots/animbot_single_row_center.png",
+      "archive": "upstream/screenshots/animbot_single_row_center.png",
+      "sha256": "523707edca73861d13b75141a531ee9e6f8f0a3f91ac903145b3ebb3866348e4"
+    },
+    {
+      "path": "screenshots/animbot_single_row_drag_panned.png",
+      "archive": "upstream/screenshots/animbot_single_row_drag_panned.png",
+      "sha256": "9b582d0a82989da064748fa5dd53ef20ab1f19ec31957fd52c989690ad5e820b"
+    },
+    {
+      "path": "screenshots/animbot_single_row_exact.png",
+      "archive": "upstream/screenshots/animbot_single_row_exact.png",
+      "sha256": "523707edca73861d13b75141a531ee9e6f8f0a3f91ac903145b3ebb3866348e4"
+    },
+    {
+      "path": "screenshots/animbot_single_row_live.png",
+      "archive": "upstream/screenshots/animbot_single_row_live.png",
+      "sha256": "81281a73f957724922d685e67def17fd50c4173376dbca86b1b3ddb233d3b8f2"
+    },
+    {
+      "path": "screenshots/animbot_single_row_panned_exact.png",
+      "archive": "upstream/screenshots/animbot_single_row_panned_exact.png",
+      "sha256": "687852f33a391710d7b2583eefb399c90b64accb4185e3e0c134946931aaa98b"
+    },
+    {
+      "path": "screenshots/animbot_workspace_graph_editor_mode.png",
+      "archive": "upstream/screenshots/animbot_workspace_graph_editor_mode.png",
+      "sha256": "24917385e5f6bd2a8133c423727073125f0152dcc01474063a85b872f398b16a"
+    },
+    {
+      "path": "screenshots/animbot_workspace_no_overlap.png",
+      "archive": "upstream/screenshots/animbot_workspace_no_overlap.png",
+      "sha256": "73baba37993c33fc26aea5cb0a5554792a28392a313dbc2ab4706fb916325947"
+    },
+    {
+      "path": "screenshots/animbot_workspace_sync_slider.png",
+      "archive": "upstream/screenshots/animbot_workspace_sync_slider.png",
+      "sha256": "af516bc38821f0e67b4121b39e7341afab394f0437a515d767f6b8437aee44d3"
+    },
+    {
+      "path": "screenshots/animbot_workspace_sync_slider_live.png",
+      "archive": "upstream/screenshots/animbot_workspace_sync_slider_live.png",
+      "sha256": "140dc69f9b840980919912075d39fff31df2508485d5cb7ff6833b5eea9dfb62"
+    },
+    {
+      "path": "screenshots/animbot_workspace_synced_canonical.png",
+      "archive": "upstream/screenshots/animbot_workspace_synced_canonical.png",
+      "sha256": "5c6d59221f94b6f5198d3695e4bf01d3f4fbae240207e4a517fa1340f3c19641"
+    },
+    {
+      "path": "screenshots/animbot_workspace_synced_canonical_live.png",
+      "archive": "upstream/screenshots/animbot_workspace_synced_canonical_live.png",
+      "sha256": "74c8117743ff2df5541734406e57d0c9b4106b4eefd2d8eccead9141a5ee9067"
+    },
+    {
+      "path": "screenshots/animbot_workspace_window.png",
+      "archive": "upstream/screenshots/animbot_workspace_window.png",
+      "sha256": "bb5c2982824a64f2e4893cd467efe3d76d00e5dd8f7b387e97fc44dc5c57fb0e"
+    },
+    {
+      "path": "screenshots/animBotWorkspaceControl_1943x103.png",
+      "archive": "upstream/screenshots/animBotWorkspaceControl_1943x103.png",
+      "sha256": "7d218860504cdc3883d6bd0b0bae8c5475232d2daf5b97c834511878a479a390"
+    },
+    {
+      "path": "screenshots/test_flow_wrap_center.png",
+      "archive": "upstream/screenshots/test_flow_wrap_center.png",
+      "sha256": "806c6d822ed25de06f90fd4ed6708d9db1007fac6aa21edc65082030e615d237"
+    },
+    {
+      "path": "screenshots/test_flow_wrap_left.png",
+      "archive": "upstream/screenshots/test_flow_wrap_left.png",
+      "sha256": "806c6d822ed25de06f90fd4ed6708d9db1007fac6aa21edc65082030e615d237"
+    },
+    {
+      "path": "screenshots/test_graph_editor_toolbar.png",
+      "archive": "upstream/screenshots/test_graph_editor_toolbar.png",
+      "sha256": "74c45891521e3a736a17980540649de2a8b8fcb0272ed3098fe9a700693ca4b3"
+    },
+    {
+      "path": "screenshots/test_multiple_sliders_active.png",
+      "archive": "upstream/screenshots/test_multiple_sliders_active.png",
+      "sha256": "523707edca73861d13b75141a531ee9e6f8f0a3f91ac903145b3ebb3866348e4"
+    },
+    {
+      "path": "screenshots/test_single_row_panned.png",
+      "archive": "upstream/screenshots/test_single_row_panned.png",
+      "sha256": "219f295df674da7cb2c2a9ac617fde60eff95e48094fc6c501ddfc5a245c8b48"
+    },
+    {
+      "path": "ui/__init__.py",
+      "archive": "upstream/ui/__init__.py.original",
+      "sha256": "e3f17dc0e4accaa6c023f7b0b197145e67dbbabb41f7e9622a223f3fd9668f7a"
+    },
+    {
+      "path": "ui/graph_editor_toolbar.py",
+      "archive": "upstream/ui/graph_editor_toolbar.py.original",
+      "sha256": "783c262bfad31203074f72ea1119d890da9fa54ba185cb1fd10247930e2913a1"
+    },
+    {
+      "path": "ui/main_toolbar.py",
+      "archive": "upstream/ui/main_toolbar.py.original",
+      "sha256": "dc66c63c4174ed76ef216c4bc17d6d19aad97f89e3844a3d1c973a94b1e79552"
+    },
+    {
+      "path": "ui/workspace_control.py",
+      "archive": "upstream/ui/workspace_control.py.original",
+      "sha256": "f64d4a82a351770ebaf3f8fcbf97b60a2b97c280f3076ef9039b3ccc0b265e8b"
+    },
+    {
+      "path": "widgets/__init__.py",
+      "archive": "upstream/widgets/__init__.py.original",
+      "sha256": "9b0e0939be1f7c6045ab2eaa059d9cf9e6dde278154e52565767d27d234e9ff6"
+    },
+    {
+      "path": "widgets/context_menus.py",
+      "archive": "upstream/widgets/context_menus.py.original",
+      "sha256": "f5dab69002e1cd87d5dbee36e38831ad088075e0d539d9bb9fbc663fc20c96e6"
+    },
+    {
+      "path": "widgets/drag_grip.py",
+      "archive": "upstream/widgets/drag_grip.py.original",
+      "sha256": "426aa002e4ef4b8d51d065c2071e4f8c9e261a06e24998a4d661b8af4b7557fb"
+    },
+    {
+      "path": "widgets/icon_button.py",
+      "archive": "upstream/widgets/icon_button.py.original",
+      "sha256": "648bbecd731976fc48c37f94a6bf330437ad117c5d14a99f16db1f4c934155f9"
+    },
+    {
+      "path": "widgets/menu.py",
+      "archive": "upstream/widgets/menu.py.original",
+      "sha256": "071cbfa8a65bc6b2f2bceafbbdf31b10c136ed398e9a7aa1963714fb4b1d19cd"
+    },
+    {
+      "path": "widgets/slider_widget.py",
+      "archive": "upstream/widgets/slider_widget.py.original",
+      "sha256": "876c2b458b29d0b934275fbd7f18cd918e878f5e1b9021bcc5b4b171f6106aab"
+    },
+    {
+      "path": "widgets/spinbox.py",
+      "archive": "upstream/widgets/spinbox.py.original",
+      "sha256": "53d05ebb9273edc67092429ed5127411fd02ae910d950820bb7ce524db1c66d7"
+    },
+    {
+      "path": "widgets/tool_group.py",
+      "archive": "upstream/widgets/tool_group.py.original",
+      "sha256": "e781888e83f53ee3785dbf02f2291c80008e3fe107c7f8f51a8ca20f9abd57c2"
+    },
+    {
+      "path": "widgets/workspace_window.py",
+      "archive": "upstream/widgets/workspace_window.py.original",
+      "sha256": "8e601baf775e053a0b79a5fddf468311d812d1ba5567aa83bda20614bed4e44b"
+    }
+  ],
+  "license": "Supplied original source notices preserved; no redistribution grant inferred"
+}

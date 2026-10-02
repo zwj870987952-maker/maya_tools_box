@@ -1,0 +1,314 @@
+[
+  {
+    "file": "__init__.py",
+    "lines": 14,
+    "classes": [],
+    "functions": []
+  },
+  {
+    "file": "core/__init__.py",
+    "lines": 4,
+    "classes": [],
+    "functions": []
+  },
+  {
+    "file": "core/icons.py",
+    "lines": 138,
+    "classes": [
+      "AnimBotIconProvider"
+    ],
+    "functions": [
+      "get_icon",
+      "tint_pixmap",
+      "draw_procedural_icon"
+    ]
+  },
+  {
+    "file": "core/theme.py",
+    "lines": 146,
+    "classes": [
+      "AnimBotColors",
+      "AnimBotStyle"
+    ],
+    "functions": [
+      "get_button_stylesheet",
+      "get_spinbox_stylesheet",
+      "get_toolbar_stylesheet"
+    ]
+  },
+  {
+    "file": "core/workspace_manager.py",
+    "lines": 664,
+    "classes": [
+      "WorkspaceManager"
+    ],
+    "functions": [
+      "__init__",
+      "_init_all_active",
+      "get_location",
+      "set_location",
+      "get_alignment",
+      "set_alignment",
+      "get_single_row",
+      "set_single_row",
+      "is_tool_active",
+      "set_tool_active",
+      "apply_preset"
+    ]
+  },
+  {
+    "file": "launch.py",
+    "lines": 61,
+    "classes": [],
+    "functions": [
+      "reload_modules",
+      "launch",
+      "close",
+      "toggle"
+    ]
+  },
+  {
+    "file": "ui/__init__.py",
+    "lines": 13,
+    "classes": [],
+    "functions": []
+  },
+  {
+    "file": "ui/graph_editor_toolbar.py",
+    "lines": 709,
+    "classes": [
+      "AnimBotGraphEditorToolbar"
+    ],
+    "functions": [
+      "dock_graph_editor_toolbar",
+      "attach_to_graph_editor",
+      "__init__",
+      "_register_tool",
+      "_create_group",
+      "get_active_slider_modes",
+      "on_slider_tool_switched",
+      "_build_all_tools",
+      "_setup_logo_menu",
+      "set_alignment",
+      "toggle_single_row",
+      "open_workspace_editor",
+      "update_tool_visibility",
+      "relayout_groups",
+      "resizeEvent",
+      "_detect_edge",
+      "mousePressEvent",
+      "mouseMoveEvent",
+      "mouseReleaseEvent",
+      "wheelEvent"
+    ]
+  },
+  {
+    "file": "ui/main_toolbar.py",
+    "lines": 752,
+    "classes": [
+      "AnimBotMainToolbar"
+    ],
+    "functions": [
+      "__init__",
+      "_register_tool",
+      "_create_group",
+      "get_active_slider_modes",
+      "on_slider_tool_switched",
+      "_build_all_tools",
+      "_setup_logo_menu",
+      "_on_grip_dragged",
+      "set_alignment",
+      "toggle_single_row",
+      "open_workspace_editor",
+      "update_tool_visibility",
+      "relayout_groups",
+      "resizeEvent",
+      "_detect_edge",
+      "mousePressEvent",
+      "mouseMoveEvent",
+      "mouseReleaseEvent",
+      "wheelEvent"
+    ]
+  },
+  {
+    "file": "ui/workspace_control.py",
+    "lines": 211,
+    "classes": [],
+    "functions": [
+      "get_maya_main_window",
+      "hide_workspace_control_tab",
+      "create_workspace_control",
+      "create_floating_window",
+      "dock_to_location",
+      "close_workspace_control"
+    ]
+  },
+  {
+    "file": "widgets/__init__.py",
+    "lines": 18,
+    "classes": [],
+    "functions": []
+  },
+  {
+    "file": "widgets/context_menus.py",
+    "lines": 316,
+    "classes": [
+      "AnimBotContextMenuBuilder"
+    ],
+    "functions": [
+      "create_menu",
+      "_build_nudge_step_menu",
+      "_build_nudge_direction_menu",
+      "_build_bake_interval_menu",
+      "_build_bake_toggle_menu",
+      "_build_bake_action_menu",
+      "_build_share_keys_menu",
+      "_build_tangent_menu",
+      "_build_tint_menu",
+      "_build_select_sets_menu",
+      "_build_select_opposite_menu",
+      "_build_anim_transfer_menu",
+      "_build_pose_transfer_menu",
+      "_build_mirror_menu",
+      "_build_align_menu",
+      "_build_space_switcher_menu",
+      "_build_bookmarks_menu",
+      "_build_motion_trail_menu",
+      "_build_temp_controls_menu",
+      "_build_temp_pivot_menu",
+      "_build_master_spline_menu",
+      "_build_micro_manipulator_menu",
+      "_build_axis_toggle_menu",
+      "_build_channel_box_menu",
+      "_build_graph_editor_menu",
+      "_build_euler_filter_menu",
+      "_build_camera_menu",
+      "_build_recovery_menu",
+      "_build_search_menu"
+    ]
+  },
+  {
+    "file": "widgets/drag_grip.py",
+    "lines": 79,
+    "classes": [
+      "AnimBotDragGrip"
+    ],
+    "functions": [
+      "__init__",
+      "enterEvent",
+      "leaveEvent",
+      "paintEvent",
+      "mousePressEvent",
+      "mouseMoveEvent",
+      "mouseReleaseEvent"
+    ]
+  },
+  {
+    "file": "widgets/icon_button.py",
+    "lines": 87,
+    "classes": [
+      "AnimBotButton"
+    ],
+    "functions": [
+      "__init__",
+      "set_anim_icon",
+      "set_accent_color",
+      "update_style",
+      "set_context_menu",
+      "_show_context_menu",
+      "mousePressEvent"
+    ]
+  },
+  {
+    "file": "widgets/menu.py",
+    "lines": 34,
+    "classes": [
+      "AnimBotMenu"
+    ],
+    "functions": [
+      "__init__"
+    ]
+  },
+  {
+    "file": "widgets/slider_widget.py",
+    "lines": 258,
+    "classes": [
+      "AnimBotSlider"
+    ],
+    "functions": [
+      "__init__",
+      "show_context_menu",
+      "_trigger_mode_switch",
+      "get_handle_rect",
+      "get_dot_rects",
+      "paintEvent",
+      "mousePressEvent",
+      "mouseMoveEvent",
+      "mouseReleaseEvent",
+      "leaveEvent",
+      "_update_val_from_mouse_x",
+      "set_value",
+      "start_spring_back",
+      "_step_spring_back"
+    ]
+  },
+  {
+    "file": "widgets/spinbox.py",
+    "lines": 32,
+    "classes": [
+      "AnimBotDoubleSpinBox",
+      "AnimBotSpinBox"
+    ],
+    "functions": [
+      "__init__",
+      "__init__"
+    ]
+  },
+  {
+    "file": "widgets/tool_group.py",
+    "lines": 37,
+    "classes": [
+      "AnimBotToolGroup"
+    ],
+    "functions": [
+      "__init__",
+      "add_widget",
+      "add_spacing",
+      "set_collapsed",
+      "toggle_collapsed"
+    ]
+  },
+  {
+    "file": "widgets/workspace_window.py",
+    "lines": 491,
+    "classes": [
+      "WorkspaceWindow"
+    ],
+    "functions": [
+      "get_maya_main_window",
+      "show_workspace_window",
+      "__init__",
+      "_on_external_tool_toggled",
+      "_on_external_workspace_changed",
+      "_build_header",
+      "_build_columns",
+      "_create_col",
+      "_build_footer",
+      "_load_presets",
+      "_load_toolbar_specific_ui",
+      "_load_color_groups",
+      "_select_default_items",
+      "_on_toolbar_changed",
+      "_on_alignment_clicked",
+      "_on_location_clicked",
+      "_on_color_clicked",
+      "_load_modules_for_color",
+      "_on_module_clicked",
+      "_load_items_for_module",
+      "_on_item_toggled",
+      "_on_preset_clicked",
+      "_on_restore_defaults",
+      "_on_new_workspace"
+    ]
+  }
+]
