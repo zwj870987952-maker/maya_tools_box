@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-02T10:18:46.235011+08:00
+更新时间：2026-10-02T10:28:32.729104+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -98,7 +98,7 @@
 | `05_ue_pipeline/ue_fbx_auto_import` | prepared_unverified | True | True | not_run |
 | `05_ue_pipeline/ue_reference_checker` | prepared_unverified | True | True | not_run |
 | `05_ue_pipeline/ue_source_finder` | prepared_unverified | True | True | not_run |
-| `06_diagnostics_security/clean_junk_nodes` | pending | True | False | not_run |
+| `06_diagnostics_security/clean_junk_nodes` | prepared_unverified | True | True | not_run |
 | `06_diagnostics_security/scene_virus_cleaner` | pending | True | False | not_run |
 | `06_diagnostics_security/undo_checkpoint` | pending | True | False | not_run |
 | `07_subsystems_suites/animbot_copy` | pending | True | False | not_run |

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T10:18:46.235011+08:00",
+  "updated_at": "2026-10-02T10:28:32.729104+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "05_ue_pipeline/ue_source_finder",
+    "last_completed_tool": "06_diagnostics_security/clean_junk_nodes",
     "last_usage": {
-      "five_hour_used_percent": 70.0,
+      "five_hour_used_percent": 72.0,
       "weekly_used_percent": 57.0,
-      "recorded_at": "2026-10-02T10:13:51.164752+08:00",
+      "recorded_at": "2026-10-02T10:18:51.605168+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "05_ue_pipeline/ue_source_finder"
+    "current_tool": "06_diagnostics_security/clean_junk_nodes"
   },
   "entry_repairs": [
     {
@@ -19642,7 +19642,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete UE source file tracing/copy/rename, per-folder success/missing/failure/list reports, summary and explicit Explorer opening; new exclusive session tree and first/all modes",
-      "prepared_at": "2026-10-02T10:18:42.746541+08:00"
+      "prepared_at": "2026-10-02T10:18:42.746541+08:00",
+      "source_commit": "a525081d9e6ceddbf07aab0d8db17a777df41418"
     },
     {
       "source_path": "06_diagnostics_security/clean_junk_nodes",
@@ -19653,20 +19654,80 @@
       "entry_candidates": [
         "HM_清理垃圾节点.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "HM_清理垃圾节点.py"
       ],
       "license_files": [],
       "entry_sha256": "716ca28a2d2770c5e19e194643d677ffb55eeaaa9ea679f8502f998afd08e5ae",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.000s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"clean_junk_nodes\",\r\n  \"candidate_sha256\": \"0a325ae253ed09c77e918db079e267a66fdd2a392b5d3f8ee3cf62d7ac4d55f5\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\clean_junk_nodes.md\",\r\n    \"maya_toolkit\\\\tools\\\\clean_junk_nodes\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\clean_junk_nodes\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\clean_junk_nodes\\\\delete_command.py\",\r\n    \"maya_toolkit\\\\tools\\\\clean_junk_nodes\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\clean_junk_nodes\\\\upstream\\\\HM_\\u6e05\\u7406\\u5783\\u573e\\u8282\\u70b9.py.original\",\r\n    \"tests\\\\test_clean_junk_nodes.py\",\r\n    \"tests\\\\test_clean_junk_nodes_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true,\r\n  \"runtime_acceptance_required\": true,\r\n  \"runtime\": \"maya\"\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/06_diagnostics_security/clean_junk_nodes/release_candidate/tests/test_clean_junk_nodes_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "����: ���ļ����ԽϾɰ汾�� Maya��������棬��ǰ�汾���޷���ȡ��\n�ļ���ȡ����ʱ��Ϊ  0.22 �롣\nViewport 2.0 ������ȾĿ���������ɫ�������á�\n����: �� MAYA_PLUG_IN_PATH ���Ҳ��������mtbMissingPluginFixture����\n# Traceback (most recent call last):\n#   File \"<maya console>\", line 1, in <module>\n# RuntimeError: �� MAYA_PLUG_IN_PATH ���Ҳ��������mtbMissingPluginFixture����\n����: CleanJunkNodesTool_clean_junk_nodes\n����: CleanJunkNodesTool_clean_junk_nodes\n.����: û�в�����ƿ����ڽڵ㡰aUnknown����\n����: û�в�����ƿ����ڽڵ㡰zUnknown����\n.����: û�в�����ƿ����ڽڵ㡰missingData����\n����: û�в�����ƿ����ڽڵ㡰missingData����\n����: û�в�����ƿ����ڽڵ㡰missingData����\n����: û�в�����ƿ����ڽڵ㡰missingData����\n����: CleanJunkNodesTool_clean_junk_nodes\n����: CleanJunkNodesTool_clean_junk_nodes\n.\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.316s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "104592f097349f4e822364b743f92d6a696119ca42553ba334a3a52887c999de",
+          "runtime_source_sha256": "5bdfa82b2904917144058d307fd81dd653dc99a1f0c4abe792bb7c461975cb6b"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya GUI/modelEditor callback Undo and unknown DAG/reference/production plugin data not_run; observed unknownPlugin removal cannot rely on Undo"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "0a325ae253ed09c77e918db079e267a66fdd2a392b5d3f8ee3cf62d7ac4d55f5",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.000s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI/modelEditor callbacks, unknown DAG/reference/custom data and cross versions not_run"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -19675,7 +19736,38 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "f89ce6f71cd2c3c07d0263286dc205775b4a754d48e7812d012844f157b4d229"
+      "source_tree_sha256": "28e12f088d87ea683417971c99f676ba617dc56b50660a5d0dccc2333c1b856b",
+      "candidate_path": "tools_staging_pool/06_diagnostics_security/clean_junk_nodes/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/06_diagnostics_security/clean_junk_nodes/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "clean_junk_nodes",
+        "candidate_sha256": "0a325ae253ed09c77e918db079e267a66fdd2a392b5d3f8ee3cf62d7ac4d55f5",
+        "applied": false,
+        "files": [
+          "docs\\tools\\clean_junk_nodes.md",
+          "maya_toolkit\\tools\\clean_junk_nodes\\__init__.py",
+          "maya_toolkit\\tools\\clean_junk_nodes\\catalog.json",
+          "maya_toolkit\\tools\\clean_junk_nodes\\delete_command.py",
+          "maya_toolkit\\tools\\clean_junk_nodes\\ui.py",
+          "maya_toolkit\\tools\\clean_junk_nodes\\upstream\\HM_清理垃圾节点.py.original",
+          "tests\\test_clean_junk_nodes.py",
+          "tests\\test_clean_junk_nodes_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true,
+        "runtime_acceptance_required": true,
+        "runtime": "maya"
+      },
+      "resources": [
+        "HM_清理垃圾节点.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/API2"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete HM unknown node/plugin/callback cleanup with explicit scope, lifetime Undo and no PyMel",
+      "prepared_at": "2026-10-02T10:28:29.329527+08:00"
     },
     {
       "source_path": "06_diagnostics_security/scene_virus_cleaner",

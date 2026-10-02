@@ -1,0 +1,3 @@
+# Maya直验 not_run
+
+仅备份scene/临时refs/plugin fixture中操作。import无窗口，show_ui有原一键按钮与完整范围checkbox/预检/确认；unknown局部节点、locked节点、default/引用/含孩子Dag/instance全表拒绝；explicit unlock删除后oneUndo恢复UUID属性连接与锁、Redo同节点删除且父存留。unknownPlugin保留default、explicit移除需unused+confirm_plugin_metadata_loss、被node/data占用native失败如实报、元数据不能依赖Undo，需用户已有备份scene恢复。真实modelEditor保留自定义callback，known仅指定异常串，all显式确认全清并oneUndo/Redo恢复，editor已关不重建、不执行callback内容。UI关闭/reopen无pref破坏。验证当前scene时间AutoKey/选区和文件不被保存；未知不等于垃圾，生产缺失插件先安装/恢复。mayapy不算真实GUI验收；通过后记录版本/currentSHA/accepted_by/date再晋级。

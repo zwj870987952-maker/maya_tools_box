@@ -748,3 +748,9 @@
 
 - 原单文件SHA归档，完整源查找/按资产名重命名/copy2元数据/成功缺失失败TXT+名单+汇总+Explorer功能保留；取消import自动复制，default inspect/dry，Schema/结构化原生API。reviewed source reader独立复制自包含，多源default first保原，all额外_srcN；raw相对不猜cwd。独占fresh会话目录/full UE父路径/Windows名与collision预检保护原桌面文件，源SHA/size复核+copy独占+目标SHA+copystat，失败只删自己的partial且报告；mkdir/log失败也进入summary。Explorer default False，显式True用参数数组无shell。
 - 3离线真实临时IO与mock+临时最终布局/fingerprint通过，distinct /Game/A/Hero与B/Hero/同asset名不碰、first/all/三份bytes一致/source不改/四TXT与summary/missing/已存在session拒绝/真实模拟copy失败partial清理与失败日志/相对路径与escape拒绝。源读取pattern构建含control字符初测语法失败已修，最终静态/单测通过。真实UE/Explorer/跨版本not_run，prepared_unverified。实际5h72%已用（剩28%）、周57%，继续06_diagnostics_security/clean_junk_nodes；heartbeat保持暂停。
+
+# 2026-10-02：HM未知节点清理完整候选，累计93/109
+
+- 原PyMel入口SHA归档；全部unknown节点/unknownPlugin requires/ModelEditor callback与一键UI保留，修正字面量ls_unknownNodes判断与漏cmds、免PyMel。Base/Schema/ToolResult/scene_hygiene/完整UUID与锁/引用/插件元数据/回调scope预检；unknown不等于junk，默认inspect，unknownDag/解锁/插件永久移除/allCallbacks分别显式选择，引用/default/有后代Dag/instance拒绝；自有MPx+MDagModifierFalse保父/原UUID属性连接锁UndoRedo，callback原字串恢复。
+- 2离线+3隔离Maya2025+临时注册/domain/panel/fingerprint通过，真实unknown attr+连接+locked→delete/oneUndoUUID连接锁/Redo、坏最后locked全表无删除、真实MA missing plugin fixture原metadata只查/未确认拒绝/明确confirm永久移除；原plugin remove文档虽称undoable，本机实际Undo不恢复，未谎称可Undo，新增confirm_plugin_metadata_loss/GUI须备份提示并记录不可逆元数据影响。初测MDagModifier对locked节点排队静默不删，修正先解锁再排队后严格测试通过；不降低节点生命周期恢复断言。
+- GUI/modelEditor回调Undo、unknownDag/reference/真实custom data/跨版本not_run，prepared_unverified。实际5h77%已用（剩23%）、周58%，继续scene_virus_cleaner；heartbeat保持暂停，不迁正式/同步/用卡/购买。

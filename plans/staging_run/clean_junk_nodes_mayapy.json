@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/06_diagnostics_security/clean_junk_nodes/release_candidate/tests/test_clean_junk_nodes_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "����: ���ļ����ԽϾɰ汾�� Maya��������棬��ǰ�汾���޷���ȡ��\n�ļ���ȡ����ʱ��Ϊ  0.22 �롣\nViewport 2.0 ������ȾĿ���������ɫ�������á�\n����: �� MAYA_PLUG_IN_PATH ���Ҳ��������mtbMissingPluginFixture����\n# Traceback (most recent call last):\n#   File \"<maya console>\", line 1, in <module>\n# RuntimeError: �� MAYA_PLUG_IN_PATH ���Ҳ��������mtbMissingPluginFixture����\n����: CleanJunkNodesTool_clean_junk_nodes\n����: CleanJunkNodesTool_clean_junk_nodes\n.����: û�в�����ƿ����ڽڵ㡰aUnknown����\n����: û�в�����ƿ����ڽڵ㡰zUnknown����\n.����: û�в�����ƿ����ڽڵ㡰missingData����\n����: û�в�����ƿ����ڽڵ㡰missingData����\n����: û�в�����ƿ����ڽڵ㡰missingData����\n����: û�в�����ƿ����ڽڵ㡰missingData����\n����: CleanJunkNodesTool_clean_junk_nodes\n����: CleanJunkNodesTool_clean_junk_nodes\n.\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.316s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "104592f097349f4e822364b743f92d6a696119ca42553ba334a3a52887c999de",
+  "runtime_source_sha256": "5bdfa82b2904917144058d307fd81dd653dc99a1f0c4abe792bb7c461975cb6b"
+}

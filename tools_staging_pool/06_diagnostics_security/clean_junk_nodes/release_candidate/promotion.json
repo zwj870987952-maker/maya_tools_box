@@ -1,0 +1,52 @@
+{
+  "tool_id": "clean_junk_nodes",
+  "registration": {
+    "module": "clean_junk_nodes",
+    "class_name": "CleanJunkNodesTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/clean_junk_nodes.md",
+      "target": "docs/tools/clean_junk_nodes.md"
+    },
+    {
+      "source": "maya_toolkit/tools/clean_junk_nodes/__init__.py",
+      "target": "maya_toolkit/tools/clean_junk_nodes/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/clean_junk_nodes/catalog.json",
+      "target": "maya_toolkit/tools/clean_junk_nodes/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/clean_junk_nodes/delete_command.py",
+      "target": "maya_toolkit/tools/clean_junk_nodes/delete_command.py"
+    },
+    {
+      "source": "maya_toolkit/tools/clean_junk_nodes/ui.py",
+      "target": "maya_toolkit/tools/clean_junk_nodes/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/clean_junk_nodes/upstream/HM_清理垃圾节点.py.original",
+      "target": "maya_toolkit/tools/clean_junk_nodes/upstream/HM_清理垃圾节点.py.original"
+    },
+    {
+      "source": "tests/test_clean_junk_nodes.py",
+      "target": "tests/test_clean_junk_nodes.py"
+    },
+    {
+      "source": "tests/test_clean_junk_nodes_maya.py",
+      "target": "tests/test_clean_junk_nodes_maya.py"
+    }
+  ],
+  "resources": [
+    "HM_清理垃圾节点.py"
+  ],
+  "dependencies": [
+    "Maya cmds/API2"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete HM unknown node/plugin/callback cleanup with explicit scope, lifetime Undo and no PyMel",
+  "verification_limitations": [
+    "Real Maya GUI/modelEditor callbacks, unknown DAG/reference/custom data and cross versions not_run"
+  ]
+}
