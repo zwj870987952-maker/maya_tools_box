@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-02T13:40:39.058807+08:00
+更新时间：2026-10-02T13:56:19.014760+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -104,8 +104,8 @@
 | `07_subsystems_suites/animbot_copy` | prepared_unverified | True | True | not_run |
 | `07_subsystems_suites/getools_overlappy` | prepared_unverified | True | True | not_run |
 | `07_subsystems_suites/malcolm341_mega_pack` | prepared_unverified | True | True | not_run |
-| `07_subsystems_suites/maya_blueprint_toolbox` | working | True | False | not_run |
-| `07_subsystems_suites/smart_assistant` | pending | True | False | not_run |
+| `07_subsystems_suites/maya_blueprint_toolbox` | prepared_unverified | True | True | not_run |
+| `07_subsystems_suites/smart_assistant` | working | True | False | not_run |
 | `07_subsystems_suites/studiolibrary_patch` | pending | True | False | not_run |
 | `07_subsystems_suites/the_key_machine` | pending | True | False | not_run |
 | `08_utilities_system/floating_toolbar` | pending | True | False | not_run |

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T13:40:39.058807+08:00",
+  "updated_at": "2026-10-02T13:56:19.014760+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "07_subsystems_suites/maya_blueprint_toolbox",
+    "last_completed_tool": "07_subsystems_suites/smart_assistant",
     "last_usage": {
-      "five_hour_used_percent": 20.0,
-      "weekly_used_percent": 64.0,
-      "recorded_at": "2026-10-02T13:25:38.480502+08:00",
+      "five_hour_used_percent": 27.0,
+      "weekly_used_percent": 65.0,
+      "recorded_at": "2026-10-02T13:41:56.955897+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "07_subsystems_suites/maya_blueprint_toolbox"
+    "current_tool": "07_subsystems_suites/smart_assistant"
   },
   "entry_repairs": [
     {
@@ -21037,7 +21037,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete Chinese 45-node blueprint canvas, typed bounded graph/API, read-only resolvable preflight, shared Undo and protected workflow/animation/file IO",
-      "prepared_at": "2026-10-02T13:40:40.054651+08:00"
+      "prepared_at": "2026-10-02T13:40:40.054651+08:00",
+      "source_commit": "5d6120d10cd713a0b48e79bc396af5d669eaa823"
     },
     {
       "source_path": "07_subsystems_suites/smart_assistant",
@@ -21048,7 +21049,7 @@
       "entry_candidates": [
         "main.py"
       ],
-      "source_file_count": 17,
+      "source_file_count": 18,
       "source_files": [
         "__init__.py",
         "config/__init__.py",
@@ -21069,14 +21070,86 @@
       ],
       "license_files": [],
       "entry_sha256": "f8d2974f6269755d91b656ac04edf16996724f49267bb68721091fe65dbf545f",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.006s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"smart_assistant\",\r\n  \"candidate_sha256\": \"6088a7323a32f23e9ae0cd2a4d311d4d3bd564790d76b6aef5a84eef5c7ea6bd\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\smart_assistant.md\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\config_io.py\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\native\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\native\\\\config\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\native\\\\config\\\\prefs_manager.py\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\native\\\\dialogs\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\native\\\\dialogs\\\\choose_action_dialog.py\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\native\\\\dialogs\\\\namespace_dialog.py\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\native\\\\dialogs\\\\utils.py\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\native\\\\dragdrop\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\native\\\\dragdrop\\\\camera_imageplane.py\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\native\\\\dragdrop\\\\dragdrop_handler.py\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\native\\\\dragdrop\\\\file_actions.py\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\native\\\\file_dialog_patch\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\native\\\\file_dialog_patch\\\\patch_file_dialog.py\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\native\\\\main.py\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\native\\\\README.md\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\native\\\\utils\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\native\\\\utils\\\\path_utils.py\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\operations.py\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\session.py\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\source_review.json\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\upstream\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\upstream\\\\config\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\upstream\\\\config\\\\prefs_manager.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\upstream\\\\dialogs\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\upstream\\\\dialogs\\\\choose_action_dialog.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\upstream\\\\dialogs\\\\namespace_dialog.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\upstream\\\\dialogs\\\\utils.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\upstream\\\\dragdrop\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\upstream\\\\dragdrop\\\\camera_imageplane.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\upstream\\\\dragdrop\\\\dragdrop_handler.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\upstream\\\\dragdrop\\\\file_actions.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\upstream\\\\file_dialog_patch\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\upstream\\\\file_dialog_patch\\\\patch_file_dialog.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\upstream\\\\main.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\upstream\\\\README.md\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\upstream\\\\utils\\\\__init__.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\smart_assistant\\\\upstream\\\\utils\\\\path_utils.py.original\",\r\n    \"tests\\\\test_smart_assistant.py\",\r\n    \"tests\\\\test_smart_assistant_maya.py\",\r\n    \"tests\\\\test_smart_assistant_qt.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true,\r\n  \"runtime_acceptance_required\": true,\r\n  \"runtime\": \"maya\"\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/07_subsystems_suites/smart_assistant/release_candidate/tests/test_smart_assistant_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "����: Smart Assistant camera sequence\n����: Smart Assistant camera sequence\n.�ļ���ȡ����ʱ��Ϊ  0.0026 �롣\n�ļ���ȡ����ʱ��Ϊ  0.0031 �롣\n...\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.052s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "a3d314a85fbb8e0d6e45e646e513de126c3607c769491873588b247c2e35e428",
+          "runtime_source_sha256": "65625e6961c4ad9032bace25030a66f45b0ff565195cc13ad1120e60330189d1"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya GUI, drop event lifecycle, Python file dialogs, sequence view, import plugins and production reference acceptance not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "6088a7323a32f23e9ae0cd2a4d311d4d3bd564790d76b6aef5a84eef5c7ea6bd",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.009s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/07_subsystems_suites/smart_assistant/release_candidate/tests/test_smart_assistant_qt.py",
+          "returncode": 0,
+          "passed": true,
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.004s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "a3d314a85fbb8e0d6e45e646e513de126c3607c769491873588b247c2e35e428",
+          "runtime_source_sha256": "65625e6961c4ad9032bace25030a66f45b0ff565195cc13ad1120e60330189d1",
+          "evidence_path": "plans/staging_run/smart_assistant_qt.json"
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI/drop lifecycle/Python dialog/sequence viewport/plugins/reference/cross-version acceptance not_run; MEL native dialog remains original"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 16,
@@ -21085,7 +21158,91 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "81f0c9f25404b9d2767d7e4766fae99f9fbab7a7ea371892aec116ac8e30bbf5"
+      "source_tree_sha256": "49ea4cb0fbb9cb0284aaee753ac6a484c36396f99f83b57fe9ca83c3df01a451",
+      "candidate_path": "tools_staging_pool/07_subsystems_suites/smart_assistant/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/07_subsystems_suites/smart_assistant/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "smart_assistant",
+        "candidate_sha256": "6088a7323a32f23e9ae0cd2a4d311d4d3bd564790d76b6aef5a84eef5c7ea6bd",
+        "applied": false,
+        "files": [
+          "docs\\tools\\smart_assistant.md",
+          "maya_toolkit\\tools\\smart_assistant\\__init__.py",
+          "maya_toolkit\\tools\\smart_assistant\\catalog.json",
+          "maya_toolkit\\tools\\smart_assistant\\config_io.py",
+          "maya_toolkit\\tools\\smart_assistant\\native\\__init__.py",
+          "maya_toolkit\\tools\\smart_assistant\\native\\config\\__init__.py",
+          "maya_toolkit\\tools\\smart_assistant\\native\\config\\prefs_manager.py",
+          "maya_toolkit\\tools\\smart_assistant\\native\\dialogs\\__init__.py",
+          "maya_toolkit\\tools\\smart_assistant\\native\\dialogs\\choose_action_dialog.py",
+          "maya_toolkit\\tools\\smart_assistant\\native\\dialogs\\namespace_dialog.py",
+          "maya_toolkit\\tools\\smart_assistant\\native\\dialogs\\utils.py",
+          "maya_toolkit\\tools\\smart_assistant\\native\\dragdrop\\__init__.py",
+          "maya_toolkit\\tools\\smart_assistant\\native\\dragdrop\\camera_imageplane.py",
+          "maya_toolkit\\tools\\smart_assistant\\native\\dragdrop\\dragdrop_handler.py",
+          "maya_toolkit\\tools\\smart_assistant\\native\\dragdrop\\file_actions.py",
+          "maya_toolkit\\tools\\smart_assistant\\native\\file_dialog_patch\\__init__.py",
+          "maya_toolkit\\tools\\smart_assistant\\native\\file_dialog_patch\\patch_file_dialog.py",
+          "maya_toolkit\\tools\\smart_assistant\\native\\main.py",
+          "maya_toolkit\\tools\\smart_assistant\\native\\README.md",
+          "maya_toolkit\\tools\\smart_assistant\\native\\utils\\__init__.py",
+          "maya_toolkit\\tools\\smart_assistant\\native\\utils\\path_utils.py",
+          "maya_toolkit\\tools\\smart_assistant\\operations.py",
+          "maya_toolkit\\tools\\smart_assistant\\session.py",
+          "maya_toolkit\\tools\\smart_assistant\\source_review.json",
+          "maya_toolkit\\tools\\smart_assistant\\upstream\\__init__.py.original",
+          "maya_toolkit\\tools\\smart_assistant\\upstream\\config\\__init__.py.original",
+          "maya_toolkit\\tools\\smart_assistant\\upstream\\config\\prefs_manager.py.original",
+          "maya_toolkit\\tools\\smart_assistant\\upstream\\dialogs\\__init__.py.original",
+          "maya_toolkit\\tools\\smart_assistant\\upstream\\dialogs\\choose_action_dialog.py.original",
+          "maya_toolkit\\tools\\smart_assistant\\upstream\\dialogs\\namespace_dialog.py.original",
+          "maya_toolkit\\tools\\smart_assistant\\upstream\\dialogs\\utils.py.original",
+          "maya_toolkit\\tools\\smart_assistant\\upstream\\dragdrop\\__init__.py.original",
+          "maya_toolkit\\tools\\smart_assistant\\upstream\\dragdrop\\camera_imageplane.py.original",
+          "maya_toolkit\\tools\\smart_assistant\\upstream\\dragdrop\\dragdrop_handler.py.original",
+          "maya_toolkit\\tools\\smart_assistant\\upstream\\dragdrop\\file_actions.py.original",
+          "maya_toolkit\\tools\\smart_assistant\\upstream\\file_dialog_patch\\__init__.py.original",
+          "maya_toolkit\\tools\\smart_assistant\\upstream\\file_dialog_patch\\patch_file_dialog.py.original",
+          "maya_toolkit\\tools\\smart_assistant\\upstream\\main.py.original",
+          "maya_toolkit\\tools\\smart_assistant\\upstream\\README.md",
+          "maya_toolkit\\tools\\smart_assistant\\upstream\\utils\\__init__.py.original",
+          "maya_toolkit\\tools\\smart_assistant\\upstream\\utils\\path_utils.py.original",
+          "tests\\test_smart_assistant.py",
+          "tests\\test_smart_assistant_maya.py",
+          "tests\\test_smart_assistant_qt.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true,
+        "runtime_acceptance_required": true,
+        "runtime": "maya"
+      },
+      "resources": [
+        "__init__.py",
+        "config/__init__.py",
+        "config/prefs_manager.py",
+        "dialogs/__init__.py",
+        "dialogs/choose_action_dialog.py",
+        "dialogs/namespace_dialog.py",
+        "dialogs/utils.py",
+        "dragdrop/__init__.py",
+        "dragdrop/camera_imageplane.py",
+        "dragdrop/dragdrop_handler.py",
+        "dragdrop/file_actions.py",
+        "file_dialog_patch/__init__.py",
+        "file_dialog_patch/patch_file_dialog.py",
+        "main.py",
+        "README.md",
+        "utils/__init__.py",
+        "utils/path_utils.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/MEL and native import plugins",
+        "PySide6/PySide2 for actual dragdrop session"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete preference/drop/sequence/dialog assistant with typed optionVars, explicit reversible session hooks, whole-file preflight and guarded JSON",
+      "prepared_at": "2026-10-02T13:56:19.907254+08:00"
     },
     {
       "source_path": "07_subsystems_suites/studiolibrary_patch",

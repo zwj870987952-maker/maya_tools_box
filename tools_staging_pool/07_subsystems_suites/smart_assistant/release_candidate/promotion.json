@@ -1,0 +1,213 @@
+{
+  "tool_id": "smart_assistant",
+  "registration": {
+    "module": "smart_assistant",
+    "class_name": "SmartAssistantTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/smart_assistant.md",
+      "target": "docs/tools/smart_assistant.md"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/__init__.py",
+      "target": "maya_toolkit/tools/smart_assistant/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/catalog.json",
+      "target": "maya_toolkit/tools/smart_assistant/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/config_io.py",
+      "target": "maya_toolkit/tools/smart_assistant/config_io.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/native/__init__.py",
+      "target": "maya_toolkit/tools/smart_assistant/native/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/native/config/__init__.py",
+      "target": "maya_toolkit/tools/smart_assistant/native/config/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/native/config/prefs_manager.py",
+      "target": "maya_toolkit/tools/smart_assistant/native/config/prefs_manager.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/native/dialogs/__init__.py",
+      "target": "maya_toolkit/tools/smart_assistant/native/dialogs/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/native/dialogs/choose_action_dialog.py",
+      "target": "maya_toolkit/tools/smart_assistant/native/dialogs/choose_action_dialog.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/native/dialogs/namespace_dialog.py",
+      "target": "maya_toolkit/tools/smart_assistant/native/dialogs/namespace_dialog.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/native/dialogs/utils.py",
+      "target": "maya_toolkit/tools/smart_assistant/native/dialogs/utils.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/native/dragdrop/__init__.py",
+      "target": "maya_toolkit/tools/smart_assistant/native/dragdrop/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/native/dragdrop/camera_imageplane.py",
+      "target": "maya_toolkit/tools/smart_assistant/native/dragdrop/camera_imageplane.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/native/dragdrop/dragdrop_handler.py",
+      "target": "maya_toolkit/tools/smart_assistant/native/dragdrop/dragdrop_handler.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/native/dragdrop/file_actions.py",
+      "target": "maya_toolkit/tools/smart_assistant/native/dragdrop/file_actions.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/native/file_dialog_patch/__init__.py",
+      "target": "maya_toolkit/tools/smart_assistant/native/file_dialog_patch/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/native/file_dialog_patch/patch_file_dialog.py",
+      "target": "maya_toolkit/tools/smart_assistant/native/file_dialog_patch/patch_file_dialog.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/native/main.py",
+      "target": "maya_toolkit/tools/smart_assistant/native/main.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/native/README.md",
+      "target": "maya_toolkit/tools/smart_assistant/native/README.md"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/native/utils/__init__.py",
+      "target": "maya_toolkit/tools/smart_assistant/native/utils/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/native/utils/path_utils.py",
+      "target": "maya_toolkit/tools/smart_assistant/native/utils/path_utils.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/operations.py",
+      "target": "maya_toolkit/tools/smart_assistant/operations.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/session.py",
+      "target": "maya_toolkit/tools/smart_assistant/session.py"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/source_review.json",
+      "target": "maya_toolkit/tools/smart_assistant/source_review.json"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/upstream/__init__.py.original",
+      "target": "maya_toolkit/tools/smart_assistant/upstream/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/upstream/config/__init__.py.original",
+      "target": "maya_toolkit/tools/smart_assistant/upstream/config/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/upstream/config/prefs_manager.py.original",
+      "target": "maya_toolkit/tools/smart_assistant/upstream/config/prefs_manager.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/upstream/dialogs/__init__.py.original",
+      "target": "maya_toolkit/tools/smart_assistant/upstream/dialogs/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/upstream/dialogs/choose_action_dialog.py.original",
+      "target": "maya_toolkit/tools/smart_assistant/upstream/dialogs/choose_action_dialog.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/upstream/dialogs/namespace_dialog.py.original",
+      "target": "maya_toolkit/tools/smart_assistant/upstream/dialogs/namespace_dialog.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/upstream/dialogs/utils.py.original",
+      "target": "maya_toolkit/tools/smart_assistant/upstream/dialogs/utils.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/upstream/dragdrop/__init__.py.original",
+      "target": "maya_toolkit/tools/smart_assistant/upstream/dragdrop/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/upstream/dragdrop/camera_imageplane.py.original",
+      "target": "maya_toolkit/tools/smart_assistant/upstream/dragdrop/camera_imageplane.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/upstream/dragdrop/dragdrop_handler.py.original",
+      "target": "maya_toolkit/tools/smart_assistant/upstream/dragdrop/dragdrop_handler.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/upstream/dragdrop/file_actions.py.original",
+      "target": "maya_toolkit/tools/smart_assistant/upstream/dragdrop/file_actions.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/upstream/file_dialog_patch/__init__.py.original",
+      "target": "maya_toolkit/tools/smart_assistant/upstream/file_dialog_patch/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/upstream/file_dialog_patch/patch_file_dialog.py.original",
+      "target": "maya_toolkit/tools/smart_assistant/upstream/file_dialog_patch/patch_file_dialog.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/upstream/main.py.original",
+      "target": "maya_toolkit/tools/smart_assistant/upstream/main.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/upstream/README.md",
+      "target": "maya_toolkit/tools/smart_assistant/upstream/README.md"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/upstream/utils/__init__.py.original",
+      "target": "maya_toolkit/tools/smart_assistant/upstream/utils/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/smart_assistant/upstream/utils/path_utils.py.original",
+      "target": "maya_toolkit/tools/smart_assistant/upstream/utils/path_utils.py.original"
+    },
+    {
+      "source": "tests/test_smart_assistant.py",
+      "target": "tests/test_smart_assistant.py"
+    },
+    {
+      "source": "tests/test_smart_assistant_maya.py",
+      "target": "tests/test_smart_assistant_maya.py"
+    },
+    {
+      "source": "tests/test_smart_assistant_qt.py",
+      "target": "tests/test_smart_assistant_qt.py"
+    }
+  ],
+  "resources": [
+    "__init__.py",
+    "config/__init__.py",
+    "config/prefs_manager.py",
+    "dialogs/__init__.py",
+    "dialogs/choose_action_dialog.py",
+    "dialogs/namespace_dialog.py",
+    "dialogs/utils.py",
+    "dragdrop/__init__.py",
+    "dragdrop/camera_imageplane.py",
+    "dragdrop/dragdrop_handler.py",
+    "dragdrop/file_actions.py",
+    "file_dialog_patch/__init__.py",
+    "file_dialog_patch/patch_file_dialog.py",
+    "main.py",
+    "README.md",
+    "utils/__init__.py",
+    "utils/path_utils.py"
+  ],
+  "dependencies": [
+    "Maya cmds/MEL and native import plugins",
+    "PySide6/PySide2 for actual dragdrop session"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete preference/drop/sequence/dialog assistant with typed optionVars, explicit reversible session hooks, whole-file preflight and guarded JSON",
+  "verification_limitations": [
+    "Real Maya GUI/drop lifecycle/Python dialog/sequence viewport/plugins/reference/cross-version acceptance not_run; MEL native dialog remains original"
+  ]
+}

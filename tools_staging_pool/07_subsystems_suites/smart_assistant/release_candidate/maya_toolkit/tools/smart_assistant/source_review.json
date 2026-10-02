@@ -1,0 +1,94 @@
+[
+  {
+    "path": "__init__.py",
+    "symbols": []
+  },
+  {
+    "path": "config/__init__.py",
+    "symbols": []
+  },
+  {
+    "path": "config/prefs_manager.py",
+    "symbols": [
+      "export_prefs",
+      "apply_prefs"
+    ]
+  },
+  {
+    "path": "dialogs/__init__.py",
+    "symbols": []
+  },
+  {
+    "path": "dialogs/choose_action_dialog.py",
+    "symbols": [
+      "ask_action"
+    ]
+  },
+  {
+    "path": "dialogs/namespace_dialog.py",
+    "symbols": [
+      "get_namespace"
+    ]
+  },
+  {
+    "path": "dialogs/utils.py",
+    "symbols": []
+  },
+  {
+    "path": "dragdrop/__init__.py",
+    "symbols": []
+  },
+  {
+    "path": "dragdrop/camera_imageplane.py",
+    "symbols": [
+      "create_camera_with_sequence"
+    ]
+  },
+  {
+    "path": "dragdrop/dragdrop_handler.py",
+    "symbols": [
+      "_qt",
+      "start_dragdrop_monitor",
+      "stop_dragdrop_monitor",
+      "supported",
+      "make_filter"
+    ]
+  },
+  {
+    "path": "dragdrop/file_actions.py",
+    "symbols": [
+      "handle_drop"
+    ]
+  },
+  {
+    "path": "file_dialog_patch/__init__.py",
+    "symbols": []
+  },
+  {
+    "path": "file_dialog_patch/patch_file_dialog.py",
+    "symbols": [
+      "patch_file_dialog",
+      "restore_file_dialog"
+    ]
+  },
+  {
+    "path": "main.py",
+    "symbols": [
+      "_call",
+      "launch",
+      "show_main_window",
+      "close_ui",
+      "camera_view"
+    ]
+  },
+  {
+    "path": "utils/__init__.py",
+    "symbols": []
+  },
+  {
+    "path": "utils/path_utils.py",
+    "symbols": [
+      "is_image_sequence_folder"
+    ]
+  }
+]
