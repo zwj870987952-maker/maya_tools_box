@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T14:52:05.369610+08:00",
+  "updated_at": "2026-10-02T15:02:10.494445+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "07_subsystems_suites/the_key_machine",
+    "last_completed_tool": "08_utilities_system/floating_toolbar",
     "last_usage": {
-      "five_hour_used_percent": 45.0,
-      "weekly_used_percent": 68.0,
-      "recorded_at": "2026-10-02T14:26:25.802825+08:00",
+      "five_hour_used_percent": 56.0,
+      "weekly_used_percent": 70.0,
+      "recorded_at": "2026-10-02T14:53:24.049997+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "07_subsystems_suites/the_key_machine"
+    "current_tool": "08_utilities_system/floating_toolbar"
   },
   "entry_repairs": [
     {
@@ -22422,7 +22422,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete original GPL TheKeyMachine toolbar and native API with isolated data, literal config, backups, owned lifecycle and memory localization",
-      "prepared_at": "2026-10-02T14:52:07.112029+08:00"
+      "prepared_at": "2026-10-02T14:52:07.112029+08:00",
+      "source_commit": "f57b79c198e3589871a1236d56a83ab03e029b68"
     },
     {
       "source_path": "08_utilities_system/floating_toolbar",
@@ -22433,21 +22434,93 @@
       "entry_candidates": [
         "floating_toolbar.py"
       ],
-      "source_file_count": 2,
+      "source_file_count": 3,
       "source_files": [
         "floating_toolbar.py",
         "maya_floating_toolbar.py"
       ],
       "license_files": [],
       "entry_sha256": "20348a213af950815db4692c9d7aaa68854db652efe790bbdd5a4fbae394aecb",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.003s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"floating_toolbar\",\r\n  \"candidate_sha256\": \"5b8723e0d0c71deeb9e90c4a6f27021960e671f0ad00896856598bbd2ff24b59\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\floating_toolbar.md\",\r\n    \"maya_toolkit\\\\tools\\\\floating_toolbar\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\floating_toolbar\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\floating_toolbar\\\\config_io.py\",\r\n    \"maya_toolkit\\\\tools\\\\floating_toolbar\\\\session.py\",\r\n    \"maya_toolkit\\\\tools\\\\floating_toolbar\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\floating_toolbar\\\\upstream\\\\floating_toolbar.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\floating_toolbar\\\\upstream\\\\maya_floating_toolbar.py.original\",\r\n    \"tests\\\\test_floating_toolbar.py\",\r\n    \"tests\\\\test_floating_toolbar_maya.py\",\r\n    \"tests\\\\test_floating_toolbar_qt.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true,\r\n  \"runtime_acceptance_required\": true,\r\n  \"runtime\": \"maya\"\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/08_utilities_system/floating_toolbar/release_candidate/tests/test_floating_toolbar_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "����: Floating Toolbar Command\n����: Floating Toolbar Command\n.\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.006s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "03ca74f1eab4da20c516b96bb90407672691799beca84fa62f5551adf07c9d44",
+          "runtime_source_sha256": "192c32a7b05a87db44d8f33804d3877221d45b9417c6576ff41eaa5f22db5613"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real Maya GUI, shelf drag, Qt resource resolution, production command execution and cross-version acceptance not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "5b8723e0d0c71deeb9e90c4a6f27021960e671f0ad00896856598bbd2ff24b59",
+          "returncode": 0,
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.004s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/08_utilities_system/floating_toolbar/release_candidate/tests/test_floating_toolbar_qt.py",
+          "returncode": 0,
+          "passed": true,
+          "output": ".E:\\GitHub\\maya_tools_box\\tools_staging_pool\\08_utilities_system\\floating_toolbar\\release_candidate\\tests\\test_floating_toolbar_qt.py:18: DeprecationWarning: Function: 'QMouseEvent.QMouseEvent(QEvent.Type type, const QPointF & localPos, Qt.MouseButton button, QFlags<Qt.MouseButton> buttons, QFlags<Qt.KeyboardModifier> modifiers, const QPointingDevice * device)' is marked as deprecated, please check the documentation for more information.\r\n  button=QtWidgets.QToolButton();hook=session.make_filter(button,'reference');event=QtGui.QMouseEvent(QtCore.QEvent.MouseButtonPress,QtCore.QPointF(1,1),QtCore.Qt.LeftButton,QtCore.Qt.LeftButton,QtCore.Qt.NoModifier);self.assertFalse(hook.eventFilter(button,event));hook.deleteLater();button.deleteLater()\r\n.\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.016s\r\n\r\nOK\r\nswig/python detected a memory leak of type 'MObject *', no destructor found.\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "03ca74f1eab4da20c516b96bb90407672691799beca84fa62f5551adf07c9d44",
+          "runtime_source_sha256": "192c32a7b05a87db44d8f33804d3877221d45b9417c6576ff41eaa5f22db5613",
+          "evidence_path": "plans/staging_run/floating_toolbar_qt.json"
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya GUI/native shelf drag/Python-MEL execution/cross-version acceptance not_run"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 2,
@@ -22456,7 +22529,43 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "6026b0b40d4cd86d3283df7ccfb8e3bb28edcdecc619e7f0a5bd0fe541eb28e8"
+      "source_tree_sha256": "0ace6bbe3865918cf9cc327ca0e45c2234dec86f8429d103d800eb647b1b0428",
+      "candidate_path": "tools_staging_pool/08_utilities_system/floating_toolbar/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/08_utilities_system/floating_toolbar/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "floating_toolbar",
+        "candidate_sha256": "5b8723e0d0c71deeb9e90c4a6f27021960e671f0ad00896856598bbd2ff24b59",
+        "applied": false,
+        "files": [
+          "docs\\tools\\floating_toolbar.md",
+          "maya_toolkit\\tools\\floating_toolbar\\__init__.py",
+          "maya_toolkit\\tools\\floating_toolbar\\catalog.json",
+          "maya_toolkit\\tools\\floating_toolbar\\config_io.py",
+          "maya_toolkit\\tools\\floating_toolbar\\session.py",
+          "maya_toolkit\\tools\\floating_toolbar\\ui.py",
+          "maya_toolkit\\tools\\floating_toolbar\\upstream\\floating_toolbar.py.original",
+          "maya_toolkit\\tools\\floating_toolbar\\upstream\\maya_floating_toolbar.py.original",
+          "tests\\test_floating_toolbar.py",
+          "tests\\test_floating_toolbar_maya.py",
+          "tests\\test_floating_toolbar_qt.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true,
+        "runtime_acceptance_required": true,
+        "runtime": "maya"
+      },
+      "resources": [
+        "floating_toolbar.py",
+        "maya_floating_toolbar.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/MEL/Qt shelf widgets",
+        "PySide6/PySide2"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete floating toolbar with explicit script languages, portable icon JSON, transactional load and reversible shelf drag filters",
+      "prepared_at": "2026-10-02T15:02:11.042273+08:00"
     },
     {
       "source_path": "08_utilities_system/ks_node_outliner_v2_2",

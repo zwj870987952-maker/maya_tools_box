@@ -1,0 +1,66 @@
+{
+  "tool_id": "floating_toolbar",
+  "registration": {
+    "module": "floating_toolbar",
+    "class_name": "FloatingToolbarTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/floating_toolbar.md",
+      "target": "docs/tools/floating_toolbar.md"
+    },
+    {
+      "source": "maya_toolkit/tools/floating_toolbar/__init__.py",
+      "target": "maya_toolkit/tools/floating_toolbar/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/floating_toolbar/catalog.json",
+      "target": "maya_toolkit/tools/floating_toolbar/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/floating_toolbar/config_io.py",
+      "target": "maya_toolkit/tools/floating_toolbar/config_io.py"
+    },
+    {
+      "source": "maya_toolkit/tools/floating_toolbar/session.py",
+      "target": "maya_toolkit/tools/floating_toolbar/session.py"
+    },
+    {
+      "source": "maya_toolkit/tools/floating_toolbar/ui.py",
+      "target": "maya_toolkit/tools/floating_toolbar/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/floating_toolbar/upstream/floating_toolbar.py.original",
+      "target": "maya_toolkit/tools/floating_toolbar/upstream/floating_toolbar.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/floating_toolbar/upstream/maya_floating_toolbar.py.original",
+      "target": "maya_toolkit/tools/floating_toolbar/upstream/maya_floating_toolbar.py.original"
+    },
+    {
+      "source": "tests/test_floating_toolbar.py",
+      "target": "tests/test_floating_toolbar.py"
+    },
+    {
+      "source": "tests/test_floating_toolbar_maya.py",
+      "target": "tests/test_floating_toolbar_maya.py"
+    },
+    {
+      "source": "tests/test_floating_toolbar_qt.py",
+      "target": "tests/test_floating_toolbar_qt.py"
+    }
+  ],
+  "resources": [
+    "floating_toolbar.py",
+    "maya_floating_toolbar.py"
+  ],
+  "dependencies": [
+    "Maya cmds/MEL/Qt shelf widgets",
+    "PySide6/PySide2"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete floating toolbar with explicit script languages, portable icon JSON, transactional load and reversible shelf drag filters",
+  "verification_limitations": [
+    "Real Maya GUI/native shelf drag/Python-MEL execution/cross-version acceptance not_run"
+  ]
+}

@@ -819,3 +819,10 @@
 - native模块局部open/os/shutil/json保护：限定自有root/明确Save Dialog路径、已有文件先exclusive精确backup/hash receipt、删除移.mtb_deleted、重复key/非有限/64MiB限制；默认不更新/上报。原写场景函数补全选择表预检，锁/reference/非动画驱动拒绝；捕获范围限10000帧。source errors即使原catch也返回不完整而非冒充成功，单invoke Undo与时间/非选择动作的selection恢复；UI/job/runtimeCommand只自有handle，命令前缀、foreign后来替换/未知删除保护。
 - 2离线+2隔离Maya2025原pose copy/paste/一次Undo、坏末项锁拒绝保持首对象、foreign node-delete/job-kill gate拒绝+独立Qt原完整module导入/资源/中文label/周期timer/关闭后取消singleShot/销毁自有widget+临时注册/domain/panel/fingerprint通过。standalone scriptJobs不可用，未把None当active GUI job；Qt已销毁wrapper用shiboken有效性核对，timer回调达终止predicate立即停止。真实Maya完整工具栏/全部source分支/图编辑器/复杂rig/镜像/micro/offset/真实callback生命周期/跨版本not_run，prepared_unverified。
 - 实际5h56%已用（剩44%）、周70%（剩30%）；继续08_utilities_system/floating_toolbar，heartbeat暂停，无正式迁移/同步/用卡/购买。
+
+# 2026-10-02：浮动工具栏完整候选，累计103/109
+
+- 2原版本SHA归档，完整FlowLayout/无边框拖动/ToolButton/增删编辑/clear/save/load/原shelf复制功能；Qt6/5、parent晚绑定、明确source_type保留Maya源Python/MEL，Python完整多行exec与MEL真实执行。默认inspect/dry/drop/load不执行命令、不打开UI或改原shelf；明确按钮或API confirm_execute才run，一次scene Undo；命令的文件/UI副作用不由Undo撤回。
+- PNG32x32内嵌base64配置跨目录便携，不覆写icon_i.png；全JSON/语言/Python AST/PNG预检成功后再替换按钮，clear用takeAt真实移item立即归零，新JSONexclusive/已有parent/16MiB/256buttons/重复key拒绝。图标先解码再更新单按钮。Shift中键每原shelf QWidget自有eventFilter发送只读shelf引用，不篡改command/sourceType/dragCallback/mousePress，左键不吞，close撤自有filters，不叠加foreign hooks。
+- 1离线+1隔离Maya2025真实多行Python语句与无末尾分号MEL、无confirm不执行、二者单Undo+独立Qt原完整10按钮FlowLayout/可重载PNG/坏最后不清原配置/clear/left-click filter通过；未来layout注册/domain/panel/fingerprint通过。首轮Qt setParent后再向QLayoutItem取widget导致None已改强局部引用，SyntaxError统一为ValueError；两项不是运行环境原因，修复后通过。
+- 真实MayaGUI/shelf Drag/资源icon/生产command/跨版本not_run，prepared_unverified。实际5h61%已用（剩39%）、周70%（剩30%），继续ks_node_outliner_v2_2，heartbeat暂停，不迁正式/同步/用卡/购买。

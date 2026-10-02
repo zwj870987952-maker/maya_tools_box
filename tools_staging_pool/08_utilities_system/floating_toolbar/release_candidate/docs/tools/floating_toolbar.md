@@ -1,0 +1,11 @@
+# 浮动工具栏完整候选
+
+2原版本SHA归档，完整ToolButton/FlowLayout/可拖无边框窗口/增删编辑/clear/save/load保留，统一superset行为。原PySide2单版本/构造参数eager Maya主窗/清空只deleteLater未移layout/重复安装mousePress monkey/右键拖回调仅print/闭包button复用/用末尾分号猜语言及Python eval语句失败等确定问题已改：Qt6/5、parent晚绑定、takeAt清布局、全配置验证及图标解码成功后再替换按钮，明确source_type。
+
+Base/Schema/ToolResult默认inspect/dry不导入Qt、开窗、改shelf或运行用户command。完整UI与actions：show/close、enable/disable_drag、set/get_buttons/load/save/clear/execute_button。按钮左键属于明确运行用户脚本，API须confirm_execute=True；Python compile exec完整多行与语句，在Maya __main__按shelf语义执行，MEL用真实mel.eval，不靠分号猜。命令可以产生场景/文件/UI任意原脚本影响，scene UndoChunk分组不能撤文件或全局UI；候选不声称任意用户脚本可由预检证明安全。JSON命令和drop仅载入数据，直到明确点击不执行；Python只AST语法检，MEL真实runtime再验。
+
+原shelf拖入查询真实sourceType/command/label/icon，不改原command/sourceType/dragCallback/mousePress；显式安装每shelf QWidget自有eventFilter，Shift+中键发MIME仅shelfButton引用，左键等native事件不拦，drop再查询现存按钮；close移自有filter，不重复叠加/碰外来hook。用户从Maya原拖入text/plain也只接受现存shelfButton名字；拒绝旧未经核验raw命令MIME。图标解析文件或Maya Qt资源，PNG32x32内嵌base64到JSON，不再生成/覆盖icon_0.png，跨目录配置保持图标。
+
+配置最大16MiB/256按钮/64KiB命令/严格fields和language，重复key/非法Python/坏PNG/非绝对symlink配置拒绝；新已有parent的JSONexclusive保存，不覆盖原文件/不mkdir。旧配置可读取icon绝对路径和原末尾分号判断的语言默认，编辑器可改成正确Python/MEL，保存后显式语言+内嵌PNG；旧外部icon不存在就保留文字fallback。导入/编辑不得先清空再发现坏末项。外部config保存不能Maya Undo。
+
+离线完整Python语句AST/new配置不覆盖、完整未来registry/domain/panel检查；独立Qt无Maya初始化实测全FlowLayout/10空按钮/事务替换/PNG保存回读/坏配置保持原按钮/clear立即归零/左键filter不吞。真实Maya shelf拖入、Shift中键QDrag、Python/MEL按钮运行、Qt资源图标/窗体交互/跨版本not_run；用户确认真实通过后才晋级。
