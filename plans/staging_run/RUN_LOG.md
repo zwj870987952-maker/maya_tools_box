@@ -681,3 +681,9 @@
 - 2离线+4隔离Maya2025+临时正式布局/注册/panel/fingerprint通过：真实MA/MB三份导入/oneUndo所有DAG-DG/原源file移走仍Redo/name lookup；OBJ真实triangle导入/UndoRedo；两同源RN独占UndoRedo及选同份多个object/shape后whole-reference preview/删除仅1份/Undo恢复选区/Redo不碰另一份；unloaded且custom RN重建原名/元数据锁/load状态，nested子与包含nested父/edited reference/非引用/坏后行/NS碰撞全部前拒绝。禁止scriptNodes和NS共享自动fallback，保持time/AutoKey/currentnamespace/有效selection。
 - Maya默认RN metadata locked，原先锁判断误拒绝正常file removal；不手动解锁既有RN，改用原生removeReference；restore仅解锁本次新RN完成原名重建并还原lock。严格无edit/顶层无nested/SHA可读范围，reference Undo/Redo读原文件且节点UUID可变；普通import保留空NS且Redo不重读file。GUI全部控件/FBX与ABC/all translator reference模式/生产跨版本not_run，prepared_unverified。
 - 实际5h25%已用（剩75%）、周50%，立即继续batch_processor_v3；heartbeat工作时暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：文件批量执行V3完整候选，累计82/109
+
+- 原单文件SHA归档，完整Qt列表/drag/自然名称日期大小排序/全部所选/三个保存模式/Save/log保留；Base/Schema/readonly预检，默认逐文件隔离mayapy、真实ordered Python/MEL执行，强制覆盖前原始字节备份、全表路径/SHA/冲突预检，正确MA/MB保存，FBX覆盖拒绝，知识验收晋级齐备。脚本为任意用户代码，isolated保护调用者scene但不是OS文件沙箱；交互只允许真实GUI干净已保存scene，结束重开来源恢复有效选区/time/AutoKey/namespace，Undo清空和外部影响明确说明。
+- 2离线+3隔离Maya2025+临时正式布局/注册/panel/fingerprint通过：实际两child场景/Python-MEL顺序/原字节备份/SaveAfter/dirty调用者及Undo不变；MB覆盖实际Binary、脚本失败/换scene不自动保存；save_current freshMB/原MA mandatorybackup、batchGUI模式/FBX覆盖前拒绝、取消前不启动worker。初测MEL utf8-sig非有效codec名，修正utf-8-sig后全通过；原QPlainTextEdit.appendHtml错用改QTextEdit.append+HTML转义。
+- 默认不删除unknown，显式选项保留；保存外部文件不Undo，覆盖先SHA验证但不承诺并发比较交换，cancel/timeout不回滚脚本外部影响。GUI/实际FBX/interactive/MGTools/途中取消/跨版本not_run，prepared_unverified。实际5h32%已用（剩68%）、周51%，继续clean_invalid_paths；heartbeat暂停，不迁正式/同步/用卡/购买。

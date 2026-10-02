@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-02T08:24:37.296911+08:00
+更新时间：2026-10-02T08:40:38.399304+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -87,7 +87,7 @@
 | `04_pipeline_io/abc_batch_exporter` | prepared_unverified | True | True | not_run |
 | `04_pipeline_io/asset_it_v1_2` | prepared_unverified | True | True | not_run |
 | `04_pipeline_io/batch_importer_v3` | prepared_unverified | True | True | not_run |
-| `04_pipeline_io/batch_processor_v3` | pending | True | False | not_run |
+| `04_pipeline_io/batch_processor_v3` | prepared_unverified | True | True | not_run |
 | `04_pipeline_io/clean_invalid_paths` | pending | True | False | not_run |
 | `04_pipeline_io/fbx_batch_exporter_v7` | pending | True | False | not_run |
 | `04_pipeline_io/per_frame_bs_fbx` | pending | True | False | not_run |

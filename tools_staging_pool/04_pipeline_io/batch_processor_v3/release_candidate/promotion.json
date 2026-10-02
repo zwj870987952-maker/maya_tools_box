@@ -1,0 +1,58 @@
+{
+  "tool_id": "batch_processor_v3",
+  "registration": {
+    "module": "batch_processor_v3",
+    "class_name": "BatchProcessorV3Tool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/batch_processor_v3.md",
+      "target": "docs/tools/batch_processor_v3.md"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_processor_v3/__init__.py",
+      "target": "maya_toolkit/tools/batch_processor_v3/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_processor_v3/catalog.json",
+      "target": "maya_toolkit/tools/batch_processor_v3/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_processor_v3/tool.py",
+      "target": "maya_toolkit/tools/batch_processor_v3/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_processor_v3/ui.py",
+      "target": "maya_toolkit/tools/batch_processor_v3/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_processor_v3/upstream/文件批量执行v3.py.original",
+      "target": "maya_toolkit/tools/batch_processor_v3/upstream/文件批量执行v3.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_processor_v3/worker.py",
+      "target": "maya_toolkit/tools/batch_processor_v3/worker.py"
+    },
+    {
+      "source": "tests/test_batch_processor_v3.py",
+      "target": "tests/test_batch_processor_v3.py"
+    },
+    {
+      "source": "tests/test_batch_processor_v3_maya.py",
+      "target": "tests/test_batch_processor_v3_maya.py"
+    }
+  ],
+  "resources": [
+    "文件批量执行v3.py"
+  ],
+  "dependencies": [
+    "Maya cmds",
+    "PySide6/PySide2 GUI",
+    "matching mayapy"
+  ],
+  "acceptance_required": true,
+  "change_summary": "完整原Qt文件脚本批处理UI、隔离mayapy真实脚本执行、精确备份和MA/MB保存格式、Schema文档测试晋级",
+  "verification_limitations": [
+    "GUI/interactive/FBX/MGTools/timeout cancellation and production cross-version acceptance not_run"
+  ]
+}

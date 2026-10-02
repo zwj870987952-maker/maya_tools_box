@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T08:24:37.296911+08:00",
+  "updated_at": "2026-10-02T08:40:38.399304+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "04_pipeline_io/batch_importer_v3",
+    "last_completed_tool": "04_pipeline_io/batch_processor_v3",
     "last_usage": {
-      "five_hour_used_percent": 19.0,
-      "weekly_used_percent": 49.0,
-      "recorded_at": "2026-10-02T08:10:08.467580+08:00",
+      "five_hour_used_percent": 25.0,
+      "weekly_used_percent": 50.0,
+      "recorded_at": "2026-10-02T08:24:42.910961+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "04_pipeline_io/batch_importer_v3"
+    "current_tool": "04_pipeline_io/batch_processor_v3"
   },
   "entry_repairs": [
     {
@@ -18291,7 +18291,8 @@
       ],
       "source_preserved": true,
       "change_summary": "完整Qt文件递归文件夹/count/namespace/导入引用DelRef水印；全表路径/namespace预检、独占MPx导入Undo不读file的Redo、精确RN引用lifetime与未编辑引用移除重建、Base Schema知识测试晋级",
-      "prepared_at": "2026-10-02T08:23:57.259237+08:00"
+      "prepared_at": "2026-10-02T08:23:57.259237+08:00",
+      "source_commit": "c635532f51ba5ee1517fdb290ada8a03c9002fd4"
     },
     {
       "source_path": "04_pipeline_io/batch_processor_v3",
@@ -18302,20 +18303,80 @@
       "entry_candidates": [
         "文件批量执行v3.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "文件批量执行v3.py"
       ],
       "license_files": [],
       "entry_sha256": "51ce332a73db8106e465553f6d36c4d92395fc44eec7e47743ee11e47f6c1084",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.014s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"batch_processor_v3\",\r\n  \"candidate_sha256\": \"350e39d379d050c268af176082470f2cdb2239091ae1626320f1962e903a5390\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\batch_processor_v3.md\",\r\n    \"maya_toolkit\\\\tools\\\\batch_processor_v3\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\batch_processor_v3\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\batch_processor_v3\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\batch_processor_v3\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\batch_processor_v3\\\\upstream\\\\\\u6587\\u4ef6\\u6279\\u91cf\\u6267\\u884cv3.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\batch_processor_v3\\\\worker.py\",\r\n    \"tests\\\\test_batch_processor_v3.py\",\r\n    \"tests\\\\test_batch_processor_v3_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/04_pipeline_io/batch_processor_v3/release_candidate/tests/test_batch_processor_v3_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "�ļ���ȡ����ʱ��Ϊ  0.0029 �롣\n.�ļ���ȡ����ʱ��Ϊ  0.0037 �롣\n�ļ���ȡ����ʱ��Ϊ  0.0038 �롣\n.�ļ���ȡ����ʱ��Ϊ  0.0041 �롣\n�ļ���ȡ����ʱ��Ϊ  0.0035 �롣\n�ļ���ȡ����ʱ��Ϊ  0.004 �롣\n�ļ���ȡ����ʱ��Ϊ  0.0036 �롣\n.\r\n----------------------------------------------------------------------\r\nRan 3 tests in 13.751s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "9383d142d437bf3b88108eeda0833d7e8edeeefa6e018cf291117350e37b34ae",
+          "runtime_source_sha256": "2d99f7a01d92721d342a8efac23ef1d8b0d529306d21b973582be06208a61784"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "GUI/interactive/actual FBX/MGTools/timeout cancellation and production cross-version acceptance not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "350e39d379d050c268af176082470f2cdb2239091ae1626320f1962e903a5390",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.015s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "GUI/interactive/FBX/MGTools/timeout cancellation and production cross-version acceptance not_run"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -18324,7 +18385,39 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "aa9c8e7c26ec7f90b50b9de2165f79eb6e1ab8188dd82b6554004f0838f45d6e"
+      "source_tree_sha256": "e4841cd875641d2266254d66261a669c75196c1c7b19af06452a052db6fc5ba5",
+      "candidate_path": "tools_staging_pool/04_pipeline_io/batch_processor_v3/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/04_pipeline_io/batch_processor_v3/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "batch_processor_v3",
+        "candidate_sha256": "350e39d379d050c268af176082470f2cdb2239091ae1626320f1962e903a5390",
+        "applied": false,
+        "files": [
+          "docs\\tools\\batch_processor_v3.md",
+          "maya_toolkit\\tools\\batch_processor_v3\\__init__.py",
+          "maya_toolkit\\tools\\batch_processor_v3\\catalog.json",
+          "maya_toolkit\\tools\\batch_processor_v3\\tool.py",
+          "maya_toolkit\\tools\\batch_processor_v3\\ui.py",
+          "maya_toolkit\\tools\\batch_processor_v3\\upstream\\文件批量执行v3.py.original",
+          "maya_toolkit\\tools\\batch_processor_v3\\worker.py",
+          "tests\\test_batch_processor_v3.py",
+          "tests\\test_batch_processor_v3_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "文件批量执行v3.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds",
+        "PySide6/PySide2 GUI",
+        "matching mayapy"
+      ],
+      "source_preserved": true,
+      "change_summary": "完整原Qt文件脚本批处理UI、隔离mayapy真实脚本执行、精确备份和MA/MB保存格式、Schema文档测试晋级",
+      "prepared_at": "2026-10-02T08:40:01.109686+08:00"
     },
     {
       "source_path": "04_pipeline_io/clean_invalid_paths",
