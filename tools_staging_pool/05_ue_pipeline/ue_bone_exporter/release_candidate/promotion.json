@@ -1,0 +1,78 @@
+{
+  "tool_id": "ue_bone_exporter",
+  "runtime": "unreal_editor",
+  "registration": null,
+  "entry_module": "engine_toolkit.tools.ue_bone_exporter",
+  "panel": "UE SkeletalMesh right-click two scope entries; native SaveFileDialog, Python inspection/log",
+  "files": [
+    {
+      "source": "docs/tools/ue_bone_exporter.md",
+      "target": "docs/tools/ue_bone_exporter.md"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_bone_exporter/__init__.py",
+      "target": "engine_toolkit/tools/ue_bone_exporter/__init__.py"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_bone_exporter/catalog.json",
+      "target": "engine_toolkit/tools/ue_bone_exporter/catalog.json"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_bone_exporter/native/BoneListGenerator/BoneListGenerator.uplugin",
+      "target": "engine_toolkit/tools/ue_bone_exporter/native/BoneListGenerator/BoneListGenerator.uplugin"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_bone_exporter/native/BoneListGenerator/Source/BoneListGenerator/BoneListGenerator.Build.cs",
+      "target": "engine_toolkit/tools/ue_bone_exporter/native/BoneListGenerator/Source/BoneListGenerator/BoneListGenerator.Build.cs"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_bone_exporter/native/BoneListGenerator/Source/BoneListGenerator/Private/BoneListGenerator.cpp",
+      "target": "engine_toolkit/tools/ue_bone_exporter/native/BoneListGenerator/Source/BoneListGenerator/Private/BoneListGenerator.cpp"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_bone_exporter/native/BoneListGenerator/Source/BoneListGenerator/Public/BoneListGenerator.h",
+      "target": "engine_toolkit/tools/ue_bone_exporter/native/BoneListGenerator/Source/BoneListGenerator/Public/BoneListGenerator.h"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_bone_exporter/upstream/BoneListGenerator_UPlugin/BoneListGenerator.uplugin",
+      "target": "engine_toolkit/tools/ue_bone_exporter/upstream/BoneListGenerator_UPlugin/BoneListGenerator.uplugin"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_bone_exporter/upstream/BoneListGenerator_UPlugin/Source/BoneListGenerator/BoneListGenerator.Build.cs",
+      "target": "engine_toolkit/tools/ue_bone_exporter/upstream/BoneListGenerator_UPlugin/Source/BoneListGenerator/BoneListGenerator.Build.cs"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_bone_exporter/upstream/BoneListGenerator_UPlugin/Source/BoneListGenerator/Private/BoneListGenerator.cpp",
+      "target": "engine_toolkit/tools/ue_bone_exporter/upstream/BoneListGenerator_UPlugin/Source/BoneListGenerator/Private/BoneListGenerator.cpp"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_bone_exporter/upstream/BoneListGenerator_UPlugin/Source/BoneListGenerator/Public/BoneListGenerator.h",
+      "target": "engine_toolkit/tools/ue_bone_exporter/upstream/BoneListGenerator_UPlugin/Source/BoneListGenerator/Public/BoneListGenerator.h"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_bone_exporter/upstream/ExportBoneList.py.original",
+      "target": "engine_toolkit/tools/ue_bone_exporter/upstream/ExportBoneList.py.original"
+    },
+    {
+      "source": "tests/test_ue_bone_exporter.py",
+      "target": "tests/test_ue_bone_exporter.py"
+    }
+  ],
+  "resources": [
+    "BoneListGenerator_UPlugin/BoneListGenerator.uplugin",
+    "BoneListGenerator_UPlugin/Source/BoneListGenerator/BoneListGenerator.Build.cs",
+    "BoneListGenerator_UPlugin/Source/BoneListGenerator/Private/BoneListGenerator.cpp",
+    "BoneListGenerator_UPlugin/Source/BoneListGenerator/Public/BoneListGenerator.h",
+    "ExportBoneList.py"
+  ],
+  "dependencies": [
+    "UE Editor PythonScriptPlugin/EditorScriptingUtilities/Skeleton Editing Tools",
+    "Editor UBT + C++ toolchain for native plugin"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete UE Python mesh TXT export and C++ mesh/shared Skeleton menus; native runtime schema/dry-run/exclusive output; no Maya registry adapter",
+  "verification_limitations": [
+    "Unreal Editor runtime and UBT compilation not_run",
+    "Target UE Python/C++ version and real skeletal assets unverified"
+  ]
+}

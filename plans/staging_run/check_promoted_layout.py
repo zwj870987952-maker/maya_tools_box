@@ -33,11 +33,15 @@ def main():
         for source, target in promotion.payload(candidate, description):
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(source, target)
-        registry, unused_original, merged = promotion.registry_change(description)
-        registry.write_bytes(merged)
+        external = description.get('runtime') in ('unreal_editor', 'windows_standalone')
+        if not external:
+            registry, unused_original, merged = promotion.registry_change(description)
+            registry.write_bytes(merged)
         env = dict(os.environ, PYTHONPATH=str(temporary), PYTHONDONTWRITEBYTECODE='1')
         test = subprocess.run([sys.executable, str(temporary / args.test)], cwd=folder, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=45)
         probe = "from maya_toolkit.framework import ToolRegistry; t=ToolRegistry.get(%r); assert t is not None; assert t.category in {d['id'] for d in ToolRegistry.list_domains_summary()}; assert any(r['tool_id']==t.tool_id for r in ToolRegistry.list_tools(domain=t.category)); assert any(r['name']==t.tool_id for r in ToolRegistry.export_mcp_tools(domain=t.category)); assert callable(t.show_ui); assert t.to_mcp_tool()['name']==%r; print('Registered tool, domain filtering and panel entry verified')" % (description['tool_id'], description['tool_id'])
+        if external:
+            probe = "import importlib,sys; sys.modules['maya']=None; sys.modules['unreal']=None; m=importlib.import_module(%r); assert callable(m.run); assert callable(m.validate); assert callable(m.execute); assert m.parameters_schema['type']=='object'; print('Native runtime package imports without Maya or Unreal; entry and schema available')" % description['entry_module']
         registered = subprocess.run([sys.executable, '-c', probe], cwd=folder, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=45)
     changed = (ROOT / 'maya_toolkit/tools/__init__.py').read_bytes() != original_registry
     report = {'kind': 'promoted_layout_offline', 'passed': test.returncode == 0 and registered.returncode == 0 and not changed,

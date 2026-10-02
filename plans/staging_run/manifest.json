@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T09:39:27.647357+08:00",
+  "updated_at": "2026-10-02T09:51:49.396055+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "04_pipeline_io/vessel_fbx_exporter",
+    "last_completed_tool": "05_ue_pipeline/ue_bone_exporter",
     "last_usage": {
-      "five_hour_used_percent": 53.0,
-      "weekly_used_percent": 54.0,
-      "recorded_at": "2026-10-02T09:29:09.241066+08:00",
+      "five_hour_used_percent": 57.0,
+      "weekly_used_percent": 55.0,
+      "recorded_at": "2026-10-02T09:39:33.530483+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "04_pipeline_io/vessel_fbx_exporter"
+    "current_tool": "05_ue_pipeline/ue_bone_exporter"
   },
   "entry_repairs": [
     {
@@ -19056,7 +19056,8 @@
       ],
       "source_preserved": true,
       "change_summary": "完整舰船All_joints/Reset_Trans/全references/namespace/root/FBX流程在isolated snapshot、Schema知识测试UI晋级",
-      "prepared_at": "2026-10-02T09:37:40.159785+08:00"
+      "prepared_at": "2026-10-02T09:37:40.159785+08:00",
+      "source_commit": "bf4f57ee690cc21389d2b6a950760f196912c85c"
     },
     {
       "source_path": "05_ue_pipeline/ue_bone_exporter",
@@ -19067,7 +19068,7 @@
       "entry_candidates": [
         "ExportBoneList.py"
       ],
-      "source_file_count": 5,
+      "source_file_count": 6,
       "source_files": [
         "BoneListGenerator_UPlugin/BoneListGenerator.uplugin",
         "BoneListGenerator_UPlugin/Source/BoneListGenerator/BoneListGenerator.Build.cs",
@@ -19077,14 +19078,55 @@
       ],
       "license_files": [],
       "entry_sha256": "e0296297dfb1c56c2fb7f68717250356d049ce99eccd06e0a3ea66c0b66c2966",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "...\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.008s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"ue_bone_exporter\",\r\n  \"candidate_sha256\": \"562cb12315747bdc564a6ef6c6f439526b3cb6d0d3f08dd023e207f521314808\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\ue_bone_exporter.md\",\r\n    \"engine_toolkit\\\\tools\\\\ue_bone_exporter\\\\__init__.py\",\r\n    \"engine_toolkit\\\\tools\\\\ue_bone_exporter\\\\catalog.json\",\r\n    \"engine_toolkit\\\\tools\\\\ue_bone_exporter\\\\native\\\\BoneListGenerator\\\\BoneListGenerator.uplugin\",\r\n    \"engine_toolkit\\\\tools\\\\ue_bone_exporter\\\\native\\\\BoneListGenerator\\\\Source\\\\BoneListGenerator\\\\BoneListGenerator.Build.cs\",\r\n    \"engine_toolkit\\\\tools\\\\ue_bone_exporter\\\\native\\\\BoneListGenerator\\\\Source\\\\BoneListGenerator\\\\Private\\\\BoneListGenerator.cpp\",\r\n    \"engine_toolkit\\\\tools\\\\ue_bone_exporter\\\\native\\\\BoneListGenerator\\\\Source\\\\BoneListGenerator\\\\Public\\\\BoneListGenerator.h\",\r\n    \"engine_toolkit\\\\tools\\\\ue_bone_exporter\\\\upstream\\\\BoneListGenerator_UPlugin\\\\BoneListGenerator.uplugin\",\r\n    \"engine_toolkit\\\\tools\\\\ue_bone_exporter\\\\upstream\\\\BoneListGenerator_UPlugin\\\\Source\\\\BoneListGenerator\\\\BoneListGenerator.Build.cs\",\r\n    \"engine_toolkit\\\\tools\\\\ue_bone_exporter\\\\upstream\\\\BoneListGenerator_UPlugin\\\\Source\\\\BoneListGenerator\\\\Private\\\\BoneListGenerator.cpp\",\r\n    \"engine_toolkit\\\\tools\\\\ue_bone_exporter\\\\upstream\\\\BoneListGenerator_UPlugin\\\\Source\\\\BoneListGenerator\\\\Public\\\\BoneListGenerator.h\",\r\n    \"engine_toolkit\\\\tools\\\\ue_bone_exporter\\\\upstream\\\\ExportBoneList.py.original\",\r\n    \"tests\\\\test_ue_bone_exporter.py\"\r\n  ],\r\n  \"registry\": null,\r\n  \"panel\": \"UE SkeletalMesh right-click two scope entries; native SaveFileDialog, Python inspection/log\",\r\n  \"maya_acceptance_required\": false,\r\n  \"runtime_acceptance_required\": true,\r\n  \"runtime\": \"unreal_editor\"\r\n}\r\n"
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real UE Editor, UBT C++ compilation, real skeleton assets and native save-dialog not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "562cb12315747bdc564a6ef6c6f439526b3cb6d0d3f08dd023e207f521314808",
+          "returncode": 0,
+          "output": "...\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.007s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Native runtime package imports without Maya or Unreal; entry and schema available\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real native runtime acceptance pending",
+        "Unreal Editor runtime and UBT compilation not_run",
+        "Target UE Python/C++ version and real skeletal assets unverified"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -19093,7 +19135,53 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "02e64bb6e3f645f9ef38ad2d2876c45b75681238d2f3a42e313d47ce03565bad"
+      "source_tree_sha256": "6c903cff185df0fddc1842261dde988f9658050df2ce21f95462377dd16caaaf",
+      "runtime_acceptance": {
+        "runtime": "unreal_editor",
+        "status": "not_run",
+        "versions": []
+      },
+      "candidate_path": "tools_staging_pool/05_ue_pipeline/ue_bone_exporter/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/05_ue_pipeline/ue_bone_exporter/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "ue_bone_exporter",
+        "candidate_sha256": "562cb12315747bdc564a6ef6c6f439526b3cb6d0d3f08dd023e207f521314808",
+        "applied": false,
+        "files": [
+          "docs\\tools\\ue_bone_exporter.md",
+          "engine_toolkit\\tools\\ue_bone_exporter\\__init__.py",
+          "engine_toolkit\\tools\\ue_bone_exporter\\catalog.json",
+          "engine_toolkit\\tools\\ue_bone_exporter\\native\\BoneListGenerator\\BoneListGenerator.uplugin",
+          "engine_toolkit\\tools\\ue_bone_exporter\\native\\BoneListGenerator\\Source\\BoneListGenerator\\BoneListGenerator.Build.cs",
+          "engine_toolkit\\tools\\ue_bone_exporter\\native\\BoneListGenerator\\Source\\BoneListGenerator\\Private\\BoneListGenerator.cpp",
+          "engine_toolkit\\tools\\ue_bone_exporter\\native\\BoneListGenerator\\Source\\BoneListGenerator\\Public\\BoneListGenerator.h",
+          "engine_toolkit\\tools\\ue_bone_exporter\\upstream\\BoneListGenerator_UPlugin\\BoneListGenerator.uplugin",
+          "engine_toolkit\\tools\\ue_bone_exporter\\upstream\\BoneListGenerator_UPlugin\\Source\\BoneListGenerator\\BoneListGenerator.Build.cs",
+          "engine_toolkit\\tools\\ue_bone_exporter\\upstream\\BoneListGenerator_UPlugin\\Source\\BoneListGenerator\\Private\\BoneListGenerator.cpp",
+          "engine_toolkit\\tools\\ue_bone_exporter\\upstream\\BoneListGenerator_UPlugin\\Source\\BoneListGenerator\\Public\\BoneListGenerator.h",
+          "engine_toolkit\\tools\\ue_bone_exporter\\upstream\\ExportBoneList.py.original",
+          "tests\\test_ue_bone_exporter.py"
+        ],
+        "registry": null,
+        "panel": "UE SkeletalMesh right-click two scope entries; native SaveFileDialog, Python inspection/log",
+        "maya_acceptance_required": false,
+        "runtime_acceptance_required": true,
+        "runtime": "unreal_editor"
+      },
+      "resources": [
+        "BoneListGenerator_UPlugin/BoneListGenerator.uplugin",
+        "BoneListGenerator_UPlugin/Source/BoneListGenerator/BoneListGenerator.Build.cs",
+        "BoneListGenerator_UPlugin/Source/BoneListGenerator/Private/BoneListGenerator.cpp",
+        "BoneListGenerator_UPlugin/Source/BoneListGenerator/Public/BoneListGenerator.h",
+        "ExportBoneList.py"
+      ],
+      "external_dependencies": [
+        "UE Editor PythonScriptPlugin/EditorScriptingUtilities/Skeleton Editing Tools",
+        "Editor UBT + C++ toolchain for native plugin"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete UE Python mesh TXT export and C++ mesh/shared Skeleton menus; native runtime schema/dry-run/exclusive output; no Maya registry adapter",
+      "prepared_at": "2026-10-02T09:51:45.861568+08:00"
     },
     {
       "source_path": "05_ue_pipeline/ue_context_menu",

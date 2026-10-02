@@ -18,6 +18,14 @@ def inside(path, parent):
 def payload(candidate, description):
     pairs = []
     for item in description["files"]:
+        if description.get('runtime') in ('unreal_editor', 'windows_standalone'):
+            tool = description['tool_id']
+            if not re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*', tool):
+                raise ValueError('Invalid external tool identifier')
+            permitted = ('engine_toolkit/tools/' + tool + '/', 'docs/tools/' + tool, 'tests/test_' + tool)
+            target_name = item['target'].replace('\\', '/')
+            if item['source'] != item['target'] or not any(target_name.startswith(p) for p in permitted):
+                raise ValueError('External tool payload must use its own engine/docs/tests namespace')
         source = inside(candidate / item["source"], candidate)
         target = inside(ROOT / item["target"], ROOT)
         if not source.is_file():
@@ -84,15 +92,21 @@ def main():
         raise ValueError("Expected release_candidate directory")
     description = json.loads((candidate / "promotion.json").read_text(encoding="utf-8"))
     pairs = payload(candidate, description)
-    registry, original, updated = registry_change(description)
+    external = description.get('runtime') in ('unreal_editor', 'windows_standalone')
+    if external:
+        if description.get('registration') is not None or not description.get('entry_module'):
+            raise ValueError('External tool requires its own entry module and no Maya registration')
+        registry, original, updated = None, None, None
+    else:
+        registry, original, updated = registry_change(description)
     candidate_hash = fingerprint(candidate, description)
     if args.apply:
         if not args.acceptance:
             raise ValueError("--apply requires a user-recorded --acceptance file")
         acceptance = json.loads(Path(args.acceptance).read_text(encoding="utf-8"))
-        required = (acceptance.get("passed") is True, acceptance.get("tool_id") == description["tool_id"], acceptance.get("candidate_sha256") == candidate_hash, bool(acceptance.get("maya_version")), bool(acceptance.get("accepted_by")), bool(acceptance.get("date")))
+        required = (acceptance.get("passed") is True, acceptance.get("tool_id") == description["tool_id"], acceptance.get("candidate_sha256") == candidate_hash, bool(acceptance.get("runtime_version" if external else "maya_version")), bool(acceptance.get("accepted_by")), bool(acceptance.get("date")))
         if not all(required):
-            raise ValueError("Missing/stale human Maya acceptance; refusing promotion")
+            raise ValueError("Missing/stale human runtime acceptance; refusing promotion")
         for source, unused_target in pairs:
             if source.suffix == ".py":
                 compile(source.read_bytes(), str(source), "exec")
@@ -106,16 +120,17 @@ def main():
                 with target.open("xb") as stream:
                     stream.write(source.read_bytes())
                 copied.append(target)
-            if registry.read_bytes() != original:
+            if registry is not None and registry.read_bytes() != original:
                 raise ValueError("Registry changed during promotion")
-            registry.write_bytes(updated)
+            if registry is not None:
+                registry.write_bytes(updated)
         except Exception:
-            if registry.read_bytes() == updated:
+            if registry is not None and registry.read_bytes() == updated:
                 registry.write_bytes(original)
             for target in reversed(copied):
                 target.unlink()
             raise
-    print(json.dumps({"tool_id": description["tool_id"], "candidate_sha256": candidate_hash, "applied": args.apply, "files": [str(target.relative_to(ROOT)) for unused_source, target in pairs], "registry": str(registry.relative_to(ROOT)), "panel": "ToolRegistry discovery plus tool.show_ui", "maya_acceptance_required": True}, ensure_ascii=True, indent=2))
+    print(json.dumps({"tool_id": description["tool_id"], "candidate_sha256": candidate_hash, "applied": args.apply, "files": [str(target.relative_to(ROOT)) for unused_source, target in pairs], "registry": str(registry.relative_to(ROOT)) if registry else None, "panel": description.get('panel', 'Native runtime entry') if external else "ToolRegistry discovery plus tool.show_ui", "maya_acceptance_required": not external, "runtime_acceptance_required": True, "runtime": description.get('runtime', 'maya')}, ensure_ascii=True, indent=2))
 
 
 if __name__ == "__main__":

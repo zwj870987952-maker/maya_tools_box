@@ -720,3 +720,9 @@
 - 原单文件SHA归档，完整All_joints烘焙/Reset_Trans全部keys删除+原9TRS值/全场references import/导出集合与成员NS merge/AAA关键词/原全部FBXflags/每次export后root_NNN rename/可选引用FBX/原备用export-set bake(default False)保留。Base/Schema/readonly inspect/全集preview、候选简UI、self-contained FBX/MA IO、知识验收晋级齐备；原无UI导入自动执行取消，整体仅作用exportAll复制dirty/untitled当前scene的真正独立mayapy snapshot，workspace保持/scene scriptNodes禁用/私有Maya app日志，不改变caller。
 - 2离线+2隔离Maya2025+临时正式布局/注册/panel/fingerprint通过：原dirtycaller全部节点/references/keys/Customkey/selection/time/AutoKey/Undo/modified原样，真实snapshotchild import reference/namespace去除/All_joints keys1,2,3/Reset TRS rx=-90并custom全部keys清后首帧1/root_001；全新prepared MA实际读回这些状态、真实ASCII FBX再导入1mesh；已存在output/锁后行/空全部exportset前拒绝不写。原Reset_Trans cuts所有attrs明确preview，不假称只TRS。
 - 原烘焙reset在reference import之前，候选private import先行避免副本reference edits生成后import丢失，明确记录顺序行为改变；NS merge有副本全namespace扩大搬迁/重名影响，原caller完全保持。文件/日志不Undo，worker失败/timeout可能保留完成outputs。GUI/嵌套引用/动态模拟/备用bake-export-set分支/全部flags/UE与跨版本not_run，prepared_unverified。实际5h57%已用（剩43%）、周55%，继续ue_bone_exporter，heartbeat暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：UE骨骼表完整原生候选，累计88/109
+
+- 原5文件SHA归档，完整UE Python SkeletalMesh名称TXT与C++ Editor原生右键/保存窗口/成功消息两条实现保留。明确Python网格骨骼与原C++共享Skeleton差异，C++提供mesh/shared两菜单；补Context/MessageDialog/Paths/FileManager显式include和ToolMenu owner生命周期，移除未用EditorStyle补AssetRegistry，exclusive文件保护，无自动执行/无asset commit/save。
+- 3离线mock和临时最终布局/源码fingerprint通过：UTF8中文骨名/只读dry-run/已有目标整表拒绝/不同路径同名collision/竞争写入保留竞争者并撤自己的文件。UE package在缺Maya/Unreal时可导入。临时晋级助手增加明确external runtime分支，仅engine/docs/tests ownnamespace，无Maya Base/registry/panel伪适配；2实际temp-repo测试验证未验收/旧SHA拒绝、验收后复制/重复目标拒绝、Maya注册字节不变及external禁止写正式Maya路径。只改本轮临时助手，不修改正式框架。
+- 本机Program Files/Epic Games未找到安装。真实UE资产/SkeletonModifier读取副作用/UBT C++编译/保存窗口/热重载/跨UE版本均not_run，不把源文本检查称为编译通过；prepared_unverified，UE runtime_acceptance单独not_run，Maya GUI仍未伪通过。实际5h63%已用（剩37%）、周56%，继续ue_context_menu；heartbeat暂停，不迁正式/同步/用卡/购买。

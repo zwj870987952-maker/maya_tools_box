@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "生成骨骼表",
+	"Description": "选中骨骼网格体后，导出所有骨骼名称到txt文件",
+	"Category": "Editor",
+	"CreatedBy": "Your Name",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "BoneListGenerator",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
+		}
+	]
+}
