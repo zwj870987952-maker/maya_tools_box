@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T11:07:03.063713+08:00",
+  "updated_at": "2026-10-02T11:07:49.253310+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
-    "state": "working",
+    "state": "waiting_for_quota",
     "heartbeat_id": "automation",
-    "heartbeat_status": "PAUSED",
+    "heartbeat_status": "ACTIVE",
     "heartbeat_verified": true,
     "reset_guard": "disabled_by_user_no_cards",
     "obsidian_sync": "disabled_for_this_run",
@@ -13,12 +13,13 @@
     "heartbeat_transition_verified": true,
     "last_completed_tool": "07_subsystems_suites/animbot_copy",
     "last_usage": {
-      "five_hour_used_percent": 87.0,
-      "weekly_used_percent": 59.0,
-      "recorded_at": "2026-10-02T10:54:27.650917+08:00",
-      "note": "Caller supplied actual read; reread on next run"
+      "five_hour_used_percent": 95.0,
+      "weekly_used_percent": 60.0,
+      "recorded_at": "2026-10-02T11:07:45.667007+08:00",
+      "note": "Actual caller-observed usage; percentages record used quota, not remaining quota."
     },
-    "current_tool": "07_subsystems_suites/animbot_copy"
+    "current_tool": "07_subsystems_suites/getools_overlappy",
+    "resume_note": "Stopped at completed candidate boundary. Resume only with five-hour remaining >95%, weekly allowed, and no other active round. Do not consume reset credits or purchase quota."
   },
   "entry_repairs": [
     {
@@ -20381,7 +20382,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete supplied toolbar/Graph Editor/workspace UI prototype, honest missing animation algorithms, validated in-memory config and lazy lifecycle",
-      "prepared_at": "2026-10-02T11:05:31.168044+08:00"
+      "prepared_at": "2026-10-02T11:05:31.168044+08:00",
+      "source_commit": "58ca44c4f07876af165410575ed41e0da0b6e3a0"
     },
     {
       "source_path": "07_subsystems_suites/getools_overlappy",
