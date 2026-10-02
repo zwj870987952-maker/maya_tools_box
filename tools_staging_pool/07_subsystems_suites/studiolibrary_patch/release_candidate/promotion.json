@@ -1,0 +1,1245 @@
+{
+  "tool_id": "studiolibrary_patch",
+  "registration": {
+    "module": "studiolibrary_patch",
+    "class_name": "StudioLibraryPatchTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/studiolibrary_patch.md",
+      "target": "docs/tools/studiolibrary_patch.md"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/__init__.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/catalog.json",
+      "target": "maya_toolkit/tools/studiolibrary_patch/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/guards.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/guards.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/history_safety.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/history_safety.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/native/StudioLibrary_ThemePatch/install_theme.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/native/StudioLibrary_ThemePatch/install_theme.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/native/StudioLibrary_ThemePatch/README.md",
+      "target": "maya_toolkit/tools/studiolibrary_patch/native/StudioLibrary_ThemePatch/README.md"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/native/StudioLibrary_ThemePatch/theme_resources/css/default.css",
+      "target": "maya_toolkit/tools/studiolibrary_patch/native/StudioLibrary_ThemePatch/theme_resources/css/default.css"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/native/StudioLibrary_ThemePatch/uninstall_theme.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/native/StudioLibrary_ThemePatch/uninstall_theme.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/__init__.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/history.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/history.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/icons/world_animation.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/icons/world_animation.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/icons/world_pose.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/icons/world_pose.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/integration.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/integration.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/locales/zh_CN.json",
+      "target": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/locales/zh_CN.json"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/localization.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/localization.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/savewidget.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/savewidget.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/startup.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/startup.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/wanimationitem.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/wanimationitem.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/worldanimation.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/worldanimation.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/worldpose.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/worldpose.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/wposeitem.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/native/studiolibrary_wanimation/wposeitem.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/runtime.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/runtime.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/theme_io.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/theme_io.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/upstream/StudioLibrary_ThemePatch/install_theme.py.original",
+      "target": "maya_toolkit/tools/studiolibrary_patch/upstream/StudioLibrary_ThemePatch/install_theme.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/upstream/StudioLibrary_ThemePatch/README.md",
+      "target": "maya_toolkit/tools/studiolibrary_patch/upstream/StudioLibrary_ThemePatch/README.md"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/upstream/StudioLibrary_ThemePatch/theme_resources/css/default.css",
+      "target": "maya_toolkit/tools/studiolibrary_patch/upstream/StudioLibrary_ThemePatch/theme_resources/css/default.css"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/upstream/StudioLibrary_ThemePatch/uninstall_theme.py.original",
+      "target": "maya_toolkit/tools/studiolibrary_patch/upstream/StudioLibrary_ThemePatch/uninstall_theme.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/__init__.py.original",
+      "target": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/__init__.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/history.py.original",
+      "target": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/history.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/icons/world_animation.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/icons/world_animation.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/icons/world_pose.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/icons/world_pose.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/integration.py.original",
+      "target": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/integration.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/locales/zh_CN.json",
+      "target": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/locales/zh_CN.json"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/localization.py.original",
+      "target": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/localization.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/savewidget.py.original",
+      "target": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/savewidget.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/startup.py.original",
+      "target": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/startup.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/wanimationitem.py.original",
+      "target": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/wanimationitem.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/worldanimation.py.original",
+      "target": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/worldanimation.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/worldpose.py.original",
+      "target": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/worldpose.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/wposeitem.py.original",
+      "target": "maya_toolkit/tools/studiolibrary_patch/upstream/studiolibrary_wanimation/wposeitem.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/config/readme.md",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/config/readme.md"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/dependency_provenance.json",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/dependency_provenance.json"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/DOCS.md",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/DOCS.md"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/LICENSE.md",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/LICENSE.md"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/README.md",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/README.md"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/__init__.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/animation.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/animation.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/attribute.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/attribute.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/cmds.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/cmds.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/decorators.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/decorators.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/gui/__init__.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/gui/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/gui/framerangemenu.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/gui/framerangemenu.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/gui/modelpanelwidget.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/gui/modelpanelwidget.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/gui/thumbnailcapturedialog.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/gui/thumbnailcapturedialog.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/gui/thumbnailcapturemenu.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/gui/thumbnailcapturemenu.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/matchnames.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/matchnames.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/mirrortable.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/mirrortable.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/namespace.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/namespace.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/node.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/node.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/playblast.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/playblast.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/pose.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/pose.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/README.md",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/README.md"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/scriptjob.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/scriptjob.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/selectionset.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/selectionset.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/__init__.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/anim.ma",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/anim.ma"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/animation.anim",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/animation.anim"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/pose.json",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/pose.json"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/sphere.ma",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/sphere.ma"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test.ma",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test.ma"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_anim.ma",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_anim.ma"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_bake_connected.anim/animation.ma",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_bake_connected.anim/animation.ma"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_bake_connected.anim/animation.mb",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_bake_connected.anim/animation.mb"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_bake_connected.anim/pose.json",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_bake_connected.anim/pose.json"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_bake_connected.ma",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_bake_connected.ma"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_load_insert.anim/animation.ma",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_load_insert.anim/animation.ma"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_load_insert.anim/animation.mb",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_load_insert.anim/animation.mb"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_load_insert.anim/pose.json",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_load_insert.anim/pose.json"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_load_replace.anim/animation.ma",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_load_replace.anim/animation.ma"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_load_replace.anim/animation.mb",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_load_replace.anim/animation.mb"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_load_replace.anim/pose.json",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_load_replace.anim/pose.json"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_load_replace_completely.anim/animation.ma",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_load_replace_completely.anim/animation.ma"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_load_replace_completely.anim/animation.mb",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_load_replace_completely.anim/animation.mb"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_load_replace_completely.anim/pose.json",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_load_replace_completely.anim/pose.json"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_mirror_tables.ma",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_mirror_tables.ma"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_non_unique_names.ma",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_non_unique_names.ma"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_non_unique_names.pose",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_non_unique_names.pose"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_older_version.anim/.studioLibrary/record.dict",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_older_version.anim/.studioLibrary/record.dict"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_older_version.anim/animation.ma",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_older_version.anim/animation.ma"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_older_version.anim/pose.dict",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_older_version.anim/pose.dict"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_older_version.dict",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_older_version.dict"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_pose.ma",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_pose.ma"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_pose.pose",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_pose.pose"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_poseplugin.pose/.studiolibrary/record.dict",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/data/test_poseplugin.pose/.studiolibrary/record.dict"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/run.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/run.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/test_anim.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/test_anim.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/test_attribute.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/test_attribute.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/test_base.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/test_base.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/test_match.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/test_match.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/test_mirrortable.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/test_mirrortable.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/test_pose.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/test_pose.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/test_utils.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/tests/test_utils.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/transferobject.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/mutils/transferobject.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/__init__.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/config/default.json",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/config/default.json"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/config.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/config.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/folderitem.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/folderitem.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/library.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/library.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/libraryitem.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/libraryitem.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/librarywindow.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/librarywindow.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/main.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/main.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/css/default.css",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/css/default.css"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/LICENSE.txt",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/LICENSE.txt"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/OpenSans-Bold.ttf",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/OpenSans-Bold.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/OpenSans-BoldItalic.ttf",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/OpenSans-BoldItalic.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/OpenSans-ExtraBold.ttf",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/OpenSans-ExtraBold.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/OpenSans-ExtraBoldItalic.ttf",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/OpenSans-ExtraBoldItalic.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/OpenSans-Italic.ttf",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/OpenSans-Italic.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/OpenSans-Light.ttf",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/OpenSans-Light.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/OpenSans-LightItalic.ttf",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/OpenSans-LightItalic.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/OpenSans-Regular.ttf",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/OpenSans-Regular.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/OpenSans-SemiBold.ttf",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/OpenSans-SemiBold.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/OpenSans-SemiBoldItalic.ttf",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/fonts/OpenSans-SemiBoldItalic.ttf"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/add.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/add.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/add_28.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/add_28.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/archive.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/archive.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/arrows-rotate.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/arrows-rotate.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/asset.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/asset.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/assets.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/assets.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/bars.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/bars.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/blank.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/blank.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/book.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/book.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/branch_closed_black.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/branch_closed_black.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/branch_closed_white.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/branch_closed_white.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/branch_open_black.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/branch_open_black.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/branch_open_white.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/branch_open_white.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/camera-alt.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/camera-alt.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/camera.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/camera.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/cancel.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/cancel.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/caret-down.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/caret-down.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/caret-right.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/caret-right.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/character.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/character.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/check_box_checked_black.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/check_box_checked_black.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/check_box_checked_white.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/check_box_checked_white.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/check_box_unchecked_black.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/check_box_unchecked_black.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/check_box_unchecked_white.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/check_box_unchecked_white.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/circle.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/circle.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/circle.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/circle.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/cloud.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/cloud.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/cog.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/cog.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/columns-3.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/columns-3.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/critical.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/critical.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/cross.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/cross.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/database.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/database.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/delete.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/delete.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/drop_arrow_black.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/drop_arrow_black.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/drop_arrow_white.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/drop_arrow_white.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/environment.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/environment.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/error.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/error.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/expand.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/expand.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/eye-slash.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/eye-slash.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/eye.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/eye.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/face.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/face.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/favorite.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/favorite.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/file-alt.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/file-alt.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/file.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/file.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/filter.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/filter.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/folder.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/folder.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/folder_collapsed.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/folder_collapsed.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/folder_expanded.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/folder_expanded.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/folder_item.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/folder_item.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/folder_open.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/folder_open.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/folder_open.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/folder_open.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/globe.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/globe.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/groupby.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/groupby.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/hand.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/hand.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/header.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/header.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/icon.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/icon.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/image.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/image.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/inbox.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/inbox.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/info.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/info.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/layers.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/layers.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/lock.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/lock.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/logo.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/logo.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/logo_high.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/logo_high.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/logo_white.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/logo_white.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/magnifying-glass.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/magnifying-glass.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/plus-large.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/plus-large.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/plus.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/plus.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/preview_placeholder.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/preview_placeholder.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/question.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/question.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/radio_button_checked_black.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/radio_button_checked_black.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/radio_button_checked_white.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/radio_button_checked_white.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/radio_button_unchecked_black.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/radio_button_unchecked_black.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/radio_button_unchecked_white.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/radio_button_unchecked_white.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/search.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/search.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/search.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/search.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/settings.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/settings.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/share.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/share.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/shot.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/shot.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/sliders.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/sliders.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/sortby.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/sortby.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/sync.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/sync.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/tag.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/tag.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/thumbnail.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/thumbnail.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/thumbnail_solid.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/thumbnail_solid.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/times.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/times.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/trash.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/trash.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/tree.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/tree.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/user.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/user.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/users.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/users.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/vehicle.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/vehicle.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/video.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/video.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/view_all.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/view_all.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/view_compact.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/view_compact.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/view_settings.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/view_settings.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/warning.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/warning.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/xmark.svg",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource/icons/xmark.svg"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/resource.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/utils.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/utils.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/__init__.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/colorpicker.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/colorpicker.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/fieldwidgets.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/fieldwidgets.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/filterbymenu.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/filterbymenu.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/formwidget.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/formwidget.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/groupboxwidget.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/groupboxwidget.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/groupbymenu.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/groupbymenu.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/iconpicker.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/iconpicker.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/itemswidget/__init__.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/itemswidget/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/itemswidget/groupitem.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/itemswidget/groupitem.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/itemswidget/item.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/itemswidget/item.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/itemswidget/itemdelegate.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/itemswidget/itemdelegate.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/itemswidget/itemswidget.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/itemswidget/itemswidget.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/itemswidget/itemviewmixin.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/itemswidget/itemviewmixin.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/itemswidget/listview.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/itemswidget/listview.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/itemswidget/treewidget.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/itemswidget/treewidget.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/librariesmenu.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/librariesmenu.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/lightbox.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/lightbox.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/lineedit.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/lineedit.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/menubarwidget.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/menubarwidget.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/messagebox.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/messagebox.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/placeholderwidget.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/placeholderwidget.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/PlaceholderWidget.ui",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/PlaceholderWidget.ui"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/previewwidget.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/previewwidget.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/PreviewWidget.ui",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/PreviewWidget.ui"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/searchwidget.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/searchwidget.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/separatoraction.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/separatoraction.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/sequencewidget.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/sequencewidget.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/settings.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/settings.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/sidebarwidget/__init__.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/sidebarwidget/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/sidebarwidget/sidebarwidget.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/sidebarwidget/sidebarwidget.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/sidebarwidget/sidebarwidgetitem.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/sidebarwidget/sidebarwidgetitem.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/slideraction.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/slideraction.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/sortbymenu.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/sortbymenu.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/statuswidget.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/statuswidget.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/themesmenu.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/themesmenu.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/toastwidget.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrary/widgets/toastwidget.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/__init__.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/animitem.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/animitem.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/baseitem.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/baseitem.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/baseloadwidget.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/baseloadwidget.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/BaseLoadWidget.ui",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/BaseLoadWidget.ui"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/basesavewidget.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/basesavewidget.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/BaseSaveWidget.ui",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/BaseSaveWidget.ui"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/exampleitem.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/exampleitem.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/animation.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/animation.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/arrow.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/arrow.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/file.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/file.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/insert.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/insert.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/insertConnect.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/insertConnect.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/merge.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/merge.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/mergeConnect.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/mergeConnect.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/mirrortable.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/mirrortable.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/pose.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/pose.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/replace.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/replace.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/replaceCompletely.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/replaceCompletely.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/replaceConnect.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/replaceConnect.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/selectionSet.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/selectionSet.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/selectionSet2.png",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/icons/selectionSet2.png"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/mayafileitem.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/mayafileitem.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/mayalibrarywindow.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/mayalibrarywindow.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/mirroritem.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/mirroritem.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/poseitem.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/poseitem.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/README.md",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/README.md"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/setsitem.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/setsitem.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/setsmenu.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiolibrarymaya/setsmenu.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studioqt/__init__.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studioqt/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studioqt/color.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studioqt/color.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studioqt/decorators.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studioqt/decorators.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studioqt/icon.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studioqt/icon.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studioqt/imagesequence.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studioqt/imagesequence.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studioqt/menu.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studioqt/menu.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studioqt/pixmap.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studioqt/pixmap.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studioqt/stylesheet.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studioqt/stylesheet.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studioqt/utils.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studioqt/utils.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiovendor/__init__.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiovendor/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiovendor/Qt.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiovendor/Qt.py"
+    },
+    {
+      "source": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiovendor/six.py",
+      "target": "maya_toolkit/tools/studiolibrary_patch/vendor/src/studiovendor/six.py"
+    },
+    {
+      "source": "tests/test_studiolibrary_patch.py",
+      "target": "tests/test_studiolibrary_patch.py"
+    },
+    {
+      "source": "tests/test_studiolibrary_patch_maya.py",
+      "target": "tests/test_studiolibrary_patch_maya.py"
+    },
+    {
+      "source": "tests/test_studiolibrary_patch_qt.py",
+      "target": "tests/test_studiolibrary_patch_qt.py"
+    }
+  ],
+  "resources": [
+    "StudioLibrary_ThemePatch/install_theme.py",
+    "StudioLibrary_ThemePatch/README.md",
+    "StudioLibrary_ThemePatch/theme_resources/css/default.css",
+    "StudioLibrary_ThemePatch/uninstall_theme.py",
+    "studiolibrary_wanimation/__init__.py",
+    "studiolibrary_wanimation/history.py",
+    "studiolibrary_wanimation/icons/world_animation.svg",
+    "studiolibrary_wanimation/icons/world_pose.svg",
+    "studiolibrary_wanimation/integration.py",
+    "studiolibrary_wanimation/locales/zh_CN.json",
+    "studiolibrary_wanimation/localization.py",
+    "studiolibrary_wanimation/savewidget.py",
+    "studiolibrary_wanimation/startup.py",
+    "studiolibrary_wanimation/wanimationitem.py",
+    "studiolibrary_wanimation/worldanimation.py",
+    "studiolibrary_wanimation/worldpose.py",
+    "studiolibrary_wanimation/wposeitem.py"
+  ],
+  "dependencies": [
+    "Bundled StudioLibrary official pinned commit d2173f64460f3fa413ebb3696c28efacc60ef0dd LGPL3 and embedded notices",
+    "Maya cmds/API2 and PySide6/PySide2"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete pinned Studio Library world-pose/animation/history/localization/theme with explicit reversible hooks and recoverable external IO",
+  "verification_limitations": [
+    "Real Maya GUI/production rigs/history overwrite/cache/mirror/advanced native save and cross-version acceptance not_run"
+  ]
+}

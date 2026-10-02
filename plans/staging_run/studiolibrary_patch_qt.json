@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/07_subsystems_suites/studiolibrary_patch/release_candidate/tests/test_studiolibrary_patch_qt.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "<frozen importlib._bootstrap>:1047: ImportWarning: _SixMetaPathImporter.find_spec() not found; falling back to find_module()\r\n<frozen importlib._bootstrap>:1047: ImportWarning: _SixMetaPathImporter.find_spec() not found; falling back to find_module()\r\nCannot save settings to \"C:/Users/zwj87/AppData/Roaming/StudioLibrary/LibraryWidget.json\"\r\nTraceback (most recent call last):\r\n  File \"E:\\GitHub\\maya_tools_box\\tools_staging_pool\\07_subsystems_suites\\studiolibrary_patch\\release_candidate\\maya_toolkit\\tools\\studiolibrary_patch\\vendor\\src\\studiolibrary\\utils.py\", line 994, in saveSettings\r\n    studiolibrary.saveJson(path, data)\r\n  File \"E:\\GitHub\\maya_tools_box\\tools_staging_pool\\07_subsystems_suites\\studiolibrary_patch\\release_candidate\\maya_toolkit\\tools\\studiolibrary_patch\\vendor\\src\\studiolibrary\\utils.py\", line 922, in saveJson\r\n    write(path, data)\r\n  File \"E:\\GitHub\\maya_tools_box\\tools_staging_pool\\07_subsystems_suites\\studiolibrary_patch\\release_candidate\\maya_toolkit\\tools\\studiolibrary_patch\\vendor\\src\\studiolibrary\\utils.py\", line 783, in write\r\n    write3(path, data)\r\n  File \"E:\\GitHub\\maya_tools_box\\tools_staging_pool\\07_subsystems_suites\\studiolibrary_patch\\release_candidate\\maya_toolkit\\tools\\studiolibrary_patch\\vendor\\src\\studiolibrary\\utils.py\", line 869, in write3\r\n    with open(tmp, \"w\") as f:\r\n         ^^^^^^^^^^^^^^\r\nPermissionError: [Errno 13] Permission denied: 'C:/Users/zwj87/AppData/Roaming/StudioLibrary\\\\zj40bti1.delete'\r\n.\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.565s\r\n\r\nOK\r\nswig/python detected a memory leak of type 'MObject *', no destructor found.\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "2e33f407459e89d6773605cd33dab4bcb09f6867ae4deed24f6afeb174f2f50c",
+  "runtime_source_sha256": "5e2f73210f7d4d209914d0647689631ed70a5989c7cfe63aa81371bf407980a8"
+}

@@ -803,3 +803,11 @@
 - Sequence唯一prefix/padding/扩展/数字顺序/连续至少2帧、正确imagePlane shape和frame_driver、camera隐藏/当前cam显示/可选view；单Undo保持选择，frame2真正驱动plane.frameExtension2。初版尝试额外expression遇native已连接time，改复用本次new imagePlane原驱动，不覆盖连接；首次失败报告保留。原renameAll=True导入cube变source_fixtureCube保持原语义，测试核对真实mesh6faces与returnNewNodes长路径，不猜短名。
 - 2离线+4隔离Maya2025+独立Qt无Maya-init QObject/QDropEvent测试（自有子树受支持文件消费/foreign或py后缀不吞/停止强引用filter）+最终临时注册/domain/panel/fingerprint通过。Python dialog wrapper kwargs/显式dir/返回/重复不叠加/foreign拒绝/restore在隔离fixture通过；Qt文件URL原生斜杠和Windows反斜杠用Path语义核对。全部真实Maya GUI/drop长期生命周期/dialog/sequence显示/plugins/reference/跨版本not_run；原不合法MEL global fileDialog2覆写不保留，MEL原生签名与返回不破坏，文档明确Python路径功能边界。prepared_unverified。
 - 实际5h33%已用（剩67%）、周66%（剩34%）；继续studiolibrary_patch，heartbeat保持暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：Studio Library PlusPatch完整候选，累计101/109
+
+- 用户17原文件精确归档；缺失Studio Library已从官方固定提交d2173f64460f3fa413ebb3696c28efacc60ef0dd补齐257文件，逐文件SHA256/size与CDN固定树核验，完整Python/Qt shim、mutils、配置、字体图标/UI和LGPL3及嵌入通知。下载首轮timeout/503后使用固定树缓存与CDN节点重试，未执行安装器；完整未来目录保留vendor源和可对照精确原档。
+- 完整标准StudioLibrary+世界姿态/动画Save/Load widgets+中文菜单/表单+历史版本+ModernDark。inspect/dry不导入Qt/注册hook/改cache；显式activate，混用外来Studio/mutils拒绝。所有class hooks/item registry快照、异常回滚/foreign后来wrapper拒绝强覆盖；cache只显式自有root并先备份。候选窗口内主题解析原CSS token/DPI，不改磁盘；外部CSS安装先精确backup/hash/receipt再atomic replace，外部修改拒绝uninstall，原bytes可恢复。
+- world JSON严格有限/向量/matrix/重复key/范围/样本边界，全目标锁轴/外来驱动检查先于写入和cutKey，capture时间与选择在UndoChunk内恢复；完整新.wpose标准pose+world、.wanim world-only原pose分支或native custom动画anim.ma分支，保存异常保留新部分资产，外部文件不可Undo。覆盖历史失败恢复原资产本体+.history并保留failed半成品；成功旧版本不丢失，新v0002精确旧payload，历史碰撞拒绝静默删版本，未知stage/symlink拒绝。
+- 2离线+3隔离Maya2025+独立Qt未初始化Maya的完整LibraryWindow构造/Theme/菜单/本地化callback不深拷贝/原hooks接口与foreign恢复+临时完整layout/registry/domain/panel/fingerprint通过。初轮测试缺standalone初始化、构建补丁误插入guards.asset已修并重验；不把失败冒充通过。真实Maya GUI/生产复杂rig/镜像bake/custom native动画导出/history overwrite/cache/跨版本not_run，prepared_unverified。
+- 实际5h45%已用（剩55%）、周68%（剩32%）；继续the_key_machine。heartbeat暂停，不迁正式、不同步、不用卡、不购买。

@@ -1,0 +1,1296 @@
+
+/*
+ --------------------------------------------------------------------------
+ Base widgets - Modern Minimalist Dark Theme
+ --------------------------------------------------------------------------
+*/
+
+QWidget {
+    font-size: 12px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", "Open Sans", sans-serif;
+    color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 220);
+}
+
+QFrame {
+    background-color: BACKGROUND_COLOR;
+}
+
+QWidget:disabled {
+    color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 80);
+}
+
+QLineEdit, QPushButton, QToolBar, QToolButton, QTabBar, QTabBar::tab {
+    border: 0px;
+    background-color: transparent;
+}
+
+MenuBarWidget {
+	color: FOREGROUND_COLOR;
+	background-color: rgba(BACKGROUND_COLOR_R, BACKGROUND_COLOR_G, BACKGROUND_COLOR_B, 245);
+	border-bottom: 1px solid rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 20);
+	spacing: 6px;
+	padding: 4px 8px;
+	qproperty-iconSize: 20px;
+}
+
+QToolBar {
+	spacing: 6px;
+}
+
+MenuBarWidget QToolButton {
+	color: FOREGROUND_COLOR;
+	background-color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 15);
+	border: 1px solid rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 20);
+    min-height: 28px;
+    max-height: 28px;
+    min-width: 28px;
+    max-width: 28px;
+    border-radius: 6px;
+	margin: 1px 2px;
+}
+
+MenuBarWidget QToolButton:hover {
+    background-color: rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 90);
+    border: 1px solid rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 200);
+    color: #FFFFFF;
+}
+
+MenuBarWidget QToolButton:pressed {
+    background-color: rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 150);
+    border: 1px solid ACCENT_COLOR;
+}
+
+MenuBarWidget QToolButton:checked {
+    background-color: ACCENT_COLOR;
+    border: 1px solid ACCENT_COLOR;
+    color: ACCENT_FOREGROUND_COLOR;
+}
+
+QToolTip {
+    background-color: rgba(BACKGROUND_COLOR_R, BACKGROUND_COLOR_G, BACKGROUND_COLOR_B, 250);
+    color: FOREGROUND_COLOR;
+    border: 1px solid rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 130);
+    border-radius: 6px;
+    padding: 6px 10px;
+    margin: 2px;
+}
+
+
+/*
+ --------------------------------------------------------------------------
+ Push Button - Modern Capsule & Elevated Buttons
+ --------------------------------------------------------------------------
+*/
+
+QPushButton {
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: FOREGROUND_COLOR;
+    background-color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 18);
+    border: 1px solid rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 25);
+}
+
+QPushButton:hover {
+	background-color: rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 65);
+	color: #FFFFFF;
+    border: 1px solid rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 200);
+}
+
+QPushButton:pressed {
+	background-color: rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 130);
+	color: ACCENT_FOREGROUND_COLOR;
+    border: 1px solid ACCENT_COLOR;
+}
+
+QPushButton:disabled {
+    background-color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 8);
+    color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 60);
+    border: 1px solid rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 12);
+}
+
+QPushButton#primaryButton,
+QPushButton#newAssetButton,
+QPushButton#acceptButton,
+QPushButton#saveButton {
+	font-weight: bold;
+	color: ACCENT_FOREGROUND_COLOR;
+    background-color: ACCENT_COLOR;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+}
+
+QPushButton#primaryButton:hover,
+QPushButton#newAssetButton:hover,
+QPushButton#acceptButton:hover,
+QPushButton#saveButton:hover {
+    background-color: rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 220);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+QPushButton#primaryButton:pressed,
+QPushButton#newAssetButton:pressed,
+QPushButton#acceptButton:pressed,
+QPushButton#saveButton:pressed {
+    background-color: rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 250);
+}
+
+QPushButton#updateButton {
+	color: ACCENT_FOREGROUND_COLOR;
+    height: 24px;
+	margin: 5px;
+	padding: 4px 8px;
+    border-radius: 4px;
+    background-color: ACCENT_COLOR;
+}
+
+/*
+ --------------------------------------------------------------------------
+ Slider - Dynamic Accent Track
+ --------------------------------------------------------------------------
+*/
+
+QSlider::groove:horizontal {
+    height: 5px;
+    background: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 25);
+    border-radius: 2.5px;
+}
+
+QSlider::handle:horizontal {
+	background: ACCENT_COLOR;
+    border: 2px solid #FFFFFF;
+    width: 14px;
+    height: 14px;
+    margin: -4.5px 0;
+    border-radius: 7px;
+}
+
+QSlider::handle:horizontal:hover {
+	background: rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 220);
+}
+
+QSlider::add-page:horizontal {
+    border: 0px solid transparent;
+    background-color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 20);
+    border-radius: 2.5px;
+}
+
+QSlider::sub-page:horizontal {
+    background-color: ACCENT_COLOR;
+    border-radius: 2.5px;
+}
+
+/*
+ --------------------------------------------------------------------------
+ Scroll Bar - Ultra-thin Floating Bar
+ --------------------------------------------------------------------------
+*/
+
+QScrollBar:vertical {
+	width: 6px;
+}
+
+QScrollBar:horizontal {
+	height: 6px;
+}
+
+QScrollBar:vertical,
+QScrollBar:horizontal {
+	margin: 0px;
+	border: 0px solid transparent;
+	background: transparent;
+}
+
+QScrollBar::handle:vertical,
+QScrollBar::handle:horizontal {
+	min-height: 24px;
+	border-radius: 3px;
+	background: rgba(255, 255, 255, 0.15);
+}
+
+QScrollBar::handle:vertical:hover,
+QScrollBar::handle:horizontal:hover {
+	background: rgb(108, 92, 231);
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::add-line:horizontal {
+	height: 0px;
+	border: 0px solid grey;
+	subcontrol-origin: margin;
+	subcontrol-position: bottom;
+}
+
+QScrollBar::sub-line:vertical,
+QScrollBar::sub-line:horizontal {
+	height: 0px;
+	border: 0px solid grey;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+}
+
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	width: 0px;
+	height: 0px;
+	border: 0px;
+	background: white;
+}
+
+QScrollBar::add-page:horizontal, QScrollBar::add-page:vertical,
+QScrollBar::sub-page:horizontal, QScrollBar::sub-page:vertical {
+	background: none;
+}
+
+/*
+ --------------------------------------------------------------------------
+ Header View
+ --------------------------------------------------------------------------
+*/
+
+QHeaderView::up-arrow {
+     image: url("RESOURCE_DIRNAME/icons/up_arrow.png");
+}
+
+QHeaderView::down-arrow {
+     image: url("RESOURCE_DIRNAME/icons/down_arrow.png");
+}
+
+QAbstractItemView::separator {
+	height: 0px;
+	padding: 0px;
+	background-color: transparent;
+}
+
+QListView::item, QTreeView::item {
+	border: 0px;
+	outline: none;
+	border-style: solid;
+	margin: 0px;
+	padding: 0px;
+	background-color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 10);
+}
+
+QHeaderView::section {
+	font: 12px;
+	height: 18px;
+	border: 0px;
+	border-right: 1px solid rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 20);
+	border-bottom: 1px solid rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 20);
+	padding: 5px;
+    background-color: rgba(0, 0, 0, 20);
+}
+
+/*
+ --------------------------------------------------------------------------
+ List/Tree View
+ --------------------------------------------------------------------------
+*/
+
+SidebarFrame {
+	background-color: rgba(16, 17, 22, 0.98);
+	border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+QTreeView {
+	color: rgba(255, 255, 255, 0.85);
+	background-color: transparent;
+	border: 0px;
+}
+
+QTreeView, QListView, QPushButton {
+    border: 0px;
+    outline: none;
+}
+
+QTreeView::item, QTreeView::branch {
+	height: 26px;
+	show-decoration-selected: 1;
+	background-color: transparent;
+}
+
+QTreeView::item {
+	border-radius: 4px;
+	padding-left: 4px;
+	margin: 1px 4px;
+}
+
+QTreeView::item:focus {
+	border: 0px;
+	outline: none;
+}
+
+QTreeView::branch:has-children:!has-siblings:closed,
+QTreeView::branch:closed:has-children:has-siblings {
+    border-image: none;
+    image: url("RESOURCE_DIRNAME/icons/branch_closed_DARKNESS.png");
+}
+
+QTreeView::branch:open:has-children:!has-siblings,
+QTreeView::branch:open:has-children:has-siblings {
+    border-image: none;
+    image: url("RESOURCE_DIRNAME/icons/branch_open_DARKNESS.png");
+}
+
+QMenu::separator, QListView::item:hover,
+QTreeView::branch:hover, QTreeView::item:hover {
+	background-color: rgba(255, 255, 255, 0.06);
+	color: #FFFFFF;
+}
+
+QTreeView::branch:selected,
+QFrame#headerFrame > QWidget, QFrame#headerFrame {
+    color: #FFFFFF;
+    background-color: rgba(108, 92, 231, 0.35);
+}
+
+QTreeView::item:selected, QTreeView::item:selected:active,
+QListView::item:selected, QListView::item:selected:active {
+    color: #FFFFFF;
+    background-color: rgba(108, 92, 231, 0.4);
+    border-left: 3px solid rgb(108, 92, 231);
+    border-radius: 4px;
+}
+
+QCheckBox, QRadioButton {
+    spacing: 8px;
+    padding: 3px 0px;
+    min-height: 20px;
+    color: rgba(237, 237, 237, 0.9);
+    background-color: transparent;
+}
+
+QCheckBox:hover, QRadioButton:hover {
+    color: #FFFFFF;
+}
+
+QCheckBox::indicator, QRadioButton::indicator {
+	width: 16px;
+	height: 16px;
+    margin-right: 4px;
+}
+
+QRadioButton::indicator:checked {
+    image: url("RESOURCE_DIRNAME/icons/radio_button_checked_DARKNESS.png");
+}
+
+QRadioButton::indicator:unchecked {
+    image: url("RESOURCE_DIRNAME/icons/radio_button_unchecked_DARKNESS.png");
+}
+
+QCheckBox::indicator:checked, QMenu::indicator:non-exclusive:checked {
+    image: url("RESOURCE_DIRNAME/icons/check_box_checked_DARKNESS.png");
+}
+
+QCheckBox::indicator:unchecked, QMenu::indicator:non-exclusive:unchecked {
+    image: url("RESOURCE_DIRNAME/icons/check_box_unchecked_DARKNESS.png");
+}
+
+QCheckBox::indicator:disabled, QMenu::indicator:non-exclusive:disabled {
+    image: url("RESOURCE_DIRNAME/icons/check_box_unchecked_DARKNESS.png");
+}
+
+/*
+ --------------------------------------------------------------------------
+ ComboBox & LineEdit
+ --------------------------------------------------------------------------
+*/
+
+QComboBox {
+	width: 10px;
+    border: 0px;
+	padding-left: 2px;
+    border-radius: 4px;
+	background-color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 15);
+}
+
+QComboBox::drop-down {
+	border: 0px;
+	padding-top: 2px;
+	background-color: rgba(255, 255, 255, 0);
+	image: url("RESOURCE_DIRNAME/icons/drop_arrow_DARKNESS.png");
+}
+
+QSpinBox,
+QLineEdit,
+QComboBox,
+QComboBox QAbstractItemView:item {
+	height: 26px;
+	padding: 0 6px;
+	border-radius: 4px;
+	background-color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 18);
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	selection-color: rgba(255, 255, 255, 240);
+	selection-background-color: ACCENT_COLOR;
+}
+
+QComboBox,
+QLineEdit {
+	border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+QComboBox:hover,
+QLineEdit:hover {
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	background-color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 30);
+}
+
+QComboBox:focus,
+QLineEdit:focus {
+	border: 1px solid ACCENT_COLOR;
+	background-color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 35);
+}
+
+QLineEdit#filterEdit QAbstractItemView {
+    border: 2px solid darkgray;
+    selection-background-color: lightgray;
+}
+
+QComboBox QAbstractItemView {
+	selection-background-color: ACCENT_COLOR;
+	selection-color: ACCENT_FOREGROUND_COLOR;
+}
+
+QLabel {
+    selection-color: ACCENT_FOREGROUND_COLOR;
+	selection-background-color: ACCENT_COLOR;
+}
+
+/*
+ --------------------------------------------------------------------------
+ Tab bar
+ --------------------------------------------------------------------------
+*/
+
+QTabBar {
+    qproperty-drawBase: 0;
+}
+
+QTabBar::tab {
+    border: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+QTabBar::tab:first:selected {
+   background-color: rgba(0, 0, 0, 0);
+   border-left: 0px solid rgba(0, 0, 0, 0);
+}
+
+/*
+ --------------------------------------------------------------------------
+ Menu Item
+ --------------------------------------------------------------------------
+*/
+
+QMenu {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 4px;
+    background-color: BACKGROUND_COLOR;
+}
+
+QMenu, QMenu QWidget {
+	font: 12px;
+	color: FOREGROUND_COLOR;
+	background-color: BACKGROUND_COLOR;
+}
+
+QMenu::separator {
+	height: 1px;
+	background-color: rgba(255, 255, 255, 0.08);
+	margin: 4px 6px;
+}
+
+QMenu::icon {
+	padding: 4px;
+}
+
+QMenu::indicator:non-exclusive {
+	width: 14px;
+	height: 14px;
+	margin-left: 3px;
+}
+
+QMenu::item {
+    min-width: 130px;
+	color: FOREGROUND_COLOR;
+	padding: 6px 10px;
+	border-radius: 4px;
+	border: 0px;
+}
+
+QMenu::item:disabled {
+	color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 60);
+}
+
+QMenu::item:selected {
+    color: ACCENT_FOREGROUND_COLOR;
+    background-color: ACCENT_COLOR;
+}
+
+QMenu::item:selected:disabled {
+	color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 50);
+	background-color: rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 50);
+}
+
+/*
+ --------------------------------------------------------------------------
+ SearchWidget
+ --------------------------------------------------------------------------
+*/
+
+SearchWidget {
+	min-height: 28px;
+	max-height: 28px;
+	background-color: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 6px;
+	padding: 0px 8px;
+}
+
+SearchWidget, SearchWidget QLabel {
+	font-size: 13px;
+	color: FOREGROUND_COLOR;
+	selection-background-color: rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 180);
+	selection-color: ACCENT_FOREGROUND_COLOR;
+}
+
+SearchWidget[hasText=true] {
+	background-color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 20);
+	border: 1px solid rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 180);
+}
+
+SearchWidget:focus {
+	border: 1px solid ACCENT_COLOR;
+	background-color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 20);
+	selection-background-color: ACCENT_COLOR;
+	selection-color: ACCENT_FOREGROUND_COLOR;
+}
+
+SearchWidget QLabel {
+	border: 0px;
+	color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 120);
+}
+
+SearchWidget QPushButton, SearchWidget QPushButton:hover {
+	border: 0px;
+	padding: 0px;
+	color: FOREGROUND_COLOR;
+	background-color: transparent;
+}
+
+SearchWidget QPushButton {
+	qproperty-iconSize: 18px;
+}
+
+/*
+ --------------------------------------------------------------------------
+ QSplitter
+ --------------------------------------------------------------------------
+*/
+
+QSplitter {
+    max-width: 2px;
+	background-color: BACKGROUND_COLOR;
+}
+
+QSplitter:handle {
+	background-color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 10);
+}
+
+QSplitter::handle:hover {
+    background-color: ACCENT_COLOR;
+}
+
+/*
+ --------------------------------------------------------------------------
+ Slider Widget Action & Separator Widget Action
+ --------------------------------------------------------------------------
+*/
+
+SliderWidgetAction {
+	padding-top: 4px;
+	padding-left: 18px;
+	padding-right: 4px;
+}
+
+SliderWidgetAction QLabel {
+	min-width: 50px;
+}
+
+SeparatorWidgetAction {
+	margin: 2px;
+	padding-left: 4px;
+	margin-right: 0px;
+}
+
+SeparatorWidgetAction Line {
+	min-height: 1px;
+	max-height: 1px;
+	background-color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 30);
+}
+
+SeparatorWidgetAction QLabel {
+	min-height: 22px;
+	max-height: 22px;
+    padding-right: 2px;
+	color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 80);
+}
+
+/*
+ --------------------------------------------------------------------------
+ Other & Preview Frames
+ --------------------------------------------------------------------------
+*/
+
+NavigationFrame {
+	margin: 2px;
+}
+
+#actionWidget {
+    margin: 0px;
+    padding: 0px;
+}
+
+#actionLabel {
+    padding-left: 5px;
+    background-color: transparent;
+}
+
+#actionOption {
+    color: FOREGROUND_COLOR;
+    margin: 1px;
+    background-color: rgba(255, 255, 255, 5);
+}
+
+ToastWidget {
+    max-height: 48px;
+	font: bold 22px;
+	border-radius: 6px;
+	color: rgb(250, 250, 250);
+	background-color: rgba(18, 19, 24, 230);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+PreviewFrame {
+    background-color: rgba(18, 19, 25, 0.98);
+    border-left: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+PreviewFrame QWidget {
+    color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 220);
+}
+
+#previewButtons QPushButton,
+BaseSaveWidget #acceptButton,
+BaseLoadWidget #acceptButton {
+    color: ACCENT_FOREGROUND_COLOR;
+    background-color: ACCENT_COLOR;
+    font-weight: bold;
+    font-size: 13px;
+    border-radius: 6px;
+    border: 0px;
+    min-height: 32px;
+}
+
+#previewButtons QPushButton:hover,
+BaseSaveWidget #acceptButton:hover,
+BaseLoadWidget #acceptButton:hover {
+    background-color: rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 220);
+}
+
+#previewButtons QPushButton:pressed,
+BaseSaveWidget #acceptButton:pressed,
+BaseLoadWidget #acceptButton:pressed {
+    background-color: rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 250);
+}
+
+PreviewFrame QPushButton {
+    color: FOREGROUND_COLOR;
+    background-color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 18);
+    border: 1px solid rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 25);
+    border-radius: 4px;
+    min-height: 24px;
+}
+
+PreviewFrame QPushButton:hover {
+    color: #FFFFFF;
+    background-color: rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 80);
+    border-color: rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 180);
+}
+
+/*
+--------------------------------------------------------------------------
+Status Widget - Refined Dark Minimalist Status Line
+--------------------------------------------------------------------------
+*/
+
+StatusWidget {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: #101116;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    min-height: 24px;
+    max-height: 24px;
+    padding: 0px 8px;
+}
+
+StatusWidget QLabel {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 11px;
+    background-color: transparent;
+}
+
+StatusWidget[status="error"],
+StatusWidget[status="error"] QLabel {
+    color: #FFFFFF;
+    background-color: rgba(235, 77, 75, 0.85);
+}
+
+StatusWidget[status="warning"] {
+    color: #FFFFFF;
+    background-color: rgba(240, 170, 0, 0.85);
+}
+
+/*
+--------------------------------------------------------------------------
+UPDATE AVAILABLE & PROGRESS WIDGET
+--------------------------------------------------------------------------
+*/
+
+#updateAvailableButton {
+    padding: 2px 6px;
+    margin: 2px;
+    font-size: 11px;
+    color: BACKGROUND_COLOR;
+    background-color: rgba(FOREGROUND_COLOR_R,FOREGROUND_COLOR_G,FOREGROUND_COLOR_B,150);
+    border-radius: 4px;
+}
+
+#updateAvailableButton:hover {
+    background-color: rgba(FOREGROUND_COLOR_R,FOREGROUND_COLOR_G,FOREGROUND_COLOR_B,200);
+}
+
+ProgressBar,
+ProgressBar QLabel {
+    background-color: transparent;
+}
+
+ProgressBar QLabel {
+    margin: 0px;
+    padding: 1px;
+    min-width: 100px;
+}
+
+ProgressBar QProgressBar {
+    margin-top: 4px;
+    margin-right: 6px;
+    max-width: 200px;
+    min-width: 150px;
+    max-height: 4px;
+    padding: 0px;
+    color: rgba(0,0,0,200);
+    border-radius: 2px;
+    background-color: rgba(250,250,250,50);
+}
+
+ProgressBar QProgressBar::chunk {
+    color: white;
+    background-color: ACCENT_COLOR;
+    margin: 0px;
+    max-height: 4px;
+    border-radius: 2px;
+}
+
+/*
+ --------------------------------------------------------------------------
+ CUSTOM MESSAGE BOX & SETTINGS DIALOG
+ --------------------------------------------------------------------------
+*/
+
+MessageBox {
+    min-width: 320px;
+    min-height: 220px;
+}
+
+#messageBoxHeaderLabel {
+    font: 16px;
+    color: rgb(255,255,255);
+}
+
+#messageBoxHeaderFrame {
+    height: 46px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    background-color: rgba(0,0,0,0);
+}
+
+#messageBox {
+    border-radius: 8px;
+    background-color: rgba(24, 25, 32, 255);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#messageBox QWidget {
+    background-color: rgba(255,255,255,0);
+}
+
+#messageBox #messageBoxTitle QLabel {
+    font: 16px;
+}
+
+#messageBox #messageBoxIcon {
+    width: 32px;
+    height: 32px;
+}
+
+#messageBox #messageBoxBody QLabel {
+    font: 12px;
+}
+
+#messageBox #messageBoxInputEdit {
+    min-height: 32px;
+    background-color: rgba(255, 255, 255, 15);
+    border-radius: 4px;
+}
+
+#messageBoxBody QWidget {
+    color: rgb(180, 180, 190);
+}
+
+#messageBox QPushButton {
+    font: 12px;
+    color: rgba(250, 250, 250, 250);
+    min-width: 72px;
+    min-height: 30px;
+    padding-left: 9px;
+    padding-right: 9px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 20);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#messageBox QPushButton:focus, #messageBox QPushButton:hover {
+    color: ACCENT_FOREGROUND_COLOR;
+    background-color: ACCENT_COLOR;
+}
+
+#messageBoxFrame {
+    background-color: rgba(0,0,0,120);
+}
+
+#settingsDialog {
+    min-width: 320px;
+    min-height: 300px;
+    max-width: 420px;
+    max-height: 420px;
+}
+
+#filterByAction QWidget {
+    background-color: transparent;
+}
+
+#filterByAction:hover {
+    background-color: ACCENT_COLOR;
+    color: ACCENT_FOREGROUND_COLOR;
+    border-radius: 4px;
+}
+
+#filterByAction {
+    height: 22px;
+    padding: 3px;
+    background-color: transparent;
+}
+
+#filterByAction #actionCounter {
+    padding: 2px 4px;
+    border-radius: 4px;
+    background-color: rgba(255,255,255,20);
+}
+
+#filterByAction QCheckBox {
+    width: 64px;
+}
+
+#filterByAction QCheckBox::indicator {
+	width: 14px;
+	height: 14px;
+	padding-left: 2px;
+}
+
+/*
+----------------------------------------
+Settings Dialog Color Picker
+----------------------------------------
+*/
+
+#settingsDialog ColorPickerWidget {
+   margin: 0px;
+   max-height: 24px;
+   min-height: 24px;
+   border-radius: 4px;
+}
+
+#settingsDialog ColorPickerWidget #colorButton[first=true] {
+   border-top-left-radius: 4px;
+   border-bottom-left-radius: 4px;
+}
+
+#settingsDialog ColorPickerWidget #colorButton[last=true] {
+   border-top-right-radius: 4px;
+   border-bottom-right-radius: 4px;
+}
+
+#settingsDialog ColorPickerWidget #colorButton:checked {
+    border-bottom: 3px solid rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 180);
+}
+
+PreviewWidget ColorPickerWidget {
+   margin: 0px;
+   max-height: 14px;
+   min-height: 14px;
+}
+
+PreviewWidget ColorPickerWidget #colorButton {
+   max-width: 14px;
+   min-width: 14px;
+   border-radius: 7px;
+}
+
+PreviewWidget ColorPickerWidget #colorButton:checked {
+    border: 2px solid rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 255);
+}
+
+Lightbox {
+    background-color: rgba(0, 0, 0, 120);
+}
+
+#menuButton,
+#editButton {
+    margin-left: 4px;
+    min-width: 25px;
+    max-width: 25px;
+    border-radius: 4px;
+    text-align: center;
+    background-color: rgba(0,0,0,20);
+}
+
+#menuButton:hover,
+#editButton:hover {
+    background-color: rgba(100,100,100,30);
+}
+
+#editButton {
+    min-height: 22px;
+}
+
+/*
+---------------------------
+Field Widgets & Forms
+---------------------------
+*/
+
+SeparatorFieldWidget > #widget {
+    min-height: 1px;
+    max-height: 1px;
+    font: bold;
+    margin: 4px;
+    background-color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 20);
+}
+
+TextFieldWidget QTextEdit {
+    max-height: 92px;
+}
+
+FormWidget QWidget {
+    text-align: left;
+}
+
+#fieldWidget[layout="vertical"] {
+    min-height: 44px;
+}
+
+FieldWidget[layout="vertical"] {
+    margin-bottom: 3px;
+}
+
+FieldWidget[layout="vertical"] #label {
+    margin-bottom: 2px;
+}
+
+FieldWidget[layout="horizontal"] {
+    margin-top: 3px;
+}
+
+FieldWidget[layout="horizontal"] #label {
+    margin: 0px;
+    margin-right: 4px;
+}
+
+LabelFieldWidget[layout="horizontal"] {
+    min-height: 16px;
+    max-height: 16px;
+    margin-top: 2px;
+    margin-bottom: 0px;
+}
+
+FieldWidget #label {
+    min-width: 72px;
+    color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 100);
+}
+
+FieldWidget #label:disabled {
+    color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 25);
+}
+
+FormWidget #titleWidget {
+    padding: 4px 8px;
+    margin: 2px 0px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+}
+
+FormWidget #titleWidget:checked {
+    background-color: rgba(108, 92, 231, 0.15);
+    border: 1px solid rgba(108, 92, 231, 0.4);
+}
+
+FormWidget #optionsFrame {
+    margin: 2px 0px;
+}
+
+FieldWidget QComboBox {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/*
+---------------------------
+Group Box Widget - Modern Collapsible Headers
+---------------------------
+*/
+
+GroupFieldWidget[layout="horizontal"] {
+    margin-top: 2px;
+    margin-bottom: 0px;
+}
+
+GroupBoxWidget {
+    margin-top: 4px;
+}
+
+GroupBoxWidget #title {
+    padding: 4px 8px;
+    text-align: left;
+    border-radius: 6px;
+    min-height: 22px;
+    max-height: 22px;
+    font-weight: 600;
+    icon-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+GroupBoxWidget #title:checked {
+    background-color: rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 45);
+    border: 1px solid rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 120);
+    color: #FFFFFF;
+}
+
+GroupBoxWidget #title:hover {
+    background-color: rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 65);
+    color: #FFFFFF;
+}
+
+/*
+---------------------------
+Save Widget & Load Widget
+---------------------------
+*/
+
+BaseSaveWidget #fieldWidget {
+    margin-top: 4px;
+}
+
+PreviewWidget ImageSequenceWidget {
+    background-color: rgba(0,0,0,0);
+}
+
+PreviewWidget #titleLabel,
+BaseSaveWidget #titleLabel,
+BaseLoadWidget #titleLabel {
+    font-size: 14px;
+}
+
+BaseLoadWidget #blendEdit {
+    min-width: 32px;
+    max-width: 32px;
+}
+
+BaseSaveWidget #acceptButton,
+BaseLoadWidget #acceptButton {
+    min-width: 80px;
+    max-height: 35px;
+    max-width: 125px;
+    min-height: 35px;
+    border-radius: 4px;
+}
+
+BaseSaveWidget #selectionSetButton,
+BaseLoadWidget #selectionSetButton {
+    min-width: 35px;
+    max-width: 35px;
+    min-height: 35px;
+    max-height: 35px;
+    margin-left: 2px;
+    border-radius: 4px;
+}
+
+BaseSaveWidget ImageSequenceWidget {
+	border-radius: 4px;
+    color: rgb(40, 40, 40);
+    border: 0px solid transparent;
+}
+
+/*
+---------------------------
+Form Dialog
+---------------------------
+*/
+
+FormDialog {
+    padding: 8px;
+    border-radius: 6px;
+}
+
+FormDialog #title {
+    padding: 4px;
+    font-size: 18px;
+}
+
+FormDialog FieldWidget QLabel {
+    background-color: transparent;
+}
+
+FormDialog FieldWidget {
+    padding-bottom: 10px;
+}
+
+FormDialog #description {
+    padding: 4px;
+    padding-bottom: 9px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 15);
+}
+
+FormDialog #acceptButton,
+FormDialog #rejectButton {
+    margin: 2px;
+    font-size: 13px;
+    padding: 4px 10px;
+    min-width: 72px;
+    min-height: 26px;
+    border-radius: 4px;
+}
+
+#acceptButton {
+    color: FOREGROUND_COLOR;
+}
+
+#acceptButton:hover {
+    color: ACCENT_FOREGROUND_COLOR;
+    background-color: rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 220);
+}
+
+FormDialog #acceptButton:pressed {
+    background-color: rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 240);
+}
+
+FormDialog #rejectButton:hover {
+	background-color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 50);
+}
+
+ButtonGroupFieldWidget QPushButton {
+    height: 26px;
+    margin: 1px;
+    text-align: center;
+    border-radius: 4px;
+    color: FOREGROUND_COLOR;
+    background-color: rgba(0, 0, 0, 30);
+}
+
+ButtonGroupFieldWidget QPushButton:checked {
+    color: ACCENT_FOREGROUND_COLOR;
+    background-color: rgba(ACCENT_COLOR_R, ACCENT_COLOR_G, ACCENT_COLOR_B, 220);
+}
+
+BaseLoadWidget ImageSequenceWidget {
+    background-color: rgba(0,0,0,0);
+}
+
+/*
+--------------------------------------------------------------------------
+TITLE WIDGET
+--------------------------------------------------------------------------
+*/
+
+#titleWidget #titleButton {
+    font: bold;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 4px;
+    text-align: left;
+    font-size: 14px;
+    min-height: 28px;
+    color: rgba(FOREGROUND_COLOR_R, FOREGROUND_COLOR_G, FOREGROUND_COLOR_B, 210);
+    background-color: transparent;
+}
+
+#titleWidget #titleButton:hover {
+    background-color: rgba(250,250,250,0);
+}
+
+#titleWidget #menuButton {
+    margin-left: 4px;
+    margin-right: 4px;
+    font-size: 14px;
+    max-height: 22px;
+    max-width: 22px;
+    background-color: transparent;
+}
+
+#titleWidget #menuButton:hover {
+    background-color: rgba(250,250,250,25);
+}
+
+#titleWidget {
+    margin: 0px;
+    min-height: 26px;
+    background-color: rgba(0,0,0,15);
+    border-bottom: 1px solid rgba(250, 250, 250, 20);
+}
+
+#titleWidget LineEdit {
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    min-height: 22px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+#titleWidget LineEdit #icon {
+    margin-top: -3px;
+    margin-left: 4px;
+}
+
+#titleWidget LineEdit #clear {
+    margin-top: -3px;
+    margin-right: 2px;
+}
+
+SidebarWidget #titleWidget LineEdit {
+    border: 0px;
+    border-radius: 4px;
+}

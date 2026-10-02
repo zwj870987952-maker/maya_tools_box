@@ -1,0 +1,1293 @@
+{
+  "repository": "https://github.com/krathjen/studiolibrary",
+  "commit": "d2173f64460f3fa413ebb3696c28efacc60ef0dd",
+  "state": "complete",
+  "method": "Official GitHub fixed commit; jsDelivr byte-for-byte SHA256/size verification, all src/config/resources/license preserved; no installer executed",
+  "files": [
+    {
+      "path": "DOCS.md",
+      "size": 6177,
+      "sha256": "64e2e3012f736ed307c0db3b572e54da1540c5ba1c21e90650370d36fcded140"
+    },
+    {
+      "path": "LICENSE.md",
+      "size": 7640,
+      "sha256": "9b611a79e553376d8ea69b96e5ff53a47960db5a10ba2196ed7780af4fe80348"
+    },
+    {
+      "path": "README.md",
+      "size": 2221,
+      "sha256": "0fc24d43a78f4076f4a432bc6064d3a2f16285eac3b0ad0d0eed115c1f880fa4"
+    },
+    {
+      "path": "config/readme.md",
+      "size": 648,
+      "sha256": "db0f4093d3086324ebb2691c41e92ca0982d757d9477dfac8cc94b675ba69a3a"
+    },
+    {
+      "path": "src/mutils/README.md",
+      "size": 158,
+      "sha256": "46b674fb7c34f4a6a6afdc9e55c33785caf05ca5b54c4c57b5f5414c0d7279d2"
+    },
+    {
+      "path": "src/mutils/__init__.py",
+      "size": 1226,
+      "sha256": "0845506f2a5a51e074a9a01ded5bd534b8712e2afa49d33ab7536921a4a5012f"
+    },
+    {
+      "path": "src/mutils/animation.py",
+      "size": 25638,
+      "sha256": "c475f2224629926200eda07727dc683f3f451ee6e688c98159da3936890e7274"
+    },
+    {
+      "path": "src/mutils/attribute.py",
+      "size": 16406,
+      "sha256": "42264339dd5b494d7547def70c5d0c56d7e750b77bfc4ec9d0c7f88367d3814e"
+    },
+    {
+      "path": "src/mutils/cmds.py",
+      "size": 10089,
+      "sha256": "6670092891d01b040c5f284e676f7c053d6e17af87b89b8f29002285235916e9"
+    },
+    {
+      "path": "src/mutils/decorators.py",
+      "size": 4185,
+      "sha256": "966da2f8780be956e1081cfa3b1b41be34698595226d362debf1520dc46220bf"
+    },
+    {
+      "path": "src/mutils/gui/__init__.py",
+      "size": 1842,
+      "sha256": "d02af6a572c16df9515d35f0b5e65c16c2cc1c939f11bd1310d455102c33d6ef"
+    },
+    {
+      "path": "src/mutils/gui/framerangemenu.py",
+      "size": 2102,
+      "sha256": "18b847d1b8735fbdd17946710813695fb0e451eea4fb83d17b104f1f42d92e2b"
+    },
+    {
+      "path": "src/mutils/gui/modelpanelwidget.py",
+      "size": 3944,
+      "sha256": "a92ce9b97872e31d116b63ea294e14019cc1d9fb4b60f85048d979f20bccb3ae"
+    },
+    {
+      "path": "src/mutils/gui/thumbnailcapturedialog.py",
+      "size": 6933,
+      "sha256": "b4ce14c983e8ee464079e9fa383c1726061f561681278a74cdcd299e7e3e46c1"
+    },
+    {
+      "path": "src/mutils/gui/thumbnailcapturemenu.py",
+      "size": 4444,
+      "sha256": "f37b7d55bb69ff23af75b624ca9319d1f0f6ef2a73a50603f4baec60d84ed21a"
+    },
+    {
+      "path": "src/mutils/matchnames.py",
+      "size": 5514,
+      "sha256": "836fb47a590163130f83f727dff1720e7e16641933c99463d1bd82dfcebbb748"
+    },
+    {
+      "path": "src/mutils/mirrortable.py",
+      "size": 26721,
+      "sha256": "1c074d913723d5eeeb71b91f42a78294337f72b43a5a4b3aeb30d18f0c508098"
+    },
+    {
+      "path": "src/mutils/namespace.py",
+      "size": 2289,
+      "sha256": "16618ed74e3ce42cd817682f1f439172cf06fbe2f62b630cfc14287e3f3e6a52"
+    },
+    {
+      "path": "src/mutils/node.py",
+      "size": 5070,
+      "sha256": "4a1f1e77f365e081873ac7959c9fc44b7c6c5bbc79fbb619eaa182f03575c0ff"
+    },
+    {
+      "path": "src/mutils/playblast.py",
+      "size": 3022,
+      "sha256": "2409839ba5a8f6a364486c887524e3265b4633a222f7bfd73487915ef5ef5f93"
+    },
+    {
+      "path": "src/mutils/pose.py",
+      "size": 17035,
+      "sha256": "1a18b23e760a92b56b84fe59e9c0a639a6c8f90cdb37088905fe7974f5f64284"
+    },
+    {
+      "path": "src/mutils/scriptjob.py",
+      "size": 1283,
+      "sha256": "80c99f8025f72ff65fee2875256dc6a548f47f5c2724583890ac23e8f1a620bc"
+    },
+    {
+      "path": "src/mutils/selectionset.py",
+      "size": 3451,
+      "sha256": "e29ad2e562148f2459716d57018f1a520c03cd2ff03578170f2c3c08241654d9"
+    },
+    {
+      "path": "src/mutils/tests/__init__.py",
+      "size": 771,
+      "sha256": "06f76092020fa05da4cf3e373648eac2a5066cf9bc388ec03fec01a8334aa6f2"
+    },
+    {
+      "path": "src/mutils/tests/data/anim.ma",
+      "size": 2608,
+      "sha256": "32bd20460cf5e31526bc0cc161da8e84bae922b1780de77bcf82d7e7bd211e48"
+    },
+    {
+      "path": "src/mutils/tests/data/animation.anim",
+      "size": 3600,
+      "sha256": "d0bd445c72559ef2fab18c68d91001a7962adc405ad107b543f469d9f33c79f3"
+    },
+    {
+      "path": "src/mutils/tests/data/pose.json",
+      "size": 3859,
+      "sha256": "dda27ac8a7c2f6d02d309aee940c7824be4b82e5fcd463126b00f335aa4670c7"
+    },
+    {
+      "path": "src/mutils/tests/data/sphere.ma",
+      "size": 100400,
+      "sha256": "d9419e1ed6985e46091f21f18b852df7e59cb79d3a2c911053f43c27b41c4399"
+    },
+    {
+      "path": "src/mutils/tests/data/test.ma",
+      "size": 7278,
+      "sha256": "009bf09ea0df1b580604636b65c5b6bd4f218f0e552d4d10dc346f51cca94e5b"
+    },
+    {
+      "path": "src/mutils/tests/data/test_anim.ma",
+      "size": 17855,
+      "sha256": "01e641c20f7e1c7e0dacd56a5a70486cd373f36f56f67b548250bc0707efb64c"
+    },
+    {
+      "path": "src/mutils/tests/data/test_bake_connected.anim/animation.ma",
+      "size": 1010,
+      "sha256": "9715b5a8f6a7d3a65af2f7cdf96c91ac8c3d57eaa439f9f064b0e644291f01f5"
+    },
+    {
+      "path": "src/mutils/tests/data/test_bake_connected.anim/animation.mb",
+      "size": 27544,
+      "sha256": "3cead6c5aeb6008169f17b529c445f00db52f7f68346a8061bfdf4228f81edcb"
+    },
+    {
+      "path": "src/mutils/tests/data/test_bake_connected.anim/pose.json",
+      "size": 5197,
+      "sha256": "cefa6cbe047220143fd07fa6a699c1bf29cf2deda82cdb8d7514136d79b71a23"
+    },
+    {
+      "path": "src/mutils/tests/data/test_bake_connected.ma",
+      "size": 24950,
+      "sha256": "145b956c648ef3c7d84f49acf8e89321707cb969d29c74a5c82fa6099b785039"
+    },
+    {
+      "path": "src/mutils/tests/data/test_load_insert.anim/animation.ma",
+      "size": 3438,
+      "sha256": "a5ff731ea127335a0bb968fb11e52d69d8244824841d93991b7fc0fa4f6161b9"
+    },
+    {
+      "path": "src/mutils/tests/data/test_load_insert.anim/animation.mb",
+      "size": 19296,
+      "sha256": "bf20621901e5288fc3dd0160950eb90ec41ce8516ec5d0c230d04668ed25efc7"
+    },
+    {
+      "path": "src/mutils/tests/data/test_load_insert.anim/pose.json",
+      "size": 4011,
+      "sha256": "4fb3cc92cfec5c476534b2d2e06e600d5f4d3863862167bcc12389172b256bc7"
+    },
+    {
+      "path": "src/mutils/tests/data/test_load_replace.anim/animation.ma",
+      "size": 3438,
+      "sha256": "1354da741245a6a8a4dc052a7d2dff344d79139c674da62329761c76596dc115"
+    },
+    {
+      "path": "src/mutils/tests/data/test_load_replace.anim/animation.mb",
+      "size": 19296,
+      "sha256": "24c3c2e0ccbcee9d817236ba6aaafa4df023abb220d8668005f1856a67a77c74"
+    },
+    {
+      "path": "src/mutils/tests/data/test_load_replace.anim/pose.json",
+      "size": 4011,
+      "sha256": "b49919c2931e7ac98534c401d2eaab842dc5966c07df4461cdb2db2b9f7217a5"
+    },
+    {
+      "path": "src/mutils/tests/data/test_load_replace_completely.anim/animation.ma",
+      "size": 3438,
+      "sha256": "d15251986abff118f4ae107b2741dc59ff22fe1dc390e0e899059f412a0d8eba"
+    },
+    {
+      "path": "src/mutils/tests/data/test_load_replace_completely.anim/animation.mb",
+      "size": 19296,
+      "sha256": "ced18746c535da56d0a07fd7022de5c8417a845f6bedc6def112d920014a158a"
+    },
+    {
+      "path": "src/mutils/tests/data/test_load_replace_completely.anim/pose.json",
+      "size": 4011,
+      "sha256": "b49919c2931e7ac98534c401d2eaab842dc5966c07df4461cdb2db2b9f7217a5"
+    },
+    {
+      "path": "src/mutils/tests/data/test_mirror_tables.ma",
+      "size": 100109,
+      "sha256": "90a957b0c152717202fc558685e254cef0da19baac8afaed033e6661d0b28078"
+    },
+    {
+      "path": "src/mutils/tests/data/test_non_unique_names.ma",
+      "size": 120478,
+      "sha256": "3382091bf2eff30ed610f026f3da8b60a3c1717688699fd13deb3498964cde16"
+    },
+    {
+      "path": "src/mutils/tests/data/test_non_unique_names.pose",
+      "size": 3297,
+      "sha256": "e67f13ea3e8c33a123c3a12b349e62e844a5c8374942f786700167ce674f1aef"
+    },
+    {
+      "path": "src/mutils/tests/data/test_older_version.anim/.studioLibrary/record.dict",
+      "size": 125,
+      "sha256": "a2ee3c0d06f5e6224392b7ff75047706b56c5ed59a4fd93404a6635aed9775b0"
+    },
+    {
+      "path": "src/mutils/tests/data/test_older_version.anim/animation.ma",
+      "size": 1000393,
+      "sha256": "eaebed1d3d4b1330e0d36f7463741efb9328b0feadc3401aa4c0530f20d9b55b"
+    },
+    {
+      "path": "src/mutils/tests/data/test_older_version.anim/pose.dict",
+      "size": 109153,
+      "sha256": "ed25324c7f43cc34149d66260d0c473e6a4ab70f74bf4156d1b6eaa8436172fa"
+    },
+    {
+      "path": "src/mutils/tests/data/test_older_version.dict",
+      "size": 1245,
+      "sha256": "3f752419fd9afddb416bed2dae0e565f227bea05aee7dde7c3ede034527dc2c4"
+    },
+    {
+      "path": "src/mutils/tests/data/test_pose.ma",
+      "size": 82233,
+      "sha256": "c740ab1ef318727d0483a077ea576b4178bb566bcec7e9faff872c5767574b27"
+    },
+    {
+      "path": "src/mutils/tests/data/test_pose.pose",
+      "size": 3284,
+      "sha256": "2c7ad8ff5c6776f35fd56dd9f9a7e98489ebc3727ff8a91dd6282414caccf377"
+    },
+    {
+      "path": "src/mutils/tests/data/test_poseplugin.pose/.studiolibrary/record.dict",
+      "size": 64,
+      "sha256": "08f1ff1e620d56ac5e359f1f9fbca470196682c7ffa5259c638c20ebdabc19d5"
+    },
+    {
+      "path": "src/mutils/tests/run.py",
+      "size": 1998,
+      "sha256": "5fec0970ebf07c6f5e2e029f87ecf43ac6104946cb288f45b4f5d3bd0745ecae"
+    },
+    {
+      "path": "src/mutils/tests/test_anim.py",
+      "size": 3722,
+      "sha256": "11ebeaf04cf0c0533ed72996b52208d28e882e7c0fc9b26bb3afc834d5ff84fa"
+    },
+    {
+      "path": "src/mutils/tests/test_attribute.py",
+      "size": 5307,
+      "sha256": "5e3f21c3585e83d44ee1e6df0582dcea55eab3e7998c3653445e97c9de4dc0c4"
+    },
+    {
+      "path": "src/mutils/tests/test_base.py",
+      "size": 4290,
+      "sha256": "672d53ab2dd7cd2696a18ce1a88cd47fcbf6c70230b2792e0ec08cce47142f0d"
+    },
+    {
+      "path": "src/mutils/tests/test_match.py",
+      "size": 10133,
+      "sha256": "eeaea9a4f0721d5c931ceeef86de8a677f132d7c1cd32b1208e967d3b6db176d"
+    },
+    {
+      "path": "src/mutils/tests/test_mirrortable.py",
+      "size": 9019,
+      "sha256": "111275e0056f496cf786464398523c43a31c7926876e9d67bd83b83ef764d61d"
+    },
+    {
+      "path": "src/mutils/tests/test_pose.py",
+      "size": 4595,
+      "sha256": "4576b5934f903f69de392ebebde103563064574e452fb5f25985c4b0678b5f29"
+    },
+    {
+      "path": "src/mutils/tests/test_utils.py",
+      "size": 2340,
+      "sha256": "bfee0a0b7b25b4ccfca1113b09f64c1c063cc2f463fc0d279dd3b411a8d95678"
+    },
+    {
+      "path": "src/mutils/transferobject.py",
+      "size": 10043,
+      "sha256": "0540d2ebfc052fb6cfb679c011f89ac1b4bcd8dd506b2a793ab4b35e38179bca"
+    },
+    {
+      "path": "src/studiolibrary/__init__.py",
+      "size": 1092,
+      "sha256": "66bd8bc027813747f5525387ab377217abf41a3ceab870df0f6d7f31ad716162"
+    },
+    {
+      "path": "src/studiolibrary/config.py",
+      "size": 2293,
+      "sha256": "e02cb555759eca0576396ec741f0f87eb9e7e7cceebbd0dec412143332aba144"
+    },
+    {
+      "path": "src/studiolibrary/config/default.json",
+      "size": 2247,
+      "sha256": "288df088b27e6672bdd55ab91788d1a9c7ff7f40babed5f2e31288acfbb7aecf"
+    },
+    {
+      "path": "src/studiolibrary/folderitem.py",
+      "size": 10477,
+      "sha256": "5d163cee3c47a75aae2c7f9f214fc5b6ee929d4f2ab28c4a901dfa28e1e61d87"
+    },
+    {
+      "path": "src/studiolibrary/library.py",
+      "size": 28547,
+      "sha256": "6da0f4be6d8f145b1ce5298abc8a00cbc4b309d886602fc9f89d414aade7aecd"
+    },
+    {
+      "path": "src/studiolibrary/libraryitem.py",
+      "size": 25224,
+      "sha256": "01fb9125048d5082a93c47dd1dbfa97ddc941ed32dffbf28e367dc64fb96337f"
+    },
+    {
+      "path": "src/studiolibrary/librarywindow.py",
+      "size": 80268,
+      "sha256": "25828b0e628fef428899a08558caf731202bddcd118b66869bf39d0381f7465a"
+    },
+    {
+      "path": "src/studiolibrary/main.py",
+      "size": 1948,
+      "sha256": "9570b8e76cad142fb00f5c7474e2d259a73a05469f4d4d155630469570132782"
+    },
+    {
+      "path": "src/studiolibrary/resource.py",
+      "size": 1910,
+      "sha256": "5537987e2a295a23f476629bb25d4555e284718a3cfd05a145e6b27b457b7ae2"
+    },
+    {
+      "path": "src/studiolibrary/resource/css/default.css",
+      "size": 32571,
+      "sha256": "6cf47d28e289827eeeb14a6b79d4f59cacac7c6aa58fccd5c7bae13b98939b28"
+    },
+    {
+      "path": "src/studiolibrary/resource/fonts/LICENSE.txt",
+      "size": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "src/studiolibrary/resource/fonts/OpenSans-Bold.ttf",
+      "size": 224452,
+      "sha256": "1b43de2449d39b65ff6f63315d4afda585f72fbbec2e3d9a56f59de6c75149d3"
+    },
+    {
+      "path": "src/studiolibrary/resource/fonts/OpenSans-BoldItalic.ttf",
+      "size": 213168,
+      "sha256": "3575d2afaaad69970380237a5d6357b6db241f53b77607482eaf9f299b8c07ec"
+    },
+    {
+      "path": "src/studiolibrary/resource/fonts/OpenSans-ExtraBold.ttf",
+      "size": 222424,
+      "sha256": "395f150240d43dff8baea6586baf5665337de57b8204a501fbd6148b2fe165b7"
+    },
+    {
+      "path": "src/studiolibrary/resource/fonts/OpenSans-ExtraBoldItalic.ttf",
+      "size": 213336,
+      "sha256": "d5de39bcdd010089d9db8dd1aebaefaf9e691bf9a49282ff43e1d1869b417892"
+    },
+    {
+      "path": "src/studiolibrary/resource/fonts/OpenSans-Italic.ttf",
+      "size": 212760,
+      "sha256": "6cb918a707a06c4f98221d09344af4b98c9cb6184b13309a579caf0418d5eb74"
+    },
+    {
+      "path": "src/studiolibrary/resource/fonts/OpenSans-Light.ttf",
+      "size": 222236,
+      "sha256": "1c8d3cc6810ecd3623ebff7d2c3db1a44024260c5ae662f8166d69b9425828ed"
+    },
+    {
+      "path": "src/studiolibrary/resource/fonts/OpenSans-LightItalic.ttf",
+      "size": 213024,
+      "sha256": "fda70df85987b394ff384b899703bc0e55ac7bdba94d06f47462e155cf0c0350"
+    },
+    {
+      "path": "src/studiolibrary/resource/fonts/OpenSans-Regular.ttf",
+      "size": 217276,
+      "sha256": "13c03e22a633919beb2847c58c8285fb8a735ee97097d7c48fd403f8294b05f8"
+    },
+    {
+      "path": "src/studiolibrary/resource/fonts/OpenSans-SemiBold.ttf",
+      "size": 221164,
+      "sha256": "b4c2050b25d3d296d5cf58589ca00816dc72df42262c2f629d5c6a984a161aa4"
+    },
+    {
+      "path": "src/studiolibrary/resource/fonts/OpenSans-SemiBoldItalic.ttf",
+      "size": 212732,
+      "sha256": "a8f2af8e79f46686b1cfcfb3a1fd53e94e88308d7c6ee7f85c733f4796fcc3a0"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/add.png",
+      "size": 149,
+      "sha256": "6b7b32a7cb7e9facf88e59da709ab8216cc9e17b7b2f1322871d7630b61ec543"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/add_28.png",
+      "size": 224,
+      "sha256": "43a76577fa555f3e59d396fd349e2336c40457dbcbeb183b0ce57a35bcd20ffd"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/archive.svg",
+      "size": 344,
+      "sha256": "a52a8ffbc9f60989ef0f9ac3dee1d8bf8f847c331bf71e42d01a96bc74013b46"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/arrows-rotate.svg",
+      "size": 823,
+      "sha256": "f9bbe58cbea846c74ef6a4b599b2a17debedb4e59e15bcb0d418ff933172643a"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/asset.svg",
+      "size": 374,
+      "sha256": "24177a7659f0e1630ca9b003b0cac6e6e5d724bea284ca4fedcecc8fc79af210"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/assets.svg",
+      "size": 687,
+      "sha256": "f3262b293a78574cfa2141dac892092a74beae5ba011603a92798255e43052e4"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/bars.svg",
+      "size": 505,
+      "sha256": "42baf0569020e41fc579ea30abcf287e937399dfdc5bdedac348595e76b0419f"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/blank.png",
+      "size": 570,
+      "sha256": "9e4d6daf2a5cad558a6eca04fa9a38727c2bf8b05939270afe0d8964f626a7a3"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/book.svg",
+      "size": 479,
+      "sha256": "6209a62caac27ec664c1d7721e8c54dadda2dac65c725e659226358957b0ca19"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/branch_closed_black.png",
+      "size": 318,
+      "sha256": "7fafda745ffc45dc2a6a9df43b1e4c166d9c705cf59ebc8ec77b05efc3dc6c29"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/branch_closed_white.png",
+      "size": 7491,
+      "sha256": "f7dd074db5f6ea92d30d6c61433b21667cbe49beff4eb0f05208bbc05f96dc81"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/branch_open_black.png",
+      "size": 324,
+      "sha256": "2d9c05549948cabe6feb36b934e30e7cc3d40b98829ceb16c8abc7a61240fb95"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/branch_open_white.png",
+      "size": 705,
+      "sha256": "633b69da863c8dd903c645d976592c71aab433858a18326b6cee5752d614ee2e"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/camera-alt.svg",
+      "size": 538,
+      "sha256": "5714ad409a144845d4402bafcb1ad7124592d12b5e0c11f1dbb9a2c67596a723"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/camera.svg",
+      "size": 422,
+      "sha256": "4ab474ce93145ac113381b1aa37d2e0c3ec861d689be28761d0eaabf7313cd9f"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/cancel.png",
+      "size": 963,
+      "sha256": "40cd72420065f1a44a42a3f14dd2a14dc1cbce24c43f01b33e89670376c3a9e9"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/caret-down.svg",
+      "size": 199,
+      "sha256": "4f73088b0e9ecb91172a832197594a169ede1c6be2b0a54e57392ac3f6245149"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/caret-right.svg",
+      "size": 232,
+      "sha256": "77b9be038597376a746349b37d507beb3fa1eb56b909d6c169829459202a4633"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/character.svg",
+      "size": 787,
+      "sha256": "a9629ac8b2ba365a630219f09c4924172ab84800f18a3f1291f7cf3180cd72e7"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/check_box_checked_black.png",
+      "size": 1116,
+      "sha256": "e10f741f73658a4870339a792124f2476a6ceb1dbbf6f779019c827125ba0954"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/check_box_checked_white.png",
+      "size": 766,
+      "sha256": "260e21fa44fe461047a56e4fa0b465076cace44e1089021f96c09d9f5760042c"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/check_box_unchecked_black.png",
+      "size": 848,
+      "sha256": "7d5d307369e5b44e4e617d014610ba164581c6b7dd5b55990f01ca73dae86568"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/check_box_unchecked_white.png",
+      "size": 816,
+      "sha256": "bfd2d7b4f7064ef22882efd36edec6bad6740b6a5103618b744977c7f47b08a7"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/circle.png",
+      "size": 943,
+      "sha256": "c414691948b08ea8e3a2074dc9b1ce64ce8822934ca8e57b35b1f5184023e5fb"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/circle.svg",
+      "size": 149,
+      "sha256": "1f36e6941ccb13967f486c99c13a0f063555582dfbe58d08a788e0186633be08"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/cloud.svg",
+      "size": 334,
+      "sha256": "11637384309fc7511b4dc1abc51b1b0e59592dc6adb6f51e19978714af039c51"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/cog.png",
+      "size": 1073,
+      "sha256": "08497d4a67d8f5df5fa891c7db3d4739a50be90f3c480f0c481e0fe1c84898e2"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/columns-3.svg",
+      "size": 506,
+      "sha256": "a1c5afbc993ac05ed82b93693b731bfad392ca893572d2d21c027051be8dc2ef"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/critical.png",
+      "size": 1215,
+      "sha256": "e7700004ee35e5580e78e1a68961cac99c28e63645254454e96471d9def11afd"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/cross.png",
+      "size": 284,
+      "sha256": "e5d65c4bf8d462d3a877308b3e95a326ffcb58549685060dcd4b9384f5b6e605"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/database.svg",
+      "size": 477,
+      "sha256": "9bc341f3727fc445e12d3b1e488fe81b32c3ca0e6b1f07ca58a633839034c967"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/delete.png",
+      "size": 154,
+      "sha256": "348d23570f7fa40078f1a5de83883f38dff0a2132096a9f1aa2e797282f8e4f2"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/drop_arrow_black.png",
+      "size": 337,
+      "sha256": "d50480f253ca56e1a8a5cec5c45c9ed303b5e6f71b09648f0b3daa1e4746b13a"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/drop_arrow_white.png",
+      "size": 320,
+      "sha256": "a8a7cebd20bccf3f941f41a60d997ce5c82480df3bdf0fdebdb41b55dcf26208"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/environment.svg",
+      "size": 379,
+      "sha256": "1fd88e3dadb552fa0f5a0cb0e1b9ad55624c2c4a134f10bc8cb9e227cfd5b161"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/error.png",
+      "size": 207,
+      "sha256": "c8e5ed779f8b7941d5d6e73f241ecda5d29b14445b9dd5546ef402ba1edfe088"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/expand.svg",
+      "size": 588,
+      "sha256": "0a30fe9f64cdb4d1f31d5a73d5c3d320fb21e832044e451fb03402df731544fe"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/eye-slash.svg",
+      "size": 1213,
+      "sha256": "16c4e41420abc6c592b23f213c7aa17a7ff5271f2dbdbe46ef35682079690e18"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/eye.svg",
+      "size": 825,
+      "sha256": "a445b9297a45ad2e8ec0d345a3d9a8b790f134f9690f49016536be2aa7f79a19"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/face.svg",
+      "size": 466,
+      "sha256": "57f8c2f08c45c8508f7e93743d7bae3c092e0d48bff765a5f2d0ac0c2f8e7c7d"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/favorite.svg",
+      "size": 287,
+      "sha256": "b504d8a763386ac788238811c5a1b2fd317d407de05b56eb57cbb5d782d05953"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/file-alt.svg",
+      "size": 557,
+      "sha256": "ad87a1be830f915680eea354e539f36504555bd8d6e8e73f65878d80d06bb867"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/file.svg",
+      "size": 267,
+      "sha256": "508a280008b18b0ee15127de3eed4dfb2092ee18d14cab5653ba584624ed8670"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/filter.svg",
+      "size": 708,
+      "sha256": "c28c9692ae50679c01810e5e3b37ca7e3d7d62363db246a601ee351c30e5bdda"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/folder.svg",
+      "size": 207,
+      "sha256": "9daa580e54338bff8fb9cc033780a3e70792c598e06085cf000e2c7ee0c01466"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/folder_collapsed.png",
+      "size": 184,
+      "sha256": "127b1d13561c067c2c2dc02b34615a555423bef8d00c68b635916779b35fe17e"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/folder_expanded.png",
+      "size": 205,
+      "sha256": "c6940eadc563d3e04348d23c2ca17990eef4f83195cf20245877ef6a29f08650"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/folder_item.png",
+      "size": 18892,
+      "sha256": "2c4fbfe91bca61f44a127aed4541acef580fb093d71e515dee7c3848c41d8251"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/folder_open.png",
+      "size": 1358,
+      "sha256": "aab15b3552863bb18ed899b8a2092835720cb30fe0d3af69746053398fd25f7c"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/folder_open.svg",
+      "size": 402,
+      "sha256": "0921a260c6853e7449fe057f16e9bd766be22af9710c3da601ede00b0ff6fa48"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/globe.svg",
+      "size": 1472,
+      "sha256": "d13428f35f026bb638b92b2f42ec17a65a8ecd81f4d6e289115d8d5cc893c42d"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/groupby.png",
+      "size": 479,
+      "sha256": "6df28a7582e730124df0faeee7638565ed6275821d42156a795e8479116ea21a"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/hand.svg",
+      "size": 526,
+      "sha256": "c03e655409fa04010429757eac9b37efebb4663329b83bd4bba71ecd41de1716"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/header.png",
+      "size": 9017,
+      "sha256": "be775f3e10dd8057114c42ca3aa86d65a4977f69580c6246989fc5177021e0d7"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/icon.png",
+      "size": 870,
+      "sha256": "b051348e7d86704aee33afc57d0de7275a43b55582c46c1d361bac1e076ce5f3"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/image.png",
+      "size": 548,
+      "sha256": "fccfdaf1d96225ad792a62b1f2f4fae79b59aa4e21a216b8e56cd1fb415a6a88"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/inbox.svg",
+      "size": 387,
+      "sha256": "0af7eabd37feb2c48c96e7fa56ac13cc10d6a53307b5adfec809ed3c0a960460"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/info.png",
+      "size": 207,
+      "sha256": "2815970ee35ffc05af25f63955b509ceb36254445883a16667c4489dc3079392"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/layers.svg",
+      "size": 719,
+      "sha256": "004d2bd7ded1867a8b96147c03c8bf3cdc29c608a221664ba67cb37cb5ed7923"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/lock.svg",
+      "size": 292,
+      "sha256": "c82a7e0a362ab6ae87652a0406b299d638c61c94d7d2af77e6e11becc156dcd2"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/logo.png",
+      "size": 870,
+      "sha256": "b051348e7d86704aee33afc57d0de7275a43b55582c46c1d361bac1e076ce5f3"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/logo_high.png",
+      "size": 2441,
+      "sha256": "8d137c0767cab7101f5ff56c0746c8bd06ce4f186d00fc7b09566705eed7ea46"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/logo_white.png",
+      "size": 3971,
+      "sha256": "a78ce5bd20c4f2727a01e74e3a1f560b99a05fc539a384df7f4db0633c4edd49"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/magnifying-glass.svg",
+      "size": 477,
+      "sha256": "bfac1151581a6e1420b6fdf2d4123a52022e067f0c0136fc773630d2c094ac92"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/plus-large.svg",
+      "size": 437,
+      "sha256": "780f1aff1a25ac0049bd050ddc5031f5229f4d8f5f83de2ab3e0633a6f664e4f"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/plus.svg",
+      "size": 417,
+      "sha256": "70d5d56fd20603cd023ca4187bbd612914ea3f2ec6d9178b75e78b245fe137a3"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/preview_placeholder.png",
+      "size": 2585,
+      "sha256": "aec62a01d23b0e0e46dd7a59a9f9ee72a3ab8ec7db7683451d784d6bb09e8994"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/question.png",
+      "size": 1416,
+      "sha256": "e40ca9f530b0052ce03dcefa1ed0a85bc76900acda0a1d6a55d4c9b8caf306e3"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/radio_button_checked_black.png",
+      "size": 923,
+      "sha256": "d1359c2ef8e35c05cdd3fe52276039fe49ed04773dc9d7547688a3103e547a05"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/radio_button_checked_white.png",
+      "size": 943,
+      "sha256": "c414691948b08ea8e3a2074dc9b1ce64ce8822934ca8e57b35b1f5184023e5fb"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/radio_button_unchecked_black.png",
+      "size": 1128,
+      "sha256": "bd23fb39f3ce43ffc6ed1543776f887fe7d4bef9cec72a6f64f835cdf66a737b"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/radio_button_unchecked_white.png",
+      "size": 1203,
+      "sha256": "d642cf470d3aa8a1dd9cce394db02ca2082ad2b40e2115e6e47fb396e567d99d"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/search.png",
+      "size": 549,
+      "sha256": "15dfcc339c2ae21ce4bb2dd1ba2ec2fb70934a81ab38b48d51a84ed0e742c19a"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/search.svg",
+      "size": 417,
+      "sha256": "b7464915119a64389b063ea769eb254743cee851ed3469a51d75713698b03675"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/settings.png",
+      "size": 132,
+      "sha256": "ec4ec00f09dcc9103b621cef2243ebfcc716b56307078e2646dd15f45fb3f99a"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/share.svg",
+      "size": 536,
+      "sha256": "08d0a218d8e65b1f95404a0320e23ad583dbc461dc2d39f37a6602ac71ca0263"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/shot.svg",
+      "size": 972,
+      "sha256": "a151fdbfdb25c00522a8fbf8096a17d0571d5caf37ec957f0ddc53e685f7b43d"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/sliders.svg",
+      "size": 952,
+      "sha256": "cdf715d91a6e3a8750a19694edfd9f0348c1be5007ed1a4475214b6a08cc0441"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/sortby.png",
+      "size": 358,
+      "sha256": "b833ad626383cb6bcb68d97f27a5fbf1cfed0f380413e4d156e4fb5deacc7184"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/sync.png",
+      "size": 621,
+      "sha256": "0dbebb6e7f4ebd9a643e83d7181e240e310219fa74f99c31b9ae7bfb7c38de2d"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/tag.png",
+      "size": 325,
+      "sha256": "a57f07e720343535da95df8e60e3d07a9d22f5d4225674dd0063450e6d5f3650"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/thumbnail.png",
+      "size": 609,
+      "sha256": "5df33b084206d7f0750aa3b87cc1377927bb68ca2521d4a9109002aa99773cfa"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/thumbnail_solid.png",
+      "size": 679,
+      "sha256": "480d5ae001ebd24c916f6d127249564e4949ae719257920d4a70b55d05ed0424"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/times.svg",
+      "size": 468,
+      "sha256": "ad3578aa20307041d2d0ff3aef1bdfba0a5352ce298f96e3dd9a9192079bc6cf"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/trash.svg",
+      "size": 439,
+      "sha256": "bb2a39c45383143d32bf837bec511f213fbd4ea171f3b9f991e7db2a6ac15de0"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/tree.svg",
+      "size": 705,
+      "sha256": "e4dcc96e0f3e7283166cb9b6cb47ffa96d9fae55c2001825e17a151db35d1b75"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/user.svg",
+      "size": 336,
+      "sha256": "882441b5453d61d492bd76c8101b6f83884902ee7a86741d33f94ef682e35f76"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/users.svg",
+      "size": 724,
+      "sha256": "08e5e7e9025474d3a27bb6cf6ba4821751047b662c5b2d1a140b5af4dd1e7066"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/vehicle.svg",
+      "size": 864,
+      "sha256": "dd65ecf6c37e78b6ef257003c45e861ccd7daf5c5c05e9c7ddee71d61776185f"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/video.svg",
+      "size": 316,
+      "sha256": "d247fc561fcf5d0aa60f2efb5d89e5e2304d750e4185c3da9fe447f84cb15313"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/view_all.png",
+      "size": 233,
+      "sha256": "2429716acabb873fe2beb453a672e644a3aafb9a8d9af0fcffc66651257bd034"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/view_compact.png",
+      "size": 223,
+      "sha256": "4078df0e32a6618dba163c16198ed00d60361b189b4d6e6d68099b36fba83872"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/view_settings.png",
+      "size": 488,
+      "sha256": "68912445485109c467962c4f2642b7fbd895f48da7f4054a7daf40c5cee9dde8"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/warning.png",
+      "size": 207,
+      "sha256": "ead5fca8b18ab5e9bb8ba8e15ebcfde075fb8b22c0da32ab45230b36c8969600"
+    },
+    {
+      "path": "src/studiolibrary/resource/icons/xmark.svg",
+      "size": 511,
+      "sha256": "39f35de2a07dc28ab6d9727397351acf9c5f1c3b181bed42c5f015a43a7160da"
+    },
+    {
+      "path": "src/studiolibrary/utils.py",
+      "size": 39854,
+      "sha256": "e945e7f7decc1c66444bb44d339dabc631b97e08334013fe166cbb58b21fc675"
+    },
+    {
+      "path": "src/studiolibrary/widgets/PlaceholderWidget.ui",
+      "size": 2450,
+      "sha256": "de298f48af77a93892403c16e22205e5567c6da1c16428b289c7d31b5f17def1"
+    },
+    {
+      "path": "src/studiolibrary/widgets/PreviewWidget.ui",
+      "size": 7842,
+      "sha256": "a9b2ac0b6fcbb0830b737cd87554fe04532b84804ff3047c4278cef254f6332c"
+    },
+    {
+      "path": "src/studiolibrary/widgets/__init__.py",
+      "size": 1773,
+      "sha256": "1e8f728bcd4cf936e8429c535e6e5c23b7f67a0e1a402c682ce4b038a773decb"
+    },
+    {
+      "path": "src/studiolibrary/widgets/colorpicker.py",
+      "size": 10669,
+      "sha256": "fdabe336950806f86ee32c1f9eff99373770530672f6d5fa50e0f5fbaca66d27"
+    },
+    {
+      "path": "src/studiolibrary/widgets/fieldwidgets.py",
+      "size": 39574,
+      "sha256": "02487f510c8611d81863be0c521bf87b649ac896de01d53e6055adad94234022"
+    },
+    {
+      "path": "src/studiolibrary/widgets/filterbymenu.py",
+      "size": 8589,
+      "sha256": "7318fc252890a2c0fe203bff883f009bce8888bc9e12ee0172e2f8199cdc738a"
+    },
+    {
+      "path": "src/studiolibrary/widgets/formwidget.py",
+      "size": 20301,
+      "sha256": "461516cf1eea105746ed173e6fd580eda3069e304df6648a4068096d5602aab0"
+    },
+    {
+      "path": "src/studiolibrary/widgets/groupboxwidget.py",
+      "size": 4402,
+      "sha256": "c91311adccd3c1f494250ced7b30c8bfbf73ffe0ac784c35692404d1dc736b56"
+    },
+    {
+      "path": "src/studiolibrary/widgets/groupbymenu.py",
+      "size": 3587,
+      "sha256": "7353123f119bba9da0ca52205ed17e2c177f589c8c103a1d81e438014293cec7"
+    },
+    {
+      "path": "src/studiolibrary/widgets/iconpicker.py",
+      "size": 8294,
+      "sha256": "3501d07d2807110e0fff7e39fd648fc384cac4e913eda5c59b9a8705adc99ca0"
+    },
+    {
+      "path": "src/studiolibrary/widgets/itemswidget/__init__.py",
+      "size": 710,
+      "sha256": "0ba269aa8df5c676749bb71d557dfe0bbbea96105532ed69ba3a2bf97ca6e7de"
+    },
+    {
+      "path": "src/studiolibrary/widgets/itemswidget/groupitem.py",
+      "size": 5894,
+      "sha256": "90c12b06b91267a7bce19065fccdb70e6e10a837d41513e7b52ae289a7de4128"
+    },
+    {
+      "path": "src/studiolibrary/widgets/itemswidget/item.py",
+      "size": 40298,
+      "sha256": "ef7acb202800f34ecfba7a22bf016554245dcb03f869f7c15f871c71cce6399a"
+    },
+    {
+      "path": "src/studiolibrary/widgets/itemswidget/itemdelegate.py",
+      "size": 2314,
+      "sha256": "779334b50277f5a09eb97fa0a83bb3396c6b992f39c8874f8f4f1069adc479b1"
+    },
+    {
+      "path": "src/studiolibrary/widgets/itemswidget/itemswidget.py",
+      "size": 30623,
+      "sha256": "bc16822775793562887ab61bd2c9a0218fd1ed19425ca03e17e452363a29dfd3"
+    },
+    {
+      "path": "src/studiolibrary/widgets/itemswidget/itemviewmixin.py",
+      "size": 9137,
+      "sha256": "03a2fed9c8a4b3f660ab79ed68ee6ef3eacb082dfd0ca17745f0cc3b5c92992b"
+    },
+    {
+      "path": "src/studiolibrary/widgets/itemswidget/listview.py",
+      "size": 18300,
+      "sha256": "06f961c572fefc9828861ad241dae2bfb884a9997012d534992a884014452ed8"
+    },
+    {
+      "path": "src/studiolibrary/widgets/itemswidget/treewidget.py",
+      "size": 18704,
+      "sha256": "06ec871757a055a9487774ebcc39200e8f576789c0adf76fe9b883a70c4a65df"
+    },
+    {
+      "path": "src/studiolibrary/widgets/librariesmenu.py",
+      "size": 2183,
+      "sha256": "18b776ab2e6d9bd797a4caa88d2c31d1dc6d7f83a13c8d61268a9d7ce001c7de"
+    },
+    {
+      "path": "src/studiolibrary/widgets/lightbox.py",
+      "size": 6214,
+      "sha256": "9f76203860464e33513f706c12b76e7e276e4660311336ff3e17ed17044384e6"
+    },
+    {
+      "path": "src/studiolibrary/widgets/lineedit.py",
+      "size": 5145,
+      "sha256": "d87946e863090e428564701dc00c1c5c81c1d69b41d2cb8d2834e8cdd20fbb99"
+    },
+    {
+      "path": "src/studiolibrary/widgets/menubarwidget.py",
+      "size": 7176,
+      "sha256": "ea6423b60a0a022acfbdd6cacd58be6992ae65033252ab319fa8156a6f2c7520"
+    },
+    {
+      "path": "src/studiolibrary/widgets/messagebox.py",
+      "size": 21075,
+      "sha256": "cf8e701701ca6cc47f2a664517830f88824e2df2eb56a01bbceeba20ba8e56ea"
+    },
+    {
+      "path": "src/studiolibrary/widgets/placeholderwidget.py",
+      "size": 916,
+      "sha256": "1bcb98e596526e8c0b51b311f11b79cbe894b1c0030475c13413feac9cd86b70"
+    },
+    {
+      "path": "src/studiolibrary/widgets/previewwidget.py",
+      "size": 6224,
+      "sha256": "c6da8c94bf9a10bdd484ea7e3e1f5faab03c5cfa00571964688a5f8ad2ef7e20"
+    },
+    {
+      "path": "src/studiolibrary/widgets/searchwidget.py",
+      "size": 9410,
+      "sha256": "9d4eb4505699a7289ea8798b82b395f5793d759aeec94cd5cdf3e58c70ae4187"
+    },
+    {
+      "path": "src/studiolibrary/widgets/separatoraction.py",
+      "size": 2443,
+      "sha256": "2bb200072814e7346ced9a55ff43768e98e96eebc23edaff380a52a4fd6ddccd"
+    },
+    {
+      "path": "src/studiolibrary/widgets/sequencewidget.py",
+      "size": 8446,
+      "sha256": "38d7507deda3a09d16f3f5c9156d05966a4cdfa561c47f5c02f681b01b36157f"
+    },
+    {
+      "path": "src/studiolibrary/widgets/settings.py",
+      "size": 1839,
+      "sha256": "67c7734879ff97cd792d4195c3f9ba5c8603bcf35f549f12ffefe80b123b0000"
+    },
+    {
+      "path": "src/studiolibrary/widgets/sidebarwidget/__init__.py",
+      "size": 750,
+      "sha256": "fef99da21d0773a489e3a1594d42da5847045821d3802ba164b346a1eccaff39"
+    },
+    {
+      "path": "src/studiolibrary/widgets/sidebarwidget/sidebarwidget.py",
+      "size": 32895,
+      "sha256": "f34296063dab2470a9bd8f4b7f416b6840ebed9e2a264946f6171b910ade95d3"
+    },
+    {
+      "path": "src/studiolibrary/widgets/sidebarwidget/sidebarwidgetitem.py",
+      "size": 9868,
+      "sha256": "216a6d23b073f85b03243d08ca9c7039ffe55cc410c90cea20e36debb7e9b9c8"
+    },
+    {
+      "path": "src/studiolibrary/widgets/slideraction.py",
+      "size": 2358,
+      "sha256": "66dcd08bf30295b54f43f13e69d8d375ee6d154504d9575ddff3dcadf180a2e5"
+    },
+    {
+      "path": "src/studiolibrary/widgets/sortbymenu.py",
+      "size": 3362,
+      "sha256": "cbaa8edba8900ba6b8db00619d4541f07ca8ec8915f38260a2762775d4909286"
+    },
+    {
+      "path": "src/studiolibrary/widgets/statuswidget.py",
+      "size": 6556,
+      "sha256": "91e1f24862aa4f13a0ce6680380208ac5ff9a6134616af49544d080bfb568924"
+    },
+    {
+      "path": "src/studiolibrary/widgets/themesmenu.py",
+      "size": 18845,
+      "sha256": "5c67344d847e755f10860524950368fc63e6046aeeea57d87b1e1f77948c6297"
+    },
+    {
+      "path": "src/studiolibrary/widgets/toastwidget.py",
+      "size": 4475,
+      "sha256": "c09ec9a768b3ac44a7ffdcf4de3d95ec86b8dae034e91aaf5ffc340f8db3aab1"
+    },
+    {
+      "path": "src/studiolibrarymaya/BaseLoadWidget.ui",
+      "size": 13175,
+      "sha256": "d86dbfc5b5cffd04bc58ae58d565a1f491220fe18afcaebcb4b32c9e53f6788a"
+    },
+    {
+      "path": "src/studiolibrarymaya/BaseSaveWidget.ui",
+      "size": 7899,
+      "sha256": "d9a51677ee8f1416491dc9f5a6a10cb852315b4398bce0fb2c6b3afd8831a23f"
+    },
+    {
+      "path": "src/studiolibrarymaya/README.md",
+      "size": 2833,
+      "sha256": "44e6ebe358dc1f9ef4dc6df17b69bf00c93a53a4f0a8ad75b714ec76ac1e107a"
+    },
+    {
+      "path": "src/studiolibrarymaya/__init__.py",
+      "size": 710,
+      "sha256": "0ba269aa8df5c676749bb71d557dfe0bbbea96105532ed69ba3a2bf97ca6e7de"
+    },
+    {
+      "path": "src/studiolibrarymaya/animitem.py",
+      "size": 8296,
+      "sha256": "2381bf7a28954b6cb40a5e7fe0956fd4e60b56519a840e0efdff946a41ff3b6a"
+    },
+    {
+      "path": "src/studiolibrarymaya/baseitem.py",
+      "size": 12727,
+      "sha256": "f1eee9d92757c9e9960079faf1aee09b848686fd5847030cb610f47100e9ebba"
+    },
+    {
+      "path": "src/studiolibrarymaya/baseloadwidget.py",
+      "size": 7797,
+      "sha256": "cb5501ff9aebf85036fd5d2fdb6d3ccc18354504ec2f4bc9854a8d27168ec55b"
+    },
+    {
+      "path": "src/studiolibrarymaya/basesavewidget.py",
+      "size": 14769,
+      "sha256": "1f3a67026fc82d2f138ff6a9adcd3eecd2c76610763389672464177ea00cdf70"
+    },
+    {
+      "path": "src/studiolibrarymaya/exampleitem.py",
+      "size": 2842,
+      "sha256": "8f8ac9c37488930701edecb1049d6ee2d47bf7269a9bdea4f6c9022e905e2aa6"
+    },
+    {
+      "path": "src/studiolibrarymaya/icons/animation.png",
+      "size": 171,
+      "sha256": "b7e75b0a78bfd43ecafa39e44a34263b23d34329ce0ff2ae452dad20ed74a5fd"
+    },
+    {
+      "path": "src/studiolibrarymaya/icons/arrow.png",
+      "size": 260,
+      "sha256": "5f67a1ee32791dddd920cd5f2ffff51121b86c24f81357d3043e4dcc6249eee6"
+    },
+    {
+      "path": "src/studiolibrarymaya/icons/file.png",
+      "size": 652,
+      "sha256": "0d30b8ed1e10c9100205ba2730414f9d01f555b3b6ede52da49c4b4b0865d401"
+    },
+    {
+      "path": "src/studiolibrarymaya/icons/insert.png",
+      "size": 10651,
+      "sha256": "f1e156f0cd8131c70683f04053ba48614b34790b8edced3fa8e1f0bad54e20eb"
+    },
+    {
+      "path": "src/studiolibrarymaya/icons/insertConnect.png",
+      "size": 10452,
+      "sha256": "bb6b526be60deef19cbbcb33b2b4754576a2ccebd0f93850d41f40d0277d497f"
+    },
+    {
+      "path": "src/studiolibrarymaya/icons/merge.png",
+      "size": 10379,
+      "sha256": "82e4730803a0f688c595789daefa54d2cfb4d489259c3d83968a653f4392cb39"
+    },
+    {
+      "path": "src/studiolibrarymaya/icons/mergeConnect.png",
+      "size": 11117,
+      "sha256": "4b20a4410061a03f953047796d9d9beb3637de5c7e0998cb432e498c9184992a"
+    },
+    {
+      "path": "src/studiolibrarymaya/icons/mirrortable.png",
+      "size": 348,
+      "sha256": "9488ad67ad720bb9c4b664b9485edeb59c9167ec09a7d5ffaf9655863427c5ad"
+    },
+    {
+      "path": "src/studiolibrarymaya/icons/pose.png",
+      "size": 275,
+      "sha256": "b7776c61f0f81f054c261c043e80d16293b48f86eafe3406d853376fa8eaf3da"
+    },
+    {
+      "path": "src/studiolibrarymaya/icons/replace.png",
+      "size": 9657,
+      "sha256": "78beeaa4250d76e1b4845a69e23a5556894957a89dba12b2cf5fa33b09318e3a"
+    },
+    {
+      "path": "src/studiolibrarymaya/icons/replaceCompletely.png",
+      "size": 8053,
+      "sha256": "69ac94fdd3b54b5adf510795300b0aede1060657c82f323129043ff7fd1fd7cc"
+    },
+    {
+      "path": "src/studiolibrarymaya/icons/replaceConnect.png",
+      "size": 9817,
+      "sha256": "5e9960902742230beb6376a935234c72881247d68482dabdc686f672cba1b6c4"
+    },
+    {
+      "path": "src/studiolibrarymaya/icons/selectionSet.png",
+      "size": 572,
+      "sha256": "74fc987644dfa73a433299f9d813edfe40049bcb9b76308510dfde7132020550"
+    },
+    {
+      "path": "src/studiolibrarymaya/icons/selectionSet2.png",
+      "size": 4360,
+      "sha256": "19b2f750126f5bfd6c8014a1bb20ee5e38f4761bcd0fa2ccf48754b9626586a7"
+    },
+    {
+      "path": "src/studiolibrarymaya/mayafileitem.py",
+      "size": 2975,
+      "sha256": "3b6f75827edd7d96b69d3e2c9ba7befd6bd7ce842e47059ceabb9f42719bdc94"
+    },
+    {
+      "path": "src/studiolibrarymaya/mayalibrarywindow.py",
+      "size": 5339,
+      "sha256": "7150464be9699cb01129923206e64ba8a64984ae3c91f9ca4e276f05bbbf628b"
+    },
+    {
+      "path": "src/studiolibrarymaya/mirroritem.py",
+      "size": 6745,
+      "sha256": "2d396b7f642e63ac3bb3d9a4a0589c2064b96c3e94fc02ae0d9f2e91783de2e5"
+    },
+    {
+      "path": "src/studiolibrarymaya/poseitem.py",
+      "size": 11952,
+      "sha256": "e91beb5b848ace9914504c2ab9ea85d66b20a15a06346c6fb41b8f6c338f8076"
+    },
+    {
+      "path": "src/studiolibrarymaya/setsitem.py",
+      "size": 2111,
+      "sha256": "3f051455fd128090b2c82fcb365ece01878643fec5a804b55299e34d918d9613"
+    },
+    {
+      "path": "src/studiolibrarymaya/setsmenu.py",
+      "size": 4929,
+      "sha256": "396c7d3003da0c2de37e49025857965ac4b1ed4ca1c467465cbe6c8815bfe50d"
+    },
+    {
+      "path": "src/studioqt/__init__.py",
+      "size": 1057,
+      "sha256": "09467270ed235785c307a2b541db7b7d85bea72e6fcd44106e01b767220a2f9b"
+    },
+    {
+      "path": "src/studioqt/color.py",
+      "size": 2510,
+      "sha256": "f91b1ccc0abad41bac4c45ed545b5cd713f84b05a21da23d361d93bbc3e5c021"
+    },
+    {
+      "path": "src/studioqt/decorators.py",
+      "size": 1596,
+      "sha256": "44126b899580d5255c14f3fcb0e165e7c6d324e4c0147311c0eb294c560459a7"
+    },
+    {
+      "path": "src/studioqt/icon.py",
+      "size": 6063,
+      "sha256": "74bff763c137f10604e60f980a2b19405e9e1a75c8711087286965d8cea50e86"
+    },
+    {
+      "path": "src/studioqt/imagesequence.py",
+      "size": 5707,
+      "sha256": "66d02b66a9a83ba5f8f169528728ea8128eaa2deedab8ae4d1f94c1b44865665"
+    },
+    {
+      "path": "src/studioqt/menu.py",
+      "size": 2621,
+      "sha256": "943f307e67dd0a710922c0bf0dce0431796bd516017689cc7362d1586946a020"
+    },
+    {
+      "path": "src/studioqt/pixmap.py",
+      "size": 1430,
+      "sha256": "032a1421e426d3bb16e1dd25c5ebdd124b5ed77465455dfbec4df4b1db4bda47"
+    },
+    {
+      "path": "src/studioqt/stylesheet.py",
+      "size": 2668,
+      "sha256": "172e4accde75f104bd3992c9d9ae7b08578b6d869bd583a3a874beb4d1d74217"
+    },
+    {
+      "path": "src/studioqt/utils.py",
+      "size": 5595,
+      "sha256": "8efce011e91241c9243872da112999229f4990e2898bf9258be6cf06be44ec38"
+    },
+    {
+      "path": "src/studiovendor/Qt.py",
+      "size": 62913,
+      "sha256": "c2e12079d575d83781d8eeff6a9d163c0867192bb55dea77a8d5261947d5285e"
+    },
+    {
+      "path": "src/studiovendor/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/studiovendor/six.py",
+      "size": 32901,
+      "sha256": "2e953c62e2a768529e366747392417b27036536037414577751967cace5a0938"
+    }
+  ]
+}

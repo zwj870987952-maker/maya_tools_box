@@ -1,0 +1,11 @@
+{
+  "kind": "mayapy_standalone",
+  "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+  "test": "tools_staging_pool/07_subsystems_suites/studiolibrary_patch/release_candidate/tests/test_studiolibrary_patch_maya.py",
+  "returncode": 0,
+  "passed": true,
+  "output": "<frozen importlib._bootstrap>:1047: ImportWarning: _SixMetaPathImporter.find_spec() not found; falling back to find_module()\r\nmutils.transferobject : INFO : Saving pose: C:\\Users\\zwj87\\AppData\\Local\\Temp\\tmplstutbos\\test.wanim\\pose.json\r\nmutils.transferobject : INFO : Saved pose: C:\\Users\\zwj87\\AppData\\Local\\Temp\\tmplstutbos\\test.wanim\\pose.json\r\n����: StudioLibraryPatchTool_studiolibrary_patch\n.mutils.transferobject : INFO : Saving pose: C:\\Users\\zwj87\\AppData\\Local\\Temp\\tmpma9n18ko\\test.wpose\\pose.json\r\nmutils.transferobject : INFO : Saved pose: C:\\Users\\zwj87\\AppData\\Local\\Temp\\tmpma9n18ko\\test.wpose\\pose.json\r\n����: StudioLibraryPatchTool_studiolibrary_patch\n.����: \n.\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.179s\r\n\r\nOK\r\n",
+  "gui_acceptance": false,
+  "python_source_sha256": "2e33f407459e89d6773605cd33dab4bcb09f6867ae4deed24f6afeb174f2f50c",
+  "runtime_source_sha256": "5e2f73210f7d4d209914d0647689631ed70a5989c7cfe63aa81371bf407980a8"
+}
