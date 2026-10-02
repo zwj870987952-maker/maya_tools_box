@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T09:51:49.396055+08:00",
+  "updated_at": "2026-10-02T09:56:14.828327+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "05_ue_pipeline/ue_bone_exporter",
+    "last_completed_tool": "05_ue_pipeline/ue_context_menu",
     "last_usage": {
-      "five_hour_used_percent": 57.0,
-      "weekly_used_percent": 55.0,
-      "recorded_at": "2026-10-02T09:39:33.530483+08:00",
+      "five_hour_used_percent": 63.0,
+      "weekly_used_percent": 56.0,
+      "recorded_at": "2026-10-02T09:52:28.995169+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "05_ue_pipeline/ue_bone_exporter"
+    "current_tool": "05_ue_pipeline/ue_context_menu"
   },
   "entry_repairs": [
     {
@@ -19181,7 +19181,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete UE Python mesh TXT export and C++ mesh/shared Skeleton menus; native runtime schema/dry-run/exclusive output; no Maya registry adapter",
-      "prepared_at": "2026-10-02T09:51:45.861568+08:00"
+      "prepared_at": "2026-10-02T09:51:45.861568+08:00",
+      "source_commit": "cbd5cf896f195789126a660b29a47b63bbefb7aa"
     },
     {
       "source_path": "05_ue_pipeline/ue_context_menu",
@@ -19192,20 +19193,60 @@
       "entry_candidates": [
         "print_source_paths_menu.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "print_source_paths_menu.py"
       ],
       "license_files": [],
       "entry_sha256": "c7c4b488145ef8b22c533c31cb5e7e85b04384ace25ac15f9b191ce605bb0867",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.000s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"ue_context_menu\",\r\n  \"candidate_sha256\": \"fdecada560fa78a05740b7aa7612ff91576cd01173a41902b14179caa62a6af5\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\ue_context_menu.md\",\r\n    \"engine_toolkit\\\\tools\\\\ue_context_menu\\\\__init__.py\",\r\n    \"engine_toolkit\\\\tools\\\\ue_context_menu\\\\catalog.json\",\r\n    \"engine_toolkit\\\\tools\\\\ue_context_menu\\\\upstream\\\\print_source_paths_menu.py.original\",\r\n    \"tests\\\\test_ue_context_menu.py\"\r\n  ],\r\n  \"registry\": null,\r\n  \"panel\": \"UE Content Browser owned Print Source Paths entry; explicit registration/unregistration\",\r\n  \"maya_acceptance_required\": false,\r\n  \"runtime_acceptance_required\": true,\r\n  \"runtime\": \"unreal_editor\"\r\n}\r\n"
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Real UE menus, assets, import data and target versions not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "fdecada560fa78a05740b7aa7612ff91576cd01173a41902b14179caa62a6af5",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.000s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Native runtime package imports without Maya or Unreal; entry and schema available\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real native runtime acceptance pending",
+        "Real UE context menus/import data types/target versions not_run"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -19214,7 +19255,40 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "513b7028ec42bf2934a8dfabf262a3b8fb245671925ab87e5a852dacb0cb1b1b"
+      "source_tree_sha256": "11accd45e38b23ae4a3da4055bf939e8aedf001321e52a39c244315b74947bb4",
+      "runtime_acceptance": {
+        "runtime": "unreal_editor",
+        "status": "not_run",
+        "versions": []
+      },
+      "candidate_path": "tools_staging_pool/05_ue_pipeline/ue_context_menu/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/05_ue_pipeline/ue_context_menu/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "ue_context_menu",
+        "candidate_sha256": "fdecada560fa78a05740b7aa7612ff91576cd01173a41902b14179caa62a6af5",
+        "applied": false,
+        "files": [
+          "docs\\tools\\ue_context_menu.md",
+          "engine_toolkit\\tools\\ue_context_menu\\__init__.py",
+          "engine_toolkit\\tools\\ue_context_menu\\catalog.json",
+          "engine_toolkit\\tools\\ue_context_menu\\upstream\\print_source_paths_menu.py.original",
+          "tests\\test_ue_context_menu.py"
+        ],
+        "registry": null,
+        "panel": "UE Content Browser owned Print Source Paths entry; explicit registration/unregistration",
+        "maya_acceptance_required": false,
+        "runtime_acceptance_required": true,
+        "runtime": "unreal_editor"
+      },
+      "resources": [
+        "print_source_paths_menu.py"
+      ],
+      "external_dependencies": [
+        "Unreal Editor PythonScriptPlugin/EditorScriptingUtilities/ToolMenus"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete explicit UE source-path query/menu lifecycle with all fallback methods, schema, dry-run, provenance and no asset/file writes",
+      "prepared_at": "2026-10-02T09:56:11.340400+08:00"
     },
     {
       "source_path": "05_ue_pipeline/ue_fbx_auto_import",

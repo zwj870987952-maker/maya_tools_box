@@ -726,3 +726,8 @@
 - 原5文件SHA归档，完整UE Python SkeletalMesh名称TXT与C++ Editor原生右键/保存窗口/成功消息两条实现保留。明确Python网格骨骼与原C++共享Skeleton差异，C++提供mesh/shared两菜单；补Context/MessageDialog/Paths/FileManager显式include和ToolMenu owner生命周期，移除未用EditorStyle补AssetRegistry，exclusive文件保护，无自动执行/无asset commit/save。
 - 3离线mock和临时最终布局/源码fingerprint通过：UTF8中文骨名/只读dry-run/已有目标整表拒绝/不同路径同名collision/竞争写入保留竞争者并撤自己的文件。UE package在缺Maya/Unreal时可导入。临时晋级助手增加明确external runtime分支，仅engine/docs/tests ownnamespace，无Maya Base/registry/panel伪适配；2实际temp-repo测试验证未验收/旧SHA拒绝、验收后复制/重复目标拒绝、Maya注册字节不变及external禁止写正式Maya路径。只改本轮临时助手，不修改正式框架。
 - 本机Program Files/Epic Games未找到安装。真实UE资产/SkeletonModifier读取副作用/UBT C++编译/保存窗口/热重载/跨UE版本均not_run，不把源文本检查称为编译通过；prepared_unverified，UE runtime_acceptance单独not_run，Maya GUI仍未伪通过。实际5h63%已用（剩37%）、周56%，继续ue_context_menu；heartbeat暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：UE源路径右键完整候选，累计89/109
+
+- 原单文件SHA归档，完整Print Source Paths/多路径Output Log保留；取消import即注册，显式owned menu register/unregister/dry-run无菜单与日志变化；通用ContentBrowser.AssetContextMenu+自有section，callback正式完整模块名。去除不可靠has_editor_property，保留4级获取方法fallback、错误与raw_relative provenance，不把未解析源误报绝对路径。
+- 2离线mock+临时最终布局/fingerprint通过，真实模拟多源去重/方法错误回退/无property/raw路径/只读注册dry-run/重复注册单entry/注销/空选区log。正式Maya registry byte不变，真实UE菜单和资产类型/版本均not_run，prepared_unverified。实际5h65%已用（剩35%）、周56%，继续ue_fbx_auto_import；heartbeat保持暂停。

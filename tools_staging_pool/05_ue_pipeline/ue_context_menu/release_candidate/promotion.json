@@ -1,0 +1,40 @@
+{
+  "tool_id": "ue_context_menu",
+  "runtime": "unreal_editor",
+  "registration": null,
+  "entry_module": "engine_toolkit.tools.ue_context_menu",
+  "panel": "UE Content Browser owned Print Source Paths entry; explicit registration/unregistration",
+  "files": [
+    {
+      "source": "docs/tools/ue_context_menu.md",
+      "target": "docs/tools/ue_context_menu.md"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_context_menu/__init__.py",
+      "target": "engine_toolkit/tools/ue_context_menu/__init__.py"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_context_menu/catalog.json",
+      "target": "engine_toolkit/tools/ue_context_menu/catalog.json"
+    },
+    {
+      "source": "engine_toolkit/tools/ue_context_menu/upstream/print_source_paths_menu.py.original",
+      "target": "engine_toolkit/tools/ue_context_menu/upstream/print_source_paths_menu.py.original"
+    },
+    {
+      "source": "tests/test_ue_context_menu.py",
+      "target": "tests/test_ue_context_menu.py"
+    }
+  ],
+  "resources": [
+    "print_source_paths_menu.py"
+  ],
+  "dependencies": [
+    "Unreal Editor PythonScriptPlugin/EditorScriptingUtilities/ToolMenus"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete explicit UE source-path query/menu lifecycle with all fallback methods, schema, dry-run, provenance and no asset/file writes",
+  "verification_limitations": [
+    "Real UE context menus/import data types/target versions not_run"
+  ]
+}
