@@ -1,0 +1,57 @@
+{
+  "tool_id": "batch_importer_v3",
+  "registration": {
+    "module": "batch_importer_v3",
+    "class_name": "BatchImporterV3Tool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/batch_importer_v3.md",
+      "target": "docs/tools/batch_importer_v3.md"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_importer_v3/__init__.py",
+      "target": "maya_toolkit/tools/batch_importer_v3/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_importer_v3/batch_file_command.py",
+      "target": "maya_toolkit/tools/batch_importer_v3/batch_file_command.py"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_importer_v3/catalog.json",
+      "target": "maya_toolkit/tools/batch_importer_v3/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_importer_v3/tool.py",
+      "target": "maya_toolkit/tools/batch_importer_v3/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_importer_v3/ui.py",
+      "target": "maya_toolkit/tools/batch_importer_v3/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/batch_importer_v3/upstream/批量导入加强版v3.py.original",
+      "target": "maya_toolkit/tools/batch_importer_v3/upstream/批量导入加强版v3.py.original"
+    },
+    {
+      "source": "tests/test_batch_importer_v3.py",
+      "target": "tests/test_batch_importer_v3.py"
+    },
+    {
+      "source": "tests/test_batch_importer_v3_maya.py",
+      "target": "tests/test_batch_importer_v3_maya.py"
+    }
+  ],
+  "resources": [
+    "批量导入加强版v3.py"
+  ],
+  "dependencies": [
+    "Maya supported native file translators",
+    "PySide2/shiboken2 or PySide6/shiboken6 UI"
+  ],
+  "acceptance_required": true,
+  "change_summary": "完整Qt文件递归文件夹/count/namespace/导入引用DelRef水印；全表路径/namespace预检、独占MPx导入Undo不读file的Redo、精确RN引用lifetime与未编辑引用移除重建、Base Schema知识测试晋级",
+  "verification_limitations": [
+    "真实Qt控件/五translator全部模式/生产复杂引用与跨版本not_run"
+  ]
+}

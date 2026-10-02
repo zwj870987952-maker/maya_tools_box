@@ -674,3 +674,10 @@
 - 2离线+2隔离Maya2025+临时正式布局/注册/panel/fingerprint通过：全部978 SHA/18语法/225defs/290 metadata-thumbnail；真实原Bolt模型导入/new group/scale/current namespace/selection/time/AutoKey、已有NS全表前拒绝、真实全部DAG/DG一次Undo+Redo及临时原文件移走仍Redo；159MB新临时目录独占copy/codebytes/安装副本UserLibPath指向自身独立库/旧目录不覆盖/dry不写file。Arnold原生requires实际autoload，PyMel缺；完整GUI/render等未运行，prepared_unverified。
 - 修复真实file import不能由外层Undo回滚，独占MPxCommand以新UUID控制MDagModifier lifetime，既有Undo队列保留。发现删除空NS后API Redo ls能列出但objExists解析失败，改Undo保留占用空NS、Redo无文件读取；明确限制新导入换NS，手工删保留NS后Redo拒绝。current namespace使用absoluteName，验证已有NS不能因当前userScope而绕过。最初293总MA误等同图库数量，精确改290+3模板。所有问题修复后检查通过，无伪造GUI验收。
 - 原完整UI后续native callbacks仍有原rmtree/rename/偏好/renderSetup/固定名cleanup等不可自动Undo行为，按许可保持原状，如实列备份库集中验收边界；adapter launch前依赖/安装代码SHA/库路径/固定名冲突检查。实际5h19%已用（剩81%）、周49%，立即继续batch_importer_v3，heartbeat保持暂停；不迁正式/同步/用卡/购买。
+
+# 2026-10-02：批量导入V3完整候选，累计81/109
+
+- 原单文件SHA归档；全部Qt主窗/文件与递归folder/count/name/References/Import/DeleteList/DelRef/ZWJ水印保留，Python2 long→int，Qt6/Qt5 lazy，cancel空folder防错、namespace可编辑。标准Base/Schema/全表路径/实例数/namespace不碰scene预检、独占nativefile lifetime、知识验收晋级。
+- 2离线+4隔离Maya2025+临时正式布局/注册/panel/fingerprint通过：真实MA/MB三份导入/oneUndo所有DAG-DG/原源file移走仍Redo/name lookup；OBJ真实triangle导入/UndoRedo；两同源RN独占UndoRedo及选同份多个object/shape后whole-reference preview/删除仅1份/Undo恢复选区/Redo不碰另一份；unloaded且custom RN重建原名/元数据锁/load状态，nested子与包含nested父/edited reference/非引用/坏后行/NS碰撞全部前拒绝。禁止scriptNodes和NS共享自动fallback，保持time/AutoKey/currentnamespace/有效selection。
+- Maya默认RN metadata locked，原先锁判断误拒绝正常file removal；不手动解锁既有RN，改用原生removeReference；restore仅解锁本次新RN完成原名重建并还原lock。严格无edit/顶层无nested/SHA可读范围，reference Undo/Redo读原文件且节点UUID可变；普通import保留空NS且Redo不重读file。GUI全部控件/FBX与ABC/all translator reference模式/生产跨版本not_run，prepared_unverified。
+- 实际5h25%已用（剩75%）、周50%，立即继续batch_processor_v3；heartbeat工作时暂停，不迁正式/同步/用卡/购买。

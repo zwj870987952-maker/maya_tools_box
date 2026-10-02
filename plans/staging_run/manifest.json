@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T08:10:00.130764+08:00",
+  "updated_at": "2026-10-02T08:24:37.296911+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "04_pipeline_io/asset_it_v1_2",
+    "last_completed_tool": "04_pipeline_io/batch_importer_v3",
     "last_usage": {
-      "five_hour_used_percent": 8.0,
-      "weekly_used_percent": 47.0,
-      "recorded_at": "2026-10-02T07:44:42.063944+08:00",
+      "five_hour_used_percent": 19.0,
+      "weekly_used_percent": 49.0,
+      "recorded_at": "2026-10-02T08:10:08.467580+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "04_pipeline_io/asset_it_v1_2"
+    "current_tool": "04_pipeline_io/batch_importer_v3"
   },
   "entry_repairs": [
     {
@@ -18166,7 +18166,8 @@
       ],
       "source_preserved": true,
       "change_summary": "978 originals/290 library models plus 3 creation scenes/225 definitions and complete native UI/resource bundle unchanged; separate bounded inventory/metadata/owned import Undo-Redo and fresh install/native launch adapter; exclusive install/path/namespace/evidence and full legacy impact documentation",
-      "prepared_at": "2026-10-02T08:09:10.388859+08:00"
+      "prepared_at": "2026-10-02T08:09:10.388859+08:00",
+      "source_commit": "9b28a8d853b1b28b21ca099a0184935d1259383f"
     },
     {
       "source_path": "04_pipeline_io/batch_importer_v3",
@@ -18177,20 +18178,80 @@
       "entry_candidates": [
         "批量导入加强版v3.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "批量导入加强版v3.py"
       ],
       "license_files": [],
       "entry_sha256": "e97275882ee0a22d6de3e64745226d409d1a3c2f226b6105680d1fb5f0d4e81b",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"batch_importer_v3\",\r\n  \"candidate_sha256\": \"4692ccc091c03d4f6442b4de18ad04d6e9822d64441f5878816c6d76914ca4cf\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\batch_importer_v3.md\",\r\n    \"maya_toolkit\\\\tools\\\\batch_importer_v3\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\batch_importer_v3\\\\batch_file_command.py\",\r\n    \"maya_toolkit\\\\tools\\\\batch_importer_v3\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\batch_importer_v3\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\batch_importer_v3\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\batch_importer_v3\\\\upstream\\\\\\u6279\\u91cf\\u5bfc\\u5165\\u52a0\\u5f3a\\u7248v3.py.original\",\r\n    \"tests\\\\test_batch_importer_v3.py\",\r\n    \"tests\\\\test_batch_importer_v3_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/04_pipeline_io/batch_importer_v3/release_candidate/tests/test_batch_importer_v3_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "�ļ���ȡ����ʱ��Ϊ  0.0031 �롣\n�ļ���ȡ����ʱ��Ϊ  0.0022 �롣\n�ļ���ȡ����ʱ��Ϊ  0.0017 �롣\n����: BatchImporterV3Tool_batch_importer_v3\n����: BatchImporterV3Tool_batch_importer_v3\n����: BatchImporterV3Tool_batch_importer_v3\n.�ļ���ȡ����ʱ��Ϊ  0.0061 �롣\n����: δ�ܴ� IFF �ļ����ж�ȡ: C:/Users/zwj87/AppData/Local/Temp//maya10539600000210A437D0D0.iff\n����: BatchImporterV3Tool_batch_importer_v3\n����: BatchImporterV3Tool_batch_importer_v3\n����: BatchImporterV3Tool_batch_importer_v3\n�ļ���ȡ����ʱ��Ϊ  0.0025 �롣\n.�ļ���ȡ����ʱ��Ϊ  0.0027 �롣\n�ļ���ȡ����ʱ��Ϊ  0.0025 �롣\n����: BatchImporterV3Tool_batch_importer_v3\n�ļ���ȡ����ʱ��Ϊ  0.0024 �롣\n�ļ���ȡ����ʱ��Ϊ  0.0023 �롣\n����: BatchImporterV3Tool_batch_importer_v3\n�ļ���ȡ����ʱ��Ϊ  0.003 �롣\n����: BatchImporterV3Tool_batch_importer_v3\n����: BatchImporterV3Tool_batch_importer_v3\n.�ļ���ȡ����ʱ��Ϊ  0.0025 �롣\n����: BatchImporterV3Tool_batch_importer_v3\n����: BatchImporterV3Tool_batch_importer_v3\n�ļ���ȡ����ʱ��Ϊ  0.0025 �롣\n����: file: C:/Users/zwj87/AppData/Local/Temp/batch importer gpwl2soh/nested.ma line 156: ����Ԫ���ݲ��ܱ������ļ�֧�֡�\n��ȡ 2 ���ļ�����ʱ��Ϊ  0.0052 �롣\n.\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.308s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "ee61cdd700f9b1a6ee3748f82971e2073986ad49ddd820770c5e58acd1b2191d",
+          "runtime_source_sha256": "33d885da271fd7edd9b35cc8ed5b298d8ec5d356367b3badfa9537ca48779bb3"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Actual Qt UI/recursive folder widgets, FBX/ABC and every translator reference mode plus production assets/other Maya versions not_run; edited/nested reference removal deliberately rejected."
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "4692ccc091c03d4f6442b4de18ad04d6e9822d64441f5878816c6d76914ca4cf",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "真实Qt控件/五translator全部模式/生产复杂引用与跨版本not_run"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -18199,7 +18260,38 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "f17aba49716785314806edb58f843acfc28a276c2dddd107f00946ed89fba3ff"
+      "source_tree_sha256": "6c54a584fea76861070b1fb330dfebf0f60b17c6a0a462809bad0335d4e48179",
+      "candidate_path": "tools_staging_pool/04_pipeline_io/batch_importer_v3/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/04_pipeline_io/batch_importer_v3/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "batch_importer_v3",
+        "candidate_sha256": "4692ccc091c03d4f6442b4de18ad04d6e9822d64441f5878816c6d76914ca4cf",
+        "applied": false,
+        "files": [
+          "docs\\tools\\batch_importer_v3.md",
+          "maya_toolkit\\tools\\batch_importer_v3\\__init__.py",
+          "maya_toolkit\\tools\\batch_importer_v3\\batch_file_command.py",
+          "maya_toolkit\\tools\\batch_importer_v3\\catalog.json",
+          "maya_toolkit\\tools\\batch_importer_v3\\tool.py",
+          "maya_toolkit\\tools\\batch_importer_v3\\ui.py",
+          "maya_toolkit\\tools\\batch_importer_v3\\upstream\\批量导入加强版v3.py.original",
+          "tests\\test_batch_importer_v3.py",
+          "tests\\test_batch_importer_v3_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "批量导入加强版v3.py"
+      ],
+      "external_dependencies": [
+        "Maya supported native file translators",
+        "PySide2/shiboken2 or PySide6/shiboken6 UI"
+      ],
+      "source_preserved": true,
+      "change_summary": "完整Qt文件递归文件夹/count/namespace/导入引用DelRef水印；全表路径/namespace预检、独占MPx导入Undo不读file的Redo、精确RN引用lifetime与未编辑引用移除重建、Base Schema知识测试晋级",
+      "prepared_at": "2026-10-02T08:23:57.259237+08:00"
     },
     {
       "source_path": "04_pipeline_io/batch_processor_v3",
