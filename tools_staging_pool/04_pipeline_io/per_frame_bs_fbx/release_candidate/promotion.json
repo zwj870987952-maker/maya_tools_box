@@ -1,0 +1,57 @@
+{
+  "tool_id": "per_frame_bs_fbx",
+  "registration": {
+    "module": "per_frame_bs_fbx",
+    "class_name": "PerFrameBsFbxTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/per_frame_bs_fbx.md",
+      "target": "docs/tools/per_frame_bs_fbx.md"
+    },
+    {
+      "source": "maya_toolkit/tools/per_frame_bs_fbx/__init__.py",
+      "target": "maya_toolkit/tools/per_frame_bs_fbx/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/per_frame_bs_fbx/catalog.json",
+      "target": "maya_toolkit/tools/per_frame_bs_fbx/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/per_frame_bs_fbx/fbx_io.py",
+      "target": "maya_toolkit/tools/per_frame_bs_fbx/fbx_io.py"
+    },
+    {
+      "source": "maya_toolkit/tools/per_frame_bs_fbx/tool.py",
+      "target": "maya_toolkit/tools/per_frame_bs_fbx/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/per_frame_bs_fbx/ui.py",
+      "target": "maya_toolkit/tools/per_frame_bs_fbx/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/per_frame_bs_fbx/upstream/模型逐帧转bs导出fbx_v1.1.py.original",
+      "target": "maya_toolkit/tools/per_frame_bs_fbx/upstream/模型逐帧转bs导出fbx_v1.1.py.original"
+    },
+    {
+      "source": "tests/test_per_frame_bs_fbx.py",
+      "target": "tests/test_per_frame_bs_fbx.py"
+    },
+    {
+      "source": "tests/test_per_frame_bs_fbx_maya.py",
+      "target": "tests/test_per_frame_bs_fbx_maya.py"
+    }
+  ],
+  "resources": [
+    "模型逐帧转bs导出fbx_v1.1.py"
+  ],
+  "dependencies": [
+    "Maya cmds/API2",
+    "native FBX plugin for explicit export"
+  ],
+  "acceptance_required": true,
+  "change_summary": "完整逐帧BS/rootJoint/skin/world-space采样与独占FBX、无PyMel、Schema知识测试UI晋级",
+  "verification_limitations": [
+    "GUI/dynamics/long sequences/referenced SG/UE consumption/production and cross-version acceptance not_run"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T09:04:37.315592+08:00",
+  "updated_at": "2026-10-02T09:16:53.778635+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "04_pipeline_io/fbx_batch_exporter_v7",
+    "last_completed_tool": "04_pipeline_io/per_frame_bs_fbx",
     "last_usage": {
-      "five_hour_used_percent": 36.0,
-      "weekly_used_percent": 51.0,
-      "recorded_at": "2026-10-02T08:50:54.845176+08:00",
+      "five_hour_used_percent": 41.0,
+      "weekly_used_percent": 52.0,
+      "recorded_at": "2026-10-02T09:04:42.749026+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "04_pipeline_io/fbx_batch_exporter_v7"
+    "current_tool": "04_pipeline_io/per_frame_bs_fbx"
   },
   "entry_repairs": [
     {
@@ -18671,7 +18671,8 @@
       ],
       "source_preserved": true,
       "change_summary": "完整V7 native form与预设管理、group/range真实FBX与全flags状态恢复、SSC层级bake、Schema知识测试晋级",
-      "prepared_at": "2026-10-02T09:04:33.933127+08:00"
+      "prepared_at": "2026-10-02T09:04:33.933127+08:00",
+      "source_commit": "cbffcdf37d516b0e7488e3f08bd23a094ee82031"
     },
     {
       "source_path": "04_pipeline_io/per_frame_bs_fbx",
@@ -18682,20 +18683,80 @@
       "entry_candidates": [
         "模型逐帧转bs导出fbx_v1.1.py"
       ],
-      "source_file_count": 1,
+      "source_file_count": 2,
       "source_files": [
         "模型逐帧转bs导出fbx_v1.1.py"
       ],
       "license_files": [],
       "entry_sha256": "af025205e526d415b93cdda88f02c2bfbf0cef55a587d0abf9c71922d73c75f6",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"per_frame_bs_fbx\",\r\n  \"candidate_sha256\": \"a25376bc41c5dd1af68bb88a2fa66fbf46e44686598124a78498e93ed3ba4e99\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\per_frame_bs_fbx.md\",\r\n    \"maya_toolkit\\\\tools\\\\per_frame_bs_fbx\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\per_frame_bs_fbx\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\per_frame_bs_fbx\\\\fbx_io.py\",\r\n    \"maya_toolkit\\\\tools\\\\per_frame_bs_fbx\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\per_frame_bs_fbx\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\per_frame_bs_fbx\\\\upstream\\\\\\u6a21\\u578b\\u9010\\u5e27\\u8f6cbs\\u5bfc\\u51fafbx_v1.1.py.original\",\r\n    \"tests\\\\test_per_frame_bs_fbx.py\",\r\n    \"tests\\\\test_per_frame_bs_fbx_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/04_pipeline_io/per_frame_bs_fbx/release_candidate/tests/test_per_frame_bs_fbx_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "Logfile: \"C:\\Users\\zwj87\\AppData\\Local\\Temp\\staging_maya_xseff7s1\\FBX\\Logs\\2020.3.6\\maya2025exp.log\"\n����: PerFrameBsFbxTool_per_frame_bs_fbx\nLogfile: \"C:\\Users\\zwj87\\AppData\\Local\\Temp\\staging_maya_xseff7s1\\FBX\\Logs\\2020.3.6\\maya2025imp.log\"\n���: 1\n���: 1\n���: 1\n���: 1\n���: 1\n���: 1\n�ļ���ȡ����ʱ��Ϊ  0.42 �롣\n..����: PerFrameBsFbxTool_per_frame_bs_fbx\n����: PerFrameBsFbxTool_per_frame_bs_fbx\n.\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.557s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "ebb9dbb9cd23f9026265f4ec973d10e835891e48e52ae760e5ab957999ef0b94",
+          "runtime_source_sha256": "58e46e07b64c92b399b888cd4db5e1324a721795a246246fbf3442de0b6fcdf1"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "GUI/dynamics/long sequences/referenced SG/UE consumption/production and cross-version acceptance not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "a25376bc41c5dd1af68bb88a2fa66fbf46e44686598124a78498e93ed3ba4e99",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "GUI/dynamics/long sequences/referenced SG/UE consumption/production and cross-version acceptance not_run"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -18704,7 +18765,38 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "8007368e59703c1d895dcd237be289091734f269c45e2c08f6995d979b4d5fea"
+      "source_tree_sha256": "f35d6a56a89c355b2c852b5f9354843f02446196bb95ad7fc4e6f59dce827e24",
+      "candidate_path": "tools_staging_pool/04_pipeline_io/per_frame_bs_fbx/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/04_pipeline_io/per_frame_bs_fbx/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "per_frame_bs_fbx",
+        "candidate_sha256": "a25376bc41c5dd1af68bb88a2fa66fbf46e44686598124a78498e93ed3ba4e99",
+        "applied": false,
+        "files": [
+          "docs\\tools\\per_frame_bs_fbx.md",
+          "maya_toolkit\\tools\\per_frame_bs_fbx\\__init__.py",
+          "maya_toolkit\\tools\\per_frame_bs_fbx\\catalog.json",
+          "maya_toolkit\\tools\\per_frame_bs_fbx\\fbx_io.py",
+          "maya_toolkit\\tools\\per_frame_bs_fbx\\tool.py",
+          "maya_toolkit\\tools\\per_frame_bs_fbx\\ui.py",
+          "maya_toolkit\\tools\\per_frame_bs_fbx\\upstream\\模型逐帧转bs导出fbx_v1.1.py.original",
+          "tests\\test_per_frame_bs_fbx.py",
+          "tests\\test_per_frame_bs_fbx_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "模型逐帧转bs导出fbx_v1.1.py"
+      ],
+      "external_dependencies": [
+        "Maya cmds/API2",
+        "native FBX plugin for explicit export"
+      ],
+      "source_preserved": true,
+      "change_summary": "完整逐帧BS/rootJoint/skin/world-space采样与独占FBX、无PyMel、Schema知识测试UI晋级",
+      "prepared_at": "2026-10-02T09:16:11.290772+08:00"
     },
     {
       "source_path": "04_pipeline_io/replace_references",

@@ -700,3 +700,10 @@
 - 2离线+3隔离Maya2025+临时正式布局/注册/panel/fingerprint通过：实际ASCII FBX写两文件/序号保prefix/原生FBX再导入模型与第3帧tx=6；所有所用FBX flag及animation property恢复、selection/time/AutoKey/四独立播放范围/dirty flag/Undo队列不变；真实SSC UndoRedo与约束对象bake 1,2,3 keys/tx/oneUndo恢复驱动；JSON新写/dry/读回/已有文件byte不覆盖/坏后行不写FBX。
 - 本机FBXPushSettings尝试写settings file Permission denied，改全部使用query逐项finally还原，不Push/Pop/ResetExport。初测bake层级含constraint伪keyable多属性，排除constraint作为烘焙目标并multi=True列真实属性后通过；FBX导入namespace不是预期测试范围，按实际mesh回读而非误判导出缺mesh。全部原范围和层级业务保留，不把export文件影响包装为可Undo。
 - GUI/highlight/全部flags组合及旧FBX版本/生产动画层/UE实际导入/跨版本not_run，prepared_unverified。实际5h41%已用（剩59%）、周52%，继续per_frame_bs_fbx；heartbeat保持暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：逐帧BS与FBX完整候选，累计85/109
+
+- 原单文件SHA归档；无原UI脚本完整生成流程替换为cmds/API2、Base/Schema/只读inspect和轻量候选UI，免缺失PyMel。多non-intermediate mesh分别按世界空间快照复制基模/UV/face SG、每mesh每frame原生BS target/linear 0-1-0脉冲、single rootJoint rigid skin/逐帧key，支持父级运动与source deformer、明确采样网格及内存预算、existing group拒绝不reuse。自包含全FBX helper / shape-skin flags+设置恢复/独占output、知识验收晋级齐备。
+- 2离线+3隔离Maya2025+临时正式布局/注册/panel/fingerprint通过：实际两mesh/source BS形变+父tx运动、1/2/3逐世界顶点吻合、六target+rigid skin/源scene图Undo退回/Redo仍几何正确、选区timeAutoKey/absolute userScope不改；真实ASCII FBX导出/生成组oneUndo后FBX仍存在/已有output前拒绝，再导入两个skin输出mesh+2 BS/skin，1/3帧顶点回读吻合；共享真实DAG实例/坏步长网格/GUIbatch拒绝。
+- FBX重导入额外具化六BS辅助目标meshes，不用全部mesh数量误判模型，按skin.outputGeometry shapes=True与source→生成base映射逐点验证，保留完整严格几何断言；第一轮测试把排序后第二mesh误当sourceCube（offset 4），修正测试身份映射后通过，未掩盖或降级顶点正确性。源材质copy可增加SG membership（引用SG可能record edits）明确说明，visibility/material-animation不转换；拓扑改变runtime拒绝/清理owned新UUID，动态求值副作用待验。
+- GUI/长序列/动态模拟/引用SG/拓扑变化/UE真实消费/跨版本not_run，prepared_unverified。实际5h47%已用（剩53%）、周53%，继续replace_references，heartbeat暂停，不迁正式/同步/用卡/购买。
