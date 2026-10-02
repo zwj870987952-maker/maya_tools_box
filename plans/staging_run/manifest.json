@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T09:16:53.778635+08:00",
+  "updated_at": "2026-10-02T09:29:04.518652+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "04_pipeline_io/per_frame_bs_fbx",
+    "last_completed_tool": "04_pipeline_io/replace_references",
     "last_usage": {
-      "five_hour_used_percent": 41.0,
-      "weekly_used_percent": 52.0,
-      "recorded_at": "2026-10-02T09:04:42.749026+08:00",
+      "five_hour_used_percent": 47.0,
+      "weekly_used_percent": 53.0,
+      "recorded_at": "2026-10-02T09:16:59.581607+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "04_pipeline_io/per_frame_bs_fbx"
+    "current_tool": "04_pipeline_io/replace_references"
   },
   "entry_repairs": [
     {
@@ -18796,7 +18796,8 @@
       ],
       "source_preserved": true,
       "change_summary": "完整逐帧BS/rootJoint/skin/world-space采样与独占FBX、无PyMel、Schema知识测试UI晋级",
-      "prepared_at": "2026-10-02T09:16:11.290772+08:00"
+      "prepared_at": "2026-10-02T09:16:11.290772+08:00",
+      "source_commit": "92c94f6ab240b1fb9aa7f150b47c47a3285c8934"
     },
     {
       "source_path": "04_pipeline_io/replace_references",
@@ -18807,7 +18808,7 @@
       "entry_candidates": [
         "reference替换EN封装版.py"
       ],
-      "source_file_count": 3,
+      "source_file_count": 4,
       "source_files": [
         "reference替换EN封装版.py",
         "批量替换引用物体v01.py",
@@ -18815,14 +18816,74 @@
       ],
       "license_files": [],
       "entry_sha256": "642773ebcda32f14bc7a347530fe38cecdf7d6adad0952bc0319c94f32f3e245",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"replace_references\",\r\n  \"candidate_sha256\": \"8dbf7b21c2b8dca4d946cf5f535ce1c4c59ae01710cc7c07e544c3e3c9faea4f\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\replace_references.md\",\r\n    \"maya_toolkit\\\\tools\\\\replace_references\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\replace_references\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\replace_references\\\\reference_ops.py\",\r\n    \"maya_toolkit\\\\tools\\\\replace_references\\\\replace_command.py\",\r\n    \"maya_toolkit\\\\tools\\\\replace_references\\\\tool.py\",\r\n    \"maya_toolkit\\\\tools\\\\replace_references\\\\ui.py\",\r\n    \"maya_toolkit\\\\tools\\\\replace_references\\\\upstream\\\\reference\\u66ff\\u6362EN\\u5c01\\u88c5\\u7248.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\replace_references\\\\upstream\\\\\\u6279\\u91cf\\u66ff\\u6362\\u5f15\\u7528\\u7269\\u4f53v01.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\replace_references\\\\upstream\\\\\\u66ff\\u6362reference.mel\",\r\n    \"maya_toolkit\\\\tools\\\\replace_references\\\\worker.py\",\r\n    \"tests\\\\test_replace_references.py\",\r\n    \"tests\\\\test_replace_references_maya.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/04_pipeline_io/replace_references/release_candidate/tests/test_replace_references_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": "�ļ���ȡ����ʱ��Ϊ  0.0029 �롣\n�ļ���ȡ����ʱ��Ϊ  0.0021 �롣\n����: file: C:/Users/zwj87/AppData/Local/Temp/replace references 4e9o00m5/results/caller__ed84eb9d.ma line 175: ����ʹ���ˡ�scene����־����˺�����ѡ���ڵ㡣\n��ȡ 3 ���ļ�����ʱ��Ϊ  0.0078 �롣\n.�ļ���ȡ����ʱ��Ϊ  0.0032 �롣\n�ļ���ȡ����ʱ��Ϊ  0.003 �롣\n����: �ѽ������ļ�·���ӡ�C:/Users/zwj87/AppData/Local/Temp/replace references twf2mii1/new.asset.mb����ӳ�䵽��C:/Users/zwj87/AppData/Local/Temp/replace references twf2mii1/new.asset.mb����\n�ļ���ȡ����ʱ��Ϊ  0.0021 �롣\n����: �ѽ������ļ�·���ӡ�C:/Users/zwj87/AppData/Local/Temp/replace references twf2mii1/new.asset.mb����ӳ�䵽��C:/Users/zwj87/AppData/Local/Temp/replace references twf2mii1/new.asset.mb����\n�ļ���ȡ����ʱ��Ϊ  0.0022 �롣\n����: �ѽ������ļ�·���ӡ�C:/Users/zwj87/AppData/Local/Temp/replace references twf2mii1/old.ma����ӳ�䵽��C:/Users/zwj87/AppData/Local/Temp/replace references twf2mii1/old.ma����\n�ļ���ȡ����ʱ��Ϊ  0.0034 �롣\n����: �ѽ������ļ�·���ӡ�C:/Users/zwj87/AppData/Local/Temp/replace references twf2mii1/old.ma����ӳ�䵽��C:/Users/zwj87/AppData/Local/Temp/replace references twf2mii1/old.ma����\n�ļ���ȡ����ʱ��Ϊ  0.003 �롣\n����: ReplaceReferencesTool_replace_references\n����: �ѽ������ļ�·���ӡ�C:/Users/zwj87/AppData/Local/Temp/replace references twf2mii1/new.asset.mb����ӳ�䵽��C:/Users/zwj87/AppData/Local/Temp/replace references twf2mii1/new.asset.mb����\n�ļ���ȡ����ʱ��Ϊ  0.0021 �롣\n����: �ѽ������ļ�·���ӡ�C:/Users/zwj87/AppData/Local/Temp/replace references twf2mii1/new.asset.mb����ӳ�䵽��C:/Users/zwj87/AppData/Local/Temp/replace references twf2mii1/new.asset.mb����\n�ļ���ȡ����ʱ��Ϊ  0.002 �롣\n����: ReplaceReferencesTool_replace_references\n����: �ѽ������ļ�·���ӡ�C:/Users/zwj87/AppData/Local/Temp/replace references twf2mii1/old.ma����ӳ�䵽��C:/Users/zwj87/AppData/Local/Temp/replace references twf2mii1/old.ma����\n�ļ���ȡ����ʱ��Ϊ  0.0023 �롣\n����: �ѽ������ļ�·���ӡ�C:/Users/zwj87/AppData/Local/Temp/replace references twf2mii1/old.ma����ӳ�䵽��C:/Users/zwj87/AppData/Local/Temp/replace references twf2mii1/old.ma����\n�ļ���ȡ����ʱ��Ϊ  0.0021 �롣\n����: ReplaceReferencesTool_replace_references\n.�ļ���ȡ����ʱ��Ϊ  0.0026 �롣\n�ļ���ȡ����ʱ��Ϊ  0.0021 �롣\n����: �ѽ������ļ�·���ӡ�C:/Users/zwj87/AppData/Local/Temp/replace references 4qg_sxe9/new.asset.mb����ӳ�䵽��C:/Users/zwj87/AppData/Local/Temp/replace references 4qg_sxe9/new.asset.mb����\n����: �ѽ������ļ�·���ӡ�C:/Users/zwj87/AppData/Local/Temp/replace references 4qg_sxe9/old.ma����ӳ�䵽��C:/Users/zwj87/AppData/Local/Temp/replace references 4qg_sxe9/old.ma����\n����: ReplaceReferencesTool_replace_references\n.\r\n----------------------------------------------------------------------\r\nRan 3 tests in 5.783s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "4166a92d2e0fa4c9bb9eeaad39a133cba38247c363299a5e1906ee46e942c826",
+          "runtime_source_sha256": "70ebaea71342872675530e7e14ca8df9884e9ad99163e26070d0cc6899957b13"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "GUI/production nested refs/corrupt source rollback/plugins/cross-version acceptance not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "8dbf7b21c2b8dca4d946cf5f535ce1c4c59ae01710cc7c07e544c3e3c9faea4f",
+          "returncode": 0,
+          "output": "..\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "GUI/production nested refs/corrupt source rollback/plugins/cross-version acceptance not_run"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 2,
@@ -18831,7 +18892,44 @@
         "possible_top_level_calls": 1,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "7d33c02450d08a5343a73c86c5b64e033ecd43c03635b0a4995ea62c093ec023"
+      "source_tree_sha256": "50c6b22255ea41ffc15da2129076a9ba0a001ce613fd7011e163d61f7187f2ab",
+      "candidate_path": "tools_staging_pool/04_pipeline_io/replace_references/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/04_pipeline_io/replace_references/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "replace_references",
+        "candidate_sha256": "8dbf7b21c2b8dca4d946cf5f535ce1c4c59ae01710cc7c07e544c3e3c9faea4f",
+        "applied": false,
+        "files": [
+          "docs\\tools\\replace_references.md",
+          "maya_toolkit\\tools\\replace_references\\__init__.py",
+          "maya_toolkit\\tools\\replace_references\\catalog.json",
+          "maya_toolkit\\tools\\replace_references\\reference_ops.py",
+          "maya_toolkit\\tools\\replace_references\\replace_command.py",
+          "maya_toolkit\\tools\\replace_references\\tool.py",
+          "maya_toolkit\\tools\\replace_references\\ui.py",
+          "maya_toolkit\\tools\\replace_references\\upstream\\reference替换EN封装版.py.original",
+          "maya_toolkit\\tools\\replace_references\\upstream\\批量替换引用物体v01.py.original",
+          "maya_toolkit\\tools\\replace_references\\upstream\\替换reference.mel",
+          "maya_toolkit\\tools\\replace_references\\worker.py",
+          "tests\\test_replace_references.py",
+          "tests\\test_replace_references_maya.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true
+      },
+      "resources": [
+        "reference替换EN封装版.py",
+        "批量替换引用物体v01.py",
+        "替换reference.mel"
+      ],
+      "external_dependencies": [
+        "Maya cmds/API2",
+        "matching mayapy for batch"
+      ],
+      "source_preserved": true,
+      "change_summary": "完整EN/MEL式/batch三UI、真实native reference replacement/namespace/Undo、isolated batch新输出、Schema知识测试晋级",
+      "prepared_at": "2026-10-02T09:28:13.396873+08:00"
     },
     {
       "source_path": "04_pipeline_io/vessel_fbx_exporter",

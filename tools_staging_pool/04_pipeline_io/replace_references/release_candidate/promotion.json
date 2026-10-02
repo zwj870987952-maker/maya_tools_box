@@ -1,0 +1,75 @@
+{
+  "tool_id": "replace_references",
+  "registration": {
+    "module": "replace_references",
+    "class_name": "ReplaceReferencesTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/replace_references.md",
+      "target": "docs/tools/replace_references.md"
+    },
+    {
+      "source": "maya_toolkit/tools/replace_references/__init__.py",
+      "target": "maya_toolkit/tools/replace_references/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/replace_references/catalog.json",
+      "target": "maya_toolkit/tools/replace_references/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/replace_references/reference_ops.py",
+      "target": "maya_toolkit/tools/replace_references/reference_ops.py"
+    },
+    {
+      "source": "maya_toolkit/tools/replace_references/replace_command.py",
+      "target": "maya_toolkit/tools/replace_references/replace_command.py"
+    },
+    {
+      "source": "maya_toolkit/tools/replace_references/tool.py",
+      "target": "maya_toolkit/tools/replace_references/tool.py"
+    },
+    {
+      "source": "maya_toolkit/tools/replace_references/ui.py",
+      "target": "maya_toolkit/tools/replace_references/ui.py"
+    },
+    {
+      "source": "maya_toolkit/tools/replace_references/upstream/reference替换EN封装版.py.original",
+      "target": "maya_toolkit/tools/replace_references/upstream/reference替换EN封装版.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/replace_references/upstream/批量替换引用物体v01.py.original",
+      "target": "maya_toolkit/tools/replace_references/upstream/批量替换引用物体v01.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/replace_references/upstream/替换reference.mel",
+      "target": "maya_toolkit/tools/replace_references/upstream/替换reference.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/replace_references/worker.py",
+      "target": "maya_toolkit/tools/replace_references/worker.py"
+    },
+    {
+      "source": "tests/test_replace_references.py",
+      "target": "tests/test_replace_references.py"
+    },
+    {
+      "source": "tests/test_replace_references_maya.py",
+      "target": "tests/test_replace_references_maya.py"
+    }
+  ],
+  "resources": [
+    "reference替换EN封装版.py",
+    "批量替换引用物体v01.py",
+    "替换reference.mel"
+  ],
+  "dependencies": [
+    "Maya cmds/API2",
+    "matching mayapy for batch"
+  ],
+  "acceptance_required": true,
+  "change_summary": "完整EN/MEL式/batch三UI、真实native reference replacement/namespace/Undo、isolated batch新输出、Schema知识测试晋级",
+  "verification_limitations": [
+    "GUI/production nested refs/corrupt source rollback/plugins/cross-version acceptance not_run"
+  ]
+}

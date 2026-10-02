@@ -1,0 +1,67 @@
+global proc replaceReferenceUI()
+{
+    // Delete window if it already exists
+    if (`window -exists replaceRefWindow`)
+        deleteUI replaceRefWindow;
+    
+    // Create window
+    window -title "Replace Reference" -widthHeight 350 100 replaceRefWindow;
+    
+    columnLayout -adjustableColumn true -rowSpacing 8 -columnAttach "both" 10;
+    
+    text -label "New Reference File:" -align "left";
+    rowLayout -numberOfColumns 2 -columnWidth2 240 80 -columnAttach 1 "both" 0;
+    textField -editable false -text "" newRefPathField;
+    button -label "Browse..." -command "browseForNewReference()";
+    setParent..;
+    
+    separator -height 8;
+    
+    button -label "Execute Replace" -command "executeReferenceReplace()" -height 30 -backgroundColor 0.6 0.8 0.4;
+    
+    setParent..;
+    
+    // Show window
+    showWindow replaceRefWindow;
+}
+
+// Browse for new reference file
+global proc browseForNewReference()
+{
+    string $filePath[] = `fileDialog2 -fileMode 1 -caption "Select New Reference File" -fileFilter "Maya Files (*.ma *.mb);;Maya ASCII (*.ma);;Maya Binary (*.mb)"`;
+    
+    if (size($filePath) > 0) {
+        textField -edit -text $filePath[0] newRefPathField;
+    }
+}
+
+// Execute replacement
+global proc executeReferenceReplace()
+{
+    string $selection[] = `ls -sl`;
+    
+    if (size($selection) == 0) {
+        confirmDialog -title "Error" -message "Please select a referenced object!" -button "OK";
+        return;
+    }
+    
+    string $newFile = `textField -query -text newRefPathField`;
+    
+    if ($newFile == "") {
+        confirmDialog -title "Error" -message "Please select a new reference file!" -button "OK";
+        return;
+    }
+    
+    string $referenceNode = `referenceQuery -referenceNode $selection[0]`;
+    
+    if ($referenceNode == "") {
+        confirmDialog -title "Error" -message "Selected object is not a reference!" -button "OK";
+        return;
+    }
+    
+    // Execute replacement
+    file -loadReference $referenceNode -options "v=0;" -type "mayaAscii" $newFile;
+}
+
+// Launch UI
+replaceReferenceUI();

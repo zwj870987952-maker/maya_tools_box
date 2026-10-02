@@ -707,3 +707,10 @@
 - 2离线+3隔离Maya2025+临时正式布局/注册/panel/fingerprint通过：实际两mesh/source BS形变+父tx运动、1/2/3逐世界顶点吻合、六target+rigid skin/源scene图Undo退回/Redo仍几何正确、选区timeAutoKey/absolute userScope不改；真实ASCII FBX导出/生成组oneUndo后FBX仍存在/已有output前拒绝，再导入两个skin输出mesh+2 BS/skin，1/3帧顶点回读吻合；共享真实DAG实例/坏步长网格/GUIbatch拒绝。
 - FBX重导入额外具化六BS辅助目标meshes，不用全部mesh数量误判模型，按skin.outputGeometry shapes=True与source→生成base映射逐点验证，保留完整严格几何断言；第一轮测试把排序后第二mesh误当sourceCube（offset 4），修正测试身份映射后通过，未掩盖或降级顶点正确性。源材质copy可增加SG membership（引用SG可能record edits）明确说明，visibility/material-animation不转换；拓扑改变runtime拒绝/清理owned新UUID，动态求值副作用待验。
 - GUI/长序列/动态模拟/引用SG/拓扑变化/UE真实消费/跨版本not_run，prepared_unverified。实际5h47%已用（剩53%）、周53%，继续replace_references，heartbeat暂停，不迁正式/同步/用卡/购买。
+
+# 2026-10-02：引用替换三版完整候选，累计86/109
+
+- 三原入口SHA归档；EN多选并改NS/MEL式单选保NS/Python batch文件列表+增删rule三套全部nativeUI保留、imports不打开UI。Base/Schema/readonly inspect，真实native loadReference+带copy-number的准确file edit namespace、自动规范basename/suffix去碰撞，不从RN字符串猜namespace，不以旧扩展强制新格式。专用MPx Undo/Redo重载原/目标SHA、load状态/namespace、真实RN UUID守护、reference无edit/无nested/简单NS/源可读准入和知识验收晋级齐备。
+- 2离线+3隔离Maya2025+临时正式布局/注册/panel/fingerprint通过：多RN含同份多object/shape去重，真实MA→MB/两namespace/oneUndo恢复旧资产及selection/Redo目标；unloaded depth none保持load状态、保NS/Undo旧path；edited后行全表不写；真实child batch原始SHA/caller dirtyscene/time/AutoKey/Undo不改，新MA打开确为两新sphere；多rule命中拒绝且不生成结果。batch原稿不保存改为独占全新同格式output，保源scene，不force切换caller。
+- file edit namespace必须给reference文件（含copy-number）而非只传RN；Autodesk明确会同搬namespace中local nodes，新增所有成员均属本RN的检查后才改NS，避免扩大影响。Windowsnative query路径slash形式用Path归一比对；原生MA→MB惰性增默认sharedReferenceNode，Undo仅保留该Maya共享元数据（不删默认），测试严格检查其他所有原节点恢复/无其他新增，不声明元数据集合逐字节Undo。
+- GUI/复杂生产refs/损坏file rollback/plugin副作用/跨版本not_run，prepared_unverified。实际5h53%已用（剩47%）、周54%，继续vessel_fbx_exporter；heartbeat暂停，不迁正式/同步/用卡/购买。
