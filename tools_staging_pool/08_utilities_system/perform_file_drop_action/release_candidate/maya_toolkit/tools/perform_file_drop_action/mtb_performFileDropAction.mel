@@ -1,0 +1,5 @@
+// Optional explicit named command; never defines performFileDropAction.
+global proc int mtb_performFileDropAction(string $theFile) {
+    string $encoded=encodeString($theFile);
+    return python("from maya_toolkit.tools.perform_file_drop_action import _mel_drop; _mel_drop(\""+$encoded+"\")");
+}

@@ -857,3 +857,10 @@
 - 新state8空tab不读原INI用户场景，配置/session/theme全量typed/bound/style/PNG/duplicate检查、已有先exact backup后atomic，包资源只读；局部native open/Save dialog/clipboard无global patch。原重复settings覆盖移除，删除tab索引clamp。私有cmds文件proxy对modified当前无slot也Save/Discard/Cancel，保存已有scene前backup并按ma/mb实际type，文件/scene切换不可Undo。
 - Own callback IDs/generation/Qt childtimer与nativewindow/MQt pointer清理、foreign保护，原API2viewport待实际GUI。offline19themes/坏末项不覆盖/exact backup、独立Qt8→9slots/PNG/close后deferred不执行、隔离Maya2025unbound modified Cancel保留cube/真实临时ma精确save backup、future注册/fingerprint通过。Qt隔离import Maya类型有swig MObject destructor警告，保留report，不作viewport/GUI通过。
 - 实际5h84%已用（剩16%）、周74%（剩26%），继续perform_file_drop_action，heartbeat暂停，无正式迁移/同步/用卡/购买。
+
+# 2026-10-02：文件拖拽动作完整候选，累计108/109
+
+- 原MEL精确归档，完整Import/Open/Reference/Cancel、新namespace、modified Save/Discard/Cancel、已有保存精确backup、Base/Schema/future注册与独立mtb MEL桥。默认无Qt/hook/MEL/scene/file写，未覆写原global performFileDropAction/Maya安装文件/$gv_operationMode。
+- enable_drop只当前modelPanel自有Qt eventFilter、disable只remove自己；只拦单local ma/mb，其余格式默认Maya，已有namespace拒绝合并，file加载executeScriptNodes=False。Open替换scene/保存不可Undo。Maya2025实测file import没有可撤销命令；UndoChunk只分组不能让file命令可撤销，API返回undo_guaranteed=False，Import/Reference/Open全部按需备份scene处理，未把原失败Undo测试作通过。
+- 离线path/namespace、隔离Maya2025实际临时ma import/reference/dry不改scene/未确认Open拒绝保留参考cube/确认Open/MEL桥编译、future注册/domain/panel/fingerprint通过。真实viewport drag/Save dialogs/跨版本not_run，prepared_unverified。
+- 实际5h88%已用（剩12%）、周75%（剩25%），继续最后shelf_manager，heartbeat暂停，无正式迁移/同步/用卡/购买。

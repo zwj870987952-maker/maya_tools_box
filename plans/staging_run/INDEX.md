@@ -1,6 +1,6 @@
 # 待整理工具池执行进度
 
-更新时间：2026-10-02T16:04:28.767770+08:00
+更新时间：2026-10-02T16:11:13.082345+08:00
 
 离线检查不等于真实 Maya 验收。正式库尚未晋级。
 
@@ -112,6 +112,6 @@
 | `08_utilities_system/ks_node_outliner_v2_2` | prepared_unverified | True | True | not_run |
 | `08_utilities_system/ks_save_timer_v1_3_0` | prepared_unverified | True | True | not_run |
 | `08_utilities_system/maya_process_finder` | prepared_unverified | True | True | not_run |
-| `08_utilities_system/maya_tabs_v1_3a` | working | True | False | not_run |
-| `08_utilities_system/perform_file_drop_action` | pending | True | False | not_run |
+| `08_utilities_system/maya_tabs_v1_3a` | prepared_unverified | True | True | not_run |
+| `08_utilities_system/perform_file_drop_action` | working | True | False | not_run |
 | `08_utilities_system/shelf_manager` | pending | True | False | not_run |

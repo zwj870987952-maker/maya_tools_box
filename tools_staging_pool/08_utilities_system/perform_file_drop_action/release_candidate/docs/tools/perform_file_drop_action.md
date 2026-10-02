@@ -1,0 +1,9 @@
+# 文件拖拽动作完整候选
+
+原Randall Hess MEL精确SHA归档。完整Import/Open/Reference/Cancel选择行为、namespace/scene读写与可选viewport drop功能，Base/Schema/API/ToolResult和future晋级注册预制。保留来源注释，无额外素材；默认inspect/dry不MEL/Qt/hook/file/scene写入，不替换Maya安装scripts/others文件或内置global performFileDropAction，不更改$gv_operationMode。可手动调用独立mtb_performFileDropAction bridge，未来路径self-contained；可显式enable_drop在当前modelPanels各挂自有QObject eventFilter，disable只remove自己，foreign filter保留；新panel需重新enable。
+
+仅ma/mb本机现存绝对文件支持；其他插件格式沿用原Maya拖拽处理，不自动load plugin。namespace自动sanitize文件名/数字前缀，明确传simple root且拒绝既有namespace，不合并。Import/Reference包UndoChunk，Open替换scene不可Undo；源场景scriptNodes执行关闭，复杂引用/插件加载和文件外部代码影响仍需实测。API Open modified须显式confirm_discard或先保存；交互Open再Save/Discard/Cancel，save既有输出先精确backup，取消不改scene。存盘不由Undo撤回。
+
+原performFileAction MELOpen依赖Maya全局operationMode，改cmds明确参数避免临时全局泄露；事件只单local URL ma/mb消费，其余正常交Maya，Cancel也消费该次drop。完整Qt/MEL触发实际GUI未执行；离线path/namespace，隔离Maya真实临时.ma import/dry/oneUndo/reference/拒绝未确认open/确认open及MEL bridge编译检查；真实viewport drag/Maya save dialogs/引用Undo/cross-version not_run。可用于后续场景引用/导入流程，但不宣称已验收生产组合。
+
+实测更正：隔离Maya2025 file(import=True)后Undo队列没有可撤销命令，UndoChunk不能让原file命令变可撤销。API统一返回undo_guaranteed=False，Import/Reference/Open均按文件/场景切换不可保证Undo处理，使用备份场景。上文分组只说明执行边界，不能作Import单Undo已通过结论；自动检查验证实际导入/引用及未确认Open拒绝。

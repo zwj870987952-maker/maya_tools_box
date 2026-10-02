@@ -1,0 +1,56 @@
+{
+  "tool_id": "perform_file_drop_action",
+  "registration": {
+    "module": "perform_file_drop_action",
+    "class_name": "FileDropActionTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/perform_file_drop_action.md",
+      "target": "docs/tools/perform_file_drop_action.md"
+    },
+    {
+      "source": "maya_toolkit/tools/perform_file_drop_action/__init__.py",
+      "target": "maya_toolkit/tools/perform_file_drop_action/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/perform_file_drop_action/backups.py",
+      "target": "maya_toolkit/tools/perform_file_drop_action/backups.py"
+    },
+    {
+      "source": "maya_toolkit/tools/perform_file_drop_action/catalog.json",
+      "target": "maya_toolkit/tools/perform_file_drop_action/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/perform_file_drop_action/mtb_performFileDropAction.mel",
+      "target": "maya_toolkit/tools/perform_file_drop_action/mtb_performFileDropAction.mel"
+    },
+    {
+      "source": "maya_toolkit/tools/perform_file_drop_action/qt_compat.py",
+      "target": "maya_toolkit/tools/perform_file_drop_action/qt_compat.py"
+    },
+    {
+      "source": "maya_toolkit/tools/perform_file_drop_action/upstream/performFileDropAction.mel",
+      "target": "maya_toolkit/tools/perform_file_drop_action/upstream/performFileDropAction.mel"
+    },
+    {
+      "source": "tests/test_perform_file_drop_action.py",
+      "target": "tests/test_perform_file_drop_action.py"
+    },
+    {
+      "source": "tests/test_perform_file_drop_action_maya.py",
+      "target": "tests/test_perform_file_drop_action_maya.py"
+    }
+  ],
+  "resources": [
+    "performFileDropAction.mel"
+  ],
+  "dependencies": [
+    "Maya cmds/MEL and real model-panel Qt widgets"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete Import/Open/Reference/Cancel with explicit owned viewport filters, literal paths and modified-scene protection",
+  "verification_limitations": [
+    "Real Maya viewport drop/dialogs/reference Undo/cross-version GUI acceptance not_run; only ma/mb intercepted; other formats remain Maya default"
+  ]
+}
