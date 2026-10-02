@@ -1,0 +1,299 @@
+{
+  "tool_id": "maya_tabs_v1_3a",
+  "registration": {
+    "module": "maya_tabs_v1_3a",
+    "class_name": "MayaTabsTool"
+  },
+  "files": [
+    {
+      "source": "docs/tools/maya_tabs_v1_3a.md",
+      "target": "docs/tools/maya_tabs_v1_3a.md"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/__init__.py",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/__init__.py"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/catalog.json",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/catalog.json"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/native.py",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/native.py"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/original_install.jpg",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/original_install.jpg"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/qt_compat.py",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/qt_compat.py"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/icon_add.png",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/icon_add.png"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/icon_open.png",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/icon_open.png"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/icon_save.png",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/icon_save.png"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Maya-Tabs.ini",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Maya-Tabs.ini"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Maya-Tabs.jpg",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Maya-Tabs.jpg"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Maya-Tabs_icon.png",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Maya-Tabs_icon.png"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/_Default.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/_Default.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/A_Subtle-Blue.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/A_Subtle-Blue.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/A_Subtle-Green.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/A_Subtle-Green.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/A_Subtle-Grey.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/A_Subtle-Grey.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/A_Subtle-Orange.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/A_Subtle-Orange.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Alternative.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Alternative.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Aqua.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Aqua.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Blue And Dark Grey.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Blue And Dark Grey.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Blue and Grey.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Blue and Grey.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Colors.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Colors.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Green and Blue.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Green and Blue.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Jungle.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Jungle.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Naranja.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Naranja.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Ocean.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Ocean.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Orange and Blue Contrast.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Orange and Blue Contrast.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Orange and Blue.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Orange and Blue.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Orange Contrast.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Orange Contrast.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Pink.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Pink.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Tierra.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/resources/Themes/Tierra.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/session.py",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/session.py"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/storage.py",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/storage.py"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/How to Install - Maya Tabs.jpg",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/How to Install - Maya Tabs.jpg"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs.py.original",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs.py.original"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/icon_add.png",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/icon_add.png"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/icon_open.png",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/icon_open.png"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/icon_save.png",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/icon_save.png"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Maya-Tabs.ini",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Maya-Tabs.ini"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Maya-Tabs.jpg",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Maya-Tabs.jpg"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Maya-Tabs_icon.png",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Maya-Tabs_icon.png"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/_Default.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/_Default.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/A_Subtle-Blue.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/A_Subtle-Blue.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/A_Subtle-Green.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/A_Subtle-Green.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/A_Subtle-Grey.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/A_Subtle-Grey.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/A_Subtle-Orange.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/A_Subtle-Orange.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Alternative.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Alternative.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Aqua.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Aqua.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Blue And Dark Grey.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Blue And Dark Grey.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Blue and Grey.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Blue and Grey.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Colors.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Colors.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Green and Blue.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Green and Blue.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Jungle.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Jungle.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Naranja.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Naranja.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Ocean.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Ocean.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Orange and Blue Contrast.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Orange and Blue Contrast.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Orange and Blue.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Orange and Blue.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Orange Contrast.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Orange Contrast.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Pink.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Pink.mttheme"
+    },
+    {
+      "source": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Tierra.mttheme",
+      "target": "maya_toolkit/tools/maya_tabs_v1_3a/upstream/plug-ins/Maya-Tabs_Files/Themes/Tierra.mttheme"
+    },
+    {
+      "source": "tests/test_maya_tabs_v1_3a.py",
+      "target": "tests/test_maya_tabs_v1_3a.py"
+    },
+    {
+      "source": "tests/test_maya_tabs_v1_3a_maya.py",
+      "target": "tests/test_maya_tabs_v1_3a_maya.py"
+    },
+    {
+      "source": "tests/test_maya_tabs_v1_3a_qt.py",
+      "target": "tests/test_maya_tabs_v1_3a_qt.py"
+    }
+  ],
+  "resources": [
+    "How to Install - Maya Tabs.jpg",
+    "plug-ins/Maya-Tabs.py",
+    "plug-ins/Maya-Tabs_Files/icon_add.png",
+    "plug-ins/Maya-Tabs_Files/icon_open.png",
+    "plug-ins/Maya-Tabs_Files/icon_save.png",
+    "plug-ins/Maya-Tabs_Files/Maya-Tabs.ini",
+    "plug-ins/Maya-Tabs_Files/Maya-Tabs.jpg",
+    "plug-ins/Maya-Tabs_Files/Maya-Tabs_icon.png",
+    "plug-ins/Maya-Tabs_Files/Themes/_Default.mttheme",
+    "plug-ins/Maya-Tabs_Files/Themes/A_Subtle-Blue.mttheme",
+    "plug-ins/Maya-Tabs_Files/Themes/A_Subtle-Green.mttheme",
+    "plug-ins/Maya-Tabs_Files/Themes/A_Subtle-Grey.mttheme",
+    "plug-ins/Maya-Tabs_Files/Themes/A_Subtle-Orange.mttheme",
+    "plug-ins/Maya-Tabs_Files/Themes/Alternative.mttheme",
+    "plug-ins/Maya-Tabs_Files/Themes/Aqua.mttheme",
+    "plug-ins/Maya-Tabs_Files/Themes/Blue And Dark Grey.mttheme",
+    "plug-ins/Maya-Tabs_Files/Themes/Blue and Grey.mttheme",
+    "plug-ins/Maya-Tabs_Files/Themes/Colors.mttheme",
+    "plug-ins/Maya-Tabs_Files/Themes/Green and Blue.mttheme",
+    "plug-ins/Maya-Tabs_Files/Themes/Jungle.mttheme",
+    "plug-ins/Maya-Tabs_Files/Themes/Naranja.mttheme",
+    "plug-ins/Maya-Tabs_Files/Themes/Ocean.mttheme",
+    "plug-ins/Maya-Tabs_Files/Themes/Orange and Blue Contrast.mttheme",
+    "plug-ins/Maya-Tabs_Files/Themes/Orange and Blue.mttheme",
+    "plug-ins/Maya-Tabs_Files/Themes/Orange Contrast.mttheme",
+    "plug-ins/Maya-Tabs_Files/Themes/Pink.mttheme",
+    "plug-ins/Maya-Tabs_Files/Themes/Tierra.mttheme"
+  ],
+  "dependencies": [
+    "Real licensed original-supported Maya GUI/Qt/shiboken",
+    "Original vendor activation/version gate retained"
+  ],
+  "acceptance_required": true,
+  "change_summary": "Complete original licensed Maya Tabs toolbar, session thumbnails and theme editor with independent state and backed-up file writes",
+  "verification_limitations": [
+    "Real Maya license/version gate/full scene switch/viewport/theme/callback/cross-version GUI acceptance not_run"
+  ]
+}

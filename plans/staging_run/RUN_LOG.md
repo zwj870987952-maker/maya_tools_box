@@ -849,3 +849,11 @@
 - 原hook版本所谓打开任务管理器实际taskkill /f /pid /t，并可自动结束任意窗口进程；默认改只查询，terminate独立确认/创建时间/exact maya.exe且执行前再核对，不杀child tree。Taskmgr普通shell=False启动，手动Details定位，不伪造/select可用。原始两版逻辑保留档案，行为变动在专项文档说明。
 - Win64 HWND/HHOOK/LRESULT/WINFUNCTYPE/结构字段完整，hook快callback排队/CallNext、bounded256队列、poll rising edge、自有Unhook/WM_QUIT/join；Unhook失败保留handle/callback重试，不冒充停止。两mock确认/PID寿命/dry零副作用/queue bound及独立future布局通过；未启动真实hook、Taskmgr或结束任何进程，真实Windows直验not_run，prepared_unverified。
 - 实际5h80%已用（剩20%）、周73%（剩27%），继续maya_tabs_v1_3a，heartbeat暂停，无正式迁移/同步/用卡/购买。
+
+# 2026-10-02：Maya Tabs完整授权候选，累计107/109
+
+- 27原文件SHA归档，完整混淆算法经AST排版、Tab/toolbar/clear/delete/auto-save-on-switch/PNG/tooltip/session/theme editor/19themes及全部原资源保留，Base/Schema/future注册/panel预制。Qt5/6/shiboken/PyMel仅版本查询替代、image4通道buffer/Qt size修复。默认不Qt/import native/授权读取/写scene。
+- 保留原chkSrl/activation/install与2014-2023版本allowlist，无序列号生成或绕过。原坏m2mSerialFile别名修复，显式启动才从独立state读用户已有vendor授权，缺授权/新版本原gate未开toolbar明确failure。Qt只构造无scene preview，不作授权通过证据。
+- 新state8空tab不读原INI用户场景，配置/session/theme全量typed/bound/style/PNG/duplicate检查、已有先exact backup后atomic，包资源只读；局部native open/Save dialog/clipboard无global patch。原重复settings覆盖移除，删除tab索引clamp。私有cmds文件proxy对modified当前无slot也Save/Discard/Cancel，保存已有scene前backup并按ma/mb实际type，文件/scene切换不可Undo。
+- Own callback IDs/generation/Qt childtimer与nativewindow/MQt pointer清理、foreign保护，原API2viewport待实际GUI。offline19themes/坏末项不覆盖/exact backup、独立Qt8→9slots/PNG/close后deferred不执行、隔离Maya2025unbound modified Cancel保留cube/真实临时ma精确save backup、future注册/fingerprint通过。Qt隔离import Maya类型有swig MObject destructor警告，保留report，不作viewport/GUI通过。
+- 实际5h84%已用（剩16%）、周74%（剩26%），继续perform_file_drop_action，heartbeat暂停，无正式迁移/同步/用卡/购买。

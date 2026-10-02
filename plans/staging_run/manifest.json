@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02T15:52:25.843858+08:00",
+  "updated_at": "2026-10-02T16:04:28.767770+08:00",
   "scope": "tools_staging_pool only; rescan on resume",
   "execution": {
     "state": "working",
@@ -11,14 +11,14 @@
     "obsidian_sync": "disabled_for_this_run",
     "single_writer": "this_chat_only",
     "heartbeat_transition_verified": true,
-    "last_completed_tool": "08_utilities_system/maya_process_finder",
+    "last_completed_tool": "08_utilities_system/maya_tabs_v1_3a",
     "last_usage": {
-      "five_hour_used_percent": 77.0,
+      "five_hour_used_percent": 80.0,
       "weekly_used_percent": 73.0,
-      "recorded_at": "2026-10-02T15:46:56.506697+08:00",
+      "recorded_at": "2026-10-02T15:54:31.959945+08:00",
       "note": "Caller supplied actual read; reread on next run"
     },
-    "current_tool": "08_utilities_system/maya_process_finder"
+    "current_tool": "08_utilities_system/maya_tabs_v1_3a"
   },
   "entry_repairs": [
     {
@@ -23193,7 +23193,8 @@
       ],
       "source_preserved": true,
       "change_summary": "Complete Windows process finder with polling/hook lifecycle and explicit process identity confirmation",
-      "prepared_at": "2026-10-02T15:53:42.643378+08:00"
+      "prepared_at": "2026-10-02T15:53:42.643378+08:00",
+      "source_commit": "bbf25d1d3326a5dece30ec5f942bdc0ab51ffaf2"
     },
     {
       "source_path": "08_utilities_system/maya_tabs_v1_3a",
@@ -23204,20 +23205,92 @@
       "entry_candidates": [
         "plug-ins/Maya-Tabs.py"
       ],
-      "source_file_count": 27,
+      "source_file_count": 28,
       "source_files": [
         "plug-ins/Maya-Tabs.py"
       ],
       "license_files": [],
       "entry_sha256": "84d93ef78a76c587016659b18cbc48d6770e43f1daf476f54d8430ab6a9a94ba",
-      "status": "pending",
-      "candidate_complete": false,
-      "offline_checks": [],
+      "status": "prepared_unverified",
+      "candidate_complete": true,
+      "offline_checks": [
+        {
+          "kind": "python_static_parse",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "kind": "isolated_unittest",
+          "passed": true,
+          "returncode": 0,
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.014s\r\n\r\nOK\r\n"
+        },
+        {
+          "kind": "promotion_preview",
+          "passed": true,
+          "returncode": 0,
+          "output": "{\r\n  \"tool_id\": \"maya_tabs_v1_3a\",\r\n  \"candidate_sha256\": \"ac988abb7304f61f2771ed691af91c253bc2a956bb9927d48467587e67ef29f6\",\r\n  \"applied\": false,\r\n  \"files\": [\r\n    \"docs\\\\tools\\\\maya_tabs_v1_3a.md\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\__init__.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\catalog.json\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\native.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\original_install.jpg\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\qt_compat.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\icon_add.png\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\icon_open.png\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\icon_save.png\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Maya-Tabs.ini\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Maya-Tabs.jpg\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Maya-Tabs_icon.png\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Themes\\\\_Default.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Themes\\\\A_Subtle-Blue.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Themes\\\\A_Subtle-Green.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Themes\\\\A_Subtle-Grey.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Themes\\\\A_Subtle-Orange.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Themes\\\\Alternative.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Themes\\\\Aqua.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Themes\\\\Blue And Dark Grey.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Themes\\\\Blue and Grey.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Themes\\\\Colors.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Themes\\\\Green and Blue.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Themes\\\\Jungle.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Themes\\\\Naranja.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Themes\\\\Ocean.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Themes\\\\Orange and Blue Contrast.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Themes\\\\Orange and Blue.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Themes\\\\Orange Contrast.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Themes\\\\Pink.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\resources\\\\Themes\\\\Tierra.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\session.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\storage.py\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\How to Install - Maya Tabs.jpg\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs.py.original\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\icon_add.png\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\icon_open.png\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\icon_save.png\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Maya-Tabs.ini\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Maya-Tabs.jpg\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Maya-Tabs_icon.png\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Themes\\\\_Default.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Themes\\\\A_Subtle-Blue.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Themes\\\\A_Subtle-Green.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Themes\\\\A_Subtle-Grey.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Themes\\\\A_Subtle-Orange.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Themes\\\\Alternative.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Themes\\\\Aqua.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Themes\\\\Blue And Dark Grey.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Themes\\\\Blue and Grey.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Themes\\\\Colors.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Themes\\\\Green and Blue.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Themes\\\\Jungle.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Themes\\\\Naranja.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Themes\\\\Ocean.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Themes\\\\Orange and Blue Contrast.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Themes\\\\Orange and Blue.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Themes\\\\Orange Contrast.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Themes\\\\Pink.mttheme\",\r\n    \"maya_toolkit\\\\tools\\\\maya_tabs_v1_3a\\\\upstream\\\\plug-ins\\\\Maya-Tabs_Files\\\\Themes\\\\Tierra.mttheme\",\r\n    \"tests\\\\test_maya_tabs_v1_3a.py\",\r\n    \"tests\\\\test_maya_tabs_v1_3a_maya.py\",\r\n    \"tests\\\\test_maya_tabs_v1_3a_qt.py\"\r\n  ],\r\n  \"registry\": \"maya_toolkit\\\\tools\\\\__init__.py\",\r\n  \"panel\": \"ToolRegistry discovery plus tool.show_ui\",\r\n  \"maya_acceptance_required\": true,\r\n  \"runtime_acceptance_required\": true,\r\n  \"runtime\": \"maya\"\r\n}\r\n"
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/08_utilities_system/maya_tabs_v1_3a/release_candidate/tests/test_maya_tabs_v1_3a_maya.py",
+          "returncode": 0,
+          "passed": true,
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.046s\r\n\r\nOK\r\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "f1c9a061aad005a92f58695ee7cf3b65c7cc464e2ee533ed6f6782680843424b",
+          "runtime_source_sha256": "a04a5d2e67b9219228fe03e2a6e1a93d0fe641e62f34fcabc9d9e560b436e9a0"
+        },
+        {
+          "kind": "mayapy_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_runtime_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "required_runtime_evidence",
+          "passed": false,
+          "reason": "Original license/version gate retained; real Maya GUI theme/viewport/callback/full scene-switch acceptance not_run"
+        },
+        {
+          "kind": "promoted_layout_offline",
+          "passed": true,
+          "candidate_sha256": "ac988abb7304f61f2771ed691af91c253bc2a956bb9927d48467587e67ef29f6",
+          "returncode": 0,
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.017s\r\n\r\nOK\r\n",
+          "registry_returncode": 0,
+          "registry_output": "Registered tool, domain filtering and panel entry verified\r\n",
+          "production_changed": false
+        },
+        {
+          "kind": "layout_report_matches_candidate",
+          "passed": true
+        },
+        {
+          "kind": "mayapy_standalone",
+          "executable": "C:\\Program Files\\Autodesk\\Maya2025\\bin\\mayapy.exe",
+          "test": "tools_staging_pool/08_utilities_system/maya_tabs_v1_3a/release_candidate/tests/test_maya_tabs_v1_3a_qt.py",
+          "returncode": 0,
+          "passed": true,
+          "output": ".\r\n----------------------------------------------------------------------\r\nRan 1 test in 0.160s\r\n\r\nOK\r\nswig/python detected a memory leak of type 'MObject *', no destructor found.\n",
+          "gui_acceptance": false,
+          "python_source_sha256": "f1c9a061aad005a92f58695ee7cf3b65c7cc464e2ee533ed6f6782680843424b",
+          "runtime_source_sha256": "a04a5d2e67b9219228fe03e2a6e1a93d0fe641e62f34fcabc9d9e560b436e9a0",
+          "evidence_path": "plans/staging_run/maya_tabs_v1_3a_qt.json"
+        }
+      ],
       "maya_acceptance": {
         "status": "not_run",
         "versions": []
       },
-      "issues": [],
+      "issues": [
+        "Real Maya GUI acceptance pending",
+        "Other Maya/Python versions unverified",
+        "Real Maya license/version gate/full scene switch/viewport/theme/callback/cross-version GUI acceptance not_run"
+      ],
       "source_parse_audit": {
         "interpreter": "3.12.14",
         "python_files": 1,
@@ -23226,7 +23299,120 @@
         "possible_top_level_calls": 0,
         "note": "Python3 syntax scan only. Errors may be legacy Python2 syntax/encoding; top-level calls may be read-only. Not candidate verification or Maya acceptance."
       },
-      "source_tree_sha256": "2aa671997131432662ca0d87c37f8b90c8457a4516731774aa3fbd58ae767760"
+      "source_tree_sha256": "345c0d5e3a9a0d497c59d8399c52d9da991b47b79f1560d9caf422e6c1864812",
+      "candidate_path": "tools_staging_pool/08_utilities_system/maya_tabs_v1_3a/release_candidate",
+      "acceptance_instructions": "tools_staging_pool/08_utilities_system/maya_tabs_v1_3a/release_candidate/acceptance.md",
+      "promotion": {
+        "tool_id": "maya_tabs_v1_3a",
+        "candidate_sha256": "ac988abb7304f61f2771ed691af91c253bc2a956bb9927d48467587e67ef29f6",
+        "applied": false,
+        "files": [
+          "docs\\tools\\maya_tabs_v1_3a.md",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\__init__.py",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\catalog.json",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\native.py",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\original_install.jpg",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\qt_compat.py",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\icon_add.png",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\icon_open.png",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\icon_save.png",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Maya-Tabs.ini",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Maya-Tabs.jpg",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Maya-Tabs_icon.png",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Themes\\_Default.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Themes\\A_Subtle-Blue.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Themes\\A_Subtle-Green.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Themes\\A_Subtle-Grey.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Themes\\A_Subtle-Orange.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Themes\\Alternative.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Themes\\Aqua.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Themes\\Blue And Dark Grey.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Themes\\Blue and Grey.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Themes\\Colors.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Themes\\Green and Blue.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Themes\\Jungle.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Themes\\Naranja.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Themes\\Ocean.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Themes\\Orange and Blue Contrast.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Themes\\Orange and Blue.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Themes\\Orange Contrast.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Themes\\Pink.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\resources\\Themes\\Tierra.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\session.py",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\storage.py",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\How to Install - Maya Tabs.jpg",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs.py.original",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\icon_add.png",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\icon_open.png",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\icon_save.png",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Maya-Tabs.ini",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Maya-Tabs.jpg",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Maya-Tabs_icon.png",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Themes\\_Default.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Themes\\A_Subtle-Blue.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Themes\\A_Subtle-Green.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Themes\\A_Subtle-Grey.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Themes\\A_Subtle-Orange.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Themes\\Alternative.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Themes\\Aqua.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Themes\\Blue And Dark Grey.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Themes\\Blue and Grey.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Themes\\Colors.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Themes\\Green and Blue.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Themes\\Jungle.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Themes\\Naranja.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Themes\\Ocean.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Themes\\Orange and Blue Contrast.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Themes\\Orange and Blue.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Themes\\Orange Contrast.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Themes\\Pink.mttheme",
+          "maya_toolkit\\tools\\maya_tabs_v1_3a\\upstream\\plug-ins\\Maya-Tabs_Files\\Themes\\Tierra.mttheme",
+          "tests\\test_maya_tabs_v1_3a.py",
+          "tests\\test_maya_tabs_v1_3a_maya.py",
+          "tests\\test_maya_tabs_v1_3a_qt.py"
+        ],
+        "registry": "maya_toolkit\\tools\\__init__.py",
+        "panel": "ToolRegistry discovery plus tool.show_ui",
+        "maya_acceptance_required": true,
+        "runtime_acceptance_required": true,
+        "runtime": "maya"
+      },
+      "resources": [
+        "How to Install - Maya Tabs.jpg",
+        "plug-ins/Maya-Tabs.py",
+        "plug-ins/Maya-Tabs_Files/icon_add.png",
+        "plug-ins/Maya-Tabs_Files/icon_open.png",
+        "plug-ins/Maya-Tabs_Files/icon_save.png",
+        "plug-ins/Maya-Tabs_Files/Maya-Tabs.ini",
+        "plug-ins/Maya-Tabs_Files/Maya-Tabs.jpg",
+        "plug-ins/Maya-Tabs_Files/Maya-Tabs_icon.png",
+        "plug-ins/Maya-Tabs_Files/Themes/_Default.mttheme",
+        "plug-ins/Maya-Tabs_Files/Themes/A_Subtle-Blue.mttheme",
+        "plug-ins/Maya-Tabs_Files/Themes/A_Subtle-Green.mttheme",
+        "plug-ins/Maya-Tabs_Files/Themes/A_Subtle-Grey.mttheme",
+        "plug-ins/Maya-Tabs_Files/Themes/A_Subtle-Orange.mttheme",
+        "plug-ins/Maya-Tabs_Files/Themes/Alternative.mttheme",
+        "plug-ins/Maya-Tabs_Files/Themes/Aqua.mttheme",
+        "plug-ins/Maya-Tabs_Files/Themes/Blue And Dark Grey.mttheme",
+        "plug-ins/Maya-Tabs_Files/Themes/Blue and Grey.mttheme",
+        "plug-ins/Maya-Tabs_Files/Themes/Colors.mttheme",
+        "plug-ins/Maya-Tabs_Files/Themes/Green and Blue.mttheme",
+        "plug-ins/Maya-Tabs_Files/Themes/Jungle.mttheme",
+        "plug-ins/Maya-Tabs_Files/Themes/Naranja.mttheme",
+        "plug-ins/Maya-Tabs_Files/Themes/Ocean.mttheme",
+        "plug-ins/Maya-Tabs_Files/Themes/Orange and Blue Contrast.mttheme",
+        "plug-ins/Maya-Tabs_Files/Themes/Orange and Blue.mttheme",
+        "plug-ins/Maya-Tabs_Files/Themes/Orange Contrast.mttheme",
+        "plug-ins/Maya-Tabs_Files/Themes/Pink.mttheme",
+        "plug-ins/Maya-Tabs_Files/Themes/Tierra.mttheme"
+      ],
+      "external_dependencies": [
+        "Real licensed original-supported Maya GUI/Qt/shiboken",
+        "Original vendor activation/version gate retained"
+      ],
+      "source_preserved": true,
+      "change_summary": "Complete original licensed Maya Tabs toolbar, session thumbnails and theme editor with independent state and backed-up file writes",
+      "prepared_at": "2026-10-02T16:05:00.024147+08:00"
     },
     {
       "source_path": "08_utilities_system/perform_file_drop_action",
