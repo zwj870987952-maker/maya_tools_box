@@ -250,7 +250,9 @@ def main():
     write_json(PACKAGE / 'runtime_files.json', source_hashes)
     write_json(CANDIDATE / 'patches.json', patches)
     write_json(CANDIDATE / 'manifest.json', {'tool_id': 'animo', 'status': 'prepared_unverified', 'official_registration': False,
-        'maya_acceptance': {'status': 'pending_user', 'verified_versions': []}, 'license': 'restricted_source_available_local_only',
+        'maya_acceptance': {'status': 'pending_user', 'verified_versions': []},
+        'license': 'author_permission_user_confirmed',
+        'publication_authority': '../AUTHOR_PERMISSION.md',
         'zip_sha256': expected_zip, 'library_entries': len(operations) - len(EXTRA), 'display_records': display_count,
         'supplemental_entries': len(EXTRA), 'operation_count': len(operations), 'native_files': len(source_hashes),
         'source_data': 'maya_toolkit/tools/animo/native/Animo_Data', 'patch_log': 'patches.json',
@@ -260,7 +262,7 @@ def main():
     category_dir = DOCS / 'categories'
     category_dir.mkdir(exist_ok=True)
     categories = Counter(row['category'] for row in operations)
-    index = ['# Animo 功能与代码目录', '', '> 待整理候选，所有入口均未通过 Maya 人工检验。原始源码保留在本机。', '',
+    index = ['# Animo 功能与代码目录', '', '> 待整理候选，所有入口均未通过 Maya 人工检验。用户确认已获原作者授权，源码与资源随仓库同步。', '',
              '540 个库入口 + {} 个套件补充入口；573 条原显示记录按文件路径去重。'.format(len(EXTRA)), '',
              '每个操作使用固定 operation ID；当前选择、通道、时间范围和原生配置由 Maya 上下文提供。', '',
              '| 分类 | 中文用途 | 入口数 | 详细索引 |', '| --- | --- | ---: | --- |']

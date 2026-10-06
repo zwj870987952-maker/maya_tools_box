@@ -9,7 +9,7 @@ category: "07_subsystems_suites"
 ## 待整理工具
 
 - [[knowledge/_generated/待整理/07_subsystems_suites--animbot_copy|animBot 完整 UI 与工具克隆套件]]
-- [[knowledge/_generated/待整理/07_subsystems_suites--animo|Animo V10.6.0（许可受限，本机候选）]]
+- [[knowledge/_generated/待整理/07_subsystems_suites--animo|Animo V10.6.0（作者授权发布候选）]]
 - [[knowledge/_generated/待整理/07_subsystems_suites--getools_overlappy|GETOOLS 动力学与次级动作套件 (含 Overlappy / CenterOfMass)]]
 - [[knowledge/_generated/待整理/07_subsystems_suites--malcolm341_mega_pack|Malcolm341 Maya 高级实用脚本合集 (MegaPack 2023)]]
 - [[knowledge/_generated/待整理/07_subsystems_suites--maya_blueprint_toolbox|Maya 节点式蓝图自动化工具箱 (Blueprint Toolbox 完整工程)]]

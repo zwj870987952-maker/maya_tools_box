@@ -14,13 +14,13 @@
 | 6 | **Studio Library 世界空间扩展增强包 (PlusPatch)** | [studiolibrary_patch](studiolibrary_patch/studiolibrary_wanimation/__init__.py) | 在原生 Studio Library 基础上增加了世界坐标动画抓取与跨角色粘贴 (WAnimation)、世界坐标姿态对齐 (WPose) 与中文汉化。 |
 | 7 | **TheKeyMachine 动画师综合套件 (完整汉化增强版)** | [the_key_machine](the_key_machine/core/toolbar.py) | 关键帧微调工具：包含曲线平滑、切线权重批量调整、反向动画、自定义曲线图编辑器与一键汉化补丁。 |
 
-## 许可受限的本机待整理候选
+## 经作者授权发布的待整理候选
 
 此类条目不计入上述 7 项开源工具数量，尚未通过真实 Maya 直验。
 
 | 工具 | 候选入口 | 整理范围与状态 |
 | --- | --- | --- |
-| Animo V10.6.0 | [launch_candidate.py](animo/release_candidate/launch_candidate.py) | 55 类、553 个入口；统一 API、Schema、静态分析及人工检验面板；18 项离线测试通过，待用户检验。原始/候选供应方源码和素材仅存本机，见 [说明](animo/release_candidate/README.md)。 |
+| Animo V10.6.0 | [launch_candidate.py](animo/release_candidate/launch_candidate.py) | 55 类、553 个入口；统一 API、Schema、静态分析及人工检验面板；20 项离线测试通过，待用户检验。按用户确认的作者授权同步原始/候选源码和素材，见 [授权记录](animo/AUTHOR_PERMISSION.md) 与 [说明](animo/release_candidate/README.md)。 |
 
 ## 整合至 `maya_toolkit` 的规范要求
 当您挑选本目录中的工具进行正式重构时，请遵循以下规范：

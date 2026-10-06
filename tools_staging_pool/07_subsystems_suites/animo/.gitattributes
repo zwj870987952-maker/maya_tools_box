@@ -1,0 +1,4 @@
+# Native byte integrity is required by runtime_files.json on every checkout.
+archives/** -text
+upstream/** -text
+release_candidate/maya_toolkit/tools/animo/native/** -text

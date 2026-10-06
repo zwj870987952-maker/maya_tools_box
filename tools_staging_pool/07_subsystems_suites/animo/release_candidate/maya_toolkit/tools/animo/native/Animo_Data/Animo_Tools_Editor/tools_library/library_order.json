@@ -1,0 +1,3361 @@
+{
+    "category_order": [
+        "Recommended",
+        "Viewport Display",
+        "Selection",
+        "Manipulator",
+        "Keys",
+        "Nudge Keys",
+        "Locator",
+        "Color Keys",
+        "Offset Keys",
+        "Fast Bake",
+        "Tracify (Track Arcs)",
+        "Spacify",
+        "Xform World",
+        "Align",
+        "Mirror",
+        "Reset Pose",
+        "Graph Editor",
+        "Channel Box",
+        "Global Offset",
+        "Twosify",
+        "Xform Relationships",
+        "Pickify (Selection Sets)",
+        "Temp Pivot",
+        "Rotate Order",
+        "Keys Time",
+        "Animation Layers",
+        "Copy Animation",
+        "Copy Pose",
+        "Constraints",
+        "Physics",
+        "Tangents",
+        "Tweenify (Sliders Quick Pop Up)",
+        "Tween",
+        "Blend to Default",
+        "Blend to Neighbors",
+        "Blend to World",
+        "Blend to Mirror",
+        "Blend to Infinity",
+        "Blend to Ease",
+        "Ease",
+        "Push and Pull",
+        "Scale Average",
+        "Scale Left",
+        "Scale Right",
+        "Time Offset",
+        "Time Offset Stagger",
+        "Wave and Noise",
+        "Connect To Neighbor",
+        "Scale from Average",
+        "Scale from Default",
+        "Scale from Left",
+        "Scale from Right",
+        "Simplify - Bake",
+        "Smooth - Harsh"
+    ],
+    "tools_order": {
+        "Recommended": [
+            "Animation Visibility Mode",
+            "Axis Orientation Toggle",
+            "Toggle Nurbs Curves",
+            "Toggle Locators",
+            "Toggle Polygons",
+            "Share Keys",
+            "Reset Pose",
+            "Euler Filter",
+            "Nudge Right 1 Frame",
+            "Nudge Left 1 Frame",
+            "Locator On Selections",
+            "Locator On Selections BAKE",
+            "Fast Bake - Every 1 Frame",
+            "Toggle Graph Editor",
+            "Reset Transforms",
+            "Crop Animation",
+            "Make Cycle POST",
+            "Make Cycle PRE",
+            "Clear Channel Box Selection Copy",
+            "Temp Pivot",
+            "Jump to Next Frame",
+            "Jump to Previous Frame",
+            "Jump to Next Keyframe (Smart)",
+            "Jump to Previous Keyframe (Smart)",
+            "Clear Animation",
+            "Smart Delete Keys",
+            "Smart Copy Keys",
+            "Smart Paste Keys",
+            "Smart Paste Keys Relative",
+            "Create Anim Layer",
+            "Merge All Anim Layers",
+            "Smart Merge All Anim Layers",
+            "Select Opposite Controls",
+            "Add Select Opposite Controls"
+        ],
+        "Viewport Display": [
+            "Toggle Isolate Selections",
+            "Toggle Nurbs Curves",
+            "Toggle Controls Display",
+            "Toggle Locators",
+            "Toggle Polygons",
+            "Toggle Blue Pencil",
+            "Toggle Cameras",
+            "Toggle Clip Ghosts",
+            "Toggle Construction Planes",
+            "Toggle Controllers",
+            "Toggle Deformers",
+            "Toggle Dimensions",
+            "Toggle Dynamic Constraints",
+            "Toggle Dynamics",
+            "Toggle Fluids",
+            "Toggle Follicles",
+            "Toggle GPU Cache",
+            "Toggle Grid",
+            "Toggle HUD",
+            "Toggle Hair Systems",
+            "Toggle Handles",
+            "Toggle IK Handles",
+            "Toggle Image Planes",
+            "Toggle Joints",
+            "Toggle Lights",
+            "Toggle Manipulators",
+            "Toggle Motion Trails",
+            "Toggle Selection Highlighting",
+            "Toggle Nurbs CVs",
+            "Toggle Nurbs Hulls",
+            "Toggle Nurbs Surfaces",
+            "Toggle Particle Instancers",
+            "Toggle Pivots",
+            "Toggle Plugin Shapes",
+            "Toggle Strokes",
+            "Toggle Subdivision Surfaces",
+            "Toggle Texture Placements",
+            "Toggle nCloths",
+            "Toggle nParticles",
+            "Toggle nRigids",
+            "Toggle Xray Surfaces"
+        ],
+        "Selection": [
+            "Select All Animation Data In Scene",
+            "Select All Rig Controls",
+            "Select Hierachy Joints Only",
+            "Select Hierachy Locators Only",
+            "Select Hierachy Nurbs Curves Only",
+            "Select Hierachy",
+            "Select Objects From Keys",
+            "Select Opposite Controls",
+            "Add Select Opposite Controls"
+        ],
+        "Manipulator": [
+            "Axis Orientation Toggle",
+            "Axis Orientation To Camera Space",
+            "Micro Manipulator Tool"
+        ],
+        "Keys": [
+            "Jump to Next Frame",
+            "Jump to Previous Frame",
+            "Jump to Next Keyframe (Smart)",
+            "Jump to Previous Keyframe (Smart)",
+            "Keyframe Reducer",
+            "Smart Copy Keys",
+            "Smart Paste Keys",
+            "Smart Paste Keys Relative",
+            "Smart Delete Keys",
+            "Smart Set Keyframes",
+            "Clear Animation",
+            "Share Keys"
+        ],
+        "Nudge Keys": [
+            "Nudge Left 1 Frame",
+            "Nudge Left 2 Frames",
+            "Nudge Left 3 Frames",
+            "Nudge Left 4 Frames",
+            "Nudge Left 5 Frames",
+            "Nudge Right 1 Frame",
+            "Nudge Right 2 Frames",
+            "Nudge Right 3 Frames",
+            "Nudge Right 4 Frames",
+            "Nudge Right 5 Frames",
+            "Open Nudge Keys UI"
+        ],
+        "Locator": [
+            "Locator On Selections",
+            "Locator On Selections BAKE",
+            "Locator On Selections Average_Point",
+            "Change Selected Locators Color",
+            "Locators - Bigger",
+            "Locators - Smaller",
+            "Parent Selected (Preserve Animation)",
+            "World Selected (Preserve Animation)"
+        ],
+        "Color Keys": [
+            "Color Key Red",
+            "Color Key Yellow",
+            "Color Key Green"
+        ],
+        "Offset Keys": [
+            "Offset SCALE Sequentially",
+            "Offset TIME Sequentially Left 1 Frame",
+            "Offset TIME Sequentially Left 2 Frames",
+            "Offset TIME Sequentially Left 0.5 Frame",
+            "Offset TIME Sequentially Left 0.1 Frame",
+            "Offset TIME Sequentially Right 1 Frame",
+            "Offset TIME Sequentially Right 2 Frames",
+            "Offset TIME Sequentially Right 0.5 Frame",
+            "Offset TIME Sequentially Right 0.1 Frame"
+        ],
+        "Fast Bake": [
+            "Fast Bake - Every 1 Frame",
+            "Fast Bake - Every 2 Frames",
+            "Fast Bake - Every 3 Frames",
+            "Fast Bake - Every 4 Frames",
+            "Fast Bake - Every 5 Frames",
+            "Fast Bake - Every 6 Frames",
+            "Fast Bake - Every 7 Frames"
+        ],
+        "Tracify (Track Arcs)": [
+            "Track Arcs",
+            "Toggle Tracify Camera Space",
+            "Cycle Tracify Color Mode",
+            "Reset Tracify To Default"
+        ],
+        "Spacify": [
+            "World",
+            "World Orient",
+            "New Pivot",
+            "Temp IK",
+            "FK Chain",
+            "Aim",
+            "Group",
+            "Relative",
+            "Clean and Bake",
+            "Assign Camera",
+            "Camera Space"
+        ],
+        "Xform World": [
+            "Foot Locker",
+            "Copy_XForm",
+            "Copy_XForm_Range",
+            "Paste_XForm",
+            "Paste_XForm_Range",
+            "Toggle_Bake_OnlyKeys"
+        ],
+        "Align": [
+            "Align",
+            "Align Range",
+            "Align Translate",
+            "Align Rotate",
+            "Align Range Translate",
+            "Align Range Rotate"
+        ],
+        "Mirror": [
+            "Mirror Pose-Animation",
+            "Mirror All Keys",
+            "Snapshot Default Rig",
+            "Fix Mirror Settings"
+        ],
+        "Reset Pose": [
+            "Reset Pose",
+            "Reset Translate",
+            "Reset Rotate",
+            "Reset Scale",
+            "Reset Transforms"
+        ],
+        "Graph Editor": [
+            "Reverse Animation",
+            "Graph Editor Toolbar",
+            "Crop Animation",
+            "Delete Redundant Keys",
+            "Smooth Selected Keys",
+            "Euler Filter",
+            "Toggle Graph Editor - Minimize",
+            "Toggle Graph Editor",
+            "Make Cycle POST",
+            "Make Cycle PRE"
+        ],
+        "Channel Box": [
+            "Clear Channel Box Selection"
+        ],
+        "Global Offset": [
+            "Global Offset"
+        ],
+        "Twosify": [
+            "Add Selected to Anim Layer",
+            "Open Twosify UI",
+            "Select Objects in Anim Layer",
+            "Update Selected Layer"
+        ],
+        "Xform Relationships": [
+            "Copy XForm Relationship",
+            "Paste XForm Relationship",
+            "Bake XForm Relationship Range"
+        ],
+        "Pickify (Selection Sets)": [
+            "Pickify (Selection Sets)"
+        ],
+        "Temp Pivot": [
+            "Temp Pivot",
+            "Reset Pivot"
+        ],
+        "Rotate Order": [
+            "Rotate Order - XYZ (Whole Animation)",
+            "Rotate Order - XZY (Whole Animation)",
+            "Rotate Order - YXZ (Whole Animation)",
+            "Rotate Order - YZX (Whole Animation)",
+            "Rotate Order - ZXY (Whole Animation)",
+            "Rotate Order - ZYX (Whole Animation)"
+        ],
+        "Keys Time": [
+            "Clean Keys Interactive",
+            "Copy Key Timing - By Channel",
+            "Copy Key Timing - Pose to Pose",
+            "Paste Key Timing - By Channel",
+            "Paste Key Timing - Pose to Pose",
+            "Copy Key Times Channels",
+            "Copy Key Times Pose To Pose",
+            "Paste Key Times Channels",
+            "Paste Key Times Pose To Pose"
+        ],
+        "Animation Layers": [
+            "Create Anim Layer",
+            "Create Override Anim Layer",
+            "Set Selected Layers Override",
+            "Set Selected Layers Additive",
+            "Bake Selected To Override Layer",
+            "Add Selected To Anim Layer",
+            "Remove Selected From Anim Layer",
+            "Merge All Anim Layers",
+            "Merge Selected Anim Layers",
+            "Smart Merge All Anim Layers",
+            "Smart Merge Selected Anim Layers"
+        ],
+        "Copy Animation": [
+            "Copy All Animation Channels",
+            "Copy Selected Channels",
+            "Insert Animation",
+            "Replace Animation",
+            "Select Objects"
+        ],
+        "Copy Pose": [
+            "Copy Pose",
+            "Paste Pose",
+            "Select Objects"
+        ],
+        "Constraints": [
+            "Smart Constraint",
+            "Smart_Orient_Constraint",
+            "Smart_Point_Constraint",
+            "Smart_Scale_Constraint"
+        ],
+        "Physics": [
+            "Bounce Tool"
+        ],
+        "Tangents": [
+            "Auto Tangent All Keys",
+            "Auto Tangent Selected",
+            "Auto Tangent Set Default",
+            "Linear Tangent All Keys",
+            "Linear Tangent Selected",
+            "Linear Tangent Set Default",
+            "Step Tangent All Keys",
+            "Step Tangent Selected",
+            "Step Tangent Set Default"
+        ],
+        "Tweenify (Sliders Quick Pop Up)": [
+            "Tweenify Quick Pop Up"
+        ],
+        "Tween": [
+            "Tween -200%",
+            "Tween -150%",
+            "Tween -120%",
+            "Tween -100%",
+            "Tween 13%",
+            "Tween 17%",
+            "Tween 25%",
+            "Tween 33%",
+            "Tween 50%",
+            "Tween 67%",
+            "Tween 75%",
+            "Tween 83%",
+            "Tween 88%",
+            "Tween 100%",
+            "Tween 120%",
+            "Tween 150%",
+            "Tween 200%"
+        ],
+        "Blend to Default": [
+            "Blend to Default Away 100% (Full)",
+            "Blend to Default Away 25%",
+            "Blend to Default Away 50%",
+            "Blend to Default Toward 100% (Full)",
+            "Blend to Default Toward 25%",
+            "Blend to Default Toward 50%",
+            "Blend to Default Away 10%",
+            "Blend to Default Away 150% (Overshoot)",
+            "Blend to Default Away 200% (Extreme Overshoot)",
+            "Blend to Default Away 75%",
+            "Blend to Default Away 90%",
+            "Blend to Default Toward 10%",
+            "Blend to Default Toward 150% (Overshoot)",
+            "Blend to Default Toward 200% (Extreme Overshoot)",
+            "Blend to Default Toward 75%",
+            "Blend to Default Toward 90%"
+        ],
+        "Blend to Neighbors": [
+            "Blend to Neighbors +10%",
+            "Blend to Neighbors +100% (Full)",
+            "Blend to Neighbors +150% (Overshoot)",
+            "Blend to Neighbors +200% (Extreme Overshoot)",
+            "Blend to Neighbors +25%",
+            "Blend to Neighbors +50%",
+            "Blend to Neighbors +75%",
+            "Blend to Neighbors +90%",
+            "Blend to Neighbors -10%",
+            "Blend to Neighbors -100% (Full)",
+            "Blend to Neighbors -150% (Overshoot)",
+            "Blend to Neighbors -200% (Extreme Overshoot)",
+            "Blend to Neighbors -25%",
+            "Blend to Neighbors -50%",
+            "Blend to Neighbors -75%",
+            "Blend to Neighbors -90%"
+        ],
+        "Blend to World": [
+            "Blend to World +10%",
+            "Blend to World +100% (Full)",
+            "Blend to World +150% (Overshoot)",
+            "Blend to World +200% (Extreme Overshoot)",
+            "Blend to World +25%",
+            "Blend to World +50%",
+            "Blend to World +75%",
+            "Blend to World +90%",
+            "Blend to World -10%",
+            "Blend to World -100% (Full)",
+            "Blend to World -150% (Overshoot)",
+            "Blend to World -200% (Extreme Overshoot)",
+            "Blend to World -25%",
+            "Blend to World -50%",
+            "Blend to World -75%",
+            "Blend to World -90%"
+        ],
+        "Blend to Mirror": [
+            "Diverge 10%",
+            "Diverge 100% (Full)",
+            "Diverge 25%",
+            "Diverge 50%",
+            "Diverge 75%",
+            "Diverge 90%",
+            "Mirror 10%",
+            "Mirror 100% (Full)",
+            "Mirror 25%",
+            "Mirror 50%",
+            "Mirror 75%",
+            "Mirror 90%"
+        ],
+        "Blend to Infinity": [
+            "Extend Left 10%",
+            "Extend Left 100% (Full)",
+            "Extend Left 25%",
+            "Extend Left 50%",
+            "Extend Left 75%",
+            "Extend Left 90%",
+            "Extend Right 10%",
+            "Extend Right 100% (Full)",
+            "Extend Right 25%",
+            "Extend Right 50%",
+            "Extend Right 75%",
+            "Extend Right 90%"
+        ],
+        "Blend to Ease": [
+            "Blend to Ease In 10%",
+            "Blend to Ease In 100% (Full)",
+            "Blend to Ease In 25%",
+            "Blend to Ease In 50%",
+            "Blend to Ease In 75%",
+            "Blend to Ease In 90%",
+            "Blend to Ease Out 10%",
+            "Blend to Ease Out 100% (Full)",
+            "Blend to Ease Out 25%",
+            "Blend to Ease Out 50%",
+            "Blend to Ease Out 75%",
+            "Blend to Ease Out 90%"
+        ],
+        "Ease": [
+            "Ease +10%",
+            "Ease +100% (Full)",
+            "Ease +150% (Overshoot)",
+            "Ease +200% (Extreme Overshoot)",
+            "Ease +25%",
+            "Ease +50%",
+            "Ease +75%",
+            "Ease +90%",
+            "Ease -10%",
+            "Ease -100% (Full)",
+            "Ease -150% (Overshoot)",
+            "Ease -200% (Extreme Overshoot)",
+            "Ease -25%",
+            "Ease -50%",
+            "Ease -75%",
+            "Ease -90%"
+        ],
+        "Push and Pull": [
+            "Pull 100% (Full)",
+            "Pull 25%",
+            "Pull 50%",
+            "Push 100% (Full)",
+            "Push 25%",
+            "Push 50%",
+            "Pull 10%",
+            "Pull 150% (Overshoot)",
+            "Pull 200% (Extreme Overshoot)",
+            "Pull 75%",
+            "Pull 90%",
+            "Push 10%",
+            "Push 150% (Overshoot)",
+            "Push 200% (Extreme Overshoot)",
+            "Push 75%",
+            "Push 90%"
+        ],
+        "Scale Average": [
+            "Scale Average Exaggerate 10%",
+            "Scale Average Exaggerate 100% (Full)",
+            "Scale Average Exaggerate 150% (Overshoot)",
+            "Scale Average Exaggerate 200% (Extreme Overshoot)",
+            "Scale Average Exaggerate 25%",
+            "Scale Average Exaggerate 50%",
+            "Scale Average Exaggerate 75%",
+            "Scale Average Exaggerate 90%",
+            "Scale Average Reduce 10%",
+            "Scale Average Reduce 100% (Full)",
+            "Scale Average Reduce 150% (Overshoot)",
+            "Scale Average Reduce 200% (Extreme Overshoot)",
+            "Scale Average Reduce 25%",
+            "Scale Average Reduce 50%",
+            "Scale Average Reduce 75%",
+            "Scale Average Reduce 90%"
+        ],
+        "Scale Left": [
+            "Scale Left Exaggerate 10%",
+            "Scale Left Exaggerate 100% (Full)",
+            "Scale Left Exaggerate 150% (Overshoot)",
+            "Scale Left Exaggerate 200% (Extreme Overshoot)",
+            "Scale Left Exaggerate 25%",
+            "Scale Left Exaggerate 50%",
+            "Scale Left Exaggerate 75%",
+            "Scale Left Exaggerate 90%",
+            "Scale Left Reduce 10%",
+            "Scale Left Reduce 100% (Full)",
+            "Scale Left Reduce 150% (Overshoot)",
+            "Scale Left Reduce 200% (Extreme Overshoot)",
+            "Scale Left Reduce 25%",
+            "Scale Left Reduce 50%",
+            "Scale Left Reduce 75%",
+            "Scale Left Reduce 90%"
+        ],
+        "Scale Right": [
+            "Scale Right Exaggerate 10%",
+            "Scale Right Exaggerate 100% (Full)",
+            "Scale Right Exaggerate 150% (Overshoot)",
+            "Scale Right Exaggerate 200% (Extreme Overshoot)",
+            "Scale Right Exaggerate 25%",
+            "Scale Right Exaggerate 50%",
+            "Scale Right Exaggerate 75%",
+            "Scale Right Exaggerate 90%",
+            "Scale Right Reduce 10%",
+            "Scale Right Reduce 100% (Full)",
+            "Scale Right Reduce 150% (Overshoot)",
+            "Scale Right Reduce 200% (Extreme Overshoot)",
+            "Scale Right Reduce 25%",
+            "Scale Right Reduce 50%",
+            "Scale Right Reduce 75%",
+            "Scale Right Reduce 90%"
+        ],
+        "Time Offset": [
+            "Time Offset +10%",
+            "Time Offset +100% (Full)",
+            "Time Offset +150% (Overshoot)",
+            "Time Offset +200% (Extreme Overshoot)",
+            "Time Offset +25%",
+            "Time Offset +50%",
+            "Time Offset +75%",
+            "Time Offset +90%",
+            "Time Offset -10%",
+            "Time Offset -100% (Full)",
+            "Time Offset -150% (Overshoot)",
+            "Time Offset -200% (Extreme Overshoot)",
+            "Time Offset -25%",
+            "Time Offset -50%",
+            "Time Offset -75%",
+            "Time Offset -90%"
+        ],
+        "Time Offset Stagger": [
+            "Time Offset Stagger +10%",
+            "Time Offset Stagger +100% (Full)",
+            "Time Offset Stagger +150% (Overshoot)",
+            "Time Offset Stagger +200% (Extreme Overshoot)",
+            "Time Offset Stagger +25%",
+            "Time Offset Stagger +50%",
+            "Time Offset Stagger +75%",
+            "Time Offset Stagger +90%",
+            "Time Offset Stagger -10%",
+            "Time Offset Stagger -100% (Full)",
+            "Time Offset Stagger -150% (Overshoot)",
+            "Time Offset Stagger -200% (Extreme Overshoot)",
+            "Time Offset Stagger -25%",
+            "Time Offset Stagger -50%",
+            "Time Offset Stagger -75%",
+            "Time Offset Stagger -90%"
+        ],
+        "Wave and Noise": [
+            "Noise 100% (Full)",
+            "Noise 25%",
+            "Noise 50%",
+            "Wave 100% (Full)",
+            "Wave 25%",
+            "Wave 50%",
+            "Noise 10%",
+            "Noise 150% (Overshoot)",
+            "Noise 200% (Extreme Overshoot)",
+            "Noise 75%",
+            "Noise 90%",
+            "Wave 10%",
+            "Wave 150% (Overshoot)",
+            "Wave 200% (Extreme Overshoot)",
+            "Wave 75%",
+            "Wave 90%"
+        ],
+        "Connect To Neighbor": [
+            "Connect To Neighbor -10",
+            "Connect To Neighbor -100 (Full)",
+            "Connect To Neighbor -25",
+            "Connect To Neighbor -50",
+            "Connect To Neighbor -75",
+            "Connect To Neighbor -90",
+            "Connect To Neighbor 10",
+            "Connect To Neighbor 100 (Full)",
+            "Connect To Neighbor 25",
+            "Connect To Neighbor 50",
+            "Connect To Neighbor 75",
+            "Connect To Neighbor 90"
+        ],
+        "Scale from Average": [
+            "Scale Average Exaggerate 10%",
+            "Scale Average Exaggerate 100% (Full)",
+            "Scale Average Exaggerate 150% (Overshoot)",
+            "Scale Average Exaggerate 200% (Extreme Overshoot)",
+            "Scale Average Exaggerate 25%",
+            "Scale Average Exaggerate 50%",
+            "Scale Average Exaggerate 75%",
+            "Scale Average Exaggerate 90%",
+            "Scale Average Reduce 10%",
+            "Scale Average Reduce 100% (Full)",
+            "Scale Average Reduce 150% (Overshoot)",
+            "Scale Average Reduce 200% (Extreme Overshoot)",
+            "Scale Average Reduce 25%",
+            "Scale Average Reduce 50%",
+            "Scale Average Reduce 75%",
+            "Scale Average Reduce 90%"
+        ],
+        "Scale from Default": [
+            "Scale Down 10%",
+            "Scale Down 100% (Full)",
+            "Scale Down 150% (Overshoot)",
+            "Scale Down 200% (Extreme Overshoot)",
+            "Scale Down 25%",
+            "Scale Down 50%",
+            "Scale Down 75%",
+            "Scale Down 90%",
+            "Scale Up 10%",
+            "Scale Up 100% (Full)",
+            "Scale Up 150% (Overshoot)",
+            "Scale Up 200% (Extreme Overshoot)",
+            "Scale Up 25%",
+            "Scale Up 50%",
+            "Scale Up 75%",
+            "Scale Up 90%"
+        ],
+        "Scale from Left": [
+            "Scale Left Exaggerate 10%",
+            "Scale Left Exaggerate 100% (Full)",
+            "Scale Left Exaggerate 150% (Overshoot)",
+            "Scale Left Exaggerate 200% (Extreme Overshoot)",
+            "Scale Left Exaggerate 25%",
+            "Scale Left Exaggerate 50%",
+            "Scale Left Exaggerate 75%",
+            "Scale Left Exaggerate 90%",
+            "Scale Left Reduce 10%",
+            "Scale Left Reduce 100% (Full)",
+            "Scale Left Reduce 150% (Overshoot)",
+            "Scale Left Reduce 200% (Extreme Overshoot)",
+            "Scale Left Reduce 25%",
+            "Scale Left Reduce 50%",
+            "Scale Left Reduce 75%",
+            "Scale Left Reduce 90%"
+        ],
+        "Scale from Right": [
+            "Scale Right Exaggerate 10%",
+            "Scale Right Exaggerate 100% (Full)",
+            "Scale Right Exaggerate 150% (Overshoot)",
+            "Scale Right Exaggerate 200% (Extreme Overshoot)",
+            "Scale Right Exaggerate 25%",
+            "Scale Right Exaggerate 50%",
+            "Scale Right Exaggerate 75%",
+            "Scale Right Exaggerate 90%",
+            "Scale Right Reduce 10%",
+            "Scale Right Reduce 100% (Full)",
+            "Scale Right Reduce 150% (Overshoot)",
+            "Scale Right Reduce 200% (Extreme Overshoot)",
+            "Scale Right Reduce 25%",
+            "Scale Right Reduce 50%",
+            "Scale Right Reduce 75%",
+            "Scale Right Reduce 90%"
+        ],
+        "Simplify - Bake": [
+            "Bake 10%",
+            "Bake 100% (Full)",
+            "Bake 25%",
+            "Bake 50%",
+            "Bake 75%",
+            "Bake 90%",
+            "Simplify 10%",
+            "Simplify 100% (Full)",
+            "Simplify 25%",
+            "Simplify 50%",
+            "Simplify 75%",
+            "Simplify 90%"
+        ],
+        "Smooth - Harsh": [
+            "Harsh 10%",
+            "Harsh 100% (Full)",
+            "Harsh 25%",
+            "Harsh 50%",
+            "Harsh 75%",
+            "Harsh 90%",
+            "Smooth 10%",
+            "Smooth 100% (Full)",
+            "Smooth 25%",
+            "Smooth 50%",
+            "Smooth 75%",
+            "Smooth 90%"
+        ]
+    },
+    "category_appearance": {
+        "Recommended": {
+            "icon": "favorite2",
+            "color": "#4A4A4A"
+        },
+        "Viewport Display": {
+            "icon": "fast_playblaster_icon",
+            "color": "#4A4A4A"
+        },
+        "Selection": {
+            "icon": "selection",
+            "color": "#4A4A4A"
+        },
+        "Manipulator": {
+            "icon": "Rotate",
+            "color": "#4A4A4A"
+        },
+        "Keys": {
+            "icon": "share_keys",
+            "color": "#4A4A4A"
+        },
+        "Nudge Keys": {
+            "icon": "LeftRight",
+            "color": "#4A4A4A"
+        },
+        "Locator": {
+            "icon": "locator",
+            "color": "#4A4A4A"
+        },
+        "Color Keys": {
+            "icon": "colorKeys",
+            "color": "#4A4A4A"
+        },
+        "Offset Keys": {
+            "icon": "overlap003",
+            "color": "#4A4A4A"
+        },
+        "Fast Bake": {
+            "icon": "bake_icon",
+            "color": "#4A4A4A"
+        },
+        "Tracify (Track Arcs)": {
+            "icon": "tracify_icon",
+            "color": "#4A4A4A"
+        },
+        "Spacify": {
+            "icon": "spacify_icon",
+            "color": "#4A4A4A"
+        },
+        "Xform World": {
+            "icon": "xform_align_icon",
+            "color": "#4A4A4A"
+        },
+        "Align": {
+            "icon": "xform_align_icon",
+            "color": "#4A4A4A"
+        },
+        "Mirror": {
+            "icon": "mirror_icon",
+            "color": "#4A4A4A"
+        },
+        "Reset Pose": {
+            "icon": "reset_icon",
+            "color": "#4A4A4A"
+        },
+        "Graph Editor": {
+            "icon": "graphEditor",
+            "color": "#4A4A4A"
+        },
+        "Channel Box": {
+            "icon": "channelBox",
+            "color": "#4A4A4A"
+        },
+        "Global Offset": {
+            "icon": "global_offset_icon",
+            "color": "#4A4A4A"
+        },
+        "Twosify": {
+            "icon": "twosify_icon",
+            "color": "#4A4A4A"
+        },
+        "Xform Relationships": {
+            "icon": "xformRelationship",
+            "color": "#4A4A4A"
+        },
+        "Pickify (Selection Sets)": {
+            "icon": "pickify_icon",
+            "color": "#4A4A4A"
+        },
+        "Temp Pivot": {
+            "icon": "temp_pivot_icon",
+            "color": "#4A4A4A"
+        },
+        "Rotate Order": {
+            "icon": "Rotate",
+            "color": "#4A4A4A"
+        },
+        "Keys Time": {
+            "icon": "keys_time_icon",
+            "color": "#4A4A4A"
+        },
+        "Animation Layers": {
+            "icon": "fast_anim_layers_icon",
+            "color": "#4A4A4A"
+        },
+        "Copy Animation": {
+            "icon": "transify_icon",
+            "color": "#4A4A4A"
+        },
+        "Copy Pose": {
+            "icon": "transify_icon",
+            "color": "#4A4A4A"
+        },
+        "Constraints": {
+            "icon": "Constraints_icon",
+            "color": "#4A4A4A"
+        },
+        "Physics": {
+            "icon": "Physics_icon",
+            "color": "#4A4A4A"
+        },
+        "Tangents": {
+            "icon": "auto_tangent_icon",
+            "color": "#4A4A4A"
+        },
+        "Tweenify (Sliders Quick Pop Up)": {
+            "icon": "tweenify_icon",
+            "color": "#1A1A1A"
+        },
+        "Tween": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Blend to Default": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Blend to Neighbors": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Blend to World": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Blend to Mirror": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Blend to Infinity": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Blend to Ease": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Ease": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Push and Pull": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Scale Average": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Scale Left": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Scale Right": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Time Offset": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Time Offset Stagger": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Wave and Noise": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Connect To Neighbor": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Scale from Average": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Scale from Default": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Scale from Left": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Scale from Right": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Simplify - Bake": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        },
+        "Smooth - Harsh": {
+            "icon": "tweenify_icon",
+            "color": "#4A4A4A"
+        }
+    },
+    "tools_appearance": {
+        "Recommended": {
+            "Animation Visibility Mode": {
+                "icon": "eye",
+                "color": "#9A7A5A"
+            },
+            "Axis Orientation Toggle": {
+                "icon": "eye",
+                "color": "#5A9A7A"
+            },
+            "Toggle Nurbs Curves": {
+                "icon": "curve",
+                "color": "#5A9A7A"
+            },
+            "Toggle Locators": {
+                "icon": "target",
+                "color": "#7A6A9A"
+            },
+            "Toggle Polygons": {
+                "icon": "cube",
+                "color": "#9A5A8A"
+            },
+            "Share Keys": {
+                "icon": "keyframe",
+                "color": "#7A8A8A"
+            },
+            "Reset Pose": {
+                "icon": "controller",
+                "color": "#5A9A5A"
+            },
+            "Euler Filter": {
+                "icon": "magic_wand",
+                "color": "#7A7A9A"
+            },
+            "Nudge Right 1 Frame": {
+                "icon": "arrow_right",
+                "color": "#5A8A9A"
+            },
+            "Nudge Left 1 Frame": {
+                "icon": "arrow_left",
+                "color": "#5A9A5A"
+            },
+            "Locator On Selections": {
+                "icon": "select",
+                "color": "#7A6A9A"
+            },
+            "Locator On Selections BAKE": {
+                "icon": "select",
+                "color": "#7A7A9A"
+            },
+            "Fast Bake - Every 1 Frame": {
+                "icon": "record",
+                "color": "#5A9A5A"
+            },
+            "Toggle Graph Editor": {
+                "icon": "eye",
+                "color": "#7A8A7A"
+            },
+            "Reset Transforms": {
+                "icon": "eraser",
+                "color": "#9A5A8A"
+            },
+            "Crop Animation": {
+                "icon": "lasso",
+                "color": "#9A5A8A"
+            },
+            "Make Cycle POST": {
+                "icon": "controller",
+                "color": "#8A7A7A"
+            },
+            "Make Cycle PRE": {
+                "icon": "diamond_control",
+                "color": "#9A6A6A"
+            },
+            "Clear Channel Box Selection Copy": {
+                "icon": "select",
+                "color": "#5A9A7A"
+            },
+            "Temp Pivot": {
+                "icon": "pin",
+                "color": "#5A9A7A"
+            },
+            "Jump to Next Frame": {
+                "icon": "star",
+                "color": "#6A9A7A"
+            },
+            "Jump to Previous Frame": {
+                "icon": "dial",
+                "color": "#8A7A7A"
+            },
+            "Jump to Next Keyframe (Smart)": {
+                "icon": "keyframe",
+                "color": "#7A8A7A"
+            },
+            "Jump to Previous Keyframe (Smart)": {
+                "icon": "keyframe",
+                "color": "#9A6A6A"
+            },
+            "Clear Animation": {
+                "icon": "eraser",
+                "color": "#7A7A9A"
+            },
+            "Smart Delete Keys": {
+                "icon": "keyframe",
+                "color": "#5A8A9A"
+            },
+            "Smart Copy Keys": {
+                "icon": "keyframe",
+                "color": "#8A6A8A"
+            },
+            "Smart Paste Keys": {
+                "icon": "keyframe",
+                "color": "#9A5A8A"
+            },
+            "Smart Paste Keys Relative": {
+                "icon": "keyframe",
+                "color": "#7A6A9A"
+            },
+            "Create Anim Layer": {
+                "icon": "controller",
+                "color": "#8A6A8A"
+            },
+            "Merge All Anim Layers": {
+                "icon": "bookmark",
+                "color": "#7A7A9A"
+            },
+            "Smart Merge All Anim Layers": {
+                "icon": "dial",
+                "color": "#7A8A7A"
+            },
+            "Select Opposite Controls": {
+                "icon": "select_multiple",
+                "color": "#6A9A7A"
+            },
+            "Add Select Opposite Controls": {
+                "icon": "select_multiple",
+                "color": "#7A7A9A"
+            }
+        },
+        "Viewport Display": {
+            "Toggle Isolate Selections": {
+                "icon": "eye",
+                "color": "#5A9A5A"
+            },
+            "Toggle Nurbs Curves": {
+                "icon": "curve",
+                "color": "#5A9A7A"
+            },
+            "Toggle Controls Display": {
+                "icon": "controller",
+                "color": "#8A6A8A"
+            },
+            "Toggle Locators": {
+                "icon": "target",
+                "color": "#7A6A9A"
+            },
+            "Toggle Polygons": {
+                "icon": "cube",
+                "color": "#9A5A8A"
+            },
+            "Toggle Blue Pencil": {
+                "icon": "pen",
+                "color": "#5A8A9A"
+            },
+            "Toggle Cameras": {
+                "icon": "camera",
+                "color": "#6A8A8A"
+            },
+            "Toggle Clip Ghosts": {
+                "icon": "eye_closed",
+                "color": "#7A7A9A"
+            },
+            "Toggle Construction Planes": {
+                "icon": "square_control",
+                "color": "#6A9A7A"
+            },
+            "Toggle Controllers": {
+                "icon": "controller",
+                "color": "#7A8A7A"
+            },
+            "Toggle Deformers": {
+                "icon": "wrap_deformer",
+                "color": "#8A7A7A"
+            },
+            "Toggle Dimensions": {
+                "icon": "crosshair",
+                "color": "#9A6A6A"
+            },
+            "Toggle Dynamic Constraints": {
+                "icon": "constraint",
+                "color": "#7A8A8A"
+            },
+            "Toggle Dynamics": {
+                "icon": "lightning",
+                "color": "#9A7A5A"
+            },
+            "Toggle Fluids": {
+                "icon": "wave",
+                "color": "#8A8A6A"
+            },
+            "Toggle Follicles": {
+                "icon": "curve_warp",
+                "color": "#5A9A5A"
+            },
+            "Toggle GPU Cache": {
+                "icon": "layers",
+                "color": "#5A9A7A"
+            },
+            "Toggle Grid": {
+                "icon": "layers",
+                "color": "#8A6A8A"
+            },
+            "Toggle HUD": {
+                "icon": "flag",
+                "color": "#7A6A9A"
+            },
+            "Toggle Hair Systems": {
+                "icon": "curve_warp",
+                "color": "#9A5A8A"
+            },
+            "Toggle Handles": {
+                "icon": "controller",
+                "color": "#5A8A9A"
+            },
+            "Toggle IK Handles": {
+                "icon": "ik_handle",
+                "color": "#6A8A8A"
+            },
+            "Toggle Image Planes": {
+                "icon": "camera",
+                "color": "#7A7A9A"
+            },
+            "Toggle Joints": {
+                "icon": "joint",
+                "color": "#6A9A7A"
+            },
+            "Toggle Lights": {
+                "icon": "light",
+                "color": "#7A8A7A"
+            },
+            "Toggle Manipulators": {
+                "icon": "move",
+                "color": "#8A7A7A"
+            },
+            "Toggle Motion Trails": {
+                "icon": "motion_path",
+                "color": "#9A6A6A"
+            },
+            "Toggle Selection Highlighting": {
+                "icon": "select",
+                "color": "#7A8A8A"
+            },
+            "Toggle Nurbs CVs": {
+                "icon": "controller",
+                "color": "#9A7A5A"
+            },
+            "Toggle Nurbs Hulls": {
+                "icon": "curve",
+                "color": "#8A8A6A"
+            },
+            "Toggle Nurbs Surfaces": {
+                "icon": "sphere",
+                "color": "#5A9A5A"
+            },
+            "Toggle Particle Instancers": {
+                "icon": "sparkle",
+                "color": "#5A9A7A"
+            },
+            "Toggle Pivots": {
+                "icon": "pin",
+                "color": "#8A6A8A"
+            },
+            "Toggle Plugin Shapes": {
+                "icon": "diamond_control",
+                "color": "#7A6A9A"
+            },
+            "Toggle Strokes": {
+                "icon": "brush",
+                "color": "#9A5A8A"
+            },
+            "Toggle Subdivision Surfaces": {
+                "icon": "cube",
+                "color": "#5A8A9A"
+            },
+            "Toggle Texture Placements": {
+                "icon": "gradient",
+                "color": "#6A8A8A"
+            },
+            "Toggle nCloths": {
+                "icon": "wave",
+                "color": "#7A7A9A"
+            },
+            "Toggle nParticles": {
+                "icon": "sparkle",
+                "color": "#6A9A7A"
+            },
+            "Toggle nRigids": {
+                "icon": "cube",
+                "color": "#7A8A7A"
+            },
+            "Toggle Xray Surfaces": {
+                "icon": "eye",
+                "color": "#8A7A7A"
+            }
+        },
+        "Selection": {
+            "Select All Animation Data In Scene": {
+                "icon": "select",
+                "color": "#5A9A5A"
+            },
+            "Select All Rig Controls": {
+                "icon": "select",
+                "color": "#5A9A7A"
+            },
+            "Select Hierachy Joints Only": {
+                "icon": "select_multiple",
+                "color": "#8A6A8A"
+            },
+            "Select Hierachy Locators Only": {
+                "icon": "select_multiple",
+                "color": "#7A6A9A"
+            },
+            "Select Hierachy Nurbs Curves Only": {
+                "icon": "select_multiple",
+                "color": "#9A5A8A"
+            },
+            "Select Hierachy": {
+                "icon": "select_multiple",
+                "color": "#5A8A9A"
+            },
+            "Select Objects From Keys": {
+                "icon": "keyframe",
+                "color": "#6A8A8A"
+            },
+            "Select Opposite Controls": {
+                "icon": "select_multiple",
+                "color": "#6A9A7A"
+            },
+            "Add Select Opposite Controls": {
+                "icon": "select_multiple",
+                "color": "#7A7A9A"
+            }
+        },
+        "Manipulator": {
+            "Axis Orientation Toggle": {
+                "icon": "eye",
+                "color": "#5A9A7A"
+            },
+            "Axis Orientation To Camera Space": {
+                "icon": "orbit",
+                "color": "#5A9A5A"
+            },
+            "Micro Manipulator Tool": {
+                "icon": "move",
+                "color": "#9A5A8A"
+            }
+        },
+        "Keys": {
+            "Jump to Next Frame": {
+                "icon": "star",
+                "color": "#6A9A7A"
+            },
+            "Jump to Previous Frame": {
+                "icon": "dial",
+                "color": "#8A7A7A"
+            },
+            "Jump to Next Keyframe (Smart)": {
+                "icon": "keyframe",
+                "color": "#7A8A7A"
+            },
+            "Jump to Previous Keyframe (Smart)": {
+                "icon": "keyframe",
+                "color": "#9A6A6A"
+            },
+            "Keyframe Reducer": {
+                "icon": "keyframe",
+                "color": "#9A6A6A"
+            },
+            "Smart Copy Keys": {
+                "icon": "keyframe",
+                "color": "#8A6A8A"
+            },
+            "Smart Paste Keys": {
+                "icon": "keyframe",
+                "color": "#9A5A8A"
+            },
+            "Smart Paste Keys Relative": {
+                "icon": "keyframe",
+                "color": "#7A6A9A"
+            },
+            "Smart Delete Keys": {
+                "icon": "keyframe",
+                "color": "#5A8A9A"
+            },
+            "Smart Set Keyframes": {
+                "icon": "keyframe",
+                "color": "#6A8A8A"
+            },
+            "Clear Animation": {
+                "icon": "eraser",
+                "color": "#7A7A9A"
+            },
+            "Share Keys": {
+                "icon": "keyframe",
+                "color": "#7A8A8A"
+            }
+        },
+        "Nudge Keys": {
+            "Nudge Left 1 Frame": {
+                "icon": "arrow_left",
+                "color": "#5A9A5A"
+            },
+            "Nudge Left 2 Frames": {
+                "icon": "arrow_left",
+                "color": "#5A9A7A"
+            },
+            "Nudge Left 3 Frames": {
+                "icon": "arrow_left",
+                "color": "#8A6A8A"
+            },
+            "Nudge Left 4 Frames": {
+                "icon": "arrow_left",
+                "color": "#7A6A9A"
+            },
+            "Nudge Left 5 Frames": {
+                "icon": "arrow_left",
+                "color": "#9A5A8A"
+            },
+            "Nudge Right 1 Frame": {
+                "icon": "arrow_right",
+                "color": "#5A8A9A"
+            },
+            "Nudge Right 2 Frames": {
+                "icon": "arrow_right",
+                "color": "#6A8A8A"
+            },
+            "Nudge Right 3 Frames": {
+                "icon": "arrow_right",
+                "color": "#7A7A9A"
+            },
+            "Nudge Right 4 Frames": {
+                "icon": "arrow_right",
+                "color": "#6A9A7A"
+            },
+            "Nudge Right 5 Frames": {
+                "icon": "arrow_right",
+                "color": "#7A8A7A"
+            },
+            "Open Nudge Keys UI": {
+                "icon": "arrow_left",
+                "color": "#8A7A7A"
+            }
+        },
+        "Locator": {
+            "Locator On Selections": {
+                "icon": "select",
+                "color": "#7A6A9A"
+            },
+            "Locator On Selections BAKE": {
+                "icon": "select",
+                "color": "#7A7A9A"
+            },
+            "Locator On Selections Average_Point": {
+                "icon": "select",
+                "color": "#6A8A8A"
+            },
+            "Change Selected Locators Color": {
+                "icon": "select",
+                "color": "#5A9A5A"
+            },
+            "Locators - Bigger": {
+                "icon": "target",
+                "color": "#5A9A7A"
+            },
+            "Locators - Smaller": {
+                "icon": "target",
+                "color": "#8A6A8A"
+            },
+            "Parent Selected (Preserve Animation)": {
+                "icon": "select",
+                "color": "#6A8A8A"
+            },
+            "World Selected (Preserve Animation)": {
+                "icon": "select",
+                "color": "#7A7A9A"
+            }
+        },
+        "Color Keys": {
+            "Color Key Red": {
+                "icon": "magic_wand",
+                "color": "#5A9A7A"
+            },
+            "Color Key Yellow": {
+                "icon": "controller",
+                "color": "#8A6A8A"
+            },
+            "Color Key Green": {
+                "icon": "curve",
+                "color": "#5A9A5A"
+            }
+        },
+        "Offset Keys": {
+            "Offset SCALE Sequentially": {
+                "icon": "scale",
+                "color": "#6A9A7A"
+            },
+            "Offset TIME Sequentially Left 1 Frame": {
+                "icon": "diamond_control",
+                "color": "#9A6A6A"
+            },
+            "Offset TIME Sequentially Left 2 Frames": {
+                "icon": "curve",
+                "color": "#7A8A8A"
+            },
+            "Offset TIME Sequentially Left 0.5 Frame": {
+                "icon": "star",
+                "color": "#8A7A7A"
+            },
+            "Offset TIME Sequentially Left 0.1 Frame": {
+                "icon": "dial",
+                "color": "#7A8A7A"
+            },
+            "Offset TIME Sequentially Right 1 Frame": {
+                "icon": "controller",
+                "color": "#5A9A5A"
+            },
+            "Offset TIME Sequentially Right 2 Frames": {
+                "icon": "sparkle",
+                "color": "#5A9A7A"
+            },
+            "Offset TIME Sequentially Right 0.5 Frame": {
+                "icon": "bookmark",
+                "color": "#8A8A6A"
+            },
+            "Offset TIME Sequentially Right 0.1 Frame": {
+                "icon": "flag",
+                "color": "#9A7A5A"
+            }
+        },
+        "Fast Bake": {
+            "Fast Bake - Every 1 Frame": {
+                "icon": "record",
+                "color": "#5A9A5A"
+            },
+            "Fast Bake - Every 2 Frames": {
+                "icon": "record",
+                "color": "#5A9A7A"
+            },
+            "Fast Bake - Every 3 Frames": {
+                "icon": "record",
+                "color": "#8A6A8A"
+            },
+            "Fast Bake - Every 4 Frames": {
+                "icon": "record",
+                "color": "#7A6A9A"
+            },
+            "Fast Bake - Every 5 Frames": {
+                "icon": "record",
+                "color": "#9A5A8A"
+            },
+            "Fast Bake - Every 6 Frames": {
+                "icon": "record",
+                "color": "#5A8A9A"
+            },
+            "Fast Bake - Every 7 Frames": {
+                "icon": "record",
+                "color": "#6A8A8A"
+            }
+        },
+        "Tracify (Track Arcs)": {
+            "Track Arcs": {
+                "icon": "bookmark",
+                "color": "#7A6A9A"
+            },
+            "Toggle Tracify Camera Space": {
+                "icon": "eye",
+                "color": "#8A6A8A"
+            },
+            "Cycle Tracify Color Mode": {
+                "icon": "sparkle",
+                "color": "#5A9A5A"
+            },
+            "Reset Tracify To Default": {
+                "icon": "eraser",
+                "color": "#5A9A7A"
+            }
+        },
+        "Spacify": {
+            "World": {
+                "icon": "sphere",
+                "color": "#7A7A9A"
+            },
+            "World Orient": {
+                "icon": "orbit",
+                "color": "#6A8A8A"
+            },
+            "New Pivot": {
+                "icon": "pin",
+                "color": "#7A6A9A"
+            },
+            "Temp IK": {
+                "icon": "ik_handle",
+                "color": "#5A8A9A"
+            },
+            "FK Chain": {
+                "icon": "fk_chain",
+                "color": "#5A9A7A"
+            },
+            "Aim": {
+                "icon": "curve",
+                "color": "#5A9A5A"
+            },
+            "Group": {
+                "icon": "group",
+                "color": "#8A6A8A"
+            },
+            "Relative": {
+                "icon": "link",
+                "color": "#9A5A8A"
+            },
+            "Clean and Bake": {
+                "icon": "record",
+                "color": "#6A9A7A"
+            },
+            "Assign Camera": {
+                "icon": "wrench",
+                "color": "#7A8A7A"
+            },
+            "Camera Space": {
+                "icon": "curve",
+                "color": "#8A7A7A"
+            }
+        },
+        "Xform World": {
+            "Foot Locker": {
+                "icon": "foot_rig",
+                "color": "#7A6A9A"
+            },
+            "Copy_XForm": {
+                "icon": "transform",
+                "color": "#9A5A8A"
+            },
+            "Copy_XForm_Range": {
+                "icon": "transform",
+                "color": "#5A8A9A"
+            },
+            "Paste_XForm": {
+                "icon": "transform",
+                "color": "#6A8A8A"
+            },
+            "Paste_XForm_Range": {
+                "icon": "transform",
+                "color": "#7A7A9A"
+            },
+            "Toggle_Bake_OnlyKeys": {
+                "icon": "eye",
+                "color": "#6A9A7A"
+            }
+        },
+        "Align": {
+            "Align": {
+                "icon": "position",
+                "color": "#5A8A9A"
+            },
+            "Align Range": {
+                "icon": "position",
+                "color": "#8A6A8A"
+            },
+            "Align Translate": {
+                "icon": "position",
+                "color": "#9A5A8A"
+            },
+            "Align Rotate": {
+                "icon": "rotate",
+                "color": "#7A6A9A"
+            },
+            "Align Range Translate": {
+                "icon": "position",
+                "color": "#5A9A7A"
+            },
+            "Align Range Rotate": {
+                "icon": "rotate",
+                "color": "#5A9A5A"
+            }
+        },
+        "Mirror": {
+            "Mirror Pose-Animation": {
+                "icon": "flip_horizontal",
+                "color": "#5A9A5A"
+            },
+            "Mirror All Keys": {
+                "icon": "flip_horizontal",
+                "color": "#5A9A7A"
+            },
+            "Snapshot Default Rig": {
+                "icon": "camera",
+                "color": "#8A6A8A"
+            },
+            "Fix Mirror Settings": {
+                "icon": "flip_horizontal",
+                "color": "#7A6A9A"
+            }
+        },
+        "Reset Pose": {
+            "Reset Pose": {
+                "icon": "controller",
+                "color": "#5A9A5A"
+            },
+            "Reset Translate": {
+                "icon": "eraser",
+                "color": "#5A9A7A"
+            },
+            "Reset Rotate": {
+                "icon": "rotate",
+                "color": "#8A6A8A"
+            },
+            "Reset Scale": {
+                "icon": "scale",
+                "color": "#7A6A9A"
+            },
+            "Reset Transforms": {
+                "icon": "eraser",
+                "color": "#9A5A8A"
+            }
+        },
+        "Graph Editor": {
+            "Reverse Animation": {
+                "icon": "flip_horizontal",
+                "color": "#8A6A8A"
+            },
+            "Graph Editor Toolbar": {
+                "icon": "graph",
+                "color": "#7A6A9A"
+            },
+            "Crop Animation": {
+                "icon": "lasso",
+                "color": "#9A5A8A"
+            },
+            "Delete Redundant Keys": {
+                "icon": "keyframe",
+                "color": "#5A8A9A"
+            },
+            "Smooth Selected Keys": {
+                "icon": "select",
+                "color": "#6A8A8A"
+            },
+            "Euler Filter": {
+                "icon": "magic_wand",
+                "color": "#7A7A9A"
+            },
+            "Toggle Graph Editor - Minimize": {
+                "icon": "eye",
+                "color": "#6A9A7A"
+            },
+            "Toggle Graph Editor": {
+                "icon": "eye",
+                "color": "#7A8A7A"
+            },
+            "Make Cycle POST": {
+                "icon": "controller",
+                "color": "#8A7A7A"
+            },
+            "Make Cycle PRE": {
+                "icon": "diamond_control",
+                "color": "#9A6A6A"
+            }
+        },
+        "Channel Box": {
+            "Clear Channel Box Selection": {
+                "icon": "select",
+                "color": "#5A9A7A"
+            }
+        },
+        "Global Offset": {
+            "Global Offset": {
+                "icon": "wrench",
+                "color": "#5A9A5A"
+            }
+        },
+        "Twosify": {
+            "Add Selected to Anim Layer": {
+                "icon": "select",
+                "color": "#5A9A5A"
+            },
+            "Open Twosify UI": {
+                "icon": "layers",
+                "color": "#5A9A7A"
+            },
+            "Select Objects in Anim Layer": {
+                "icon": "layers",
+                "color": "#8A6A8A"
+            },
+            "Update Selected Layer": {
+                "icon": "select",
+                "color": "#7A6A9A"
+            }
+        },
+        "Xform Relationships": {
+            "Copy XForm Relationship": {
+                "icon": "link",
+                "color": "#5A9A7A"
+            },
+            "Paste XForm Relationship": {
+                "icon": "link",
+                "color": "#8A6A8A"
+            },
+            "Bake XForm Relationship Range": {
+                "icon": "xformRelationship",
+                "color": "#1A1A1A"
+            }
+        },
+        "Pickify (Selection Sets)": {
+            "Pickify (Selection Sets)": {
+                "icon": "select_multiple",
+                "color": "#5A9A5A"
+            }
+        },
+        "Temp Pivot": {
+            "Temp Pivot": {
+                "icon": "pin",
+                "color": "#5A9A7A"
+            },
+            "Reset Pivot": {
+                "icon": "pin",
+                "color": "#5A9A5A"
+            }
+        },
+        "Rotate Order": {
+            "Rotate Order - XYZ (Whole Animation)": {
+                "icon": "rotate",
+                "color": "#5A9A5A"
+            },
+            "Rotate Order - XZY (Whole Animation)": {
+                "icon": "rotate",
+                "color": "#5A9A7A"
+            },
+            "Rotate Order - YXZ (Whole Animation)": {
+                "icon": "rotate",
+                "color": "#8A6A8A"
+            },
+            "Rotate Order - YZX (Whole Animation)": {
+                "icon": "rotate",
+                "color": "#7A6A9A"
+            },
+            "Rotate Order - ZXY (Whole Animation)": {
+                "icon": "rotate",
+                "color": "#9A5A8A"
+            },
+            "Rotate Order - ZYX (Whole Animation)": {
+                "icon": "rotate",
+                "color": "#5A8A9A"
+            }
+        },
+        "Keys Time": {
+            "Clean Keys Interactive": {
+                "icon": "keyframe",
+                "color": "#5A9A5A"
+            },
+            "Copy Key Timing - By Channel": {
+                "icon": "keyframe",
+                "color": "#5A9A7A"
+            },
+            "Copy Key Timing - Pose to Pose": {
+                "icon": "keyframe",
+                "color": "#8A6A8A"
+            },
+            "Paste Key Timing - By Channel": {
+                "icon": "keyframe",
+                "color": "#7A6A9A"
+            },
+            "Paste Key Timing - Pose to Pose": {
+                "icon": "keyframe",
+                "color": "#9A5A8A"
+            },
+            "Copy Key Times Channels": {
+                "icon": "copy_weights",
+                "color": "#5A8A9A"
+            },
+            "Copy Key Times Pose To Pose": {
+                "icon": "copy_weights",
+                "color": "#6A8A8A"
+            },
+            "Paste Key Times Channels": {
+                "icon": "paint_weights",
+                "color": "#7A7A9A"
+            },
+            "Paste Key Times Pose To Pose": {
+                "icon": "paint_weights",
+                "color": "#6A9A7A"
+            }
+        },
+        "Animation Layers": {
+            "Create Anim Layer": {
+                "icon": "controller",
+                "color": "#8A6A8A"
+            },
+            "Create Override Anim Layer": {
+                "icon": "flag",
+                "color": "#7A7A9A"
+            },
+            "Set Selected Layers Override": {
+                "icon": "select",
+                "color": "#6A8A8A"
+            },
+            "Set Selected Layers Additive": {
+                "icon": "select",
+                "color": "#5A8A9A"
+            },
+            "Bake Selected To Override Layer": {
+                "icon": "select",
+                "color": "#5A9A7A"
+            },
+            "Add Selected To Anim Layer": {
+                "icon": "select",
+                "color": "#5A9A5A"
+            },
+            "Remove Selected From Anim Layer": {
+                "icon": "select",
+                "color": "#9A5A8A"
+            },
+            "Merge All Anim Layers": {
+                "icon": "bookmark",
+                "color": "#7A7A9A"
+            },
+            "Merge Selected Anim Layers": {
+                "icon": "select",
+                "color": "#6A9A7A"
+            },
+            "Smart Merge All Anim Layers": {
+                "icon": "dial",
+                "color": "#7A8A7A"
+            },
+            "Smart Merge Selected Anim Layers": {
+                "icon": "select",
+                "color": "#8A7A7A"
+            }
+        },
+        "Copy Animation": {
+            "Copy All Animation Channels": {
+                "icon": "copy_weights",
+                "color": "#5A9A5A"
+            },
+            "Copy Selected Channels": {
+                "icon": "select",
+                "color": "#5A9A7A"
+            },
+            "Insert Animation": {
+                "icon": "keyframe",
+                "color": "#8A6A8A"
+            },
+            "Replace Animation": {
+                "icon": "keyframe",
+                "color": "#7A6A9A"
+            },
+            "Select Objects": {
+                "icon": "select",
+                "color": "#9A5A8A"
+            }
+        },
+        "Copy Pose": {
+            "Copy Pose": {
+                "icon": "copy_weights",
+                "color": "#5A9A5A"
+            },
+            "Paste Pose": {
+                "icon": "paint_weights",
+                "color": "#5A9A7A"
+            },
+            "Select Objects": {
+                "icon": "select",
+                "color": "#8A6A8A"
+            }
+        },
+        "Constraints": {
+            "Smart Constraint": {
+                "icon": "flag",
+                "color": "#5A9A5A"
+            },
+            "Smart_Orient_Constraint": {
+                "icon": "magic_wand",
+                "color": "#5A9A7A"
+            },
+            "Smart_Point_Constraint": {
+                "icon": "flag",
+                "color": "#8A6A8A"
+            },
+            "Smart_Scale_Constraint": {
+                "icon": "scale",
+                "color": "#7A6A9A"
+            }
+        },
+        "Physics": {
+            "Bounce Tool": {
+                "icon": "wrench",
+                "color": "#5A9A5A"
+            }
+        },
+        "Tangents": {
+            "Auto Tangent All Keys": {
+                "icon": "curve",
+                "color": "#5A9A5A"
+            },
+            "Auto Tangent Selected": {
+                "icon": "select",
+                "color": "#5A9A7A"
+            },
+            "Auto Tangent Set Default": {
+                "icon": "curve",
+                "color": "#8A6A8A"
+            },
+            "Linear Tangent All Keys": {
+                "icon": "curve",
+                "color": "#7A6A9A"
+            },
+            "Linear Tangent Selected": {
+                "icon": "select",
+                "color": "#9A5A8A"
+            },
+            "Linear Tangent Set Default": {
+                "icon": "curve",
+                "color": "#5A8A9A"
+            },
+            "Step Tangent All Keys": {
+                "icon": "curve",
+                "color": "#6A8A8A"
+            },
+            "Step Tangent Selected": {
+                "icon": "select",
+                "color": "#7A7A9A"
+            },
+            "Step Tangent Set Default": {
+                "icon": "curve",
+                "color": "#6A9A7A"
+            }
+        },
+        "Tweenify (Sliders Quick Pop Up)": {
+            "Tweenify Quick Pop Up": {
+                "icon": "slider",
+                "color": "#5A9A5A"
+            }
+        },
+        "Tween": {
+            "Tween -200%": {
+                "icon": "slider",
+                "color": "#9A5A8A"
+            },
+            "Tween -150%": {
+                "icon": "slider",
+                "color": "#7A6A9A"
+            },
+            "Tween -120%": {
+                "icon": "slider",
+                "color": "#8A6A8A"
+            },
+            "Tween -100%": {
+                "icon": "slider",
+                "color": "#5A9A7A"
+            },
+            "Tween 13%": {
+                "icon": "slider",
+                "color": "#7A7A9A"
+            },
+            "Tween 17%": {
+                "icon": "slider",
+                "color": "#7A8A7A"
+            },
+            "Tween 25%": {
+                "icon": "slider",
+                "color": "#9A6A6A"
+            },
+            "Tween 33%": {
+                "icon": "slider",
+                "color": "#7A8A8A"
+            },
+            "Tween 50%": {
+                "icon": "slider",
+                "color": "#9A7A5A"
+            },
+            "Tween 67%": {
+                "icon": "slider",
+                "color": "#8A8A6A"
+            },
+            "Tween 75%": {
+                "icon": "slider",
+                "color": "#5A9A5A"
+            },
+            "Tween 83%": {
+                "icon": "slider",
+                "color": "#5A9A7A"
+            },
+            "Tween 88%": {
+                "icon": "slider",
+                "color": "#8A6A8A"
+            },
+            "Tween 100%": {
+                "icon": "slider",
+                "color": "#5A8A9A"
+            },
+            "Tween 120%": {
+                "icon": "slider",
+                "color": "#6A8A8A"
+            },
+            "Tween 150%": {
+                "icon": "slider",
+                "color": "#6A9A7A"
+            },
+            "Tween 200%": {
+                "icon": "slider",
+                "color": "#8A7A7A"
+            }
+        },
+        "Blend to Default": {
+            "Blend to Default Away 100% (Full)": {
+                "icon": "blend",
+                "color": "#5A9A5A"
+            },
+            "Blend to Default Away 25%": {
+                "icon": "blend",
+                "color": "#5A9A7A"
+            },
+            "Blend to Default Away 50%": {
+                "icon": "blend",
+                "color": "#8A6A8A"
+            },
+            "Blend to Default Toward 100% (Full)": {
+                "icon": "blend",
+                "color": "#7A6A9A"
+            },
+            "Blend to Default Toward 25%": {
+                "icon": "blend",
+                "color": "#9A5A8A"
+            },
+            "Blend to Default Toward 50%": {
+                "icon": "blend",
+                "color": "#5A8A9A"
+            },
+            "Blend to Default Away 10%": {
+                "icon": "blend",
+                "color": "#6A8A8A"
+            },
+            "Blend to Default Away 150% (Overshoot)": {
+                "icon": "blend",
+                "color": "#7A7A9A"
+            },
+            "Blend to Default Away 200% (Extreme Overshoot)": {
+                "icon": "blend",
+                "color": "#6A9A7A"
+            },
+            "Blend to Default Away 75%": {
+                "icon": "blend",
+                "color": "#7A8A7A"
+            },
+            "Blend to Default Away 90%": {
+                "icon": "blend",
+                "color": "#8A7A7A"
+            },
+            "Blend to Default Toward 10%": {
+                "icon": "blend",
+                "color": "#9A6A6A"
+            },
+            "Blend to Default Toward 150% (Overshoot)": {
+                "icon": "blend",
+                "color": "#7A8A8A"
+            },
+            "Blend to Default Toward 200% (Extreme Overshoot)": {
+                "icon": "blend",
+                "color": "#9A7A5A"
+            },
+            "Blend to Default Toward 75%": {
+                "icon": "blend",
+                "color": "#8A8A6A"
+            },
+            "Blend to Default Toward 90%": {
+                "icon": "blend",
+                "color": "#5A9A5A"
+            }
+        },
+        "Blend to Neighbors": {
+            "Blend to Neighbors +10%": {
+                "icon": "blend",
+                "color": "#5A9A5A"
+            },
+            "Blend to Neighbors +100% (Full)": {
+                "icon": "blend",
+                "color": "#5A9A7A"
+            },
+            "Blend to Neighbors +150% (Overshoot)": {
+                "icon": "blend",
+                "color": "#8A6A8A"
+            },
+            "Blend to Neighbors +200% (Extreme Overshoot)": {
+                "icon": "blend",
+                "color": "#7A6A9A"
+            },
+            "Blend to Neighbors +25%": {
+                "icon": "blend",
+                "color": "#9A5A8A"
+            },
+            "Blend to Neighbors +50%": {
+                "icon": "blend",
+                "color": "#5A8A9A"
+            },
+            "Blend to Neighbors +75%": {
+                "icon": "blend",
+                "color": "#6A8A8A"
+            },
+            "Blend to Neighbors +90%": {
+                "icon": "blend",
+                "color": "#7A7A9A"
+            },
+            "Blend to Neighbors -10%": {
+                "icon": "blend",
+                "color": "#6A9A7A"
+            },
+            "Blend to Neighbors -100% (Full)": {
+                "icon": "blend",
+                "color": "#7A8A7A"
+            },
+            "Blend to Neighbors -150% (Overshoot)": {
+                "icon": "blend",
+                "color": "#8A7A7A"
+            },
+            "Blend to Neighbors -200% (Extreme Overshoot)": {
+                "icon": "blend",
+                "color": "#9A6A6A"
+            },
+            "Blend to Neighbors -25%": {
+                "icon": "blend",
+                "color": "#7A8A8A"
+            },
+            "Blend to Neighbors -50%": {
+                "icon": "blend",
+                "color": "#9A7A5A"
+            },
+            "Blend to Neighbors -75%": {
+                "icon": "blend",
+                "color": "#8A8A6A"
+            },
+            "Blend to Neighbors -90%": {
+                "icon": "blend",
+                "color": "#5A9A5A"
+            }
+        },
+        "Blend to World": {
+            "Blend to World +10%": {
+                "icon": "blend",
+                "color": "#5A9A5A"
+            },
+            "Blend to World +100% (Full)": {
+                "icon": "blend",
+                "color": "#5A9A7A"
+            },
+            "Blend to World +150% (Overshoot)": {
+                "icon": "blend",
+                "color": "#8A6A8A"
+            },
+            "Blend to World +200% (Extreme Overshoot)": {
+                "icon": "blend",
+                "color": "#7A6A9A"
+            },
+            "Blend to World +25%": {
+                "icon": "blend",
+                "color": "#9A5A8A"
+            },
+            "Blend to World +50%": {
+                "icon": "blend",
+                "color": "#5A8A9A"
+            },
+            "Blend to World +75%": {
+                "icon": "blend",
+                "color": "#6A8A8A"
+            },
+            "Blend to World +90%": {
+                "icon": "blend",
+                "color": "#7A7A9A"
+            },
+            "Blend to World -10%": {
+                "icon": "blend",
+                "color": "#6A9A7A"
+            },
+            "Blend to World -100% (Full)": {
+                "icon": "blend",
+                "color": "#7A8A7A"
+            },
+            "Blend to World -150% (Overshoot)": {
+                "icon": "blend",
+                "color": "#8A7A7A"
+            },
+            "Blend to World -200% (Extreme Overshoot)": {
+                "icon": "blend",
+                "color": "#9A6A6A"
+            },
+            "Blend to World -25%": {
+                "icon": "blend",
+                "color": "#7A8A8A"
+            },
+            "Blend to World -50%": {
+                "icon": "blend",
+                "color": "#9A7A5A"
+            },
+            "Blend to World -75%": {
+                "icon": "blend",
+                "color": "#8A8A6A"
+            },
+            "Blend to World -90%": {
+                "icon": "blend",
+                "color": "#5A9A5A"
+            }
+        },
+        "Blend to Mirror": {
+            "Diverge 10%": {
+                "icon": "bookmark",
+                "color": "#5A9A5A"
+            },
+            "Diverge 100% (Full)": {
+                "icon": "wrench",
+                "color": "#5A9A7A"
+            },
+            "Diverge 25%": {
+                "icon": "flag",
+                "color": "#8A6A8A"
+            },
+            "Diverge 50%": {
+                "icon": "wrench",
+                "color": "#7A6A9A"
+            },
+            "Diverge 75%": {
+                "icon": "dial",
+                "color": "#9A5A8A"
+            },
+            "Diverge 90%": {
+                "icon": "sparkle",
+                "color": "#5A8A9A"
+            },
+            "Mirror 10%": {
+                "icon": "flip_horizontal",
+                "color": "#6A8A8A"
+            },
+            "Mirror 100% (Full)": {
+                "icon": "flip_horizontal",
+                "color": "#7A7A9A"
+            },
+            "Mirror 25%": {
+                "icon": "flip_horizontal",
+                "color": "#6A9A7A"
+            },
+            "Mirror 50%": {
+                "icon": "flip_horizontal",
+                "color": "#7A8A7A"
+            },
+            "Mirror 75%": {
+                "icon": "flip_horizontal",
+                "color": "#8A7A7A"
+            },
+            "Mirror 90%": {
+                "icon": "flip_horizontal",
+                "color": "#9A6A6A"
+            }
+        },
+        "Blend to Infinity": {
+            "Extend Left 10%": {
+                "icon": "curve",
+                "color": "#5A9A5A"
+            },
+            "Extend Left 100% (Full)": {
+                "icon": "diamond_control",
+                "color": "#5A9A7A"
+            },
+            "Extend Left 25%": {
+                "icon": "magic_wand",
+                "color": "#8A6A8A"
+            },
+            "Extend Left 50%": {
+                "icon": "diamond_control",
+                "color": "#7A6A9A"
+            },
+            "Extend Left 75%": {
+                "icon": "wrench",
+                "color": "#9A5A8A"
+            },
+            "Extend Left 90%": {
+                "icon": "dial",
+                "color": "#5A8A9A"
+            },
+            "Extend Right 10%": {
+                "icon": "sparkle",
+                "color": "#6A8A8A"
+            },
+            "Extend Right 100% (Full)": {
+                "icon": "controller",
+                "color": "#7A7A9A"
+            },
+            "Extend Right 25%": {
+                "icon": "wrench",
+                "color": "#6A9A7A"
+            },
+            "Extend Right 50%": {
+                "icon": "controller",
+                "color": "#7A8A7A"
+            },
+            "Extend Right 75%": {
+                "icon": "magic_wand",
+                "color": "#8A7A7A"
+            },
+            "Extend Right 90%": {
+                "icon": "flag",
+                "color": "#9A6A6A"
+            }
+        },
+        "Blend to Ease": {
+            "Blend to Ease In 10%": {
+                "icon": "blend",
+                "color": "#7A8A8A"
+            },
+            "Blend to Ease In 100% (Full)": {
+                "icon": "blend",
+                "color": "#9A7A5A"
+            },
+            "Blend to Ease In 25%": {
+                "icon": "blend",
+                "color": "#8A8A6A"
+            },
+            "Blend to Ease In 50%": {
+                "icon": "blend",
+                "color": "#5A9A5A"
+            },
+            "Blend to Ease In 75%": {
+                "icon": "blend",
+                "color": "#5A9A7A"
+            },
+            "Blend to Ease In 90%": {
+                "icon": "blend",
+                "color": "#8A6A8A"
+            },
+            "Blend to Ease Out 10%": {
+                "icon": "blend",
+                "color": "#7A6A9A"
+            },
+            "Blend to Ease Out 100% (Full)": {
+                "icon": "blend",
+                "color": "#9A5A8A"
+            },
+            "Blend to Ease Out 25%": {
+                "icon": "blend",
+                "color": "#5A8A9A"
+            },
+            "Blend to Ease Out 50%": {
+                "icon": "blend",
+                "color": "#6A8A8A"
+            },
+            "Blend to Ease Out 75%": {
+                "icon": "blend",
+                "color": "#7A7A9A"
+            },
+            "Blend to Ease Out 90%": {
+                "icon": "blend",
+                "color": "#6A9A7A"
+            }
+        },
+        "Ease": {
+            "Ease +10%": {
+                "icon": "wave",
+                "color": "#5A9A5A"
+            },
+            "Ease +100% (Full)": {
+                "icon": "wave",
+                "color": "#5A9A7A"
+            },
+            "Ease +150% (Overshoot)": {
+                "icon": "wave",
+                "color": "#8A6A8A"
+            },
+            "Ease +200% (Extreme Overshoot)": {
+                "icon": "wave",
+                "color": "#7A6A9A"
+            },
+            "Ease +25%": {
+                "icon": "wave",
+                "color": "#9A5A8A"
+            },
+            "Ease +50%": {
+                "icon": "wave",
+                "color": "#5A8A9A"
+            },
+            "Ease +75%": {
+                "icon": "wave",
+                "color": "#6A8A8A"
+            },
+            "Ease +90%": {
+                "icon": "wave",
+                "color": "#7A7A9A"
+            },
+            "Ease -10%": {
+                "icon": "wave",
+                "color": "#6A9A7A"
+            },
+            "Ease -100% (Full)": {
+                "icon": "wave",
+                "color": "#7A8A7A"
+            },
+            "Ease -150% (Overshoot)": {
+                "icon": "wave",
+                "color": "#8A7A7A"
+            },
+            "Ease -200% (Extreme Overshoot)": {
+                "icon": "wave",
+                "color": "#9A6A6A"
+            },
+            "Ease -25%": {
+                "icon": "wave",
+                "color": "#7A8A8A"
+            },
+            "Ease -50%": {
+                "icon": "wave",
+                "color": "#9A7A5A"
+            },
+            "Ease -75%": {
+                "icon": "wave",
+                "color": "#8A8A6A"
+            },
+            "Ease -90%": {
+                "icon": "wave",
+                "color": "#5A9A5A"
+            }
+        },
+        "Push and Pull": {
+            "Pull 100% (Full)": {
+                "icon": "arrows_compress",
+                "color": "#5A9A5A"
+            },
+            "Pull 25%": {
+                "icon": "arrows_compress",
+                "color": "#5A9A7A"
+            },
+            "Pull 50%": {
+                "icon": "arrows_compress",
+                "color": "#8A6A8A"
+            },
+            "Push 100% (Full)": {
+                "icon": "arrows_expand",
+                "color": "#7A6A9A"
+            },
+            "Push 25%": {
+                "icon": "arrows_expand",
+                "color": "#9A5A8A"
+            },
+            "Push 50%": {
+                "icon": "arrows_expand",
+                "color": "#5A8A9A"
+            },
+            "Pull 10%": {
+                "icon": "arrows_compress",
+                "color": "#6A8A8A"
+            },
+            "Pull 150% (Overshoot)": {
+                "icon": "arrows_compress",
+                "color": "#7A7A9A"
+            },
+            "Pull 200% (Extreme Overshoot)": {
+                "icon": "arrows_compress",
+                "color": "#6A9A7A"
+            },
+            "Pull 75%": {
+                "icon": "arrows_compress",
+                "color": "#7A8A7A"
+            },
+            "Pull 90%": {
+                "icon": "arrows_compress",
+                "color": "#8A7A7A"
+            },
+            "Push 10%": {
+                "icon": "arrows_expand",
+                "color": "#9A6A6A"
+            },
+            "Push 150% (Overshoot)": {
+                "icon": "arrows_expand",
+                "color": "#7A8A8A"
+            },
+            "Push 200% (Extreme Overshoot)": {
+                "icon": "arrows_expand",
+                "color": "#9A7A5A"
+            },
+            "Push 75%": {
+                "icon": "arrows_expand",
+                "color": "#8A8A6A"
+            },
+            "Push 90%": {
+                "icon": "arrows_expand",
+                "color": "#5A9A5A"
+            }
+        },
+        "Scale Average": {
+            "Scale Average Exaggerate 10%": {
+                "icon": "scale",
+                "color": "#5A9A5A"
+            },
+            "Scale Average Exaggerate 100% (Full)": {
+                "icon": "scale",
+                "color": "#5A9A7A"
+            },
+            "Scale Average Exaggerate 150% (Overshoot)": {
+                "icon": "scale",
+                "color": "#8A6A8A"
+            },
+            "Scale Average Exaggerate 200% (Extreme Overshoot)": {
+                "icon": "scale",
+                "color": "#7A6A9A"
+            },
+            "Scale Average Exaggerate 25%": {
+                "icon": "scale",
+                "color": "#9A5A8A"
+            },
+            "Scale Average Exaggerate 50%": {
+                "icon": "scale",
+                "color": "#5A8A9A"
+            },
+            "Scale Average Exaggerate 75%": {
+                "icon": "scale",
+                "color": "#6A8A8A"
+            },
+            "Scale Average Exaggerate 90%": {
+                "icon": "scale",
+                "color": "#7A7A9A"
+            },
+            "Scale Average Reduce 10%": {
+                "icon": "scale",
+                "color": "#6A9A7A"
+            },
+            "Scale Average Reduce 100% (Full)": {
+                "icon": "scale",
+                "color": "#7A8A7A"
+            },
+            "Scale Average Reduce 150% (Overshoot)": {
+                "icon": "scale",
+                "color": "#8A7A7A"
+            },
+            "Scale Average Reduce 200% (Extreme Overshoot)": {
+                "icon": "scale",
+                "color": "#9A6A6A"
+            },
+            "Scale Average Reduce 25%": {
+                "icon": "scale",
+                "color": "#7A8A8A"
+            },
+            "Scale Average Reduce 50%": {
+                "icon": "scale",
+                "color": "#9A7A5A"
+            },
+            "Scale Average Reduce 75%": {
+                "icon": "scale",
+                "color": "#8A8A6A"
+            },
+            "Scale Average Reduce 90%": {
+                "icon": "scale",
+                "color": "#5A9A5A"
+            }
+        },
+        "Scale Left": {
+            "Scale Left Exaggerate 10%": {
+                "icon": "scale",
+                "color": "#5A9A5A"
+            },
+            "Scale Left Exaggerate 100% (Full)": {
+                "icon": "scale",
+                "color": "#5A9A7A"
+            },
+            "Scale Left Exaggerate 150% (Overshoot)": {
+                "icon": "scale",
+                "color": "#8A6A8A"
+            },
+            "Scale Left Exaggerate 200% (Extreme Overshoot)": {
+                "icon": "scale",
+                "color": "#7A6A9A"
+            },
+            "Scale Left Exaggerate 25%": {
+                "icon": "scale",
+                "color": "#9A5A8A"
+            },
+            "Scale Left Exaggerate 50%": {
+                "icon": "scale",
+                "color": "#5A8A9A"
+            },
+            "Scale Left Exaggerate 75%": {
+                "icon": "scale",
+                "color": "#6A8A8A"
+            },
+            "Scale Left Exaggerate 90%": {
+                "icon": "scale",
+                "color": "#7A7A9A"
+            },
+            "Scale Left Reduce 10%": {
+                "icon": "scale",
+                "color": "#6A9A7A"
+            },
+            "Scale Left Reduce 100% (Full)": {
+                "icon": "scale",
+                "color": "#7A8A7A"
+            },
+            "Scale Left Reduce 150% (Overshoot)": {
+                "icon": "scale",
+                "color": "#8A7A7A"
+            },
+            "Scale Left Reduce 200% (Extreme Overshoot)": {
+                "icon": "scale",
+                "color": "#9A6A6A"
+            },
+            "Scale Left Reduce 25%": {
+                "icon": "scale",
+                "color": "#7A8A8A"
+            },
+            "Scale Left Reduce 50%": {
+                "icon": "scale",
+                "color": "#9A7A5A"
+            },
+            "Scale Left Reduce 75%": {
+                "icon": "scale",
+                "color": "#8A8A6A"
+            },
+            "Scale Left Reduce 90%": {
+                "icon": "scale",
+                "color": "#5A9A5A"
+            }
+        },
+        "Scale Right": {
+            "Scale Right Exaggerate 10%": {
+                "icon": "scale",
+                "color": "#5A9A5A"
+            },
+            "Scale Right Exaggerate 100% (Full)": {
+                "icon": "scale",
+                "color": "#5A9A7A"
+            },
+            "Scale Right Exaggerate 150% (Overshoot)": {
+                "icon": "scale",
+                "color": "#8A6A8A"
+            },
+            "Scale Right Exaggerate 200% (Extreme Overshoot)": {
+                "icon": "scale",
+                "color": "#7A6A9A"
+            },
+            "Scale Right Exaggerate 25%": {
+                "icon": "scale",
+                "color": "#9A5A8A"
+            },
+            "Scale Right Exaggerate 50%": {
+                "icon": "scale",
+                "color": "#5A8A9A"
+            },
+            "Scale Right Exaggerate 75%": {
+                "icon": "scale",
+                "color": "#6A8A8A"
+            },
+            "Scale Right Exaggerate 90%": {
+                "icon": "scale",
+                "color": "#7A7A9A"
+            },
+            "Scale Right Reduce 10%": {
+                "icon": "scale",
+                "color": "#6A9A7A"
+            },
+            "Scale Right Reduce 100% (Full)": {
+                "icon": "scale",
+                "color": "#7A8A7A"
+            },
+            "Scale Right Reduce 150% (Overshoot)": {
+                "icon": "scale",
+                "color": "#8A7A7A"
+            },
+            "Scale Right Reduce 200% (Extreme Overshoot)": {
+                "icon": "scale",
+                "color": "#9A6A6A"
+            },
+            "Scale Right Reduce 25%": {
+                "icon": "scale",
+                "color": "#7A8A8A"
+            },
+            "Scale Right Reduce 50%": {
+                "icon": "scale",
+                "color": "#9A7A5A"
+            },
+            "Scale Right Reduce 75%": {
+                "icon": "scale",
+                "color": "#8A8A6A"
+            },
+            "Scale Right Reduce 90%": {
+                "icon": "scale",
+                "color": "#5A9A5A"
+            }
+        },
+        "Time Offset": {
+            "Time Offset +10%": {
+                "icon": "timeline",
+                "color": "#5A9A5A"
+            },
+            "Time Offset +100% (Full)": {
+                "icon": "timeline",
+                "color": "#5A9A7A"
+            },
+            "Time Offset +150% (Overshoot)": {
+                "icon": "timeline",
+                "color": "#8A6A8A"
+            },
+            "Time Offset +200% (Extreme Overshoot)": {
+                "icon": "timeline",
+                "color": "#7A6A9A"
+            },
+            "Time Offset +25%": {
+                "icon": "timeline",
+                "color": "#9A5A8A"
+            },
+            "Time Offset +50%": {
+                "icon": "timeline",
+                "color": "#5A8A9A"
+            },
+            "Time Offset +75%": {
+                "icon": "timeline",
+                "color": "#6A8A8A"
+            },
+            "Time Offset +90%": {
+                "icon": "timeline",
+                "color": "#7A7A9A"
+            },
+            "Time Offset -10%": {
+                "icon": "timeline",
+                "color": "#6A9A7A"
+            },
+            "Time Offset -100% (Full)": {
+                "icon": "timeline",
+                "color": "#7A8A7A"
+            },
+            "Time Offset -150% (Overshoot)": {
+                "icon": "timeline",
+                "color": "#8A7A7A"
+            },
+            "Time Offset -200% (Extreme Overshoot)": {
+                "icon": "timeline",
+                "color": "#9A6A6A"
+            },
+            "Time Offset -25%": {
+                "icon": "timeline",
+                "color": "#7A8A8A"
+            },
+            "Time Offset -50%": {
+                "icon": "timeline",
+                "color": "#9A7A5A"
+            },
+            "Time Offset -75%": {
+                "icon": "timeline",
+                "color": "#8A8A6A"
+            },
+            "Time Offset -90%": {
+                "icon": "timeline",
+                "color": "#5A9A5A"
+            }
+        },
+        "Time Offset Stagger": {
+            "Time Offset Stagger +10%": {
+                "icon": "skip_forward",
+                "color": "#5A9A5A"
+            },
+            "Time Offset Stagger +100% (Full)": {
+                "icon": "skip_forward",
+                "color": "#5A9A7A"
+            },
+            "Time Offset Stagger +150% (Overshoot)": {
+                "icon": "skip_forward",
+                "color": "#8A6A8A"
+            },
+            "Time Offset Stagger +200% (Extreme Overshoot)": {
+                "icon": "skip_forward",
+                "color": "#7A6A9A"
+            },
+            "Time Offset Stagger +25%": {
+                "icon": "skip_forward",
+                "color": "#9A5A8A"
+            },
+            "Time Offset Stagger +50%": {
+                "icon": "skip_forward",
+                "color": "#5A8A9A"
+            },
+            "Time Offset Stagger +75%": {
+                "icon": "skip_forward",
+                "color": "#6A8A8A"
+            },
+            "Time Offset Stagger +90%": {
+                "icon": "skip_forward",
+                "color": "#7A7A9A"
+            },
+            "Time Offset Stagger -10%": {
+                "icon": "skip_forward",
+                "color": "#6A9A7A"
+            },
+            "Time Offset Stagger -100% (Full)": {
+                "icon": "skip_forward",
+                "color": "#7A8A7A"
+            },
+            "Time Offset Stagger -150% (Overshoot)": {
+                "icon": "skip_forward",
+                "color": "#8A7A7A"
+            },
+            "Time Offset Stagger -200% (Extreme Overshoot)": {
+                "icon": "skip_forward",
+                "color": "#9A6A6A"
+            },
+            "Time Offset Stagger -25%": {
+                "icon": "skip_forward",
+                "color": "#7A8A8A"
+            },
+            "Time Offset Stagger -50%": {
+                "icon": "skip_forward",
+                "color": "#9A7A5A"
+            },
+            "Time Offset Stagger -75%": {
+                "icon": "skip_forward",
+                "color": "#8A8A6A"
+            },
+            "Time Offset Stagger -90%": {
+                "icon": "skip_forward",
+                "color": "#5A9A5A"
+            }
+        },
+        "Wave and Noise": {
+            "Noise 100% (Full)": {
+                "icon": "sparkle",
+                "color": "#5A9A5A"
+            },
+            "Noise 25%": {
+                "icon": "sparkle",
+                "color": "#5A9A7A"
+            },
+            "Noise 50%": {
+                "icon": "sparkle",
+                "color": "#8A6A8A"
+            },
+            "Wave 100% (Full)": {
+                "icon": "wave",
+                "color": "#7A6A9A"
+            },
+            "Wave 25%": {
+                "icon": "wave",
+                "color": "#9A5A8A"
+            },
+            "Wave 50%": {
+                "icon": "wave",
+                "color": "#5A8A9A"
+            },
+            "Noise 10%": {
+                "icon": "sparkle",
+                "color": "#6A8A8A"
+            },
+            "Noise 150% (Overshoot)": {
+                "icon": "sparkle",
+                "color": "#7A7A9A"
+            },
+            "Noise 200% (Extreme Overshoot)": {
+                "icon": "sparkle",
+                "color": "#6A9A7A"
+            },
+            "Noise 75%": {
+                "icon": "sparkle",
+                "color": "#7A8A7A"
+            },
+            "Noise 90%": {
+                "icon": "sparkle",
+                "color": "#8A7A7A"
+            },
+            "Wave 10%": {
+                "icon": "wave",
+                "color": "#9A6A6A"
+            },
+            "Wave 150% (Overshoot)": {
+                "icon": "wave",
+                "color": "#7A8A8A"
+            },
+            "Wave 200% (Extreme Overshoot)": {
+                "icon": "wave",
+                "color": "#9A7A5A"
+            },
+            "Wave 75%": {
+                "icon": "wave",
+                "color": "#8A8A6A"
+            },
+            "Wave 90%": {
+                "icon": "wave",
+                "color": "#5A9A5A"
+            }
+        },
+        "Connect To Neighbor": {
+            "Connect To Neighbor -10": {
+                "icon": "star",
+                "color": "#5A9A5A"
+            },
+            "Connect To Neighbor -100 (Full)": {
+                "icon": "magic_wand",
+                "color": "#5A9A7A"
+            },
+            "Connect To Neighbor -25": {
+                "icon": "dial",
+                "color": "#8A6A8A"
+            },
+            "Connect To Neighbor -50": {
+                "icon": "magic_wand",
+                "color": "#7A6A9A"
+            },
+            "Connect To Neighbor -75": {
+                "icon": "flag",
+                "color": "#9A5A8A"
+            },
+            "Connect To Neighbor -90": {
+                "icon": "curve",
+                "color": "#5A8A9A"
+            },
+            "Connect To Neighbor 10": {
+                "icon": "bookmark",
+                "color": "#6A8A8A"
+            },
+            "Connect To Neighbor 100 (Full)": {
+                "icon": "wrench",
+                "color": "#7A7A9A"
+            },
+            "Connect To Neighbor 25": {
+                "icon": "flag",
+                "color": "#6A9A7A"
+            },
+            "Connect To Neighbor 50": {
+                "icon": "wrench",
+                "color": "#7A8A7A"
+            },
+            "Connect To Neighbor 75": {
+                "icon": "dial",
+                "color": "#8A7A7A"
+            },
+            "Connect To Neighbor 90": {
+                "icon": "sparkle",
+                "color": "#9A6A6A"
+            }
+        },
+        "Scale from Average": {
+            "Scale Average Exaggerate 10%": {
+                "icon": "scale",
+                "color": "#5A9A5A"
+            },
+            "Scale Average Exaggerate 100% (Full)": {
+                "icon": "scale",
+                "color": "#5A9A7A"
+            },
+            "Scale Average Exaggerate 150% (Overshoot)": {
+                "icon": "scale",
+                "color": "#8A6A8A"
+            },
+            "Scale Average Exaggerate 200% (Extreme Overshoot)": {
+                "icon": "scale",
+                "color": "#7A6A9A"
+            },
+            "Scale Average Exaggerate 25%": {
+                "icon": "scale",
+                "color": "#9A5A8A"
+            },
+            "Scale Average Exaggerate 50%": {
+                "icon": "scale",
+                "color": "#5A8A9A"
+            },
+            "Scale Average Exaggerate 75%": {
+                "icon": "scale",
+                "color": "#6A8A8A"
+            },
+            "Scale Average Exaggerate 90%": {
+                "icon": "scale",
+                "color": "#7A7A9A"
+            },
+            "Scale Average Reduce 10%": {
+                "icon": "scale",
+                "color": "#6A9A7A"
+            },
+            "Scale Average Reduce 100% (Full)": {
+                "icon": "scale",
+                "color": "#7A8A7A"
+            },
+            "Scale Average Reduce 150% (Overshoot)": {
+                "icon": "scale",
+                "color": "#8A7A7A"
+            },
+            "Scale Average Reduce 200% (Extreme Overshoot)": {
+                "icon": "scale",
+                "color": "#9A6A6A"
+            },
+            "Scale Average Reduce 25%": {
+                "icon": "scale",
+                "color": "#7A8A8A"
+            },
+            "Scale Average Reduce 50%": {
+                "icon": "scale",
+                "color": "#9A7A5A"
+            },
+            "Scale Average Reduce 75%": {
+                "icon": "scale",
+                "color": "#8A8A6A"
+            },
+            "Scale Average Reduce 90%": {
+                "icon": "scale",
+                "color": "#5A9A5A"
+            }
+        },
+        "Scale from Default": {
+            "Scale Down 10%": {
+                "icon": "scale",
+                "color": "#5A9A5A"
+            },
+            "Scale Down 100% (Full)": {
+                "icon": "scale",
+                "color": "#5A9A7A"
+            },
+            "Scale Down 150% (Overshoot)": {
+                "icon": "scale",
+                "color": "#8A6A8A"
+            },
+            "Scale Down 200% (Extreme Overshoot)": {
+                "icon": "scale",
+                "color": "#7A6A9A"
+            },
+            "Scale Down 25%": {
+                "icon": "scale",
+                "color": "#9A5A8A"
+            },
+            "Scale Down 50%": {
+                "icon": "scale",
+                "color": "#5A8A9A"
+            },
+            "Scale Down 75%": {
+                "icon": "scale",
+                "color": "#6A8A8A"
+            },
+            "Scale Down 90%": {
+                "icon": "scale",
+                "color": "#7A7A9A"
+            },
+            "Scale Up 10%": {
+                "icon": "scale",
+                "color": "#6A9A7A"
+            },
+            "Scale Up 100% (Full)": {
+                "icon": "scale",
+                "color": "#7A8A7A"
+            },
+            "Scale Up 150% (Overshoot)": {
+                "icon": "scale",
+                "color": "#8A7A7A"
+            },
+            "Scale Up 200% (Extreme Overshoot)": {
+                "icon": "scale",
+                "color": "#9A6A6A"
+            },
+            "Scale Up 25%": {
+                "icon": "scale",
+                "color": "#7A8A8A"
+            },
+            "Scale Up 50%": {
+                "icon": "scale",
+                "color": "#9A7A5A"
+            },
+            "Scale Up 75%": {
+                "icon": "scale",
+                "color": "#8A8A6A"
+            },
+            "Scale Up 90%": {
+                "icon": "scale",
+                "color": "#5A9A5A"
+            }
+        },
+        "Scale from Left": {
+            "Scale Left Exaggerate 10%": {
+                "icon": "scale",
+                "color": "#5A9A5A"
+            },
+            "Scale Left Exaggerate 100% (Full)": {
+                "icon": "scale",
+                "color": "#5A9A7A"
+            },
+            "Scale Left Exaggerate 150% (Overshoot)": {
+                "icon": "scale",
+                "color": "#8A6A8A"
+            },
+            "Scale Left Exaggerate 200% (Extreme Overshoot)": {
+                "icon": "scale",
+                "color": "#7A6A9A"
+            },
+            "Scale Left Exaggerate 25%": {
+                "icon": "scale",
+                "color": "#9A5A8A"
+            },
+            "Scale Left Exaggerate 50%": {
+                "icon": "scale",
+                "color": "#5A8A9A"
+            },
+            "Scale Left Exaggerate 75%": {
+                "icon": "scale",
+                "color": "#6A8A8A"
+            },
+            "Scale Left Exaggerate 90%": {
+                "icon": "scale",
+                "color": "#7A7A9A"
+            },
+            "Scale Left Reduce 10%": {
+                "icon": "scale",
+                "color": "#6A9A7A"
+            },
+            "Scale Left Reduce 100% (Full)": {
+                "icon": "scale",
+                "color": "#7A8A7A"
+            },
+            "Scale Left Reduce 150% (Overshoot)": {
+                "icon": "scale",
+                "color": "#8A7A7A"
+            },
+            "Scale Left Reduce 200% (Extreme Overshoot)": {
+                "icon": "scale",
+                "color": "#9A6A6A"
+            },
+            "Scale Left Reduce 25%": {
+                "icon": "scale",
+                "color": "#7A8A8A"
+            },
+            "Scale Left Reduce 50%": {
+                "icon": "scale",
+                "color": "#9A7A5A"
+            },
+            "Scale Left Reduce 75%": {
+                "icon": "scale",
+                "color": "#8A8A6A"
+            },
+            "Scale Left Reduce 90%": {
+                "icon": "scale",
+                "color": "#5A9A5A"
+            }
+        },
+        "Scale from Right": {
+            "Scale Right Exaggerate 10%": {
+                "icon": "scale",
+                "color": "#5A9A5A"
+            },
+            "Scale Right Exaggerate 100% (Full)": {
+                "icon": "scale",
+                "color": "#5A9A7A"
+            },
+            "Scale Right Exaggerate 150% (Overshoot)": {
+                "icon": "scale",
+                "color": "#8A6A8A"
+            },
+            "Scale Right Exaggerate 200% (Extreme Overshoot)": {
+                "icon": "scale",
+                "color": "#7A6A9A"
+            },
+            "Scale Right Exaggerate 25%": {
+                "icon": "scale",
+                "color": "#9A5A8A"
+            },
+            "Scale Right Exaggerate 50%": {
+                "icon": "scale",
+                "color": "#5A8A9A"
+            },
+            "Scale Right Exaggerate 75%": {
+                "icon": "scale",
+                "color": "#6A8A8A"
+            },
+            "Scale Right Exaggerate 90%": {
+                "icon": "scale",
+                "color": "#7A7A9A"
+            },
+            "Scale Right Reduce 10%": {
+                "icon": "scale",
+                "color": "#6A9A7A"
+            },
+            "Scale Right Reduce 100% (Full)": {
+                "icon": "scale",
+                "color": "#7A8A7A"
+            },
+            "Scale Right Reduce 150% (Overshoot)": {
+                "icon": "scale",
+                "color": "#8A7A7A"
+            },
+            "Scale Right Reduce 200% (Extreme Overshoot)": {
+                "icon": "scale",
+                "color": "#9A6A6A"
+            },
+            "Scale Right Reduce 25%": {
+                "icon": "scale",
+                "color": "#7A8A8A"
+            },
+            "Scale Right Reduce 50%": {
+                "icon": "scale",
+                "color": "#9A7A5A"
+            },
+            "Scale Right Reduce 75%": {
+                "icon": "scale",
+                "color": "#8A8A6A"
+            },
+            "Scale Right Reduce 90%": {
+                "icon": "scale",
+                "color": "#5A9A5A"
+            }
+        },
+        "Simplify - Bake": {
+            "Bake 10%": {
+                "icon": "record",
+                "color": "#5A9A5A"
+            },
+            "Bake 100% (Full)": {
+                "icon": "record",
+                "color": "#5A9A7A"
+            },
+            "Bake 25%": {
+                "icon": "record",
+                "color": "#8A6A8A"
+            },
+            "Bake 50%": {
+                "icon": "record",
+                "color": "#7A6A9A"
+            },
+            "Bake 75%": {
+                "icon": "record",
+                "color": "#9A5A8A"
+            },
+            "Bake 90%": {
+                "icon": "record",
+                "color": "#5A8A9A"
+            },
+            "Simplify 10%": {
+                "icon": "star",
+                "color": "#6A8A8A"
+            },
+            "Simplify 100% (Full)": {
+                "icon": "magic_wand",
+                "color": "#7A7A9A"
+            },
+            "Simplify 25%": {
+                "icon": "dial",
+                "color": "#6A9A7A"
+            },
+            "Simplify 50%": {
+                "icon": "magic_wand",
+                "color": "#7A8A7A"
+            },
+            "Simplify 75%": {
+                "icon": "flag",
+                "color": "#8A7A7A"
+            },
+            "Simplify 90%": {
+                "icon": "curve",
+                "color": "#9A6A6A"
+            }
+        },
+        "Smooth - Harsh": {
+            "Harsh 10%": {
+                "icon": "controller",
+                "color": "#5A9A5A"
+            },
+            "Harsh 100% (Full)": {
+                "icon": "flag",
+                "color": "#5A9A7A"
+            },
+            "Harsh 25%": {
+                "icon": "sparkle",
+                "color": "#8A6A8A"
+            },
+            "Harsh 50%": {
+                "icon": "flag",
+                "color": "#7A6A9A"
+            },
+            "Harsh 75%": {
+                "icon": "curve",
+                "color": "#9A5A8A"
+            },
+            "Harsh 90%": {
+                "icon": "bookmark",
+                "color": "#5A8A9A"
+            },
+            "Smooth 10%": {
+                "icon": "wrench",
+                "color": "#6A8A8A"
+            },
+            "Smooth 100% (Full)": {
+                "icon": "sparkle",
+                "color": "#7A7A9A"
+            },
+            "Smooth 25%": {
+                "icon": "bookmark",
+                "color": "#6A9A7A"
+            },
+            "Smooth 50%": {
+                "icon": "sparkle",
+                "color": "#7A8A7A"
+            },
+            "Smooth 75%": {
+                "icon": "star",
+                "color": "#8A7A7A"
+            },
+            "Smooth 90%": {
+                "icon": "controller",
+                "color": "#9A6A6A"
+            }
+        }
+    }
+}

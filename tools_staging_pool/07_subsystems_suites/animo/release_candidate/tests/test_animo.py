@@ -45,6 +45,13 @@ class FakeMaya:
 
 
 class CatalogTests(unittest.TestCase):
+    def test_preflight_does_not_claim_maya_acceptance(self):
+        result = TOOL.run(dry_run=True, action='inspect')
+        self.assertTrue(result.success)
+        self.assertFalse(result.data['maya_verified'])
+        self.assertFalse(result.data['formal_registration'])
+        self.assertEqual(result.data['state'], 'prepared_unverified')
+
     def test_complete_unique_catalog(self):
         rows = SESSION.operations()
         self.assertEqual(len(rows), 553)
@@ -150,6 +157,16 @@ class RuntimeBoundaryTests(unittest.TestCase):
         self.assertEqual(before, self.snapshot())
         self.assertEqual(paths, sys.path)
         self.assertFalse(any(name.startswith('Animo_') for name in set(sys.modules) - modules))
+
+    def test_invoke_preflight_does_not_auto_install_missing_runtime(self):
+        before = self.snapshot()
+        with patch.object(SESSION, 'install_runtime') as install:
+            result = TOOL.run(dry_run=True, action='invoke', operation_id='test.entry')
+        self.assertFalse(result.success)
+        self.assertIn('RUNTIME_MISSING', result.message)
+        install.assert_not_called()
+        self.assertEqual(before, self.snapshot())
+        self.assertFalse(self.destination.exists())
 
     def test_new_install_copies_resources_and_marker_without_running(self):
         data = SESSION.install_runtime(self.destination)

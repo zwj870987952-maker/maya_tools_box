@@ -44,7 +44,7 @@ print(tool.run(dry_run=True, action="invoke", operation_id="suite.tweenify").to_
 
 ## 文件与可复现流程
 
-`maya_toolkit/tools/animo/` 是候选适配器；`native/Animo_Data/` 保留全套本机资源。上游 `../upstream/` 不改动，候选只调整启动配置自动调用与窗口清理范围，不重写算法。
+`maya_toolkit/tools/animo/` 是候选适配器；`native/Animo_Data/` 保留全套资源。上游 `../upstream/` 的算法与素材保留原样，其根目录中的历史许可 PDF 已由用户删除；完整原始 ZIP 保留。候选只调整启动配置自动调用与窗口清理范围，不重写算法。
 
 在项目根目录，用 Python 3.12 运行：
 
@@ -54,4 +54,4 @@ python scripts/verify_animo_staging.py
 python scripts/sync_obsidian_knowledge.py
 ```
 
-构建器拒绝覆盖已有不同内容的候选源码。验证器不覆盖已有人工验收记录。上游包、原始/候选供应方源码及素材通过项目 `.gitignore` 保留在本机；适配器、入口索引、Schema 和说明可随项目管理。源码可读但许可受限，不计入原有开源工具数量；本次没有上传、分发或提交供应方文件。
+构建器拒绝覆盖已有不同内容的候选源码；验证器不覆盖已有人工验收记录。用户已确认取得原作者授权，本次同步原包、供应方源码和素材，见 [授权确认记录](../AUTHOR_PERMISSION.md)。本项目没有自行生成新的开源许可，缓存和机器运行状态继续排除。

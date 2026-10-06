@@ -8,7 +8,7 @@
 
 用于动画滑块、关键帧/切线/时间操作、镜像、临时空间/轴心、烘焙、姿态与动画传递、轨迹/路径、选择集和预览输出。支持范围按上游标注限定 Maya 2022–2026 GUI，PySide2/PySide6；当前已验证版本列表为空。调用业务入口需要先安装本候选运行副本和配置合适的 Maya 选择/选帧/时间区间，原生 UI 决定剩余选项。
 
-候选复用项目 `UndoChunkContext`、Maya 主窗口与深色主题；原算法/资源在本机保留，不将受限源码移入 `core`。静态比较与重点算法见 [代码审查](animo_code_review.md)。
+候选复用项目 `UndoChunkContext`、Maya 主窗口与深色主题；原算法/资源随仓库同步，供应方算法仍保留原有结构，未迁移到 `core`。本次发布依据见 [作者授权确认](../../tools_staging_pool/07_subsystems_suites/animo/AUTHOR_PERMISSION.md)。静态比较与重点算法见 [代码审查](animo_code_review.md)。
 
 ## 启动与统一 API
 
@@ -65,10 +65,12 @@ print(result.to_dict())
 
 ## 检验与关联工具
 
-[离线证据](../../tools_staging_pool/07_subsystems_suites/animo/release_candidate/verification.json) 记录源码 AST、完整资源哈希、两处差异、索引/Schema 及 18 项适配器边界测试。**尚未运行真实 Maya、供应方算法或 Qt 界面，未测量性能。** 按 [人工验收](../../tools_staging_pool/07_subsystems_suites/animo/release_candidate/acceptance.md) 检查 UI、按钮/滑块、选择/操作、Undo 和 Script Editor。
+[离线证据](../../tools_staging_pool/07_subsystems_suites/animo/release_candidate/verification.json) 记录源码 AST、完整资源哈希、两处差异、索引/Schema 及 20 项适配器边界测试。**尚未运行真实 Maya、供应方算法或 Qt 界面，未测量性能。** 按 [人工验收](../../tools_staging_pool/07_subsystems_suites/animo/release_candidate/acceptance.md) 检查 UI、按钮/滑块、选择/操作、Undo 和 Script Editor。
 
 功能与 `animbot_copy`、`the_key_machine`、`fd_multi_space`、`brs_loc_transfer`、`copy_animation` 有概念重叠；正式 `euler_winding` 可用于旋转曲线问题的独立处理。上述关联均未做实际组合检验，不构成已验证流程。后续应从已通过的入口记录中提炼组合的输入、输出、层/约束和单位条件。
 
 ## 来源与演进记录
 
 2026-10-05：从用户指定官方包整理 V10.6.0；原始 ZIP 与解压目录完整保留；创建自有候选适配器、55 类索引、Schema 和检验清单，仅调整两处本机启动管理行为。包内许可限制修改/分发，供应方内容通过 `.gitignore` 排除、仅存本机，未发布或迁移为项目自有算法。
+
+2026-10-06：用户明确确认已取得原作者授权、允许全套公开上传；收录授权确认记录，同步原始 ZIP、源码、资源与候选副本。原始 ZIP 字节不变，解压目录旧许可 PDF 已由用户删除。修正预检自动安装与未验证成功标记，继续保持待人工检验、显式会话注册和新目录安装保护；新增两项回归测试。通过 `.gitattributes` 保持供应方文件字节，避免换行转换破坏运行哈希。

@@ -1,8 +1,8 @@
 # Animo V10.6.0 静态代码初审
 
-审查日期：2026-10-05。来源：[Ehsan Bayat 官方 Gumroad 页面](https://ehsanbayat.gumroad.com/l/Animo)。
+初审日期：2026-10-05；发布与协议复核：2026-10-06。来源：[Ehsan Bayat 官方 Gumroad 页面](https://ehsanbayat.gumroad.com/l/Animo)。
 
-已从官方免费领取并下载原包，保留完整素材和配置，在本机待整理库解压。已完成静态检查、重点模块阅读及项目候选适配；候选包含 55 类、553 个固定入口，18 项离线边界测试通过。未安装到 Maya、导入或执行供应方代码，未进行 Maya 直验，不代表生产可用或全面安全审计通过。统一说明与检验入口见 [animo.md](animo.md)。
+已从官方免费领取并下载原包，保留完整素材和配置，在待整理库解压。已完成静态检查、重点模块阅读及项目候选适配；候选包含 55 类、553 个固定入口，20 项离线边界测试通过。用户已确认取得作者授权并要求上传全套。未安装到 Maya、导入或执行供应方代码，未进行 Maya 直验，不代表生产可用或全面安全审计通过。统一说明与检验入口见 [animo.md](animo.md)。
 
 ## 下载位置与检查范围
 
@@ -19,11 +19,11 @@
 
 ## 许可与项目存放方式
 
-包内 [Animo License & Usage.pdf](<../../tools_staging_pool/07_subsystems_suites/animo/upstream/Animo_v10.6.0/Animo License & Usage.pdf>) 与官网说明一致：允许个人、专业、商业项目使用，对修改、再分发、转售、再许可和公开发布原工具/源码作出限制，原作者保留权利。
+初审时原包 `Animo License & Usage.pdf` 允许个人、专业、商业项目使用，限制修改、再分发、转售、再许可及公开发布原工具/源码。2026-10-06 复核确认：解压目录中的许可 PDF 已由用户删除，而未改动的 [原始 ZIP](../../tools_staging_pool/07_subsystems_suites/animo/archives/Animo_v10.6.0.zip) 内仍保留这份历史许可。
 
-源码可读不等于具有开源许可。当前标记为**许可受限、源码可读的第三方套件**，不并入项目开源工具计数。原始 `upstream/` 保留原样，算法没有迁移到 `maya_toolkit.core`；候选运行副本只做两处本机启动管理调整，不表示取得了修改/分发授权。本次没有对外上传或分发供应方内容。
+用户在本次对话明确确认“已有作者授权，按新许可上传全套”，这是此次公开同步的依据，见 [授权确认记录](../../tools_staging_pool/07_subsystems_suites/animo/AUTHOR_PERMISSION.md)。完整作者授权文本尚未入库，不自行生成新的开源许可，也不将删除旧许可文本作为授权依据。仍不并入原有开源工具计数。供应方算法和素材没有迁移到 `maya_toolkit.core`；候选运行副本只做两处本机启动管理调整。
 
-项目 `.gitignore` 精确排除原包、原始/候选供应方代码和素材，以及下载截图、完整供应方源码库存；自有适配器、入口清单、Schema、分析和检验说明可随项目管理。此前本机 `.git/info/exclude` 的全目录排除已收窄为上述项目规则。换电脑需重新获取原包并运行构建脚本。知识库生成项只描述静态扫描信息，不能表示 Maya 已验证或已获修改/分发授权。
+此前供应方文件通过 `.gitignore` 保留本机；本次按用户确认的授权移除 Animo 专项排除，完整源码、素材、原包和静态库存随仓库同步。`.gitattributes` 禁用供应方文件换行转换以保留哈希，Python 缓存和本机运行状态继续排除。知识库生成项仍仅描述静态扫描，不表示 Maya 已验证。
 
 ## 主要结构
 
@@ -88,10 +88,10 @@
 
 ## 候选适配与当前检验状态
 
-Animo 是源码可读但许可受限的动画套件；大量入口脚本、固定预设与 UI 逻辑使文件数高于独立算法数。本次按待整理规范创建 `release_candidate/`，保留上游原包与解压副本；没有安装到 Maya、转正或持久挂载正式面板。
+Animo 是源码可读、此次由用户确认取得作者发布授权的第三方动画套件；大量入口脚本、固定预设与 UI 逻辑使文件数高于独立算法数。按待整理规范创建 `release_candidate/`，保留原包、算法与素材；没有安装到 Maya、转正或持久挂载正式面板。
 
 候选 `AnimoTool` 继承项目基类，提供只读预检、固定白名单调用、统一 `ToolResult`、OpenAI/MCP Schema、查询和人工检验面板。安装动作仅新建目录并逐文件校验，不调用原覆盖安装器；短模块冲突会拒绝执行，不卸载其他工具。
 
 候选运行副本两处调整：主启动器移除导入时启用启动脚本和首次写 `userSetup.py` 的顶层调用；窗口清理条件增加 Animo 前缀。原显式配置函数保留，逐文件 SHA 与 [差异记录](../../tools_staging_pool/07_subsystems_suites/animo/release_candidate/patches.json) 可追溯。
 
-18 项离线测试覆盖索引/Schema、参数与节点检查、只读预检、新目录复制、已有目录保护、代码/资源完整性和 `SystemExit` 处理。[验证记录](../../tools_staging_pool/07_subsystems_suites/animo/release_candidate/verification.json) 不包含供应方算法执行证据。按 [人工验收](../../tools_staging_pool/07_subsystems_suites/animo/release_candidate/acceptance.md) 在真实 Maya 中检查 UI、按钮/滑块、选择与场景修改、Undo 和 Script Editor；未运行项目保持 `not_run`。
+20 项离线测试覆盖索引/Schema、参数与节点检查、只读预检、新目录复制、已有目录保护、代码/资源完整性和 `SystemExit` 处理。此次新增缺少运行副本时不自动写入、预检不冒充 Maya 实测两项回归，并修复对应改动。[验证记录](../../tools_staging_pool/07_subsystems_suites/animo/release_candidate/verification.json) 不包含供应方算法执行证据。按 [人工验收](../../tools_staging_pool/07_subsystems_suites/animo/release_candidate/acceptance.md) 在真实 Maya 中检查 UI、按钮/滑块、选择与场景修改、Undo 和 Script Editor；未运行项目保持 `not_run`。

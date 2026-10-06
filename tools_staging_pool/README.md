@@ -138,10 +138,10 @@
 | 108 | 系统辅助与环境管理 | **Maya 视口智能文件拖拽重载扩展** | [perform_file_drop_action](08_utilities_system/perform_file_drop_action/performFileDropAction.mel) | 重载 performFileDropAction.mel，支持拖拽自动识别格式与智能弹窗处理 |
 | 109 | 系统辅助与环境管理 | **Maya 跨版本工具架管理器 (2018-2026)** | [shelf_manager](08_utilities_system/shelf_manager/shelf_manager.py) | 集中管理 Maya 2018~2026 各版本的 Shelf 工具架配置，区分中英文路径，支持跨版本复制、同步与备份。 |
 
-## 本机许可受限的源码可读工具
+## 经作者授权发布的第三方源码套件
 
-以下工具不计入上方 109 项开源清单。保留原作者包，仅供本机查看与后续直验；原包和供应方源码/素材目录通过项目 `.gitignore` 排除提交，自有适配器、索引和说明可随项目同步，换电脑需重新获取原包。源码可读不代表拥有修改或分发许可。
+以下工具不计入上方 109 项开源清单。保留原作者归属和原始包；本次按用户确认取得的作者授权同步完整源码、素材和候选运行副本。具体授权依据见对应记录，公开同步不代表 Maya 人工检验通过。
 
 | 序号 | 领域分类 | 工具名称 | 物理路径与入口 | 核心功能简介 |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | 大型专业独立子系统与完整套件 | **Animo V10.6.0（许可受限，本机候选）** | [animo](07_subsystems_suites/animo/release_candidate/launch_candidate.py) | 55 类、553 个固定入口；统一 API、Schema、候选检验面板与代码索引已整理，18 项离线测试通过，Maya 人工检验待完成。供应方代码和素材仅存本机；说明见 docs/tools/animo.md。 |
+| 1 | 大型专业独立子系统与完整套件 | **Animo V10.6.0（作者授权发布候选）** | [animo](07_subsystems_suites/animo/release_candidate/launch_candidate.py) | 55 类、553 个固定入口；统一 API、Schema、候选检验面板与代码索引已整理，20 项离线测试通过，Maya 人工检验待完成。原包、供应方代码和素材随仓库同步；授权记录见 animo/AUTHOR_PERMISSION.md，说明见 docs/tools/animo.md。 |

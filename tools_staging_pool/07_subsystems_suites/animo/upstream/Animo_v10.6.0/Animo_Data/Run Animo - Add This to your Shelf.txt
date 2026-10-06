@@ -1,0 +1,14 @@
+import os
+import maya.cmds as cmds
+import maya.mel as mel
+import runpy
+
+cmds.optionVar(intValue=("SafeModeExecUserSetupScript", 1))
+
+version_script_dir = cmds.internalVar(userScriptDir=True)
+script_dir = os.path.normpath(os.path.join(version_script_dir, "..", "..", "scripts"))
+animo_data = os.path.join(script_dir, "Animo_Data")
+
+toggle_py = os.path.join(animo_data, "Animo_Launcher", "toggle.py")
+if os.path.exists(toggle_py):
+    runpy.run_path(toggle_py, run_name="__main__")

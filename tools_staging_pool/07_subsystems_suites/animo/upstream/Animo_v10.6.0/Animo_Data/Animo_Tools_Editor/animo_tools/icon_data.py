@@ -1,0 +1,52 @@
+from __future__ import absolute_import, division, print_function, unicode_literals
+
+AVAILABLE_ICONS = [
+    'play', 'pause', 'stop', 'record', 'keyframe', 'timeline',
+    'forward', 'backward', 'skip_forward', 'skip_backward',
+    'move', 'rotate', 'scale', 'transform', 'position',
+    'arrow_up', 'arrow_down', 'arrow_left', 'arrow_right',
+    'arrows_expand', 'arrows_compress', 'flip_horizontal', 'flip_vertical', 'orbit',
+    'cursor', 'hand', 'select', 'select_multiple', 'lasso',
+    'magic_wand', 'eyedropper', 'brush', 'eraser', 'pen',
+    'cube', 'sphere', 'cylinder', 'pyramid', 'torus',
+    'camera', 'light', 'bone', 'mesh', 'curve',
+    'lightning', 'star', 'sparkle', 'fire', 'wave',
+    'gradient', 'opacity', 'blend', 'filter',
+    'folder', 'layers', 'group', 'link', 'unlink',
+    'gear', 'wrench', 'slider', 'dial', 'graph',
+    'eye', 'eye_closed', 'lock', 'unlock', 'pin',
+    'heart', 'flag', 'bookmark', 'target', 'crosshair',
+    'joint', 'ik_handle', 'fk_chain', 'spline_ik', 'pole_vector',
+    'constraint', 'parent_constraint', 'point_constraint', 'orient_constraint', 'aim_constraint',
+    'controller', 'circle_control', 'square_control', 'diamond_control', 'sphere_control',
+    'bind_skin', 'paint_weights', 'mirror_weights', 'copy_weights', 'smooth_weights',
+    'skeleton', 'spine', 'arm', 'leg', 'hand_rig', 'foot_rig',
+    'facial_rig', 'eye_rig', 'jaw', 'neck', 'tail',
+    'stretchy_ik', 'ribbon_spine', 'twist_joint', 'bendy_limb',
+    'blend_shape', 'corrective_shape', 'target_shape', 'morph_target',
+    'lattice', 'cluster', 'soft_mod', 'sculpt', 'wire_deformer',
+    'wrap_deformer', 'shrink_wrap', 'tension', 'jiggle', 'muscle',
+    'curve_warp', 'path_animation', 'motion_path', 'flow_path'
+]
+
+AVAILABLE_COLORS = [
+    ('#5A9A5A', 'Green'),
+    ('#5A9A7A', 'Teal'),
+    ('#8A6A8A', 'Purple'),
+    ('#7A6A9A', 'Violet'),
+    ('#9A5A8A', 'Magenta'),
+    ('#5A8A9A', 'Cyan'),
+    ('#6A8A8A', 'Steel'),
+    ('#7A7A9A', 'Blue'),
+    ('#6A9A7A', 'Mint'),
+    ('#7A8A7A', 'Sage'),
+    ('#8A7A7A', 'Mauve'),
+    ('#9A6A6A', 'Rose'),
+    ('#7A8A8A', 'Slate'),
+    ('#9A7A5A', 'Brown'),
+    ('#8A8A6A', 'Olive'),
+    ('#7A8A9A', 'Sky'),
+    ('#9A9A9A', 'Grey'),
+    ('#4A4A4A', 'Dark Grey'),
+    ('#1A1A1A', 'Black')
+]

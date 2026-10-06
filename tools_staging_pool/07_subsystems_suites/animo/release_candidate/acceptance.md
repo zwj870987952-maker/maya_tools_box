@@ -30,4 +30,4 @@
 
 在 [acceptance.json](acceptance.json) 中填写版本、场景、时间和测试者。每项 `status` 用 `passed` / `failed` / `not_run`，补充预期、观察、Undo、Script Editor 错误和证据。未运行项继续保留 `not_run`；更改算法或入口后应重验受影响项。
 
-正式迁移前须确认人工检验范围及问题修复结果，保留原始来源和调整记录，再单独处理正式注册、面板接入和回归。当前不修改 `maya_toolkit/tools/`、`ALL_TOOL_CLASSES` 或正式工具目录；许可受限的供应方内容继续保留在本机，不随开源项目分发。
+正式迁移前须确认人工检验范围及问题修复结果，保留原始来源和调整记录，再单独处理正式注册、面板接入和回归。用户确认取得的发布授权见 [记录](../AUTHOR_PERMISSION.md)，它不改变尚未进行 Maya 实测的状态。
