@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/06_diagnostics_security|06_diagnostics_security]]
 - 源目录：06_diagnostics_security/clean_junk_nodes
-- 代码文件：1 个，约 1.6 KiB
+- 代码文件：7 个，约 19.3 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/06_diagnostics_security/clean_junk_nodes/HM_%E6%B8%85%E7%90%86%E5%9E%83%E5%9C%BE%E8%8A%82%E7%82%B9.py)
 

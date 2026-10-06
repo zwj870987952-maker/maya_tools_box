@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/01_animation|01_animation]]
 - 源目录：01_animation/animation_retarget
-- 代码文件：1 个，约 38.1 KiB
+- 代码文件：10 个，约 137.3 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/01_animation/animation_retarget/%E5%8A%A8%E7%94%BB%E9%87%8D%E5%AE%9A%E5%90%91.py)
 

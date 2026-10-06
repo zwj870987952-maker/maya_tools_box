@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/01_animation|01_animation]]
 - 源目录：01_animation/anim_layer_v4_0
-- 代码文件：3 个，约 294.0 KiB
+- 代码文件：14 个，约 618.2 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/01_animation/anim_layer_v4_0/anim_layer_v4_0/layerEditor.mel)
 

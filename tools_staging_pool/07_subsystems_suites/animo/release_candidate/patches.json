@@ -1,0 +1,10 @@
+[
+  {
+    "path": "Animo_Data/Animo_Launcher/Animo_Launcher.py",
+    "change": "移除导入时启用启动脚本及首次运行写 userSetup 的两个顶层调用；保留显式 UI 配置函数。"
+  },
+  {
+    "path": "Animo_Data/Animo_Launcher/toggle.py",
+    "change": "窗口清理只匹配 Animo 前缀，避免误关其他 UI。"
+  }
+]

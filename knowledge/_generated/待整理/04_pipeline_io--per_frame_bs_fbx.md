@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/04_pipeline_io|04_pipeline_io]]
 - 源目录：04_pipeline_io/per_frame_bs_fbx
-- 代码文件：1 个，约 2.2 KiB
+- 代码文件：8 个，约 28.1 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/04_pipeline_io/per_frame_bs_fbx/%E6%A8%A1%E5%9E%8B%E9%80%90%E5%B8%A7%E8%BD%ACbs%E5%AF%BC%E5%87%BAfbx_v1.1.py)
 

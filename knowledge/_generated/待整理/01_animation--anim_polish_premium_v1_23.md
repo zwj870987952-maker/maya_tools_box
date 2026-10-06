@@ -13,8 +13,8 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/01_animation|01_animation]]
 - 源目录：01_animation/anim_polish_premium_v1_23
-- 代码文件：17 个，约 188.5 KiB
+- 代码文件：62 个，约 617.4 KiB
 - 原清单登记：是
-- 主入口：[查看源码](../../../tools_staging_pool/01_animation/anim_polish_premium_v1_23/animPolish/__init__.py)
+- 主入口：[查看源码](../../../tools_staging_pool/01_animation/anim_polish_premium_v1_23/animPolish/ui.py)
 
 > 待整理状态不代表已通过 Maya 直验，也不代表具备统一 API。转正须遵循 [[DEVELOPMENT_SPEC|开发规范]]。

@@ -13,8 +13,8 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/03_transforms_modeling|03_transforms_modeling]]
 - 源目录：03_transforms_modeling/eblabs_world_space_tools
-- 代码文件：114 个，约 330.2 KiB
+- 代码文件：237 个，约 842.5 KiB
 - 原清单登记：是
-- 主入口：[查看源码](../../../tools_staging_pool/03_transforms_modeling/eblabs_world_space_tools/WorldSpaceTools/eblabs_hub/__init__.py)
+- 主入口：[查看源码](../../../tools_staging_pool/03_transforms_modeling/eblabs_world_space_tools/WorldSpaceTools/WorldSpaceTools.py)
 
 > 待整理状态不代表已通过 Maya 直验，也不代表具备统一 API。转正须遵循 [[DEVELOPMENT_SPEC|开发规范]]。

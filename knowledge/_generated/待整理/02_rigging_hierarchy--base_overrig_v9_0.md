@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/02_rigging_hierarchy|02_rigging_hierarchy]]
 - 源目录：02_rigging_hierarchy/base_overrig_v9_0
-- 代码文件：2 个，约 361.0 KiB
+- 代码文件：10 个，约 750.1 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/02_rigging_hierarchy/base_overrig_v9_0/base_OverRig_scripts_V9_0/base_OverRig_scripts.mel)
 

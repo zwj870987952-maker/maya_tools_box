@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/02_rigging_hierarchy|02_rigging_hierarchy]]
 - 源目录：02_rigging_hierarchy/batch_skin_bind
-- 代码文件：2 个，约 6.2 KiB
+- 代码文件：11 个，约 41.5 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/02_rigging_hierarchy/batch_skin_bind/%E6%89%B9%E9%87%8F%E7%BB%91%E9%AA%A8%E5%A4%B4.py)
 

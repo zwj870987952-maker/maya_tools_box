@@ -13,8 +13,8 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/01_animation|01_animation]]
 - 源目录：01_animation/shape_animation_tool
-- 代码文件：36 个，约 401.9 KiB
+- 代码文件：49 个，约 520.3 KiB
 - 原清单登记：是
-- 主入口：[查看源码](../../../tools_staging_pool/01_animation/shape_animation_tool/sat%E3%80%90%E4%BF%AE%E5%9E%8B%E6%8F%92%E4%BB%B6%E3%80%91/sat_2018_py2/__init__.py)
+- 主入口：[查看源码](../../../tools_staging_pool/01_animation/shape_animation_tool/sat%E3%80%90%E4%BF%AE%E5%9E%8B%E6%8F%92%E4%BB%B6%E3%80%91/sat_2022_py3%E3%80%90%E6%B1%89%E5%8C%96%E7%89%88%E3%80%91/__init__.py)
 
 > 待整理状态不代表已通过 Maya 直验，也不代表具备统一 API。转正须遵循 [[DEVELOPMENT_SPEC|开发规范]]。

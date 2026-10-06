@@ -137,3 +137,11 @@
 | 107 | 系统辅助与环境管理 | **Maya-Tabs 视口多工程标签页切换扩展 v1.3a** | [maya_tabs_v1_3a](08_utilities_system/maya_tabs_v1_3a/plug-ins/Maya-Tabs.py) | 解压 Maya-Tabs_v1.3a.zip，在视口顶部呈现类似浏览器标签的多场景快速切换条 |
 | 108 | 系统辅助与环境管理 | **Maya 视口智能文件拖拽重载扩展** | [perform_file_drop_action](08_utilities_system/perform_file_drop_action/performFileDropAction.mel) | 重载 performFileDropAction.mel，支持拖拽自动识别格式与智能弹窗处理 |
 | 109 | 系统辅助与环境管理 | **Maya 跨版本工具架管理器 (2018-2026)** | [shelf_manager](08_utilities_system/shelf_manager/shelf_manager.py) | 集中管理 Maya 2018~2026 各版本的 Shelf 工具架配置，区分中英文路径，支持跨版本复制、同步与备份。 |
+
+## 本机许可受限的源码可读工具
+
+以下工具不计入上方 109 项开源清单。保留原作者包，仅供本机查看与后续直验；原包和供应方源码/素材目录通过项目 `.gitignore` 排除提交，自有适配器、索引和说明可随项目同步，换电脑需重新获取原包。源码可读不代表拥有修改或分发许可。
+
+| 序号 | 领域分类 | 工具名称 | 物理路径与入口 | 核心功能简介 |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | 大型专业独立子系统与完整套件 | **Animo V10.6.0（许可受限，本机候选）** | [animo](07_subsystems_suites/animo/release_candidate/launch_candidate.py) | 55 类、553 个固定入口；统一 API、Schema、候选检验面板与代码索引已整理，18 项离线测试通过，Maya 人工检验待完成。供应方代码和素材仅存本机；说明见 docs/tools/animo.md。 |

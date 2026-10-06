@@ -13,8 +13,8 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/01_animation|01_animation]]
 - 源目录：01_animation/sword_anim_polishing_tool_v4
-- 代码文件：6 个，约 73.1 KiB
+- 代码文件：20 个，约 194.1 KiB
 - 原清单登记：是
-- 主入口：[查看源码](../../../tools_staging_pool/01_animation/sword_anim_polishing_tool_v4/Drag_and_Drop_to_install.mel)
+- 主入口：[查看源码](../../../tools_staging_pool/01_animation/sword_anim_polishing_tool_v4/sword_anim_polish_tool.mel)
 
 > 待整理状态不代表已通过 Maya 直验，也不代表具备统一 API。转正须遵循 [[DEVELOPMENT_SPEC|开发规范]]。

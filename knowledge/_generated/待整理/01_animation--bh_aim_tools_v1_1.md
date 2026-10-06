@@ -13,7 +13,7 @@ Brian Horgan 开发的眼部注视与空间朝向辅助工具
 
 - 分类：[[knowledge/_generated/待整理分类/01_animation|01_animation]]
 - 源目录：01_animation/bh_aim_tools_v1_1
-- 代码文件：2 个，约 30.3 KiB
+- 代码文件：14 个，约 108.5 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/01_animation/bh_aim_tools_v1_1/bh_aimTools_v1.1/bh_aimTools.mel)
 

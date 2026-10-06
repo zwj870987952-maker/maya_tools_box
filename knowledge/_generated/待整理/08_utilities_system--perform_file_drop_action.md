@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/08_utilities_system|08_utilities_system]]
 - 源目录：08_utilities_system/perform_file_drop_action
-- 代码文件：1 个，约 1.3 KiB
+- 代码文件：9 个，约 15.9 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/08_utilities_system/perform_file_drop_action/performFileDropAction.mel)
 

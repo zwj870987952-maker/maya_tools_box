@@ -13,7 +13,7 @@ UE5 编辑器右键资产菜单扩展，点击即可在日志中输出源 DCC �
 
 - 分类：[[knowledge/_generated/待整理分类/05_ue_pipeline|05_ue_pipeline]]
 - 源目录：05_ue_pipeline/ue_context_menu
-- 代码文件：1 个，约 2.4 KiB
+- 代码文件：4 个，约 11.0 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/05_ue_pipeline/ue_context_menu/print_source_paths_menu.py)
 

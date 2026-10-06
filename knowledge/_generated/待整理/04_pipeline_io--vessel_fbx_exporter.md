@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/04_pipeline_io|04_pipeline_io]]
 - 源目录：04_pipeline_io/vessel_fbx_exporter
-- 代码文件：1 个，约 11.0 KiB
+- 代码文件：10 个，约 43.0 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/04_pipeline_io/vessel_fbx_exporter/fbx%E5%AF%BC%E5%87%BA%E5%B7%A5%E5%85%B7%E8%88%B0%E8%88%B9%E4%B8%93%E7%94%A8_%E8%87%AA%E5%8A%A8%E7%89%88.py)
 

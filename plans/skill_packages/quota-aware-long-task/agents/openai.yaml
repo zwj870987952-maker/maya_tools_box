@@ -1,0 +1,4 @@
+interface:
+  display_name: "额度感知长任务"
+  short_description: "先明确目标、停止条件和重置卡策略，再分轮执行、保存交接并等待额度续跑"
+  default_prompt: "使用 $quota-aware-long-task，先问清本次目标、停止条件、额度阈值和重置卡策略，再生成计划与可持续循环任务。"

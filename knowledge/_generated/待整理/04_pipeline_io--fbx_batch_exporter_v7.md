@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/04_pipeline_io|04_pipeline_io]]
 - 源目录：04_pipeline_io/fbx_batch_exporter_v7
-- 代码文件：2 个，约 25.6 KiB
+- 代码文件：8 个，约 62.0 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/04_pipeline_io/fbx_batch_exporter_v7/fbx_export_CHS_v7.py)
 

@@ -13,7 +13,7 @@ Maya 端配置好 FBX 导入参数后，直接跨进程触发 Unreal Engine 自�
 
 - 分类：[[knowledge/_generated/待整理分类/05_ue_pipeline|05_ue_pipeline]]
 - 源目录：05_ue_pipeline/ue_fbx_auto_import
-- 代码文件：2 个，约 12.5 KiB
+- 代码文件：9 个，约 40.1 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/05_ue_pipeline/ue_fbx_auto_import/ue%E5%AF%BC%E5%85%A5fbx%E9%85%8D%E7%BD%AE.py)
 

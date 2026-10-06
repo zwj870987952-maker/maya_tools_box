@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/02_rigging_hierarchy|02_rigging_hierarchy]]
 - 源目录：02_rigging_hierarchy/reparent_pro_v1_5_1
-- 代码文件：1 个，约 50.1 KiB
+- 代码文件：11 个，约 186.9 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/02_rigging_hierarchy/reparent_pro_v1_5_1/reParent_Pro_v1.5.1/reParentPro%20_v1.5.1.mel)
 

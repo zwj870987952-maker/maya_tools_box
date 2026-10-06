@@ -13,7 +13,7 @@ Windows 独立桌面 GUI。自动探测枚举本机所有运行中的 Maya 进�
 
 - 分类：[[knowledge/_generated/待整理分类/08_utilities_system|08_utilities_system]]
 - 源目录：08_utilities_system/maya_process_finder
-- 代码文件：2 个，约 16.8 KiB
+- 代码文件：6 个，约 30.5 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/08_utilities_system/maya_process_finder/maya_process_finder.py)
 

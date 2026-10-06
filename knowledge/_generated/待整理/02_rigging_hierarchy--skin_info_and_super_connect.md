@@ -13,8 +13,8 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/02_rigging_hierarchy|02_rigging_hierarchy]]
 - 源目录：02_rigging_hierarchy/skin_info_and_super_connect
-- 代码文件：4 个，约 59.4 KiB
+- 代码文件：22 个，约 229.7 KiB
 - 原清单登记：是
-- 主入口：[查看源码](../../../tools_staging_pool/02_rigging_hierarchy/skin_info_and_super_connect/Export%20-%20Import%20SkinCluster/skinInfo_V1.7.mel)
+- 主入口：[查看源码](../../../tools_staging_pool/02_rigging_hierarchy/skin_info_and_super_connect/Export%20-%20Import%20SkinCluster/skinInfo_V1.92.mel)
 
 > 待整理状态不代表已通过 Maya 直验，也不代表具备统一 API。转正须遵循 [[DEVELOPMENT_SPEC|开发规范]]。

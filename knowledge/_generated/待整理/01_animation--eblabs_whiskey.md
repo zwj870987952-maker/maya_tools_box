@@ -13,8 +13,8 @@ EB Labs 出品的高效姿态捕获与动画对比套件
 
 - 分类：[[knowledge/_generated/待整理分类/01_animation|01_animation]]
 - 源目录：01_animation/eblabs_whiskey
-- 代码文件：92 个，约 349.4 KiB
+- 代码文件：194 个，约 952.8 KiB
 - 原清单登记：是
-- 主入口：[查看源码](../../../tools_staging_pool/01_animation/eblabs_whiskey/Whiskey/eblabs_hub/__init__.py)
+- 主入口：[查看源码](../../../tools_staging_pool/01_animation/eblabs_whiskey/Whiskey/Whiskey.py)
 
 > 待整理状态不代表已通过 Maya 直验，也不代表具备统一 API。转正须遵循 [[DEVELOPMENT_SPEC|开发规范]]。

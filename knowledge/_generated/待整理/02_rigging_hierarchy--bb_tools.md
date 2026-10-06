@@ -13,8 +13,8 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/02_rigging_hierarchy|02_rigging_hierarchy]]
 - 源目录：02_rigging_hierarchy/bb_tools
-- 代码文件：49 个，约 722.3 KiB
+- 代码文件：137 个，约 2007.7 KiB
 - 原清单登记：是
-- 主入口：[查看源码](../../../tools_staging_pool/02_rigging_hierarchy/bb_tools/bb_Tools/bb_attributeTool.mel)
+- 主入口：[查看源码](../../../tools_staging_pool/02_rigging_hierarchy/bb_tools/bb_Tools/bb_Tools.mel)
 
 > 待整理状态不代表已通过 Maya 直验，也不代表具备统一 API。转正须遵循 [[DEVELOPMENT_SPEC|开发规范]]。

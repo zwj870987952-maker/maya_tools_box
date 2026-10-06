@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/01_animation|01_animation]]
 - 源目录：01_animation/root_motion_bake
-- 代码文件：1 个，约 21.3 KiB
+- 代码文件：9 个，约 66.0 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/01_animation/root_motion_bake/root%E5%8A%A8%E7%94%BB%E7%94%9F%E6%88%90.py)
 

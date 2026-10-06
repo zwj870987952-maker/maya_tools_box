@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/08_utilities_system|08_utilities_system]]
 - 源目录：08_utilities_system/shelf_manager
-- 代码文件：1 个，约 26.9 KiB
+- 代码文件：8 个，约 60.0 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/08_utilities_system/shelf_manager/shelf_manager.py)
 

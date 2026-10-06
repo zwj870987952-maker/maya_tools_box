@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/01_animation|01_animation]]
 - 源目录：01_animation/ik_fk_switch
-- 代码文件：2 个，约 113.1 KiB
+- 代码文件：12 个，约 324.6 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/01_animation/ik_fk_switch/mog_ikFkSwitchPro.py)
 

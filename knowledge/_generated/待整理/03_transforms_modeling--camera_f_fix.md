@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/03_transforms_modeling|03_transforms_modeling]]
 - 源目录：03_transforms_modeling/camera_f_fix
-- 代码文件：1 个，约 0.1 KiB
+- 代码文件：9 个，约 13.5 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/03_transforms_modeling/camera_f_fix/%E6%8C%89f%E7%9B%B8%E6%9C%BA%E5%87%BA%E9%94%99%E8%A7%A3%E5%86%B3.mel)
 

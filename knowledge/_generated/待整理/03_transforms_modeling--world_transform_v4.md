@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/03_transforms_modeling|03_transforms_modeling]]
 - 源目录：03_transforms_modeling/world_transform_v4
-- 代码文件：1 个，约 17.9 KiB
+- 代码文件：7 个，约 48.6 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/03_transforms_modeling/world_transform_v4/%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4%E4%B8%96%E7%95%8C%E5%9D%90%E6%A0%87v4.py)
 

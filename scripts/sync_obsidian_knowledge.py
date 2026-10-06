@@ -180,13 +180,13 @@ def staging_inventory():
         return items
     pattern = re.compile(
         r"^\|\s*(\d+)\s*\|\s*([^|]+)\|\s*\*\*(.*?)\*\*\s*\|"
-        r"\s*\[[^\]]+\]\(([^)]+)\)\s*\|\s*(.*?)\s*\|\s*$"
+        r"\s*\[[^\]]+\]\((<[^>]+>|[^)]+)\)\s*\|\s*(.*?)\s*\|\s*$"
     )
     for line in text_file(path).splitlines():
         match = pattern.match(line)
         if not match:
             continue
-        main_source = match.group(4).replace("\\", "/")
+        main_source = match.group(4).strip("<>").replace("\\", "/")
         parts = Path(main_source).parts
         if len(parts) < 2:
             continue

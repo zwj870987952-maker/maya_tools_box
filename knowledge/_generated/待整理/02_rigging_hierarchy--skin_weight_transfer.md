@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/02_rigging_hierarchy|02_rigging_hierarchy]]
 - 源目录：02_rigging_hierarchy/skin_weight_transfer
-- 代码文件：1 个，约 11.8 KiB
+- 代码文件：10 个，约 44.7 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/02_rigging_hierarchy/skin_weight_transfer/%E9%AA%A8%E9%AA%BC%E6%9D%83%E9%87%8D%E8%BD%AC%E7%A7%BB.py)
 

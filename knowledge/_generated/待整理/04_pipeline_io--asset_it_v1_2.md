@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/04_pipeline_io|04_pipeline_io]]
 - 源目录：04_pipeline_io/asset_it_v1_2
-- 代码文件：18 个，约 375.2 KiB
+- 代码文件：41 个，约 773.9 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/04_pipeline_io/asset_it_v1_2/AssetIt/AssetIt_Launcher.py)
 

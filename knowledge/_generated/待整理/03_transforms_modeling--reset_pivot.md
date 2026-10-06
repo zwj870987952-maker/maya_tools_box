@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/03_transforms_modeling|03_transforms_modeling]]
 - 源目录：03_transforms_modeling/reset_pivot
-- 代码文件：1 个，约 11.4 KiB
+- 代码文件：8 个，约 35.3 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/03_transforms_modeling/reset_pivot/maya_reset_pivot.py)
 

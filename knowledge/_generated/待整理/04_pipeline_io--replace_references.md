@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/04_pipeline_io|04_pipeline_io]]
 - 源目录：04_pipeline_io/replace_references
-- 代码文件：3 个，约 11.0 KiB
+- 代码文件：13 个，约 50.2 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/04_pipeline_io/replace_references/reference%E6%9B%BF%E6%8D%A2EN%E5%B0%81%E8%A3%85%E7%89%88.py)
 

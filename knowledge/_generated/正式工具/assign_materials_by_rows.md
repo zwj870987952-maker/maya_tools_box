@@ -15,7 +15,7 @@ registered: true
 - 领域：[[knowledge/_generated/领域/modeling_surfacing|模型与材质]]
 - 状态：已注册，可通过统一 API 调用
 - 主实现：[查看源码](../../../maya_toolkit/tools/material_transfer/tool.py)
-- 代码文件：2 个，约 5.3 KiB
+- 代码文件：2 个，约 5.4 KiB
 
 ## API 参数
 

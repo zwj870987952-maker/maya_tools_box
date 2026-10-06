@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/06_diagnostics_security|06_diagnostics_security]]
 - 源目录：06_diagnostics_security/scene_virus_cleaner
-- 代码文件：1 个，约 5.7 KiB
+- 代码文件：7 个，约 29.6 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/06_diagnostics_security/scene_virus_cleaner/%E6%96%87%E4%BB%B6%E7%97%85%E6%AF%92%E6%B8%85%E7%90%86%E9%AD%94%E6%94%B9%E7%89%88.py)
 

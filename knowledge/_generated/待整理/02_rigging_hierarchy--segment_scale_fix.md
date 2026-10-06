@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/02_rigging_hierarchy|02_rigging_hierarchy]]
 - 源目录：02_rigging_hierarchy/segment_scale_fix
-- 代码文件：2 个，约 1.1 KiB
+- 代码文件：9 个，约 12.3 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/02_rigging_hierarchy/segment_scale_fix/%E6%89%B9%E9%87%8F%E5%8F%96%E6%B6%88%E9%AA%A8%E9%AA%BC%E5%88%86%E6%AE%B5%E6%AF%94%E4%BE%8B%E8%A1%A5%E5%81%BF.py)
 

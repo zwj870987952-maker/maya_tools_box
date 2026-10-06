@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/03_transforms_modeling|03_transforms_modeling]]
 - 源目录：03_transforms_modeling/uv_set_renamer
-- 代码文件：1 个，约 2.8 KiB
+- 代码文件：6 个，约 18.3 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/03_transforms_modeling/uv_set_renamer/UV%E9%9B%86%E6%94%B9%E5%90%8D%E5%B7%A5%E5%85%B7.py)
 

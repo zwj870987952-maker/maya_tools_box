@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/01_animation|01_animation]]
 - 源目录：01_animation/stagger_offset
-- 代码文件：2 个，约 4.3 KiB
+- 代码文件：8 个，约 18.4 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/01_animation/stagger_offset/%E6%89%B9%E9%87%8F%E5%87%8F%E9%80%89%E5%85%B3%E9%94%AE%E5%B8%A7%E5%81%8F%E7%A7%BB.py)
 

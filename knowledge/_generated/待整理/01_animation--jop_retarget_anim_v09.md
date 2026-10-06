@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/01_animation|01_animation]]
 - 源目录：01_animation/jop_retarget_anim_v09
-- 代码文件：3 个，约 16.7 KiB
+- 代码文件：14 个，约 74.2 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/01_animation/jop_retarget_anim_v09/jop_retargetAnim/jop_retargetAnim.py)
 

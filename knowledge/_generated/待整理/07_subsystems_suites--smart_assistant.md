@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/07_subsystems_suites|07_subsystems_suites]]
 - 源目录：07_subsystems_suites/smart_assistant
-- 代码文件：16 个，约 7.6 KiB
+- 代码文件：40 个，约 43.3 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/07_subsystems_suites/smart_assistant/main.py)
 

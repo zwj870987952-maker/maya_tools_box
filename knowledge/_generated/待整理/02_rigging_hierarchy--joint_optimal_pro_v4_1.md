@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/02_rigging_hierarchy|02_rigging_hierarchy]]
 - 源目录：02_rigging_hierarchy/joint_optimal_pro_v4_1
-- 代码文件：2 个，约 158.0 KiB
+- 代码文件：10 个，约 340.8 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/02_rigging_hierarchy/joint_optimal_pro_v4_1/Joint_Optimal_Pro_Application_v4.1/barnev_Joint_Optimal_Pro_Application_code.mel)
 

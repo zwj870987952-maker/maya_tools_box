@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/07_subsystems_suites|07_subsystems_suites]]
 - 源目录：07_subsystems_suites/the_key_machine
-- 代码文件：17 个，约 637.5 KiB
+- 代码文件：45 个，约 1257.9 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/07_subsystems_suites/the_key_machine/core/toolbar.py)
 

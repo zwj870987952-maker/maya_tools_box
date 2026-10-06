@@ -13,8 +13,8 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/01_animation|01_animation]]
 - 源目录：01_animation/anim_filters
-- 代码文件：2 个，约 18.3 KiB
+- 代码文件：13 个，约 74.1 KiB
 - 原清单登记：是
-- 主入口：[查看源码](../../../tools_staging_pool/01_animation/anim_filters/animFilters-v1.0-maya17/scripts/animFilters/__init__.py)
+- 主入口：[查看源码](../../../tools_staging_pool/01_animation/anim_filters/animFilters-v1.0-maya17/scripts/animFilters/animFilters.py)
 
 > 待整理状态不代表已通过 Maya 直验，也不代表具备统一 API。转正须遵循 [[DEVELOPMENT_SPEC|开发规范]]。

@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/08_utilities_system|08_utilities_system]]
 - 源目录：08_utilities_system/floating_toolbar
-- 代码文件：2 个，约 39.7 KiB
+- 代码文件：10 个，约 69.8 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/08_utilities_system/floating_toolbar/floating_toolbar.py)
 

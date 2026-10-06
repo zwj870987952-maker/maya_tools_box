@@ -1,0 +1,23 @@
+{
+  "tool_id": "animo",
+  "status": "prepared_unverified",
+  "official_registration": false,
+  "maya_acceptance": {
+    "status": "pending_user",
+    "verified_versions": []
+  },
+  "license": "restricted_source_available_local_only",
+  "zip_sha256": "0a99ff64227047a6423f6c6e2a2ac081acbdfb58dd53e5fad6de9879b987c502",
+  "library_entries": 540,
+  "display_records": 573,
+  "supplemental_entries": 13,
+  "operation_count": 553,
+  "native_files": 1600,
+  "source_data": "maya_toolkit/tools/animo/native/Animo_Data",
+  "patch_log": "patches.json",
+  "registration_after_acceptance": {
+    "module": "animo",
+    "class_name": "AnimoTool"
+  },
+  "promotion": "人工检验通过后另行处理；本构建脚本不会复制正式工具、修改 ALL_TOOL_CLASSES 或注册到面板。"
+}

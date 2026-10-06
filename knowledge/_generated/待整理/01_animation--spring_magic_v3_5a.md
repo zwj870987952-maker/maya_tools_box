@@ -13,8 +13,8 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/01_animation|01_animation]]
 - 源目录：01_animation/spring_magic_v3_5a
-- 代码文件：9 个，约 69.1 KiB
+- 代码文件：24 个，约 169.5 KiB
 - 原清单登记：是
-- 主入口：[查看源码](../../../tools_staging_pool/01_animation/spring_magic_v3_5a/springmagic/__init__.py)
+- 主入口：[查看源码](../../../tools_staging_pool/01_animation/spring_magic_v3_5a/springmagic/springMagic.py)
 
 > 待整理状态不代表已通过 Maya 直验，也不代表具备统一 API。转正须遵循 [[DEVELOPMENT_SPEC|开发规范]]。

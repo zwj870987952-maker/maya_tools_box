@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/02_rigging_hierarchy|02_rigging_hierarchy]]
 - 源目录：02_rigging_hierarchy/skeleton_generator
-- 代码文件：1 个，约 3.3 KiB
+- 代码文件：9 个，约 22.0 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/02_rigging_hierarchy/skeleton_generator/%E9%80%89%E5%8C%BA%E7%94%9F%E6%88%90%E9%AA%A8%E9%AA%BC%E9%93%BE.py)
 

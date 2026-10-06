@@ -13,8 +13,8 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/08_utilities_system|08_utilities_system]]
 - 源目录：08_utilities_system/ks_save_timer_v1_3_0
-- 代码文件：36 个，约 162.3 KiB
+- 代码文件：81 个，约 380.1 KiB
 - 原清单登记：是
-- 主入口：[查看源码](../../../tools_staging_pool/08_utilities_system/ks_save_timer_v1_3_0/KS_SaveTimer-1.3.0/%E3%80%90%E5%8E%9F%E7%89%88%E3%80%91/ks_saveTimer/__init__.py)
+- 主入口：[查看源码](../../../tools_staging_pool/08_utilities_system/ks_save_timer_v1_3_0/KS_SaveTimer-1.3.0/%E3%80%90%E5%8E%9F%E7%89%88%E3%80%91/ks_saveTimer/runApp/runMaya.py)
 
 > 待整理状态不代表已通过 Maya 直验，也不代表具备统一 API。转正须遵循 [[DEVELOPMENT_SPEC|开发规范]]。
