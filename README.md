@@ -129,6 +129,8 @@ rigging_tools = maya_toolkit.export_tool_schemas(format_type="openai", domain="r
 
 > 📖 **更多大模型调用范例与参数速查**，请参阅：[docs/llm_tools_cheatsheet.md](docs/llm_tools_cheatsheet.md)。
 
+工具知识的 Agent Skills 组织与后续建设方案见 [Agent Skills 装配规范](docs/AGENT_SKILLS_ASSEMBLY_SPEC.md)：一次任务可组合多个 Skill 与工具，按功能条件和实际使用结果选择实现；结果默认后台记录，必要时才询问用户。规范同时覆盖不同 Agent 的统一装配和目标客户端的安装验收。当前已建立设计规范，自动装配、安装及使用记录评分功能尚未实现。
+
 ---
 
 ## 📁 目录结构总览
