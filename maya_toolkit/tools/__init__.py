@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-业务工具层：自动注册所有 6 大内置工具到统一工具注册中心 (ToolRegistry)
+业务工具层：自动注册内置工具到统一工具注册中心 (ToolRegistry)
 """
 from __future__ import absolute_import, division, print_function
 
@@ -12,6 +12,8 @@ from .weights_copy import WeightsCopyTool
 from .fbx_export import FBXExportTool
 from .material_transfer import MaterialTransferTool
 from .fbx_diff import FBXDiffSyncTool
+from .advanced_skeleton_mirror import AdvancedSkeletonMirrorTool
+from .advanced_skeleton_animation import AdvancedSkeletonAnimationTool
 
 # 统一自动注册内置工具
 ALL_TOOL_CLASSES = [
@@ -21,6 +23,8 @@ ALL_TOOL_CLASSES = [
     FBXExportTool,
     MaterialTransferTool,
     FBXDiffSyncTool,
+    AdvancedSkeletonMirrorTool,
+    AdvancedSkeletonAnimationTool,
 ]
 
 
@@ -43,5 +47,7 @@ __all__ = [
     "FBXExportTool",
     "MaterialTransferTool",
     "FBXDiffSyncTool",
+    "AdvancedSkeletonMirrorTool",
+    "AdvancedSkeletonAnimationTool",
     "register_all_builtin_tools",
 ]

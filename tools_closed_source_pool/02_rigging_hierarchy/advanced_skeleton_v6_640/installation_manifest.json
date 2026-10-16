@@ -1,0 +1,2350 @@
+{
+  "version": "6.640",
+  "imported_on": "2026-10-15",
+  "source_installation": "E:/TOOLS/adv_rig/AdvancedSkeleton.6.640",
+  "entrypoint": "vendor/AdvancedSkeleton.mel",
+  "file_count": 585,
+  "bytes": 446143890,
+  "files": [
+    {
+      "path": "AdvancedSkeleton.mel",
+      "sha256": "65c075a8283daac98ee78d769b2dd093dc804a1838062f7313d4908a828d76e2"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/7za.e",
+      "sha256": "c136b1467d669a725478a6110ebaaab3cb88a3d389dfa688e06173c066b76fcf"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/asVideoMoCap.exe",
+      "sha256": "d10168ab61cc97e8ea8a239208f8c63610148d8f8a6524e00a0269b6344c4494"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/face_landmarker.task",
+      "sha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/hand_landmarker.task",
+      "sha256": "fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0000.jpg",
+      "sha256": "e2aa0382f1ab12fac88cd49241af653cc7cf8fdbc0ec18ca2f19ed3835ad40f0"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0001.jpg",
+      "sha256": "53046f464dc448f1484fa00c137f9b2a2651a846c2f1e35408c6e17662aad3e5"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0002.jpg",
+      "sha256": "d477aae3db0a176a8e4f8665ddf7f787abec0c855f8ab5647f9186c066d346bc"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0003.jpg",
+      "sha256": "c947b3e78bfea35d03a6623a5b980309a75f7e776cca1e7ac74751fda242a7cc"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0004.jpg",
+      "sha256": "391fb6041183924dcf7973cfe475c1c41b648ded64b7e9350f94aae24ac84dce"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0005.jpg",
+      "sha256": "454ab93603300cb33e3f3afbcbfdb15ea7394d3242acd6d3583f277ac03b99e7"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0006.jpg",
+      "sha256": "fcaaf1e50d9149c7e7b8c749f117191cdfe4adaf0c2a13d227806158a3189d8f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0007.jpg",
+      "sha256": "8c1063e47513733352254666a8e9f0990eec79035045676cc6849e1adedd2b51"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0008.jpg",
+      "sha256": "08d9f46bdc9a4e696422790e82ca245d65c07d843ecebe9343862c06943d228e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0009.jpg",
+      "sha256": "18305b06eb60f4fe511abfaefb04c44bf7b394aa0cd4a3dd0c0481dfbedd3a3b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0010.jpg",
+      "sha256": "14d786bcb7458ee4722b2d4817268287bd99ca69748373848e76be73835c7202"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0011.jpg",
+      "sha256": "140849b2b4375655129810c19510172040a9698e0d3e80ab79efb58abbaa49cc"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0012.jpg",
+      "sha256": "a63f26f2446a94bbc1f5287816b9aa1118c97218dc3e00339ebd5605ded50868"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0013.jpg",
+      "sha256": "4d373bc5ebf0d2bf75993f176a2d8c6948ec3d33b97751307600d9aa0632e151"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0014.jpg",
+      "sha256": "5ea42a4499c96dd91d47e4c6c58dc0f59a7820b7f2b189dc5d6c5dd9209f9d85"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0015.jpg",
+      "sha256": "66617b88c9c1a0323af10921cf80d7c6be27cfac879d0b75ab4bbd71add6cb5f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0016.jpg",
+      "sha256": "bbb7c042d86d4249ee05976699c58bbe4934e39600e58626b5bf1b7417d92d15"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0017.jpg",
+      "sha256": "946cfdd9931126fa5524b93affa85cfaecd1f45fe98487d4ae873e0bdc2eec26"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0018.jpg",
+      "sha256": "0a5dbb5115c8cd061bb080cdb589b318cfe46990fcc2479b7af11ec2d7b9fa2a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0019.jpg",
+      "sha256": "82f29608cc22117c27f8edf517e3947ce068744c459791f31b30488ed9a7968e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0020.jpg",
+      "sha256": "90b10e2a1893330df8fe1b914fa9c3b4e6fec70c3a20341ceed2fb3ad84107e3"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0021.jpg",
+      "sha256": "c9858ebc5858877207cc0edc49d53e1323d70618e48f08338f3264069e9de5c2"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0022.jpg",
+      "sha256": "34e455f84ef5421fe2728374d8cf10389a46f7a1aee2001c42ee672c0c11cebd"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0023.jpg",
+      "sha256": "7f91eba38e2314582866dbf4ced84ca6d396b0610443154e65982a709ad9e953"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0024.jpg",
+      "sha256": "43df0335b354115a8fcf5b2afc89422f000ec3d227907c46878ea50733cadcd5"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0025.jpg",
+      "sha256": "dfe1802e63df5eeb74517637fb2e053ca9fffdf6fa04b5a0e1162b838d0f21cd"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0026.jpg",
+      "sha256": "5f5a959a613be4edb9048dec777ecf1f62493812bcac629c925734a61f23d795"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0027.jpg",
+      "sha256": "b1baf1f832a1ebfee168b9f08fef5ecb169b526d1b3ad4c9767c9a60e818ad54"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0028.jpg",
+      "sha256": "00050635c42ddf1c092f3f4f8b39d65738d027c1d069b18c0e117956a8ad3d9c"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0029.jpg",
+      "sha256": "ae7356aa73b753287535fc8ac07d299fdfa1a782954e24320f9ce4b9e656db97"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0030.jpg",
+      "sha256": "a7a3272a9f5dfea09d2bc469f1b5ca632e01be318ad5997bca760bfbff7a5d09"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0031.jpg",
+      "sha256": "a589fbad6419d78eb85a0ec97fb6bc2b3d7e7ebc89c5b6a0c03fd4c92b0ed35b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0032.jpg",
+      "sha256": "af689494a33c0bf02eba3a956d44cb1dec0cf9af7eea40c10add19260d62c7dc"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0033.jpg",
+      "sha256": "c4e3c411f37b806624d77cc628c147d2c6b12688d141081716c3cd7edd18196e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0034.jpg",
+      "sha256": "35d99903562a46b59fe7cb7bcd658a28b902c1517a097ee4cb150afd773e706e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0035.jpg",
+      "sha256": "abbd7c0fea2c24c0015cce94e2b676716bc64b7e692580005751007e41a678e5"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0036.jpg",
+      "sha256": "586a29820581f1b18d93956c4b735b9f94abbf709b3290f18c174619ad2311c0"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0037.jpg",
+      "sha256": "2c15f39ff35d4fa0f492561f4dfd2bef2b17172c599175cf441b0e3363dd94ef"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0038.jpg",
+      "sha256": "f1ff5d06b0a5ef5050537f151276b7466648a64da7e90d55fc0f4cf81bd72879"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0039.jpg",
+      "sha256": "9dc432dd227dac9abab70a3620cfe9f8af5abb72ae0f2e7fdbdf13d6f8d62ce6"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0040.jpg",
+      "sha256": "c4cf651ef26482e19dc6b137144586868fe896b2f3dd5d3a0e5e2f9c91f1b3e0"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0041.jpg",
+      "sha256": "1fa6a328bf88f9a7e30b81ad27b8f34fa5699da782ea2380706fea65e08f2237"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0042.jpg",
+      "sha256": "45e93e7401bb0e030d8b1ee26668f271d46d106819d9576b2b42dde407de0222"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0043.jpg",
+      "sha256": "e4ec21d149a85096797f8275e81e714e06f4c4d6efca918f49805948bf8900d7"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0044.jpg",
+      "sha256": "6400c7b02faed13f3a66ea457f478d73c1a8af05a44ec77c584e13a54317faff"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0045.jpg",
+      "sha256": "dd2b83612f5a7687f5dc8dee01aaef81f08af45e76203daba5ee4cd1fb8936c1"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0046.jpg",
+      "sha256": "b7b39afbbe70e2139f1a402fcec76c0187bd317ed25f8fb7497edc0a0e40be4e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0047.jpg",
+      "sha256": "52881c1cd048d3b1614bb814ded47b4a6742c5f63df4a40acf0710c171593265"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0048.jpg",
+      "sha256": "386b207c594106136bf8aa9666d79d6ac110b6c551ec392bcd3f23f0264465e9"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0049.jpg",
+      "sha256": "175cbb6adbac97fde8c9104b53a5a9c9d0632539b235988d18d4ae3866ec6bf4"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0050.jpg",
+      "sha256": "85882f1d58c4bf6da7ba4f17d085af1071c8dbe32d4c81d678e91d3e027aa751"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0051.jpg",
+      "sha256": "827897cb6634b5d281ec9d3c43a1a4ff898098ccc53b9766c00e5153835405ba"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0052.jpg",
+      "sha256": "61848855d5fb85e35d4ddf31bdd7ac2a79aa7065088c9db424491916907c26f1"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0053.jpg",
+      "sha256": "f47413b071f0972a2d2519904265ded1898e51ea3d3f293eaec4311251e41e67"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0054.jpg",
+      "sha256": "c8cd1f9d23d5079cce5c980e3b494cd634dbaaf2f22073ae35419698556d4e1a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0055.jpg",
+      "sha256": "ae948fd2b6cfc21161259b28775cc60a8e5610ee5b543722e3a68c942933240f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0056.jpg",
+      "sha256": "2a8e512f554548bc5539b48f3b5ae702fa0dd308f3618e71a732f1a03945310e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0057.jpg",
+      "sha256": "8cc5be6dbe780fa74f0c1a705320923fcfa64fe62fec8af0e704ee5464d98b79"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0058.jpg",
+      "sha256": "f66abb7f5c2b8f4a261cba7f03877aec98e3f0c8f670470cb05dcb762c6cf1aa"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0059.jpg",
+      "sha256": "d1fd82cf08a7d4e93991f0a7ed8c43186e9de623833d46cf733ab104f9edaa0f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0060.jpg",
+      "sha256": "b1c910e9823a9ab13c8232bf7140c8924b9690180de6dff10b7f3556027fe8da"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0061.jpg",
+      "sha256": "164d2d290084be5e043d1295821030b2663bd1d20d44feac5fdde3224c3a2220"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0062.jpg",
+      "sha256": "d049194527c9433a5f8c6c245d1b5a777e8fec24315048fdf62a6a721d7da461"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0063.jpg",
+      "sha256": "6862fa25da366844310b8d64cd5b989d077d2e4cb4ca2a29ea0b34845af110af"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0064.jpg",
+      "sha256": "6256a6ceeccaf4ddb5f918f173999f9ad4b52c4b6dc481b0ebade46f3f91aeb3"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0065.jpg",
+      "sha256": "718610298ed7f5ff106c6abf4204e2046dc33d52265b40b70503b2b04a080c56"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0066.jpg",
+      "sha256": "9836d754dcb1817d2579ac9c267a181a0b5ad4d648a52d9069ff3879ef1494b9"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0067.jpg",
+      "sha256": "cc3d41ed0e9b8ff1c260b000e9402348b9cb8a27fab13b1f435a10c23e28f028"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0068.jpg",
+      "sha256": "d489065fe68daff74db68c575dcf3c9e51d20f9779848c71259c6fbf1497ba32"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0069.jpg",
+      "sha256": "f33afb35479951b91e3d98a79600fcabc025026999a5c5367737e2e7358026ed"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0070.jpg",
+      "sha256": "f82c5db0e573daff6c498760a7459780d6c468af9211b1021f3c284f5ef03d5f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0071.jpg",
+      "sha256": "49f36b3e8337e8ed1857223431b14e515cfdc0c5a65ec4958fb3347be67b0d28"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0072.jpg",
+      "sha256": "76cb14d00b4a70c26fa9284664b8607bc9825e8585f1b1687ecb2f689cab9155"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0073.jpg",
+      "sha256": "51512c36b58f2b130e9b8bef21cdccdf3af66c31bf79c4ec94449b3fda6b68ac"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0074.jpg",
+      "sha256": "107d9ab41261d0ba796e290816bfb308604140915efba77348f91c9d0a42f3a2"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0075.jpg",
+      "sha256": "4f12b9728bc945b86ce592de01e05b54c8fd05edb110433b1c4fe602a9f396f8"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0076.jpg",
+      "sha256": "269e3f3a5883ae5ae55f6c9e150ee2d7ea5ce555524c4d4b5268b8a63c626ebd"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0077.jpg",
+      "sha256": "8d4189ce8ab8b17df62988326880be758763614e0123b1e77608da32626bd6e2"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0078.jpg",
+      "sha256": "3c228e6c8d7cd5b67b84dc8a47f7377f117a7bcd435a3ebf5059ebb5f202d086"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0079.jpg",
+      "sha256": "cabd1a0fe442dca0449b25d6b6855838ed3560686fd6645abfe79076a6bfdcaa"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0080.jpg",
+      "sha256": "bf60f2c7c15627dcad753f63dcd40d76b066bc7fbe7633efccc153221f75f66b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0081.jpg",
+      "sha256": "fc7aae3f6c4a4a2d1203f18f1178cac545f2b3e6903debc0ac72d63533318cd5"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0082.jpg",
+      "sha256": "9bda8bbecd658251113c05b365ff2420534f1426df15ed1da8df31951aa8b3bc"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0083.jpg",
+      "sha256": "8847c38d0c700146dd64db91e93676e939b3f298016f7b9a850451b40dae1e3d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0084.jpg",
+      "sha256": "87bee0cda1eabcd1ebac3a2d7cc944b82518ff99506510ad3eef7ce2984ee971"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0085.jpg",
+      "sha256": "0c370bb5fecc89c03a9343329fe010e1d5bb86cbc24e8e09a575ea563f55933f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0086.jpg",
+      "sha256": "2da399a0915ad63136c3265303cc72cd3001bfa54dacaca991ad9b367e9a676a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0087.jpg",
+      "sha256": "d2425bc0f663ef781977a223fa1b6a4e2b752dfc6f7583521a0337a9f946851b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0088.jpg",
+      "sha256": "d047c11f7a15fc16bf94f1db075af846d3675d6bd189c49f40e36c135e21b4ce"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0089.jpg",
+      "sha256": "790d77c3e7203f84058e2009b084c311b31a25438e93cf65d8de824b6c036e99"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0090.jpg",
+      "sha256": "939d7208dd76618282aede77197db86232784e5321f3328e7722bd2651a37e9b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0091.jpg",
+      "sha256": "de7c6aab9f1d599cb1cf4127c58faceebc325a4959a9ddc54a30a86e94ef38c1"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0092.jpg",
+      "sha256": "16ad8984c7ed17980dfbfd7c3f6883b0b475011cdd897127c237f62d815025a8"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0093.jpg",
+      "sha256": "8bdb80de14494b50053a3643b8a69048633b3d342ae2358e60bc559d6d072384"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0094.jpg",
+      "sha256": "12c08d9f6905e33a32eb6495065dcd7522e5192caf44daea7959096a600a5b0d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0095.jpg",
+      "sha256": "391ff4071e57a77b5f5dbc5f231da7395b737af1824f6b365f50baabaaac25d6"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0096.jpg",
+      "sha256": "756a919e6482a277eea79b50134faec021fa6f75111d14ed46919125f9f69fcb"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0097.jpg",
+      "sha256": "d21eba101ddef0f9870653fdac87cf1a34eee1c4ec7d31b885aa9a04b159f0cc"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0098.jpg",
+      "sha256": "3e236997a1a3e6ce4b95d0299989f6fadaab449a2668312ebad28a4082ee78a2"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0099.jpg",
+      "sha256": "5bf39e3e607b888918fec1978067c8da32627f9f5c1c8a428d7d6186ccc93838"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0100.jpg",
+      "sha256": "af18a920009bd2cf4f6ea119e76ca9de04cd778b70d1add56924573045e296bd"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0101.jpg",
+      "sha256": "c1221a765a4e679a375941e81abcfb7f7bbc11ff816cc5c27fa0712430af51e0"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0102.jpg",
+      "sha256": "80731a02fd4e4396433d7b33113d09dd905f93f8839c22ec06143aa04eef0c2f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0103.jpg",
+      "sha256": "5d08f291f5021fc06d15100acb7c7dd3f6d1354bd46e97c4ea79ae7f46d9256c"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0104.jpg",
+      "sha256": "629f4259ff7d0849ef149a58be74c752ac73664ea252d9a7d606214a33db343c"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0105.jpg",
+      "sha256": "a81dc6cc85d0523ccfe2a055ab1e31b575223f5782047e3e439ab6cb990d6d93"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0106.jpg",
+      "sha256": "2ff60c6dff1ccb8032e9a2dfc47f44c3f40ae7fb83935e253b8363e2ceb6154d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0107.jpg",
+      "sha256": "35eaef99ef879478f9c1fd8ce7060b3fb790bcfc5c57de1f84619ea8bdc1589a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0108.jpg",
+      "sha256": "b2d747474d7672b7460b144e95fd68c106d8061d97c161a2210ec55a563f5833"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0109.jpg",
+      "sha256": "4ea2fbd7895b4d20bc6fe7831b1ba835151b9e55f23cecc10d37db9e10cffe4e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0110.jpg",
+      "sha256": "6a138cc3230fc5abeb681a1bf405c09a7719d45894432d4f3ad8a7a37388fc74"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0111.jpg",
+      "sha256": "4987293ef4e107bcbdfc86861cb2a6a9d7c3e48226d62cc0f2c03d8b0709690e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0112.jpg",
+      "sha256": "41fa130e24fd708a87861bad77676b3ebd00dd87affb6c1f646a9344633ecb75"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0113.jpg",
+      "sha256": "048d1447cfe43c6e22f09ff38a071e837e7587d00053a889109ca720cba525bf"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0114.jpg",
+      "sha256": "7bc599744fda58739edbc942ee8ed925c1c2a2fcc806e4a1e5a53e65bf533850"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0115.jpg",
+      "sha256": "809469b95712193faa1a56c2aa2ec77a02b1113eee052057b9e9730e2d640a84"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0116.jpg",
+      "sha256": "255894f092fbbf48775175fda2be65659d804565e233a903a48a466e62720041"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0117.jpg",
+      "sha256": "7a82432ab01e7c08773742ce54da704890aefa78c9d5b52e09a9328c745f4616"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0118.jpg",
+      "sha256": "289b386a9861865f72fcce13f2982d8fdb24d4589bcc7d8c3ea332dc247d64ac"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0119.jpg",
+      "sha256": "a2d1b089802f331feb7338c6409d921682bf062fc26fab7fe7f7cfd6fc9c2af0"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0120.jpg",
+      "sha256": "dabf49376b6fc3adf622f2fa8d6ec1e0d4a2a5e24f266cf1f9388120a2ea12d3"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0121.jpg",
+      "sha256": "d5ce3b0398b47ea9938e0e5d45218ec8df8bbbc97a243941bb489c0430baad3a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0122.jpg",
+      "sha256": "2df6506629614ccc3e6c240c7185c6880802bc12de65b74f7bb0badf58eb5a05"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0123.jpg",
+      "sha256": "7df84e550d762f4189fcaab45f36758e256307645d3e2103d85cfbd0b6deb4f9"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0124.jpg",
+      "sha256": "11a1ba16af89b4cdd89992acac856b4e118de8e6803d2afaf50fbfe720e5e359"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0125.jpg",
+      "sha256": "c425d3834a921b9a715294dfb2d4dacb598d4f20c88d874517fbc3191382cd46"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0126.jpg",
+      "sha256": "4cb6872590b3ef5a0b8e7f55e726ade61c34ab37e1ec16e63377b835077e8688"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0127.jpg",
+      "sha256": "f9850c66347db970076fcae3de635b1e266faaf06388152cf2d68af0216fc593"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0128.jpg",
+      "sha256": "95bd60310f67a3a1f4282db0210ad4100938fe98c3b57c56afe7d945e66e81fd"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0129.jpg",
+      "sha256": "cbd906e6393a75dea86cd2bf8943066d4e535bc16e0d822c4bf1e46a9333486b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0130.jpg",
+      "sha256": "bd98a52e50d52f9d52eb84a17cadc0106cc9e9ecdb082da3431b49e6ab35166c"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0131.jpg",
+      "sha256": "ab52df20d9f91ee700f34013525746532b7f4d6f95a1a01a74fe7667bb8425ab"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0132.jpg",
+      "sha256": "efd044bce15b00f1d7538bd4fd42ddab1cf5b102318cf99a18e9b9670607f982"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0133.jpg",
+      "sha256": "6406c830160888704bf10b4ec03bbc1a14ed047c07bdb06ed7ce0e5fdcd2a654"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0134.jpg",
+      "sha256": "4f8ec0ca5627fe0a438fa1f6e1a47260e612c80d2b002c59c2db71eeb366a68a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0135.jpg",
+      "sha256": "d923b4be5f71ec1121d29342e49627ec9ef93650dc478231f429dd7124ebf83e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0136.jpg",
+      "sha256": "138e4261dea2d62188d915cb55d116e1f2f9ee5ac6557314bcc88cb4e5b2d133"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0137.jpg",
+      "sha256": "f0fcc0e765ca322cc56a3d4440956d2513a252ee4fe8485e68c3030c8163d97b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0138.jpg",
+      "sha256": "48949326f322f7ced6c2ce7414e220d712c1ef02e3ca3ac7b8a6ab13092db873"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0139.jpg",
+      "sha256": "430162db6fb2d11139491ffd5059f25c0107c43f094985b3afaf88ce2c97e710"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0140.jpg",
+      "sha256": "3b6b3db0475f5b3b2f06d07c8401163550a90d1f5a8208f5c725450c53f3ca39"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0141.jpg",
+      "sha256": "5899ded04395e3d353a810b7744c7ef950b4889583ba74a749d605edced11ecc"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0142.jpg",
+      "sha256": "229ee65a1775f0d9edfa6916ad48fba460aade77b6b9a1bb6020f2fcadccfb55"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0143.jpg",
+      "sha256": "ba3217857731ea7c42ef1aeda4c1762e9e1f8e94bc7de03a9bb3494837183e64"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0144.jpg",
+      "sha256": "42959ec21a2189198e34020b8c969aa304763a5d0cc1c5fa7e50b02b743604db"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0145.jpg",
+      "sha256": "624c87b03a1a10444991f989c54abe92c9400675dec1b21d2df58cf6a041112a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0146.jpg",
+      "sha256": "7a0ef9c3a06c4da05fb05fbf5a5bc7ebcda6005454128114507d266a8cf66840"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0147.jpg",
+      "sha256": "e8c2c62d7b57fb26f33dc5aed2ce673aa26ff0c2763a5e3aec1f82d89b75e9a8"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0148.jpg",
+      "sha256": "0215ff651e997c3c860d4f56d102fdd520c97ea723cbb061b284ff9312bd6f0f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0149.jpg",
+      "sha256": "7b3b826c5c0ace31bda942974771738c47d3f875d0515efb19ef32fda66beb3a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0150.jpg",
+      "sha256": "b6cddef736f747e7d33e49cd7f11130f35d52890bcea1df1cf4c70c0aa5e6644"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0151.jpg",
+      "sha256": "2d92cf1efc98a628467a8d0b1f1336492bf0a4b5f9cd3d08bae1dc8087c6eb86"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0152.jpg",
+      "sha256": "51e511b412358eb6a51274e62495304e01be6cc92c85b2db52603470c7e7eeef"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0153.jpg",
+      "sha256": "6df26a8eab27b51bd22ddb719a92059e738c8e8fd00311f40a1b87ef8d86544d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0154.jpg",
+      "sha256": "c3a1fec5bf3e2e3ed1d41e5fd7dce6b00d406c387a0f1aedc025e4314280e91a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0155.jpg",
+      "sha256": "ea2acf988e3cf3e763b34112235858ff5271596493be8d98eac0531e9a1c4f70"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0156.jpg",
+      "sha256": "028b06c74a7f0ba8d2ea90e9cfb3e7719c7d49ac9f6a64eb3f844af461f31df2"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0157.jpg",
+      "sha256": "c8565b6cf1442313131523330579237b308a00e7451832fbb0db2f07e666d877"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0158.jpg",
+      "sha256": "23333418717906d7aa3f7c8e7ad8ef5ebe05dea6c3be9c6a50877aceda627dea"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0159.jpg",
+      "sha256": "995efbc61d75c3b97ba5bfcc3e6599689e0c30d6ecb397fbe7d849bfcd51954d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0160.jpg",
+      "sha256": "ca84161f89e0d3d9beae6cbbf8302ceffff1b1138e1ac8f2de302ab3c1e5d156"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0161.jpg",
+      "sha256": "2d9e7ed156f6202500c9eee2344a24ad4021f104e82255dbdfbbdf86a53ae4af"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0162.jpg",
+      "sha256": "6dced951f2c2a664e39112c52f17ba65d081cc28d060050809d1753bcf2f02bf"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0163.jpg",
+      "sha256": "e1c70788024090fe7fa339c6e7a7587e8e823bedda271f6ea3f181f0429d66e2"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0164.jpg",
+      "sha256": "4ec516f2affe57c9129074b895ac1e18f493438d1a7535fc19ca8fe6ff59b26a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0165.jpg",
+      "sha256": "9db52f93108659f893cafa5d8a8dd23bb39cac71fb977081c81c36cc63bb5556"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0166.jpg",
+      "sha256": "5edcc97b0046d594e80ca93c29e3a76dcdd61c269fdcc1fcfa9f1c9b513668b3"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0167.jpg",
+      "sha256": "ba0a6185f72154f63200248f07634b164cfb261b95e8a5abf3a2a636e030e737"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0168.jpg",
+      "sha256": "870527dcac64c86c6e058400307a0c6e82754863d90273e470b97a60ab649824"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0169.jpg",
+      "sha256": "ebab5dfbf974c18b62a658e41cf37c1571c7a126bf5d050173d3c5cb111560a1"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0170.jpg",
+      "sha256": "76d1a7ac7fd6f0e41b89d34a7d1f2c31d07ae213e4841725ac8ff443413145bf"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0171.jpg",
+      "sha256": "4865251ad1db10d25ac7753a46c8da2f7bb846fe7e165d39aa8139f3f5c5f023"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0172.jpg",
+      "sha256": "1fb1bc0eb351984933c52085de1902ca7000247f5bef8f8c96f1d262c301a355"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0173.jpg",
+      "sha256": "7a88d290212d378e0f195d080b45bdc38abad6ff2481e5b7abafd06df05349a4"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0174.jpg",
+      "sha256": "3cd204c69973a625a55b3866c8516cd794ec2a8852bb975473e5a3ce755cb41b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0175.jpg",
+      "sha256": "7e250f91e80d88e823b05d8446ac5072305be4a56f79aeca74ed6fda96725dd7"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0176.jpg",
+      "sha256": "6dce955fdd8de1d4c6fb4b7c279a97fd28a7d52c663c09346bed722c763c3cb1"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0177.jpg",
+      "sha256": "ca9a92cdbd3497a7eebc0eec9a384512eb1228499c36ad9b7cec427a76321f47"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0178.jpg",
+      "sha256": "037213815626ecf13763275d69789c02b486555fa6a39080de0402218eb6caf7"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0179.jpg",
+      "sha256": "d89fe0aa2c94b3ba937c023a6d2b3340152bd83a3b5ba5020425dd9b4dcc9cd4"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0180.jpg",
+      "sha256": "e1d206b041f5a615443d3a6d63bf3c1c82c1aa15761b1120f9bd3a040fffa1ea"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0181.jpg",
+      "sha256": "2f7ea73b8e6188a1436e010d935cfc4c60fd3059b8949119cd2bd4113c37e9af"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0182.jpg",
+      "sha256": "7d8769efd204afbf24cadf73c5d12258296ce5349c4219060be44605e3206b8b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0183.jpg",
+      "sha256": "452fc6f49eabf3e9cf244840f74e4bcf83b568241c8b462ad898fc0471a2b19e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0184.jpg",
+      "sha256": "8f217791f61b2bc7f658e56064814373574cc53546389e3bf7f212ba2fbd8f37"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0185.jpg",
+      "sha256": "e5f9d9ed507fbbd1e9af8b96d441d63ac51bfc0ee79b32415bd7936a7fa6e801"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0186.jpg",
+      "sha256": "03c4a2c6cb59eee3d0d1310818173647584a44feb714f46f2bfa153ba3a6f7e2"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0187.jpg",
+      "sha256": "df92f2946d20fac0ac7dc4eb57664893b5073e3c692ed4a5190655fd2857d365"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0188.jpg",
+      "sha256": "9ab3cfb5de7dd061084672898d49b417ecabba08b2b24980fc4562d5d9975865"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0189.jpg",
+      "sha256": "e65bf1ae97594152d455a5e6dac0313a05f1c66eef0dcb53cda930f87208960d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0190.jpg",
+      "sha256": "de184d88811a0f99c059d753c070838c2d4212bde9b719ae3d820b4536211ba1"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0191.jpg",
+      "sha256": "efe6bf21f8340eb636a662dc74262a0b8a899cbf0d8ffa051fa907294b04a0e5"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/imgSeq_NOTQYB/imgSeq.0192.jpg",
+      "sha256": "ca196f671653230ed2fa2bcaec5af2b861a69805eff6401007e24a14a51e6827"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/pose_landmarker_lite.task",
+      "sha256": "59929e1d1ee95287735ddd833b19cf4ac46d29bc7afddbbf6753c459690d574a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/result.aif",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/result.avi",
+      "sha256": "43e93c676fee564c1b722da04b58283c7d5dffe03db3ec9b0aa64f7cbbda6b46"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/result.jpg",
+      "sha256": "e2aa0382f1ab12fac88cd49241af653cc7cf8fdbc0ec18ca2f19ed3835ad40f0"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/asVideoMoCap/TrackData.txt",
+      "sha256": "e7c4279189c7b203a2c82aec473503c67dcf2f999b57c7f06e688a902f2546a3"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/curl-ca-bundle.crt",
+      "sha256": "86695b1be9225c3cf882d283f05c944e3aabbc1df6428a4424269a93e997dc65"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/curl.e",
+      "sha256": "529f5309255fccd9b578b37fea069cde3e946a38dbde6316f4f90e26f50f3c08"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/download/asVideoMoCap.7z",
+      "sha256": "21f0a791812b6dd96a7d16dd9fc55ea590d97b966797297628dea8ac1b1da8c3"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/libeay32.dll",
+      "sha256": "dbdc853c8cc48dbfe4d496d5aa5afc29f8991965050fd4acf102f979f60e982c"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/libssl32.dll",
+      "sha256": "7a4636d542601b46c971d354a6f21ee04b7a57d0ae9cf83bf8465d2e9ee70d16"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/bin/montreal-forced-aligner/bin/ffmpeg.e",
+      "sha256": "0c050e420713736b4bdeff95e0b9d17616ff599a3395e56afe87d1d003521aae"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/as2cr/4.x.py",
+      "sha256": "e42124e81bed29a0f687d73b44de04064ee5cdbda0daa28c1ee57833ace3f481"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/as2cr/5.0.py",
+      "sha256": "b621cce3f90d58ba93c58e181a3e57c10e777a9fadf3eb58c7be28be8776ef3d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/as2cr/5.1.py",
+      "sha256": "58becbbfadb84b1ddae171b838bc0bb5efd73e0040e71a34065360e3578f65d9"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/as2cr/5.4.py",
+      "sha256": "c33f78b6d7849fd5c3246400d9f5e160ad46aa39259f7fb78b4dd0f2d3367d24"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/as2cr/Face_CR/Face_CR.uasset",
+      "sha256": "94f492e91ebb1b2ee556488597e4110b6d95682c624ba24b580c1a0f90ac56bc"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/as2cr/Face_CR/readme.txt",
+      "sha256": "fc175370705ababd70de4bda85ed7061749e2c724187028e51d2a9d13f77752d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/as2mr/5.4.py",
+      "sha256": "8d4a55af2d5322adc9394016d7c5fae4ac1c076e12905da0ee3e1bb4b99da1c3"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/as2mr/5.5.py",
+      "sha256": "8d4a55af2d5322adc9394016d7c5fae4ac1c076e12905da0ee3e1bb4b99da1c3"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/as2wd/wd_character_export.py",
+      "sha256": "9ad47338385ea670050605eff0e4ba291cdef8c4c01fd6b732daa5def8827f95"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/asGallery.ma",
+      "sha256": "c57b34371c6c6f02956b1cc68f804b05f3a9d5480e0c4bff430a33529e62fc0c"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/asGeometry.ma",
+      "sha256": "201aa77cffe747aa32f2b995175106686705bc2fe01d74bda3ebb7def620acce"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/asIcons.ma",
+      "sha256": "c5005e4b9258a25b8eae65c4515ad28b5109b0e8212b50db66cf59605e04ac91"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/asMetaHuman.ma",
+      "sha256": "6cd46f54ce70031d58c3318cfc220e97e542dfa54efc5e81423bde5312b98107"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/asMotion.ma",
+      "sha256": "a2b2323c0548805b40cd29f319ac09a1c89200365c0653731466531772515a7d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/asMuscular.ma",
+      "sha256": "bb535d1be880ab9755f6b27147a9ac44c17c64e82e0eedd8d99458fc7401db66"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/asUnreal.ma",
+      "sha256": "108091adad3eecea95c8b8611878647cdce533a726524244d5510e8952168a60"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/headTopology/defaultHead.ma",
+      "sha256": "5526569a4c77d7ca92ad8c1c8c4dbc2c72910be57d912a2fe80258858fc8434d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/headTopology/hiHead.ma",
+      "sha256": "e53771be9acf5a7d7e34e38a129440b1a030351c5de9d4b6ba5bdbb2fcdf7384"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/headTopology/loHead.ma",
+      "sha256": "c15a2ae4b74548a878796a86a11d8fef6de0b43e6fccffbda2255e05ecdb3ac8"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/headTopologyEyeBall/defaultEyeBall.ma",
+      "sha256": "5e779e0f8466821f23094a86ebf235aea7654f003ed639966518492ad12adbd4"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/headTopologyTeeth/defaultTeeth.ma",
+      "sha256": "f4ee4059790140c861ecbf83de5f95f84c2a8f7c6ad6943bb183746e79064402"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asAboutCurrentVersion.jpg",
+      "sha256": "610af5c6067122b70ed43fd2464ac4ec8bc59eaf6bd199262fb8c4b9df9b068f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asAboutUpdate.jpg",
+      "sha256": "c8bf271b6b4a79f5ecf58e6b5ebbc7a55326e5c714aa0d427f8ca9f1e86474f4"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asAnimationTester.jpg",
+      "sha256": "012185bbf411d6610d16b1d2a52a10d806dff86e86ce27d4ddf1d3ee04bbf485"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBakeHuamIK.jpg",
+      "sha256": "23dde72ed9f6a6cedcb0ccec3a580619be5aab332445b55a0de9a5de06ce9ac0"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep0.jpg",
+      "sha256": "8aadb49449afb9f313ad04986d6a3aab8f06fc7c012d52123e60db4bb627e30a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep15_.jpg",
+      "sha256": "50cd29f4bac12592fea35fe86ab102ab84d7cd382f876af954de1f4222929190"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep16_.jpg",
+      "sha256": "2d64018515bc96011871a911d1e627de061632414136fa4c40eb11b17eecb42a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep17_.jpg",
+      "sha256": "bc2b23c197b24cc02ca63dbe4df4fc0f24eeb06a67ee642de00d8898ddb6bd5a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep18_.jpg",
+      "sha256": "4c5ee212f7e05cc9908da3fff1326fc5cf6d527981fbd34f1535e427d0469b8b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep19.jpg",
+      "sha256": "614854e38ce6fd63e86bcccdd6b0d6229758f20ce14c502622df6447cebcc6e5"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep20.jpg",
+      "sha256": "406901641223f183b5cd5e39980a4eca0d4bf010cd5a06c22cfbcf09768222ed"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep21.jpg",
+      "sha256": "b086973c569998669d44d1a15fbef3fff8137c1851f85a11ed93dd2a5803c64d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep22.jpg",
+      "sha256": "34d4be37d0c1d4eb5416f1fb3ea8c5853c16a8a364982aff2189a7d6d9e1401d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep23.jpg",
+      "sha256": "22e65829bc61da8ad6fdba553dd0f7d84f976efb8be24c2c90bc143691615541"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep24.jpg",
+      "sha256": "65b5a9db7e3d85bd2a3df95394e8237eddb239479fbf092ca0f04a353c11d541"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep25.jpg",
+      "sha256": "b8b2b2410f60e2ec6cf59a88d3a9597e752ccc86e226eeb5117089af2110fea8"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep26.jpg",
+      "sha256": "b67ffe21e93ca15020fc7092c6bc2681eb6f01a1ce81a37f5963d8450cfa85c4"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep27.jpg",
+      "sha256": "e51c3901b85a961705770c4553bf3bffbd0df0ab0ff802199fb2bfb79f693a08"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep28.jpg",
+      "sha256": "bb2866bbc8e7ee2f15cf269c14af6405ba6f438654a46e6774bdbd36ddd36cc8"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep29.jpg",
+      "sha256": "f8ba9f0ea0c967917ebc6aa644e86463eee2b78d1942323c491b8df7a466fdaf"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep30.jpg",
+      "sha256": "92775588e58a85c5b36448e91dbb002c6b12ebebe98c4847302bec192448a0af"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep31.jpg",
+      "sha256": "5189096779c557d45f6410022a860dc9d433970869a5d822277331f9b8d6fd7d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep32.jpg",
+      "sha256": "9fd674a7ac8857902927d99ad2df2736fdfb652ca6c498c5d349b1bcf5ff3321"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep36.jpg",
+      "sha256": "cde702de3cd0f3ffa036b4e0afb935f1241a77263a256c0cdbf51c859094aca2"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStep8_.jpg",
+      "sha256": "fd968303ecfe2ec1c6f1be04608e7b04a284a42055da4cbba7200aac02abf84a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStepctrlBrow_R.outerUpDown_10.jpg",
+      "sha256": "d4fefc760fcf788dbd6d8180d24bc30404f3317be2d5cc159413267a227521e1"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStepctrlBrow_R.squeeze_10.jpg",
+      "sha256": "0b11bdaf96971cea4759ebd7f128fa14e1bf19c2442bf3d679eb0acb5388fc1d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStepctrlBrow_R.translateX_-1.jpg",
+      "sha256": "278aa84b513e0b1e031211f4516ac47d0489c8d3aac5f5f972bcdd20185bd21e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStepctrlBrow_R.translateX_1.jpg",
+      "sha256": "3edb282ece755e105dac7b810fd1820e7233ecc0d6bb4ca7f5340461fe497f19"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStepctrlBrow_R.translateY_-1.jpg",
+      "sha256": "45f00aabc11487991d5556c02a54c2136f7446464886486daad23d0ab605e1aa"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStepctrlBrow_R.translateY_1.jpg",
+      "sha256": "130c34e3b402ec2dc8beae5497e57dd913d75f9623c6b694e5e6ad3695c3e1bd"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStepctrlCheek_R.translateX_-1.jpg",
+      "sha256": "d33dc51d3028451aa9bb0deeec12036f93effba892c7ead946f2f9275ffd08ee"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStepctrlCheek_R.translateX_1.jpg",
+      "sha256": "54efb47c069f487b0d99920a1bb7d4cc56c3bf12504b934a961e11b0bc4582be"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStepctrlCheek_R.translateY_1.jpg",
+      "sha256": "19aeb692eb5d95fb2af6abb3d4209c5f84d302ea30e70f23bf1c74b2a6eec11e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStepctrlMouthCorner_R.narrowWide_-1.jpg",
+      "sha256": "bfbe1f10f7e34d17e66b1543c4d40ede69e020bf19cfc4d47fc0cc61893ff8f1"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStepctrlMouthCorner_R.narrowWide_1.jpg",
+      "sha256": "239ce0c0ed0f5e7593d210470ca9f7f73862048d918d31dc8907657defd4eaea"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStepctrlMouthCorner_R.smileFrown_-1.jpg",
+      "sha256": "bf86908955596bbf332621446cb568c363398efe48671babbe609ae362106903"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStepctrlMouthCorner_R.smileFrown_1.jpg",
+      "sha256": "2a4ebf56e89bc5ddebf2fe7b21839e66c2ef7adab6f4bf8ff8710ef5a8917d2f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStepctrlMouthCorner_R.upDown_-1.jpg",
+      "sha256": "bf86908955596bbf332621446cb568c363398efe48671babbe609ae362106903"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStepctrlMouthCorner_R.upDown_1.jpg",
+      "sha256": "2a4ebf56e89bc5ddebf2fe7b21839e66c2ef7adab6f4bf8ff8710ef5a8917d2f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStepctrlNose_R.translateX_-1.jpg",
+      "sha256": "60449df11781be4ed10ee163a4a0043da0ee709154e5f11041a3234d3e586fee"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStepctrlNose_R.translateX_1.jpg",
+      "sha256": "d2757ed4cc10bc794bb87c455425611a1a4e96d26e58080b0b8d5e312caf3b19"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asBSWizard/asBSWizardStepctrlNose_R.translateY_1.jpg",
+      "sha256": "4ef1f0b51cfe02bd996c70ae4cd926cdd35d266ec778b8bc3f67eb094060f1e8"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asClusterControlCreate.jpg",
+      "sha256": "14e2dbe7a103f4e5eb3b28463a32ecac07e2ee5847dd3eb106489a94277c5c7e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asControlCurvesColor.jpg",
+      "sha256": "0186fda7a515a95f0b124c43cf25c15a8a0521bc29ec0a2f3e1bcaea77ef9c79"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asControlCurvesMirror.jpg",
+      "sha256": "14a9c1a27cfe8adc48f55beba8a5db02f286d8c2291486b1f7b78b9b48a8f37b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asControlCurvesScale.jpg",
+      "sha256": "8e8ce1558dc27566d0e40889a4808ef9dab7cb718f3c61a169ec6ab9a7abdee7"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asControlCurvesSwap.jpg",
+      "sha256": "ad9763260c74794a0037f2afccb605d975c9f5d5687ce801687ca378c69ea907"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asControlMeshCreate.jpg",
+      "sha256": "a3a0e25d321746d31960e9f22e713efdde4736b6df9a9f26eae4f2ee252a9c2a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asControlMeshesColorize.jpg",
+      "sha256": "54168d2ea923bb1017c58e6a0f778669a1e7679559293254e207de3cd887f361"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asControlMeshesCreate.jpg",
+      "sha256": "9ced708d9d286d1f420ad9ef51832d06f38de4a1b2ae141f76f9459ed789ff90"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asControlMeshesCreateIK.jpg",
+      "sha256": "0ce62c50b79d2336a7e611451e7f29afe7ace226290f61431c8773a925da1dfa"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asControlOrientAxis.jpg",
+      "sha256": "1ab155b3aa75b055ee0de2b55306e4ffaa5049b0b0ff2c2bc252dbd05edb593e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asControlOrientCurveUnafeccted.jpg",
+      "sha256": "fe8f686df399f9252e2f6d39105cfb6787ce21b90b1d5cf780ab008009114085"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asControlOrientCustom.jpg",
+      "sha256": "bf2be062464ecb7cd267faefd36f21ab0da63cb88c36dac155b4f2e7d64341db"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asControlOrientMirror.jpg",
+      "sha256": "26452c990016a47ef9470c57baa9668ee40924e9858e4573e263bbfa40334fe6"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asControlOrientMirroredBehaviour.jpg",
+      "sha256": "d236e5dd273fa3ca804d33269029d0688e1d63ac8043ce223da8838cdc938a97"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asControlOrientWorldMatch.jpg",
+      "sha256": "7b3377c4ca15d19611535ace600f0afecc2eaa09fa7a06dd21df13ae122b7675"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asControlOrientWorldOrient.jpg",
+      "sha256": "455ad464af1fcd1fcc4eed153debec19c72b843c1dbc7617a5926768a5dadd6f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asConvertKeepBSTargets.jpg",
+      "sha256": "b4472c0d73eb0c6fdb16becee0fcbd27163fecf39cb728612f26c613bacde78b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asConvertKeepJoints.jpg",
+      "sha256": "e2876b863820cb2c1f5772024375f281ec380f92bb167f8e1b6dd8d986fa1a05"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asConvertToBlendShapes.jpg",
+      "sha256": "222a3e745a6bc37104bc60c0a4ee3fb1b3b2a922d94970b2937ef42d0bc81019"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asCorrectiveShapesBake.jpg",
+      "sha256": "02a4463cc780cda8cc3777c50fe798fb1c8a696440dc5d3f57796876d76a6228"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asCorrectiveShapesCreate.jpg",
+      "sha256": "57a50a15c2002e5876d9f2f3446fa6164e69c7b6aa71eb2ef7ce4df5d9d88389"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asCorrectiveShapesCurveBased.jpg",
+      "sha256": "81b30406c5c1340afb19a5136af4772f0adf4b347fb78ede49d24aceb20b5a43"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asCorrectiveShapesEdit.jpg",
+      "sha256": "1a3e899b99b69342271306e1ad8dd5cb59be5302d222c837295299794d000bee"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asCreateHuamIK.jpg",
+      "sha256": "893608a6e88512e8104362350a11b777cb26fa6f2e2b0724cfc045826e0cdcf5"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asCreateNewBlendShape.jpg",
+      "sha256": "fdc6ae725a3187c0767ecc7e481e032e312c90b1f7280291accd8218360fa42b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asCustomOrientConnect.jpg",
+      "sha256": "cf5fbe386d73600b909ec93a160ae5d5621c6af0f4b217dec90f0238ee52f6cf"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asCustomOrientCreateJoints.jpg",
+      "sha256": "95a6af9d70d39af149ca2e2b92509a5b9b7e10275ead0ed8a2a1753d929f1af4"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asCustomOrientTransferSkin.jpg",
+      "sha256": "94416deba8ff02a94bf48eee5c2ee2726d14f1970f7d5a60799f3c089a0ebf88"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformDeltaMushApply.jpg",
+      "sha256": "04fd66e04dd42bc6c2476cbee4f8303606df31564def9e7b1224f0dae91bec74"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformDeltaMushHarden.jpg",
+      "sha256": "13723d1b02593f0f32c4970a5adb8311e52c54df9b973448fbe3eb4a23cb1399"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformSkinCage.jpg",
+      "sha256": "b9d349059029910d981ebd4f5d60dfd3eb08bea8b1d2d979d0ea4e50bfce8a46"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformSkinCageAddWristDetails.jpg",
+      "sha256": "bac68e852266f8ac554eb46c9d81dc2029c755d821446e4dbaf8e482988701f3"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformSkinCageAdjustGroinArea.jpg",
+      "sha256": "19d8f0bdb88b1f6de514698101d8adbe6effc43d4384a0dcdb4b60a1e1fc4da1"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformSkinCageCopyWeights.jpg",
+      "sha256": "f55cf1eb8563c8e88e333bedf6b9f3b3a9d77746cb34a20ae10d059db3c42c2c"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformSkinCageCreateGroinLocators.jpg",
+      "sha256": "4907535d3000164bc9b2783bae67934255f928257a23406c7da33c1e7e026585"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformSkinCageDeleteCurves.jpg",
+      "sha256": "20f72e46349eae4d2cfc1e77e2886af12ada1572122bbaba5e0938cfe72e2524"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformSkinCageDWidth.jpg",
+      "sha256": "a3400ec63bb9eb1703fe7e05f17db94c1dca5353d3dfff64419a93bc2d9b77eb"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformSkinCageMirror.jpg",
+      "sha256": "51b21ce5a839a1f9b5ee387938889ea3c9c4a8484b1f34fef64a6e21354b3fb1"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformSkinCageSliders.jpg",
+      "sha256": "990fa8c3afa6a070060ecc44e67f219e0383ce95ac573ae1504708ebcf359e95"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformSkinLoopsBind.jpg",
+      "sha256": "c0004bb9c3a636f4a335133699862e220aa559103abc852658934fad25df4932"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformSkinLoopsCopy.jpg",
+      "sha256": "6a8762d36b7162c0b8503da35d8b3981b79c48c13fbda94982e4268768b948c0"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformSkinLoopsCreate.jpg",
+      "sha256": "d6f8fdf067997dcb811ff8498c05e08a2f6db07714f3089d566df9de10b46d0f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformSkinLoopsCutUp.jpg",
+      "sha256": "79256caf9e981d5493c56773af0f2e2e6a0143cceb31cb1c8cbb11a429bbb608"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformSkinLoopsSelectAll.jpg",
+      "sha256": "e0856311f3ce0a0ffa93e8c9ea93ca439bbda968015bea6847fd0e7ffd51bf9e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformSkinning.jpg",
+      "sha256": "f8918e441e130983be24e443f57e7cc9e061da92510233f3dd114a9180232c49"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformSubWrapAttach.jpg",
+      "sha256": "19d2129d1593e25ce7c5b759f56590d6eafebe8371231fe862b719d7a5502284"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformSubWrapCage.jpg",
+      "sha256": "fed28ce66f8fe25623dd795a7828f14a4d0809d4afb0f78b94af2804ed785aa5"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformSubWrapExlude.jpg",
+      "sha256": "6abecb5402f440dbbcd0548dd6d5b08f2a4898a95b18e6c99a1e05bc5dd52b5c"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeformSubWrapWrap.jpg",
+      "sha256": "823564de0416f727c7b409e71c7b2c9fe8e587ec58ee9d9c1160625a22fa1a0d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeleteMotionSystem.jpg",
+      "sha256": "c269c2fa5c65aa8ed928929565c30b70926bc67369472334ff55f53d8b08000e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeleteStaticChannels.jpg",
+      "sha256": "aeddab45331ebd65d2ffc4a308cc066fd5c94bfe29a67cabb2e34ae7ff9571ff"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDeltaMushAll.jpg",
+      "sha256": "a335252e9b0078f2db37f2788653f80a77a7da96945505ae5a3804c07bcfbdcf"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDelteEndJoints.jpg",
+      "sha256": "845727e80ae1d86e0ff22b9ac1676ae270bb3ae19b936b03fe87a9eaeca10b70"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDemoCheckOnline.jpg",
+      "sha256": "e37981bcf7cc825b19fb3807fd4039a08aafc23205456793dabe8437b8330314"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDrivingSystemsCreate.jpg",
+      "sha256": "cf3b55f42541f9d71a668c9e9f8cf012f6d24ff5597f09c532a14f78dc8484db"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asDrivingSystemsEdit.jpg",
+      "sha256": "ee64955d11599177c0299123ddafab62062a2afe4bf44d33037ce5f2d6f5efb7"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asEditBlendShapesCreate.jpg",
+      "sha256": "588ac7a6e8c425b8a1c889552bf7ee2a427b828ca5718a4ebbfd481f368a0fc7"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asEditBlendShapesExtractAll.jpg",
+      "sha256": "a4ba050594899a2d996b28502df2bf5981772829965f57fe62de68c720479809"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asEmotions.jpg",
+      "sha256": "483cdfd582c514c99bb6eacde1ad97a106f2417273e40986da73a9c0e1fbfa9d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asExportControlRig.jpg",
+      "sha256": "1ebaf1a53fccb28eff8473395277b5d7159793b15644b6e45a37b01e18beca03"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asExportFBX.jpg",
+      "sha256": "74851903420f531e9964a60f2f361a22d2d2896a9efb646755e7aae48ec6444b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asExportMannequin.jpg",
+      "sha256": "4b6bf5ad9ccaf3bef6696caea8ba6f4a93917b3da5220ad8ba05bab2854db82b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asExportWonderStudio.jpg",
+      "sha256": "e29c53958060914b8cc83f78613c4ee1a43d7fc9dabe639699cb49d4cfc30964"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asExportZip.jpg",
+      "sha256": "c3d31431971b703154525c8c882a9eb33f1100cbadf481cfefaeeb4b84d60c6b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asExtraControllers.jpg",
+      "sha256": "ee46fddcdac3c48a05e41205de0b0e47f67a3f8517ec8c23eb53ed7e6344cee7"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asEyeBallsIris.jpg",
+      "sha256": "9b9f100b71e53c4f66f85cd759073284dfd49564b309c6decf80f7a4fbca19ad"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asEyeBallsPupil.jpg",
+      "sha256": "6917f9096acae96070d149fd1c2fc045f8d7aaee88ef9ff33a387718274fc441"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asEyeBase.jpg",
+      "sha256": "58072da985a7034c11cdf81159495f60eaef46c793db6fc6823ce621996f068c"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asEyeSocket.jpg",
+      "sha256": "3268042bf8d6936ccb5ad9fbdebecf4b5b504dd805485d1efcbe32fb2e6ee6bd"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asFaceDetachControllers.jpg",
+      "sha256": "afcaa3920d79a921b747c634f40ca3a76903b738f959e2ad3d3655cd52c4cc12"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asFaceSetupSimplified.jpg",
+      "sha256": "8b86198a6285838c85f9ae0926723a17b4706282ea2f9c8ebab5c29e942c746b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asFitAttributes.jpg",
+      "sha256": "f364c5b40ef99dd1a726b628aad0824711d44e9f21c30e172cc214bc800220c9"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asFitAutoPlace.jpg",
+      "sha256": "ba4c075f38aefc02047a9b4d42a54fb3b1943024053dcf5b1ce8bde65a125187"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asFitCreate.jpg",
+      "sha256": "dd31019360d883442c1c28768b8c8beb2993e17a975b306a2793a8a9ecd97661"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asFitDisplayGeometry.jpg",
+      "sha256": "f6e7224d8664a93fd8dfaeb3d8b78267726ce48a8e10a524e2ba8b2f46f6f82a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asFitDisplayJointAxis.jpg",
+      "sha256": "513a7f221d9d0e6598e5847e24548568aa0ffe3968dc2ae48916dfeabe4efb8a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asFitDisplayJointOrient.jpg",
+      "sha256": "f60c7a8bbaec5b401e06c1bb6c5f756e8143a7ecc64b1bad1a8aa9aa3fc45e4d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asFitDisplayPoleVector.jpg",
+      "sha256": "e56b05843ad7673e66fea77d6655e6befdebd7b69d8ffdcac5766e0a5f9f5487"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asFitExport.jpg",
+      "sha256": "e7f40cefaef7f1adeeb223c560690903d987ec82b610fa5e5d4fbb80a386e62f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asFitLabels.jpg",
+      "sha256": "3967f86070c30aa9f4c1326d21cbce677655b210a4773b675c0fe53dda7b0aae"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asFitLimbs.jpg",
+      "sha256": "88f408a84888dae47693883aa90742c99588058d3c9ffe4c518a12f46eb601e6"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asFitMode.jpg",
+      "sha256": "554675cff433f0510ac1dff2207cf542eecbe4ac0450c246588c3a9bdb92b291"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asFitNonSymmetryJoints.jpg",
+      "sha256": "fe18961b8444340595094290ab795d32205c7dcdf09e35ff60485e659e5aca02"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asFitPlacement.jpg",
+      "sha256": "1674d1af08cdd8af4946d71e6de0df93c6a7deef9c521d28f96040f8ba7c6e58"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asFitSkeletons.jpg",
+      "sha256": "a856599e3236d66874ee1337f71dc5e6052f32dfeca649ed6188d86c0b2165a5"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asFitStraightLimb.jpg",
+      "sha256": "ddc30d5b3d949cb3c85632fd6e2b26d17164c89874188b3befa42fefa818b877"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asFitUpdateNow.jpg",
+      "sha256": "f93bcac5068ca4ca4749e41d2f42e7585de4700fe944a7fe07b590a9e0094763"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGameEngineRootMotion.jpg",
+      "sha256": "3cf0367fa67bae6b632de9a198419e5595eba41b11bf1000b8f713caf5b89a35"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGameEngineScaleBehaviour.jpg",
+      "sha256": "9ce35397070bdd53be8ab0fea044050c95e87f4c78e0d6068aa5f138ee26f59f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometryBoxSkinCreate.jpg",
+      "sha256": "a6666750660cb935565582f4789d07c5ce20e1c075cea3d7542c9d6e33f5c7c4"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometryFaceRetopoConnect.jpg",
+      "sha256": "f26eca388e53714e5efca900773c95870094b1faa9ae520eba7bedea5d6cb206"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometryFaceRetopoCreate.jpg",
+      "sha256": "76700b8279006c568d211508ad88d43bd141861cdd261af1930180e02ee44540"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometryFaceRetopoEyesBind.jpg",
+      "sha256": "718304afcf67178e06478321c8b56b9e14324970effd426ea14354a506394a4c"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometryFaceRetopoEyesCreate.jpg",
+      "sha256": "252ebe721d346ff6580fb67271aeea266b5ba8733f5eb5aed65aecc35c1e5878"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometryFaceRetopoMatch.jpg",
+      "sha256": "31ab1d2244e08e97b856a6057231b9c3674d38f797e8adefb7ad38a4629626ea"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometryFaceRetopoPrep.jpg",
+      "sha256": "fcc47469ac80d914c3bef8cb0913224cf1c4ea50934854c1e1b351b92ff84364"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometryFaceRetopoTeethBind.jpg",
+      "sha256": "275c2638264eef6062e83d5b13339e8406db23728719f948848552babe06cfb3"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometryFaceRetopoTeethCreate.jpg",
+      "sha256": "91b96904a801cd0217e0add78cfccc414c8ad135d815b7baf8fec417bf415781"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometryMannequinCreate.jpg",
+      "sha256": "0983e54dfcbf28b3e1949afbac74f8cb34db63c53772bf4582353522daa470b5"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometryMuscularCreate.jpg",
+      "sha256": "58b0f9103c6cfe2990ce8379398956735f64a0e3c51e666ee0012f8fcba0ab4a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometryPolyBoxesBoolean.jpg",
+      "sha256": "ffa3d0945b08893d20ef4d9e6d4d96341bc932f5e53850439dfd1c764151f5ea"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometryPolyBoxesCreate.jpg",
+      "sha256": "aad2d12f42e64b96fe7c10a9bac5543ab619bfd12da18e94b937d4db6dd3b65d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometryPolyBoxesMirror.jpg",
+      "sha256": "cc8ca622c5385c9fd639148071f96ee4bc0a0cfd9df5d83a0674213f210157a3"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometryPolyBoxesWarp.jpg",
+      "sha256": "707ff3c748096665f84075a7f93ea2c1c6dad00662afdf525eee3c912fd703c2"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometryRetopoBind.jpg",
+      "sha256": "fec24462de5aeb6b09f387a0ba6abf4abf8f7810c3fb4b58c1272399c5e8ef1a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometryRetopoCreate.jpg",
+      "sha256": "a1623438342e051743640669a2e644f701afb94e902bc6e80ce345d9b7d4da84"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometryRetopoMirror.jpg",
+      "sha256": "d792720f059647d6ab5b1cda7e6f56aee63e0c32d108cc12cb138f06bd95a3da"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometryRetopoNormalMap.jpg",
+      "sha256": "38fd9e77c09534c75737cd7561aae54e7ab285bf76b4addf65abd910b8c8b816"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometryRetopoUpdate.jpg",
+      "sha256": "394c465fdde03ed1bad988a154adf692ef03b7d0562a4a0ea6f379f63c3bf188"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometrySkeletonCreate.jpg",
+      "sha256": "1a06bc30d557ebbfd6860b20eb119b6ffefb1708a443d106a206cc0bfb16a7a8"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometrySkeletonMirror.jpg",
+      "sha256": "f04025c9a13b271bdbc29187e4ded5443ec5a110fb03de4e154ff72f0acf6302"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asGeometrySkinCutUp.jpg",
+      "sha256": "dd99dd91bbfe66cec26a4ad6276e37911c3720cda0e61920ec6fa9e5bf9c5677"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asJointGroups.jpg",
+      "sha256": "9e6c47b3826ba80418033dcc697f818dddbe0dfbf9e3d9db054b72a1ff402ef6"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asMirTrans.jpg",
+      "sha256": "985643e2d4f075eb9a1617cbac04a4b1ed3e040328d17a13b52fd6093db10291"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asMLTools.jpg",
+      "sha256": "4a080cafef9f41959baf99897dcbbb73366da65f7c2c6cd9411bedb057bb1d10"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asMotionCaptureAllFK.jpg",
+      "sha256": "a7f6b8c75d619dd02304913d123caf95ee7cb51e2174efdaeb9c78f85118ac8b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asMotionCaptureConnect.jpg",
+      "sha256": "61ad803b581e3190bcdab1697b38e9a29fa398332dc987c8694f244183122add"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asMotionCaptureCreate.jpg",
+      "sha256": "108c81a6fed2b176512a2e0dae7f59ae73ff072bd55e4fb6e1d2e58c61aef11e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asMotionCaptureReadBvh.jpg",
+      "sha256": "a9e13eb6547882085b727809fe52f392e2ed6680ad93ec3166befc32b73ef3bc"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asMultiPartialJoints.jpg",
+      "sha256": "898dc98ce752c4dff3376c85b2af88a948f91c35365fd99e84bd6f6d84990af5"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asNameMatcher.jpg",
+      "sha256": "ff549b76b93adf6efe15716a811558bc260e28c6fb6376fe806c176552460e8f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asNotYet.jpg",
+      "sha256": "3327c1eb8d2a6b7b54a6edd7e7c304378665b080222179d2763d79c3b9019d0a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asOffsetParentMatrix.jpg",
+      "sha256": "e973184400aa83e1d9f9e2e09c095e8bf1a3e0741682ce91008090c53bda4555"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asOneJointProp.jpg",
+      "sha256": "2e6e2384ecabeb6bf1b93eab1206bde30edfdcd860c9c0ba294868af971720db"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asPartialJoints.jpg",
+      "sha256": "f485c9c8381a0b0297e021a7f6c5dd6f7c34250cdc35e085d761c19fbec474d7"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asPhonemes.jpg",
+      "sha256": "ab2fea45627ebf492a0fe46822c7acb14bfb28a62b3b8b25d3fe5645fa0db4d9"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asPoserDesigner.jpg",
+      "sha256": "58ac262267ba03e65ed2242afa4833ab6ea68ba20c381536048616962f564654"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asPreModelChecker.jpg",
+      "sha256": "aaefb968d5f0ca5329b5d7f2601e114ff63465b5e1dba5a7d8bd8cbcfe61f48c"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asPreModelCleaner.jpg",
+      "sha256": "91fdd6ac27585c47bf49b3b50779714aa7351c2af6ede22f083f1ed378a4132d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asPreNewScene.jpg",
+      "sha256": "926b94145efb906ed4780c28a2a755be96513c5853cc45a17fdf72637da86205"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asPreReference.jpg",
+      "sha256": "0b10cf61b0852f19e968f1a30374c704d2e7b059228d881635522db0a321fbc0"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asPreZUpAxis.jpg",
+      "sha256": "b072082d01eb4feafed70548b38b9b8854d691e8ab2cf248fa4f19f31b27045d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asPublish.jpg",
+      "sha256": "855d5926b20bd296a113ad4149176cf3f7f86a3c40884f67d500f07dd8d0a5a3"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asRebuildDagPoseNodes.jpg",
+      "sha256": "e8c0dd5b3feb6f31cf7c2ce5be4b166ef1e16dfc9488ebdf47327eda9655cc79"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asRenameToUnreal.jpg",
+      "sha256": "ce1bd9bd12ee498fff5333e72cf20f169c933b4908c40b1b368145037f496013"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asRenameToUnrealRestore.jpg",
+      "sha256": "17611949d032e9e1c8dbc8237f4ece14194c5402f85c94337e5e88a32d5db804"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asScrub.jpg",
+      "sha256": "42e5a6e4b4f21bdfa4f4c0d0b596fa59c5456870d883d65d2586613a60123091"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asSelectorDesigner.jpg",
+      "sha256": "5060337217c84c922a084dc6f0ab1243336a97811510483c1be6c8c6930b2e67"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asShowLayer.jpg",
+      "sha256": "60cf2a5b7380a1d18c59b567bbdd3f4659773c7b29c335e503dc3ddb113ea9fb"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asSimplerEyeLid.jpg",
+      "sha256": "6ddd730f7f0bf66a90a422084015373a85cfcfe572fbfa38850825ec03d9e0cb"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asSkinControlCreate.jpg",
+      "sha256": "5cbf6886e4fe53ccf6320901ae96158c66f7b2f31b932261d450394fc50db910"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asSoftModControlAddInfluencedObject.jpg",
+      "sha256": "d34b0c855551c2d555e6f1c84590cbbcfa0710d75e2ad3389112c218e1ff1755"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asSoftModControlCreate.jpg",
+      "sha256": "071ab701422d891a83a09916a1a1d441024fe0cd15b0d0277784a54a5263a226"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asSquashControlCreate.jpg",
+      "sha256": "4b923c6c4d811322e37fe68b19aeb9c5f2fae8342ea386fb233ef4f6fe275fd7"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asStepBuildEyeBrowCurves.jpg",
+      "sha256": "861cb2cced8dee18a575ae766dd395a630302d4e3f41730f4bfb29dc3f0810c2"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asStepBuildEyeBrowObject.jpg",
+      "sha256": "60fae380ff092588029a8e096257232fa9f928e220520cfa398dfba5a23b053e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asStepBuildEyeLid.jpg",
+      "sha256": "13a096a5abc9cb8b1ae8bb7230d3b5c51f54edc614481790ce2e399019f94137"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asStepBuildJawArea.jpg",
+      "sha256": "11994752eddc653a167a4803d4222cb49e41759fd9611dc8249c720831492fd9"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asStepBuildJawCurves.jpg",
+      "sha256": "1809542d87a783d65ca7985e4cd5ea3eaf785aa8cbe3fe7bc0663993ac1f4793"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asStepBuildJawObject.jpg",
+      "sha256": "8739b3b72aa9d7f139be6a4be8c37ba1220ab43b0b4f33f2c15a701a758d6dd6"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asStepBuildLipShape.jpg",
+      "sha256": "2d203988554545b8625dc9b149f902b0422475a7b73c804158f011bc0476cf84"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asSubControllers.jpg",
+      "sha256": "bad10eafc7cd6f770a5681a387cc3736123b488185f5677a7ff69ace4875b1a1"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asTweakControllersConvertBackToControl.jpg",
+      "sha256": "dcfc7465cfc7781618350b4718cb3bcb56712c38f7a4946f884250372a963b4e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asTweakControllersConvertToSoftMod.jpg",
+      "sha256": "1d40c47b9942f94732ba6e4077b2c662d0a28b0fe36c7a0b2b0a2224fcbf8d4c"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asTweakControllersCreate.jpg",
+      "sha256": "63ba70ce9baf3f8059978a2c44ae627c985c30fefbf18616667093e683d2a348"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asTweakControllersMirrorWeights.jpg",
+      "sha256": "baa630aaa2ccbc566948319ba76901ce5f2370ecf9aa42d861cf4b5fdb75ae0b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asTweakControllersPaint.jpg",
+      "sha256": "2b28fb263b4b49e68a9e8eaaabebcd91964733f5f9392a7f1ec36dae5a0fc3a1"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asUnrealCreateJoints.jpg",
+      "sha256": "2fa76428dceaa41e28e1a5f8d1541b709f006162ad1346efd0da83094c8455d0"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asUnrealCreateMannequinJoints.jpg",
+      "sha256": "b44e29315a403cc54fb53be9bd46a12a85e456084ce2b49742abd1867fc60aaf"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asUnrealMannequinTransferSkin.jpg",
+      "sha256": "c57f3084bdbd24411778855af9f839d250b1141bae96cf0c92989dfe00e7efb0"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asUnrealTwistJointsHierarchy.jpg",
+      "sha256": "531a19615c37f3adb841ff15d4c1e0e3870d672942dea5dafcef011db77f42a4"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asUpdatesGreenFix.jpg",
+      "sha256": "a1df94ba53784d36365c8184d31c87eabdab5d9b9f792861c020ad6bff9ece62"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/asWalkDesigner.jpg",
+      "sha256": "df0f7e567d756d40bbda165db248e6bdb34b740bde7df9b9e4fc01cc1fda3058"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/BodyPreAll.jpg",
+      "sha256": "90e291d004e084ba5db5474c7528f1339ab81ec38929f148c115e3fbba60280b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/BodyPreLeftEye.jpg",
+      "sha256": "d11d55e846b9877426e347f897ddfdb205e0125671c576cf9ccf9f7f2a93a468"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/BodyPreRightEye.jpg",
+      "sha256": "91b51cb7d4d93226544ab4101e3b9427c1a27e49c88e83fb851644a5a8977b38"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/BodyPreSkin.jpg",
+      "sha256": "fff7e57c18403f77a389e874d2ae0fad1ab57aeca4f9d4d61a8f5526e3b9c7ed"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/desktop.ini",
+      "sha256": "1ddfd96737aec5e6c61e2a57a9e6131a1e22e5b5cebb5407d45c5727fa79f1d7"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/faceCyclops.jpg",
+      "sha256": "9c3d5c4bba18724093db7d27a5d9347be708651fe1a9e83918ddf0f1ef5f7b50"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/faceLongSnout.jpg",
+      "sha256": "e73384e198cecfc216b3ca177a0fb9cc8ef9a22486db93c2dbfce2ee0fc17b30"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/faceMultiSkinClusters.jpg",
+      "sha256": "58e29a6fff96f366bb587091cd51045063ba53cc188d9da69a65ba04282d43fc"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/facePreAdvanced.jpg",
+      "sha256": "096e9afa4d45061de890943fdd7287e10cc2e27a6a1a713c4db5209cded4a45a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/facePreAllHead.jpg",
+      "sha256": "5ee4303c6bf4cc71f62703c328f8898d800a946ba85e44a1b054f02253c3d9a2"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/facePreARKit.jpg",
+      "sha256": "25af18ee181045eb2343ae6ee0bfb8f99b7b012966f0d3f544657d72cc49a116"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/facePreExtras.jpg",
+      "sha256": "f65f6e1b7eb6a7ccc0c2d78e6c43a959ba5903dc3b97c8aeb574dae104d1445d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/facePreEyebrow.jpg",
+      "sha256": "c69c06852ce76f9208de564ecc575dc4753c8e0e7f5d5ea6658c0c7a6dcf496e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/facePreEyelash.jpg",
+      "sha256": "cee9ddf609209124710dae4f16b52f89ce0c755ec62ce641a2b8840183255c11"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/facePreFace.jpg",
+      "sha256": "5aaa50877df9d1351eb6c926349506f4c0a2a9db447f7b80f79748b26936ae95"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/facePreGameEngine.jpg",
+      "sha256": "87b95e93984c50dedd2e01858fda4b0a6b0b0d66252ec3120b840001d0143f0f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/facePreInclude.jpg",
+      "sha256": "ed1e53de1873d45192a6967dc42ff99ba82abd64ff750d57f5d9435da901861b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/facePreLeftEye.jpg",
+      "sha256": "e7b7c0e7a65ee707f3e53989012756d28f8a349d8d8ef5745f90f30335c44cbb"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/facePreLipCtrls.jpg",
+      "sha256": "bb685d280941b15082cbbea382d336c26d0860c8833a8d1a76023bd66c84d216"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/facePreLowerTeeth.jpg",
+      "sha256": "30e5a5e813fc96130d1bff33c634260ad69859d96537c34919dccde92e5499a5"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/facePreMask.jpg",
+      "sha256": "2d0bb1cf62631844d4867c9f9fe64c3d6e869597d1e9e6ae71ba035da853cbf1"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/facePreNonSym.jpg",
+      "sha256": "456a60505b287773115c52b02dee81356271bafcb2892461ef2f58f96d7ea9bd"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/facePreRightEye.jpg",
+      "sha256": "0ba62ed4040003ef41395623149fc8759683dfa1a05c7e4ca910e01cd1ba97c8"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/facePreRigType.jpg",
+      "sha256": "1812ad42f0d2ca2927b039babd0697d1cad99709feea1275673504f6c7bd3384"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/facePreSnapChat.jpg",
+      "sha256": "4959a3caa9db6ba0d2535c68294f99d25c9741483ef3583cab3206e894c84e43"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/facePreTongue.jpg",
+      "sha256": "94b9f7c03c1a20b3d8b46b580b76547ffe5abd89ae8142d6ec4d2e02997a96bc"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/facePreUpperTeeth.jpg",
+      "sha256": "a1b6acd8ff5a0ff2d8324aa94cdd0ec276a67f0232de0a74eb0b85963a877e63"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/facePreWonderStudio.jpg",
+      "sha256": "1aa1275144956665240eb92e7cf6bcc7e326e087a2f624493f4e6dbf5934f83b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/faceRobloxHead.jpg",
+      "sha256": "b7590fc808f96b1da9e1fa1f5ad4f0864a7eba1a665a70a0e0317650480c4e68"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceAnimate.jpg",
+      "sha256": "77f78c529d4103a5b39013274f9722bd0ec2ad822a1dfafc8268a61e06724604"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceAnimateFit.jpg",
+      "sha256": "20355cb7aa3860c21a351a603f002b8b54f6bf78125f0e8573fa42799a5a4dde"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceCheek.jpg",
+      "sha256": "f11a5c284caab682a42907b5b7e6c355042cb75e7c285ae93affc1b73604c4f3"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceCheekBone.jpg",
+      "sha256": "7c49530febb338de8e59c1294e007861e79afff08783975ca781cc9a502418fc"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceCheekRaiser.jpg",
+      "sha256": "c660d2c5f9fb71bf3e214774b51262a384b02e6b7b8ca5cf58db7183a362d72d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceChinCrease.jpg",
+      "sha256": "83923a1656c7c638e1268e7148f697b2517972453c0a95238f9ce0e208c9ad81"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceEyeBall.jpg",
+      "sha256": "ac04a95bc22d2a8b111eb93e35714a4fa742def18ab192693219a2e194a3bc26"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceEyeBrowCenter.jpg",
+      "sha256": "322d2894d28f32e65d884cc3fe7f2001f289ce231a9f72ca70b11e1b5fcf3e5a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceEyeBrowInner.jpg",
+      "sha256": "737d2616d22bf1d07d2c41dec1368e10e3fd3014acf3aa93c89233556ca1b842"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceEyeBrowMid1.jpg",
+      "sha256": "1d7b9dfb92bbcec777e23de0ccb95178ce80d494a56af150cd04554fd1934407"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceEyeBrowMid2.jpg",
+      "sha256": "b7a8621e216cd6405ba4078aa5876be716d41ce535581d062be1392892306269"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceEyeBrowMid3.jpg",
+      "sha256": "d0f67b57a1b9de66de319a01dfce327aa9de600967b146e92395d7334af59b4d"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceEyeBrowOuter.jpg",
+      "sha256": "da6e308076007c0dc5f933060f7c9cfb82481cd2dde0b34e25146c028b72da12"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceEyeLidDroopy.jpg",
+      "sha256": "fa1631bf758349784bbedc1ef60116aa578366606edfc7a4f5b673fe025ceb61"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceEyeLidInner.jpg",
+      "sha256": "2f2f95cae381a985d4796d720f9c1c0465b26265a97809cf300b9bcc1419b572"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceEyeLidMain.jpg",
+      "sha256": "279f77c94b895acc301a6dd1915f22251d648a174440988478ef8499c6051c45"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceEyeLidMain2.jpg",
+      "sha256": "134d091a7b5fdb66e846a58005fa3c965fef26faa2e4a82706a038d1692c3466"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceEyeLidOuter.jpg",
+      "sha256": "446448e6f6ccff8351fcf299045c8dd14c7ffa960b0ea8d02fdb7bf2ade13912"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceForeHead.jpg",
+      "sha256": "78ae6811b96dade3224dc6852f634aebc292113b175559881086d1d16be2bd6f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceFrownBulge.jpg",
+      "sha256": "622820d8faddacd520dc8cfcbb0852f6d3df71cee301caa6eb5791d7921e3e01"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceIris.jpg",
+      "sha256": "2728e3b3523ef0c6f8adc1909a044b2d4a38681fe97a993b25ae94c7cf8d4e96"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceJaw.jpg",
+      "sha256": "ba5b5c522152b334d82d7503bd79934c132c9a10650f7c6876beb1e108fdbd9b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceJawCorner.jpg",
+      "sha256": "4220a1ffd50aa93956ba999332b653ca5a45a6f95b088a9bbdb70d8a85261122"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceJawCurvesTweak.jpg",
+      "sha256": "f6584557d58c8ba31dd3809c55ff9d3b077979d1c16f3ed345328c9cea1d5b9e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceJawLine.jpg",
+      "sha256": "1bfd0d864228ff5289dc65f4436e257ddca059e0db542e568fffd9dcf18a6fd3"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceJawPivot.jpg",
+      "sha256": "b9a434f3ad69e8d7ef402596c93d2676e501c15050846f2af8d7f54f820fd10b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceLine.jpg",
+      "sha256": "b4697b89b395bf3b0b8d44252dd5d1294028352e7174b1e73e82d9547f6cc62c"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceLipInner.jpg",
+      "sha256": "5a486c2ee50d1939d922ab46696c725a75485a0b2c14acdc64f841db00a790d2"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceLipMain.jpg",
+      "sha256": "c194daed37a95e46743dfa7ca7b71d10fec7ef545c8cb59f90f9f558880f0231"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceLipOuter.jpg",
+      "sha256": "711a2d79e83745bcb2db3f8eee0172c0c4202dca06fbcec5d1e1a1b8e65612ab"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceNose.jpg",
+      "sha256": "fd0b0c4e398c8f15c4ada6ef8a52c7de2d9d080dc66710b099c241bf43d7b6e8"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceNoseBridge.jpg",
+      "sha256": "c1e04cddd1f806f3a486a5a0764b3c5f7e257e770920884722a033ba28db9c36"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceNoseCorner.jpg",
+      "sha256": "047cf74d3ab6c9a333a7f7d0daef3fbdce64bd5438615e9f565fd832eef864c4"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceNoseSide.jpg",
+      "sha256": "55361a7bdc26081aa5605d9295b2659eddc57f76ca0b05e43b344d04bd1c71cb"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceNoseUnder.jpg",
+      "sha256": "626757e4ebd8c9e4814081bb54b029733743340eeabefe6b6f7b84b111fcf917"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceNostril.jpg",
+      "sha256": "4f29a51ce4b4ff284fa76a225a8f15b41d182924b2351f73dd46c61ec4508baa"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFacePupil.jpg",
+      "sha256": "6310823250f93fbb240c0d70b7567da17cf078d8a1c2fe6da7d83d73dc190022"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceSkeletonNode.jpg",
+      "sha256": "52017d731e34a47430e975610b0baaf71d0176bec3d7affb46c7fee2056d7b63"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceSmileBulge.jpg",
+      "sha256": "c5b9f5d4620aeb7066a2e420866aec0b1adb133e0811e42d8e86e9707bce2bc4"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceSmileLine.jpg",
+      "sha256": "9ef4de908b1f23cfdc02c9a4b0969df847591bce272896d88697b042b361077c"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceThroat.jpg",
+      "sha256": "8e20e90850d7f790cf84154d475f9eb54b96610c449d57612ded1eb5ee58e466"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceTongue.jpg",
+      "sha256": "e5cd9f59eef4b1dacabfb99dc88f26e0e1188639a01d81511949adf94d279c99"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/images/help/fitFaceUpMidLo.jpg",
+      "sha256": "eb7753d1e0f2809b25a90ee9f560d6d790a9106166c1307a80211226d6651add"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/motionTest/body/rangeOfMotion.fbx",
+      "sha256": "3a0d3a11cf4e658917e81acdf9bdbc50cb1db630bf8d6a543daf18ab81af39b8"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/motionTest/face/rangeOfMotion.ma",
+      "sha256": "4482eeee366362eb56477b71a0d697384a5d68ce7142d8b51148366ecacdb2e2"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/motionTest/face/testMotions.ma",
+      "sha256": "808cfe8dfdcd85cb678ca6a8daf66176fd95a968ccc4a21930813fa662f77bd6"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/div/sound/exampleVoice.wav",
+      "sha256": "bd06bd0f7cd3feb3d38c73bdb729613da4fa0b1d467ee714dd21f7a2d5cdaf93"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/exampleFiles/downloads/DemoVersions.txt",
+      "sha256": "fb443ed70873436fcafa5821145996d45840a84897db1d1a54d32be51531685c"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/exampleFiles/downloads/sam/credit.txt",
+      "sha256": "e59853c9940acf3782bc211d65e47f6bfb299cffd2745b334dd0edf49bad18d9"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/exampleFiles/downloads/sam/sam.mb",
+      "sha256": "87d6e0b26d1c71f15fd39cc9b1cc89b1e8cc371de7fde30f4d52249a161a8f77"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/exampleFiles/readme.txt",
+      "sha256": "57d2d4d26e39daab3f251f61d70ab5c1b89716c465546728782d44cc8c0e1ec0"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/fitSkeletons/biped.ma",
+      "sha256": "ba2f494f060637e56f9a7d700d622089302ba375e090018fd6e5e76696688db9"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/fitSkeletons/bipedBendy.ma",
+      "sha256": "a3e3d87b573f2a5ca2b02d57d63fa5676c7efbbf51ca9de5cdda7ce715a4a6c5"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/fitSkeletons/bipedGame.ma",
+      "sha256": "82ca4ddc17a18c943657a8766093291bdd1ba64d4059caf3e0fb1ebff427c30e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/fitSkeletons/bird.ma",
+      "sha256": "1ee07dadfa35efd8ae3049aeb8eb00caaaa43c34097159ca8bf2192963706cbb"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/fitSkeletons/bug.ma",
+      "sha256": "6d3e08800af9c9672d2efcadf148b82f08ca48bb81ce444df788ee3cde6dd230"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/fitSkeletons/cat.ma",
+      "sha256": "afb44e7e354e4a114c8be080259e3346abd1ac5289f499e84cb6eba92b357290"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/fitSkeletons/dinosaur.ma",
+      "sha256": "d24387683993d2e106f9b3d1ce4c849770204c53bb8e6a15670cf28d7a61a478"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/fitSkeletons/dragon.ma",
+      "sha256": "6b3939973a1d35afb341656a650520ea7d4157d8dc33c0ad74fe9b71482824db"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/fitSkeletons/fish.ma",
+      "sha256": "3961b36aa90c34ba1b22b4a1a75e31c7f2b859bc0b2a8306aa5f02434492f2fb"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/fitSkeletons/gorilla.ma",
+      "sha256": "509790c4323fa75ce244eff4d67678369ab789c10911dded292d7836ecc2b34a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/fitSkeletons/horse.ma",
+      "sha256": "54b7a0af5cbeb090f3eb973e7c095ba5a0637c7b79822e63c7770726232537d5"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/fitSkeletons/previs.ma",
+      "sha256": "2998970e4e337a81ae7a3cadf30cc64cb96f3773f7b67635a5a278e9537d9349"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/fitSkeletons/UE4.ma",
+      "sha256": "353b5f8f9bca8805cd0646f88f1da07cbe4e27dd1d2119c2b1433e95f751148f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/fitSkeletons/UE5.ma",
+      "sha256": "8c1bbf11226a348a25d3f62c47029b52fa4d5991b10c3327980730b80c0332e0"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/fitSkeletons/vehicle.ma",
+      "sha256": "da520d87ed59f12749da6a7343a6b8ef935ecc1c2d5b6b95ea18bc98496a7432"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/fitSkeletonsLimbs/foot.ma",
+      "sha256": "c18024d6b3d2587daa0807ca745719eb921b9c34767fde655aca916171165116"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/fitSkeletonsLimbs/hand.ma",
+      "sha256": "9e9286cbe6f1740580a509b455eed3118973fd8a3479fbaebb06cc5904a6d1c1"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/fitSkeletonsLimbs/tail.ma",
+      "sha256": "ccfea06d47a317fc5a1324de59940f69872d4622c03a0113176d20d6e2f678c3"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/icons/AS.png",
+      "sha256": "7742784354b03ccd8bfde6bbf03756263c456c1d0ce88b3dd5fd250407b9db92"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/icons/asBiped.png",
+      "sha256": "069180881342ab6059abd490b1578cf0303e10632ba4fd3eeef198d74eeb73fc"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/icons/asFace.png",
+      "sha256": "8b71070d1cbc773a2b7f032ce1b83c1d7faff82aa5afbabe73c4403a2741bdef"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/icons/asLogo.png",
+      "sha256": "e260efd8e40e9e87b829132a3749ed757c22fad2b9a9478b192b41d8012641a1"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/icons/ASversion.png",
+      "sha256": "892925cd8de95b8783c2164eb51f0b6c19b8049d3913f0dae9f292ae24f84b76"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/moCapCNUlib/moCapCNUlib.txt",
+      "sha256": "8019b000a67d8a199c3857c81df1b5d9c6ca335960200546a6ce44b01d91c346"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/moCapMatchers/CharacterCreator.txt",
+      "sha256": "ea9c6240db7b892e5e7dd5bbf4bc6a215e7fcbec8b67a272c90c2362df1f3ba3"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/moCapMatchers/DeepMotion.txt",
+      "sha256": "ca1ae899bed3c5b69cfc649a2306784542ceb3a32b95ad37b25ed8a77ef2a57c"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/moCapMatchers/HM_woman.txt",
+      "sha256": "319a8c3cea945f765f23f909c6781114d630198686cf6ebac923ec123dd63d8a"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/moCapMatchers/iPiSoft.txt",
+      "sha256": "9d049c64162caf77611babe58686000ea6a6dc6a0c049fc4b1c91c31a26ae8d5"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/moCapMatchers/Mixamo.mel",
+      "sha256": "4d8419470f6a6f092c0a22224661798aaa894adc17cd581db4bd4e0ddfa2a10e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/moCapMatchers/Mixamo.txt",
+      "sha256": "5eb6aa09ec8cbbc7e8ad5087a73e5eebc1233a9a2d83d6e39d85a1b3498a1b13"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/moCapMatchers/MotionBuilder.txt",
+      "sha256": "5eb6aa09ec8cbbc7e8ad5087a73e5eebc1233a9a2d83d6e39d85a1b3498a1b13"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/moCapMatchers/MotionMaker.txt",
+      "sha256": "e9bc1074b4839222354e8d8abc56fe800c7d9c3a811affbce84d5e4045aed761"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/moCapMatchers/MoveAI.txt",
+      "sha256": "01f92469af8c5893fc244617bbfe5759f383f4f142376812b09fece9ccd27bc7"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/moCapMatchers/Plask.mel",
+      "sha256": "1bc455c25448514d5d2b08d3efeffe061941ed2f3c2db080bb4b252f7ee52e8f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/moCapMatchers/Plask.txt",
+      "sha256": "8be72736b5b7e63a54e345958ac6b91e755e68899f2e203d9b9543ebe3b27f50"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/moCapMatchers/Rokoko.txt",
+      "sha256": "322e3b4d1c914b950b91ddcb06e4f21e9fba09d68c6a4f37370ededac97d2481"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/moCapMatchers/Unreal.txt",
+      "sha256": "2fc736f8f71220529ef0217e13b98ae219201916e81852e3ad0fc14e295202de"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/nameMatchers/AutodeskCharacterGenerator.txt",
+      "sha256": "ab7978656693f92347f2973ccaa93634eb653b407b08f8518f88a780bf0e39f1"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/nameMatchers/CharacterCreator.txt",
+      "sha256": "ea9c6240db7b892e5e7dd5bbf4bc6a215e7fcbec8b67a272c90c2362df1f3ba3"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/nameMatchers/CharacterCreator3.txt",
+      "sha256": "aee01e6416e1969b4250845f3d89ac0bef91ce515d903a023c787c2514c90dd2"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/nameMatchers/CharacterCreator4.ma",
+      "sha256": "b262fecdba20f1fb8248828e3455fbcec1f92f2f353b23f3f885ef6134aa4e8b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/nameMatchers/CharacterCreator4.txt",
+      "sha256": "46142fe58d308d63c8f499671e7a12da2b568efa1aaa09aafb362f8e79338376"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/nameMatchers/Daz3d.txt",
+      "sha256": "88ca69b47807dabea970b8b40c1734697b3b8dbc3b19535b8f4b79239b6b6246"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/nameMatchers/MetaHuman.ma",
+      "sha256": "10bf73c4b6ee3fbf3a2e333ff05d5ecc88b6a9715e217b7c1be74325823035fd"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/nameMatchers/MetaHuman.txt",
+      "sha256": "0fc397b99c911969ec1f40bf59f445e3abc1b80a480a5fb7fe6b5b5c91b4fe51"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/nameMatchers/MetaHuman_old.ma",
+      "sha256": "10bf73c4b6ee3fbf3a2e333ff05d5ecc88b6a9715e217b7c1be74325823035fd"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/nameMatchers/MetaHuman_old.txt",
+      "sha256": "e38894cbecfdf9323fa6c69e2929277e80e7f98a902c5954b3886c0c43465c34"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/nameMatchers/Mixamo.txt",
+      "sha256": "f940070aa0e5d3e2961da13d6e5ee83725fd5554ccfd22ea2fe5b1fda0fe9eaa"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/nameMatchers/Poser.txt",
+      "sha256": "6ab7dbd2425c23f49948cac938e0f9336f7e26aec2ec09603906607e5cf3d822"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/nameMatchers/ReadyPlayerMe.txt",
+      "sha256": "f940070aa0e5d3e2961da13d6e5ee83725fd5554ccfd22ea2fe5b1fda0fe9eaa"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/nameMatchers/SuperStrike.txt",
+      "sha256": "1cfbd5374acc7b17ee5704b2b7ec142848f052280b8afd81435fe156cbe334bf"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/nameMatchers/Unreal.txt",
+      "sha256": "18e0edf6ad7dca86a31d7c846e7ee758d39e9e157a3c2f867b9b3b8d202dff0f"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/nameMatchers/Unreal5.ma",
+      "sha256": "18462eb25a00970abc8d21bc3ca3393cf95d4b1f8c42291f4a5aa237f5fee2e3"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/nameMatchers/Unreal5.txt",
+      "sha256": "b3de62a4ec895ab75b296f2bca154ff81b142069197e3d572a63106da4905f96"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/picker/install.mel",
+      "sha256": "5d56a4680c16ac212d74e32fc6b910c4313209ae4e336c867c9327b69fe6a982"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/picker/picker.mel",
+      "sha256": "0af9fb7beb12ed14142f3be5808afa27ef89f9df4cfaa7ea5feaba3b149255e3"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/picker/pickerFiles/icons/picker.png",
+      "sha256": "d2eeb3fe525ee2e75f031dd6cef307c1b51c692f9aab201abf1530b748125c59"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/picker/pickerFiles/scenes/biped.ma",
+      "sha256": "707d625aa28f4ea594a3b0359c75478589a3d230ac5677cd79623878c74ab337"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/picker/pickerFiles/scenes/face.ma",
+      "sha256": "253c155e00a2fcaf5565079ae253ee388a6ec4b88e59d52f96b89921d4119669"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/Selector/biped/install.mel",
+      "sha256": "ac684ac75306a5595be11806a412a91a32ea8e31ef3cc6be747df7cf6fd25b6b"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/Selector/biped.mel",
+      "sha256": "43ba982a55d18cc9dac2720304e6ddec91f71826ef5ff75c20d8f9605cf8aa4e"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/Selector/face/install.mel",
+      "sha256": "cc6ef9d30009e90d5d371ebf2f26638b555f4ebb66fa5ffb9d88cac3c9b57514"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/Selector/face.mel",
+      "sha256": "4797219982c4aba3c3b18e861135d8023f81c93b5b8e174424f5ad1901edbc27"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/Selector/scenes/biped.ma",
+      "sha256": "14453951c0aeada42bcb407bab08af5141a310599771106cda534cedc206c7da"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/Selector/scenes/face.ma",
+      "sha256": "fe99365fcd4aa037d0fa0ff5d84685352e7b207e3e523d89f90e6f0f1f18f9e1"
+    },
+    {
+      "path": "AdvancedSkeletonFiles/Selector/scenes/horse.ma",
+      "sha256": "5285885da51379c67f2327a1057876772a8cc827e69b034522fd133cd52bdf93"
+    },
+    {
+      "path": "eula.txt",
+      "sha256": "6db19108677e6acee89dc61bb19b77987c09a4f9ca51dc35db7fb25178c65e8c"
+    },
+    {
+      "path": "install.mel",
+      "sha256": "4f1fc8105512f680276b8a689d42b5318c1d4614c3dbec9ab186aa9c0db157a9"
+    },
+    {
+      "path": "install.txt",
+      "sha256": "454139329aedf8859a86c7c18c1bf2b9ed207d7c9f482664f9fd58d215818923"
+    }
+  ]
+}

@@ -1,0 +1,282 @@
+{
+  "date": "2026-10-15",
+  "maya": "2024",
+  "adv": "6.640",
+  "source": "E:/TOOLS/adv_rig/AdvancedSkeleton.6.640/AdvancedSkeleton.mel",
+  "requests": {
+    "windows": [
+      50,
+      54
+    ],
+    "pose": 53,
+    "fixture": 55,
+    "fixture_cleanup": 57,
+    "bake": 60,
+    "systems": 61,
+    "linear_and_extra_parent": 62
+  },
+  "operations": {
+    "pose_copy": {
+      "scope": "maya_fixture_effect_checked",
+      "details": ""
+    },
+    "pose_paste": {
+      "scope": "maya_fixture_effect_checked",
+      "details": "ADV 姿态剪贴板文件"
+    },
+    "pose_reset": {
+      "scope": "maya_call_and_undo_checked",
+      "details": "buildPose.udAttr"
+    },
+    "pose_tpose": {
+      "scope": "maya_call_and_undo_checked",
+      "details": "buildPose 与 ADV 双臂 Tpose 关节"
+    },
+    "mirror": {
+      "scope": "maya_call_and_undo_checked",
+      "details": ""
+    },
+    "mirror_options": {
+      "scope": "maya_ui_open_checked",
+      "details": ""
+    },
+    "animation_copy": {
+      "scope": "maya_fixture_effect_checked",
+      "details": "无目标动画层；复制全部原生曲线，不裁剪时间"
+    },
+    "animation_paste": {
+      "scope": "maya_fixture_effect_checked",
+      "details": "ADV 动画剪贴板文件；无目标动画层"
+    },
+    "animation_clean": {
+      "scope": "maya_dialog_effect_and_undo_checked",
+      "details": "Cancel preserved both curves; Yes removed static tx and preserved varying ty; Undo restored both.",
+      "date": "2026-10-16"
+    },
+    "bake_options": {
+      "scope": "maya_ui_open_checked",
+      "details": ""
+    },
+    "switch_fkik": {
+      "scope": "maya_call_and_undo_checked",
+      "details": "选中 FKIK 控制器或相关肢体控制器"
+    },
+    "switch_pivot": {
+      "scope": "maya_fixture_effect_checked",
+      "details": "目标、带 Extra 父节点的控制器，顺序重要"
+    },
+    "pivot_control": {
+      "scope": "maya_fixture_effect_checked",
+      "details": "旋转/缩放 pivot 无已有输入连接"
+    },
+    "quick_ik": {
+      "scope": "maya_system_checked",
+      "details": "同一关节链的起止控制器"
+    },
+    "humanik_options": {
+      "scope": "maya_ui_open_checked",
+      "details": ""
+    },
+    "mocap_matcher": {
+      "scope": "maya_ui_open_checked",
+      "details": "执行匹配需要源动捕骨架和匹配模板"
+    },
+    "mocap_library": {
+      "scope": "maya_ui_open_checked",
+      "details": "Y-up；具体素材可能需要另行下载"
+    },
+    "arkit_options": {
+      "scope": "maya_ui_open_checked",
+      "details": "连接时需要 ARKit blendShape 和 ADV Face 控制器"
+    },
+    "connect_mocapx": {
+      "scope": "maya_fixture_wiring_and_undo_checked",
+      "details": "Root namespace synthetic data/face plugs; eye tx=1, blink=10, mouth ty=-2, head rx=15; Undo removed wiring. Device/plugin streaming and namespaced rigs NOT verified; namespaced usage rejected.",
+      "date": "2026-10-16"
+    },
+    "metahuman_options": {
+      "scope": "maya_ui_open_checked",
+      "details": "连接时需要 MetaHumanAnimator FBX 数据"
+    },
+    "video_mocap_options": {
+      "scope": "maya_ui_open_checked",
+      "details": "Windows；追踪需 asVideoMoCap 外部组件及视频"
+    },
+    "lipsync_options": {
+      "scope": "maya_ui_open_checked",
+      "details": "处理需 Montreal Forced Aligner、音频与文本"
+    },
+    "audio2face_options": {
+      "scope": "maya_ui_open_checked",
+      "details": "连接时需要 Audio2Face blendShape 数据"
+    },
+    "deformable_options": {
+      "scope": "maya_ui_open_checked",
+      "details": ""
+    },
+    "time_echo_options": {
+      "scope": "maya_ui_open_checked",
+      "details": ""
+    },
+    "dynamics_add": {
+      "scope": "maya_system_checked",
+      "details": "同链 FK 控制器与对应变形关节"
+    },
+    "dynamics_add_hair": {
+      "scope": "maya_system_checked",
+      "details": "同链 FK 控制器；Maya nHair"
+    },
+    "dynamics_remove": {
+      "scope": "maya_system_checked",
+      "details": "已添加 ADV dynamics 的 FK 控制器"
+    },
+    "dynamics_initial_state": {
+      "scope": "maya_system_checked",
+      "details": "作用于全场景动力学系统，并非仅目标角色"
+    },
+    "dynamics_playback": {
+      "scope": "maya_playback_start_stop_checked",
+      "details": "Native InteractivePlayback set playing=True, advanced time, stopped via cmds.play(state=False), restored time.",
+      "date": "2026-10-16"
+    },
+    "dynamics_bake": {
+      "scope": "maya_dialog_effect_and_undo_checked",
+      "details": "Native standard dynamics on three-control fixture, frames 1-5; nonconstant keys generated, Dynamics/BakeXforms removed; Undo restored dynamics and original keys.",
+      "date": "2026-10-16"
+    },
+    "parent_constraint": {
+      "scope": "maya_fixture_effect_checked",
+      "details": "父对象在前、子控制器最后"
+    },
+    "parent_constraint_extra": {
+      "scope": "maya_fixture_effect_checked",
+      "details": "子控制器需要 Extra 父节点"
+    },
+    "walk_designer": {
+      "scope": "maya_ui_open_checked",
+      "details": ""
+    },
+    "animation_tester": {
+      "scope": "maya_ui_open_checked",
+      "details": "部分内部按钮只面向无命名空间绑定测试，生产动画勿直接点 Apply"
+    },
+    "align_fk_to_ik": {
+      "scope": "maya_call_and_undo_checked",
+      "details": "Native returned; already aligned/no matrix change in sample. Nontrivial alignment remains unverified."
+    },
+    "align_ik_to_fk": {
+      "scope": "maya_call_and_undo_checked",
+      "details": "Native returned; already aligned/no matrix change in sample. Nontrivial alignment remains unverified."
+    },
+    "switch_fk_to_ik": {
+      "scope": "maya_call_and_undo_checked",
+      "details": "limb，例如 Arm_L"
+    },
+    "switch_ik_to_fk": {
+      "scope": "maya_call_and_undo_checked",
+      "details": "Native returned while sample already FK. Separate 3-frame IK-to-FK bake passed."
+    },
+    "bake_fk_to_ik": {
+      "scope": "maya_system_checked",
+      "details": "limb；无目标动画层"
+    },
+    "bake_ik_to_fk": {
+      "scope": "maya_system_checked",
+      "details": "limb；无目标动画层"
+    },
+    "bake_extra_to_controls": {
+      "scope": "maya_fixture_effect_checked",
+      "details": "匹配的 Extra 控制器；原生会替换整条曲线，范围外键不保证保留"
+    },
+    "bake_controls_to_extra": {
+      "scope": "maya_fixture_effect_checked",
+      "details": "匹配的 Extra 控制器；移动整条动画曲线，不按时间裁剪"
+    },
+    "bake_quick_ik": {
+      "scope": "maya_system_checked",
+      "details": "已建立 QuickIK；烘焙后移除 QuickIK"
+    },
+    "key": {
+      "scope": "maya_fixture_effect_checked",
+      "details": ""
+    },
+    "linear_key": {
+      "scope": "maya_fixture_effect_checked",
+      "details": "New numeric tx key tangent verified linear. Existing keyed values and discrete channels follow native Maya behavior."
+    }
+  },
+  "undo_evidence": {
+    "live_pose_control_matrices_max_error": 0.0,
+    "bake_curve_times_values_restored": true,
+    "systems_curve_times_values_restored": true,
+    "clipboard_paste_clears_undo_history": true,
+    "fixture_namespace_explicitly_removed": true,
+    "clipboard_files_restored": true
+  },
+  "pending": [],
+  "instance_transition": {
+    "old": "87608488",
+    "new": "7d54f658",
+    "new_scene": "empty",
+    "cause": "user_confirmed_crash_and_reopened_recovery_file"
+  },
+  "overall_status": "production_with_documented_environment_and_operation_limits",
+  "crash": {
+    "local_time": "2026-10-15 18:23",
+    "exception": "C0000005",
+    "stack_plugin": "MGTools/plug-ins/animRescue_2024x64.mll",
+    "stack_operation": "MFnDependencyNode::name from idle callback",
+    "root_cause": "not_isolated",
+    "log_source": "C:/Users/Administrator/AppData/Local/Temp/MayaCrashLog261015.1823.log",
+    "recovery_scene_test_nodes": []
+  },
+  "offline_regression": {
+    "tests_passed": 46,
+    "date": "2026-10-16"
+  },
+  "crash_guard": {
+    "request_id": 69,
+    "mode": "dry_run_only_in_recovered_scene",
+    "loaded_plugin": "animRescue_2024x64",
+    "scene_operation_rejected": true
+  },
+  "previous_overall_status": "failed_stability; remain staging",
+  "promotion_date": "2026-10-16",
+  "acceptance_20261016": {
+    "instance": "da5dcfae",
+    "maya": "2024",
+    "adv": "6.640",
+    "requests": [
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86
+    ],
+    "fixture_report": "tools_staging_pool/01_animation/advanced_skeleton_animation/verification_remaining_20261016.json",
+    "animRescue": "unloaded without force in initially empty test instance; production rejects scene operations while loaded",
+    "stability": "No crash observed during remaining API testing and subsequent idle; previous crash root cause remains unisolated",
+    "test_fixture_correction": "Initial dynamics fixture lacked deform joint parent; native failure undone, fixture corrected and rerun successfully."
+  },
+  "formal_retest": {
+    "requests": [
+      88,
+      89,
+      90,
+      91
+    ],
+    "registered_tools": 8,
+    "operation_entries": 46,
+    "ui_precheck_and_key_verified": true,
+    "api_dry_run_curve_unchanged": true,
+    "native_clean_effect_undo_verified": true,
+    "mocapx_fixture_effect_undo_verified": true,
+    "test_scene_cleared": true,
+    "temporarily_unloaded_plugin_restored": true,
+    "work_scene_readonly_guard_verified": true,
+    "work_scene_ui_opened": true
+  }
+}

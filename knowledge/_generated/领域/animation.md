@@ -8,4 +8,6 @@ domain: "animation"
 
 ## 正式工具
 
+- [[knowledge/_generated/正式工具/advanced_skeleton_animation|ADV 动画工具]]
+- [[knowledge/_generated/正式工具/advanced_skeleton_mirror|ADV 原生 Mirror]]
 - [[knowledge/_generated/正式工具/fix_rotation_winding|欧拉旋转360度跳变修正工具]]

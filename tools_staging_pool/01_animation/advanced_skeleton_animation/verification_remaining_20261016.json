@@ -1,0 +1,347 @@
+{
+  "initial_nodes": 59,
+  "clean_dispatch_No": {
+    "success": true,
+    "tool_id": "advanced_skeleton_animation",
+    "message": "ADV 入口返回：awaiting_native_dialog",
+    "data": {
+      "operation": "animation_clean",
+      "source_path": "E:/TOOLS/adv_rig/AdvancedSkeleton.6.640/AdvancedSkeleton.mel",
+      "native_version": "6.640",
+      "namespace": "",
+      "nodes": [
+        "|Main"
+      ],
+      "limb": null,
+      "time_range": null,
+      "control_set": "ControlSet",
+      "control_count": 1,
+      "animation_layers": [],
+      "label": "Anim / Clean",
+      "proc": "asDeleteStaticChannels",
+      "binding": "ui",
+      "execution_mode": "interactive_dialog",
+      "window": null,
+      "selection_min": 0,
+      "effect": "scene",
+      "requirements": "原生确认对话框；删除整个 ControlSet 的静态曲线",
+      "verification": "static_review",
+      "state": "awaiting_native_dialog",
+      "job_id": "09f73466181b4f4f8c2b05f2f24f07a1",
+      "completed_effect": false
+    },
+    "errors": [],
+    "warnings": [],
+    "dry_run": false,
+    "execution_time": 0.8676
+  },
+  "dialogs": [
+    {
+      "message": " Clean animation ?\nThis will delete static channels,\nwhich means remove all animation where the value is not changing",
+      "answer": "No"
+    },
+    {
+      "message": " Clean animation ?\nThis will delete static channels,\nwhich means remove all animation where the value is not changing",
+      "answer": "Yes"
+    },
+    {
+      "message": " Bake all dynamics ?",
+      "answer": "Yes"
+    },
+    {
+      "message": " Clean animation ?\nThis will delete static channels,\nwhich means remove all animation where the value is not changing",
+      "answer": "Yes"
+    }
+  ],
+  "clean_result": {
+    "static_count": 0,
+    "varying_values": [
+      1.0,
+      5.0
+    ],
+    "undo_static_values": [
+      3.0,
+      3.0
+    ],
+    "undo_varying_values": [
+      1.0,
+      5.0
+    ]
+  },
+  "clean_dispatch_Yes": {
+    "success": true,
+    "tool_id": "advanced_skeleton_animation",
+    "message": "ADV 入口返回：awaiting_native_dialog",
+    "data": {
+      "operation": "animation_clean",
+      "source_path": "E:/TOOLS/adv_rig/AdvancedSkeleton.6.640/AdvancedSkeleton.mel",
+      "native_version": "6.640",
+      "namespace": "",
+      "nodes": [
+        "|Main"
+      ],
+      "limb": null,
+      "time_range": null,
+      "control_set": "ControlSet",
+      "control_count": 4,
+      "animation_layers": [],
+      "label": "Anim / Clean",
+      "proc": "asDeleteStaticChannels",
+      "binding": "ui",
+      "execution_mode": "interactive_dialog",
+      "window": null,
+      "selection_min": 0,
+      "effect": "scene",
+      "requirements": "原生确认对话框；删除整个 ControlSet 的静态曲线",
+      "verification": "maya_dialog_effect_and_undo_checked",
+      "state": "awaiting_native_dialog",
+      "job_id": "5d135ddc6b3c43dda7e60123a8a7203e",
+      "completed_effect": false
+    },
+    "errors": [],
+    "warnings": [],
+    "dry_run": false,
+    "execution_time": 0.048
+  },
+  "mocapx": {
+    "result": {
+      "success": true,
+      "tool_id": "advanced_skeleton_animation",
+      "message": "ADV 入口返回：native_call_returned",
+      "data": {
+        "operation": "connect_mocapx",
+        "source_path": "E:/TOOLS/adv_rig/AdvancedSkeleton.6.640/AdvancedSkeleton.mel",
+        "native_version": "6.640",
+        "namespace": "",
+        "nodes": [
+          "|ctrlLips_M"
+        ],
+        "limb": null,
+        "time_range": null,
+        "control_set": "ControlSet",
+        "control_count": 4,
+        "animation_layers": [],
+        "label": "Anim / Connect MocapX",
+        "proc": "asConnectMocapX",
+        "binding": "ui",
+        "execution_mode": "api",
+        "window": null,
+        "selection_min": 0,
+        "effect": "scene",
+        "requirements": "根命名空间；MocapX 数据属性与 ADV Face 控制器；设备流未验证",
+        "verification": "maya_fixture_wiring_and_undo_checked",
+        "state": "native_call_returned",
+        "completed_effect": null,
+        "native_seconds": 0.0254
+      },
+      "errors": [],
+      "warnings": [],
+      "dry_run": false,
+      "execution_time": 0.079
+    },
+    "checks": {
+      "ctrlEye_R.tx": {
+        "actual": 1.0,
+        "expected": 1,
+        "pass": true
+      },
+      "ctrlEye_L.blink": {
+        "actual": 10.0,
+        "expected": 10,
+        "pass": true
+      },
+      "ctrlMouth_M.ty": {
+        "actual": -2.0,
+        "expected": -2,
+        "pass": true
+      },
+      "FKHead_M.rx": {
+        "actual": 14.999999999999998,
+        "expected": 15,
+        "pass": true
+      }
+    },
+    "driven_curves": 10,
+    "undo_removed_fixture": true
+  },
+  "playback": {
+    "result": {
+      "success": true,
+      "tool_id": "advanced_skeleton_animation",
+      "message": "ADV 入口返回：playback_started",
+      "data": {
+        "operation": "dynamics_playback",
+        "source_path": "E:/TOOLS/adv_rig/AdvancedSkeleton.6.640/AdvancedSkeleton.mel",
+        "native_version": "6.640",
+        "namespace": "",
+        "nodes": [
+          "|Main"
+        ],
+        "limb": null,
+        "time_range": null,
+        "control_set": "ControlSet",
+        "control_count": 1,
+        "animation_layers": [],
+        "label": "Dynamics / Interactive Playback",
+        "proc": "asDynSetInteractivePlayback",
+        "binding": "ui",
+        "execution_mode": "interactive_playback",
+        "window": null,
+        "selection_min": 0,
+        "effect": "playback",
+        "requirements": "",
+        "verification": "static_review",
+        "state": "playback_started",
+        "completed_effect": null,
+        "native_seconds": 0.0057
+      },
+      "errors": [],
+      "warnings": [],
+      "dry_run": false,
+      "execution_time": 0.0519
+    },
+    "playing": true,
+    "advanced": true,
+    "stopped": true
+  },
+  "dynamics_setup": {
+    "success": false,
+    "tool_id": "advanced_skeleton_animation",
+    "message": "执行异常: 执行 MEL 脚本过程中出错\nfile: E:/TOOLS/adv_rig/AdvancedSkeleton.6.640/AdvancedSkeleton.mel line 12675: 没有与名称匹配的对象: ",
+    "data": {},
+    "errors": [
+      "执行 MEL 脚本过程中出错\nfile: E:/TOOLS/adv_rig/AdvancedSkeleton.6.640/AdvancedSkeleton.mel line 12675: 没有与名称匹配的对象: ",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\Documents\\GitHub\\maya_tools_box\\maya_toolkit\\framework\\base_tool.py\", line 85, in run\n    result = self.execute(**kwargs)\n  File \"C:\\Users\\Administrator\\Documents\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\advanced_skeleton_animation\\tool.py\", line 33, in execute\n    data = engine.execute(**kwargs)\n  File \"C:\\Users\\Administrator\\Documents\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\advanced_skeleton_animation\\engine.py\", line 232, in execute\n    _invoke(plan, holder)\n  File \"C:\\Users\\Administrator\\Documents\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\advanced_skeleton_animation\\engine.py\", line 176, in _invoke\n    return mel.eval(_command(plan, holder))\nRuntimeError: 执行 MEL 脚本过程中出错\nfile: E:/TOOLS/adv_rig/AdvancedSkeleton.6.640/AdvancedSkeleton.mel line 12675: 没有与名称匹配的对象: \n"
+    ],
+    "warnings": [],
+    "dry_run": false,
+    "execution_time": 0.1258
+  },
+  "dynamics_setup_retry": {
+    "success": true,
+    "tool_id": "advanced_skeleton_animation",
+    "message": "ADV 入口返回：native_call_returned",
+    "data": {
+      "operation": "dynamics_add",
+      "source_path": "E:/TOOLS/adv_rig/AdvancedSkeleton.6.640/AdvancedSkeleton.mel",
+      "native_version": "6.640",
+      "namespace": "",
+      "nodes": [
+        "FKTail1_M",
+        "FKTail2_M",
+        "FKTail3_M"
+      ],
+      "limb": null,
+      "time_range": null,
+      "control_set": "ControlSet",
+      "control_count": 4,
+      "animation_layers": [],
+      "label": "Dynamics / Add Standard",
+      "proc": "asDynAdd",
+      "binding": "ui",
+      "execution_mode": "api",
+      "window": null,
+      "selection_min": 2,
+      "effect": "scene",
+      "requirements": "同链 FK 控制器与对应变形关节",
+      "verification": "maya_system_checked",
+      "state": "native_call_returned",
+      "completed_effect": null,
+      "native_seconds": 0.033
+    },
+    "errors": [],
+    "warnings": [],
+    "dry_run": false,
+    "execution_time": 0.0827
+  },
+  "bake_dispatch": {
+    "success": true,
+    "tool_id": "advanced_skeleton_animation",
+    "message": "ADV 入口返回：awaiting_native_dialog",
+    "data": {
+      "operation": "dynamics_bake",
+      "source_path": "E:/TOOLS/adv_rig/AdvancedSkeleton.6.640/AdvancedSkeleton.mel",
+      "native_version": "6.640",
+      "namespace": "",
+      "nodes": [
+        "|DeformationSystem|Tail1_M"
+      ],
+      "limb": null,
+      "time_range": null,
+      "control_set": "ControlSet",
+      "control_count": 4,
+      "animation_layers": [],
+      "label": "Dynamics / Bake",
+      "proc": "asDynBake",
+      "binding": "ui",
+      "execution_mode": "interactive_dialog",
+      "window": null,
+      "selection_min": 0,
+      "effect": "scene",
+      "requirements": "全场景 Dynamics 组；原生确认对话框",
+      "verification": "static_review",
+      "state": "awaiting_native_dialog",
+      "job_id": "38b3f64142384ad4ae26d45ebe27aed7",
+      "completed_effect": false
+    },
+    "errors": [],
+    "warnings": [],
+    "dry_run": false,
+    "execution_time": 0.0479
+  },
+  "dynamics_bake_result": {
+    "dynamics_removed": true,
+    "temporary_removed": true,
+    "curves": {
+      "FKTail1_M": [
+        0.0,
+        3.0499173798466934,
+        11.606883455394895,
+        22.740068298024557,
+        30.280156425370627
+      ],
+      "FKTail2_M": [
+        0.0,
+        -2.4045341533596054,
+        -7.493056732819363,
+        -10.536606507971529,
+        -7.110545358930174
+      ],
+      "FKTail3_M": null
+    },
+    "undo_dynamics_restored": true,
+    "undo_original_keys": [
+      0.0,
+      29.999999999999996
+    ]
+  },
+  "formal_retest": {
+    "registered_count": 8,
+    "panel_operations": 46,
+    "panel_precheck_and_key": true,
+    "mocapx_four_values_pass": true,
+    "clean": {
+      "static_count": 0,
+      "varying_values": [
+        1.0,
+        5.0
+      ],
+      "undo_static_values": [
+        3.0,
+        3.0
+      ],
+      "undo_varying_values": [
+        1.0,
+        5.0
+      ]
+    },
+    "jobs": {
+      "5d135ddc6b3c43dda7e60123a8a7203e": {
+        "operation": "animation_clean",
+        "state": "native_dialog_returned",
+        "completed_effect": null
+      }
+    }
+  },
+  "jobs": {}
+}

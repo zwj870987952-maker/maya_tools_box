@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/03_transforms_modeling|03_transforms_modeling]]
 - 源目录：03_transforms_modeling/eblabs_world_space_tools
-- 代码文件：237 个，约 842.5 KiB
+- 代码文件：237 个，约 832.8 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/03_transforms_modeling/eblabs_world_space_tools/WorldSpaceTools/WorldSpaceTools.py)
 

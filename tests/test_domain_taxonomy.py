@@ -93,8 +93,8 @@ class TestDomainTaxonomy(unittest.TestCase):
 
         # 仅导出 animation
         anim_openai = maya_toolkit.export_tool_schemas("openai", domain=ToolDomain.ANIMATION)
-        self.assertEqual(len(anim_openai), 1)
-        self.assertEqual(anim_openai[0]["function"]["name"], "fix_rotation_winding")
+        self.assertEqual({t["function"]["name"] for t in anim_openai},
+                         {"fix_rotation_winding", "advanced_skeleton_mirror", "advanced_skeleton_animation"})
 
         # 仅导出 pipeline_io
         pipe_mcp = maya_toolkit.export_tool_schemas("mcp", domain=ToolDomain.PIPELINE_IO)

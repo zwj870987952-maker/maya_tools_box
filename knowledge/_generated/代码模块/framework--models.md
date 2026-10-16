@@ -12,6 +12,8 @@ module: "models"
 
 ## 正式工具的直接引用
 
+- [[knowledge/_generated/正式工具/advanced_skeleton_animation|ADV 动画工具]]
+- [[knowledge/_generated/正式工具/advanced_skeleton_mirror|ADV 原生 Mirror]]
 - [[knowledge/_generated/正式工具/assign_materials_by_rows|按行一对一材质指定工具]]
 - [[knowledge/_generated/正式工具/clean_namespaces|命名空间清理工具]]
 - [[knowledge/_generated/正式工具/compare_and_sync_fbx|FBX外部资产深度比对与同步工具]]

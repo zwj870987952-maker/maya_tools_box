@@ -8,6 +8,8 @@ category: "01_animation"
 
 ## 待整理工具
 
+- [[knowledge/_generated/待整理/01_animation--advanced_skeleton_animation|advanced_skeleton_animation]]
+- [[knowledge/_generated/待整理/01_animation--advanced_skeleton_mirror_session|advanced_skeleton_mirror_session]]
 - [[knowledge/_generated/待整理/01_animation--anim_filters|动画曲线过滤器套件 (animFilters)]]
 - [[knowledge/_generated/待整理/01_animation--anim_layer_bookmark_trimmer|动画层书签关键帧修剪器 (Bookmark Trimmer)]]
 - [[knowledge/_generated/待整理/01_animation--anim_layer_key_runner|动画层逐关键帧命令执行器 (AnimLayer Key Runner)]]

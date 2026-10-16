@@ -1,0 +1,35 @@
+{
+  "status": "session_prototype_maya_checked_not_promoted",
+  "date": "2026-10-15",
+  "maya_version": "2024",
+  "rig_version": "AdvancedSkeleton 5.89",
+  "source_tool": "AdvancedSkeleton 5.740 asMirror",
+  "scene_basename": "GuanCha.ma",
+  "namespace": "SK_CH_HM_Woman_01",
+  "range_inclusive": [0, 240],
+  "mode": "swap_left_right_main_space_x_reflection",
+  "frames_sampled": 241,
+  "changed_controls": 70,
+  "changed_channels": 211,
+  "sampled_body_position_max_error_cm": 0.000001178,
+  "bake_position_max_error_cm": 0.000000571,
+  "outside_samples": [-1, 241, 250, 280, 310],
+  "outside_sample_max_difference": 7.11e-15,
+  "undo_original_curves_verified": true,
+  "undo_chunk": "Mirror GuanCha 0-240",
+  "scene_saved": false,
+  "changes_from_original": [
+    "Correct IK and hybrid-spine world transforms using captured build-pose reflection matrices and dependency settling passes.",
+    "Clamp original native setAttr commands to attribute limits to handle tiny animation overshoots.",
+    "Include eye aim controls, skipped by the native mirror procedure, using this rig's verified world-aligned build-pose axes.",
+    "Sample original poses with immediate Undo, then write only changed channels with per-frame keys.",
+    "Preserve outside keys and insert guard keys at -1 and 241 where needed; verify outside sample values.",
+    "Restore current time and AutoKey; leave one named Undo action at the top of the stack."
+  ],
+  "limitations": [
+    "Runner depends on inspected in-memory session state; it is not a general standalone entrypoint.",
+    "Only this live scene and Maya version were checked; no production registration or UI acceptance is claimed.",
+    "Changed channels are baked at integer frames; fractional-frame interpolation uses linear tangents (step for discrete attributes).",
+    "The original native mirror UI remains unchanged and does not include this adaptation."
+  ]
+}

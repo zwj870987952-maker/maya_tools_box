@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/07_subsystems_suites|07_subsystems_suites]]
 - 源目录：07_subsystems_suites/animo
-- 代码文件：2636 个，约 9444.0 KiB
+- 代码文件：2636 个，约 9444.6 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/07_subsystems_suites/animo/release_candidate/launch_candidate.py)
 

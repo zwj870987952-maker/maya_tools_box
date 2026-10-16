@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/08_utilities_system|08_utilities_system]]
 - 源目录：08_utilities_system/ks_node_outliner_v2_2
-- 代码文件：37 个，约 352.7 KiB
+- 代码文件：37 个，约 348.8 KiB
 - 原清单登记：是
 - 主入口：[查看源码](../../../tools_staging_pool/08_utilities_system/ks_node_outliner_v2_2/KS_NodeOutliner-2.2.0/ks_nodeOutliner/ksNodeOutliner.py)
 
