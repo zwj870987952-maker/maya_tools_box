@@ -1,0 +1,387 @@
+--- upstream/main.py.original
++++ native.py
+@@ -1,56 +1,42 @@
+-# uncompyle6 version 3.8.0
+-# Python bytecode 2.7 (62211)
+-# Decompiled from: Python 3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]
+-# Embedded file name: F:/Maya_Projects\sat\main.py
+-# Compiled at: 2016-11-26 20:42:45
++from pathlib import Path
++from .Qt import wrapInstance
++from . import pick_compat as pm
++useShapesBrush = False
+ import maya.cmds as cmds
+-import maya.mel as mel, pymel.core as pm
++import maya.mel as mel
+ import maya.OpenMayaUI as omui
+ import maya.OpenMaya as om
+ from functools import partial
+ from .Qt import QtCore, QtWidgets, QtGui
+-try:
+-    from shiboken import wrapInstance
+-except:
+-    from shiboken2 import wrapInstance
+-
+-import os, imp, types, webbrowser, logging, inspect
++import os, types, webbrowser, logging, inspect
+ from . import mainWindow
+ from . import aboutWindow
+ from . import utils
+ logger = logging.getLogger(__name__)
+ logger.setLevel(logging.INFO)
+ moduleName = __name__.split('.')[0]
+-modulePath = os.path.abspath(imp.find_module(moduleName)[1])
++modulePath = str(Path(__file__).resolve().parent)
+ version = '2.0【汉化版】'
+ 
+ def mayaMainWindow():
+     mainWindowPtr = omui.MQtUtil.mainWindow()
+     return wrapInstance(int(mainWindowPtr), QtWidgets.QWidget)
+ 
+-
+ class AboutWindow(QtWidgets.QDialog, aboutWindow.Ui_Dialog):
+ 
+-    def __init__(self, parent=mayaMainWindow()):
++    def __init__(self, parent=None):
++        if parent is None:
++            parent = mayaMainWindow()
+         super(AboutWindow, self).__init__(parent)
+         self.setupUi(self)
+-
+-
+-try:
+-    if not cmds.pluginInfo('SHAPESBrush.mll', query=True, loaded=True):
+-        cmds.loadPlugin('SHAPESBrush.mll')
+-    mel.eval('source "SHAPESBrush"')
+-    useShapesBrush = True
+-except:
+-    print ('Shape Animation Tool not find ShapesBrush plugin')
+-    useShapesBrush = False
+-
+ debug = False
+-v = mel.eval('about -version')
++v = ''
+ 
+ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
+ 
+-    def __init__(self, parent=mayaMainWindow()):
++    def __init__(self, parent=None):
++        if parent is None:
++            parent = mayaMainWindow()
+         super(MainWindow, self).__init__(parent)
+         self.setupUi(self)
+         logger.debug('Start ' + inspect.stack()[0][3])
+@@ -79,7 +65,6 @@
+                         self.keyData_label.setText(str(i + 1) + ' / ' + str(len(self.keyFrames)))
+                         self.key_btn.setStyleSheet('background-color: #5f2626')
+                         return
+-
+                 self.key_btn.setStyleSheet('')
+                 self.keyData_label.setText('- / ' + str(len(self.keyFrames)))
+         except:
+@@ -98,7 +83,6 @@
+             self.loadData()
+         except:
+             pass
+-
+         cmds.scriptJob(attributeChange=['sat.time', partial(self.updateFrame, True)])
+         playBackSlider = mel.eval('$tmpVar=$gPlayBackSlider')
+         cmds.timeControl(playBackSlider, edit=True, pressCommand=partial(self.updateFrame, True), releaseCommand=partial(self.updateFrame, True))
+@@ -162,7 +146,6 @@
+                     else:
+                         ui = False
+                     break
+-
+         if ui:
+             self.remove_btn.setEnabled(True)
+             self.groupBox_3.setEnabled(True)
+@@ -184,7 +167,6 @@
+                     cmds.setAttr(check_box.text() + '_satBS.envelope', 0)
+             except:
+                 pass
+-
+         self.updateUI()
+ 
+     def selectMeshInList(self, curr, prev):
+@@ -195,7 +177,6 @@
+             self.bs_name = self.curLayer + '_satBS'
+         except:
+             pass
+-
+         self.saveData()
+         self.getKeytimes()
+         self.updateFrame(True)
+@@ -213,9 +194,7 @@
+             while layer in self.meshes:
+                 i += 1
+                 layer = name + '_LR' + str(i)
+-
+             return layer
+-
+         shape = cmds.ls(sl=True, dag=True, noIntermediate=True, geometry=True)
+         if len(shape) == 0:
+             return
+@@ -237,13 +216,11 @@
+             cmds.delete(self.bs_name)
+         except:
+             pass
+-
+         self.meshes.remove(self.curLayer)
+         try:
+-            self.curLayer = self.meshes[(-1)]
++            self.curLayer = self.meshes[-1]
+         except:
+             self.curLayer = ''
+-
+         self.keyFrames = []
+         self.fillGeoList()
+         self.updateUI()
+@@ -251,7 +228,7 @@
+         self.updateFrame('')
+ 
+     def pickMesh(self):
+-        ctx = 'pickShapeCtx'
++        ctx = self._pick_context
+ 
+         def onPress():
+             vpX, vpY, _ = cmds.draggerContext(ctx, query=True, anchorPoint=True)
+@@ -264,7 +241,7 @@
+             distances = []
+             objects = []
+             pos2 = om.MFloatPoint(pos.x, pos.y, pos.z)
+-            for mesh in cmds.ls(type='mesh'):
++            for mesh in cmds.ls(type='mesh', long=True):
+                 selectionList = om.MSelectionList()
+                 selectionList.add(mesh)
+                 dagPath = om.MDagPath()
+@@ -272,12 +249,11 @@
+                 fnMesh = om.MFnMesh(dagPath)
+                 intersection = fnMesh.closestIntersection(om.MFloatPoint(pos2), om.MFloatVector(dir), None, None, False, om.MSpace.kWorld, 99999, False, None, hitpoint, None, None, None, None, None)
+                 if intersection:
+-                    o = pm.PyNode(fnMesh.name())
++                    o = pm.PyNode(fnMesh.fullPathName())
+                     if not o.isIntermediate() and o.isVisible():
+                         dist = hitpoint.distanceTo(floatHitPoint)
+                         distances.append(dist)
+                         objects.append(o)
+-
+             if len(objects) > 0:
+                 closestDist = distances[0]
+                 closestId = 0
+@@ -285,11 +261,9 @@
+                     if d < closestDist:
+                         closestDist = d
+                         closestId = d_id
+-
+                 pm.select(objects[closestId])
+                 self.addMesh()
+             return
+-
+         if cmds.draggerContext(ctx, exists=True):
+             cmds.deleteUI(ctx)
+         cmds.draggerContext(ctx, pressCommand=onPress, name=ctx, cursor='crossHair')
+@@ -307,7 +281,6 @@
+             self.geo_listWidget.addItem(meshItem)
+             if mesh == self.curLayer:
+                 curItem = meshItem
+-
+         try:
+             self.geo_listWidget.setCurrentItem(curItem)
+         except:
+@@ -324,7 +297,6 @@
+                         check_box.setCheckState(QtCore.Qt.CheckState.Unchecked)
+                 except:
+                     pass
+-
+         setCheckLayers()
+ 
+     def removeAllMeshes(self):
+@@ -337,7 +309,6 @@
+                 cmds.delete(bs_name)
+             except:
+                 pass
+-
+         self.meshes = []
+         self.keyFrames = []
+         self.fillGeoList()
+@@ -368,7 +339,6 @@
+                     v = cmds.getAttr(self.curLayer + '_satBS.' + sh)
+                     if v > 0.1:
+                         self.bs1 = sh
+-
+                 self.bs1 = cmds.duplicate(self.curMesh, n=self.bs1)[0]
+                 cmds.setAttr(self.bs1 + '.tx', lock=0)
+                 cmds.setAttr(self.bs1 + '.ty', lock=0)
+@@ -391,8 +361,7 @@
+                         cmds.isolateSelect(currentPanel, addSelected=1)
+                 except:
+                     pass
+-
+-            n = self.bs1.split('_')[(-1)]
++            n = self.bs1.split('_')[-1]
+             cmds.connectAttr(self.bs1 + 'Shape.worldMesh[0]', self.bs_name + '.inputTarget[0].inputTargetGroup[%s].inputTargetItem[6000].inputGeomTarget' % n)
+             cmds.select(self.bs1)
+             if self.brushMode == 1:
+@@ -415,7 +384,6 @@
+                 v = cmds.getAttr(self.curLayer + '_satBS.' + sh)
+                 if v > 0.1:
+                     self.bs1 = sh
+-
+             cmds.delete(self.bs1)
+             mel.eval('SelectTool')
+             cmds.select(clear=True)
+@@ -489,7 +457,7 @@
+                         v = cmds.getAttr(self.curLayer + '_satBS.' + sh)
+                         if v > 0.1:
+                             self.bs1 = sh
+-                            n = self.bs1.split('_')[(-1)]
++                            n = self.bs1.split('_')[-1]
+                             cmds.setAttr(self.bs_name + '.envelope', 0)
+                             bs0 = cmds.duplicate(self.curMesh, n='shape_init')[0]
+                             cmds.setAttr(self.bs_name + '.envelope', 1)
+@@ -511,15 +479,11 @@
+             if cmds.objExists(self.bs_name):
+                 while cmds.attributeQuery('shape_' + str(bsId0), node=self.bs_name, exists=True):
+                     bsId0 += 1
+-
+             bsId1 = bsId0 + 1
+             if cmds.objExists(self.bs_name):
+                 while cmds.attributeQuery('shape_' + str(bsId1), node=self.bs_name, exists=True):
+                     bsId1 += 1
+-
+-            return (
+-             bsId0, bsId1)
+-
++            return (bsId0, bsId1)
+         currentTime = cmds.currentTime(query=True)
+         if ':' in self.curLayer:
+             ns = self.curLayer.split(':')[0]
+@@ -529,7 +493,6 @@
+             for keyTime in self.keyFrames:
+                 if keyTime == currentTime:
+                     return
+-
+         self.keyFrames.append(currentTime)
+         self.keyFrames = sorted(self.keyFrames)
+         bsId0, bsId1 = getFirstFreeTargetIdPair()
+@@ -542,7 +505,6 @@
+             cmds.setAttr(self.bs_name + '.envelope', 1)
+         except:
+             bs0 = cmds.duplicate(self.curMesh, n=bs0_name)[0]
+-
+         self.removeIntermediateShape(bs0)
+         self.removeIntermediateShape(bs1)
+         self.fixShapeName(bs0)
+@@ -563,11 +525,9 @@
+                 cmds.setKeyframe(c, v=0)
+                 cmds.keyTangent(c, edit=True, weightedTangents=True)
+                 cmds.keyTangent(c, edit=True, weightedTangents=False)
+-
+             times = cmds.keyframe(crvs[0], query=True, tc=True)
+             for t in times:
+                 cmds.setKeyframe(self.bs_name + '.' + bs1_name, t=t, v=0)
+-
+         cmds.setKeyframe(self.bs_name + '.' + bs1_name, v=1)
+         cmds.setAttr(self.bs_name + '.' + bs1_name, 1)
+         multNode = cmds.createNode('multDoubleLinear', n=bs1_name + '_mult')
+@@ -592,19 +552,18 @@
+                     for sh in shapes:
+                         v = cmds.getAttr(self.curLayer + '_satBS.' + sh)
+                         if v < -0.1:
+-                            n = sh.split('_')[(-1)]
++                            n = sh.split('_')[-1]
+                             bs0 = cmds.duplicate(self.curMesh, n=sh)[0]
+                             self.removeIntermediateShape(bs0)
+                             self.fixShapeName(bs0)
+                             cmds.connectAttr(sh + 'Shape.worldMesh[0]', self.bs_name + '.inputTarget[0].inputTargetGroup[%s].inputTargetItem[6000].inputGeomTarget' % n)
+                             cmds.blendShape(self.bs_name, edit=True, remove=True, t=(self.curMesh, int(n), bs0, 1.0))
+                             cmds.delete(bs0)
+-
+                     shapes = cmds.listAttr(self.curLayer + '_satBS.w', m=True)
+                     for sh in shapes:
+                         v = cmds.getAttr(self.curLayer + '_satBS.' + sh)
+                         if v > 0.1:
+-                            n = sh.split('_')[(-1)]
++                            n = sh.split('_')[-1]
+                             bs0 = cmds.duplicate(self.curMesh, n=sh)[0]
+                             self.removeIntermediateShape(bs0)
+                             self.fixShapeName(bs0)
+@@ -612,7 +571,6 @@
+                             cmds.blendShape(self.bs_name, edit=True, remove=True, t=(self.curMesh, int(n), bs0, 1.0))
+                             cmds.delete(bs0)
+                             cmds.delete(sh + '_mult')
+-
+                     cmds.cutKey(self.bs_name, time=(currentTime, currentTime))
+                     self.keyFrames.remove(currentTime)
+                     self.saveData()
+@@ -627,7 +585,7 @@
+         if cmds.objExists(self.bs_name):
+             shapes = cmds.listAttr(self.curLayer + '_satBS.w', m=True)
+             for sh in shapes:
+-                n = sh.split('_')[(-1)]
++                n = sh.split('_')[-1]
+                 bs0 = cmds.duplicate(self.curMesh, n=sh)[0]
+                 self.removeIntermediateShape(bs0)
+                 self.fixShapeName(bs0)
+@@ -638,7 +596,6 @@
+                     cmds.delete(sh + '_mult')
+                 except:
+                     pass
+-
+             self.keyFrames = []
+             self.saveData()
+             self.updateFrame(True)
+@@ -657,11 +614,10 @@
+                 prevKeyId.append(t)
+             elif t > currentTime:
+                 nextKeyId.append(t)
+-
+         prevKeyId.sort()
+         nextKeyId.sort()
+         if len(prevKeyId) > 0:
+-            prevKey = prevKeyId[(-1)]
++            prevKey = prevKeyId[-1]
+         else:
+             prevKey = 'none'
+         if len(nextKeyId) > 0:
+@@ -675,7 +631,7 @@
+         elif direction == 'prev' and len(self.keyFrames) > 0:
+             cmds.currentTime(self.keyFrames[0])
+         elif direction == 'next' and len(self.keyFrames) > 0:
+-            cmds.currentTime(self.keyFrames[(-1)])
++            cmds.currentTime(self.keyFrames[-1])
+         self.updateFrame(True)
+ 
+     def getKeytimes(self):
+@@ -688,7 +644,6 @@
+ 
+     def saveData(self):
+         logger.debug('Start ' + inspect.stack()[0][3])
+-        # print(self.meshes, self.curLayer, self.editMode)
+         utils.pyToAttr('sat.meshes', self.meshes)
+         utils.pyToAttr('sat.curMesh', self.curLayer)
+         utils.pyToAttr('sat.sculptMode', self.editMode)
+@@ -702,7 +657,6 @@
+             self.curFrame = utils.attrToPy('sat.currentFrame')
+         except:
+             pass
+-
+         self.getKeytimes()
+ 
+     def removeIntermediateShape(self, transform):
+@@ -729,7 +683,6 @@
+ 
+         def aboutClose():
+             aboutWindow.close()
+-
+         aboutWindow = AboutWindow(self)
+         aboutWindow.pushButton.clicked.connect(aboutClose)
+         aboutWindow.label_5.setText('Version ' + version)
+@@ -747,4 +700,7 @@
+     def closeEvent(self, *args, **kwargs):
+         logger.debug('Close ')
+         if self.editMode:
+-            self.sculpt(False)+            self.sculpt(False)
++
++from .ui_bridge import install
++install(MainWindow)

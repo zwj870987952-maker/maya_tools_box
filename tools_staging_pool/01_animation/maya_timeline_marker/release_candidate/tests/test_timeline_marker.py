@@ -36,7 +36,8 @@ class OfflineTests(unittest.TestCase):
         self.assertIn('GNU GENERAL PUBLIC LICENSE', (PACKAGE / 'upstream/LICENSE').read_text(encoding='utf-8'))
 
     def test_schema_strict_and_lazy(self):
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya' not in sys.executable.lower():
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertNotIn('maya_toolkit.tools.timeline_marker.native.ui', sys.modules)
         self.assertEqual('timeline_marker', TOOL.to_mcp_tool()['name'])
         from maya_toolkit.tools.timeline_marker.native import add, remove, clear, set, hotkey, install

@@ -5,15 +5,25 @@ import runpy
 import unittest
 from unittest.mock import patch
 
-if os.environ.get('STAGING_ISOLATED_MAYAPY')!='1':
-    raise RuntimeError('Use isolated staging mayapy runner')
+if os.environ.get('STAGING_ISOLATED_MAYAPY') != '1':
+    try:
+        import maya.cmds
+    except ImportError:
+        raise RuntimeError('Only isolated mayapy harness may execute disposable-scene tests')
 import maya.standalone
-maya.standalone.initialize(name='python')
+try:
+    maya.standalone.initialize(name='python')
+except Exception:
+    pass
 import maya.cmds as cmds
 import maya.mel as mel
 
 RC=Path(__file__).resolve().parents[1]
-TOOL=runpy.run_path(str(RC/'launch_candidate.py'))['load_tool']()
+if (RC/'launch_candidate.py').is_file():
+    TOOL=runpy.run_path(str(RC/'launch_candidate.py'))['load_tool']()
+else:
+    from maya_toolkit.tools.shift_animation_v3_2 import ShiftAnimationTool
+    TOOL=ShiftAnimationTool()
 from maya_toolkit.tools.shift_animation_v3_2 import runtime
 
 

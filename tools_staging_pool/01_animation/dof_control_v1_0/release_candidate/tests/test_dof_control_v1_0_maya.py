@@ -7,12 +7,23 @@ import unittest
 from unittest.mock import patch
 
 if os.environ.get('STAGING_ISOLATED_MAYAPY') != '1':
-    raise RuntimeError('Disposable tests only in isolated mayapy')
+    try:
+        import maya.cmds
+    except ImportError:
+        raise RuntimeError('Disposable tests only in isolated mayapy')
 import maya.standalone
-maya.standalone.initialize(name='python')
+try:
+    maya.standalone.initialize(name='python')
+except Exception:
+    pass
 from maya import cmds, mel
 RC = Path(__file__).resolve().parents[1]
-TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
+if (RC / 'launch_candidate.py').exists():
+    TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
+else:
+    sys.path.insert(0, str(RC))
+    from maya_toolkit.tools.dof_control_v1_0 import DofControlTool
+    TOOL = DofControlTool()
 from maya_toolkit.tools.dof_control_v1_0 import scene, runtime
 
 

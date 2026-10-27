@@ -4,10 +4,16 @@ from pathlib import Path
 import sys
 import unittest
 
-if not os.environ.get('STAGING_ISOLATED_MAYAPY'):
-    raise RuntimeError('Use the isolated mayapy runner; these tests create new scenes')
+if os.environ.get('STAGING_ISOLATED_MAYAPY') != '1':
+    try:
+        import maya.cmds
+    except ImportError:
+        raise RuntimeError('Use the isolated mayapy runner; these tests create new scenes')
 import maya.standalone
-maya.standalone.initialize(name='python')
+try:
+    maya.standalone.initialize(name='python')
+except Exception:
+    pass
 import maya.cmds as cmds
 
 RC = Path(__file__).resolve().parents[1]

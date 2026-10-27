@@ -1,0 +1,30 @@
+{
+  "raw_files": [
+    {
+      "path": "upstream/1.jpg",
+      "sha256": "19802583c20496559e7255e99bbd06951891f0fcaef16dd2a9b131c79790d683"
+    },
+    {
+      "path": "upstream/2.jpg",
+      "sha256": "537476cee4641b8b498538b12fde7a1c77864a3a57ce492d8629a758701f529c"
+    },
+    {
+      "path": "upstream/3.jpg",
+      "sha256": "c192aab06e0e16ab878146e60d54902d51065641f2e39f4d3987863cd4e30696"
+    },
+    {
+      "path": "upstream/kfAnimRig_IKFK.mel",
+      "sha256": "c3099b3c607d97ab368b8a3c9cce8c24e851068e21f3f7104f3f87c27414df04"
+    }
+  ],
+  "source_procs": [
+    "kfAnimRig_IKFK",
+    "matchTimeline",
+    "matchIKtoFK",
+    "matchFKtoIK",
+    "matchIKtoFKTen",
+    "matchFKtoIKTen",
+    "kfARI_Instruct"
+  ],
+  "license": "Kiel Figgins, original author and instructions retained; no independent license supplied, private local candidate."
+}

@@ -15,7 +15,7 @@ registered: true
 - 领域：[[knowledge/_generated/领域/animation|动画与动作]]
 - 状态：已注册，可通过统一 API 调用
 - 主实现：[查看源码](../../../maya_toolkit/tools/advanced_skeleton_animation/tool.py)
-- 代码文件：6 个，约 28.9 KiB
+- 代码文件：6 个，约 29.0 KiB
 
 ## API 参数
 

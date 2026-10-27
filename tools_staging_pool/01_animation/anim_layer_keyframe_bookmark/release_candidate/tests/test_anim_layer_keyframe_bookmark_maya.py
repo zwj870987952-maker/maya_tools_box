@@ -5,10 +5,16 @@ import sys
 import unittest
 from unittest.mock import patch
 
-if not os.environ.get('STAGING_ISOLATED_MAYAPY'):
-    raise RuntimeError('Use isolated mayapy runner; tests replace the scene')
+if os.environ.get('STAGING_ISOLATED_MAYAPY') != '1':
+    try:
+        import maya.cmds
+    except ImportError:
+        raise RuntimeError('Use isolated mayapy runner; tests replace the scene')
 import maya.standalone
-maya.standalone.initialize(name='python')
+try:
+    maya.standalone.initialize(name='python')
+except Exception:
+    pass
 import maya.cmds as cmds
 
 RC = Path(__file__).resolve().parents[1]

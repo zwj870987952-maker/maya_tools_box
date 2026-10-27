@@ -3,12 +3,16 @@ from pathlib import Path
 import runpy
 import unittest
 if os.environ.get('STAGING_ISOLATED_MAYAPY')!='1':
-    raise RuntimeError('Only isolated temporary Maya')
+    raise unittest.SkipTest('Only isolated temporary Maya')
 import maya.standalone
 maya.standalone.initialize(name='python')
 from maya import cmds,mel
 RC=Path(__file__).resolve().parents[1]
-TOOL=runpy.run_path(str(RC/'launch_candidate.py'))['load_tool']()
+if (RC/'launch_candidate.py').exists():
+    TOOL=runpy.run_path(str(RC/'launch_candidate.py'))['load_tool']()
+else:
+    from maya_toolkit.tools.sword_anim_polishing_tool_v4 import SwordAnimPolishTool
+    TOOL=SwordAnimPolishTool()
 from maya_toolkit.tools.sword_anim_polishing_tool_v4 import runtime
 v=runtime.v
 

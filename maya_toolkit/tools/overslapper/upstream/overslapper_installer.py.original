@@ -1,0 +1,58 @@
+# Copyright 2024 Philippe Ratté
+import os
+import maya.cmds as mc
+import maya.mel as mel
+
+maya_path = mel.eval('getenv "MAYA_APP_DIR"')
+script_path = os.path.join(maya_path,"scripts")
+tool_path = os.path.join(script_path,"overslapper")
+
+def create_shelf():
+    script = '''
+    \nimport os
+    \nimport sys
+    \nimport maya.mel as mel
+    \nmaya_path = mel.eval('getenv "MAYA_APP_DIR"')
+    \nscript_path = os.path.join(maya_path,"scripts")
+    \ntool_path = os.path.join(script_path,"overslapper")
+    \nif tool_path not in sys.path:
+    \n\tsys.path.append(tool_path)
+    \nimport overslapper_tool 
+    \ntry:
+    \n\toverslapper_ui.close()
+    \n\toverslapper_ui.deleteLater()
+    \nexcept:
+    \n\tpass
+    \noverslapper_ui = overslapper_tool.overslapper_UI()
+    \noverslapper_ui.show()
+    
+    '''
+    icons_path = os.path.join(tool_path,"icons")
+
+    icon_name = 'overslapperLogo.png'
+    icon = os.path.join(icons_path,icon_name)
+
+    shelf_name = mc.shelfTabLayout('ShelfLayout', query=True, selectTab=True)
+
+    button_name = "overslapper"
+    mc.shelfButton(button_name,
+                   label='overslapper',
+                   command=script,
+                   image=icon,
+                   parent=shelf_name)
+
+    mel.eval('global string $gShelfTopLevel;'
+             '\nsaveAllShelves $gShelfTopLevel;')
+
+
+
+if os.path.exists(tool_path):
+    print("overslapper packages are installed")
+    print("creating the shelf")
+    create_shelf()
+else:
+    print("overslapper folder has not been found")
+    print("please place the overslapper folder in here", script_path)
+
+
+

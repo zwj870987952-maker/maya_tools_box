@@ -94,7 +94,7 @@ class TestDomainTaxonomy(unittest.TestCase):
         # 仅导出 animation
         anim_openai = maya_toolkit.export_tool_schemas("openai", domain=ToolDomain.ANIMATION)
         self.assertEqual({t["function"]["name"] for t in anim_openai},
-                         {"fix_rotation_winding", "advanced_skeleton_mirror", "advanced_skeleton_animation"})
+                         {"fix_rotation_winding", "advanced_skeleton_mirror", "advanced_skeleton_animation", "stagger_offset", "stagger_gui", "bh_wave_it", "bh_local_nudge", "keyframe_overlap", "back2origin_v05_gaiv3", "animirror_v2_0", "gimbal_lock_fix", "anim_filters", "tweener_v1_0_2", "root_motion_bake", "copy_animation", "shift_animation_v3_2", "overslapper", "spring_magic_v3_5a", "cg_shake_py3", "directional_cycle_tool_v1_1", "retime_tools", "dof_control_v1_0", "eblabs_screenspace", "eblabs_whiskey", "anim_layer_bookmark_trimmer", "anim_layer_keyframe_bookmark", "anim_layer_key_runner", "anim_layer_v4_0", "anim_mirror_helper_v1_1", "anim_polish_premium_v1_23", "animation_retarget", "bh_aim_tools_v1_1", "bh_speedlines", "brs_loc_transfer", "brs_smooth_mocap", "fd_multi_space", "ik_fk_switch", "jop_retarget_anim", "kf_animrig_ikfk", "lock_to_world", "keyframe_reduction", "timeline_marker", "mov_playblast", "physics_tools", "pose_matcher", "pose_transfer_remote", "shape_animation_tool", "sword_anim_polishing_tool_v4", "tb_anim_tools", "timeline_enhanced", "velocity_calculator", "w_retarget_tool"})
 
         # 仅导出 pipeline_io
         pipe_mcp = maya_toolkit.export_tool_schemas("mcp", domain=ToolDomain.PIPELINE_IO)

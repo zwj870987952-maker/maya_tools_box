@@ -6,13 +6,23 @@ import sys
 import tempfile
 import unittest
 
-if os.environ.get('STAGING_ISOLATED_MAYAPY')!='1':
-    raise RuntimeError('Disposable Maya runner required')
+if os.environ.get('STAGING_ISOLATED_MAYAPY') != '1':
+    try:
+        import maya.cmds
+    except ImportError:
+        raise RuntimeError('Disposable Maya runner required')
 import maya.standalone
-maya.standalone.initialize(name='python')
+try:
+    maya.standalone.initialize(name='python')
+except Exception:
+    pass
 from maya import cmds
 RC = Path(__file__).resolve().parents[1]
-TOOL = runpy.run_path(str(RC/'launch_candidate.py'))['load_tool']()
+if (RC / 'launch_candidate.py').is_file():
+    TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
+else:
+    from maya_toolkit.tools.retime_tools import RetimeToolsTool
+    TOOL = RetimeToolsTool()
 from maya_toolkit.tools.retime_tools.runtime import engine_cmds
 
 

@@ -1,0 +1,9 @@
+global proc scriptInstaller() {
+    string $whatIs = `whatIs scriptInstaller`;
+    string $currentPath = `substring $whatIs 25 999`;
+    string $filename = `substitute "install.mel" $currentPath "dragAndDrop.py"`;;
+    
+    python("import imp;imp.load_source('scriptName', '"+$filename+"')");
+}
+
+scriptInstaller();

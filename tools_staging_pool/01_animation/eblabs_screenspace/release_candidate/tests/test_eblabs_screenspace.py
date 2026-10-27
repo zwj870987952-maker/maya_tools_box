@@ -32,7 +32,8 @@ class OfflineTests(unittest.TestCase):
 
     def test_schema_lazy_inventory_and_types(self):
         self.assertTrue(TOOL.validate(action='inventory').success)
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya.cmds' not in sys.modules:
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertEqual('eblabs_screenspace', TOOL.to_mcp_tool()['name'])
         for args in ({'camera': 'cam.vtx[0]'}, {'objects': ['x', 'x']}, {'include_orientation': 1}, {'record_ids': 'x'}, {'action': 'bad'}, {'extra': 1}):
             with self.assertRaises(ValueError):

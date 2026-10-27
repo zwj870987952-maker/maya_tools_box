@@ -1,1 +1,0 @@
-from .tool import UVSetRenamerTool,create_uv_set_renamer,rename_uv_sets

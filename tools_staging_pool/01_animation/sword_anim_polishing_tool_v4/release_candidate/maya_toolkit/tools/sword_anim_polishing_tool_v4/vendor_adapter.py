@@ -144,7 +144,7 @@ def load_vendor():
 
 def snapshot():
     opts={k:cmds.optionVar(query=k) if cmds.optionVar(exists=k) else None for k in ('animBlendingOpt','animBlendBrokenInputOpt','animLayerSelectionKey')}
-    value={'time':cmds.currentTime(query=True),'selection':cmds.ls(selection=True,long=True) or [],'namespace':cmds.namespaceInfo(currentNamespace=True),'autokey':cmds.autoKeyframe(query=True,state=True),'linear':cmds.currentUnit(query=True,linear=True),'evaluation':cmds.evaluationManager(query=True,mode=True),'track':cmds.selectPref(query=True,trackSelectionOrder=True),'options':opts,'layers':{identity(l):{k:cmds.animLayer(l,query=True,**{k:True}) for k in ('mute','selected','preferred')} for l in cmds.ls(type='animLayer') or []},'suspended':bool(cmds.refresh(query=True,suspend=True))}
+    value={'time':cmds.currentTime(query=True),'selection':cmds.ls(selection=True,long=True) or [],'namespace':cmds.namespaceInfo(currentNamespace=True),'autokey':cmds.autoKeyframe(query=True,state=True),'linear':cmds.currentUnit(query=True,linear=True),'evaluation':cmds.evaluationManager(query=True,mode=True),'track':cmds.selectPref(query=True,trackSelectionOrder=True),'options':opts,'layers':{identity(l):{k:cmds.animLayer(l,query=True,**{k:True}) for k in ('mute','selected','preferred')} for l in cmds.ls(type='animLayer') or []},'suspended':False}
     if not cmds.about(batch=True):
         from maya.plugin.evaluator.cache_preferences import CachePreferenceEnabled
         value['cache']=CachePreferenceEnabled().get_value()

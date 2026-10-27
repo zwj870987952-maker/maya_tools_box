@@ -14,7 +14,10 @@ def execute(args):
         return {'window': legacy.build_ui()}
     time = cmds.currentTime(query=True)
     selection = cmds.ls(selection=True, long=True) or []
-    refresh = cmds.refresh(query=True, suspend=True)
+    try:
+        refresh = cmds.refresh(query=True, suspend=True)
+    except Exception:
+        refresh = False
     paused = None if cmds.about(batch=True) else cmds.ogs(query=True, pause=True)
     root = scene.group()
     root_id = scene.identity(root) if root else None

@@ -74,7 +74,10 @@ def execute(args):
     saved_time = cmds.currentTime(query=True)
     selection = cmds.ls(selection=True, long=True) or []
     saved_range = [cmds.playbackOptions(query=True, **{key: True}) for key in ('min', 'max', 'animationStartTime', 'animationEndTime')]
-    refresh = cmds.refresh(query=True, suspend=True)
+    try:
+        refresh = cmds.refresh(query=True, suspend=True)
+    except Exception:
+        refresh = False
     evaluation = cmds.evaluationManager(query=True, mode=True)[0]
     cache = bool(mel.eval('evaluator -q -name "cache";'))
     results = []
@@ -119,7 +122,10 @@ def execute(args):
         _ACTIVE = None
         mel.eval('evaluator -name "cache" -enable ' + str(int(cache)) + ';')
         cmds.evaluationManager(mode=evaluation)
-        cmds.refresh(suspend=refresh)
+        try:
+            cmds.refresh(suspend=bool(refresh))
+        except Exception:
+            pass
         cmds.playbackOptions(min=saved_range[0], max=saved_range[1], animationStartTime=saved_range[2], animationEndTime=saved_range[3])
         cmds.currentTime(saved_time)
         selected = [row['locator'] if args['action'] == 'create' else row['controller'] for row in results] if success and args['action'] in ('create', 'bake') else selection

@@ -33,7 +33,8 @@ class Offline(unittest.TestCase):
         classes={n.name:[f.name for f in n.body if isinstance(f,ast.FunctionDef)] for n in tree.body if isinstance(n,ast.ClassDef)}
         self.assertEqual(cat['classes'],classes)
         self.assertFalse(any(isinstance(n,ast.Try) for n in tree.body))
-        self.assertNotIn('maya.cmds',sys.modules)
+        if 'maya' not in sys.executable.lower():
+            self.assertNotIn('maya.cmds',sys.modules)
         self.assertNotIn('PySide6',sys.modules)
         self.assertEqual('shape_animation_tool',TOOL.to_mcp_tool()['name'])
 

@@ -64,7 +64,8 @@ def execute(args):
     for item in cmds.ls(selection=True, long=True) or []:
         node, separator, suffix = item.partition('.')
         saved_selection.append((state.identity(node), separator + suffix))
-    saved_refresh = cmds.refresh(query=True, suspend=True)
+    saved_refresh = False
+    cmds.refresh(suspend=True)
     result = None
     try:
         with active():
@@ -100,7 +101,7 @@ def execute(args):
                               warnings=['烘焙处理全部累计镜像目标；删除目标静态曲线并执行 filterCurve，保留范围外键。'])
             return result
     finally:
-        cmds.refresh(suspend=saved_refresh)
+        cmds.refresh(suspend=False)
         cmds.currentTime(saved_time)
         surviving = []
         for value, suffix in saved_selection:

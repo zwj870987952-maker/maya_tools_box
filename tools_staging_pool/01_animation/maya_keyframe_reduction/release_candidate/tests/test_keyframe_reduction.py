@@ -35,7 +35,8 @@ class OfflineTests(unittest.TestCase):
         self.assertIn('PySide6', (PACKAGE / 'native/ui.py').read_text(encoding='utf-8'))
 
     def test_lazy_schema_and_types(self):
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya' not in sys.executable.lower():
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertEqual('keyframe_reduction', TOOL.to_mcp_tool()['name'])
         for kwargs in ({'curves': ['a', 'a']}, {'curves': ['a.tx']}, {'error': 0}, {'step': 0}, {'weightedTangents': 1}, {'error': float('nan')}, {'action': 'bad'}, {'unknown': 1}):
             with self.assertRaises(ValueError):

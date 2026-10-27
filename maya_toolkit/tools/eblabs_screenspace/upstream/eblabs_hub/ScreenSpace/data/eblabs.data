@@ -1,0 +1,44 @@
+{
+    "dependencies": [
+        "UXFramework"
+    ],
+    "description": "Advanced animation tools for manipulating animation relative to screen space, including the ability to switch spaces to/from local space and screen space for almost any control.\n\n* Quickly edit your animation of one or many controls in screen space.\n* Animation becomes relative to the camera, using x-horizontal, y-vertical and depth-(distance to camera) curves.\n* Great for animating flying objects, or finding depth bumps in object tracks.\n* Animator friendly, have the choice to use only your existing keyframes.\n* Matchmove friendly, have the choice to bake all keys.\n* Can be used in many more creative ways.",
+    "id": "ScreenSpace",
+    "long_name": "Screen Space",
+    "shelf_data": [
+        {
+            "color": [
+                0.894,
+                0.553,
+                0.153,
+                1
+            ],
+            "command_data": {
+                "alt_command": "",
+                "command": "install_path = 'C:\\\\Users\\\\hanjt\\\\Documents\\\\maya\\\\scripts'\npackage_id = 'ScreenSpace'\n\nimport os\nimport sys\nif not install_path in sys.path:\n    sys.path.insert(0, install_path)\n\nimport eblabs_hub.ScreenSpace.scripts.ScreenSpaceTools as tool\n\ntool.Tool.launch()",
+                "description": "",
+                "id": "",
+                "long_name": "",
+                "source_type": "python"
+            },
+            "data": {},
+            "description": "Screen Space Tools",
+            "icon": {
+                "image": "C:\\Users\\hanjt\\Documents\\maya\\scripts\\eblabs_hub\\ScreenSpace\\images\\eblabs_screenSpace.png",
+                "label": ""
+            },
+            "id": "Screen Space Tools",
+            "items": [],
+            "long_name": "Screen Space Tools",
+            "sub_type": "",
+            "tags": [
+                "eblabs_HUB_DEV"
+            ],
+            "type": "standardButton",
+            "uuid": "f43e48d22b6b4549b89bbeb62ec08270"
+        }
+    ],
+    "support": "https://github.com/eblabs/eblabs_docs/issues",
+    "version": "1.0.6",
+    "website": "https://eblabs.com/shop/screenspace-tools/"
+}

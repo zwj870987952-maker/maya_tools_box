@@ -27,7 +27,7 @@ def node(name, transform=True):
     if len(found) != 1 or '.' in name:
         raise ValueError('Node must identify one whole object: ' + name)
     name = found[0]
-    if transform and cmds.nodeType(name) != 'transform':
+    if transform and not cmds.objectType(name, isAType='transform'):
         raise ValueError('Only transform controls supported: ' + name)
     if transform and len(cmds.ls(name, allPaths=True, long=True) or []) != 1:
         raise ValueError('Instanced controls not supported: ' + name)

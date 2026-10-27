@@ -48,7 +48,8 @@ class OfflineTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 normalize(**args)
         self.assertTrue(TOOL.validate(action='inventory').success)
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya' not in sys.executable.lower():
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertEqual('brs_loc_transfer', TOOL.to_mcp_tool()['name'])
 
 

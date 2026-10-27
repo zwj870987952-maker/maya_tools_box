@@ -7,12 +7,22 @@ import unittest
 from unittest.mock import patch
 
 if os.environ.get('STAGING_ISOLATED_MAYAPY') != '1':
-    raise RuntimeError('Only isolated mayapy harness may execute disposable-scene tests')
+    try:
+        import maya.cmds
+    except ImportError:
+        raise RuntimeError('Only isolated mayapy harness may execute disposable-scene tests')
 import maya.standalone
-maya.standalone.initialize(name='python')
+try:
+    maya.standalone.initialize(name='python')
+except Exception:
+    pass
 from maya import cmds
 RC = Path(__file__).resolve().parents[1]
-TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
+if (RC / 'launch_candidate.py').is_file():
+    TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
+else:
+    from maya_toolkit.tools.copy_animation import CopyAnimationTool
+    TOOL = CopyAnimationTool()
 from maya_toolkit.tools.copy_animation import scene, runtime
 
 

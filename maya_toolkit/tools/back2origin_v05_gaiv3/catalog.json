@@ -1,0 +1,87 @@
+{
+  "tool_id": "back2origin_v05_gaiv3",
+  "raw_files": [
+    {
+      "path": "upstream/Back2Origin_v05_gaiv3.py",
+      "sha256": "692b510197ebb098c59eb99cc7255c698a3abe3e941ccd98fd3e38c83a8cabbf"
+    }
+  ],
+  "original_functions": [
+    "auto_identify_controllers",
+    "fill_controller_fields",
+    "fill_by_namespace",
+    "refresh_namespaces_menu",
+    "save_script_to_maya_default",
+    "show_about",
+    "show_contact",
+    "open_gumroad_page",
+    "select_root_control",
+    "select_ik_controls",
+    "select_pv_controls",
+    "select_other_controls",
+    "select_global_control",
+    "clear_root_control",
+    "clear_ik_controls",
+    "clear_pv_controls",
+    "clear_other_controls",
+    "clear_global_control",
+    "clear_all",
+    "toggle_start_end_frames",
+    "run_root_motion_conversion",
+    "calculate_ik_positions",
+    "calculate_other_positions",
+    "calculate_root_world_positions",
+    "zero_out_root_control",
+    "reapply_ik_positions",
+    "reapply_other_positions",
+    "reapply_root_world_positions",
+    "optimize_keyframes",
+    "return_to_root",
+    "show_root_help",
+    "show_ik_help",
+    "show_pv_help",
+    "show_other_help",
+    "show_global_help",
+    "show_back2origin_ui"
+  ],
+  "algorithm_functions": [
+    "calculate_ik_positions",
+    "calculate_other_positions",
+    "calculate_root_world_positions",
+    "zero_out_root_control",
+    "reapply_ik_positions",
+    "reapply_other_positions",
+    "reapply_root_world_positions",
+    "optimize_keyframes"
+  ],
+  "reverse_algorithm": "reverse.py",
+  "ui_controls": [
+    "back2OriginWindow",
+    "objectMenu",
+    "refreshNamespacesItem",
+    "rootControlField",
+    "ikControlsField",
+    "pvControlsField",
+    "otherControlsField",
+    "globalControlField",
+    "channelCheckBoxGrp",
+    "bakeFromTimesliderCheckBox",
+    "startFrameField",
+    "endFrameField",
+    "frameStepField"
+  ],
+  "source_license": "User-provided enhanced script; no standalone redistribution license found",
+  "behavior": [
+    "Full original eight helpers and reverse loops preserved",
+    "Global optional for convert; mandatory for reverse",
+    "Original absolute frame modulus thinning and X/Z-only root transfer",
+    "World root values assigned to global local channels; reverse replaces root values, not additive inverse"
+  ],
+  "changes": [
+    "Import-time file copy and window removed; installer explicitly disabled",
+    "Original native UI preserved in module namespace with callable callbacks",
+    "Read-only UUID/long-path preflight and standard Undo dispatch",
+    "Single writer runtime state restored finally",
+    "Discovery avoids ambiguous root/global and namespace mixing; stale fields cleared"
+  ]
+}

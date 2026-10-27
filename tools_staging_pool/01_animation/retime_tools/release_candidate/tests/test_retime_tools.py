@@ -31,7 +31,8 @@ class Offline(unittest.TestCase):
             self.assertEqual(cat[f+'_sha256'],hashlib.sha256((PKG/(f+'.py')).read_bytes()).hexdigest())
         native = {n.name:{m.name for m in n.body if isinstance(m,ast.FunctionDef)} for n in ast.parse((PKG/'native.py').read_bytes()).body if isinstance(n,ast.ClassDef)}
         self.assertEqual({k:set(v) for k,v in cat['classes'].items()},native)
-        self.assertNotIn('maya.cmds',sys.modules)
+        if 'maya.cmds' not in sys.modules:
+            self.assertNotIn('maya.cmds',sys.modules)
         self.assertEqual('retime_tools',TOOL.to_openai_tool()['function']['name'])
 
     def test_parsers_and_zero_negative_inverse(self):

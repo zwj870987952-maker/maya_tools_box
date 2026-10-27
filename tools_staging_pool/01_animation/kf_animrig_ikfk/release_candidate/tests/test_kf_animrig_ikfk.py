@@ -34,7 +34,8 @@ class OfflineTests(unittest.TestCase):
         self.assertNotIn('mtbKF_matchIKtoFKTen(0)', source)
 
     def test_lazy_schema_and_mel_injection_rejection(self):
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya' not in sys.executable.lower():
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertEqual('kf_animrig_ikfk', TOOL.to_mcp_tool()['name'])
         for kwargs in ({'action': 'bad'}, {'control': 'x; delete all;'}, {'control': 'a.tx'}, {'control': '|a'}, {'allow_reference_edits': 1}, {'start': True}, {'start': 3, 'end': 1}, {'unknown': 1}):
             with self.assertRaises(ValueError):

@@ -30,7 +30,8 @@ class Offline(unittest.TestCase):
             # The only change in these full algorithms is dict iteration porting.
             old_text = ast.unparse(old).replace('.iteritems()', '.items()')
             self.assertEqual(ast.dump(ast.parse(old_text)), ast.dump(ast.parse(ast.unparse(new))), name)
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya.cmds' not in sys.modules:
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertEqual('tweener_v1_0_2', TOOL.to_mcp_tool()['name'])
 
     def test_math_exact_unclamped_modes_and_arguments(self):

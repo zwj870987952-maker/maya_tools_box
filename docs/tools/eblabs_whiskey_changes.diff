@@ -1,0 +1,2573 @@
+--- upstream/WhiskeyPro.py
++++ native.py
+@@ -1,6 +1,6 @@
+-# Embedded file name: S:\Git\eblabs-hub\eblabs_hub\Whiskey\scripts\WhiskeyPro.py
+-import maya.cmds as cmds
+-import maya.mel as mel
++from .proxy import cmds, mel
++from .metadata import PackageData
++from . import runtime as _r
+ from functools import partial
+ import string
+ import colorsys
+@@ -11,8 +11,6 @@
+ from itertools import groupby
+ import copy
+ import traceback
+-# from . import LicenseManager
+-from ..data import PackageData
+ package_data = PackageData.get_data()
+ __author__ = 'Eric Bates, ebLabs.com'
+ __copyright__ = 'Copyright 2020, Eric Bates'
+@@ -22,16 +20,13 @@
+ __status__ = 'Production'
+ __version__ = package_data.get('version', '')
+ 
+-class window():
++class window:
+     version = __version__
+ 
+     @classmethod
+     def load(cls):
+-        # license_safe_check = LicenseManager.Query.LicenseSafeCheck()
+-        # if not license_safe_check:
+-        #     return
+-        print ('whisKEY_Pro:' + cls.version)
+-        windowName = 'whisKEY_Pro'
++        print('whisKEY_Pro:' + cls.version)
++        windowName = 'mtbWK_whisKEY_Pro'
+         if cmds.window(windowName, exists=True):
+             cmds.deleteUI(windowName, window=True)
+         storeWindowPosition = Prefs.getPrefsKey('storeWindowPosition')
+@@ -82,7 +77,6 @@
+                 widgetExpandedState = w['expanded']
+             except:
+                 pass
+-
+             if widgetType == 'inbetween':
+                 newItem = widget_tween(parent=parent, description=widgetDescription, expandedState=widgetExpandedState, stateData=widgetState)
+             if widgetType == 'extras':
+@@ -99,7 +93,6 @@
+                 newItem = widget_principles(parent=parent, description=widgetDescription, expandedState=widgetExpandedState, stateData=widgetState)
+             if widgetType == 'tools':
+                 newItem = widget_tools(parent=parent, description=widgetDescription, expandedState=widgetExpandedState, stateData=widgetState)
+-
+         cmds.evalDeferred(cls.resizeUI)
+ 
+     @classmethod
+@@ -128,8 +121,7 @@
+     def storePrefs(cls, *args, **kwargs):
+         widget_base.storePrefs()
+ 
+-
+-class Prefs():
++class Prefs:
+ 
+     @classmethod
+     def listProfiles(cls):
+@@ -138,22 +130,20 @@
+             cls.data['data']
+         except:
+             cls.data['data'] = {}
+-
+         profiles = cls.data['data'].keys()
+         return profiles
+ 
+     @classmethod
+     def getPrefsPath(cls):
+-        return os.path.normpath(os.path.join(cmds.internalVar(userAppDir=True), 'scripts', 'eblabs_prefs', 'whiskey.prefs'))
+-
+-    @classmethod
+-    def removeProfile(cls, profile = False):
++        return 'session://whiskey/preferences'
++
++    @classmethod
++    def removeProfile(cls, profile=False):
+         cls.loadPrefs()
+         try:
+             cls.data['data']
+         except:
+             cls.data['data'] = {}
+-
+         if profile in cls.data['data'].keys():
+             cls.data['data'].pop(profile)
+         cls.savePrefs()
+@@ -164,16 +154,14 @@
+             cls.data
+         except:
+             cls.data = {}
+-
+         try:
+             cls.data['activeProfile']
+         except:
+             cls.data['activeProfile'] = 'default'
+-
+         return cls.data['activeProfile']
+ 
+     @classmethod
+-    def setProfileData(cls, profile = False, profileData = {}):
++    def setProfileData(cls, profile=False, profileData={}):
+         cls.loadPrefs()
+         activeProfile = cls.getActiveProfile()
+         if profile:
+@@ -183,17 +171,15 @@
+             cls.data['data']
+         except:
+             cls.data['data'] = {}
+-
+         try:
+             cls.data['data'][activeProfile]
+         except:
+             cls.data['data'][activeProfile] = {}
+-
+         cls.data['data'][activeProfile]['data'] = profileData
+         cls.savePrefs()
+ 
+     @classmethod
+-    def getProfileData(cls, profile = False):
++    def getProfileData(cls, profile=False):
+         cls.loadPrefs()
+         activeProfile = cls.getActiveProfile()
+         if profile:
+@@ -203,7 +189,6 @@
+             returnData = copy.deepcopy(cls.data['data'][activeProfile]['data'])
+         except Exception as e:
+             pass
+-
+         return returnData
+ 
+     @classmethod
+@@ -213,7 +198,6 @@
+             cls.data
+         except:
+             cls.data = {}
+-
+         defaultPrefs = {}
+         defaultPrefs['storeWindowPosition'] = False
+         defaultPrefs['activeProfile'] = 'default'
+@@ -235,58 +219,28 @@
+             cls.data
+         except:
+             cls.data = {}
+-
+         if key:
+             cls.data[key] = value
+             cls.savePrefs()
+ 
+     @classmethod
+     def savePrefs(cls, *args, **kwargs):
+-        prefsPath = cls.getPrefsPath()
+-        if prefsPath:
+-            try:
+-                cls.data
+-            except:
+-                cls.data = {}
+-
+-        cls.writeDataToFile(prefsPath, cls.data)
++        return _r.save_preferences(cls)
+ 
+     @classmethod
+     def loadPrefs(cls, *args, **kwargs):
+-        try:
+-            prefsPath = cls.getPrefsPath()
+-            if prefsPath:
+-                cls.data = cls.loadDataFromFile(prefsPath)
+-                if not cls.data:
+-                    cls.data = {}
+-        except:
+-            pass
++        return _r.load_preferences(cls)
+ 
+     @classmethod
+     def writeDataToFile(cls, filePath, dictionary):
+-        filePathRoot = os.path.split(filePath)[0]
+-        if not os.path.exists(filePathRoot):
+-            os.makedirs(filePathRoot)
+-        fileObject = open(filePath, 'w')
+-        data = json.dumps(dictionary, sort_keys=True, indent=4)
+-        fileObject.write(data)
+-        fileObject.close()
++        return _r.write_json(filePath, dictionary)
+ 
+     @classmethod
+     def loadDataFromFile(cls, filename, *args, **kwargs):
+-        data = None
+-        try:
+-            filePath = open(filename, 'r')
+-            data = json.loads(filePath.read())
+-            filePath.close()
+-        except:
+-            pass
+-
+-        return data
+-
+-
+-class Functions():
+-    prefsFilepath = os.path.normpath(os.path.join(cmds.internalVar(userAppDir=True), 'scripts', 'eblabs_prefs', 'whiskey.prefs'))
++        return _r.read_json(filename)
++
++class Functions:
++    prefsFilepath = 'session://whiskey/preferences'
+     version = 1
+     activeProfile = 'default'
+     profilesData = {}
+@@ -302,7 +256,7 @@
+             cls.suspendUI(True)
+             cmds.undo()
+         except Exception as e:
+-            print (236, e)
++            print(236, e)
+         finally:
+             cls.suspendUI(False)
+ 
+@@ -317,11 +271,12 @@
+             cls.suspendUI(True)
+             cmds.redo()
+         except Exception as e:
+-            print (255, e)
++            print(255, e)
+         finally:
+             cls.suspendUI(False)
+ 
+     @classmethod
++    @_r.native_operation('Functions.smashBaker')
+     def smashBaker(cls, selected, startTime, endTime, *args, **kwargs):
+         count = 0
+         if selected:
+@@ -338,7 +293,6 @@
+                         if l == rootLayer:
+                             state = True
+                         cmds.animLayer(l, edit=True, selected=state)
+-
+                 timeRange = [startTime, endTime + 1]
+                 currentTime = cmds.currentTime(query=True)
+                 data = {}
+@@ -351,16 +305,13 @@
+                             for a in attributes:
+                                 attribute = '{0}.{1}'.format(s, a)
+                                 attributeList.append(attribute)
+-
+                         else:
+-                            print ('SKIPPING, NO ATTRS FOR: ', s)
+-
++                            print('SKIPPING, NO ATTRS FOR: ', s)
+                     for f in range(timeRange[0], timeRange[1]):
+                         cmds.currentTime(f, edit=True)
+                         data[f] = {}
+                         for a in attributeList:
+                             data[f][a] = cmds.getAttr(a)
+-
+                     for a in attributeList:
+                         if cmds.connectionInfo(a, isDestination=True):
+                             destination = cmds.connectionInfo(a, getExactDestination=True)
+@@ -369,19 +320,16 @@
+                                 cmds.disconnectAttr(source, destination)
+                             except:
+                                 cmds.delete(destination, inputConnectionsAndNodes=True)
+-
+                     for f in data.keys():
+                         for a in data[f].keys():
+                             value = data[f][a]
+                             cmds.setKeyframe(a, value=value, time=f)
+-
+                     cmds.currentTime(currentTime, edit=True)
+                     for a in attributeList:
+                         animLayers = cmds.listConnections(a, type='animLayer')
+                         if animLayers:
+                             for l in animLayers:
+                                 cmds.animLayer(l, edit=True, removeAttribute=a)
+-
+             except:
+                 pass
+             finally:
+@@ -437,7 +385,6 @@
+             cls.activeProfile
+         except Exception as e:
+             cls.activeProfile = 'default'
+-
+         return cls.activeProfile
+ 
+     @classmethod
+@@ -450,7 +397,6 @@
+             cls.profilesData
+         except:
+             cls.profilesData = {}
+-
+         if 'default' not in cls.profilesData.keys():
+             cls.profilesData['default'] = {}
+             cls.profilesData['default']['data'] = []
+@@ -460,9 +406,10 @@
+     def groupDuplicates(cls, values, *args, **kwargs):
+         if not values:
+             return False
+-        return [ (k, sum((1 for i in g))) for k, g in groupby(values) ]
+-
+-    @classmethod
++        return [(k, sum((1 for i in g))) for k, g in groupby(values)]
++
++    @classmethod
++    @_r.native_operation('Functions.cleanSubframeKeys')
+     def cleanSubframeKeys(cls, *args, **kwargs):
+         selection = False
+         if 'selection' in kwargs:
+@@ -503,21 +450,18 @@
+                                     if not float(t).is_integer():
+                                         subframeTimes.add(t)
+                                         removalStats['keysCleaned'] += 1
+-
+                                 newTimes = list(wholeTimes - set(times))
+                                 for t in newTimes:
+                                     cmds.setKeyframe(curveNode, insert=True, time=tuple([t, t]))
+-
+                                 for t in subframeTimes:
+                                     cmds.cutKey(curveNode, time=tuple([t, t]))
+-
+             except Exception as e:
+-                print (813, Exception, e)
+-                print (traceback.format_exc())
++                _r.note_error(e)
++                print(813, Exception, e)
++                print(traceback.format_exc())
+             finally:
+                 cmds.progressBar(gMainProgressBar, edit=True, endProgress=True)
+-
+-            print ('ebLabs_whisKEY:Clean Subframe Keys Info:', removalStats)
++            print('ebLabs_whisKEY:Clean Subframe Keys Info:', removalStats)
+ 
+     @classmethod
+     def getAnimCurvesForAttribute(cls, attribute, *args, **kwargs):
+@@ -539,7 +483,6 @@
+                             if w in nType:
+                                 whiteListCheck = True
+                                 break
+-
+                         if whiteListCheck:
+                             if nType == 'character':
+                                 characterSetMember = cmds.character(attribute, query=True, characterPlug=True)
+@@ -551,11 +494,9 @@
+                             else:
+                                 connections.append(n)
+                                 keepLooking = True
+-
+                 count += 1
+                 if count >= recursionLimit:
+                     keepLooking = False
+-
+         animCurves = []
+         if connections:
+             for c in connections:
+@@ -563,10 +504,10 @@
+                 if 'animCurve' in nType:
+                     if c not in animCurves:
+                         animCurves.append(c)
+-
+         return animCurves
+ 
+     @classmethod
++    @_r.native_operation('Functions.removeBoringKeys')
+     def removeBoringKeys(cls, *args, **kwargs):
+         selection = False
+         if 'selection' in kwargs:
+@@ -613,7 +554,6 @@
+                                     for t, v in timesValues:
+                                         times.append(t)
+                                         values.append(v)
+-
+                                     groupedValues = cls.groupDuplicates(values)
+                                     if len(groupedValues) == 1:
+                                         if leaveFirstKey:
+@@ -639,32 +579,26 @@
+                                                     if c < countRange[-1]:
+                                                         indicesForRemoval.append(index)
+                                                 index += 1
+-
+                                             if count > 1:
+                                                 previousGroupWasBoring = True
+                                             else:
+                                                 previousGroupWasBoring = False
+-
+                                         for i in sorted(indicesForRemoval, reverse=True):
+                                             cmds.cutKey(curveNode, index=tuple([i, i]))
+-
+                                         if not leaveFirstKey:
+                                             timesValues = []
+                                             try:
+                                                 timesValues = cmds.getAttr('{0}.{1}'.format(curveNode, 'keyTimeValue[:]'))
+                                             except:
+                                                 pass
+-
+                                             if timesValues and len(timesValues) == 1:
+                                                 cmds.cutKey(curveNode)
+                                         removalStats['keysRemoved'] += len(indicesForRemoval)
+-
+             except:
+                 pass
+             finally:
+                 cmds.progressBar(gMainProgressBar, edit=True, endProgress=True)
+-
+-            print ('ebLabs_whisKEY:Remove Boring Keys Info:', removalStats)
++            print('ebLabs_whisKEY:Remove Boring Keys Info:', removalStats)
+ 
+     @classmethod
+     def removeBoringKeysPrompt(cls, message):
+@@ -681,7 +615,6 @@
+                 else:
+                     value = 'TrueLeaveNone'
+             cmds.layoutDialog(dismiss=value)
+-
+         trueButton = cmds.button(l='Yes', c=partial(dismiss, 'True'))
+         falseButton = cmds.button(l='No', c=partial(dismiss, 'Cancel'))
+         padding = 10
+@@ -689,31 +622,16 @@
+         cmds.formLayout(form, edit=True, attachForm=[(text, 'left', 0)])
+         cmds.formLayout(form, edit=True, attachNone=[(text, 'bottom')])
+         cmds.formLayout(form, edit=True, attachForm=[(text, 'right', 0)])
+-        cmds.formLayout(form, edit=True, attachControl=[(checkbox,
+-          'top',
+-          padding,
+-          text)])
++        cmds.formLayout(form, edit=True, attachControl=[(checkbox, 'top', padding, text)])
+         cmds.formLayout(form, edit=True, attachForm=[(checkbox, 'left', padding)])
+         cmds.formLayout(form, edit=True, attachNone=[(checkbox, 'bottom')])
+         cmds.formLayout(form, edit=True, attachForm=[(checkbox, 'right', 0)])
+-        cmds.formLayout(form, edit=True, attachControl=[(falseButton,
+-          'top',
+-          padding,
+-          checkbox)])
++        cmds.formLayout(form, edit=True, attachControl=[(falseButton, 'top', padding, checkbox)])
+         cmds.formLayout(form, edit=True, attachForm=[(falseButton, 'left', padding)])
+         cmds.formLayout(form, edit=True, attachNone=[(falseButton, 'bottom')])
+-        cmds.formLayout(form, edit=True, attachPosition=[(falseButton,
+-          'right',
+-          padding,
+-          50)])
+-        cmds.formLayout(form, edit=True, attachControl=[(trueButton,
+-          'top',
+-          padding,
+-          checkbox)])
+-        cmds.formLayout(form, edit=True, attachControl=[(trueButton,
+-          'left',
+-          padding,
+-          falseButton)])
++        cmds.formLayout(form, edit=True, attachPosition=[(falseButton, 'right', padding, 50)])
++        cmds.formLayout(form, edit=True, attachControl=[(trueButton, 'top', padding, checkbox)])
++        cmds.formLayout(form, edit=True, attachControl=[(trueButton, 'left', padding, falseButton)])
+         cmds.formLayout(form, edit=True, attachNone=[(trueButton, 'bottom')])
+         cmds.formLayout(form, edit=True, attachForm=[(trueButton, 'right', padding)])
+ 
+@@ -742,7 +660,6 @@
+             potentialNode = node.replace(nodeNamespace, ns)
+             if cmds.objExists(potentialNode):
+                 matchingNodes.append(potentialNode)
+-
+         return matchingNodes
+ 
+     @classmethod
+@@ -758,15 +675,15 @@
+                 del n[-1]
+                 n = ':'.join(n)
+                 namespaces.append(n)
+-
+         return namespaces
+ 
+     @classmethod
++    @_r.native_operation('Functions.setKeyType')
+     def setKeyType(cls, keyType, *args, **kwargs):
+         outTangent = keyType
+         inTangent = keyType
+         selection = cmds.ls(sl=True)
+-        if keyType == 'auto' or keyType == 'spline' or keyType == 'clamped' or keyType == 'step' or keyType == 'linear' or keyType == 'flat' or keyType == 'plateau':
++        if keyType == 'auto' or keyType == 'spline' or keyType == 'clamped' or (keyType == 'step') or (keyType == 'linear') or (keyType == 'flat') or (keyType == 'plateau'):
+             if inTangent == 'step':
+                 inTangent = 'linear'
+             mel.eval('keyTangent -global -itt {0};'.format(inTangent))
+@@ -798,9 +715,7 @@
+                         continue
+                 except:
+                     pass
+-
+                 attributes.append(a)
+-
+         return attributes
+ 
+     @classmethod
+@@ -859,7 +774,7 @@
+         return (offsetTime, offsetValue)
+ 
+     @classmethod
+-    def getBoundingBoxSize(node, *args, **kwargs):
++    def getBoundingBoxSize(cls, node, *args, **kwargs):
+         radius = 0
+         if cmds.objExists(node):
+             objectType = cmds.objectType(node)
+@@ -882,7 +797,6 @@
+             runningSum = 0
+             for n in nodes:
+                 runningSum += cls.getBoundingBoxSize(n)
+-
+             averageSize = runningSum / len(nodes)
+         return averageSize
+ 
+@@ -905,7 +819,6 @@
+                 isCameraPanel = True
+         except:
+             pass
+-
+         return cameraName
+ 
+     @classmethod
+@@ -918,25 +831,11 @@
+ 
+     @classmethod
+     def loadDataFromFile(cls, filename, *args, **kwargs):
+-        data = None
+-        try:
+-            filePath = open(filename, 'r')
+-            data = json.loads(filePath.read())
+-            filePath.close()
+-        except:
+-            pass
+-
+-        return data
++        return _r.read_json(filename)
+ 
+     @classmethod
+     def writeDataToFile(cls, filePath, dictionary):
+-        filePathRoot = os.path.split(filePath)[0]
+-        if not os.path.exists(filePathRoot):
+-            os.makedirs(filePathRoot)
+-        fileObject = open(filePath, 'w')
+-        data = json.dumps(dictionary, sort_keys=True, indent=4)
+-        fileObject.write(data)
+-        fileObject.close()
++        return _r.write_json(filePath, dictionary)
+ 
+     @classmethod
+     def clearPrefs(cls, *args, **kwargs):
+@@ -983,25 +882,14 @@
+             profilesData[profile]
+         except:
+             profilesData[profile] = {}
+-
+         try:
+             profilesData[profile]['data']
+         except Exception as e:
+-            print (868, e)
+-            print (863,
+-             'profilesData',
+-             type(profilesData),
+-             profilesData)
+-            print (863,
+-             'profilesData[profile]',
+-             type(profilesData[profile]),
+-             profilesData[profile])
+-            print (864,
+-             'profile',
+-             type(profile),
+-             profile)
++            print(868, e)
++            print(863, 'profilesData', type(profilesData), profilesData)
++            print(863, 'profilesData[profile]', type(profilesData[profile]), profilesData[profile])
++            print(864, 'profile', type(profile), profile)
+             profilesData[profile]['data'] = {}
+-
+         profilesData[profile]['data'] = widgetData
+         profilesData[profile]['version'] = cls.getVersion()
+         cls.setProfilesData(profilesData)
+@@ -1010,7 +898,6 @@
+             data
+         except:
+             data = {}
+-
+         data['data'] = profilesData
+         data['version'] = cls.getVersion()
+         data['activeProfile'] = profile
+@@ -1034,11 +921,12 @@
+         trans = mTransformMtx.translation(OpenMaya.MSpace.kWorld)
+         eulerRot = mTransformMtx.rotation()
+         eulerRot.reorderIt(rotOrder)
+-        angles = [ math.degrees(angle) for angle in (eulerRot.x, eulerRot.y, eulerRot.z) ]
++        angles = [math.degrees(angle) for angle in (eulerRot.x, eulerRot.y, eulerRot.z)]
+         scale = mTransformMtx.scale(OpenMaya.MSpace.kWorld)
+         return [trans.x, trans.y, trans.z] + angles + scale
+ 
+     @classmethod
++    @_r.native_operation('Functions.rekeyOnKeys')
+     def rekeyOnKeys(cls, *args, **kwargs):
+         objects = None
+         if 'objects' in kwargs:
+@@ -1078,7 +966,6 @@
+                     for f in keyTimes:
+                         if highlightedRange[0] <= f <= highlightedRange[1]:
+                             trimmed.append(f)
+-
+                     keyTimes = sorted(trimmed)
+                 cls.suspendUI(True)
+                 for f in keyTimes:
+@@ -1087,19 +974,15 @@
+                         cmds.setKeyframe(objectsToProcess)
+                     else:
+                         cmds.setKeyframe(objectsToProcess, attribute=highlightedChannels)
+-
+                 for f in specialKeyTickTimes:
+                     cmds.keyframe(objectsToProcess, time=(f, f), tickDrawSpecial=True, animation='objects', attribute=highlightedChannels)
+-
+                 if matchLast:
+                     for f in allKeyTimes:
+                         if f not in keyTimes:
+                             cmds.cutKey(objectsToProcess, time=(f, f), clear=True)
+-
+                 cmds.currentTime(currentTime, edit=True)
+         finally:
+             cls.suspendUI(False)
+-
+         return
+ 
+     @classmethod
+@@ -1125,12 +1008,12 @@
+                             querySpecialKeyTick = cmds.getAttr('{0}.kyts[{1}]'.format(curveNode, index))
+                             if querySpecialKeyTick:
+                                 specialKeyTicks.append(f)
+-
+             return specialKeyTicks
+         else:
+             return
+ 
+     @classmethod
++    @_r.native_operation('Functions.setKeyframe')
+     def setKeyframe(cls, *args, **kwargs):
+         objects = None
+         if 'objects' in kwargs:
+@@ -1165,7 +1048,6 @@
+                 c = '_'
+             if c in validCharacters:
+                 validatedCharacters.append(c)
+-
+         validatedText = ''.join(validatedCharacters)
+         return validatedText
+ 
+@@ -1196,7 +1078,7 @@
+         return max(min(maxn, n), minn)
+ 
+     @classmethod
+-    def getSelectedChannels(cls, selection = False):
++    def getSelectedChannels(cls, selection=False):
+         if not selection:
+             selection = cmds.ls(sl=True, type=['transform', 'joint'])
+         if selection:
+@@ -1209,58 +1091,13 @@
+ 
+     @classmethod
+     def suspendUI(cls, state, *args, **kwargs):
+-        try:
+-            cmds.undoInfo(stateWithoutFlush=False)
+-            cls.suspendUI_wrapped(state, *args, **kwargs)
+-        except Exception as e:
+-            print (Exception, e)
+-            cmds.warning('Suspend UI Failed')
+-        finally:
+-            cmds.undoInfo(stateWithoutFlush=True)
++        return None
+ 
+     @classmethod
+     def suspendUI_wrapped(cls, state):
+-        if state == True:
+-            try:
+-                selected = cmds.ls(sl=True)
+-                allPanels = cmds.getPanel(type='modelPanel')
+-                cmds.select(clear=True)
+-                cls.suspendIsolatedObjects = {}
+-                for panel in allPanels:
+-                    viewSet = cmds.isolateSelect(panel, q=True, viewObjects=True)
+-                    setMembers = False
+-                    if viewSet:
+-                        setMembers = cmds.sets(viewSet, q=True)
+-                        cls.suspendIsolatedObjects[panel] = setMembers
+-                    cmds.isolateSelect(panel, state=1)
+-
+-                cmds.select(selected)
+-                mel.eval('paneLayout -e -manage false $gMainPane')
+-            except Exception as e:
+-                print (1137, e)
+-                cmds.warning('Suspend UI Not Activating Properly Mate.')
+-                mel.eval('paneLayout -e -manage true $gMainPane')
+-                allPanels = cmds.getPanel(type='modelPanel')
+-                for panel in allPanels:
+-                    cmds.isolateSelect(panel, state=False)
+-
+-        if state == False:
+-            mel.eval('paneLayout -e -manage true $gMainPane')
+-            allPanels = cmds.getPanel(type='modelPanel')
+-            for panel in allPanels:
+-                cmds.isolateSelect(panel, state=False)
+-                try:
+-                    if panel in cls.suspendIsolatedObjects.keys():
+-                        if cls.suspendIsolatedObjects[panel]:
+-                            cmds.isolateSelect(panel, state=True)
+-                            for n in cls.suspendIsolatedObjects[panel]:
+-                                cmds.isolateSelect(panel, addDagObject=n)
+-
+-                except Exception as e:
+-                    print (1292, e)
+-
+-
+-class widget_base():
++        return None
++
++class widget_base:
+     """ Define Common Functions for widgets
+     """
+     instances = []
+@@ -1290,10 +1127,7 @@
+         cmds.formLayout(formattingLayout, edit=True, attachForm=[(self.formLayout, 'left', 0)])
+         cmds.formLayout(formattingLayout, edit=True, attachNone=[(self.formLayout, 'bottom')])
+         cmds.formLayout(formattingLayout, edit=True, attachForm=[(self.formLayout, 'right', 0)])
+-        cmds.formLayout(formattingLayout, edit=True, attachControl=[(spacerFormlayout,
+-          'top',
+-          0,
+-          self.formLayout)])
++        cmds.formLayout(formattingLayout, edit=True, attachControl=[(spacerFormlayout, 'top', 0, self.formLayout)])
+         cmds.formLayout(formattingLayout, edit=True, attachForm=[(spacerFormlayout, 'left', 0)])
+         cmds.formLayout(formattingLayout, edit=True, attachNone=[(spacerFormlayout, 'bottom')])
+         cmds.formLayout(formattingLayout, edit=True, attachForm=[(spacerFormlayout, 'right', 0)])
+@@ -1350,7 +1184,6 @@
+             cls.widgetParent
+         except:
+             cls.widgetParent = False
+-
+         return cls.widgetParent
+ 
+     @classmethod
+@@ -1362,7 +1195,6 @@
+             self.postCommands
+         except:
+             self.postCommands = []
+-
+         if command:
+             self.postCommands.append(command)
+ 
+@@ -1374,7 +1206,6 @@
+             self.postCommands
+         except:
+             self.postCommands = []
+-
+         for c in self.postCommands:
+             c()
+ 
+@@ -1383,7 +1214,6 @@
+             self.preCommands
+         except:
+             self.preCommands = []
+-
+         if command:
+             self.preCommands.append(command)
+ 
+@@ -1395,7 +1225,6 @@
+             self.preCommands
+         except:
+             self.preCommands = []
+-
+         for c in self.preCommands:
+             c()
+ 
+@@ -1404,21 +1233,19 @@
+             self.changeCommands
+         except:
+             self.changeCommands = []
+-
+         if command:
+             self.changeCommands.append(command)
+ 
+     def clearChangeCommands(self, *args, **kwargs):
+         self.changeCommands = []
+ 
+-    def onChange(self, debug = False, *args, **kwargs):
++    def onChange(self, debug=False, *args, **kwargs):
+         if debug:
+-            print (debug, len(self.changeCommands))
++            print(debug, len(self.changeCommands))
+         try:
+             self.changeCommands
+         except Exception as e:
+             self.changeCommands = []
+-
+         for c in self.changeCommands:
+             c()
+ 
+@@ -1540,7 +1367,6 @@
+         profiles = Prefs.listProfiles()
+         for p in profiles:
+             cmds.menuItem(parent=parent, label='Switch To: ' + p, enable=not p == currentProfile, command=partial(self.switchToProfile, p))
+-
+         cmds.menuItem(parent=parent, divider=True)
+         profilesRemove = cmds.menuItem(parent=parent, subMenu=True, label='Remove Profile')
+         for p in profiles:
+@@ -1574,7 +1400,6 @@
+                 widgetExpandedState = w['expanded']
+             except:
+                 pass
+-
+             if widgetType == 'inbetween':
+                 newItem = widget_tween(parent=parent, description=widgetDescription, expandedState=widgetExpandedState, stateData=widgetState)
+             if widgetType == 'extras':
+@@ -1706,7 +1531,6 @@
+             self.instances.remove(self)
+         except:
+             pass
+-
+         if storePrefs:
+             self.storePrefs()
+         window.resizeUI()
+@@ -1721,7 +1545,6 @@
+             data['state'] = instance.getState()
+             data['expanded'] = instance.getWidgetExpandedState()
+             widgetList.append(data)
+-
+         return widgetList
+ 
+     def getState(self):
+@@ -1744,9 +1567,9 @@
+         """ print info about the widgets
+         """
+         widgetData = cls.getCurrentState()
+-        print (175, 'widgetData')
++        print(175, 'widgetData')
+         for w in widgetData:
+-            print (w)
++            print(w)
+ 
+     @classmethod
+     def storePrefs(cls, *args, **kwargs):
+@@ -1773,7 +1596,6 @@
+             self.descriptionWidget.overrideDescription(self.description)
+         except:
+             pass
+-
+         try:
+             cmds.frameLayout(self.mainContainer, edit=True, label=self.description)
+         except:
+@@ -1784,7 +1606,6 @@
+             self.description
+         except:
+             self.description = ''
+-
+         return self.description
+ 
+     def getLayout(self):
+@@ -1864,7 +1685,6 @@
+             self.pinSelectionToggle.overrideDescription(description)
+         except:
+             pass
+-
+         self.storePrefs()
+ 
+     def onPinSelectionButton(self, state, *args, **kwargs):
+@@ -1879,7 +1699,6 @@
+                     cmds.select(bufferSelection)
+                 except:
+                     pass
+-
+             self.setBufferChannels([])
+         else:
+             self.setPinState(True)
+@@ -1891,7 +1710,6 @@
+                 self.pinSelectionToggle.overrideDescription(description)
+             except:
+                 pass
+-
+         self.storePrefs()
+ 
+     def selectObjects(self, *args, **kwargs):
+@@ -1911,7 +1729,6 @@
+                     toSelect += [bufferNode]
+                 elif selectedNamespaces != bufferNamespaces:
+                     toSelect += Functions.findMatchingObjectsInNamespace(node=bufferNode, namespaces=selectedNamespaces)
+-
+         cmds.select(clear=True)
+         for s in toSelect:
+             if cmds.objExists(s):
+@@ -1925,7 +1742,6 @@
+             self.pinState
+         except:
+             self.pinState = False
+-
+         return self.pinState
+ 
+     def setBufferSelection(self, selection):
+@@ -1937,7 +1753,6 @@
+             self.bufferSelection
+         except:
+             self.bufferSelection = []
+-
+         return self.bufferSelection
+ 
+     def setBufferChannels(self, selection):
+@@ -1948,13 +1763,11 @@
+             self.bufferChannels
+         except:
+             self.bufferChannels = []
+-
+         return self.bufferChannels
+ 
+     def onDescriptionChange(self, description, *args, **kwargs):
+         self.setDescription(description)
+         self.storePrefs()
+-
+ 
+ class widget_tween(widget_base):
+ 
+@@ -1965,9 +1778,7 @@
+         description = 'Inbetween'
+         if 'description' in kwargs:
+             description = kwargs.pop('description')
+-        stateData = {'pinState': False,
+-         'bufferSelection': [],
+-         'useAllLayersState': True}
++        stateData = {'pinState': False, 'bufferSelection': [], 'useAllLayersState': True}
+         if 'stateData' in kwargs:
+             stateData = kwargs.pop('stateData')
+         expandedState = True
+@@ -1984,17 +1795,14 @@
+             self.setPinState(stateData['pinState'])
+         except:
+             pass
+-
+         try:
+             self.setBufferSelection(stateData['bufferSelection'])
+         except:
+             pass
+-
+         try:
+             self.setUseAllLayersState(stateData['useAllLayersState'])
+         except:
+             pass
+-
+         try:
+             self.setBufferChannels(stateData['bufferChannels'])
+         except:
+@@ -2008,7 +1816,6 @@
+             self.useAllLayersState
+         except:
+             self.useAllLayersState = True
+-
+         return self.useAllLayersState
+ 
+     def setupUI(self):
+@@ -2040,7 +1847,6 @@
+                 BDescription = '{0} Objects'.format(str(selectionCount))
+             except:
+                 pass
+-
+         ACommand = partial(self.onPinSelectionButton, True)
+         BCommand = partial(self.onPinSelectionButton, False)
+         self.pinSelectionToggle = button_toggleSwitch(parent=layoutContainer, startState=startState, ADescription=ADescription, BDescription=BDescription, ACommand=ACommand, BCommand=BCommand)
+@@ -2083,82 +1889,37 @@
+         presetButton7 = cmds.button(parent=presetLayout, annotation='Next', label='Next', width=5, command=partial(self.sliderTween.presetCommand, value), bgc=buttonBGC)
+         padding = 1
+         cmds.formLayout(presetLayout, edit=True, attachForm=[(presetButton1, 'top', padding)])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton1,
+-          'left',
+-          padding,
+-          0)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton1, 'left', padding, 0)])
+         cmds.formLayout(presetLayout, edit=True, attachNone=[(presetButton1, 'bottom')])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton1,
+-          'right',
+-          padding,
+-          20)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton1, 'right', padding, 20)])
+         cmds.formLayout(presetLayout, edit=True, attachForm=[(presetButton2, 'top', padding)])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton2,
+-          'left',
+-          padding,
+-          20)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton2, 'left', padding, 20)])
+         cmds.formLayout(presetLayout, edit=True, attachNone=[(presetButton2, 'bottom')])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton2,
+-          'right',
+-          padding,
+-          30)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton2, 'right', padding, 30)])
+         cmds.formLayout(presetLayout, edit=True, attachForm=[(presetButton3, 'top', padding)])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton3,
+-          'left',
+-          padding,
+-          30)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton3, 'left', padding, 30)])
+         cmds.formLayout(presetLayout, edit=True, attachNone=[(presetButton3, 'bottom')])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton3,
+-          'right',
+-          padding,
+-          40)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton3, 'right', padding, 40)])
+         cmds.formLayout(presetLayout, edit=True, attachForm=[(presetButton4, 'top', padding)])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton4,
+-          'left',
+-          padding,
+-          40)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton4, 'left', padding, 40)])
+         cmds.formLayout(presetLayout, edit=True, attachNone=[(presetButton4, 'bottom')])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton4,
+-          'right',
+-          padding,
+-          60)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton4, 'right', padding, 60)])
+         cmds.formLayout(presetLayout, edit=True, attachForm=[(presetButton5, 'top', padding)])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton5,
+-          'left',
+-          padding,
+-          60)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton5, 'left', padding, 60)])
+         cmds.formLayout(presetLayout, edit=True, attachNone=[(presetButton5, 'bottom')])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton5,
+-          'right',
+-          padding,
+-          70)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton5, 'right', padding, 70)])
+         cmds.formLayout(presetLayout, edit=True, attachForm=[(presetButton6, 'top', padding)])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton6,
+-          'left',
+-          padding,
+-          70)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton6, 'left', padding, 70)])
+         cmds.formLayout(presetLayout, edit=True, attachNone=[(presetButton6, 'bottom')])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton6,
+-          'right',
+-          padding,
+-          80)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton6, 'right', padding, 80)])
+         cmds.formLayout(presetLayout, edit=True, attachForm=[(presetButton7, 'top', padding)])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton7,
+-          'left',
+-          padding,
+-          80)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton7, 'left', padding, 80)])
+         cmds.formLayout(presetLayout, edit=True, attachNone=[(presetButton7, 'bottom')])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton7,
+-          'right',
+-          padding,
+-          100)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton7, 'right', padding, 100)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(descriptionWidgetLayout, 'top', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(descriptionWidgetLayout, 'left', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(descriptionWidgetLayout, 'bottom')])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(descriptionWidgetLayout,
+-          'right',
+-          0,
+-          layerToggleButton)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(descriptionWidgetLayout, 'right', 0, layerToggleButton)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(pinSelectionButton, 'top', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(pinSelectionButton, 'left')])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(pinSelectionButton, 'bottom')])
+@@ -2166,48 +1927,24 @@
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(layerToggleButton, 'top', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(layerToggleButton, 'left')])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(layerToggleButton, 'bottom')])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(layerToggleButton,
+-          'right',
+-          0,
+-          pinSelectionButton)])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(setKeyButton,
+-          'top',
+-          1,
+-          layerToggleButton)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(layerToggleButton, 'right', 0, pinSelectionButton)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(setKeyButton, 'top', 1, layerToggleButton)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(setKeyButton, 'left', 2)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(setKeyButton, 'bottom')])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(setKeyButton, 'right')])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(setSpecialKeyButton,
+-          'top',
+-          1,
+-          pinSelectionButton)])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(setSpecialKeyButton,
+-          'left',
+-          2,
+-          setKeyButton)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(setSpecialKeyButton, 'top', 1, pinSelectionButton)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(setSpecialKeyButton, 'left', 2, setKeyButton)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(setSpecialKeyButton, 'bottom')])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(setSpecialKeyButton, 'right')])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(easyTweenButton,
+-          'top',
+-          1,
+-          pinSelectionButton)])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(easyTweenButton,
+-          'left',
+-          2,
+-          setSpecialKeyButton)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(easyTweenButton, 'top', 1, pinSelectionButton)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(easyTweenButton, 'left', 2, setSpecialKeyButton)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(easyTweenButton, 'bottom')])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(easyTweenButton, 'right', 1)])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(sliderTweenUI,
+-          'top',
+-          5,
+-          easyTweenButton)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(sliderTweenUI, 'top', 5, easyTweenButton)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(sliderTweenUI, 'left', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(sliderTweenUI, 'bottom')])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(sliderTweenUI, 'right', 0)])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(presetLayout,
+-          'top',
+-          5,
+-          sliderTweenUI)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(presetLayout, 'top', 5, sliderTweenUI)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(presetLayout, 'left', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(presetLayout, 'bottom')])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(presetLayout, 'right', 0)])
+@@ -2227,7 +1964,6 @@
+             self.useAllLayersState = False
+         self.storePrefs(debugging='onToggleLayersButton')
+ 
+-
+ class widget_snapshot(widget_base):
+ 
+     def __init__(self, *args, **kwargs):
+@@ -2237,9 +1973,7 @@
+         description = 'Snapshot'
+         if 'description' in kwargs:
+             description = kwargs.pop('description')
+-        stateData = {'pinState': False,
+-         'bufferSelection': [],
+-         'useAllLayersState': True}
++        stateData = {'pinState': False, 'bufferSelection': [], 'useAllLayersState': True}
+         if 'stateData' in kwargs:
+             stateData = kwargs.pop('stateData')
+         expandedState = True
+@@ -2266,12 +2000,10 @@
+             self.setPinState(stateData['pinState'])
+         except:
+             self.setPinState(False)
+-
+         try:
+             self.setDataBuffer(stateData['bufferData'])
+         except:
+             self.setDataBuffer([])
+-
+         try:
+             self.setBufferChannels(stateData['bufferChannels'])
+         except:
+@@ -2295,7 +2027,6 @@
+             self.bufferData
+         except:
+             self.bufferData = []
+-
+         return self.bufferData
+ 
+     def setupUI(self):
+@@ -2322,7 +2053,6 @@
+             BDescription = 'Pose Stored, {0} Objects'.format(str(selectionCount))
+         except:
+             pass
+-
+         ACommand = partial(self.onPinSelectionButton, True)
+         BCommand = partial(self.onPinSelectionButton, False)
+         self.pinSelectionToggle = button_toggleSwitch(parent=layoutContainer, startState=startState, ADescription=ADescription, BDescription=BDescription, ACommand=ACommand, BCommand=BCommand)
+@@ -2332,35 +2062,17 @@
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(descriptionWidgetLayout, 'top', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(descriptionWidgetLayout, 'left', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(descriptionWidgetLayout, 'bottom')])
+-        cmds.formLayout(layoutContainer, edit=True, attachPosition=[(descriptionWidgetLayout,
+-          'right',
+-          0,
+-          33)])
++        cmds.formLayout(layoutContainer, edit=True, attachPosition=[(descriptionWidgetLayout, 'right', 0, 33)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(pinSelectionButton, 'top', 0)])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(pinSelectionButton,
+-          'left',
+-          0,
+-          descriptionWidgetLayout)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(pinSelectionButton, 'left', 0, descriptionWidgetLayout)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(pinSelectionButton, 'bottom')])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(pinSelectionButton, 'right', 0)])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(sliderElement,
+-          'top',
+-          5,
+-          pinSelectionButton)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(sliderElement, 'top', 5, pinSelectionButton)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(sliderElement, 'left', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(sliderElement, 'bottom')])
+-        cmds.formLayout(layoutContainer, edit=True, attachPosition=[(sliderElement,
+-          'right',
+-          10,
+-          66)])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(applyFullButton,
+-          'top',
+-          5,
+-          pinSelectionButton)])
+-        cmds.formLayout(layoutContainer, edit=True, attachPosition=[(applyFullButton,
+-          'left',
+-          0,
+-          66)])
++        cmds.formLayout(layoutContainer, edit=True, attachPosition=[(sliderElement, 'right', 10, 66)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(applyFullButton, 'top', 5, pinSelectionButton)])
++        cmds.formLayout(layoutContainer, edit=True, attachPosition=[(applyFullButton, 'left', 0, 66)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(applyFullButton, 'bottom')])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(applyFullButton, 'right', 2)])
+ 
+@@ -2383,10 +2095,8 @@
+                 description = 'Pose Stored, {0} Objects'.format(str(selectionCount))
+                 self.pinSelectionToggle.overrideDescription(description)
+             except Exception as e:
+-                print (1990, e)
+-
++                print(1990, e)
+         self.storePrefs(debugging='onPinSelectionButton')
+-
+ 
+ class widget_extras(widget_base):
+ 
+@@ -2397,9 +2107,7 @@
+         description = 'extras'
+         if 'description' in kwargs:
+             description = kwargs.pop('description')
+-        stateData = {'pinState': False,
+-         'bufferSelection': [],
+-         'useAllLayersState': True}
++        stateData = {'pinState': False, 'bufferSelection': [], 'useAllLayersState': True}
+         if 'stateData' in kwargs:
+             stateData = kwargs.pop('stateData')
+         expandedState = True
+@@ -2416,12 +2124,10 @@
+             self.setPinState(stateData['pinState'])
+         except:
+             pass
+-
+         try:
+             self.setBufferSelection(stateData['bufferSelection'])
+         except:
+             pass
+-
+         try:
+             self.setBufferChannels(stateData['bufferChannels'])
+         except:
+@@ -2443,7 +2149,6 @@
+                 BDescription = '{0} Objects'.format(str(selectionCount))
+             except:
+                 pass
+-
+         ACommand = partial(self.onPinSelectionButton, True)
+         BCommand = partial(self.onPinSelectionButton, False)
+         self.pinSelectionToggle = button_toggleSwitch(parent=layoutContainer, startState=startState, ADescription=ADescription, BDescription=BDescription, ACommand=ACommand, BCommand=BCommand)
+@@ -2482,74 +2187,29 @@
+         self.sliderMultiply.addMultiplierPostCommand(command)
+         padding = 1
+         cmds.formLayout(miniSlidersLayout, edit=True, attachForm=[(sliderA_label, 'top', padding)])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderA_label,
+-          'left',
+-          padding,
+-          0)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderA_label, 'left', padding, 0)])
+         cmds.formLayout(miniSlidersLayout, edit=True, attachNone=[(sliderA_label, 'bottom')])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderA_label,
+-          'right',
+-          padding,
+-          33)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderA_label, 'right', padding, 33)])
+         cmds.formLayout(miniSlidersLayout, edit=True, attachForm=[(sliderB_label, 'top', padding)])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderB_label,
+-          'left',
+-          padding,
+-          34)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderB_label, 'left', padding, 34)])
+         cmds.formLayout(miniSlidersLayout, edit=True, attachNone=[(sliderB_label, 'bottom')])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderB_label,
+-          'right',
+-          padding,
+-          66)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderB_label, 'right', padding, 66)])
+         cmds.formLayout(miniSlidersLayout, edit=True, attachForm=[(sliderC_label, 'top', padding)])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderC_label,
+-          'left',
+-          padding,
+-          67)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderC_label, 'left', padding, 67)])
+         cmds.formLayout(miniSlidersLayout, edit=True, attachNone=[(sliderC_label, 'bottom')])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderC_label,
+-          'right',
+-          padding,
+-          100)])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachControl=[(sliderMultiplyUI,
+-          'top',
+-          0,
+-          sliderA_label)])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderMultiplyUI,
+-          'left',
+-          padding,
+-          0)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderC_label, 'right', padding, 100)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachControl=[(sliderMultiplyUI, 'top', 0, sliderA_label)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderMultiplyUI, 'left', padding, 0)])
+         cmds.formLayout(miniSlidersLayout, edit=True, attachNone=[(sliderMultiplyUI, 'bottom')])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderMultiplyUI,
+-          'right',
+-          padding,
+-          33)])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachControl=[(posePusherUI,
+-          'top',
+-          0,
+-          sliderA_label)])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(posePusherUI,
+-          'left',
+-          padding,
+-          34)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderMultiplyUI, 'right', padding, 33)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachControl=[(posePusherUI, 'top', 0, sliderA_label)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(posePusherUI, 'left', padding, 34)])
+         cmds.formLayout(miniSlidersLayout, edit=True, attachNone=[(posePusherUI, 'bottom')])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(posePusherUI,
+-          'right',
+-          padding,
+-          66)])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachControl=[(sliderInOutUI,
+-          'top',
+-          0,
+-          sliderA_label)])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderInOutUI,
+-          'left',
+-          padding,
+-          67)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(posePusherUI, 'right', padding, 66)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachControl=[(sliderInOutUI, 'top', 0, sliderA_label)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderInOutUI, 'left', padding, 67)])
+         cmds.formLayout(miniSlidersLayout, edit=True, attachNone=[(sliderInOutUI, 'bottom')])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderInOutUI,
+-          'right',
+-          padding,
+-          100)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderInOutUI, 'right', padding, 100)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(pinSelectionButton, 'top', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(pinSelectionButton, 'left')])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(pinSelectionButton, 'bottom')])
+@@ -2557,14 +2217,8 @@
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(descriptionWidgetLayout, 'top', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(descriptionWidgetLayout, 'left', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(descriptionWidgetLayout, 'bottom')])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(descriptionWidgetLayout,
+-          'right',
+-          0,
+-          pinSelectionButton)])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(miniSlidersLayout,
+-          'top',
+-          2,
+-          descriptionWidgetLayout)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(descriptionWidgetLayout, 'right', 0, pinSelectionButton)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(miniSlidersLayout, 'top', 2, descriptionWidgetLayout)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(miniSlidersLayout, 'left', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(miniSlidersLayout, 'bottom')])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(miniSlidersLayout, 'right', 0)])
+@@ -2575,7 +2229,6 @@
+         data['bufferSelection'] = self.getBufferSelection()
+         data['bufferChannels'] = self.getBufferChannels()
+         return data
+-
+ 
+ class widget_tools(widget_base):
+ 
+@@ -2586,9 +2239,7 @@
+         description = 'tools'
+         if 'description' in kwargs:
+             description = kwargs.pop('description')
+-        stateData = {'pinState': False,
+-         'bufferSelection': [],
+-         'useAllLayersState': True}
++        stateData = {'pinState': False, 'bufferSelection': [], 'useAllLayersState': True}
+         if 'stateData' in kwargs:
+             stateData = kwargs.pop('stateData')
+         expandedState = True
+@@ -2631,25 +2282,13 @@
+         cmds.formLayout(smashBakeLayout, edit=True, attachForm=[(bakeButton, 'top', 0)])
+         cmds.formLayout(smashBakeLayout, edit=True, attachForm=[(bakeButton, 'left', 0)])
+         cmds.formLayout(smashBakeLayout, edit=True, attachNone=[(bakeButton, 'bottom')])
+-        cmds.formLayout(smashBakeLayout, edit=True, attachPosition=[(bakeButton,
+-          'right',
+-          0,
+-          50)])
++        cmds.formLayout(smashBakeLayout, edit=True, attachPosition=[(bakeButton, 'right', 0, 50)])
+         cmds.formLayout(smashBakeLayout, edit=True, attachForm=[(self.startFrameField, 'top', 0)])
+-        cmds.formLayout(smashBakeLayout, edit=True, attachControl=[(self.startFrameField,
+-          'left',
+-          0,
+-          bakeButton)])
++        cmds.formLayout(smashBakeLayout, edit=True, attachControl=[(self.startFrameField, 'left', 0, bakeButton)])
+         cmds.formLayout(smashBakeLayout, edit=True, attachNone=[(self.startFrameField, 'bottom')])
+-        cmds.formLayout(smashBakeLayout, edit=True, attachPosition=[(self.startFrameField,
+-          'right',
+-          0,
+-          75)])
++        cmds.formLayout(smashBakeLayout, edit=True, attachPosition=[(self.startFrameField, 'right', 0, 75)])
+         cmds.formLayout(smashBakeLayout, edit=True, attachForm=[(self.endFrameField, 'top', 0)])
+-        cmds.formLayout(smashBakeLayout, edit=True, attachControl=[(self.endFrameField,
+-          'left',
+-          0,
+-          self.startFrameField)])
++        cmds.formLayout(smashBakeLayout, edit=True, attachControl=[(self.endFrameField, 'left', 0, self.startFrameField)])
+         cmds.formLayout(smashBakeLayout, edit=True, attachNone=[(self.endFrameField, 'bottom')])
+         cmds.formLayout(smashBakeLayout, edit=True, attachForm=[(self.endFrameField, 'right', 0)])
+         cmds.formLayout(parent=columnLayout, height=spacerHeight)
+@@ -2659,15 +2298,9 @@
+         cmds.formLayout(quickUndosLayout, edit=True, attachForm=[(undoButton, 'top', 0)])
+         cmds.formLayout(quickUndosLayout, edit=True, attachForm=[(undoButton, 'left', 0)])
+         cmds.formLayout(quickUndosLayout, edit=True, attachNone=[(undoButton, 'bottom')])
+-        cmds.formLayout(quickUndosLayout, edit=True, attachPosition=[(undoButton,
+-          'right',
+-          0,
+-          50)])
++        cmds.formLayout(quickUndosLayout, edit=True, attachPosition=[(undoButton, 'right', 0, 50)])
+         cmds.formLayout(quickUndosLayout, edit=True, attachForm=[(redoButton, 'top', 0)])
+-        cmds.formLayout(quickUndosLayout, edit=True, attachControl=[(redoButton,
+-          'left',
+-          0,
+-          undoButton)])
++        cmds.formLayout(quickUndosLayout, edit=True, attachControl=[(redoButton, 'left', 0, undoButton)])
+         cmds.formLayout(quickUndosLayout, edit=True, attachNone=[(redoButton, 'bottom')])
+         cmds.formLayout(quickUndosLayout, edit=True, attachForm=[(redoButton, 'right', 0)])
+ 
+@@ -2682,7 +2315,6 @@
+             endTime = cmds.intField(self.endFrameField, query=True, value=endTime)
+         except:
+             pass
+-
+         selected = cmds.ls(sl=True)
+         Functions.smashBaker(selected, startTime, endTime)
+ 
+@@ -2702,7 +2334,6 @@
+         cmds.intField(self.startFrameField, edit=True, value=startTime)
+         cmds.intField(self.endFrameField, edit=True, value=endTime)
+ 
+-
+ class widget_worldSpace(widget_base):
+ 
+     def __init__(self, *args, **kwargs):
+@@ -2712,9 +2343,7 @@
+         description = 'World Space'
+         if 'description' in kwargs:
+             description = kwargs.pop('description')
+-        stateData = {'pinState': False,
+-         'bufferSelection': [],
+-         'useAllLayersState': True}
++        stateData = {'pinState': False, 'bufferSelection': [], 'useAllLayersState': True}
+         if 'stateData' in kwargs:
+             stateData = kwargs.pop('stateData')
+         expandedState = True
+@@ -2731,12 +2360,10 @@
+             self.setPinState(stateData['pinState'])
+         except:
+             pass
+-
+         try:
+             self.setBufferSelection(stateData['bufferSelection'])
+         except:
+             pass
+-
+         try:
+             self.setBufferChannels(stateData['bufferChannels'])
+         except:
+@@ -2770,7 +2397,6 @@
+                 BDescription = '{0} Objects'.format(str(selectionCount))
+             except:
+                 pass
+-
+         ACommand = partial(self.onPinSelectionButton, True)
+         BCommand = partial(self.onPinSelectionButton, False)
+         self.pinSelectionToggle = button_toggleSwitch(parent=layoutContainer, startState=startState, ADescription=ADescription, BDescription=BDescription, ACommand=ACommand, BCommand=BCommand)
+@@ -2780,47 +2406,23 @@
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(descriptionWidgetLayout, 'top', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(descriptionWidgetLayout, 'left', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(descriptionWidgetLayout, 'bottom')])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(descriptionWidgetLayout,
+-          'right',
+-          0,
+-          pinSelectionButton)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(descriptionWidgetLayout, 'right', 0, pinSelectionButton)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(pinSelectionButton, 'top', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(pinSelectionButton, 'left')])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(pinSelectionButton, 'bottom')])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(pinSelectionButton, 'right', 0)])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(presetButton1,
+-          'top',
+-          5,
+-          descriptionWidgetLayout)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(presetButton1, 'top', 5, descriptionWidgetLayout)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(presetButton1, 'left', 2)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(presetButton1, 'bottom')])
+-        cmds.formLayout(layoutContainer, edit=True, attachPosition=[(presetButton1,
+-          'right',
+-          0,
+-          20)])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(presetButton2,
+-          'top',
+-          5,
+-          descriptionWidgetLayout)])
+-        cmds.formLayout(layoutContainer, edit=True, attachPosition=[(presetButton2,
+-          'left',
+-          0,
+-          80)])
++        cmds.formLayout(layoutContainer, edit=True, attachPosition=[(presetButton1, 'right', 0, 20)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(presetButton2, 'top', 5, descriptionWidgetLayout)])
++        cmds.formLayout(layoutContainer, edit=True, attachPosition=[(presetButton2, 'left', 0, 80)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(presetButton2, 'bottom')])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(presetButton2, 'right', 2)])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(sliderWorldSpaceUI,
+-          'top',
+-          5,
+-          descriptionWidgetLayout)])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(sliderWorldSpaceUI,
+-          'left',
+-          5,
+-          presetButton1)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(sliderWorldSpaceUI, 'top', 5, descriptionWidgetLayout)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(sliderWorldSpaceUI, 'left', 5, presetButton1)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(sliderWorldSpaceUI, 'bottom')])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(sliderWorldSpaceUI,
+-          'right',
+-          5,
+-          presetButton2)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(sliderWorldSpaceUI, 'right', 5, presetButton2)])
+ 
+     def getState(self):
+         data = {}
+@@ -2828,7 +2430,6 @@
+         data['bufferSelection'] = self.getBufferSelection()
+         data['bufferChannels'] = self.getBufferChannels()
+         return data
+-
+ 
+ class widget_classic(widget_base):
+ 
+@@ -2839,9 +2440,7 @@
+         description = 'Classic'
+         if 'description' in kwargs:
+             description = kwargs.pop('description')
+-        stateData = {'pinState': False,
+-         'bufferSelection': [],
+-         'useAllLayersState': True}
++        stateData = {'pinState': False, 'bufferSelection': [], 'useAllLayersState': True}
+         if 'stateData' in kwargs:
+             stateData = kwargs.pop('stateData')
+         expandedState = True
+@@ -2858,17 +2457,14 @@
+             self.setPinState(stateData['pinState'])
+         except:
+             pass
+-
+         try:
+             self.setBufferSelection(stateData['bufferSelection'])
+         except:
+             pass
+-
+         try:
+             self.setUseAllLayersState(stateData['useAllLayersState'])
+         except:
+             pass
+-
+         try:
+             self.setBufferChannels(stateData['bufferChannels'])
+         except:
+@@ -2882,7 +2478,6 @@
+             self.useAllLayersState
+         except:
+             self.useAllLayersState = True
+-
+         return self.useAllLayersState
+ 
+     def setupUI(self):
+@@ -2914,7 +2509,6 @@
+                 BDescription = '{0} Objects'.format(str(selectionCount))
+             except:
+                 pass
+-
+         ACommand = partial(self.onPinSelectionButton, True)
+         BCommand = partial(self.onPinSelectionButton, False)
+         self.pinSelectionToggle = button_toggleSwitch(parent=layoutContainer, startState=startState, ADescription=ADescription, BDescription=BDescription, ACommand=ACommand, BCommand=BCommand)
+@@ -2922,7 +2516,7 @@
+         popupMenu = cmds.popupMenu(parent=pinSelectionButton)
+         cmds.popupMenu(popupMenu, edit=True, postMenuCommand=partial(self.pinSelectionPopupMenu, parent=popupMenu))
+         easyTweenButton = cmds.button(parent=layoutContainer, label='Easy Tween', width=5, height=22, command=partial(self.sliderTween.useSetValueCommand), bgc=buttonBGC)
+-        h, s, v = 360.0, 0.8105263113975525, 0.49662160873413086
++        h, s, v = (360.0, 0.8105263113975525, 0.49662160873413086)
+         try:
+             h, s, v = cmds.displayRGBColor('timeSliderKey', query=True, hueSaturationValue=True)
+         except:
+@@ -2930,9 +2524,8 @@
+                 h, s, v = cmds.displayRGBColor('timeControlKey', query=True, hueSaturationValue=True)
+             except:
+                 pass
+-
+         keyframeColor_rgb = colorsys.hsv_to_rgb(h / 360, 0.5, 0.8)
+-        h, s, v = 123.47547149658203, 0.6543209552764893, 0.8100000023841858
++        h, s, v = (123.47547149658203, 0.6543209552764893, 0.8100000023841858)
+         try:
+             h, s, v = cmds.displayRGBColor('timeControlTickDrawSpecial', query=True, hueSaturationValue=True)
+         except:
+@@ -2940,7 +2533,6 @@
+                 h, s, v = cmds.displayRGBColor('timeSliderTickDrawSpecial', query=True, hueSaturationValue=True)
+             except:
+                 pass
+-
+         specialKeyframeColor_rgb = colorsys.hsv_to_rgb(h / 360, 0.5, 0.8)
+         size = 22
+         setKeyButton = cmds.button(parent=layoutContainer, command=partial(self.setKeyframe), annotation='Set Key on Objects', height=size, width=size, bgc=keyframeColor_rgb, label='')
+@@ -2973,75 +2565,33 @@
+         presetButton7 = cmds.button(parent=presetLayout, annotation='Next', label='Next', width=5, command=partial(self.sliderTween.presetCommand, value), bgc=buttonBGC)
+         padding = 1
+         cmds.formLayout(presetLayout, edit=True, attachForm=[(presetButton1, 'top', padding)])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton1,
+-          'left',
+-          padding,
+-          0)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton1, 'left', padding, 0)])
+         cmds.formLayout(presetLayout, edit=True, attachNone=[(presetButton1, 'bottom')])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton1,
+-          'right',
+-          padding,
+-          20)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton1, 'right', padding, 20)])
+         cmds.formLayout(presetLayout, edit=True, attachForm=[(presetButton2, 'top', padding)])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton2,
+-          'left',
+-          padding,
+-          20)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton2, 'left', padding, 20)])
+         cmds.formLayout(presetLayout, edit=True, attachNone=[(presetButton2, 'bottom')])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton2,
+-          'right',
+-          padding,
+-          30)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton2, 'right', padding, 30)])
+         cmds.formLayout(presetLayout, edit=True, attachForm=[(presetButton3, 'top', padding)])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton3,
+-          'left',
+-          padding,
+-          30)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton3, 'left', padding, 30)])
+         cmds.formLayout(presetLayout, edit=True, attachNone=[(presetButton3, 'bottom')])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton3,
+-          'right',
+-          padding,
+-          40)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton3, 'right', padding, 40)])
+         cmds.formLayout(presetLayout, edit=True, attachForm=[(presetButton4, 'top', padding)])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton4,
+-          'left',
+-          padding,
+-          40)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton4, 'left', padding, 40)])
+         cmds.formLayout(presetLayout, edit=True, attachNone=[(presetButton4, 'bottom')])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton4,
+-          'right',
+-          padding,
+-          60)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton4, 'right', padding, 60)])
+         cmds.formLayout(presetLayout, edit=True, attachForm=[(presetButton5, 'top', padding)])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton5,
+-          'left',
+-          padding,
+-          60)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton5, 'left', padding, 60)])
+         cmds.formLayout(presetLayout, edit=True, attachNone=[(presetButton5, 'bottom')])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton5,
+-          'right',
+-          padding,
+-          70)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton5, 'right', padding, 70)])
+         cmds.formLayout(presetLayout, edit=True, attachForm=[(presetButton6, 'top', padding)])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton6,
+-          'left',
+-          padding,
+-          70)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton6, 'left', padding, 70)])
+         cmds.formLayout(presetLayout, edit=True, attachNone=[(presetButton6, 'bottom')])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton6,
+-          'right',
+-          padding,
+-          80)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton6, 'right', padding, 80)])
+         cmds.formLayout(presetLayout, edit=True, attachForm=[(presetButton7, 'top', padding)])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton7,
+-          'left',
+-          padding,
+-          80)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton7, 'left', padding, 80)])
+         cmds.formLayout(presetLayout, edit=True, attachNone=[(presetButton7, 'bottom')])
+-        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton7,
+-          'right',
+-          padding,
+-          100)])
++        cmds.formLayout(presetLayout, edit=True, attachPosition=[(presetButton7, 'right', padding, 100)])
+         miniSlidersLayout = cmds.formLayout(parent=layoutContainer)
+         sliderA = cmds.floatSlider(parent=miniSlidersLayout, width=5, min=-1, max=1, value=0, step=0.1, bgc=buttonBGC)
+         sliderA_label = cmds.text(parent=miniSlidersLayout, label='Multiply', bgc=buttonBGC, height=size, width=5, align='center')
+@@ -3073,81 +2623,33 @@
+         self.sliderMultiply.addMultiplierPostCommand(command)
+         padding = 1
+         cmds.formLayout(miniSlidersLayout, edit=True, attachForm=[(sliderA_label, 'top', padding)])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderA_label,
+-          'left',
+-          padding,
+-          0)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderA_label, 'left', padding, 0)])
+         cmds.formLayout(miniSlidersLayout, edit=True, attachNone=[(sliderA_label, 'bottom')])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderA_label,
+-          'right',
+-          padding,
+-          33)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderA_label, 'right', padding, 33)])
+         cmds.formLayout(miniSlidersLayout, edit=True, attachForm=[(sliderB_label, 'top', padding)])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderB_label,
+-          'left',
+-          padding,
+-          34)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderB_label, 'left', padding, 34)])
+         cmds.formLayout(miniSlidersLayout, edit=True, attachNone=[(sliderB_label, 'bottom')])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderB_label,
+-          'right',
+-          padding,
+-          66)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderB_label, 'right', padding, 66)])
+         cmds.formLayout(miniSlidersLayout, edit=True, attachForm=[(sliderC_label, 'top', padding)])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderC_label,
+-          'left',
+-          padding,
+-          67)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderC_label, 'left', padding, 67)])
+         cmds.formLayout(miniSlidersLayout, edit=True, attachNone=[(sliderC_label, 'bottom')])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderC_label,
+-          'right',
+-          padding,
+-          100)])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachControl=[(sliderMultiplyUI,
+-          'top',
+-          0,
+-          sliderA_label)])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderMultiplyUI,
+-          'left',
+-          padding,
+-          0)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderC_label, 'right', padding, 100)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachControl=[(sliderMultiplyUI, 'top', 0, sliderA_label)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderMultiplyUI, 'left', padding, 0)])
+         cmds.formLayout(miniSlidersLayout, edit=True, attachNone=[(sliderMultiplyUI, 'bottom')])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderMultiplyUI,
+-          'right',
+-          padding,
+-          33)])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachControl=[(posePusherUI,
+-          'top',
+-          0,
+-          sliderA_label)])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(posePusherUI,
+-          'left',
+-          padding,
+-          34)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderMultiplyUI, 'right', padding, 33)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachControl=[(posePusherUI, 'top', 0, sliderA_label)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(posePusherUI, 'left', padding, 34)])
+         cmds.formLayout(miniSlidersLayout, edit=True, attachNone=[(posePusherUI, 'bottom')])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(posePusherUI,
+-          'right',
+-          padding,
+-          66)])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachControl=[(sliderInOutUI,
+-          'top',
+-          0,
+-          sliderA_label)])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderInOutUI,
+-          'left',
+-          padding,
+-          67)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(posePusherUI, 'right', padding, 66)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachControl=[(sliderInOutUI, 'top', 0, sliderA_label)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderInOutUI, 'left', padding, 67)])
+         cmds.formLayout(miniSlidersLayout, edit=True, attachNone=[(sliderInOutUI, 'bottom')])
+-        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderInOutUI,
+-          'right',
+-          padding,
+-          100)])
++        cmds.formLayout(miniSlidersLayout, edit=True, attachPosition=[(sliderInOutUI, 'right', padding, 100)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(descriptionWidgetLayout, 'top', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(descriptionWidgetLayout, 'left', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(descriptionWidgetLayout, 'bottom')])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(descriptionWidgetLayout,
+-          'right',
+-          0,
+-          layerToggleButton)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(descriptionWidgetLayout, 'right', 0, layerToggleButton)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(pinSelectionButton, 'top', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(pinSelectionButton, 'left')])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(pinSelectionButton, 'bottom')])
+@@ -3155,55 +2657,28 @@
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(layerToggleButton, 'top', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(layerToggleButton, 'left')])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(layerToggleButton, 'bottom')])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(layerToggleButton,
+-          'right',
+-          0,
+-          pinSelectionButton)])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(setKeyButton,
+-          'top',
+-          1,
+-          layerToggleButton)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(layerToggleButton, 'right', 0, pinSelectionButton)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(setKeyButton, 'top', 1, layerToggleButton)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(setKeyButton, 'left', 2)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(setKeyButton, 'bottom')])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(setKeyButton, 'right')])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(setSpecialKeyButton,
+-          'top',
+-          1,
+-          pinSelectionButton)])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(setSpecialKeyButton,
+-          'left',
+-          2,
+-          setKeyButton)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(setSpecialKeyButton, 'top', 1, pinSelectionButton)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(setSpecialKeyButton, 'left', 2, setKeyButton)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(setSpecialKeyButton, 'bottom')])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(setSpecialKeyButton, 'right')])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(easyTweenButton,
+-          'top',
+-          1,
+-          pinSelectionButton)])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(easyTweenButton,
+-          'left',
+-          2,
+-          setSpecialKeyButton)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(easyTweenButton, 'top', 1, pinSelectionButton)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(easyTweenButton, 'left', 2, setSpecialKeyButton)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(easyTweenButton, 'bottom')])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(easyTweenButton, 'right', 1)])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(sliderTweenUI,
+-          'top',
+-          5,
+-          easyTweenButton)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(sliderTweenUI, 'top', 5, easyTweenButton)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(sliderTweenUI, 'left', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(sliderTweenUI, 'bottom')])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(sliderTweenUI, 'right', 0)])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(presetLayout,
+-          'top',
+-          5,
+-          sliderTweenUI)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(presetLayout, 'top', 5, sliderTweenUI)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(presetLayout, 'left', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(presetLayout, 'bottom')])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(presetLayout, 'right', 0)])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(miniSlidersLayout,
+-          'top',
+-          5,
+-          presetLayout)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(miniSlidersLayout, 'top', 5, presetLayout)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(miniSlidersLayout, 'left', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(miniSlidersLayout, 'bottom')])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(miniSlidersLayout, 'right', 0)])
+@@ -3223,7 +2698,6 @@
+             self.useAllLayersState = False
+         self.storePrefs(debugging='onToggleLayersButton')
+ 
+-
+ class widget_curveOptions(widget_base):
+ 
+     def __init__(self, *args, **kwargs):
+@@ -3233,9 +2707,7 @@
+         description = 'Curve Options'
+         if 'description' in kwargs:
+             description = kwargs.pop('description')
+-        stateData = {'pinState': False,
+-         'bufferSelection': [],
+-         'useAllLayersState': True}
++        stateData = {'pinState': False, 'bufferSelection': [], 'useAllLayersState': True}
+         if 'stateData' in kwargs:
+             stateData = kwargs.pop('stateData')
+         expandedState = True
+@@ -3311,21 +2783,16 @@
+                     buttonObjects.append(newButton)
+                 except:
+                     pass
+-
+         buttonCount = len(buttonObjects)
+         for i, b in enumerate(buttonObjects):
+             leftOffset = i * 100 / buttonCount
+             cmds.formLayout(layoutContainer, edit=True, attachForm=[(b, 'top', 0)])
+-            cmds.formLayout(layoutContainer, edit=True, attachPosition=[(b,
+-              'left',
+-              0,
+-              leftOffset)])
++            cmds.formLayout(layoutContainer, edit=True, attachPosition=[(b, 'left', 0, leftOffset)])
+             cmds.formLayout(layoutContainer, edit=True, attachNone=[(b, 'bottom')])
+             cmds.formLayout(layoutContainer, edit=True, attachNone=[(b, 'right')])
+ 
+     def onCollapseButtonPress(self, *args, **kwargs):
+         self.collapseMainContainer()
+-
+ 
+ class widget_principles(widget_base):
+ 
+@@ -3336,9 +2803,7 @@
+         description = 'Principles of Animation'
+         if 'description' in kwargs:
+             description = kwargs.pop('description')
+-        stateData = {'pinState': False,
+-         'bufferSelection': [],
+-         'useAllLayersState': True}
++        stateData = {'pinState': False, 'bufferSelection': [], 'useAllLayersState': True}
+         if 'stateData' in kwargs:
+             stateData = kwargs.pop('stateData')
+         expandedState = True
+@@ -3402,16 +2867,12 @@
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(descriptionWidgetLayout, 'left', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachNone=[(descriptionWidgetLayout, 'bottom')])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(descriptionWidgetLayout, 'right', 0)])
+-        cmds.formLayout(layoutContainer, edit=True, attachControl=[(self.infoBox,
+-          'top',
+-          0,
+-          descriptionWidgetLayout)])
++        cmds.formLayout(layoutContainer, edit=True, attachControl=[(self.infoBox, 'top', 0, descriptionWidgetLayout)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(self.infoBox, 'left', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(self.infoBox, 'bottom', 0)])
+         cmds.formLayout(layoutContainer, edit=True, attachForm=[(self.infoBox, 'right', 0)])
+ 
+-
+-class button_toggleSwitch():
++class button_toggleSwitch:
+     """
+     button_toggleSwitch(parent = None, ADescription = '', BDescription = '', ACommand = '', BCommand = '', startState = True)
+     """
+@@ -3487,8 +2948,7 @@
+     def getLayout(self, *args, **kwargs):
+         return self.form
+ 
+-
+-class button_textToggle():
++class button_textToggle:
+ 
+     def __init__(self, *args, **kwargs):
+         parent = None
+@@ -3525,17 +2985,11 @@
+         cmds.formLayout(self.form, edit=True, attachForm=[(self.collapseButton, 'bottom', 0)])
+         cmds.formLayout(self.form, edit=True, attachNone=[(self.collapseButton, 'right')])
+         cmds.formLayout(self.form, edit=True, attachForm=[(self.button, 'top', 0)])
+-        cmds.formLayout(self.form, edit=True, attachControl=[(self.button,
+-          'left',
+-          0,
+-          self.collapseButton)])
++        cmds.formLayout(self.form, edit=True, attachControl=[(self.button, 'left', 0, self.collapseButton)])
+         cmds.formLayout(self.form, edit=True, attachForm=[(self.button, 'bottom', 0)])
+         cmds.formLayout(self.form, edit=True, attachForm=[(self.button, 'right', 0)])
+         cmds.formLayout(self.form, edit=True, attachForm=[(self.textField, 'top', 0)])
+-        cmds.formLayout(self.form, edit=True, attachControl=[(self.textField,
+-          'left',
+-          0,
+-          self.collapseButton)])
++        cmds.formLayout(self.form, edit=True, attachControl=[(self.textField, 'left', 0, self.collapseButton)])
+         cmds.formLayout(self.form, edit=True, attachForm=[(self.textField, 'bottom', 0)])
+         cmds.formLayout(self.form, edit=True, attachForm=[(self.textField, 'right', 0)])
+         return
+@@ -3545,7 +2999,7 @@
+             try:
+                 collapseCommand()
+             except Exception as e:
+-                print (3915, e)
++                print(3915, e)
+ 
+     def onButtonPress(self, *args, **kwargs):
+         cmds.button(self.button, edit=True, visible=False)
+@@ -3589,12 +3043,10 @@
+         for c in text:
+             if c in validCharacters:
+                 validatedCharacters.append(c)
+-
+         validatedText = ''.join(validatedCharacters)
+         return validatedText
+ 
+-
+-class slider_base():
++class slider_base:
+     """ Define Common Functions for sliders
+     """
+     instances = []
+@@ -3665,14 +3117,13 @@
+             self.multiplier
+         except:
+             self.multiplier = 1
+-
+         return self.multiplier
+ 
+     def useSetValueCommand(self, *args, **kwargs):
+         try:
+             self.slider_realtime(useSetValue=True)
+         except Exception as e:
+-            print (444, Exception, e)
++            print(444, Exception, e)
+         finally:
+             self.slider_realtime_finish()
+ 
+@@ -3680,7 +3131,7 @@
+         try:
+             self.slider_realtime(overrideRatio=value)
+         except Exception as e:
+-            print (444, Exception, e)
++            print(444, Exception, e)
+         finally:
+             self.slider_realtime_finish()
+ 
+@@ -3689,7 +3140,6 @@
+             self.bufferSelection
+         except:
+             self.bufferSelection = []
+-
+         return self.bufferSelection
+ 
+     def setBufferSelection(self, selection):
+@@ -3719,7 +3169,6 @@
+             self.bufferChannels
+         except:
+             self.bufferChannels = []
+-
+         return self.bufferChannels
+ 
+     def setPinState(self, state):
+@@ -3730,7 +3179,6 @@
+             self.pinState
+         except:
+             self.pinState = False
+-
+         return self.pinState
+ 
+     def setUseAllLayersState(self, state):
+@@ -3741,7 +3189,6 @@
+             self.useAllLayersState
+         except:
+             self.useAllLayersState = True
+-
+         return self.useAllLayersState
+ 
+     def addPostCommand(self, command, *args, **kwargs):
+@@ -3749,7 +3196,6 @@
+             self.postCommands
+         except:
+             self.postCommands = []
+-
+         if command:
+             self.postCommands.append(command)
+ 
+@@ -3761,7 +3207,6 @@
+             self.postCommands
+         except:
+             self.postCommands = []
+-
+         for c in self.postCommands:
+             c()
+ 
+@@ -3770,7 +3215,6 @@
+             self.preCommands
+         except:
+             self.preCommands = []
+-
+         if command:
+             self.preCommands.append(command)
+ 
+@@ -3782,7 +3226,6 @@
+             self.preCommands
+         except:
+             self.preCommands = []
+-
+         for c in self.preCommands:
+             c()
+ 
+@@ -3791,21 +3234,19 @@
+             self.changeCommands
+         except:
+             self.changeCommands = []
+-
+         if command:
+             self.changeCommands.append(command)
+ 
+     def clearChangeCommands(self, *args, **kwargs):
+         self.changeCommands = []
+ 
+-    def onChange(self, debug = False, *args, **kwargs):
++    def onChange(self, debug=False, *args, **kwargs):
+         if debug:
+-            print (debug, len(self.changeCommands))
++            print(debug, len(self.changeCommands))
+         try:
+             self.multiplierChangeCommands
+         except Exception as e:
+             self.multiplierChangeCommands = []
+-
+         for c in self.multiplierChangeCommands:
+             c()
+ 
+@@ -3814,21 +3255,19 @@
+             self.multiplierChangeCommands
+         except:
+             self.multiplierChangeCommands = []
+-
+         if command:
+             self.multiplierChangeCommands.append(command)
+ 
+     def clearMultiplierChangeCommands(self, *args, **kwargs):
+         self.multiplierChangeCommands = []
+ 
+-    def onMultiplierChange(self, debug = False, *args, **kwargs):
++    def onMultiplierChange(self, debug=False, *args, **kwargs):
+         if debug:
+-            print (debug, len(self.multiplierChangeCommands))
++            print(debug, len(self.multiplierChangeCommands))
+         try:
+             self.multiplierChangeCommands
+         except Exception as e:
+             self.multiplierChangeCommands = []
+-
+         value = self.getSliderValue()
+         for c in self.multiplierChangeCommands:
+             c(value)
+@@ -3838,21 +3277,19 @@
+             self.multiplierPostCommands
+         except:
+             self.multiplierPostCommands = []
+-
+         if command:
+             self.multiplierPostCommands.append(command)
+ 
+     def clearMultiplierPostCommands(self, *args, **kwargs):
+         self.multiplierPostCommands = []
+ 
+-    def onMultiplierPost(self, debug = False, *args, **kwargs):
++    def onMultiplierPost(self, debug=False, *args, **kwargs):
+         if debug:
+-            print (debug, len(self.multiplierPostCommands))
++            print(debug, len(self.multiplierPostCommands))
+         try:
+             self.multiplierPostCommands
+         except Exception as e:
+             self.multiplierPostCommands = []
+-
+         value = self.getSliderValue()
+         for c in self.multiplierPostCommands:
+             c(value)
+@@ -3879,6 +3316,7 @@
+         value = cmds.floatSlider(self.slider, query=True, value=True)
+         return value
+ 
++    @_r.native_operation('slider_base.slider_exec')
+     def slider_exec(self, *args, **kwargs):
+         """
+         This will perform the actual execution of the data and slider
+@@ -3909,7 +3347,6 @@
+                     isBoring = data[a]['isBoring']
+                 except:
+                     pass
+-
+                 if not isBoring:
+                     isIgnored = data[a]['isIgnored']
+                     if not isIgnored:
+@@ -3947,7 +3384,6 @@
+             self.modifierChecked
+         except:
+             self.modifierChecked = False
+-
+         if not self.modifierChecked:
+             self.mods = cmds.getModifiers()
+             self.modifierChecked = True
+@@ -3987,6 +3423,7 @@
+     def slider_realtime_finish(self, *args, **kwargs):
+         self.slider_realtime_finish_standard()
+ 
++    @_r.native_operation('slider_base.slider_realtime_standard')
+     def slider_realtime_standard(self, *args, **kwargs):
+         """
+         This will be the main realtime slider system
+@@ -4004,7 +3441,6 @@
+             self.isFirstLoop
+         except:
+             self.isFirstLoop = True
+-
+         if self.enableSlider:
+             if self.isFirstLoop:
+                 cmds.undoInfo(openChunk=True)
+@@ -4014,6 +3450,7 @@
+                 self.collectData()
+             self.slider_exec(useSetValue=useSetValue, overrideRatio=overrideRatio, fromCurrentValue=fromCurrentValue)
+ 
++    @_r.native_operation('slider_base.slider_realtime_finish_standard')
+     def slider_realtime_finish_standard(self, *args, **kwargs):
+         """
+         This will close the realtime slider functionality
+@@ -4025,6 +3462,7 @@
+         cmds.undoInfo(closeChunk=True)
+         self.resetSlider()
+ 
++    @_r.native_operation('slider_base.keyAll')
+     def keyAll(self, *args, **kwargs):
+         keyableList = list(self.data.keys())
+         if keyableList:
+@@ -4035,7 +3473,6 @@
+ 
+     def setSliderType(self, sliderType):
+         self.sliderType = sliderType
+-
+ 
+ class slider_tween(slider_base):
+ 
+@@ -4057,7 +3494,7 @@
+                      >setValue
+                      >isBoring
+                      >isIgnored
+-        
++
+         """
+         cmds.waitCursor(state=True)
+         data = {}
+@@ -4102,10 +3539,10 @@
+                                     data[attribute]['setValue'] = setValue
+                                     data[attribute]['isBoring'] = isBoring
+                                     data[attribute]['isIgnored'] = isIgnored
+-
+         except Exception as e:
+-            print (traceback.format_exc())
+-            print (1146, Exception, e)
++            _r.note_error(e)
++            print(traceback.format_exc())
++            print(1146, Exception, e)
+         finally:
+             self.data = data
+             cmds.waitCursor(state=False)
+@@ -4131,6 +3568,7 @@
+         else:
+             self.slider_realtime_finish_layers()
+ 
++    @_r.native_operation('slider_tween.slider_realtime_layers')
+     def slider_realtime_layers(self, *args, **kwargs):
+         """
+         This will be the main realtime slider system
+@@ -4148,7 +3586,6 @@
+             self.isFirstLoop
+         except:
+             self.isFirstLoop = True
+-
+         if self.enableSlider:
+             if self.isFirstLoop:
+                 cmds.undoInfo(openChunk=True)
+@@ -4158,6 +3595,7 @@
+                 self.collectData_layers()
+             self.slider_exec_layers(useSetValue=useSetValue, overrideRatio=overrideRatio, fromCurrentValue=fromCurrentValue)
+ 
++    @_r.native_operation('slider_tween.slider_realtime_finish_layers')
+     def slider_realtime_finish_layers(self, *args, **kwargs):
+         """
+         This will close the realtime slider functionality
+@@ -4169,6 +3607,7 @@
+         cmds.undoInfo(closeChunk=True)
+         self.resetSlider()
+ 
++    @_r.native_operation('slider_tween.collectData_layers')
+     def collectData_layers(self):
+         """
+         structure, list of actual anim curve nodes
+@@ -4179,7 +3618,7 @@
+                      >setValue
+                      >isBoring
+                      >isIgnored
+-        
++
+         """
+         cmds.waitCursor(state=True)
+         data = {}
+@@ -4192,7 +3631,7 @@
+                 for a in keyableAttributes:
+                     if selectedChannels and a in selectedChannels or not selectedChannels:
+                         attribute = '{0}.{1}'.format(s, a)
+-                        curveNode = cmds.keyframe(attribute, query=True, name=True)[0]
++                        curveNode = (cmds.keyframe(attribute, query=True, name=True) or [None])[0]
+                         curveNode_output = '{0}.{1}'.format(curveNode, 'output')
+                         data[curveNode] = {}
+                         isBoring = False
+@@ -4229,13 +3668,14 @@
+                                     data[curveNode]['setValue'] = setValue
+                                     data[curveNode]['isBoring'] = isBoring
+                                     data[curveNode]['isIgnored'] = isIgnored
+-
+         except Exception as e:
+-            print (565, Exception, e)
++            _r.note_error(e)
++            print(565, Exception, e)
+         finally:
+             self.data = data
+             cmds.waitCursor(state=False)
+ 
++    @_r.native_operation('slider_tween.slider_exec_layers')
+     def slider_exec_layers(self, *args, **kwargs):
+         """
+         This will perform the actual execution of the data and slider
+@@ -4267,7 +3707,6 @@
+                     isBoring = data[curveNode]['isBoring']
+                 except:
+                     pass
+-
+                 if not isBoring:
+                     isIgnored = data[curveNode]['isIgnored']
+                     if not isIgnored:
+@@ -4299,8 +3738,7 @@
+                         else:
+                             newValue = currentValue
+                         if newValue != currentValue:
+-                            cmds.setAttr('{0}.keyTimeValue[{1}].keyValue'.format(curveNode, index), newValue)
+-
++                            cmds.keyframe(curveNode, edit=True, index=(index, index), valueChange=newValue)
+ 
+ class slider_snapshot(slider_base):
+ 
+@@ -4330,7 +3768,6 @@
+                     remapLookup[snapshotNode] = [snapshotNode]
+                 elif selectedNamespaces != snapShotDataNamespaceList:
+                     remapLookup[snapshotNode] = Functions.findMatchingObjectsInNamespace(node=snapshotNode, namespaces=selectedNamespaces)
+-
+             cmds.waitCursor(state=True)
+             data = {}
+             try:
+@@ -4364,9 +3801,9 @@
+                                             data[attribute]['setValue'] = setValue
+                                             data[attribute]['isBoring'] = isBoring
+                                             data[attribute]['isIgnored'] = isIgnored
+-
+             except Exception as e:
+-                print (4255, Exception, e)
++                _r.note_error(e)
++                print(4255, Exception, e)
+             finally:
+                 self.data = data
+                 cmds.waitCursor(state=False)
+@@ -4381,7 +3818,7 @@
+                      >setValue
+                      >isBoring
+                      >isIgnored
+-        
++
+         """
+         cmds.waitCursor(state=True)
+         data = {}
+@@ -4414,9 +3851,9 @@
+                                         data[s][a]['setValue'] = setValue
+                                         data[s][a]['isBoring'] = isBoring
+                                         data[s][a]['isIgnored'] = isIgnored
+-
+         except Exception as e:
+-            print (4937, e)
++            _r.note_error(e)
++            print(4937, e)
+         finally:
+             self.setSnapshotData(data)
+             cmds.waitCursor(state=False)
+@@ -4429,9 +3866,7 @@
+             self.snapShotData
+         except:
+             self.snapShotData = {}
+-
+         return self.snapShotData
+-
+ 
+ class slider_worldSpace(slider_base):
+ 
+@@ -4453,7 +3888,7 @@
+                      >setValue
+                      >isBoring
+                      >isIgnored
+-        
++
+         """
+         cmds.waitCursor(state=True)
+         data = {}
+@@ -4475,7 +3910,6 @@
+                         if keyFrameCount and keyFrameCount >= 1:
+                             isBoring = False
+                             break
+-
+                     if not isBoring:
+                         prevKeyFrame = cmds.findKeyframe(s, which='previous', at=transformAttributes)
+                         nextKeyFrame = cmds.findKeyframe(s, which='next', at=transformAttributes)
+@@ -4514,15 +3948,14 @@
+                                         data[attribute]['setValue'] = setValue
+                                         data[attribute]['isBoring'] = isBoring
+                                         data[attribute]['isIgnored'] = isIgnored
+-
+         except Exception as e:
+-            print (traceback.format_exc())
+-            print (5495, Exception, e)
++            _r.note_error(e)
++            print(traceback.format_exc())
++            print(5495, Exception, e)
+             cmds.select(clear=True)
+         finally:
+             self.data = data
+             cmds.waitCursor(state=False)
+-
+ 
+ class slider_inOut(slider_base):
+ 
+@@ -4546,7 +3979,7 @@
+                      >setValue
+                      >isBoring
+                      >isIgnored
+-        
++
+         """
+         cmds.waitCursor(state=True)
+         data = {}
+@@ -4600,14 +4033,13 @@
+                                 data[attribute]['setValue'] = setValue
+                                 data[attribute]['isBoring'] = isBoring
+                                 data[attribute]['isIgnored'] = isIgnored
+-
+         except Exception as e:
+-            print (traceback.format_exc())
+-            print (5633, Exception, e)
++            _r.note_error(e)
++            print(traceback.format_exc())
++            print(5633, Exception, e)
+         finally:
+             self.data = data
+             cmds.waitCursor(state=False)
+-
+ 
+ class slider_PosePusher(slider_base):
+ 
+@@ -4627,11 +4059,11 @@
+                      >prevValue
+                      >nextValue
+                      >currentValue
+-                     >type                                          
++                     >type
+                      >setValue
+                      >isBoring
+                      >isIgnored
+-        
++
+         """
+         cmds.waitCursor(state=True)
+         data = {}
+@@ -4691,13 +4123,12 @@
+                                     data[attribute]['setValue'] = setValue
+                                     data[attribute]['isBoring'] = isBoring
+                                     data[attribute]['isIgnored'] = isIgnored
+-
+         except Exception as e:
+-            print (1146, Exception, e)
++            _r.note_error(e)
++            print(1146, Exception, e)
+         finally:
+             self.data = data
+             cmds.waitCursor(state=False)
+-
+ 
+ class slider_multiply(slider_base):
+ 
+@@ -4721,7 +4152,7 @@
+                      >setValue
+                      >isBoring
+                      >isIgnored
+-        
++
+         """
+         cmds.waitCursor(state=True)
+         data = {}
+@@ -4729,16 +4160,8 @@
+         try:
+             selection = self.getSelected()
+             selectedChannels = self.getSelectedChannels(selection=selection)
+-            limitedAttributes = ['tx',
+-             'ty',
+-             'tz',
+-             'rx',
+-             'ry',
+-             'rz']
+-            blackListAttributes = ['sx',
+-             'sy',
+-             'sz',
+-             'v']
++            limitedAttributes = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']
++            blackListAttributes = ['sx', 'sy', 'sz', 'v']
+             currentTime = cmds.currentTime(query=True)
+             for s in selection:
+                 keyableAttributes = []
+@@ -4768,9 +4191,9 @@
+                                 data[attribute]['setValue'] = setValue
+                                 data[attribute]['isBoring'] = isBoring
+                                 data[attribute]['isIgnored'] = isIgnored
+-
+         except Exception as e:
+-            print (1146, Exception, e)
++            _r.note_error(e)
++            print(1146, Exception, e)
+         finally:
+             self.data = data
+             cmds.waitCursor(state=False)
+@@ -4792,14 +4215,13 @@
+         if self.getUseAllLayersState():
+             self.slider_realtime_standard(useSetValue=useSetValue, overrideRatio=overrideRatio, fromCurrentValue=fromCurrentValue)
+         else:
+-            self.slider_realtime_layers(useSetValue=useSetValue, overrideRatio=overrideRatio, fromCurrentValue=fromCurrentValue)
++            self.slider_realtime_standard(useSetValue=useSetValue, overrideRatio=overrideRatio, fromCurrentValue=fromCurrentValue)
+ 
+     def slider_realtime_finish(self, *args, **kwargs):
+         if self.getUseAllLayersState():
+             self.slider_realtime_finish_standard()
+         else:
+-            self.slider_realtime_finish_layers()
+-
++            self.slider_realtime_finish_standard()
+ 
+ class Hotkeys(object):
+ 
+@@ -4808,7 +4230,8 @@
+         cls.inbetween(0, useSetValue=True)
+ 
+     @classmethod
+-    def inbetween(cls, valueVar, useSetValue = False, fromCurrentValue = False):
++    @_r.native_operation('Hotkeys.inbetween')
++    def inbetween(cls, valueVar, useSetValue=False, fromCurrentValue=False):
+         """
+         This will perform the actual execution of the data and slider
+         """
+@@ -4826,7 +4249,6 @@
+                     isBoring = data[a]['isBoring']
+                 except:
+                     pass
+-
+                 if not isBoring:
+                     isIgnored = data[a]['isIgnored']
+                     if not isIgnored:
+@@ -4837,7 +4259,7 @@
+                         attributeType = data[a]['type']
+                         isOnKey = data[a]['onKey']
+                         fromCurrentValue = False
+-                        if isOnKey and not ratio == 0.5:
++                        if isOnKey and (not ratio == 0.5):
+                             fromCurrentValue = True
+                         newValue = 0
+                         if useSetValue:
+@@ -4875,7 +4297,7 @@
+                      >setValue
+                      >isBoring
+                      >isIgnored
+-        
++
+         """
+         cmds.waitCursor(state=True)
+         data = {}
+@@ -4921,10 +4343,10 @@
+                                     data[attribute]['setValue'] = setValue
+                                     data[attribute]['isBoring'] = isBoring
+                                     data[attribute]['isIgnored'] = isIgnored
+-
+         except Exception as e:
+-            print (traceback.format_exc())
+-            print (1146, Exception, e)
++            _r.note_error(e)
++            print(traceback.format_exc())
++            print(1146, Exception, e)
+         finally:
+             cmds.waitCursor(state=False)
+-            return data+            return data

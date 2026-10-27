@@ -1,0 +1,29 @@
+global string $gShelfTopLevel;
+string $currentShelf = `tabLayout -q -st $gShelfTopLevel`;
+string $rootPath=`InstallLocationPath`;
+string $iconsPath=$rootPath+"icons/";
+string $source_path="source \"" + $rootPath + "sword_anim_polish_tool.mel\"";
+
+shelfButton
+    -command ($source_path + ";\nsword_anim_polish_tool(\"" + $rootPath + "\");")
+    -annotation "weapon animation polish tools"
+    -label ""
+    -imageOverlayLabel ""
+    -image ($iconsPath+"sword_system.bmp" )
+    -image1 ($iconsPath+"sword_system.bmp")
+    -sourceType "mel"
+    -parent $currentShelf;
+
+
+global proc string InstallLocationPath ()
+{
+    string $whatIs=`whatIs InstallLocationPath`;
+    string $fullPath=`substring $whatIs 25 999`;
+    string $buffer[];
+    int $numTok=`tokenize $fullPath "/" $buffer`;
+    int $numLetters=size($fullPath);
+    int $numLettersLastFolder=size($buffer[$numTok-1]);
+    string $scriptLocation=`substring $fullPath 1 ($numLetters-$numLettersLastFolder)`;
+    return $scriptLocation;
+}
+

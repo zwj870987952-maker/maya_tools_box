@@ -28,7 +28,8 @@ class Offline(unittest.TestCase):
         self.assertEqual(catalog['procedures'],re.findall(r'^global\s+proc\s+(?:(?:string|float|int|vector)\s*(?:\[\s*\])?\s+)?(\w+)\s*\(',src,re.M))
         self.assertIn('scriptJob -ro 1',src)
         self.assertIn('You may not', (PKG/'vendor/License.txt').read_text())
-        self.assertNotIn('maya.cmds',sys.modules)
+        if 'maya' not in sys.executable.lower():
+            self.assertNotIn('maya.cmds',sys.modules)
         self.assertEqual('sword_anim_polishing_tool_v4',TOOL.to_mcp_tool()['name'])
         self.assertEqual(list(ACTIONS),TOOL.parameters_schema['properties']['action']['enum'])
 

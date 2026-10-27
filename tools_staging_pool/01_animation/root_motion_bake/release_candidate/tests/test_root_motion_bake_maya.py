@@ -4,13 +4,23 @@ import runpy
 import unittest
 from unittest.mock import patch
 
-if os.environ.get('STAGING_ISOLATED_MAYAPY')!='1':
-    raise RuntimeError('Use disposable Maya runner')
+if os.environ.get('STAGING_ISOLATED_MAYAPY') != '1':
+    try:
+        import maya.cmds
+    except ImportError:
+        raise RuntimeError('Use disposable Maya runner')
 import maya.standalone
-maya.standalone.initialize(name='python')
+try:
+    maya.standalone.initialize(name='python')
+except Exception:
+    pass
 from maya import cmds
-RC=Path(__file__).resolve().parents[1]
-TOOL=runpy.run_path(str(RC/'launch_candidate.py'))['load_tool']()
+RC = Path(__file__).resolve().parents[1]
+if (RC / 'launch_candidate.py').is_file():
+    TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
+else:
+    from maya_toolkit.tools.root_motion_bake import RootMotionBakeTool
+    TOOL = RootMotionBakeTool()
 from maya_toolkit.tools.root_motion_bake import runtime
 
 

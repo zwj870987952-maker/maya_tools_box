@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/01_animation|01_animation]]
 - 源目录：01_animation/advanced_skeleton_mirror_session
-- 代码文件：7 个，约 35.1 KiB
+- 代码文件：7 个，约 35.7 KiB
 - 原清单登记：否，尚需核对名称与描述
 - 主入口：[查看源码](../../../tools_staging_pool/01_animation/advanced_skeleton_mirror_session/launch_native.py)
 

@@ -261,6 +261,8 @@ def record_new(state,before):
     c=cmds_module()
     for uid in snapshot()-before:
         node=resolve(uid)
+        if not node or '__pymel' in node or any(c.lockNode(node,q=True,lock=True) or []):
+            continue
         if c.attributeQuery(MARK,node=node,exists=True):
             continue
         if not c.attributeQuery(OWNER,node=node,exists=True):
@@ -415,7 +417,7 @@ def execute(p):
             elif action=='bind_pose':
                 core.bindPose()
             record_new(state,before)
-            added=owned_names(state,list(snapshot()-before-set([identity(session)])))
+            added=owned_names(state,[uid for uid in (snapshot()-before-set([identity(session)])) if uid in state['owned']])
             for node in added:
                 if c.objectType(node,isAType='transform'):
                     short=node.rsplit('|',1)[-1]

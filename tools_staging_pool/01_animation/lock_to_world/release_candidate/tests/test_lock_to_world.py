@@ -33,7 +33,8 @@ class OfflineTests(unittest.TestCase):
         self.assertIn('selectedTranslation', text)
 
     def test_lazy_import_schema_and_strict_integer_mask(self):
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya' not in sys.executable.lower():
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertEqual('lock_to_world', TOOL.to_mcp_tool()['name'])
         for kwargs in ({'start': 1.5}, {'end': True}, {'objects': ['x', 'x']}, {'objects': ['a.tx']}, {'attributes': ['sx']}, {'attributes': ['tx', 'tx']}, {'attributes': ['tx'], 'use_channel_box': True}, {'start': 2, 'end': 1}, {'unknown': 1}):
             with self.assertRaises(ValueError):

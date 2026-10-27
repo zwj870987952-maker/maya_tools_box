@@ -12,4 +12,8 @@ module: "ui_base"
 
 ## 正式工具的直接引用
 
+- [[knowledge/_generated/正式工具/anim_filters|动画曲线过滤器]]
+- [[knowledge/_generated/正式工具/animation_retarget|动画重定向]]
+- [[knowledge/_generated/正式工具/cg_shake_py3|CgShake 1.5]]
 - [[knowledge/_generated/正式工具/clean_namespaces|命名空间清理工具]]
+- [[knowledge/_generated/正式工具/directional_cycle_tool_v1_1|方向循环动画]]

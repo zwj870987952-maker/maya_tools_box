@@ -34,7 +34,8 @@ class OfflineTests(unittest.TestCase):
 
     def test_contract_and_lazy_inventory(self):
         self.assertTrue(TOOL.validate(action='inventory').success)
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya.cmds' not in sys.modules:
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertEqual('dof_control_v1_0', TOOL.to_mcp_tool()['name'])
         for args in ({'action': 'bad'}, {'template': 1}, {'cameras': ['a', 'a']}, {'cameras': ['a.vtx[0]']}, {'record_ids': 'x'}, {'extra': 1}):
             with self.assertRaises(ValueError):

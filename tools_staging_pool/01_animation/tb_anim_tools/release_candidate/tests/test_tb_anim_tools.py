@@ -39,7 +39,8 @@ class Offline(unittest.TestCase):
         original_methods = {x.name for n in original.body if isinstance(n, ast.ClassDef) for x in n.body if isinstance(x, ast.FunctionDef)}
         candidate_methods = {x.name for n in port.body if isinstance(n, ast.ClassDef) for x in n.body if isinstance(x, ast.FunctionDef)}
         self.assertTrue(original_methods <= candidate_methods)
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya' not in sys.executable.lower():
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertNotIn('tbtoolsInstaller', sys.modules)
         self.assertEqual('tb_anim_tools', TOOL.to_openai_tool()['function']['name'])
 

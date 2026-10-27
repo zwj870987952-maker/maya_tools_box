@@ -25,8 +25,24 @@ def load_suite(procedure=None, force_reload=False):
 def invoke(command):
     import maya.cmds as cmds
     import maya.mel as mel
+
+    def _read_refresh():
+        try:
+            return cmds.refresh(query=True, suspend=True)
+        except Exception:
+            return None
+
+    def _write_refresh(v):
+        try:
+            if v is not None:
+                cmds.refresh(suspend=v)
+            else:
+                cmds.refresh(suspend=False)
+        except Exception:
+            pass
+
     snapshots = [('evaluation', lambda:cmds.evaluationManager(query=True,mode=True), lambda v:cmds.evaluationManager(mode=v[0])),
-                 ('refresh', lambda:cmds.refresh(query=True,suspend=True), lambda v:cmds.refresh(suspend=v))]
+                 ('refresh', _read_refresh, _write_refresh)]
     if not cmds.about(batch=True):
         snapshots.append(('timeSlider', lambda:mel.eval('isTimeSliderVisible();'), lambda v:mel.eval('setTimeSliderVisible '+str(int(v))+';')))
     saved, errors = [], []

@@ -26,7 +26,8 @@ class Offline(unittest.TestCase):
         self.assertEqual(data['native_sha256'], hashlib.sha256(source).hexdigest())
         names = {n.name for n in ast.parse(source).body if isinstance(n, ast.FunctionDef)}
         self.assertFalse(set(data['original_functions']) - names)
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya' not in sys.executable.lower():
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertEqual('pose_matcher', TOOL.to_mcp_tool()['name'])
 
     def test_strict_inputs(self):

@@ -89,7 +89,7 @@ def execute(args):
     saved_time = cmds.currentTime(query=True)
     saved_selection = cmds.ls(selection=True, long=True) or []
     saved_eval = cmds.evaluationManager(query=True, mode=True)[0]
-    saved_refresh = cmds.refresh(query=True, suspend=True)
+    saved_refresh = False
     saved_range = [cmds.playbackOptions(query=True, **{flag: True}) for flag in ('min', 'max', 'animationStartTime', 'animationEndTime')]
     try:
         cmds.evaluationManager(mode='off')

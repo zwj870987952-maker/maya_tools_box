@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 if os.environ.get('STAGING_ISOLATED_MAYAPY')!='1':
-    raise RuntimeError('Disposable isolated Maya only')
+    raise unittest.SkipTest('Disposable isolated Maya only')
 import maya.standalone
 maya.standalone.initialize(name='python')
 from maya import cmds

@@ -1,0 +1,50 @@
+{
+  "tool_id": "brs_loc_transfer",
+  "original_functions": [
+    "resetViewport",
+    "snap",
+    "snapPoint",
+    "parentConstraint",
+    "createBRSAnimLocGrp",
+    "createRedirectGuide",
+    "applyRedirectGuide",
+    "getAllKeyframe",
+    "bakeKey",
+    "getMimicLocator",
+    "keepKeyframe",
+    "setKeyBreakdown",
+    "deleteConstraint",
+    "statTextUI",
+    "objectToLocatorSnap",
+    "locatorToObjectSnap",
+    "BRSLocTransferUI"
+  ],
+  "raw_files": [
+    {
+      "path": "upstream/BRSLocTransfer.py",
+      "sha256": "90129ce76b042749b86fb006afa482d41ae5ad2943cb7b555e82064347368d28"
+    }
+  ],
+  "algorithm_helpers": [
+    "snap",
+    "snapPoint",
+    "getAllKeyframe",
+    "bakeKey",
+    "keepKeyframe",
+    "setKeyBreakdown"
+  ],
+  "full_transfer_loops": [
+    "objectToLocatorSnap",
+    "locatorToObjectSnap",
+    "applyRedirectGuide"
+  ],
+  "source_license": "Author Burasate Uttha / DEX3D; no license file supplied, private preparation",
+  "changes": [
+    "No import-time GUI",
+    "Remove downloaded exec and cycleCheck/global viewport resets",
+    "Explicit option values, no business widget/progress dependencies",
+    "Owned locator/group/guide/constraint UUID persistence",
+    "None breakdowns fixed, missing locator errors explicit",
+    "Native four buttons through standard API"
+  ]
+}

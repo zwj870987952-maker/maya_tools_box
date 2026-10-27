@@ -1,0 +1,159 @@
+
+// bh_localNudge - a GUI for making small, percise changes to local translation/rotation values on selected controller(s)
+// V1.03 180518
+// added modifier keys.. CTRL for half values, ALT for quarter.. 
+
+global proc bh_localNudge()
+{
+
+
+if (`window -exists localNudgeUI`)
+    deleteUI localNudgeUI;
+
+     string $window = `window -tlb 1 -title "bh_localNudge" localNudgeUI`;
+  
+     columnLayout -adj 1  mainCol;
+     rowColumnLayout  -numberOfColumns 1; 
+ 
+ 
+     floatSliderGrp  -field 0
+    // -cal 1 "left"
+      -minValue 0.001 -maxValue 1.0
+    	-fieldMinValue 0.001 -fieldMaxValue 1.0
+    	-value .01
+		-step 0.001
+		 -cat 2 "left" 0
+        -cc bh_printNudgeVal
+    	"NudgeVal"
+    	;
+    	
+    	
+   
+   
+    
+  
+		rowColumnLayout   -numberOfColumns 2; 
+		
+		
+    button -label "Up" -w 80 -command "bh_localNudgeIt(\"Y\",\"positive\")" nudgePosY; 
+    button -label "Down" -w 60 -command "bh_localNudgeIt(\"Y\",\"negative\")" nudgeNegY;
+    
+    
+    
+    
+      button -label "Right" -w 80 -command "bh_localNudgeIt(\"X\",\"negative\")" nudgeNegX; 
+    button -label "Left" -w 80 -command "bh_localNudgeIt(\"X\",\"positive\")" nudgePosX; 
+    
+     
+    
+    button -label "Forward" -w 80 -command "bh_localNudgeIt(\"Z\",\"positive\")" nudgePosZ; 
+   button -label "Back" -w 80 -command "bh_localNudgeIt(\"Z\",\"negative\")" nudgeNegZ; 
+      setParent mainCol;
+   rowColumnLayout  -numberOfColumns 1; 
+  
+  	    floatSliderGrp  -field 0
+    // -cal 1 "left"
+      -minValue 0.01 -maxValue 5.0
+    	-fieldMinValue 0.001 -fieldMaxValue 1.0
+    	-value 1.0
+		-step 0.01
+		 -cat 2 "left" 0
+        -cc bh_printRotNudgeVal
+    	"RotVal"
+    	;
+        rowColumnLayout  -numberOfColumns 2; 
+        
+        button -label "+X" -w 80 -command "bh_localNudgeRotIt(\"X\",\"positive\")" nudgeRotX; 
+     button -label "-X" -w 80 -command "bh_localNudgeRotIt(\"X\",\"negative\")" nudgeRotNegX; 
+   
+   button -label "+Y" -w 80 -command "bh_localNudgeRotIt(\"Y\",\"positive\")" nudgeRotY; 
+     button -label "-Y" -w 80 -command "bh_localNudgeRotIt(\"Y\",\"negative\")" nudgeRotNegY; 
+   
+     button -label "+Z" -w 80 -command "bh_localNudgeRotIt(\"Z\",\"positive\")" nudgeRotZ; 
+     button -label "-Z" -w 80 -command "bh_localNudgeRotIt(\"Z\",\"negative\")" nudgeRotNegZ; 
+    
+   
+    showWindow $window;
+	
+    window -edit -widthHeight 170 182 localNudgeUI;
+
+  }  
+  
+  bh_localNudge;
+  
+  global proc bh_localNudgeIt(string $direction, string $plusMinus)
+{
+
+int $mods = `getModifiers`;
+ string $sel[]=`ls -sl`;
+ 
+ 
+ 
+	
+ for ($each in $sel)
+ {
+    float $curPos=`getAttr ($each+".translate"+$direction)`;
+    float $val=`floatSliderGrp -q -v NudgeVal`;
+	if ($mods / 4 % 2)// was CTRL held when the command was run? if so half the value.. 
+	{$val=($val/2);
+	}
+	if ($mods / 8 % 2)// was ALT held when the command was run? if so quarter the value.. 
+	{$val=($val/4);
+	}
+	
+	
+	
+    float $newPos;
+    if ($plusMinus =="positive")
+      {$newPos =($curPos+$val);
+          
+      }
+      else 
+      {
+          $newPos=($curPos-$val);
+      }
+   setAttr ($each+".translate"+$direction) $newPos;
+     }
+     
+ }
+ 
+   global proc bh_localNudgeRotIt(string $direction, string $plusMinus)
+{
+	int $mods = `getModifiers`;
+ string $sel[]=`ls -sl`;
+ for ($each in $sel)
+ {
+    float $curPos=`getAttr ($each+".rotate"+$direction)`;
+    float $val=`floatSliderGrp -q -v RotVal`;
+	if ($mods / 4 % 2)// was CTRL held when the command was run? if so half the value.. 
+	{$val=($val/2);
+	}
+	if ($mods / 8 % 2)// was ALT held when the command was run? if so quarter the value.. 
+	{$val=($val/4);
+	}
+	
+    float $newPos;
+    if ($plusMinus =="positive")
+      {$newPos =($curPos+$val);
+          
+      }
+      else 
+      {
+          $newPos=($curPos-$val);
+      }
+   setAttr ($each+".rotate"+$direction) $newPos;
+     }
+     
+ }
+ 
+  global proc bh_printNudgeVal()
+ {
+     float $val=`floatSliderGrp -q -v NudgeVal`;
+     print ("Nudge Move Value = "+$val);
+ }
+ 
+ global proc bh_printRotNudgeVal()
+ {
+     float $val=`floatSliderGrp -q -v RotVal`;
+     print ("Nudge Rotation Value = "+$val+" Degrees");
+ }

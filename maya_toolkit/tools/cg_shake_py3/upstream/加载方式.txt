@@ -1,0 +1,5 @@
+import sys,imp
+sys.path.append(r'C:\Users\XXXXX\Documents\Maya\scripts\CgShake')
+import cgshake
+imp.reload(cgshake)
+cgshake.run()

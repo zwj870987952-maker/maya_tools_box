@@ -45,7 +45,7 @@ def normalize(arguments):
 class AnimLayerBookmarkTrimmerTool(BaseMayaTool):
     tool_id = 'anim_layer_bookmark_trimmer'
     tool_name = '动画层书签修剪与曲线优化器'
-    category = 'Animation'
+    category = 'animation'
     version = '1.1.0'
     description = '按时间滑块书签修剪一个动画层的关键帧，或在书签区间内进行六种曲线优化。范围外插值可能因切线变化而改变。'
     parameters_schema = {

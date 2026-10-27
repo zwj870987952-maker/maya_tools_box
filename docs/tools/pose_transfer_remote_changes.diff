@@ -1,0 +1,347 @@
+--- upstream/PoseTransfer.py.original
++++ native.py
+@@ -1,284 +1,185 @@
++from .runtime import require_scope, checked_delete, helper_name
+ import maya.cmds as cmds
+ import maya.OpenMaya as om
+ 
+ class PoseTransfer:
++
+     def __init__(self):
+         self.root_controller = None
+         self.controllers = []
+         self.locators = []
+         self.original_root_pos = None
+-        
++
+     def get_selected_root(self):
+         """获取选中的ROOT控制器"""
+         selection = cmds.ls(selection=True)
+         if not selection:
+-            cmds.warning("请先选择ROOT控制器")
++            cmds.warning('请先选择ROOT控制器')
+             return False
+-        
+         self.root_controller = selection[0]
+-        print(f"ROOT控制器已设置: {self.root_controller}")
++        print(f'ROOT控制器已设置: {self.root_controller}')
+         return True
+-    
++
+     def get_all_controllers(self):
+         """获取所有控制器 - 使用多种方法"""
+         if not self.root_controller:
+-            cmds.warning("请先设置ROOT控制器")
++            cmds.warning('请先设置ROOT控制器')
+             return False
+-        
+         self.controllers = []
+-        
+-        # 方法1: 通过ControlSet获取（如果存在）
+-        control_set = "ControlSet"
++        control_set = 'ControlSet'
+         if cmds.objExists(control_set):
+             set_members = cmds.sets(control_set, query=True) or []
+             self.controllers.extend(set_members)
+-            print(f"从ControlSet获取到 {len(set_members)} 个控制器")
+-        
+-        # 方法2: 获取ROOT下的所有变换节点
++            print(f'从ControlSet获取到 {len(set_members)} 个控制器')
+         descendants = cmds.listRelatives(self.root_controller, allDescendents=True, type='transform') or []
+-        
+-        # 过滤控制器（通常控制器有特定的命名规则或属性）
+         for obj in descendants:
+-            # 检查是否是控制器的常见条件
+             if self.is_controller(obj):
+                 if obj not in self.controllers:
+                     self.controllers.append(obj)
+-        
+-        # 包含ROOT本身
+         if self.root_controller not in self.controllers:
+             self.controllers.append(self.root_controller)
+-        
+-        print(f"自动检测到 {len(self.controllers)} 个控制器:")
++        print(f'自动检测到 {len(self.controllers)} 个控制器:')
+         for ctrl in self.controllers:
+-            print(f"  - {ctrl}")
+-        
++            print(f'  - {ctrl}')
+         return True
+-    
++
+     def is_controller(self, obj):
+         """判断对象是否是控制器"""
+-        # 检查常见的控制器命名模式
+         controller_patterns = ['_M', '_L', '_R', 'FK', 'IK', 'Ctrl', 'ctrl', 'Control', 'control']
+-        obj_name = obj.lower()
+-        
+-        # 检查命名模式
++        obj_name = obj.rsplit('|', 1)[-1].lower()
+         for pattern in controller_patterns:
+             if pattern.lower() in obj_name:
+                 return True
+-        
+-        # 检查是否有控制器常见的属性
+         if cmds.attributeQuery('overrideEnabled', node=obj, exists=True):
+-            # 检查是否设置了显示覆盖（控制器常见）
+-            if cmds.getAttr(f"{obj}.overrideEnabled"):
++            if cmds.getAttr(f'{obj}.overrideEnabled'):
+                 return True
+-        
+-        # 检查形状节点类型
+         shapes = cmds.listRelatives(obj, shapes=True) or []
+         for shape in shapes:
+             shape_type = cmds.nodeType(shape)
+             if shape_type in ['nurbsCurve', 'nurbsSurface']:
+                 return True
+-        
+         return False
+-    
++
+     def manual_select_and_create_locators(self):
+         """手动选择控制器并创建定位器"""
+         if not self.root_controller:
+-            cmds.warning("请先设置ROOT控制器")
++            cmds.warning('请先设置ROOT控制器')
+             return False
+-        
+-        result = cmds.confirmDialog(
+-            title='手动选择控制器',
+-            message='请在场景中选择所有需要的控制器，然后点击确定',
+-            button=['确定', '取消'],
+-            defaultButton='确定',
+-            cancelButton='取消',
+-            dismissString='取消'
+-        )
+-        
++        result = cmds.confirmDialog(title='手动选择控制器', message='请在场景中选择所有需要的控制器，然后点击确定', button=['确定', '取消'], defaultButton='确定', cancelButton='取消', dismissString='取消')
+         if result == '确定':
+             selection = cmds.ls(selection=True)
+             if selection:
+                 self.controllers = selection
+-                print(f"手动选择了 {len(self.controllers)} 个控制器:")
++                print(f'手动选择了 {len(self.controllers)} 个控制器:')
+                 for ctrl in self.controllers:
+-                    print(f"  - {ctrl}")
+-                
+-                # 直接创建定位器
++                    print(f'  - {ctrl}')
+                 return self.create_locators_and_record_pose()
+             else:
+-                cmds.warning("没有选择任何对象")
++                cmds.warning('没有选择任何对象')
+                 return False
+-        
+         return False
+-    
++
+     def create_locators_and_record_pose(self):
+         """创建定位器并记录当前姿态"""
++        require_scope()
+         if not self.controllers:
+-            cmds.warning("没有找到控制器")
++            cmds.warning('没有找到控制器')
+             return False
+-        
+         if not self.root_controller:
+-            cmds.warning("请先设置ROOT控制器")
++            cmds.warning('请先设置ROOT控制器')
+             return False
+-        
+-        # 记录ROOT的原始位置
+         self.original_root_pos = cmds.xform(self.root_controller, query=True, worldSpace=True, translation=True)
+-        
+-        # 清理之前的定位器
+         if self.locators:
+             for loc in self.locators:
+                 if cmds.objExists(loc):
+-                    cmds.delete(loc)
+-        
++                    checked_delete(loc)
+         self.locators = []
+-        
+-        # 为每个控制器创建定位器并记录姿态
+         for i, ctrl in enumerate(self.controllers):
+             if not cmds.objExists(ctrl):
+-                print(f"控制器 {ctrl} 不存在，跳过")
++                print(f'控制器 {ctrl} 不存在，跳过')
+                 continue
+-                
+-            # 创建定位器
+-            loc_name = f"pose_loc_{ctrl.replace(':', '_')}_{i}"
++            loc_name = helper_name(ctrl, i)
+             locator = cmds.spaceLocator(name=loc_name)[0]
+-            
+-            # 获取控制器的世界空间变换
++            self.locators.append(locator)
+             ctrl_matrix = cmds.xform(ctrl, query=True, worldSpace=True, matrix=True)
+-            
+-            # 应用变换到定位器
+             cmds.xform(locator, worldSpace=True, matrix=ctrl_matrix)
+-            
+-            # 存储控制器名称作为自定义属性
+             cmds.addAttr(locator, longName='original_controller', dataType='string')
+-            cmds.setAttr(f"{locator}.original_controller", ctrl, type='string')
+-            
+-            self.locators.append(locator)
+-        
+-        print(f"创建了 {len(self.locators)} 个定位器")
++            cmds.setAttr(f'{locator}.original_controller', ctrl, type='string')
++        print(f'创建了 {len(self.locators)} 个定位器')
+         return True
+-    
++
+     def move_locators_to_new_root_position(self):
+         """将定位器移动到新的ROOT位置"""
++        require_scope()
+         if not self.locators or not self.root_controller:
+-            cmds.warning("请先创建定位器和设置ROOT")
++            cmds.warning('请先创建定位器和设置ROOT')
+             return False
+-        
+-        # 获取当前ROOT位置
+         current_root_pos = cmds.xform(self.root_controller, query=True, worldSpace=True, translation=True)
+-        
+-        # 计算偏移量
+         offset = [current_root_pos[i] - self.original_root_pos[i] for i in range(3)]
+-        
+-        # 移动所有定位器（只移动位置，不改变旋转）
+         for locator in self.locators:
+             current_pos = cmds.xform(locator, query=True, worldSpace=True, translation=True)
+             new_pos = [current_pos[i] + offset[i] for i in range(3)]
+             cmds.xform(locator, worldSpace=True, translation=new_pos)
+-        
+-        print(f"定位器已移动，偏移量: {offset}")
++        print(f'定位器已移动，偏移量: {offset}')
++        self.original_root_pos = current_root_pos
+         return True
+-    
++
+     def apply_pose_from_locators(self):
+         """从定位器应用姿态到控制器"""
++        require_scope()
+         if not self.locators:
+-            cmds.warning("没有找到定位器")
++            cmds.warning('没有找到定位器')
+             return False
+-        
+         for locator in self.locators:
+-            # 获取原始控制器名称
+             if not cmds.attributeQuery('original_controller', node=locator, exists=True):
+                 continue
+-                
+-            ctrl_name = cmds.getAttr(f"{locator}.original_controller")
+-            
++            ctrl_name = cmds.getAttr(f'{locator}.original_controller')
+             if not cmds.objExists(ctrl_name):
+-                print(f"控制器 {ctrl_name} 不存在，跳过")
++                print(f'控制器 {ctrl_name} 不存在，跳过')
+                 continue
+-            
+-            # 获取定位器的变换矩阵
+             loc_matrix = cmds.xform(locator, query=True, worldSpace=True, matrix=True)
+-            
+-            # 应用到控制器
+             cmds.xform(ctrl_name, worldSpace=True, matrix=loc_matrix)
+-        
+-        print("姿态已应用到控制器")
++        print('姿态已应用到控制器')
+         return True
+-    
++
+     def cleanup_locators(self):
+         """清理定位器"""
++        require_scope()
+         if self.locators:
+             for loc in self.locators:
+                 if cmds.objExists(loc):
+-                    cmds.delete(loc)
++                    checked_delete(loc)
+             self.locators = []
+-            print("定位器已清理")
++            print('定位器已清理')
+ 
+-# 创建UI界面
+ def create_pose_transfer_ui():
+-    window_name = "PoseTransferTool"
+-    
+-    # 删除已存在的窗口
++    window_name = 'mtkPoseTransferCandidateWindow'
+     if cmds.window(window_name, exists=True):
+         cmds.deleteUI(window_name)
+-    
+-    # 创建窗口
+-    window = cmds.window(window_name, title="姿态传输工具", widthHeight=(350, 280))
+-    
+-    # 创建布局
++    window = cmds.window(window_name, title='姿态传输工具', widthHeight=(350, 550))
+     main_layout = cmds.columnLayout(adjustableColumn=True)
+-    
+-    # 添加间距
+     cmds.separator(height=10, style='none')
+-    
+-    cmds.text(label="姿态传输工具", font="boldLabelFont")
++    cmds.text(label='姿态传输工具', font='boldLabelFont')
+     cmds.separator(height=10)
+-    
+-    # 创建PoseTransfer实例
+-    pose_transfer = PoseTransfer()
+-    
+-    # 按钮
+-    cmds.button(label="1. 选择ROOT控制器", height=30,
+-                command=lambda x: pose_transfer.get_selected_root())
+-    
++    from .ui_bridge import SessionButtons
++    pose_transfer = SessionButtons()
++    cmds.checkBox('mtkPoseTransferCandidateAllowReferences', label='Allow reference edits when applying pose', value=False)
++    cmds.button(label='1. 选择ROOT控制器', height=30, command=lambda x: pose_transfer.get_selected_root())
+     cmds.separator(height=10)
+-    cmds.text(label="选择以下任一方式获取控制器:", font="boldLabelFont")
++    cmds.text(label='选择以下任一方式获取控制器:', font='boldLabelFont')
+     cmds.separator(height=5, style='none')
+-    
+-    cmds.button(label="2a. 自动获取所有控制器", height=30,
+-                command=lambda x: pose_transfer.get_all_controllers())
+-    
++    cmds.button(label='2a. 自动获取所有控制器', height=30, command=lambda x: pose_transfer.get_all_controllers())
+     cmds.separator(height=5, style='none')
+-    
+-    cmds.button(label="2b. 手动选择控制器并创建定位器", height=30,
+-                command=lambda x: pose_transfer.manual_select_and_create_locators(),
+-                backgroundColor=(0.7, 0.7, 0.9))
+-    
++    cmds.button(label='2b. 手动选择控制器并创建定位器', height=30, command=lambda x: pose_transfer.manual_select_and_create_locators(), backgroundColor=(0.7, 0.7, 0.9))
+     cmds.separator(height=5, style='none')
+-    
+-    cmds.button(label="3. 创建定位器并记录姿态", height=30,
+-                command=lambda x: pose_transfer.create_locators_and_record_pose())
+-    
++    cmds.button(label='3. 创建定位器并记录姿态', height=30, command=lambda x: pose_transfer.create_locators_and_record_pose())
+     cmds.separator(height=10)
+-    cmds.text(label="移动ROOT到目标位置后:", font="boldLabelFont")
++    cmds.text(label='移动ROOT到目标位置后:', font='boldLabelFont')
+     cmds.separator(height=5, style='none')
+-    
+-    cmds.button(label="4. 移动定位器到新ROOT位置", height=30,
+-                command=lambda x: pose_transfer.move_locators_to_new_root_position())
+-    
++    cmds.button(label='4. 移动定位器到新ROOT位置', height=30, command=lambda x: pose_transfer.move_locators_to_new_root_position())
+     cmds.separator(height=5, style='none')
+-    
+-    cmds.button(label="5. 应用姿态到控制器", height=30,
+-                command=lambda x: pose_transfer.apply_pose_from_locators())
+-    
++    cmds.button(label='5. 应用姿态到控制器', height=30, command=lambda x: pose_transfer.apply_pose_from_locators())
+     cmds.separator(height=15)
+-    cmds.button(label="清理定位器", height=30,
+-                command=lambda x: pose_transfer.cleanup_locators(),
+-                backgroundColor=(0.8, 0.4, 0.4))
+-    
++    cmds.button(label='清理定位器', height=30, command=lambda x: pose_transfer.cleanup_locators(), backgroundColor=(0.8, 0.4, 0.4))
+     cmds.separator(height=10, style='none')
+-    
+-    # 显示窗口
+     cmds.showWindow(window)
+-
+-# 运行UI
+-create_pose_transfer_ui()

@@ -1,0 +1,45 @@
+{
+  "tool_id": "directional_cycle_tool_v1_1",
+  "original_functions": [
+    "run_back",
+    "pelvis_setup",
+    "run_side",
+    "warning_popup",
+    "create_animlayer",
+    "check_for_animlayer",
+    "check_controller_number",
+    "create_correction_locators"
+  ],
+  "raw_files": [
+    {
+      "path": "upstream/__init__.py",
+      "sha256": "f1a57d1c098a27283c5f0f8eab8a9c9afc7afa149372a21584ec89579ccb577a"
+    },
+    {
+      "path": "upstream/functions.py",
+      "sha256": "d0628d4ff57522e29c0a0a5e6b23de5a3224e561f44a2bd971c63d03a7ea6653"
+    },
+    {
+      "path": "upstream/main.py",
+      "sha256": "5afc53082d88876ec221b25f9756be2d6da5e5b8338ae6898d05375665c998fd"
+    },
+    {
+      "path": "upstream/README.txt",
+      "sha256": "46eee4b891884de832fd01e734c2f055caa62642996bf8ce1af9f6cf595e65ab"
+    },
+    {
+      "path": "upstream/version.py",
+      "sha256": "1ad559dc944aceec0eabc0886efa90864c1895696043eb017a8dd90d8077c958"
+    }
+  ],
+  "license": "Original README: CC BY-SA 4.0, Baptiste COLIN (FallingNT0), v1.1; attribution and full README retained",
+  "changes": [
+    "No import-time dockable UI",
+    "Project PySide2/6 binding and full original UI",
+    "Explicit ordered roles and base-layer read-only checks",
+    "All nested temporary constraint lists deleted, not only first foot",
+    "Actual locator shape path instead of synthesized Shape names",
+    "Unique owned cycle layers/helpers and standard Undo/finally",
+    "Owned persistent cycle records and cleanup; never overwrite foreign Left/Right/Back layers"
+  ]
+}

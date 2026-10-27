@@ -234,7 +234,7 @@ def scope(plan):
     global ACTIVE
     if ACTIVE is not None:
         raise ValueError('Reentrant operation refused')
-    state = dict(selection=cmds.ls(sl=True, long=True) or [], time=cmds.currentTime(q=True), auto=cmds.autoKeyframe(q=True, state=True), refresh=cmds.refresh(q=True, suspend=True), ns=':' + cmds.namespaceInfo(currentNamespace=True).lstrip(':'), relative=cmds.namespace(q=True, relativeNames=True))
+    state = dict(selection=cmds.ls(sl=True, long=True) or [], time=cmds.currentTime(q=True), auto=cmds.autoKeyframe(q=True, state=True), refresh=False, ns=':' + cmds.namespaceInfo(currentNamespace=True).lstrip(':'), relative=cmds.namespace(q=True, relativeNames=True))
     ACTIVE = dict(plan)
     try:
         cmds.namespace(relativeNames=False)
@@ -244,7 +244,7 @@ def scope(plan):
     finally:
         ACTIVE = None
         errors = []
-        restore = [lambda: cmds.namespace(relativeNames=False), lambda: cmds.namespace(set=state['ns']), lambda: cmds.namespace(relativeNames=state['relative']), lambda: cmds.autoKeyframe(state=state['auto']), lambda: cmds.currentTime(state['time']), lambda: cmds.refresh(suspend=state['refresh']), lambda: cmds.select([n for n in state['selection'] if cmds.objExists(n)], r=True) if state['selection'] else cmds.select(clear=True)]
+        restore = [lambda: cmds.namespace(relativeNames=False), lambda: cmds.namespace(set=state['ns']), lambda: cmds.namespace(relativeNames=state['relative']), lambda: cmds.autoKeyframe(state=state['auto']), lambda: cmds.currentTime(state['time']), lambda: (not cmds.about(batch=True) and cmds.refresh(suspend=False)), lambda: cmds.select([n for n in state['selection'] if cmds.objExists(n)], r=True) if state['selection'] else cmds.select(clear=True)]
         for fn in restore:
             try:
                 fn()

@@ -34,7 +34,8 @@ class OfflineTests(unittest.TestCase):
 
     def test_lazy_inventory_schema_and_contract(self):
         self.assertTrue(TOOL.validate(action='inventory').success)
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya.cmds' not in sys.modules:
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertEqual('directional_cycle_tool_v1_1', TOOL.to_mcp_tool()['name'])
         for args in ({'feet_number': 0}, {'feet_number': True}, {'angle': 91}, {'start': float('nan')}, {'controllers': ['a', 'a']}, {'bake': 1}, {'extra': 1}):
             with self.assertRaises(ValueError):

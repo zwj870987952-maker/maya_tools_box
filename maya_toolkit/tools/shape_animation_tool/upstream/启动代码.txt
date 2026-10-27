@@ -1,0 +1,10 @@
+## sat_2020_2022_py2&sat_2018_py2启动代码：
+
+import sat
+reload(sat)
+
+## sat_2022_py3 启动代码：
+
+import sat
+import importlib
+importlib.reload(sat)

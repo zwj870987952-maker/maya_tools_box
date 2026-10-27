@@ -1,0 +1,2426 @@
+{
+  "functions": {
+    "assignColors.createMats": {
+      "module": "assignColors",
+      "name": "createMats",
+      "parameters": [],
+      "line": 30,
+      "end_line": 45,
+      "callable_by_api": true
+    },
+    "assignColors.createMat": {
+      "module": "assignColors",
+      "name": "createMat",
+      "parameters": [
+        {
+          "name": "name",
+          "required": true
+        },
+        {
+          "name": "color",
+          "required": true
+        }
+      ],
+      "line": 49,
+      "end_line": 60,
+      "callable_by_api": true
+    },
+    "assignColors.assign_sel": {
+      "module": "assignColors",
+      "name": "assign_sel",
+      "parameters": [
+        {
+          "name": "color",
+          "required": true
+        },
+        {
+          "name": "mode",
+          "required": true
+        }
+      ],
+      "line": 64,
+      "end_line": 75,
+      "callable_by_api": true
+    },
+    "assignColors.assign": {
+      "module": "assignColors",
+      "name": "assign",
+      "parameters": [
+        {
+          "name": "obj",
+          "required": true
+        },
+        {
+          "name": "color",
+          "required": true
+        },
+        {
+          "name": "mode",
+          "required": true
+        }
+      ],
+      "line": 78,
+      "end_line": 82,
+      "callable_by_api": true
+    },
+    "assignColors.random_sel": {
+      "module": "assignColors",
+      "name": "random_sel",
+      "parameters": [
+        {
+          "name": "mode",
+          "required": true
+        }
+      ],
+      "line": 86,
+      "end_line": 97,
+      "callable_by_api": true
+    },
+    "assignColors.random": {
+      "module": "assignColors",
+      "name": "random",
+      "parameters": [
+        {
+          "name": "obj",
+          "required": true
+        },
+        {
+          "name": "mode",
+          "required": true
+        }
+      ],
+      "line": 99,
+      "end_line": 104,
+      "callable_by_api": true
+    },
+    "assignColors.printColor_sel": {
+      "module": "assignColors",
+      "name": "printColor_sel",
+      "parameters": [],
+      "line": 108,
+      "end_line": 112,
+      "callable_by_api": true
+    },
+    "assignColors.printColor": {
+      "module": "assignColors",
+      "name": "printColor",
+      "parameters": [
+        {
+          "name": "mat",
+          "required": true
+        }
+      ],
+      "line": 116,
+      "end_line": 122,
+      "callable_by_api": true
+    },
+    "caching.exp_cams": {
+      "module": "caching",
+      "name": "exp_cams",
+      "parameters": [
+        {
+          "name": "path",
+          "required": true
+        },
+        {
+          "name": "cams",
+          "required": true
+        }
+      ],
+      "line": 32,
+      "end_line": 50,
+      "callable_by_api": true
+    },
+    "caching.exp_geos": {
+      "module": "caching",
+      "name": "exp_geos",
+      "parameters": [
+        {
+          "name": "path",
+          "required": true
+        },
+        {
+          "name": "geos",
+          "required": true
+        }
+      ],
+      "line": 54,
+      "end_line": 101,
+      "callable_by_api": true
+    },
+    "caching.imp_cams": {
+      "module": "caching",
+      "name": "imp_cams",
+      "parameters": [
+        {
+          "name": "path",
+          "required": true
+        }
+      ],
+      "line": 105,
+      "end_line": 109,
+      "callable_by_api": true
+    },
+    "caching.imp_geos": {
+      "module": "caching",
+      "name": "imp_geos",
+      "parameters": [
+        {
+          "name": "path",
+          "required": true
+        }
+      ],
+      "line": 113,
+      "end_line": 185,
+      "callable_by_api": true
+    },
+    "caching.swap": {
+      "module": "caching",
+      "name": "swap",
+      "parameters": [
+        {
+          "name": "path",
+          "required": true
+        }
+      ],
+      "line": 192,
+      "end_line": 213,
+      "callable_by_api": true
+    },
+    "caching.attach_sel": {
+      "module": "caching",
+      "name": "attach_sel",
+      "parameters": [],
+      "line": 220,
+      "end_line": 257,
+      "callable_by_api": true
+    },
+    "caching.attach": {
+      "module": "caching",
+      "name": "attach",
+      "parameters": [],
+      "line": 260,
+      "end_line": 277,
+      "callable_by_api": true
+    },
+    "caching.attach2": {
+      "module": "caching",
+      "name": "attach2",
+      "parameters": [
+        {
+          "name": "chars",
+          "required": true
+        }
+      ],
+      "line": 279,
+      "end_line": 322,
+      "callable_by_api": true
+    },
+    "caching.delete": {
+      "module": "caching",
+      "name": "delete",
+      "parameters": [],
+      "line": 326,
+      "end_line": 350,
+      "callable_by_api": true
+    },
+    "copyPasteAttrs.copy": {
+      "module": "copyPasteAttrs",
+      "name": "copy",
+      "parameters": [
+        {
+          "name": "path",
+          "required": false,
+          "default": ""
+        },
+        {
+          "name": "k",
+          "required": false,
+          "default": 0
+        }
+      ],
+      "line": 31,
+      "end_line": 72,
+      "callable_by_api": true
+    },
+    "copyPasteAttrs.paste": {
+      "module": "copyPasteAttrs",
+      "name": "paste",
+      "parameters": [
+        {
+          "name": "path",
+          "required": false,
+          "default": ""
+        }
+      ],
+      "line": 76,
+      "end_line": 93,
+      "callable_by_api": true
+    },
+    "cycleCam.run": {
+      "module": "cycleCam",
+      "name": "run",
+      "parameters": [
+        {
+          "name": "skipOrtho",
+          "required": false,
+          "default": 0
+        }
+      ],
+      "line": 26,
+      "end_line": 68,
+      "callable_by_api": true
+    },
+    "growShrink.run_sel": {
+      "module": "growShrink",
+      "name": "run_sel",
+      "parameters": [
+        {
+          "name": "hideData",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "smooth",
+          "required": false,
+          "default": 3
+        }
+      ],
+      "line": 34,
+      "end_line": 71,
+      "callable_by_api": true
+    },
+    "growShrink.run": {
+      "module": "growShrink",
+      "name": "run",
+      "parameters": [
+        {
+          "name": "geo",
+          "required": true
+        },
+        {
+          "name": "dfrmverts",
+          "required": false,
+          "default": []
+        },
+        {
+          "name": "floodverts",
+          "required": false,
+          "default": []
+        },
+        {
+          "name": "cb",
+          "required": false,
+          "default": ""
+        },
+        {
+          "name": "hideData",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "smooth",
+          "required": false,
+          "default": 3
+        },
+        {
+          "name": "its",
+          "required": false,
+          "default": 3
+        }
+      ],
+      "line": 75,
+      "end_line": 143,
+      "callable_by_api": true
+    },
+    "growShrink.flood": {
+      "module": "growShrink",
+      "name": "flood",
+      "parameters": [
+        {
+          "name": "verts",
+          "required": true
+        },
+        {
+          "name": "bs",
+          "required": true
+        },
+        {
+          "name": "smooth",
+          "required": false,
+          "default": 3
+        }
+      ],
+      "line": 147,
+      "end_line": 169,
+      "callable_by_api": true
+    },
+    "iron.run_sel": {
+      "module": "iron",
+      "name": "run_sel",
+      "parameters": [
+        {
+          "name": "hideData",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "smooth",
+          "required": false,
+          "default": 3
+        }
+      ],
+      "line": 36,
+      "end_line": 73,
+      "callable_by_api": true
+    },
+    "iron.run": {
+      "module": "iron",
+      "name": "run",
+      "parameters": [
+        {
+          "name": "geo",
+          "required": true
+        },
+        {
+          "name": "dfrmverts",
+          "required": false,
+          "default": []
+        },
+        {
+          "name": "floodverts",
+          "required": false,
+          "default": []
+        },
+        {
+          "name": "cb",
+          "required": false,
+          "default": ""
+        },
+        {
+          "name": "hideData",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "smooth",
+          "required": false,
+          "default": 3
+        },
+        {
+          "name": "its",
+          "required": false,
+          "default": 3
+        }
+      ],
+      "line": 77,
+      "end_line": 158,
+      "callable_by_api": true
+    },
+    "iron.flood": {
+      "module": "iron",
+      "name": "flood",
+      "parameters": [
+        {
+          "name": "verts",
+          "required": true
+        },
+        {
+          "name": "bs",
+          "required": true
+        },
+        {
+          "name": "smooth",
+          "required": false,
+          "default": 3
+        }
+      ],
+      "line": 162,
+      "end_line": 184,
+      "callable_by_api": true
+    },
+    "quickBake.run_sel": {
+      "module": "quickBake",
+      "name": "run_sel",
+      "parameters": [],
+      "line": 32,
+      "end_line": 42,
+      "callable_by_api": true
+    },
+    "quickBake.run": {
+      "module": "quickBake",
+      "name": "run",
+      "parameters": [
+        {
+          "name": "objs",
+          "required": true
+        }
+      ],
+      "line": 46,
+      "end_line": 53,
+      "callable_by_api": true
+    },
+    "quickBake.rivet_sel": {
+      "module": "quickBake",
+      "name": "rivet_sel",
+      "parameters": [],
+      "line": 57,
+      "end_line": 70,
+      "callable_by_api": true
+    },
+    "quickBake.rivet": {
+      "module": "quickBake",
+      "name": "rivet",
+      "parameters": [],
+      "line": 74,
+      "end_line": 84,
+      "callable_by_api": true
+    },
+    "quickBake.plane_sel": {
+      "module": "quickBake",
+      "name": "plane_sel",
+      "parameters": [],
+      "line": 88,
+      "end_line": 101,
+      "callable_by_api": true
+    },
+    "quickBake.plane": {
+      "module": "quickBake",
+      "name": "plane",
+      "parameters": [],
+      "line": 105,
+      "end_line": 115,
+      "callable_by_api": true
+    },
+    "rivetStuff.rivet_sel": {
+      "module": "rivetStuff",
+      "name": "rivet_sel",
+      "parameters": [
+        {
+          "name": "loc",
+          "required": false,
+          "default": 0
+        }
+      ],
+      "line": 33,
+      "end_line": 44,
+      "callable_by_api": true
+    },
+    "rivetStuff.rivet": {
+      "module": "rivetStuff",
+      "name": "rivet",
+      "parameters": [
+        {
+          "name": "vtx",
+          "required": true
+        },
+        {
+          "name": "surf",
+          "required": true
+        },
+        {
+          "name": "outGeo",
+          "required": false,
+          "default": ""
+        },
+        {
+          "name": "loc",
+          "required": false,
+          "default": 0
+        }
+      ],
+      "line": 46,
+      "end_line": 100,
+      "callable_by_api": true
+    },
+    "rivetStuff.stickyMod": {
+      "module": "rivetStuff",
+      "name": "stickyMod",
+      "parameters": [
+        {
+          "name": "surf",
+          "required": true
+        },
+        {
+          "name": "falloff",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 104,
+      "end_line": 122,
+      "callable_by_api": true
+    },
+    "rivetStuff.run_sel": {
+      "module": "rivetStuff",
+      "name": "run_sel",
+      "parameters": [
+        {
+          "name": "falloff",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "color",
+          "required": false,
+          "default": 22
+        },
+        {
+          "name": "sphVis",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "smooth",
+          "required": false,
+          "default": 3
+        },
+        {
+          "name": "lra",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "mode",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "scale",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 132,
+      "end_line": 173,
+      "callable_by_api": true
+    },
+    "rivetStuff.run_vtx": {
+      "module": "rivetStuff",
+      "name": "run_vtx",
+      "parameters": [
+        {
+          "name": "vtx",
+          "required": true
+        },
+        {
+          "name": "surf",
+          "required": true
+        },
+        {
+          "name": "falloff",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "color",
+          "required": false,
+          "default": 22
+        },
+        {
+          "name": "sphVis",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "lra",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "mode",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "scale",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 176,
+      "end_line": 215,
+      "callable_by_api": true
+    },
+    "rivetStuff.run_cp": {
+      "module": "rivetStuff",
+      "name": "run_cp",
+      "parameters": [
+        {
+          "name": "cp",
+          "required": true
+        },
+        {
+          "name": "surf",
+          "required": true
+        },
+        {
+          "name": "falloff",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "color",
+          "required": false,
+          "default": 22
+        },
+        {
+          "name": "sphVis",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "lra",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "mode",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "scale",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 219,
+      "end_line": 269,
+      "callable_by_api": true
+    },
+    "rivetStuff.finalize": {
+      "module": "rivetStuff",
+      "name": "finalize",
+      "parameters": [
+        {
+          "name": "sm",
+          "required": true
+        },
+        {
+          "name": "surf",
+          "required": true
+        },
+        {
+          "name": "color",
+          "required": false,
+          "default": 22
+        },
+        {
+          "name": "sphVis",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "lra",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "mode",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "scale",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 273,
+      "end_line": 438,
+      "callable_by_api": true
+    },
+    "rivetStuff.floodReplace": {
+      "module": "rivetStuff",
+      "name": "floodReplace",
+      "parameters": [
+        {
+          "name": "comps",
+          "required": true
+        },
+        {
+          "name": "sm_dfrm",
+          "required": true
+        }
+      ],
+      "line": 448,
+      "end_line": 465,
+      "callable_by_api": true
+    },
+    "rivetStuff.floodSmooth": {
+      "module": "rivetStuff",
+      "name": "floodSmooth",
+      "parameters": [
+        {
+          "name": "comps",
+          "required": true
+        },
+        {
+          "name": "sm_dfrm",
+          "required": true
+        },
+        {
+          "name": "smooth",
+          "required": false,
+          "default": 3
+        }
+      ],
+      "line": 469,
+      "end_line": 486,
+      "callable_by_api": true
+    },
+    "rivetStuff.addGeo_sel": {
+      "module": "rivetStuff",
+      "name": "addGeo_sel",
+      "parameters": [],
+      "line": 490,
+      "end_line": 515,
+      "callable_by_api": true
+    },
+    "rivetStuff.addGeo": {
+      "module": "rivetStuff",
+      "name": "addGeo",
+      "parameters": [
+        {
+          "name": "sm",
+          "required": true
+        },
+        {
+          "name": "geo",
+          "required": true
+        }
+      ],
+      "line": 519,
+      "end_line": 536,
+      "callable_by_api": true
+    },
+    "rivetStuff.removeGeo_sel": {
+      "module": "rivetStuff",
+      "name": "removeGeo_sel",
+      "parameters": [],
+      "line": 540,
+      "end_line": 565,
+      "callable_by_api": true
+    },
+    "rivetStuff.removeGeo": {
+      "module": "rivetStuff",
+      "name": "removeGeo",
+      "parameters": [
+        {
+          "name": "sm",
+          "required": true
+        },
+        {
+          "name": "geo",
+          "required": true
+        }
+      ],
+      "line": 569,
+      "end_line": 585,
+      "callable_by_api": true
+    },
+    "rivetStuff.breakRot_sel": {
+      "module": "rivetStuff",
+      "name": "breakRot_sel",
+      "parameters": [],
+      "line": 589,
+      "end_line": 601,
+      "callable_by_api": true
+    },
+    "rivetStuff.breakRot": {
+      "module": "rivetStuff",
+      "name": "breakRot",
+      "parameters": [
+        {
+          "name": "sm",
+          "required": true
+        }
+      ],
+      "line": 605,
+      "end_line": 626,
+      "callable_by_api": true
+    },
+    "rivetStuff.oriToWorld_sel": {
+      "module": "rivetStuff",
+      "name": "oriToWorld_sel",
+      "parameters": [],
+      "line": 630,
+      "end_line": 641,
+      "callable_by_api": true
+    },
+    "rivetStuff.oriToWorld": {
+      "module": "rivetStuff",
+      "name": "oriToWorld",
+      "parameters": [
+        {
+          "name": "sm",
+          "required": true
+        }
+      ],
+      "line": 645,
+      "end_line": 652,
+      "callable_by_api": true
+    },
+    "rivetStuff.aimAtObj_sel": {
+      "module": "rivetStuff",
+      "name": "aimAtObj_sel",
+      "parameters": [],
+      "line": 656,
+      "end_line": 673,
+      "callable_by_api": true
+    },
+    "rivetStuff.aimAtObj": {
+      "module": "rivetStuff",
+      "name": "aimAtObj",
+      "parameters": [
+        {
+          "name": "obj",
+          "required": true
+        },
+        {
+          "name": "sm",
+          "required": true
+        }
+      ],
+      "line": 677,
+      "end_line": 683,
+      "callable_by_api": true
+    },
+    "sculptPose.run_sel": {
+      "module": "sculptPose",
+      "name": "run_sel",
+      "parameters": [
+        {
+          "name": "lv",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "ihi",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 41,
+      "end_line": 47,
+      "callable_by_api": true
+    },
+    "sculptPose.run": {
+      "module": "sculptPose",
+      "name": "run",
+      "parameters": [
+        {
+          "name": "scu",
+          "required": true
+        },
+        {
+          "name": "geo",
+          "required": true
+        },
+        {
+          "name": "mode",
+          "required": true
+        },
+        {
+          "name": "lv",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "ihi",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 49,
+      "end_line": 204,
+      "callable_by_api": true
+    },
+    "sculptPose.sculpt_sel": {
+      "module": "sculptPose",
+      "name": "sculpt_sel",
+      "parameters": [
+        {
+          "name": "vis",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "shade",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "editMode",
+          "required": false,
+          "default": 0
+        }
+      ],
+      "line": 217,
+      "end_line": 236,
+      "callable_by_api": true
+    },
+    "sculptPose.sculpt": {
+      "module": "sculptPose",
+      "name": "sculpt",
+      "parameters": [
+        {
+          "name": "geo",
+          "required": true
+        },
+        {
+          "name": "vis",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "shade",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "editMode",
+          "required": false,
+          "default": 0
+        }
+      ],
+      "line": 238,
+      "end_line": 294,
+      "callable_by_api": true
+    },
+    "sculptPose.abortSculpt": {
+      "module": "sculptPose",
+      "name": "abortSculpt",
+      "parameters": [],
+      "line": 298,
+      "end_line": 313,
+      "callable_by_api": true
+    },
+    "sculptPose.sculptFromZero_sel": {
+      "module": "sculptPose",
+      "name": "sculptFromZero_sel",
+      "parameters": [
+        {
+          "name": "vis",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "shade",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "lv",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "mode",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 321,
+      "end_line": 340,
+      "callable_by_api": true
+    },
+    "sculptPose.sculptFromZero": {
+      "module": "sculptPose",
+      "name": "sculptFromZero",
+      "parameters": [
+        {
+          "name": "geo",
+          "required": true
+        },
+        {
+          "name": "vis",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "shade",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "lv",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "mode",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 342,
+      "end_line": 388,
+      "callable_by_api": true
+    },
+    "sculptPose.apply_sel": {
+      "module": "sculptPose",
+      "name": "apply_sel",
+      "parameters": [
+        {
+          "name": "mode",
+          "required": true
+        },
+        {
+          "name": "lv",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "ihi",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 401,
+      "end_line": 424,
+      "callable_by_api": true
+    },
+    "sculptPose.apply": {
+      "module": "sculptPose",
+      "name": "apply",
+      "parameters": [
+        {
+          "name": "scu",
+          "required": true
+        },
+        {
+          "name": "mode",
+          "required": true
+        },
+        {
+          "name": "lv",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "ihi",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 426,
+      "end_line": 455,
+      "callable_by_api": true
+    },
+    "sculptPose.apply_1f_sel": {
+      "module": "sculptPose",
+      "name": "apply_1f_sel",
+      "parameters": [],
+      "line": 462,
+      "end_line": 482,
+      "callable_by_api": true
+    },
+    "sculptPose.apply_1f": {
+      "module": "sculptPose",
+      "name": "apply_1f",
+      "parameters": [
+        {
+          "name": "scu",
+          "required": true
+        },
+        {
+          "name": "lv",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "ihi",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 484,
+      "end_line": 499,
+      "callable_by_api": true
+    },
+    "sculptPose.apply_p2p_sel": {
+      "module": "sculptPose",
+      "name": "apply_p2p_sel",
+      "parameters": [
+        {
+          "name": "lv",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "ihi",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 512,
+      "end_line": 532,
+      "callable_by_api": true
+    },
+    "sculptPose.apply_p2p": {
+      "module": "sculptPose",
+      "name": "apply_p2p",
+      "parameters": [
+        {
+          "name": "scu",
+          "required": true
+        },
+        {
+          "name": "lv",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "ihi",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 534,
+      "end_line": 572,
+      "callable_by_api": true
+    },
+    "sculptPose.createP2PZero_sel": {
+      "module": "sculptPose",
+      "name": "createP2PZero_sel",
+      "parameters": [
+        {
+          "name": "lv",
+          "required": true
+        }
+      ],
+      "line": 579,
+      "end_line": 599,
+      "callable_by_api": true
+    },
+    "sculptPose.createP2PZero": {
+      "module": "sculptPose",
+      "name": "createP2PZero",
+      "parameters": [
+        {
+          "name": "geo",
+          "required": true
+        },
+        {
+          "name": "lv",
+          "required": true
+        }
+      ],
+      "line": 601,
+      "end_line": 667,
+      "callable_by_api": true
+    },
+    "sculptPose.createP2PHold_sel": {
+      "module": "sculptPose",
+      "name": "createP2PHold_sel",
+      "parameters": [
+        {
+          "name": "lv",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "ihi",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 674,
+      "end_line": 699,
+      "callable_by_api": true
+    },
+    "sculptPose.createP2PHold": {
+      "module": "sculptPose",
+      "name": "createP2PHold",
+      "parameters": [
+        {
+          "name": "geo",
+          "required": true
+        },
+        {
+          "name": "lv",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "ihi",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 701,
+      "end_line": 746,
+      "callable_by_api": true
+    },
+    "sculptPose.p2pPre": {
+      "module": "sculptPose",
+      "name": "p2pPre",
+      "parameters": [
+        {
+          "name": "geo",
+          "required": true
+        },
+        {
+          "name": "lv",
+          "required": true
+        }
+      ],
+      "line": 759,
+      "end_line": 813,
+      "callable_by_api": true
+    },
+    "sculptPose.getAttrs": {
+      "module": "sculptPose",
+      "name": "getAttrs",
+      "parameters": [
+        {
+          "name": "geo",
+          "required": true
+        }
+      ],
+      "line": 820,
+      "end_line": 827,
+      "callable_by_api": true
+    },
+    "sculptPose.sortCB": {
+      "module": "sculptPose",
+      "name": "sortCB",
+      "parameters": [],
+      "line": 834,
+      "end_line": 886,
+      "callable_by_api": true
+    },
+    "sculptPose.sortKey": {
+      "module": "sculptPose",
+      "name": "sortKey",
+      "parameters": [
+        {
+          "name": "text",
+          "required": true
+        }
+      ],
+      "line": 893,
+      "end_line": 895,
+      "callable_by_api": true
+    },
+    "sculptPose.atoi": {
+      "module": "sculptPose",
+      "name": "atoi",
+      "parameters": [
+        {
+          "name": "text",
+          "required": true
+        }
+      ],
+      "line": 897,
+      "end_line": 899,
+      "callable_by_api": true
+    },
+    "sculptPose.delete_sel": {
+      "module": "sculptPose",
+      "name": "delete_sel",
+      "parameters": [
+        {
+          "name": "lv",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "allP2P",
+          "required": false,
+          "default": 0
+        }
+      ],
+      "line": 906,
+      "end_line": 939,
+      "callable_by_api": true
+    },
+    "sculptPose.delete": {
+      "module": "sculptPose",
+      "name": "delete",
+      "parameters": [
+        {
+          "name": "geo",
+          "required": true
+        },
+        {
+          "name": "a",
+          "required": true
+        },
+        {
+          "name": "lv",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "allP2P",
+          "required": false,
+          "default": 0
+        }
+      ],
+      "line": 941,
+      "end_line": 1011,
+      "callable_by_api": true
+    },
+    "sculptPose.editSculpt_sel": {
+      "module": "sculptPose",
+      "name": "editSculpt_sel",
+      "parameters": [
+        {
+          "name": "vis",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "shade",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 1018,
+      "end_line": 1047,
+      "callable_by_api": true
+    },
+    "sculptPose.editSculpt": {
+      "module": "sculptPose",
+      "name": "editSculpt",
+      "parameters": [
+        {
+          "name": "geo",
+          "required": true
+        },
+        {
+          "name": "vis",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "shade",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 1049,
+      "end_line": 1065,
+      "callable_by_api": true
+    },
+    "sculptPose.applyEdit_sel": {
+      "module": "sculptPose",
+      "name": "applyEdit_sel",
+      "parameters": [
+        {
+          "name": "lv",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "ihi",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 1067,
+      "end_line": 1092,
+      "callable_by_api": true
+    },
+    "sculptPose.applyEdit": {
+      "module": "sculptPose",
+      "name": "applyEdit",
+      "parameters": [
+        {
+          "name": "geo",
+          "required": true
+        },
+        {
+          "name": "scu",
+          "required": true
+        },
+        {
+          "name": "drv",
+          "required": true
+        },
+        {
+          "name": "lv",
+          "required": false,
+          "default": 1
+        },
+        {
+          "name": "ihi",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 1094,
+      "end_line": 1116,
+      "callable_by_api": true
+    },
+    "sculptPose.ui": {
+      "module": "sculptPose",
+      "name": "ui",
+      "parameters": [],
+      "line": 1126,
+      "end_line": 1190,
+      "callable_by_api": true
+    },
+    "sculptPose.ui_sculpt": {
+      "module": "sculptPose",
+      "name": "ui_sculpt",
+      "parameters": [],
+      "line": 1194,
+      "end_line": 1198,
+      "callable_by_api": true
+    },
+    "sculptPose.ui_sculptFromZero": {
+      "module": "sculptPose",
+      "name": "ui_sculptFromZero",
+      "parameters": [],
+      "line": 1202,
+      "end_line": 1208,
+      "callable_by_api": true
+    },
+    "sculptPose.ui_apply": {
+      "module": "sculptPose",
+      "name": "ui_apply",
+      "parameters": [],
+      "line": 1212,
+      "end_line": 1216,
+      "callable_by_api": true
+    },
+    "sculptPose.ui_apply_1f": {
+      "module": "sculptPose",
+      "name": "ui_apply_1f",
+      "parameters": [],
+      "line": 1220,
+      "end_line": 1222,
+      "callable_by_api": true
+    },
+    "sculptPose.ui_apply_p2p": {
+      "module": "sculptPose",
+      "name": "ui_apply_p2p",
+      "parameters": [],
+      "line": 1226,
+      "end_line": 1230,
+      "callable_by_api": true
+    },
+    "sculptPose.ui_createP2PZero": {
+      "module": "sculptPose",
+      "name": "ui_createP2PZero",
+      "parameters": [],
+      "line": 1234,
+      "end_line": 1237,
+      "callable_by_api": true
+    },
+    "sculptPose.ui_createP2PHold": {
+      "module": "sculptPose",
+      "name": "ui_createP2PHold",
+      "parameters": [],
+      "line": 1241,
+      "end_line": 1245,
+      "callable_by_api": true
+    },
+    "sculptPose.ui_delete": {
+      "module": "sculptPose",
+      "name": "ui_delete",
+      "parameters": [
+        {
+          "name": "allP2P",
+          "required": false,
+          "default": 0
+        }
+      ],
+      "line": 1249,
+      "end_line": 1252,
+      "callable_by_api": true
+    },
+    "sculptPose.ui_editSculpt": {
+      "module": "sculptPose",
+      "name": "ui_editSculpt",
+      "parameters": [],
+      "line": 1256,
+      "end_line": 1260,
+      "callable_by_api": true
+    },
+    "sculptPose.ui_applyEdit": {
+      "module": "sculptPose",
+      "name": "ui_applyEdit",
+      "parameters": [],
+      "line": 1264,
+      "end_line": 1270,
+      "callable_by_api": true
+    },
+    "sculptPose.selectSculpts": {
+      "module": "sculptPose",
+      "name": "selectSculpts",
+      "parameters": [],
+      "line": 1274,
+      "end_line": 1276,
+      "callable_by_api": true
+    },
+    "smoothPreview.run": {
+      "module": "smoothPreview",
+      "name": "run",
+      "parameters": [
+        {
+          "name": "div",
+          "required": false,
+          "default": 2
+        }
+      ],
+      "line": 30,
+      "end_line": 63,
+      "callable_by_api": true
+    },
+    "subdue.run": {
+      "module": "subdue",
+      "name": "run",
+      "parameters": [
+        {
+          "name": "rate",
+          "required": false,
+          "default": 4
+        },
+        {
+          "name": "smooth",
+          "required": false,
+          "default": 3
+        }
+      ],
+      "line": 34,
+      "end_line": 180,
+      "callable_by_api": true
+    },
+    "subdue.flood": {
+      "module": "subdue",
+      "name": "flood",
+      "parameters": [
+        {
+          "name": "verts",
+          "required": true
+        },
+        {
+          "name": "bs",
+          "required": true
+        },
+        {
+          "name": "smooth",
+          "required": false,
+          "default": 3
+        }
+      ],
+      "line": 184,
+      "end_line": 206,
+      "callable_by_api": true
+    },
+    "ui.ui": {
+      "module": "ui",
+      "name": "ui",
+      "parameters": [
+        {
+          "name": "dock",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 91,
+      "end_line": 407,
+      "callable_by_api": true
+    },
+    "ui.scu_sculpt": {
+      "module": "ui",
+      "name": "scu_sculpt",
+      "parameters": [],
+      "line": 417,
+      "end_line": 421,
+      "callable_by_api": true
+    },
+    "ui.scu_sculptFromZero": {
+      "module": "ui",
+      "name": "scu_sculptFromZero",
+      "parameters": [],
+      "line": 423,
+      "end_line": 429,
+      "callable_by_api": true
+    },
+    "ui.scu_abortSculpt": {
+      "module": "ui",
+      "name": "scu_abortSculpt",
+      "parameters": [],
+      "line": 431,
+      "end_line": 433,
+      "callable_by_api": true
+    },
+    "ui.scu_apply": {
+      "module": "ui",
+      "name": "scu_apply",
+      "parameters": [],
+      "line": 435,
+      "end_line": 439,
+      "callable_by_api": true
+    },
+    "ui.scu_apply_1f": {
+      "module": "ui",
+      "name": "scu_apply_1f",
+      "parameters": [],
+      "line": 441,
+      "end_line": 443,
+      "callable_by_api": true
+    },
+    "ui.scu_apply_p2p": {
+      "module": "ui",
+      "name": "scu_apply_p2p",
+      "parameters": [],
+      "line": 445,
+      "end_line": 449,
+      "callable_by_api": true
+    },
+    "ui.scu_createP2PZero": {
+      "module": "ui",
+      "name": "scu_createP2PZero",
+      "parameters": [],
+      "line": 451,
+      "end_line": 454,
+      "callable_by_api": true
+    },
+    "ui.scu_createP2PHold": {
+      "module": "ui",
+      "name": "scu_createP2PHold",
+      "parameters": [],
+      "line": 456,
+      "end_line": 460,
+      "callable_by_api": true
+    },
+    "ui.scu_delete": {
+      "module": "ui",
+      "name": "scu_delete",
+      "parameters": [
+        {
+          "name": "allP2P",
+          "required": false,
+          "default": 0
+        }
+      ],
+      "line": 462,
+      "end_line": 465,
+      "callable_by_api": true
+    },
+    "ui.scu_editSculpt": {
+      "module": "ui",
+      "name": "scu_editSculpt",
+      "parameters": [],
+      "line": 467,
+      "end_line": 471,
+      "callable_by_api": true
+    },
+    "ui.scu_applyEdit": {
+      "module": "ui",
+      "name": "scu_applyEdit",
+      "parameters": [],
+      "line": 473,
+      "end_line": 479,
+      "callable_by_api": true
+    },
+    "ui.wrap_loadVerts": {
+      "module": "ui",
+      "name": "wrap_loadVerts",
+      "parameters": [],
+      "line": 489,
+      "end_line": 495,
+      "callable_by_api": true
+    },
+    "ui.wrap_clearVerts": {
+      "module": "ui",
+      "name": "wrap_clearVerts",
+      "parameters": [],
+      "line": 497,
+      "end_line": 499,
+      "callable_by_api": true
+    },
+    "ui.wrap_wrapToMesh": {
+      "module": "ui",
+      "name": "wrap_wrapToMesh",
+      "parameters": [],
+      "line": 501,
+      "end_line": 507,
+      "callable_by_api": true
+    },
+    "ui.wrap_wrapToWorld": {
+      "module": "ui",
+      "name": "wrap_wrapToWorld",
+      "parameters": [],
+      "line": 509,
+      "end_line": 515,
+      "callable_by_api": true
+    },
+    "ui.subdue_run": {
+      "module": "ui",
+      "name": "subdue_run",
+      "parameters": [],
+      "line": 525,
+      "end_line": 529,
+      "callable_by_api": true
+    },
+    "ui.growShrink_run": {
+      "module": "ui",
+      "name": "growShrink_run",
+      "parameters": [],
+      "line": 540,
+      "end_line": 544,
+      "callable_by_api": true
+    },
+    "ui.iron_run": {
+      "module": "ui",
+      "name": "iron_run",
+      "parameters": [],
+      "line": 546,
+      "end_line": 550,
+      "callable_by_api": true
+    },
+    "ui.misc_loadDfrmVerts": {
+      "module": "ui",
+      "name": "misc_loadDfrmVerts",
+      "parameters": [],
+      "line": 552,
+      "end_line": 558,
+      "callable_by_api": true
+    },
+    "ui.misc_clearDfrmVerts": {
+      "module": "ui",
+      "name": "misc_clearDfrmVerts",
+      "parameters": [],
+      "line": 560,
+      "end_line": 562,
+      "callable_by_api": true
+    },
+    "ui.misc_loadFloodVerts": {
+      "module": "ui",
+      "name": "misc_loadFloodVerts",
+      "parameters": [],
+      "line": 564,
+      "end_line": 570,
+      "callable_by_api": true
+    },
+    "ui.misc_clearFloodVerts": {
+      "module": "ui",
+      "name": "misc_clearFloodVerts",
+      "parameters": [],
+      "line": 572,
+      "end_line": 574,
+      "callable_by_api": true
+    },
+    "ui.deltaMush": {
+      "module": "ui",
+      "name": "deltaMush",
+      "parameters": [],
+      "line": 584,
+      "end_line": 586,
+      "callable_by_api": true
+    },
+    "ui.sine": {
+      "module": "ui",
+      "name": "sine",
+      "parameters": [],
+      "line": 588,
+      "end_line": 590,
+      "callable_by_api": true
+    },
+    "ui.wave": {
+      "module": "ui",
+      "name": "wave",
+      "parameters": [],
+      "line": 592,
+      "end_line": 594,
+      "callable_by_api": true
+    },
+    "ui.cluster": {
+      "module": "ui",
+      "name": "cluster",
+      "parameters": [],
+      "line": 596,
+      "end_line": 598,
+      "callable_by_api": true
+    },
+    "ui.ac_lambert1": {
+      "module": "ui",
+      "name": "ac_lambert1",
+      "parameters": [],
+      "line": 608,
+      "end_line": 617,
+      "callable_by_api": true
+    },
+    "ui.assignColor": {
+      "module": "ui",
+      "name": "assignColor",
+      "parameters": [
+        {
+          "name": "color",
+          "required": true
+        }
+      ],
+      "line": 619,
+      "end_line": 626,
+      "callable_by_api": true
+    },
+    "ui.randomColors": {
+      "module": "ui",
+      "name": "randomColors",
+      "parameters": [],
+      "line": 628,
+      "end_line": 635,
+      "callable_by_api": true
+    },
+    "ui.saveSettings_run": {
+      "module": "ui",
+      "name": "saveSettings_run",
+      "parameters": [
+        {
+          "name": "typ",
+          "required": true
+        },
+        {
+          "name": "name",
+          "required": true
+        },
+        {
+          "name": "flag",
+          "required": true
+        },
+        {
+          "name": "f",
+          "required": true
+        }
+      ],
+      "line": 645,
+      "end_line": 652,
+      "callable_by_api": false
+    },
+    "ui.saveSettings": {
+      "module": "ui",
+      "name": "saveSettings",
+      "parameters": [],
+      "line": 654,
+      "end_line": 745,
+      "callable_by_api": true
+    },
+    "ui.loadSettings": {
+      "module": "ui",
+      "name": "loadSettings",
+      "parameters": [],
+      "line": 747,
+      "end_line": 778,
+      "callable_by_api": true
+    },
+    "ui.defaultSettings": {
+      "module": "ui",
+      "name": "defaultSettings",
+      "parameters": [],
+      "line": 780,
+      "end_line": 794,
+      "callable_by_api": true
+    },
+    "ui.toggleAnimEval": {
+      "module": "ui",
+      "name": "toggleAnimEval",
+      "parameters": [],
+      "line": 796,
+      "end_line": 801,
+      "callable_by_api": true
+    },
+    "ui.toggleAnimEval_2": {
+      "module": "ui",
+      "name": "toggleAnimEval_2",
+      "parameters": [],
+      "line": 803,
+      "end_line": 812,
+      "callable_by_api": true
+    },
+    "ui.fixViewport": {
+      "module": "ui",
+      "name": "fixViewport",
+      "parameters": [],
+      "line": 814,
+      "end_line": 816,
+      "callable_by_api": true
+    },
+    "ui.floodSmooth": {
+      "module": "ui",
+      "name": "floodSmooth",
+      "parameters": [
+        {
+          "name": "cnt",
+          "required": true
+        }
+      ],
+      "line": 818,
+      "end_line": 826,
+      "callable_by_api": true
+    },
+    "ui.pim": {
+      "module": "ui",
+      "name": "pim",
+      "parameters": [],
+      "line": 828,
+      "end_line": 838,
+      "callable_by_api": true
+    },
+    "ui.cache_launch": {
+      "module": "ui",
+      "name": "cache_launch",
+      "parameters": [],
+      "line": 848,
+      "end_line": 850,
+      "callable_by_api": true
+    },
+    "ui.cache_createMeta": {
+      "module": "ui",
+      "name": "cache_createMeta",
+      "parameters": [],
+      "line": 852,
+      "end_line": 860,
+      "callable_by_api": true
+    },
+    "ui.cache_refresh": {
+      "module": "ui",
+      "name": "cache_refresh",
+      "parameters": [
+        {
+          "name": "create",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 862,
+      "end_line": 884,
+      "callable_by_api": true
+    },
+    "ui.cache_refreshList": {
+      "module": "ui",
+      "name": "cache_refreshList",
+      "parameters": [],
+      "line": 886,
+      "end_line": 904,
+      "callable_by_api": true
+    },
+    "ui.cache_fieldWrite": {
+      "module": "ui",
+      "name": "cache_fieldWrite",
+      "parameters": [],
+      "line": 906,
+      "end_line": 928,
+      "callable_by_api": true
+    },
+    "ui.cache_resetDir": {
+      "module": "ui",
+      "name": "cache_resetDir",
+      "parameters": [],
+      "line": 930,
+      "end_line": 941,
+      "callable_by_api": true
+    },
+    "ui.cache_browseDir": {
+      "module": "ui",
+      "name": "cache_browseDir",
+      "parameters": [],
+      "line": 943,
+      "end_line": 957,
+      "callable_by_api": true
+    },
+    "ui.cache_exportGeo": {
+      "module": "ui",
+      "name": "cache_exportGeo",
+      "parameters": [],
+      "line": 959,
+      "end_line": 1007,
+      "callable_by_api": true
+    },
+    "ui.cache_exportCams": {
+      "module": "ui",
+      "name": "cache_exportCams",
+      "parameters": [],
+      "line": 1009,
+      "end_line": 1024,
+      "callable_by_api": true
+    },
+    "ui.cache_loadGeo": {
+      "module": "ui",
+      "name": "cache_loadGeo",
+      "parameters": [],
+      "line": 1026,
+      "end_line": 1033,
+      "callable_by_api": true
+    },
+    "ui.cache_loadCams": {
+      "module": "ui",
+      "name": "cache_loadCams",
+      "parameters": [],
+      "line": 1035,
+      "end_line": 1042,
+      "callable_by_api": true
+    },
+    "ui.cache_importGeo": {
+      "module": "ui",
+      "name": "cache_importGeo",
+      "parameters": [],
+      "line": 1044,
+      "end_line": 1069,
+      "callable_by_api": true
+    },
+    "ui.cache_importCams": {
+      "module": "ui",
+      "name": "cache_importCams",
+      "parameters": [],
+      "line": 1071,
+      "end_line": 1079,
+      "callable_by_api": true
+    },
+    "ui.cache_attach": {
+      "module": "ui",
+      "name": "cache_attach",
+      "parameters": [],
+      "line": 1081,
+      "end_line": 1083,
+      "callable_by_api": true
+    },
+    "ui.cache_attach_sel": {
+      "module": "ui",
+      "name": "cache_attach_sel",
+      "parameters": [],
+      "line": 1085,
+      "end_line": 1087,
+      "callable_by_api": true
+    },
+    "ui.cache_swap": {
+      "module": "ui",
+      "name": "cache_swap",
+      "parameters": [],
+      "line": 1089,
+      "end_line": 1105,
+      "callable_by_api": true
+    },
+    "ui.cache_delete": {
+      "module": "ui",
+      "name": "cache_delete",
+      "parameters": [],
+      "line": 1107,
+      "end_line": 1109,
+      "callable_by_api": true
+    },
+    "user_settings.run": {
+      "module": "user_settings",
+      "name": "run",
+      "parameters": [],
+      "line": 3,
+      "end_line": 62,
+      "callable_by_api": false
+    },
+    "user_settings_default.run": {
+      "module": "user_settings_default",
+      "name": "run",
+      "parameters": [],
+      "line": 9,
+      "end_line": 68,
+      "callable_by_api": false
+    },
+    "wrap.wrapToMesh_sel": {
+      "module": "wrap",
+      "name": "wrapToMesh_sel",
+      "parameters": [
+        {
+          "name": "verts",
+          "required": false,
+          "default": []
+        },
+        {
+          "name": "smooth",
+          "required": false,
+          "default": 3
+        },
+        {
+          "name": "hideData",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 44,
+      "end_line": 75,
+      "callable_by_api": true
+    },
+    "wrap.wrapToMesh": {
+      "module": "wrap",
+      "name": "wrapToMesh",
+      "parameters": [
+        {
+          "name": "drvn",
+          "required": true
+        },
+        {
+          "name": "drvr",
+          "required": true
+        },
+        {
+          "name": "verts",
+          "required": false,
+          "default": []
+        },
+        {
+          "name": "smooth",
+          "required": false,
+          "default": 3
+        },
+        {
+          "name": "hideData",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 77,
+      "end_line": 113,
+      "callable_by_api": true
+    },
+    "wrap.wrapToWorld_sel": {
+      "module": "wrap",
+      "name": "wrapToWorld_sel",
+      "parameters": [
+        {
+          "name": "verts",
+          "required": false,
+          "default": []
+        },
+        {
+          "name": "smooth",
+          "required": false,
+          "default": 3
+        },
+        {
+          "name": "hideData",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 126,
+      "end_line": 147,
+      "callable_by_api": true
+    },
+    "wrap.wrapToWorld": {
+      "module": "wrap",
+      "name": "wrapToWorld",
+      "parameters": [
+        {
+          "name": "drvn",
+          "required": true
+        },
+        {
+          "name": "verts",
+          "required": false,
+          "default": []
+        },
+        {
+          "name": "smooth",
+          "required": false,
+          "default": 3
+        },
+        {
+          "name": "hideData",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 149,
+      "end_line": 179,
+      "callable_by_api": true
+    },
+    "wrap.duplicate": {
+      "module": "wrap",
+      "name": "duplicate",
+      "parameters": [
+        {
+          "name": "obj",
+          "required": true
+        },
+        {
+          "name": "n",
+          "required": false,
+          "default": ""
+        },
+        {
+          "name": "grpPar",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "line": 192,
+      "end_line": 218,
+      "callable_by_api": true
+    },
+    "wrap.floodReplace": {
+      "module": "wrap",
+      "name": "floodReplace",
+      "parameters": [
+        {
+          "name": "bs",
+          "required": true
+        },
+        {
+          "name": "verts",
+          "required": true
+        }
+      ],
+      "line": 225,
+      "end_line": 241,
+      "callable_by_api": true
+    },
+    "wrap.floodSmooth": {
+      "module": "wrap",
+      "name": "floodSmooth",
+      "parameters": [
+        {
+          "name": "bs",
+          "required": true
+        },
+        {
+          "name": "obj",
+          "required": true
+        },
+        {
+          "name": "smooth",
+          "required": false,
+          "default": 3
+        }
+      ],
+      "line": 248,
+      "end_line": 262,
+      "callable_by_api": true
+    },
+    "wrap.extractFaces": {
+      "module": "wrap",
+      "name": "extractFaces",
+      "parameters": [],
+      "line": 269,
+      "end_line": 312,
+      "callable_by_api": true
+    }
+  },
+  "resources": {
+    "upstream/animPolish/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "upstream/animPolish/assignColors.py": "0be1334aac22a5aa20131dfa509cf782a8cd4dbb7be4557506d29ea40a20730f",
+    "upstream/animPolish/caching.py": "aa0c877ef000a5c3dc1e55dd34685496a8cfb03fc316c166b75a00a1f9097926",
+    "upstream/animPolish/copyPasteAttrs.py": "f6fdaeda544ffa1dfa3327eaa9544a169434b3447898d6ab33ec5252bee69b5d",
+    "upstream/animPolish/cycleCam.py": "484d270c861956fb06c6201fa6405a8ddde9bc7eb0ee04e9e85269c6e7a2f8a8",
+    "upstream/animPolish/growShrink.py": "b0dbc8d97cc396465a4cfd921147a92f0c454a23e65608929e074e7e869aa8d3",
+    "upstream/animPolish/iron.py": "c6776e7c2b7d4d2a6b6b1a79181ac84f9da549d4747fdaafc6a41ff9838f1e4f",
+    "upstream/animPolish/quickBake.py": "194c34ae4b6cc74f20ecc8c7119a912f92775c693de604cd487c539c9d3e12ce",
+    "upstream/animPolish/rivetStuff.py": "b3144d7e3f49f568c0b472c94e0fc24930ecd3a03cd0cef75ec33edea02f3b83",
+    "upstream/animPolish/sculptPose.py": "189181846b7617e4ad625db1af8d1d3399a75d2ac6d585581a73da461c383717",
+    "upstream/animPolish/smoothPreview.py": "15168fb1c66cf8dadda1ccc669ffe90ddceebcf76d55fde7ab4a57b38b8d8a8c",
+    "upstream/animPolish/subdue.py": "6d62fb100dd80716da36da1e869bd7ea0c8c16698dd959376311b0ff07cd9359",
+    "upstream/animPolish/ui.py": "437459620360ce42d20ad65499ed9defb7322f788d8a75b185e20e779055d815",
+    "upstream/animPolish/user_copyPasteAttrs.py": "11581f80d9cbd4e48a7adcdd516b91919999b6b345480c0386bebf55c94e0d0b",
+    "upstream/animPolish/user_settings.py": "7d7bb66adae236c5f2356d0a5e2ecdcc22e5bd0a553db6f4e67b83ea8d6a3406",
+    "upstream/animPolish/user_settings_default.py": "4c7283193a8204ff5c9f3d10a8c7ffa6753b10dc0b3ff24c1981dd8d5bca625e",
+    "upstream/animPolish/wrap.py": "7c7c0dd11e76f9dfd943d528df7c2bf76d34f793a7be75c378fa4fdb2e77d06a",
+    "upstream/AnimPolish Documentation.docx": "0211ce5ba447e52b8078072abce8d484b932c3498f358035c30d54b8593bf72b",
+    "upstream/AnimPolish_README.txt": "4c687863cb7aa8045f4cbb0907865bd31d86249d66ecc6db671465f68438df44"
+  },
+  "settings_fields": [
+    [
+      "frameLayout",
+      "jsap_sculptPose_fl",
+      "cl"
+    ],
+    [
+      "checkBox",
+      "jsap_scuVis_cb",
+      "v"
+    ],
+    [
+      "checkBox",
+      "jsap_scuReshade_cb",
+      "v"
+    ],
+    [
+      "checkBox",
+      "jsap_scuData_cb",
+      "v"
+    ],
+    [
+      "intField",
+      "jsap_scuLevel_if",
+      "v"
+    ],
+    [
+      "optionMenu",
+      "jsap_sfz_om",
+      "sl"
+    ],
+    [
+      "frameLayout",
+      "jsap_wrap_fl",
+      "cl"
+    ],
+    [
+      "intField",
+      "jsap_wrap_autoSmooth_if",
+      "v"
+    ],
+    [
+      "frameLayout",
+      "jsap_subdue_fl",
+      "cl"
+    ],
+    [
+      "intField",
+      "jsap_subdue_resample_if",
+      "v"
+    ],
+    [
+      "intField",
+      "jsap_subdue_autoSmooth_if",
+      "v"
+    ],
+    [
+      "frameLayout",
+      "jsap_miscDeformation_fl",
+      "cl"
+    ],
+    [
+      "intField",
+      "jsap_misc_autoSmooth_if",
+      "v"
+    ],
+    [
+      "checkBox",
+      "jsap_misc_data_cb",
+      "v"
+    ],
+    [
+      "frameLayout",
+      "jsap_nativeMaya_fl",
+      "cl"
+    ],
+    [
+      "frameLayout",
+      "jsap_assignColors_fl",
+      "cl"
+    ],
+    [
+      "radioCollection",
+      "jsap_colorMode_rc",
+      "sl"
+    ],
+    [
+      "frameLayout",
+      "jsap_utilities_fl",
+      "cl"
+    ],
+    [
+      "frameLayout",
+      "jsap_caching_fl",
+      "cl"
+    ]
+  ],
+  "legacy_state_files": [
+    "user_settings.py",
+    "user_copyPasteAttrs.py"
+  ]
+}

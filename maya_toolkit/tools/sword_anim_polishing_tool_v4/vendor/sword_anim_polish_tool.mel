@@ -1,0 +1,1646 @@
+// SWORD anim polish tool
+// Author: Pavel Barnev pavel_barnev2000@mail.ru
+// Installation:
+// Quick Installation:
+    // unzip the file into a directory of choice
+    // Start Maya.
+    // Drag file:
+	// Drag_and_Drop_to_install.mel
+	// into a MAYA window. The script icon will appear on current tab on the Shelf Editor
+// This tool is for:
+	// polishing weapon animation (sword, axe, spear etc..)
+	// 1. 	correction of the trajectory of the weapon even if it moves inside the hand
+			// At the same time, movement relative to the wrist is maintained
+	// 2. 	fixing and animating the situation when the weapon sticks into an object or into the ground
+	// 3. 	working with two-handed weapons
+	// 4. 	interaction of weapons - and not only them - with other objects
+	// 6.	powerful tool for correcting arc paths - Arc polish tool
+	// 5. 	and much more
+// Best way to use tool:
+	// 1.	sketch out the animation with the weapon.
+	// 2.	the main thing is to get an overall good sketch of the movement.
+	// 3.	Ignore the inaccuracies of weapon animations
+	// 4.	after that - use these tools to bring the weapon to perfection
+// sword_anim_polish_tool
+global proc sword_anim_polish_tool(string $script_path)
+{
+	catchQuiet(`loadPlugin matrixNodes`);
+	catchQuiet(`pluginInfo -edit -autoload true matrixNodes`);
+	global string $BARN_curve_motion_path_remember1[];
+	global string $BARN_curve_motion_path_remember2[];
+	global string $BARN_curve_motion_path_remember3[];
+	global string $BARN_curve_sword_remember_SOURCE[];
+	global string $BARN_curve_sword_remember_AIM_TOP[];
+	global string $BARN_curve_sword_remember_AIM_SIDE[];
+	global string $BARN_curve_sword_remember_BASE_SYSTEM[];
+	global string $BARN_curve_sword_remember_DELETE_AFTER_BAKE[];
+	global string $sword_help_path;
+	 $sword_help_path=$script_path + "/misc/";
+	if(`window -query -exists "sword_anim_polish_window_ui"`)deleteUI("sword_anim_polish_window_ui");
+	window -title "sword anim polishing" -sizeable 0 -titleBar true -minimizeButton false -maximizeButton false -menuBar false -toolbox true -titleBarMenu true -widthHeight 221 270 "sword_anim_polish_window_ui";
+	columnLayout
+				-backgroundColor 0.699999988079 0.75 0.7799000144 -adjustableColumn true "columnLayout1_ui";
+separator -enable false -height 3
+				-backgroundColor 0.864913463593 0.758615970612 0.758616030216 -style "none" -horizontal true;
+separator -enable true -height 1 -visible true
+				-backgroundColor 0.671000003815 0.671000003815 0.671000003815 -style "none" -horizontal true;
+rowLayout
+				-backgroundColor 0.850000023842 0.850000023842 0.800000011921 -numberOfColumns 3 -columnAlign 1 left -columnAlign 2 right -adjustableColumn 1;
+text
+				-backgroundColor 0.850000023842 0.839999973774 0.800000011921 -label "sword animation > to system" -align "center" -recomputeSize false;
+button -height 15
+				-backgroundColor 0.913999974728 0.768999993801 0.782999992371
+		-enableBackground true -label "?" -recomputeSize true
+		-c "SW_27a3aeea33f2574ca7ae454bf2a971ed($sword_help_path + \"help_parent_make_aim_tools.mel\", \"base tools help\")";
+button -height 15
+				-backgroundColor 0.913999974728 0.768999993801 0.782999992371
+		-enableBackground true -label "?" -recomputeSize true
+		-c "SW_27a3aeea33f2574ca7ae454bf2a971ed($sword_help_path + \"help_sword_reverse_tools.mel\", \"base tools help\")";
+separator -parent "columnLayout1_ui" -enable true -height 1 -visible true
+				-backgroundColor 0.56099998951 0.56099998951 0.56099998951 -style "none" -horizontal true;
+separator -parent "columnLayout1_ui" -enable false -height 8 -visible true -style "doubleDash" -horizontal true;
+int $clmn_w=70;
+int $clmn_sp=15;
+		rowColumnLayout -parent "columnLayout1_ui" -visible true -preventOverride false -numberOfColumns 4 -columnWidth 1 $clmn_w -columnWidth 2 $clmn_w -columnWidth 3 $clmn_w -columnWidth 4 $clmn_w -columnSpacing 2  $clmn_sp -columnSpacing 3  $clmn_sp -columnSpacing 4  $clmn_sp;
+		button -height 40
+				-annotation "select object. the animation will be baked inside the last selected object"
+				-backgroundColor 0.990999996662 0.889999985695 0.776000022888
+				-label "parent In"
+				-command " SW_692e2fda85cadfdf0f28e93323f58c08; SW_cf01bdffb1989adef0d5abffde9c5a33(1);SW_09f1edc0a69a4931b08e1bcc40e94a55; SW_f4b1a2b52ab1771321003f86cde63160; " "SW_cf01bdffb1989adef0d5abffde9c5a33_ui";
+		button -height 40
+				-annotation "select object. After press button. Move created locators to the sides TOP (usually edge of sword) and SIDE (usually blade of sword). Then click the mouse into the void (deselect all)"
+				-backgroundColor 0.990999996662 0.889999985695 0.776000022888 -label "make aim"
+				-command "SW_6cbceab3c5b6c616d252d08ce5624f3b(1)" "aim_ui";
+		button -height 40
+				-annotation "select SWORD control and HAND control . After press button. Move 2 created locators to the sides TOP (usually edge of sword) and SIDE (usually blade of sword). Then click the mouse into the void (deselect all)"
+				-backgroundColor 0.990999996662 0.889999985695 0.776000022888 -label "make sword"
+				-command "SW_51ef5f996bc4f51959ade4cf9878f9b3" "sword_ui";
+		button -height 40
+				-annotation "select SWORD control and HAND control . After press button. Move 3 created locators to the PIVOT position, then sides TOP (usually edge of sword) and SIDE (usually blade of sword). Then click the mouse into the void (deselect all)"
+				-backgroundColor 0.990999996662 0.889999985695 0.776000022888 -label "make reverse"
+				-command "SW_0f6b87b682f999b1ba225892b54147c2(1)" "reverse_ui";
+separator -parent "columnLayout1_ui" -enable false -height 8 -style "none" -horizontal true;
+separator -parent "columnLayout1_ui" -enable true -height 1 -visible true
+				-backgroundColor 0.671000003815 0.671000003815 0.671000003815 -style "none" -horizontal true;
+rowLayout -parent "columnLayout1_ui"
+				-backgroundColor 0.850000023842 0.850000023842 0.800000011921 -numberOfColumns 1 -adjustableColumn 1;
+text
+				-backgroundColor 0.850000023842 0.839999973774 0.800000011921 -label "quick selection last applied system" -align "center" -recomputeSize false;
+separator -parent "columnLayout1_ui" -enable true -height 1 -visible true
+				-backgroundColor 0.56099998951 0.56099998951 0.56099998951 -style "none" -horizontal true;
+separator -parent "columnLayout1_ui" -enable true -height 2 -visible true -style "none";
+		rowLayout -parent "columnLayout1_ui" -width 320 -numberOfColumns 6 -columnWidth 1 52 -columnWidth 2 52 -columnWidth 3 52 -columnWidth 4 52 -columnWidth 5 60 -columnAlign 6 right "fast_selection_row_ui";
+			button -width 50 -height 20 -preventOverride false
+				-annotation "select source controls - need for bake"
+				-backgroundColor 0.800000011921 0.699999988079 0.699999988079 -label "source" -recomputeSize true
+				-command "SW_194c7b09c27128a45486ac17560c7a25($BARN_curve_sword_remember_SOURCE)";
+			button -width 50 -height 20
+				-annotation "select aim top locator"
+				-backgroundColor 0.699999988079 0.800000011921 0.699999988079 -label "aim top" -recomputeSize true
+				-command "SW_194c7b09c27128a45486ac17560c7a25($BARN_curve_sword_remember_AIM_TOP)";
+			button -width 50 -height 20
+				-annotation "select aim side locator"
+				-backgroundColor 0.699999988079 0.699999988079 0.800000011921 -label "aim side" -recomputeSize true
+				-command "SW_194c7b09c27128a45486ac17560c7a25($BARN_curve_sword_remember_AIM_SIDE)";
+			button -enable true -width 50 -height 20
+				-annotation "select SWORD or REVERSE base locator"
+				-backgroundColor 0.800000011921 0.719799995422 0.699999988079 -label "base" -recomputeSize true
+				-command "SW_194c7b09c27128a45486ac17560c7a25($BARN_curve_sword_remember_BASE_SYSTEM)";
+			button -width 50 -height 20
+				-annotation "select all created objects - for delete"
+				-backgroundColor 0.800000011921 0.699999988079 0.799000024796 -label "all sys" -recomputeSize true
+				-command "SW_194c7b09c27128a45486ac17560c7a25($BARN_curve_sword_remember_DELETE_AFTER_BAKE)";
+			button -width 40 -height 20
+				-annotation "delete selected"
+				-backgroundColor 0.5 0.5 0.5 -label "delete" -recomputeSize true
+				-command "doDelete";
+separator -parent "columnLayout1_ui" -enable false -height 3 -style "none" -horizontal true;
+separator -parent "columnLayout1_ui" -enable true -height 1 -visible true
+				-backgroundColor 0.671000003815 0.671000003815 0.671000003815 -style "none" -horizontal true;
+rowLayout -parent "columnLayout1_ui"
+				-backgroundColor 0.850000023842 0.850000023842 0.800000011921 -numberOfColumns 2 -columnAlign 1 left -columnAlign 2 right -adjustableColumn 1;
+text
+				-backgroundColor 0.850000023842 0.839999973774 0.800000011921 -label "make path curve" -align "center" -recomputeSize false;
+button -height 15
+				-backgroundColor 0.913999974728 0.768999993801 0.782999992371 -enableBackground true -label "?" -recomputeSize true
+			-c "SW_27a3aeea33f2574ca7ae454bf2a971ed($sword_help_path + \"help_path_polish.mel\", \"path polish help\")";
+separator -parent "columnLayout1_ui" -enable true -height 1 -visible true
+				-backgroundColor 0.56099998951 0.56099998951 0.56099998951 -style "none" -horizontal true;
+separator -parent "columnLayout1_ui" -enable false -height 5 -visible true -style "doubleDash" -horizontal true;
+		columnLayout -parent "columnLayout1_ui" -adjustableColumn true "make_path_curve_ui";
+		rowLayout -numberOfColumns 5 -columnWidth 1 30 -columnWidth 2 17 -columnWidth 3 80 -adjustableColumn 4 "rowLayout3_ui";
+			intField -width 30 -height 30
+				-backgroundColor 0.778500020504 0.7799000144 0.737800002098 -value 3 -minValue 2 -maxValue 20 -step 1 -editable true "path_curve_controls_size_ui";
+			columnLayout -adjustableColumn true -rowSpacing 2;
+			button -width 14 -height 14 -label "+"
+				-command " intField  -e -v (`intField -q -v path_curve_controls_size_ui` + 1) path_curve_controls_size_ui";
+			button -width 14 -height 14 -label "-"
+				-command "intField  -e -v (`intField -q -v path_curve_controls_size_ui` - 1) path_curve_controls_size_ui";
+			text -parent "rowLayout3_ui" -label "< ctrl number";
+			checkBox -parent "rowLayout3_ui"
+				-annotation "show source path of object" -enableBackground false -label "show source" "bake_anim_to_cuve_ui";
+			rowLayout -parent "rowLayout3_ui" -numberOfColumns 2;
+			button -width 80 -height 43
+				-annotation "select a TimeRange or Keys. The movement of the selected object will be transferred to the smoothed curve"
+				-backgroundColor 0.990000009537 0.889999985695 0.776000022888
+					-label "arc polish"
+				-command "SW_692e2fda85cadfdf0f28e93323f58c08; catch (SW_216cd5229394f893f58516bc1517892a(`intField -q -v path_curve_controls_size_ui`, `checkBox -q -v bake_anim_to_cuve_ui`)); SW_f4b1a2b52ab1771321003f86cde63160" "buttn_path_ui";
+			columnLayout -width 15 -adjustableColumn true -rowSpacing 1;
+			button -width 13 -height 13
+				-annotation "quick select SOURCE object"
+				-backgroundColor 0.889999985695 0.481489986181 0.481489986181 -label "1"
+				-command "SW_194c7b09c27128a45486ac17560c7a25($BARN_curve_motion_path_remember1)";
+			button -width 13 -height 13
+				-annotation "quick select on CURVE locator"
+				-backgroundColor 0.377552986145 0.672999978065 0.377552986145 -label "2"
+				-command "SW_194c7b09c27128a45486ac17560c7a25($BARN_curve_motion_path_remember2)";
+			button -width 13 -height 13
+				-annotation "quick select all system - usually for deleting after bake source object"
+				-backgroundColor 0.548765957355 0.548765957355 0.773999989033 -label "3"
+				-command "SW_194c7b09c27128a45486ac17560c7a25($BARN_curve_motion_path_remember3)";
+separator -parent "columnLayout1_ui" -enable false -height 3 -style "none" -horizontal true;
+separator -parent "columnLayout1_ui" -enable true -height 1 -visible true
+				-backgroundColor 0.671000003815 0.671000003815 0.671000003815 -style "none" -horizontal true;
+rowLayout -parent "columnLayout1_ui"
+				-backgroundColor 0.850000023842 0.850000023842 0.800000011921 -numberOfColumns 2 -columnAlign 1 left -columnAlign 2 right -adjustableColumn 1;
+text
+				-backgroundColor 0.850000023842 0.839999973774 0.800000011921 -label "fast bake selected" -align "center" -recomputeSize false;
+button -height 15
+				-backgroundColor 0.913999974728 0.768999993801 0.782999992371 -enableBackground true -label "?" -recomputeSize true
+			-c "SW_27a3aeea33f2574ca7ae454bf2a971ed($sword_help_path + \"help_bake.mel\", \"bake help\")";
+separator -parent "columnLayout1_ui" -enable true -height 1 -visible true
+				-backgroundColor 0.56099998951 0.56099998951 0.56099998951 -style "none" -horizontal true;
+separator -parent "columnLayout1_ui" -enable false -height 2 -visible true -style "doubleDash" -horizontal true;
+		rowLayout -parent "columnLayout1_ui" -height 42 -numberOfColumns 4 -columnWidth 1 115 -columnWidth 2 115 -columnAlign 1 left -columnAlign 2 left -columnAlign 3 right "bake_row_ui";
+		button -width 90 -height 30
+				-annotation "fast bake selected"
+				-backgroundColor 0.990999996662 0.889999985695 0.776000022888 -label "bake"
+				-command "SW_692e2fda85cadfdf0f28e93323f58c08;SW_de88efca2929f0080ae1d45ff5db42d4;SW_09f1edc0a69a4931b08e1bcc40e94a55;SW_f4b1a2b52ab1771321003f86cde63160";
+		button -width 90 -height 30
+				-annotation "fast bake selected to override layer"
+				-backgroundColor 0.990999996662 0.889999985695 0.776000022888 -label "layer bake"
+				-command "SW_692e2fda85cadfdf0f28e93323f58c08;SW_c830bbb3bb6041f72a5fb76403fcabe8();SW_09f1edc0a69a4931b08e1bcc40e94a55;SW_f4b1a2b52ab1771321003f86cde63160";
+		button -width 60 -height 30
+				-annotation "update all motion trails"  -label "MT update"
+				-command "SW_9b29b86e5de4ada4b19840df4e8973d5";
+		button -width 20 -height 25
+				-annotation "show display if something doing wrong" -label "VP"
+				-command "SW_f4b1a2b52ab1771321003f86cde63160";
+	separator -parent "columnLayout1_ui" -enable true -height 1 -visible true
+				-backgroundColor 0.512694001198 0.540614962578 0.546000003815 -style "none" -horizontal true;
+	text -parent "columnLayout1_ui" -height 16
+				-backgroundColor 0.624455034733 0.720480024815 0.739000022411 -label " (c) Pavel Barnev     pavel_barnev2000@mail.ru" -align "right" -font "smallObliqueLabelFont";
+	window -e -w 324 -h 282 "sword_anim_polish_window_ui";
+	showWindow "sword_anim_polish_window_ui";
+}
+global proc SW_692e2fda85cadfdf0f28e93323f58c08()
+{
+	global float $startTime;
+	global string $my_eval_mode[];
+	float $mayaVersion;
+	global string $gMainPane;
+	$startTime = `timerX`;
+	refresh -su 1;
+	setTimeSliderVisible 0;
+	$mayaVersion = `getApplicationVersionAsFloat` ;
+	if ($mayaVersion>=2016)
+	{
+		$my_eval_mode=`evaluationManager -q -mode`;
+		evaluationManager -mode "off";
+	}
+}
+global proc SW_f4b1a2b52ab1771321003f86cde63160()
+{
+	global float $startTime;
+	global string $my_eval_mode[];
+	global string $gMainPane;
+	float $mayaVersion;
+	$totalTime = `timerX -startTime $startTime`;
+	print ("Total Time: "+$totalTime+"\n");
+	refresh -su 0;
+	setTimeSliderVisible 1;
+	$mayaVersion = `getApplicationVersionAsFloat` ;
+	if ($mayaVersion>=2016)
+	{
+		evaluationManager -mode $my_eval_mode[0];
+	}
+}
+global proc string SW_c830bbb3bb6041f72a5fb76403fcabe8()
+{
+    $selection=`ls-sl`;
+    $mayaVersion = `getApplicationVersionAsFloat` ;
+    string $eval_mode[];
+    if ($mayaVersion>=2016)
+    {
+        $eval_mode=`evaluationManager -q -mode`;
+		if($eval_mode[0]!="off")
+			evaluationManager -mode "off";
+    }
+    $min=`playbackOptions -q -ast`;
+    $max=`playbackOptions -q -aet`;
+    string $lay=`animLayer -override 1  "BakedAnim"`;
+    $its_baked=catch (`bakeResults -sm 1 -s false -t ($min+":"+$max) -dl $lay  -minimizeRotation true  $selection`) ;
+    if ($mayaVersion>=2016)
+    {
+		if($eval_mode[0]!="off")
+			evaluationManager -mode $eval_mode[0];
+    }
+    if($its_baked)
+    {
+        warning "select something!";
+    }
+    select  $selection;
+    return  $lay;
+}
+global proc SW_de88efca2929f0080ae1d45ff5db42d4()
+{
+	$selection=`ls-sl`;
+    $mayaVersion = `getApplicationVersionAsFloat` ;
+    string $eval_mode[];
+    if ($mayaVersion>=2016)
+    {
+        $eval_mode=`evaluationManager -q -mode`;
+		if($eval_mode[0]!="off")
+			evaluationManager -mode "off";
+    }
+    $min=`playbackOptions -q -ast`;
+    $max=`playbackOptions -q -aet`;
+    $its_baked=catchQuiet (`bakeResults -sm 1 -s false -t ($min+":"+$max) $selection`);
+	if ($mayaVersion>=2016)
+    {
+		if($eval_mode[0]!="off")
+			evaluationManager -mode $eval_mode[0];
+    }
+    if($its_baked)
+    {
+        warning "select something!";
+    }
+}
+global proc SW_09f1edc0a69a4931b08e1bcc40e94a55()
+{
+	$selected= `ls -sl`;
+	if(size($selected)==0)
+	{
+		warning "select something!!!!";
+		return;
+	}
+	string $crvs[] = `keyframe -q -n`;
+	float $statTime[] = `keyframe -index 0 -q -tc $crvs`;
+	$statTime=`sort $statTime`;
+	$null_frame = $statTime[0] - 10;
+	setKeyframe -v 0 -t $null_frame $selected.rx $selected.ry $selected.rz;
+	filterCurve $selected.rotateX $selected.rotateY $selected.rotateZ;
+	cutKey -t $null_frame $selected.rx $selected.ry $selected.rz;
+}
+global proc string[] SW_194c7b09c27128a45486ac17560c7a25(string $objs[])
+{
+	string $new_selected[];
+	$j=0;
+	for($i=0;$i<size($objs);$i++)
+	{
+		if( `objExists $objs[$i]` )
+		{
+			$new_selected[$j] = $objs[$i];
+			$j++;
+		}
+	}
+	select -r $new_selected;
+	return $new_selected;
+}
+// global proc SW_c6ebe74a412a2810e00a55e90c1354fb(string $name_of_plugin)
+// {
+    // $maya_path=`getenv MAYA_LOCATION`;
+    // $path_to_plugin=$maya_path + "/bin/plug-ins/" + $name_of_plugin;
+    // catch(`loadPlugin -qt $path_to_plugin`);
+    // $plug_loaded=`pluginInfo -q -autoload $path_to_plugin`;
+    // if ($plug_loaded==0)
+    // {
+       // pluginInfo -edit -autoload true $path_to_plugin;
+    // }
+// }
+global proc SW_6cbceab3c5b6c616d252d08ce5624f3b(float $size_lock)
+{
+	global string $BARN_curve_sword_remember_SOURCE[];
+	clear $BARN_curve_sword_remember_SOURCE;
+	global string $BARN_curve_sword_remember_AIM_TOP[];
+	clear	$BARN_curve_sword_remember_AIM_TOP;
+	global string $BARN_curve_sword_remember_AIM_SIDE[];
+	clear $BARN_curve_sword_remember_AIM_SIDE;
+	global string $BARN_curve_sword_remember_BASE_SYSTEM[];
+	clear	$BARN_curve_sword_remember_BASE_SYSTEM;
+	global string $BARN_curve_sword_remember_DELETE_AFTER_BAKE[];
+	clear	$BARN_curve_sword_remember_DELETE_AFTER_BAKE;
+	$BARN_curve_sword_remember_SOURCE=`ls-sl`;
+    manipMoveContext -edit -mode 0 Move;
+    setToolTo moveSuperContext;
+    string $aims[]=SW_c642429ed9a3aabf65a66eefcd97bfbb();
+	SW_2e50fb684e35f7dc58ab390d98530944({0.45, 0.7, 0.45});
+    $selected=`ls-sl`;
+    select $aims;
+    SW_6de8028af587b467034457b4d6349f89($size_lock);
+    select -cl;
+    select $selected;
+    $BARN_curve_sword_remember_AIM_TOP=`ls -head(size($aims)/2) $aims`;
+    $BARN_curve_sword_remember_AIM_SIDE=`ls -tail(size($aims)/2) $aims`;
+    $BARN_curve_sword_remember_DELETE_AFTER_BAKE=$aims;
+    scriptJob -ro 1 -cf "SomethingSelected" " SW_692e2fda85cadfdf0f28e93323f58c08; SW_10df34add5a583f84d24608e860c1b4b() ; SW_f4b1a2b52ab1771321003f86cde63160;";
+}
+global proc string[] SW_cf01bdffb1989adef0d5abffde9c5a33(float $lock_size)
+{
+    global string $BARN_curve_sword_remember_SOURCE[];
+    clear $BARN_curve_sword_remember_SOURCE;
+    global string $BARN_curve_sword_remember_BASE_SYSTEM[];
+    clear	$BARN_curve_sword_remember_BASE_SYSTEM;
+    global string $BARN_curve_sword_remember_DELETE_AFTER_BAKE[];
+    clear	$BARN_curve_sword_remember_DELETE_AFTER_BAKE;
+    $selected=`ls-sl`;
+    if(!size($selected))
+    {
+        warning "select something!!!!";
+        return {};
+    }
+    SW_ac692345fba3e827ad5d6e26de39ba07;
+    $BARN_curve_sword_remember_SOURCE=$selected;
+    $locators=SW_54d92f8424c4459e6d996d9fd93902f0();
+    $BARN_curve_sword_remember_DELETE_AFTER_BAKE=$locators;
+    $constr=SW_17431451b1be026fdeee93b86579c6b6($selected, $locators);
+    SW_3323b46f97bc12510f86536ae21ff525;
+    catchQuiet(`parent`);
+    SW_cc20e95399a3b6da44eb78e45451d764(22);
+    select $locators;
+    SW_6de8028af587b467034457b4d6349f89($lock_size);
+    SW_c89bf830cdb2b9cc874e6c8604e8b257;
+    SW_de88efca2929f0080ae1d45ff5db42d4;
+    delete $constr;
+    SW_17431451b1be026fdeee93b86579c6b6($locators, $selected);
+    select $locators[size ($locators)-1];
+    SW_cc20e95399a3b6da44eb78e45451d764(13);
+    SW_5fce4865a9fd47748e6796c1be9d64b2;
+    $BARN_curve_sword_remember_BASE_SYSTEM=`ls-sl`;
+    return $locators;
+}
+global proc SW_9b29b86e5de4ada4b19840df4e8973d5()
+{
+	$Names = `ls -sl`;
+	$mt=`ls "motionTrail*"`;
+	if(size($mt))
+	{
+		catchQuiet (`select $mt`);
+		updateMotionTrail;
+		select $Names;
+	}
+	else
+		warning "No motion trails in scene";
+}
+global proc  SW_51ef5f996bc4f51959ade4cf9878f9b3()
+{
+    manipMoveContext -edit -mode 0 Move;
+    setToolTo moveSuperContext;
+	global string $BARN_curve_sword_remember_SOURCE[];
+	clear $BARN_curve_sword_remember_SOURCE;
+	global string $BARN_curve_sword_remember_AIM_TOP[];
+	clear	$BARN_curve_sword_remember_AIM_TOP;
+	global string $BARN_curve_sword_remember_AIM_SIDE[];
+	clear $BARN_curve_sword_remember_AIM_SIDE;
+	global string $BARN_curve_sword_remember_BASE_SYSTEM[];
+	clear	$BARN_curve_sword_remember_BASE_SYSTEM;
+	global string $BARN_curve_sword_remember_DELETE_AFTER_BAKE[];
+	clear	$BARN_curve_sword_remember_DELETE_AFTER_BAKE;
+	$BARN_curve_sword_remember_SOURCE=`ls-sl`;
+	if(size($BARN_curve_sword_remember_SOURCE)>=2)
+		select $BARN_curve_sword_remember_SOURCE[0];
+	else
+	{
+		warning "select Sword Control and Hand Control!";
+		return;
+	}
+	global string $gSword_system_Aims_lock[];
+	$gSword_system_Aims_lock=SW_c642429ed9a3aabf65a66eefcd97bfbb ();
+	select $gSword_system_Aims_lock;
+	SW_6de8028af587b467034457b4d6349f89(1.5);
+	select $gSword_system_Aims_lock[0];
+	$BARN_curve_sword_remember_AIM_TOP[0]=$gSword_system_Aims_lock[0];
+	$BARN_curve_sword_remember_AIM_SIDE[0]=$gSword_system_Aims_lock[1];
+	scriptJob -ro 1 -cf "SomethingSelected" "select $gSword_system_Aims_lock $BARN_curve_sword_remember_SOURCE; SW_692e2fda85cadfdf0f28e93323f58c08; SW_f97932bf0a9a89d861a2c21323a52981(1,0.5); SW_f4b1a2b52ab1771321003f86cde63160;";
+}
+global proc SW_216cd5229394f893f58516bc1517892a(int $knots, int $bake_anim)
+{
+	undoInfo -ock -cn "curve_motion_path";
+	$maya_unit=`currentUnit -q -l`;
+	if ($maya_unit!="cm")
+	{
+		currentUnit  -l cm;
+	}
+	optionVar -intValue animBlendingOpt 1;
+	optionVar -intValue animBlendBrokenInputOpt 1;
+	$mayaVersion = `getApplicationVersionAsFloat` ;
+    string $eval_mode[];
+    if ($mayaVersion>=2019)
+    {
+		python("from maya.plugin.evaluator.cache_preferences import CachePreferenceEnabled");
+		python("CachePreferenceEnabled().set_value( False )");
+    }
+	global string $eval_mode[];
+	if ($mayaVersion>=2016)
+	{
+		$eval_mode=`evaluationManager -q -mode`;
+		evaluationManager -mode "off";
+	}
+	$knots-=1;
+	int $degrees=3;
+    if($knots<=1)
+        $knots=1;
+	float $frame_range[]=SW_dfc2513778a513e560ec81c8f3df6563();
+	if( ($frame_range[1]- $frame_range[0])==1)
+	{
+		warning "need select framerange!!!!";
+		currentUnit  -l $maya_unit;
+		evaluationManager -mode $eval_mode;
+		undoInfo -cck;
+		return;
+	}
+	string $selection[]=`ls-sl`;
+	if( size($selection)==0)
+	{
+		warning "need select object!!!!";
+		currentUnit  -l $maya_unit;
+		evaluationManager -mode $eval_mode;
+		undoInfo -cck;
+		return;
+	}
+	global string $BARN_curve_motion_path_remember1[];
+	global string $BARN_curve_motion_path_remember2[];
+	global string $BARN_curve_motion_path_remember3[];
+	SW_ac692345fba3e827ad5d6e26de39ba07;
+	$BARN_curve_motion_path_remember1=$selection;
+	int $mt_error=catchQuiet($mot_tra=`snapshot  -motionTrail 1  -increment 1 -startTime $frame_range[0] -endTime ($frame_range[1]-1) $selection[0]`);
+	if( $mt_error)
+	{
+		warning "something wrong, may be you select vertex???";
+		currentUnit  -l $maya_unit;
+		evaluationManager -mode $eval_mode;
+		undoInfo -cck;
+		return;
+	}
+	string $motion_trails[]=`ls -type motionTrail`;
+	if(size($motion_trails)!=0)
+    	for($obj in $motion_trails)
+            catchQuiet (`setAttr ($obj + ".nodeState") 2`);
+	vector $coords[]=SW_4ad38bb85176eb981038083a281c91d6($selection[0], {$frame_range[0],$frame_range[1]-1});
+	$curve_name=SW_83a9015d514ecd1326a1648b28396ba2($coords,1);
+	string $cuve_dubli[];
+	if($bake_anim)
+	{
+		$cuve_dubli=`duplicate -rr $curve_name`;
+		$dup_cuve_shapes=SW_5e702211108f11813c411c94f8b1b380($cuve_dubli[0]);
+		setAttr ($dup_cuve_shapes[0] +".dispCV") 1;
+		select $cuve_dubli;
+		SW_cc20e95399a3b6da44eb78e45451d764(13);
+	}
+	$curves=`rebuildCurve -ch 1 -rpo 1 -rt 0 -end 1 -kr 0 -kcp 0 -kep 1 -kt 0 -s $knots -d $degrees -tol 0.01 $curve_name`;
+	string $clusters[];
+	for($i=1;$i<($knots+2);$i++)
+	{
+		$tmpp=`cluster ($curve_name + ".cv[" + $i + "]")`;
+		$clusters[$i-1]=$tmpp[1];
+	}
+	select -cl;
+	select $clusters;
+	SW_4c2952dd9f486573856c8eb6a0dc46ac(0);
+	$cluster_lock=SW_54d92f8424c4459e6d996d9fd93902f0();
+	SW_c89bf830cdb2b9cc874e6c8604e8b257;
+	SW_b6a5017ee305f5ba0bbf3116243cc3af;
+	SW_34cdd1e4469c2d3c695448db824d2ecb(1);
+	SW_6de8028af587b467034457b4d6349f89(0.1);
+	SW_4a0278149f801323f33f7bb9e4ee597d($cluster_lock,$clusters);
+	$lock_on_curve=`spaceLocator`;
+	SW_3323b46f97bc12510f86536ae21ff525;
+	$BARN_curve_motion_path_remember2=$lock_on_curve;
+	SW_34cdd1e4469c2d3c695448db824d2ecb(1);
+	SW_cc20e95399a3b6da44eb78e45451d764(13);
+	SW_6de8028af587b467034457b4d6349f89(0);
+	catchQuiet(`select $clusters $cluster_lock $curve_name $cuve_dubli`);
+	catchQuiet($gr_name=`group -w -n "curve_path"`);
+	xform -piv 0 0 0;
+	SW_5fce4865a9fd47748e6796c1be9d64b2;
+	$BARN_curve_motion_path_remember3=`ls-sl`;
+	undoInfo -cck;
+	$motion_path=SW_7b95c992be7b036735f7298f89ab9556($selection[0],$curve_name,$frame_range, $lock_on_curve[0],1);
+	undoInfo -ock -cn "curve_motion_path";
+	string $markers[]=SW_cfc20aa23531f881688ec3a171beaae5($motion_path);
+	string $mark;
+	$j=0;
+	$i=0;
+	string $colored_markers[];
+	for ($mark in $markers)
+	{
+	    setAttr ($mark  +  ".lodVisibility") 0;
+		setAttr ($mark  +  ".visibility") 0;
+		setAttr ($mark  +  ".hideOnPlayback") 1;
+		setAttr ($mark  +  ".hiddenInOutliner") 1;
+		$marker_shape=SW_5e702211108f11813c411c94f8b1b380($mark);
+		setAttr ($marker_shape[0]  +  ".lodVisibility") 0;
+		setAttr ($marker_shape[0]  +  ".visibility") 0;
+		setAttr ($marker_shape[0]  +  ".hideOnPlayback") 1;
+		setAttr ($marker_shape[0]  +  ".hiddenInOutliner") 1;
+	    if($j==4)
+	    {
+	        $j=0;
+	        $colored_markers[$i]=$mark;
+	        $i++;
+	    }
+	    $j++;
+	}
+	select $markers;
+	SW_cc20e95399a3b6da44eb78e45451d764(8);
+	select $colored_markers;
+	print $colored_markers;
+	SW_cc20e95399a3b6da44eb78e45451d764(22);
+	parent    $lock_on_curve $mot_tra $gr_name;
+	$p_constr=`pointConstraint $lock_on_curve $selection[0]`;
+	$p_blend_name=`listConnections  -d 1 -s 0 -scn 1 -type "pairBlend" $p_constr`;
+	string $attr_name=($lock_on_curve[0] + ".Curve_trajectory");
+	addAttr -ln  "Curve_trajectory" -nn "Curve_trajectory" -at double -dv 0 $lock_on_curve;
+	setAttr -e -keyable true  $attr_name;
+	connectAttr -f $attr_name ($p_blend_name[0] + ".weight");
+	setKeyframe -itt linear -ott linear -t ($frame_range[0]-1)  -t ($frame_range[0])   -t ($frame_range[1]-1) -t ($frame_range[1]) -v 0 $attr_name;
+	keyframe -e    -vc 1 -t ($frame_range[0])   -t ($frame_range[1]-1) $attr_name ;
+	select $lock_on_curve;
+	currentUnit  -l $maya_unit;
+	evaluationManager -mode $eval_mode;
+	undoInfo -cck;
+}
+global proc SW_0f6b87b682f999b1ba225892b54147c2(float $loc_size)
+{
+	global string $BARN_curve_sword_remember_SOURCE[];
+	clear $BARN_curve_sword_remember_SOURCE;
+	global string $BARN_curve_sword_remember_AIM_TOP[];
+	clear	$BARN_curve_sword_remember_AIM_TOP;
+	global string $BARN_curve_sword_remember_AIM_SIDE[];
+	clear $BARN_curve_sword_remember_AIM_SIDE;
+	global string $BARN_curve_sword_remember_BASE_SYSTEM[];
+	clear	$BARN_curve_sword_remember_BASE_SYSTEM;
+	global string $BARN_curve_sword_remember_DELETE_AFTER_BAKE[];
+	clear	$BARN_curve_sword_remember_DELETE_AFTER_BAKE;
+	manipMoveContext -edit -mode 0 Move;
+    setToolTo moveSuperContext;
+	$BARN_curve_sword_remember_SOURCE=`ls-sl`;
+	select $BARN_curve_sword_remember_SOURCE[0];
+	global string $gSword_pivot[];
+	SW_54d92f8424c4459e6d996d9fd93902f0();
+	$gSword_pivot=SW_e706e982298fe9e8f94ae04b06b5d6b2 ("sword_piv_sys");
+	SW_6de8028af587b467034457b4d6349f89($loc_size*1.3);
+	SW_cc20e95399a3b6da44eb78e45451d764(13);
+	SW_c89bf830cdb2b9cc874e6c8604e8b257;
+	SW_34cdd1e4469c2d3c695448db824d2ecb(1);
+	select $gSword_pivot[0];
+	global string $gSword_system_Aims_lock[];
+	$gSword_system_Aims_lock=SW_c642429ed9a3aabf65a66eefcd97bfbb();
+	select $gSword_system_Aims_lock ;
+	SW_6de8028af587b467034457b4d6349f89($loc_size*1);
+	SW_34cdd1e4469c2d3c695448db824d2ecb(1);
+	select $gSword_pivot[0];
+	$BARN_curve_sword_remember_AIM_TOP[0]=$gSword_system_Aims_lock[0];
+	$BARN_curve_sword_remember_AIM_SIDE[0]=$gSword_system_Aims_lock[1];
+	$BARN_curve_sword_remember_BASE_SYSTEM=$gSword_pivot;
+	select  $gSword_pivot[0] $gSword_system_Aims_lock;
+	$BARN_curve_sword_remember_DELETE_AFTER_BAKE=`ls-sl`;
+	select  $gSword_pivot[0];
+	scriptJob -ro 1 -cf "SomethingSelected" " SW_692e2fda85cadfdf0f28e93323f58c08; SW_45974e786e3602ef878571e324a928e9(0.5,$BARN_curve_sword_remember_DELETE_AFTER_BAKE,$BARN_curve_sword_remember_SOURCE); SW_f4b1a2b52ab1771321003f86cde63160;";
+}
+global proc SW_45974e786e3602ef878571e324a928e9(float $loc_size,string $Piv_Top_Side[], string $source_obj[])
+{
+    $constr=SW_17431451b1be026fdeee93b86579c6b6({$source_obj[0],$source_obj[0],$source_obj[0]},$Piv_Top_Side);
+    select $source_obj;
+    SW_ac692345fba3e827ad5d6e26de39ba07;
+    $source_locks=SW_54d92f8424c4459e6d996d9fd93902f0();
+    SW_6de8028af587b467034457b4d6349f89($loc_size);
+    SW_c89bf830cdb2b9cc874e6c8604e8b257;
+	SW_cc20e95399a3b6da44eb78e45451d764(18);
+    $constr2=SW_17431451b1be026fdeee93b86579c6b6($source_obj,$source_locks);
+    parent  $source_locks[0] $Piv_Top_Side[0];
+	if (size($source_locks)>1)
+		parent   `ls -tail (size($source_locks)-1) $source_locks` $source_locks[0] ;
+    select $source_locks $Piv_Top_Side;
+    SW_de88efca2929f0080ae1d45ff5db42d4;
+    SW_09f1edc0a69a4931b08e1bcc40e94a55;
+    delete  $constr $constr2;
+    SW_17431451b1be026fdeee93b86579c6b6($source_locks,$source_obj);
+    cutKey -cl -t ":" -f ":" -at "rx" -at "ry" -at "rz" $Piv_Top_Side;
+    aimConstraint -mo -weight 1 -aimVector 1 0 0 -upVector 0 1 0 -worldUpType "object" -worldUpObject $Piv_Top_Side[2]  $Piv_Top_Side[1] $Piv_Top_Side[0];
+    select  $Piv_Top_Side;
+    SW_5fce4865a9fd47748e6796c1be9d64b2;
+    SW_b6a5017ee305f5ba0bbf3116243cc3af;
+    select  $Piv_Top_Side[0];
+    SW_3323b46f97bc12510f86536ae21ff525;
+}
+global proc SW_27a3aeea33f2574ca7ae454bf2a971ed(string $text_path, string $zagolovok)
+{
+    $allLines = freadAllLines($text_path);
+    $string= stringArrayToString($allLines, "\n") ;
+	if(`window -q -ex "help_ui"`)deleteUI("help_ui");
+	window -rtf 1 -minimizeButton false -maximizeButton false -tlc 20 20 -title "sword polish tool help" "help_ui";
+	columnLayout
+				-backgroundColor 0.7 0.75 0.8 -adj true;
+separator -enable false -height 3
+				-backgroundColor 0.864 0.758 0.758 -style "none" -horizontal true;
+separator -enable true -height 1 -visible true
+				-backgroundColor 0.67 0.67 0.67 -style "none" -horizontal true;
+text
+				-backgroundColor 0.85 0.84 0.8 -label $zagolovok -align "center" -recomputeSize false;
+separator -enable true -height 1 -visible true
+				-backgroundColor 0.56099998951 0.56099998951 0.56099998951 -style "none" -horizontal true;
+separator  -enable false -height 8 -visible true -style "doubleDash" -horizontal true;
+	text -al "left" -label $string;
+separator -enable false -height 5  -style "none" -horizontal true;
+separator -enable true -height 1 -visible true
+				-backgroundColor 0.67 0.67 0.67 -style "none" -horizontal true;
+text
+				-backgroundColor 0.85 0.84 0.8 -label "" -align "center" -recomputeSize false;
+separator -enable true -height 1 -visible true
+				-backgroundColor 0.56099998951 0.56099998951 0.56099998951 -style "none" -horizontal true;
+	showWindow "help_ui";
+	window -e -tlc 20 20   "help_ui";
+}
+global proc string[] SW_10df34add5a583f84d24608e860c1b4b()
+{
+	global string $select_joint[];
+	global string $loc_joint[];
+	global string $select_loc_top[];
+	global string $select_loc_side[];
+	string $constraints[] = {};
+	for( $int_i = 0; $int_i < `size $select_joint`; $int_i++ )
+	{
+		select -r $select_joint[$int_i];
+		select -add $select_loc_top[$int_i];
+		$constraints[`size $constraints`] = stringArrayToString( `parentConstraint -mo -weight 1`, "" );
+		select -r $select_joint[$int_i];
+		select -add $select_loc_side[$int_i];
+		$constraints[`size $constraints`] = stringArrayToString( `parentConstraint -mo -weight 1`, "" );
+	}
+	select -cl;
+	select  $select_loc_top  $select_loc_side;
+	SW_de88efca2929f0080ae1d45ff5db42d4;
+	select -cl;
+	delete $constraints;
+	for( $int_i = 0; $int_i < `size $select_joint`; $int_i++ )
+	{
+		select -r $select_loc_top[$int_i];
+		select -add $select_joint[$int_i];
+		aimConstraint -mo -weight 1 -aimVector 1 0 0 -upVector 0 1 0 -worldUpType "object" -worldUpObject $select_loc_side[$int_i];
+	}
+	select $select_loc_top $select_loc_side;
+	string $aims_lock_to_return[];
+	$aims_lock_to_return=`ls-sl`;
+	cutKey -cl -t ":" -f ":" -at "rx" -at "ry" -at "rz" $aims_lock_to_return;
+	rotate -a 0 0 0 $aims_lock_to_return;
+	SW_ef6700cd4efa166b5d6bde47732f420a;
+	select -cl;
+	select  $select_loc_top;
+	return $aims_lock_to_return;
+}
+global proc string [] SW_c642429ed9a3aabf65a66eefcd97bfbb ()
+{
+	string $select[] = `ls -sl -l`;
+	SW_ac692345fba3e827ad5d6e26de39ba07;
+	global string $select_joint[];
+	clear($select_joint);
+	global string $loc_joint[];
+	clear($loc_joint);
+	global string $select_loc_top[];
+	clear($select_loc_top);
+	global string $select_loc_side[];
+	clear($select_loc_side);
+	$select_joint = $select;
+	for( $joint in $select_joint )
+	{
+		if ( `match "|" $joint` == "" )
+		{
+			$loc_joint[`size $loc_joint`] = $joint;
+		}
+		else
+		{
+			$loc_joint[`size $loc_joint`] = `substitute ".*|" $joint ""`;
+		}
+	}
+	print("1. Selected joint:\n");
+	for( $int_i = 0; $int_i < size( $select_joint ); $int_i++ )
+	{
+		print( "\t" + $int_i + ": " + $select_joint[$int_i] + "\n" );
+	}
+	print("2. Create locator per joint:\n");
+	for( $int_i = 0; $int_i < size( $select_joint ); $int_i++)
+	{
+		string $loc = stringArrayToString( `spaceLocator -name ( $loc_joint[$int_i] + "_top" )`, "" );
+		$select_loc_top[$int_i] = $loc;
+		eval("setAttr -k off " + $loc + ".scaleX");
+		eval("setAttr -k off " + $loc + ".scaleY");
+		eval("setAttr -k off " + $loc + ".scaleZ");
+		eval("setAttr -k off " + $loc + ".visibility");
+		select -r $select_joint[$int_i];
+		select -add $loc;
+		string $constraint = stringArrayToString( `parentConstraint -dc -weight 1`, "" );
+		delete $constraint;
+		print("\tlocator " + $loc + " created for " + $select_joint[$int_i] + " joint\n");
+		$loc =  stringArrayToString( `spaceLocator -name ( $loc_joint[$int_i] + "_side" )`, "" );
+		$select_loc_side[$int_i] = $loc;
+		eval("setAttr -k off " + $loc + ".scaleX");
+		eval("setAttr -k off " + $loc + ".scaleY");
+		eval("setAttr -k off " + $loc + ".scaleZ");
+		eval("setAttr -k off " + $loc + ".visibility");
+		select -r $select_joint[$int_i];
+		select -add $loc;
+		$constraint = stringArrayToString( `parentConstraint -dc -weight 1`, "" );
+		delete $constraint;
+		setAttr ( $loc + ".overrideEnabled") 1;
+		setAttr ( $loc + ".overrideColor") 21;
+		print("\tlocator " + $loc + " created for " + $select_joint[$int_i] + " joint\n");
+	}
+	print("3. Select top locators:\n");
+	select -r $select_loc_top;
+	SW_5fce4865a9fd47748e6796c1be9d64b2;
+	select -add $select_loc_side;
+	SW_3323b46f97bc12510f86536ae21ff525;
+	string $aim_lock_to_return[];
+	$aim_lock_to_return=`ls-sl`;
+	SW_29941243f77aa0343e79460d48136072 (20);
+	select -r $select_loc_top;
+	print("done.\n");
+	return  $aim_lock_to_return;
+}
+global proc string[] SW_cfc20aa23531f881688ec3a171beaae5(string $m_path)
+{
+    string $connected_items_by_group[] =`listConnections  -d 1 $m_path`;
+    string $buffer[];
+    string $markers[];
+    $j=0;
+    for( $k = 0; $k <size($connected_items_by_group);$k++)
+    {
+        if(`gmatch $connected_items_by_group[$k] "*positionMarker*"`)
+        {
+            $markers[$j]=$connected_items_by_group[$k];
+            $j++;
+        }
+    }
+    string $obj;
+    string $markers_all[];
+    $j=0;
+    for ($obj in $markers)
+    {
+        tokenize $obj "->" $buffer;
+        $markers_all[$j]=$buffer[1];
+        $j++;
+    }
+    return $markers_all;
+}
+global proc string[] SW_cfc20aa23531f881688ec3a171beaae5(string $m_path)
+{
+  string $connected_items_by_group[] =`listConnections  -d 1 $m_path`;
+    string $buffer[];
+    string $markers[];
+    $j=0;
+    for( $k = 0; $k <size($connected_items_by_group);$k++)
+    {
+        if(`gmatch $connected_items_by_group[$k] "*positionMarker*"`)
+        {
+            $markers[$j]=$connected_items_by_group[$k];
+            $j++;
+        }
+    }
+    string $obj;
+    string $markers_all[];
+    $j=0;
+    for ($obj in $markers)
+    {
+        tokenize $obj "->" $buffer;
+        $markers_all[$j]=$buffer[1];
+        $j++;
+    }
+    return $markers_all;
+}
+global proc float[] SW_dfc2513778a513e560ec81c8f3df6563()
+{
+	global string $gPlayBackSlider;
+	float $selectedTime[]=`timeControl -q -ra $gPlayBackSlider`;
+	string $curve[] = `keyframe -q -n -sl`;
+	if((($selectedTime[1]-$selectedTime[0])<=1)&&($curve[0]==""))
+	{
+	}
+	else if((($selectedTime[1]-$selectedTime[0])<=1)&&($curve[0]!=""))
+	{
+		$selectedTime=SW_cba6da1b519f7600c71b7de0d52d2c3e();
+		$selectedTime[1]=ceil($selectedTime[1]+1);
+	}
+	return $selectedTime;
+}
+global proc string[] SW_54d92f8424c4459e6d996d9fd93902f0()
+{
+	string $selection[];
+	$selection_true = `ls -fl -sl `;
+	$selection = `ls -fl -os`;
+	string $locators[];
+	string $b[];
+	if (size ($selection)>0)
+	{
+		$j=0;
+		for($obj in $selection)
+		{
+			$getPvPos=SW_8598296823aa3af15686cb0d78f1615d($obj);
+			$b=`spaceLocator -p 0 0 0`;
+			$locators[$j]=$b[0];
+			xform -ws -t $getPvPos[0] $getPvPos[1] $getPvPos[2] $b[0];
+			rotate -ws $getPvPos[3] $getPvPos[4] $getPvPos[5]  $b[0];
+			$j++;
+		}
+		select -cl;
+		for($obj in $locators)
+		{
+			select -add $obj;
+		}
+	}
+	else
+	{
+		$locators = `spaceLocator -p 0 0 0`;
+	}
+	return $locators;
+}
+global proc string SW_83a9015d514ecd1326a1648b28396ba2(vector $coords[],int $interp)
+{
+	string $pnt = "";
+	if (size ($coords)<=1)
+	{
+		warning "need 2 object or points";
+		return "";
+	}
+	for ($i=0;$i<size($coords);$i++)
+	{
+		$pnt= $pnt + " -p " + $coords[$i];
+	}
+	$curve_name=`eval("curve" + $pnt + "-d " + $interp)`;
+	return $curve_name;
+}
+global proc SW_2e50fb684e35f7dc58ab390d98530944(float $color[])
+{
+    string $obj;
+        for($obj in `ls-sl`)
+        {
+            catchQuiet(`setAttr  ($obj + ".useOutlinerColor") true`);
+            catchQuiet(`setAttr  ($obj +" .outlinerColor") $color[0] $color[1] $color[2]`);
+        }
+}
+global proc string[] SW_e706e982298fe9e8f94ae04b06b5d6b2(string $prefix)
+{
+	string $objs[] = `ls -selection`;
+	$j=0;
+		for($i=0;$i<size($objs);$i++)
+		{
+			while (`objExists ($prefix + $j)`)
+			{
+				$j++;
+			}
+		rename $objs[$i]($prefix + $j);
+		$objs = `ls -selection`;
+		}
+	return $objs;
+}
+global proc SW_c89bf830cdb2b9cc874e6c8604e8b257()
+{
+	$objs = `ls-sl`;
+	for($i=0;$i<size($objs);$i++)
+	{
+		setAttr -keyable false -channelBox false ($objs[$i] + ".sx");
+		setAttr -keyable false -channelBox false ($objs[$i] + ".sy");
+		setAttr -keyable false -channelBox false ($objs[$i] + ".sz");
+		setAttr -keyable false -channelBox false ($objs[$i] + ".v");
+	}
+}
+global proc SW_ef6700cd4efa166b5d6bde47732f420a()
+{
+	$objs = `ls-sl`;
+	for($i=0;$i<size($objs);$i++)
+	{
+		setAttr -keyable false -channelBox false ($objs[$i] + ".rx");
+		setAttr -keyable false -channelBox false ($objs[$i] + ".ry");
+		setAttr -keyable false -channelBox false ($objs[$i] + ".rz");
+	}
+}
+global proc SW_b6a5017ee305f5ba0bbf3116243cc3af()
+{
+	string $objs;
+	string $selected[]=`ls-sl`;
+	for($objs in $selected)
+	{
+		setAttr -lock true ($objs + ".rotateX");
+		setAttr -lock true ($objs + ".rotateY");
+		setAttr -lock true ($objs + ".rotateZ");
+	}
+}
+global proc SW_34cdd1e4469c2d3c695448db824d2ecb(int $on)
+{
+	string $obj;
+	string $selected[]=`ls-sl`;
+	for($obj in $selected)
+	{
+		setAttr ($obj + ".displayHandle") $on;
+	}
+}
+global proc SW_cc20e95399a3b6da44eb78e45451d764(int $color)
+{
+	$objs = `ls-sl`;
+	for($i=0;$i<size($objs);$i++)
+	{
+		setAttr ($objs[$i] + ".overrideEnabled") 1;
+		setAttr -lock false ($objs[$i] + ".overrideColor") $color;
+	}
+}
+global proc SW_29941243f77aa0343e79460d48136072 (float $local_scale)
+{
+	$objs = `ls-sl`;
+	for($i=0;$i<size($objs);$i++)
+	{
+		catchQuiet (`setAttr ($objs[$i] + ".localScaleX") $local_scale`);
+		catchQuiet (`setAttr ($objs[$i] + ".localScaleY") $local_scale`);
+		catchQuiet (`setAttr ($objs[$i] + ".localScaleZ") $local_scale`);
+	}
+}
+global proc SW_4c2952dd9f486573856c8eb6a0dc46ac(int $vis)
+{
+	for($obj in `ls-sl`)
+	{
+		if (!`getAttr -lock ($obj + ".v")`)
+			setAttr ($obj + ".v") $vis;
+	}
+}
+global proc SW_6de8028af587b467034457b4d6349f89(float $subScale)
+{
+	float $dist=50;
+	$sel=`ls-head 1 -sl`;
+	string $camera_name="";
+	float $camera_scale=1;
+	catchQuiet( $camera_name= SW_20a28b95c1b8b4dd29397ab332dbc667());
+	catchQuiet( $camera_scale=`getAttr ($camera_name + ".cameraScale")`);
+	catchQuiet( $dist=SW_c7822f1f10b007a6803735c105e40799($sel[0], $camera_name));
+	catchQuiet( $camera_ortograf=`getAttr ($camera_name + ".orthographic")`);
+	catchQuiet( $camera_orthographicWidth=`getAttr ($camera_name + ".orthographicWidth")`);
+	if(!$camera_ortograf)
+	    catchQuiet(SW_29941243f77aa0343e79460d48136072 (($dist/25)*$subScale*$camera_scale));
+	else
+	   catchQuiet(SW_29941243f77aa0343e79460d48136072 (($camera_orthographicWidth/25)*$subScale*$camera_scale));
+}
+global proc string [] SW_4a0278149f801323f33f7bb9e4ee597d(string $target_massiv[], string $object_massiv[])
+{
+	string $name_of_constrain[];
+	string $tmp[];
+	for($i=0;$i<size($target_massiv);$i++)
+	{
+		$tx_lock=`getAttr -lock ($object_massiv[$i] + ".tx")`;
+		$ty_lock=`getAttr -lock ($object_massiv[$i] + ".ty")`;
+		$tz_lock=`getAttr -lock ($object_massiv[$i] + ".tz")`;
+		$h=$tx_lock+$ty_lock+$tz_lock;
+		if ($h<3)
+		{
+			$skipX= "";
+			$skipY= "";
+			$skipZ= "";
+			if($tx_lock)
+				$skipX= " -skip x";
+			if($ty_lock)
+				$skipY= " -skip y";
+			if($tz_lock)
+				$skipZ= " -skip z";
+			$skipped = $skipX + $skipY + $skipZ;
+			$tmp=`eval ("pointConstraint " + $skipped + " " + $target_massiv[$i] + " " + $object_massiv[$i])`;
+			$name_of_constrain[$i]=$tmp[0];
+		}
+	}
+	return $name_of_constrain;
+}
+global proc float[] SW_8598296823aa3af15686cb0d78f1615d(string $selection)
+{
+    float $objPosition[];
+    float $getPvPos[];
+    float $Rot[];
+    string $buffer[];
+    string $e_f_result[];
+    vector $coords[];
+    vector $coo;
+    float $pos[];
+    int $num;
+    if ((`objectType -isType "mesh" $selection`)+(`objectType -isType "nurbsSurface" $selection`)+(`objectType -isType "nurbsCurve" $selection`)+(`objectType -isType "lattice" $selection`))
+	{
+        if (`objectType -isType "mesh" $selection`)
+        {
+            tokenize  $selection "." $buffer;
+            $objname=$buffer[0];
+            tokenize  $buffer[1] "[]" $buffer;
+            $component_name=$buffer[0];
+            if($component_name=="vtx")
+            {
+                $getPvPos=`pointPosition -world $selection`;
+                $objPosition={$getPvPos[0],$getPvPos[1],$getPvPos[2],0,0,0};
+            }
+            if($component_name=="e")
+            {
+                $e_f_result=`polyInfo -ev $selection`;
+                $num=`tokenize  $e_f_result[0] " " $buffer`;
+                $j=0;
+                for($i=2;$i<$num-1;$i++)
+                {
+                    $getPvPos=`pointPosition -world ($objname + ".vtx[" + $buffer[$i] + "]")`;
+                    print ($objname + ".vtx[" + $buffer[$i] + "]");
+                    $coords[$j]=<<$getPvPos[0],$getPvPos[1],$getPvPos[2]>>;
+                    $j++;
+                }
+                $coo=SW_e3bea614176fbceebe7c7aae67e953b0($coords);
+                $objPosition={$coo.x,$coo.y,$coo.z,0,0,0};
+            }
+            if($component_name=="f")
+            {
+                $e_f_result=`polyInfo -fv $selection`;
+                tokenize  $e_f_result[0] " " $buffer;
+                $j=0;
+                for($i=2;$i<size($buffer)-1;$i++)
+                {
+                    $getPvPos=`pointPosition -world ($objname + ".vtx[" + $buffer[$i] + "]")`;
+                    $coords[$j]=<<$getPvPos[0],$getPvPos[1],$getPvPos[2]>>;
+                    $j++;
+                }
+                $coo=SW_e3bea614176fbceebe7c7aae67e953b0($coords);
+                $objPosition={$coo.x,$coo.y,$coo.z,0,0,0};
+            }
+        }
+        else
+        {
+    		$getPvPos=`pointPosition -world $selection`;
+    		$objPosition={$getPvPos[0],$getPvPos[1],$getPvPos[2],0,0,0};
+		}
+	}
+	else
+	{
+		$getPvPos = `xform -q -ws -piv $selection `;
+		$Rot= `xform -q -ro -ws $selection`;
+		$objPosition={$getPvPos[0],$getPvPos[1],$getPvPos[2],$Rot[0],$Rot[1],$Rot[2]};
+	}
+	return $objPosition;
+}
+global proc vector[] SW_4ad38bb85176eb981038083a281c91d6(string $selection, float $framerange[])
+{
+    float $objPosition[];
+    vector $getPvPos_range[];
+    vector $tmpp;
+    float $getPvPos[];
+    float $Rot[];
+    int $j=0;
+    for($i=$framerange[0];$i<=($framerange[1]);$i++)
+    {
+        currentTime $i;
+        if ((`objectType -isType "mesh" $selection`)+(`objectType -isType "nurbsSurface" $selection`)+(`objectType -isType "nurbsCurve" $selection`))
+    	{
+    		$getPvPos=`pointPosition -world $selection`;
+    		$tmpp=<<$getPvPos[0],$getPvPos[1],$getPvPos[2]>>;
+    	}
+    	else
+    	{
+    		$getPvPos = `xform -q -ws -piv $selection `;
+    		$tmpp=<<$getPvPos[0],$getPvPos[1],$getPvPos[2]>>;
+       	}
+       	$getPvPos_range[$j]=$tmpp;
+       	$j++;
+     }
+	return $getPvPos_range;
+}
+global proc string[] SW_17431451b1be026fdeee93b86579c6b6(string $target_massiv[], string $object_massiv[])
+{
+	string $name_constrain[];
+	string $tmp_constrain[];
+	for($i=0;$i<size($target_massiv);$i++)
+	{
+		$rx_lock=`getAttr -lock ($object_massiv[$i] + ".rx")`;
+		$ry_lock=`getAttr -lock ($object_massiv[$i] + ".ry")`;
+		$rz_lock=`getAttr -lock ($object_massiv[$i] + ".rz")`;
+		$tx_lock=`getAttr -lock ($object_massiv[$i] + ".tx")`;
+		$ty_lock=`getAttr -lock ($object_massiv[$i] + ".ty")`;
+		$tz_lock=`getAttr -lock ($object_massiv[$i] + ".tz")`;
+		$h=$rx_lock+$ry_lock+$rz_lock+$tx_lock+$ty_lock+$tz_lock;
+		if ($h<6)
+		{
+			$skipTX= "";
+			$skipTY= "";
+			$skipTZ= "";
+			$skipRX= "";
+			$skipRY= "";
+			$skipRZ= "";
+			$delChannelTX = "";
+			$delChannelTY = "";
+			$delChannelTZ = "";
+			$delChannelRX = "";
+			$delChannelRY = "";
+			$delChannelRZ = "";
+			if($tx_lock)
+				$skipTX= " -st x";
+			else
+				$delChannelTX =" -at \"tx\"";
+			if($ty_lock)
+				$skipTY= " -st y";
+			else
+				$delChannelTY =" -at \"ty\"";
+			if($tz_lock)
+				$skipTZ= " -st z";
+			else
+				$delChannelTZ =" -at \"tz\"";
+			if($rx_lock)
+				$skipRX= " -sr x";
+			else
+				$delChannelRX =" -at \"rx\"";
+			if($ry_lock)
+				$skipRY= " -sr y";
+			else
+				$delChannelRY =" -at \"ry\"";
+			if($rz_lock)
+				$skipRZ= " -sr z";
+			else
+				$delChannelRZ =" -at \"rz\"";
+			$skipped = $skipTX + $skipTY + $skipTZ + $skipRX + $skipRY + $skipRZ;
+			if($target_massiv[$i]!="")
+			{
+			$tmp_constrain=`eval ("parentConstraint -mo " + $skipped + " " + $target_massiv[$i] + " " + $object_massiv[$i])`;
+			}
+			$name_constrain[$i]=$tmp_constrain[0];
+		}
+	}
+	return $name_constrain;
+}
+global proc SW_5fce4865a9fd47748e6796c1be9d64b2()
+{
+	global string $GloabalCopyPaste[];
+	$GloabalCopyPaste=`ls-sl`;
+}
+global proc SW_3323b46f97bc12510f86536ae21ff525()
+{
+	global string $GloabalCopyPaste2[];
+	$GloabalCopyPaste2=`ls-sl`;
+}
+global proc SW_ac692345fba3e827ad5d6e26de39ba07()
+{
+	global string $GloabalCopyPaste3[];
+	$GloabalCopyPaste3=`ls-sl`;
+}
+global proc float SW_c7822f1f10b007a6803735c105e40799(string $obj1, string $obj2)
+{
+	float $temp[]=SW_8598296823aa3af15686cb0d78f1615d($obj1);
+	vector $point1 = <<$temp[0], $temp[1], $temp[2]>>;
+	$temp=SW_8598296823aa3af15686cb0d78f1615d($obj2);
+	vector $point2 = <<$temp[0], $temp[1], $temp[2]>>;
+	float $lenght=`mag($point1-$point2)`;
+	return  $lenght;
+}
+global proc string[] SW_5e702211108f11813c411c94f8b1b380( string $xform )
+{
+   string $shapes[];
+   $shapes[0] = $xform;
+   if ( "transform" == `nodeType $xform` )
+   {
+		$shapes = `listRelatives -f -shapes $xform`;
+   }
+   return $shapes;
+}
+global proc string SW_20a28b95c1b8b4dd29397ab332dbc667()
+{
+    $currentPanel = `getPanel -withFocus`;
+    $error=catch($cam_name=`modelEditor -q -camera  $currentPanel`);
+    if($error)
+    {
+        $cam_name="no model panel viewport";
+    }
+    return $cam_name;
+}
+global proc vector SW_e3bea614176fbceebe7c7aae67e953b0(vector $coords[])
+{
+	int $num = `size $coords`;
+	vector $ff;
+	for ($each in $coords)
+	    $ff+=$each;
+	$ff=($ff/$num);
+	return $ff;
+}
+global proc SW_f97932bf0a9a89d861a2c21323a52981(float $Lock_Size, float $Joint_Size)
+{
+	string $selection[] = `ls-sl`;
+	global string $BARN_curve_sword_remember_BASE_SYSTEM[];
+	global string $BARN_curve_sword_remember_DELETE_AFTER_BAKE[];
+	string $aim_top = $selection[0];
+	string $aim_side = $selection[1];
+	string $sword  = $selection[2];
+	string $whrist = $selection[3];
+	string $hand_lock = $selection[4];
+	$num_sel = size($selection);
+	if($num_sel==5)
+	{
+		$whrist = $selection[3];
+		$hand_lock = $selection[4];
+	}
+	else if($num_sel==4)
+	{
+		$hand_lock = $selection[3];
+	}
+	else
+	{
+	 warning "Need select Sword, Hand or Wrist and Hand";
+	}
+	select -r $sword  $aim_top;
+	SW_3ed0416e2547f09f133c132ecd5ccd97;
+	select -r $sword  $aim_side;
+	SW_3ed0416e2547f09f133c132ecd5ccd97;
+	select -r $hand_lock;
+	SW_54d92f8424c4459e6d996d9fd93902f0;
+	SW_d68451d42d330e385dd0c090bd6877a0("Sword_sys_");
+	$BARN_curve_sword_remember_BASE_SYSTEM=`ls-sl`;
+	string $hand_SWST_lock[] = `ls-sl`;
+	SW_6de8028af587b467034457b4d6349f89($Lock_Size);
+	SW_cc20e95399a3b6da44eb78e45451d764(13);
+	select -r $hand_lock $hand_SWST_lock;
+	SW_e0b44e5f427a869b704a743cf1d3614c;
+	select -r $aim_top $aim_side $hand_SWST_lock;
+	SW_29a2189faa1ce9571a1184989dc7f462;
+	select -r $hand_SWST_lock $sword ;
+	SW_f2d5a2798ed7cfee36eb77ee8a281ed8;
+	SW_d68451d42d330e385dd0c090bd6877a0("Sword_sys_");
+	$hand_SWST_jnts = `ls-sl`;
+	SW_15760bd5ac6225f582185bab24346a67($Joint_Size);
+	SW_cc20e95399a3b6da44eb78e45451d764(18);
+	select -r $hand_SWST_jnts[0] $hand_SWST_lock;
+	parent;
+	makeIdentity -apply true -t 0 -r 1 -s 0 -n 0;
+	joint -e -oj xyz -secondaryAxisOrient xup -ch -zso;
+	select -r $aim_top $aim_side $hand_SWST_jnts[1];
+	SW_29a2189faa1ce9571a1184989dc7f462;
+	select -r $sword  $hand_SWST_jnts[1];
+	SW_e0b44e5f427a869b704a743cf1d3614c;
+	if($num_sel==5)
+	{
+		select -r $whrist  $hand_SWST_jnts[0];
+		SW_dfb2ed0c2c53945ca7515c674763faa0;
+	}
+	else
+	{
+		select -r $hand_lock $hand_SWST_jnts[0];
+		SW_dfb2ed0c2c53945ca7515c674763faa0;
+	}
+	select -r $hand_SWST_jnts $hand_SWST_lock;
+	SW_c89bf830cdb2b9cc874e6c8604e8b257;
+	select -tgl $hand_SWST_jnts[0];
+	SW_b6a5017ee305f5ba0bbf3116243cc3af;
+	select -r $hand_SWST_jnts[0];
+	SW_1f3f21e017b74355329202016bf1b177;
+	select -r $hand_SWST_jnts $hand_SWST_lock $aim_top $aim_side;
+	SW_de88efca2929f0080ae1d45ff5db42d4;
+	select -r $hand_SWST_jnts[1] $sword ;
+	SW_3ed0416e2547f09f133c132ecd5ccd97;
+	select -r $hand_SWST_jnts[1];
+	group -r;
+	xform -os -piv 0 0 0;
+	SW_d68451d42d330e385dd0c090bd6877a0("Sword_sys_");
+	$gr_name=`ls-sl`;
+	SW_c89bf830cdb2b9cc874e6c8604e8b257;
+	if($num_sel==5)
+	{
+		select -r  $gr_name[0] $whrist ;
+		SW_dfb2ed0c2c53945ca7515c674763faa0;
+	}
+	else
+	{
+		select -r  $gr_name[0] $hand_lock;
+		SW_dfb2ed0c2c53945ca7515c674763faa0;
+	}
+	select -r  $gr_name[0] $hand_lock;
+	SW_e0b44e5f427a869b704a743cf1d3614c;
+	select -r  $hand_SWST_jnts[0];
+	SW_09f1edc0a69a4931b08e1bcc40e94a55;
+	select -r $hand_SWST_jnts;
+	SW_d68451d42d330e385dd0c090bd6877a0("h_");
+	select -r $aim_top $aim_side;
+	cutKey -cl -t ":" -f ":" -at "rx" -at "ry" -at "rz" $aim_top $aim_side;
+	SW_b6a5017ee305f5ba0bbf3116243cc3af;
+	select -r $aim_top;
+	$BARN_curve_sword_remember_DELETE_AFTER_BAKE={$aim_top, $aim_side,$hand_SWST_lock[0]};
+}
+global proc string SW_7b95c992be7b036735f7298f89ab9556(string $object,string $curve_name, float $framerange[], string $curve_movement_loc, int $bake_anim)
+{
+    undoInfo  -ock -cn "curve_motion_path";
+	if( ($framerange[1]- $framerange[0])==1)
+	{
+		$framerange[0]=`playbackOptions -q -ast`;
+		$framerange[1]=(`playbackOptions -q -aet`) + 1;
+	}
+	string $m_path=`pathAnimation -fractionMode 0 -follow true -followAxis x -upAxis z -worldUpType "scene" -inverseUp false -inverseFront false -bank false -startTimeU $framerange[0] -endTimeU ($framerange[1]-1) $curve_name $curve_movement_loc`;
+	if($bake_anim)
+	{
+		string $near_point_on_crve_node=`createNode nearestPointOnCurve`;
+		string $decompose_matrix_node=`createNode decomposeMatrix`;
+		connectAttr -f ($object + ".worldMatrix[0]") ($decompose_matrix_node + ".inputMatrix");
+		connectAttr -f ($decompose_matrix_node + ".outputTranslate") ($near_point_on_crve_node + ".inPosition");
+		string $crve_shape[]=SW_5e702211108f11813c411c94f8b1b380($curve_name);
+		connectAttr -f ($crve_shape[0] + ".worldSpace[0]")  ($near_point_on_crve_node + ".inputCurve");
+		select $m_path;
+		int $j=0;
+		float $U_V_param[];
+		for($i=$framerange[0]; $i<$framerange[1];$i++)
+		{
+			currentTime $i;
+			$U_V_param[$j]=getAttr ($near_point_on_crve_node + ".parameter");
+			setKeyframe  -v $U_V_param[$j] -t $i ($m_path + ".uValue");
+			keyframe -e -vc $U_V_param[$j]  -t $i ($m_path + "_uValue");
+			$j++;
+		}
+		keyTangent -itt spline -ott spline $m_path;
+		delete $near_point_on_crve_node $decompose_matrix_node;
+	}
+    string $find_double_linear[]=`listConnections  -d 1 -s 0 -scn 1 -type "addDoubleLinear"  $curve_movement_loc `;
+    connectAttr -f ($m_path + ".allCoordinates") ($curve_movement_loc + ".translate");
+    delete $find_double_linear;
+	return $m_path;
+}
+global proc float[] SW_cba6da1b519f7600c71b7de0d52d2c3e()
+{
+	float $num_frame[] = `keyframe -q  -sl`;
+	$num_frame=`sort  $num_frame`;
+	if(size($num_frame)==0)
+	{
+		warning "no interval selected" ;
+		return {0,0};
+	}
+	return {$num_frame[0], $num_frame[size($num_frame)-1]};
+}
+global proc string[] SW_f2d5a2798ed7cfee36eb77ee8a281ed8()
+{
+	string $selection[];
+	$selection_true = `ls -fl -sl `;
+	$selection = `ls -fl -os`;
+	string $locators[];
+	string $b[];
+	select -cl;
+	float $getPvPos[];
+	if (size ($selection)>0)
+	{
+	    $j=0;
+	    for($obj in $selection)
+	    {
+            $getPvPos=SW_8598296823aa3af15686cb0d78f1615d($obj);
+            $b[0]=`joint`;
+            $locators[$j]=$b[0];
+            xform -ws -t $getPvPos[0] $getPvPos[1] $getPvPos[2] $b[0];
+            rotate -ws $getPvPos[3] $getPvPos[4] $getPvPos[5]  $b[0];
+            $j++;
+		}
+		for($obj in $locators)
+		{
+		    select -add $obj;
+		}
+	}
+	else
+	{
+		$locators[0] =`joint -p 0 0 0`;
+	}
+	select -cl;
+	select $locators;
+	return $locators;
+}
+global proc SW_d68451d42d330e385dd0c090bd6877a0(string $prefix)
+{
+	$objs = `ls -l -selection`;
+	string $clear_name[];
+	string $buffer[];
+	int $ff;
+	for($k=0;$k<size($objs);$k++)
+	{
+		string $curr_obj=$objs[$k];
+		tokenize  $curr_obj "|" $buffer;
+		$clear_name[$k]=$buffer[size($buffer)-1];
+	}
+	string $name;
+	for($i=0;$i<size($objs);$i++)
+	{
+		$name=($prefix + $clear_name[$i]);
+		rename $objs[$i] $name;
+		$objs = `ls -l -selection`;
+	}
+}
+global proc SW_1f3f21e017b74355329202016bf1b177()
+{
+	for($objs in `ls-sl`)
+	{
+		setAttr -lock true ($objs + ".translateX");
+		setAttr -lock true ($objs + ".translateY");
+		setAttr -lock true ($objs + ".translateZ");
+	}
+}
+global proc SW_92de112c5c170c44ad9daf4d48b1acdd(float $rad)
+{
+	$objs = `ls-sl`;
+	for($i=0;$i<size($objs);$i++)
+		catchQuiet (`setAttr ($objs[$i] + ".radius") $rad`);
+}
+global proc SW_15760bd5ac6225f582185bab24346a67(float $subScale)
+{
+	float $dist=50;
+	$sel=`ls-head 1 -sl`;
+	string $camera_name="";
+	float $camera_scale=1;
+	catchQuiet( $camera_name= SW_20a28b95c1b8b4dd29397ab332dbc667());
+	catchQuiet( $camera_scale=`getAttr ($camera_name + ".cameraScale")`);
+	catchQuiet($dist=SW_c7822f1f10b007a6803735c105e40799($sel[0], $camera_name));
+	catchQuiet( $camera_ortograf=`getAttr ($camera_name + ".orthographic")`);
+	catchQuiet( $camera_orthographicWidth=`getAttr ($camera_name + ".orthographicWidth")`);
+	if(!$camera_ortograf)
+	    catchQuiet(SW_92de112c5c170c44ad9daf4d48b1acdd (($dist/25)*$subScale* (1/`jointDisplayScale -q`)*$camera_scale));
+	else
+	    catchQuiet(SW_92de112c5c170c44ad9daf4d48b1acdd (($camera_orthographicWidth/25)*$subScale* (1/`jointDisplayScale -q`)*$camera_scale));
+}
+global proc string SW_e0b44e5f427a869b704a743cf1d3614c()
+{
+	$obj=`ls-sl`;
+	string $name_of_constrain[];
+	$tx_lock=`getAttr -lock ($obj[1] + ".tx")`;
+	$ty_lock=`getAttr -lock ($obj[1] + ".ty")`;
+	$tz_lock=`getAttr -lock ($obj[1] + ".tz")`;
+	$h=$tx_lock+$ty_lock+$tz_lock;
+	if ($h<3)
+	{
+		$skipX= "";
+		$skipY= "";
+		$skipZ= "";
+		if($tx_lock)
+			$skipX= " -skip x";
+		if($ty_lock)
+			$skipY= " -skip y";
+		if($tz_lock)
+			$skipZ= " -skip z";
+		$skipped = $skipX + $skipY + $skipZ;
+		string $objects = "";
+		for($i=0;$i<size($obj);$i++)
+		{
+			$objects = $objects + $obj[$i] + " ";
+		}
+			$name_of_constrain=`eval ("pointConstraint  " + $skipped + " " + $objects)`;
+	}
+	return  $name_of_constrain[0];
+}
+global proc string SW_dfb2ed0c2c53945ca7515c674763faa0()
+{
+	$obj=`ls-sl`;
+	string $tmp_constr[];
+	$rx_lock=`getAttr -lock ($obj[(size($obj)-1)] + ".rx")`;
+	$ry_lock=`getAttr -lock ($obj[(size($obj)-1)] + ".ry")`;
+	$rz_lock=`getAttr -lock ($obj[(size($obj)-1)] + ".rz")`;
+	$h=$rx_lock+$ry_lock+$rz_lock;
+	if ($h<3)
+	{
+		$skipX= "";
+		$skipY= "";
+		$skipZ= "";
+		if($rx_lock)
+			$skipX= " -skip x";
+		if($ry_lock)
+			$skipY= " -skip y";
+		if($rz_lock)
+			$skipZ= " -skip z";
+		string $objects = "";
+		$skipped = $skipX + $skipY + $skipZ;
+		for($i=0;$i<size($obj);$i++)
+		{
+			$objects = $objects + $obj[$i] + " ";
+		}
+		$tmp_constr=`eval ("orientConstraint -mo " + $skipped + " " + $objects)`;
+	}
+	return $tmp_constr[0];
+}
+global proc string SW_3ed0416e2547f09f133c132ecd5ccd97()
+{
+	$obj=`ls-sl`;
+	string $ret_name;
+	string $name_of_constrain[];
+	$weight_all=SW_9de233870ac6b9c5087a491c3b4ca38a($obj);
+	$rx_lock=`getAttr -lock ($obj[(size($obj)-1)] + ".rx")`;
+	$ry_lock=`getAttr -lock ($obj[(size($obj)-1)] + ".ry")`;
+	$rz_lock=`getAttr -lock ($obj[(size($obj)-1)] + ".rz")`;
+	$tx_lock=`getAttr -lock ($obj[(size($obj)-1)] + ".tx")`;
+	$ty_lock=`getAttr -lock ($obj[(size($obj)-1)] + ".ty")`;
+	$tz_lock=`getAttr -lock ($obj[(size($obj)-1)] + ".tz")`;
+	$h=$rx_lock+$ry_lock+$rz_lock+$tx_lock+$ty_lock+$tz_lock;
+	if ($h<6)
+	{
+		$skipTX= "";
+		$skipTY= "";
+		$skipTZ= "";
+		$skipRX= "";
+		$skipRY= "";
+		$skipRZ= "";
+		if($tx_lock)
+			$skipTX= " -st x";
+		if($ty_lock)
+			$skipTY= " -st y";
+		if($tz_lock)
+			$skipTZ= " -st z";
+		if($rx_lock)
+			$skipRX= " -sr x";
+		if($ry_lock)
+			$skipRY= " -sr y";
+		if($rz_lock)
+			$skipRZ= " -sr z";
+		$skipped = $skipTX + $skipTY + $skipTZ + $skipRX + $skipRY + $skipRZ;
+		string $objects = "";
+		for($i=0;$i<size($obj);$i++)
+		{
+			$objects = $objects + $obj[$i] + " ";
+		}
+		$name_of_constrain=`eval ("parentConstraint -mo " + $skipped + " " + $objects)`;
+		for($i=0;$i<(size($obj)-1);$i++)
+		{
+			$attr_name=`listAttr -string ("*W" + $i) $name_of_constrain[0]`;
+			catch (`setAttr ($name_of_constrain[0] + "." +  $attr_name[0]) $weight_all[$i]`);
+		}
+	}
+		$ret_name=$name_of_constrain[0];
+		return $ret_name;
+}
+global proc string SW_29a2189faa1ce9571a1184989dc7f462()
+{
+	string $tmp[];
+	string $locs[]=`ls -sl`;
+	select -r $locs[0];
+	select -add $locs[2];
+	$tmp=`aimConstraint -mo -weight 1 -aimVector 0 1 0 -upVector 0 0 1 -worldUpType "object" -worldUpObject $locs[1]`;
+	return $tmp[0];
+}
+global proc float[] SW_9de233870ac6b9c5087a491c3b4ca38a(string $objects[])
+{
+	float $distanse_all[];
+	float $distanse_all_normalized[];
+	float $weight_all[];
+	float $getPvPos[];
+    $getPvPos=SW_174b5e03acbe9a8ba7bf83b031094a2e( $objects[size($objects)-1]);
+	vector $end_point = <<$getPvPos[0], $getPvPos[1], $getPvPos[2]>>;
+	for($i=0;$i<(size($objects)-1);$i++)
+	{
+        $getPvPos=SW_174b5e03acbe9a8ba7bf83b031094a2e($objects[$i]);
+		vector $start_point = <<$getPvPos[0], $getPvPos[1], $getPvPos[2]>>;
+		$distanse_all[$i]=mag($start_point - $end_point);
+	}
+	$sort_dist=`sort $distanse_all`;
+	float $max_dist = $sort_dist[size($sort_dist)-1];
+	float $min_dist = $sort_dist[0];
+	if($min_dist>0)
+	{
+		for($i=0;$i<size($distanse_all);$i++)
+		{
+		$distanse_all_normalized[$i]=$distanse_all[$i]/$max_dist;
+		$weight_all[$i]=1/$distanse_all_normalized[$i] ;
+		}
+	}
+	else
+	{
+		for($i=0;$i<size($distanse_all);$i++)
+		{
+			if($distanse_all[$i])
+			{
+			$weight_all[$i]=0;
+			}
+			else
+			{
+			$weight_all[$i]=1;
+			}
+		}
+	}
+	float $summ=0;
+	for($obj in $weight_all)
+	    $summ+=$obj;
+	float $weight_all_normi[];
+	for($i=0;$i<size($weight_all);$i++)
+	{
+	    $weight_all_normi[$i]=$weight_all[$i]/$summ;
+	}
+	return $weight_all_normi;
+}
+global proc float[] SW_174b5e03acbe9a8ba7bf83b031094a2e(string $object)
+{
+    float $getPvPos[];
+    float $getPvRot[];
+    string $obj_selected_shape[];
+    string $obj_selected[];
+		if ((`objectType -isType "mesh" $object`)+(`objectType -isType "nurbsSurface" $object`)+(`objectType -isType "nurbsCurve" $object`))
+			{
+				$getPvPos=`pointPosition -world $object`;
+                $obj_selected_shape = `listRelatives -f -p  $object`;
+                $obj_selected = `listRelatives -f -p $obj_selected_shape`;
+                $getPvRot = `xform -q -ro -ws $obj_selected[0]`;
+			}
+			else
+			{
+				$getPvPos = `xform -q -ws -piv $object`;
+                $getPvRot = `xform -q -ro -ws $object`;
+			}
+	$getPvPos[3]=$getPvRot[0];
+	$getPvPos[4]=$getPvRot[1];
+	$getPvPos[5]=$getPvRot[2];
+	return $getPvPos;
+}

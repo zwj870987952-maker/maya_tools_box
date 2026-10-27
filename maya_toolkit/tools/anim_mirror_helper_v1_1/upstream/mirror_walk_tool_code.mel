@@ -1,0 +1,2181 @@
+//************************************//
+//                                    //
+//                                    //
+//       autor Pavel Barnev           //
+//   pavel_barnev2000@mail.ru         //
+//                                    //
+//************************************//
+// This tool helps you make gait and running animations. It makes a mirror copy of the movement with a time shift by a specified amount of time.
+// Mirror_tool_menue()
+global proc Mirror_tool_menue()
+{
+	if(`window -q -ex "mirror_toool"`)deleteUI("mirror_toool");
+	window
+		-mb true
+		-mnb 0
+		-bgc 1 0.9 0.8
+		-t "Anim Mirror Helper v1.0 Studio license - best tool for create walk animations"
+		-tlb 1 "mirror_toool";
+	columnLayout -adj 1 "columnLayout5";
+	frameLayout
+		-p "columnLayout5"
+		-bgc 0.2 0.555 0.580
+		-ebg true
+		-bv false
+		-cl 0
+		-cll true
+		-l "create Mirror system"
+		-la "top"
+		-lw 0
+		-mw 0
+		-cc "catchQuiet(`window -e -h 80 mirror_toool`)" add_it_fr_lay_base;
+	rowLayout -p add_it_fr_lay_base -adj 7 -nc 11;
+	global string $mirror_tool_mirr_axis="x";
+	radioCollection ;
+    	radioButton -sl
+			-label "x"
+			-annotation "select mirror axis"
+			-cc "$mirror_tool_mirr_axis=\"x\"";
+    	radioButton
+			-label "y"
+			-annotation "select mirror axis"
+			-cc "$mirror_tool_mirr_axis=\"y\"";
+    	radioButton
+			-label "z"
+			-annotation "select mirror axis"
+			-cc "$mirror_tool_mirr_axis=\"z\"";
+	text  -annotation "select mirror axis"  -l "-axis     ";
+	button
+		-l   "create Mirror node" -w 110
+		-bgc 0.995  1.0 0.79
+		-annotation "creating Mirror System node. select objects and press Button"
+		-c "MIRR_b7cfd62c53832d19b9248a27c80a6f44($mirror_tool_mirr_axis, 0, 1)";
+	iconTextButton -image "addCreateGeneric.png" -style "iconAndTextHorizontal"
+		-annotation "select objects and MirrorSystem Locator and press button"
+		-c "MIRR_9147e5087e953411782b272b89b1ddb6()" -l "add item";
+	text "";
+	button
+		-l   "calculate Mirror" -w 110
+		-bgc 1  0.8 0.79
+		-annotation "recalculare selected Mirror System Locator"
+		-c "MT_calcul_single()";
+frameLayout
+		-p "columnLayout5"
+		-bgc 0.2 0.555 0.580
+		-ebg true
+		-bv false
+		-cl 0
+		-cll true
+		-l "auto connect"
+		-la "top"
+		-lw 0
+		-mw 0
+		-cc "catchQuiet(`window -e -h 80 mirror_toool`)" connectAuto_fr_lay_creator;
+rowLayout -p connectAuto_fr_lay_creator
+		-nc 8
+		-adj 5
+		connectAuto_row_creator;
+	text -l" from ";
+	textField
+		-tx "_L"
+		-tcc "textField -e -tx `textField -q -tx Mirr_from` Mirr_z_from"
+		-ann "from this side prefix attached to ..."
+		-w 40
+		-bgc 1  1.0 0.79
+		"Mirr_from";
+	text -l" to>> ";
+	textField
+		-tx "_R"
+		-tcc "textField -e -tx `textField -q -tx Mirr_to` Mirr_z_to"
+		-w 40
+		-ann "...attached to this side prefix "
+		-bgc 1  1.0 0.79
+		"Mirr_to";
+	text -l"  ";
+	button -p connectAuto_row_creator -w 150
+							-l "Symmetric Translate Rotate"
+							-bgc 0.82 1.0 0.8
+							-ann "auto connect MirrorSystem by Symmetric pose Translates And Rotates"
+							-c "MIRR_0d9dbbe39a5758068cdf30cf9c7cb924(`textField -q -tx Mirr_from`,`textField -q -tx Mirr_to`, \"Symmetric\")";
+	text -l"  ";
+	button -p connectAuto_row_creator -w 150
+							-l "Symmetric Rotate Only"
+							-bgc 0.82 1.0 0.8
+							-ann "auto connect MirrorSystem by Symmetric pose Rotates only"
+							-c "MIRR_0d9dbbe39a5758068cdf30cf9c7cb924(`textField -q -tx Mirr_from`,`textField -q -tx Mirr_to`, \"SymmetricRotate\")";
+frameLayout
+		-p "columnLayout5"
+		-bgc 0.2 0.555 0.580
+		-ebg true
+		-bv false
+		-cl 1
+		-cll true
+		-l "manual connect"
+		-la "top"
+		-lw 0
+		-mw 0
+		-cc "catchQuiet(`window -e -h 80 mirror_toool`)" connectAcross_fr_lay_creator;
+	rowLayout -p connectAcross_fr_lay_creator -nc 5 -adj 2 connectAcross_row_creator;
+		columnLayout -adj 0 -p connectAcross_row_creator connectAcross_creator;
+					button -p connectAcross_creator -w 150
+						-l "Parent attach across"
+						-bgc 0.82 1.0 0.8
+						-ann "Create locator inside first selected object. Move second to position and parent constrain"
+						-c "MIRR_18a1bcd5e135a60ba68f5eb3c465884e(\"parent\",0);";
+					button -p connectAcross_creator -w 150
+						-l "Orient attach across"
+						-bgc 0.82 1.0 0.8
+						-ann "Create locator inside first selected object. And orient constrain second"
+						-c "MIRR_18a1bcd5e135a60ba68f5eb3c465884e(\"orient\",0);";
+					button -p connectAcross_creator -w 150
+						-l "Point attach across"
+						-bgc 0.82 1.0 0.8
+						-ann "Create locator inside first selected object. And point constrain second"
+						-c "MIRR_18a1bcd5e135a60ba68f5eb3c465884e(\"point\",0);";
+		text -p connectAcross_row_creator -l "";
+		columnLayout -adj 0 -p connectAcross_row_creator zero_and_rotate_creator;
+					rowLayout -p zero_and_rotate_creator -nc 3   zero_and_rotate_creator_row_creator;
+						button -p zero_and_rotate_creator_row_creator -w 58
+							-l "copy"
+							-bgc 0.82 1.0 0.6
+							-ann "copy rotation from selection object"
+							-c "MIRR_66c56c7553b8c48c1c480f58c19084ce()";
+						button -p zero_and_rotate_creator_row_creator -w 58
+							-l "paste"
+							-bgc 0.82 1.0 0.6
+							-ann "paste rotation to selection objects"
+							-c "MIRR_f0a28d7c6e1c7cd0114c5b790b5810db()";
+					button -p zero_and_rotate_creator -w 120
+						-l "mirr rotate"
+						-bgc 0.82 1.0 0.8
+						-ann "rotate selected obj 180 0 0"
+						-c "rotate -os 180 0 0";
+					button -p zero_and_rotate_creator -w 120
+						-l "zero rotate"
+						-bgc 0.82 1.0 0.8
+						-ann "zero rotate selected objects"
+						-c "rotate -os 0 0 0";
+		text -p connectAcross_row_creator -l "";
+		columnLayout -adj 1 -p connectAcross_row_creator connect_attrib_creator;
+					rowLayout -p connect_attrib_creator
+								-bgc 0.8 0.62 0.8
+								-nc 5
+								-adj 3
+								connect_manu_row_creator;
+							text
+								-ann "set prefixes in autoconnect tab"
+								-p connect_manu_row_creator -l"     ";
+							textField
+								-p connect_manu_row_creator
+								-ed 0
+								-tx (`textField -q -tx Mirr_from`)
+								-fn "obliqueLabelFont"
+								-ann "from this side prefix attached to ..."
+								-w 40
+								-bgc 0.80.62 0.8
+								"Mirr_z_from";
+							text
+								-ann "set prefixes in autoconnect tab"
+								-fn "obliqueLabelFont"
+								-p connect_manu_row_creator -l">>";
+							textField
+								-tx (`textField -q -tx Mirr_to`)
+								-p connect_manu_row_creator
+								-ed 0
+								-fn "obliqueLabelFont"
+								-w 40
+								-ann "...attached to this side prefix "
+								-bgc 0.8 0.62 0.8
+								"Mirr_z_to";
+							text
+								-ann "set prefixes in autoconnect tab"
+								-p connect_manu_row_creator -l"      ";
+				button -p connect_attrib_creator -w 150
+							-l "selected most suitable"
+							-bgc 0.8 0.62 0.8
+							-ann "select mirr object. The most suitable object will be selected"
+							-c "MIRR_af16024bff0824c73ab6c4082569d9ed(`textField -q -tx Mirr_from`,`textField -q -tx Mirr_to`)";
+					button -p connect_attrib_creator -w 150
+							-l "Connect same_attrib"
+							-bgc 0.82 1.0 0.8
+							-ann "select mirr object and control.  Attrib with same names will be connected"
+							-c "MIRR_ebdde21f7478f2e87c8125a749c52f7a()";
+frameLayout
+		-p "columnLayout5"
+		-bgc 0.2 0.555 0.580
+		-ebg true
+		-bv false
+		-cl 1
+		-cll true
+		-l "bake&delete"
+		-la "top"
+		-lw 0
+		-mw 0
+		-cc "catchQuiet(`window -e -h 80 mirror_toool`)" add_it_fr_lay_creator;
+columnLayout -adj 1 -p add_it_fr_lay_creator  add_it_creator;
+    	rowLayout -p add_it_creator -nc 3 -adj 2 connectAcross_row_creator1;
+			button -p "connectAcross_row_creator1" -w 200 -h 40
+			-bgc 0.995  1.0 0.79
+				-ann "Bake selected"
+				-c "MIRR_692e2fda85cadfdf0f28e93323f58c08; MIRR_de88efca2929f0080ae1d45ff5db42d4; MIRR_09f1edc0a69a4931b08e1bcc40e94a55; MIRR_f4b1a2b52ab1771321003f86cde63160;" -l "Bake selected";
+			text -p "connectAcross_row_creator1" "";
+			button -p "connectAcross_row_creator1" -w 200 -h 40
+					-bgc 1  0.8 0.79
+					-ann "delete selected MirrorSystem Locator system"
+					-c "MIRR_4e55dd5ee0a5a72502e97cf0ed202fa7" -l "delete selected Mirror tool";
+frameLayout
+		-p "columnLayout5"
+		-bgc 0.7 0.4 0.2
+		-ebg true
+		-bv false
+		-cl 1
+		-cll true
+		-l "help"
+		-la "top"
+		-lw 0
+		-mw 0
+		-cc "catchQuiet(`window -e -h 80 mirror_toool`)" hlp_fr_lay_creator;
+text -fn boldLabelFont -al "left" -p hlp_fr_lay_creator -ww 1
+	-l "   This script creates a system that mirrors the animation of selected objects with a shift by a certain number of frames. \n  - ideal for animating legs and arms in walk/run animations.\n ";
+columnLayout -bgc 0.995  1.0 0.79 -adj 1 textt_yello;
+text -p textt_yello -fn smallBoldLabelFont -al "left" -ww 1
+	-l "USAGE:";
+text -p textt_yello -fn obliqueLabelFont -al "left" -ww 1
+	-l " - select objects whose animation we want to mirror according to the same law (if it is a leg, select knee, foot, sock)\n - select miroor axis \n - press CREATE MIRROR NODE";
+text -p textt_yello-fn obliqueLabelFont -al "left" -ww 1
+	-l " - the MIRROR SYSTEM locator will appear in the scene \n - it will have the OFFSET attribute (0 by default) - you should set it to the desired value (usually half-period animation)\n - and also there will be mapped objects selected earlier.";
+text -p textt_yello -fn obliqueLabelFont -al "left" -ww 1
+	-l " - to them you need to attach the corresponding objects on the other side with AUTO CONNECT. \n SYMMETRIC POSE - the best method";
+text -p textt_yello -fn obliqueLabelFont -al "left" -ww 1
+	-l " - or you can attach with MANUAL CONNECT. \n\n";
+text -fn obliqueLabelFont -al "left" -p hlp_fr_lay_creator
+	-ww 1
+	-l " moving and constrain BASE GROUP FOR MIRROR and BASE GROUP NOT MIRROR to different objects, \n you can achieve the corresponding effects  and rotations of the displayed animation \n (animation is calculated from the position relative to these groups, not the world coordinates)";
+	window -e -h 80 mirror_toool;
+	showWindow "mirror_toool";
+}
+global proc MIRR_692e2fda85cadfdf0f28e93323f58c08()
+{
+	global float $startTime;
+	global string $my_eval_mode[];
+	float $mayaVersion;
+	$startTime = `timerX`;
+	refresh -su 1;
+	setTimeSliderVisible 0;
+	$mayaVersion = `getApplicationVersionAsFloat` ;
+	if ($mayaVersion>=2016)
+	{
+		$my_eval_mode=`evaluationManager -q -mode`;
+		evaluationManager -mode "off";
+	}
+}
+global proc MIRR_f4b1a2b52ab1771321003f86cde63160()
+{
+	global float $startTime;
+	global string $my_eval_mode[];
+	float $mayaVersion;
+	$totalTime = `timerX -startTime $startTime`;
+	print ("Total Time: "+$totalTime+"\n");
+	refresh -su 0;
+	setTimeSliderVisible 1;
+	$mayaVersion = `getApplicationVersionAsFloat` ;
+	if ($mayaVersion>=2016)
+	{
+		evaluationManager -mode $my_eval_mode[0];
+	}
+}
+global proc MIRR_de88efca2929f0080ae1d45ff5db42d4()
+{
+	$selection=`ls-sl`;
+    $mayaVersion = `getApplicationVersionAsFloat` ;
+    string $eval_mode[];
+    if ($mayaVersion>=2016)
+    {
+        $eval_mode=`evaluationManager -q -mode`;
+		if($eval_mode[0]!="off")
+			evaluationManager -mode "off";
+    }
+    $min=`playbackOptions -q -ast`;
+    $max=`playbackOptions -q -aet`;
+    $its_baked=catchQuiet (`bakeResults -sm 1 -s false -t ($min+":"+$max) $selection`);
+	if ($mayaVersion>=2016)
+    {
+		if($eval_mode[0]!="off")
+			evaluationManager -mode $eval_mode[0];
+    }
+    if($its_baked)
+    {
+        warning "select something!";
+    }
+}
+global proc MIRR_09f1edc0a69a4931b08e1bcc40e94a55()
+{
+	$selected= `ls -sl`;
+	if(size($selected)==0)
+	{
+		warning "select something!!!!";
+		return;
+	}
+	string $crvs[] = `keyframe -q -n`;
+	float $statTime[] = `keyframe -index 0 -q -tc $crvs`;
+	$statTime=`sort $statTime`;
+	$null_frame = $statTime[0] - 10;
+	catchQuiet(`setKeyframe -v 0 -t $null_frame -at rotateX -at rotateY -at rotateZ`) ;
+	catchQuiet(`filterCurve $selected.rotateX $selected.rotateY $selected.rotateZ`);
+	selectKey -clear;
+	catchQuiet(`cutKey -t $null_frame  -at rotateX -at rotateY -at rotateZ `);
+	selectKey -clear;
+}
+global proc MIRR_48485870564b576698e443b951ff184a()
+{
+	$selected=`ls-sl`;
+	float $targ_attr[];
+	catchQuiet($targ_attr=`getAttr ($selected[0] + ".rotate")`);
+	catchQuiet(`rotate $targ_attr[0] $targ_attr[1] $targ_attr[2]  $selected[1]`);
+	catchQuiet(`rotate $targ_attr[0] $targ_attr[1] $targ_attr[2]  $selected[1]`);
+	catchQuiet(`rotate $targ_attr[0] $targ_attr[1] $targ_attr[2]  $selected[1]`);
+}
+global proc MIRR_ef5038f332443510e158b37092b13e2e()
+{
+	$selected=`ls-sl`;
+	float $targ_attr[];
+	catchQuiet($targ_attr=`getAttr ($selected[0] + ".translate")`);
+	catchQuiet(`move -cs $targ_attr[0] $targ_attr[1] $targ_attr[2]  $selected[1]`);
+	catchQuiet(`move -cs $targ_attr[0] $targ_attr[1] $targ_attr[2]  $selected[1]`);
+	catchQuiet(`move -cs $targ_attr[0] $targ_attr[1] $targ_attr[2]  $selected[1]`);
+}
+global proc MIRR_b7cfd62c53832d19b9248a27c80a6f44(string $mirror_axis, float $offset, int $cycled)
+{
+	$mirror_axis=`capitalizeString $mirror_axis`;
+	$selected_object_for_mirror=`ls-sl`;
+	select -cl;
+	select $selected_object_for_mirror;
+	string $base_grpp[]=MIRR_e6d1cc62e700198ddfd8906d663761ba();
+	string $base_locks[]=`ls-sl`;
+	string $attr_on_obj[];
+	$base_locks=MIRR_10b1c67feba7e9570357d44ba9306692 ("", $selected_object_for_mirror,"_bl");
+	MIRR_29941243f77aa0343e79460d48136072 (1);
+	MIRR_17431451b1be026fdeee93b86579c6b6($selected_object_for_mirror, $base_locks);
+	MIRR_bfe56aae7d5797fb0a4d2b81c633d99e($selected_object_for_mirror,$base_locks);
+	select $base_grpp;
+	rotate -os 0 0 0 $base_grpp;
+	move -os 0 0 0  $base_grpp;
+	$base_not_mirror_group=`group -name (MIRR_c954f3ebe8232ef721ae19221935b64e("base_group_not_mirror"))`;
+	xform -os -piv 0 0 0;
+	select $selected_object_for_mirror $base_not_mirror_group;
+	float $dist=MIRR_a358a7c27f7a7b80712d695138ed032e(`ls-sl`, 1);
+	select $selected_object_for_mirror;
+	$mirror_grpp_to_calc= MIRR_0a10c57fddb9b8e3dc07486c3a9a5eed();
+	float $rad=($dist/8)/MIRR_f71c299bf7b53f7243b078a9990e581c(1);
+	string $mirror_jnts[]=MIRR_19d76f37038db0f20211caf8b74f382f($rad, 0.3);
+	MIRR_32a3829df17c3736d9757e423eeaf0e3($mirror_grpp_to_calc,$mirror_jnts);
+	MIRR_5145561f67290e54dacf2e0b5d4f02b7($base_locks, $mirror_grpp_to_calc);
+	$mirror_grpp=MIRR_0a10c57fddb9b8e3dc07486c3a9a5eed();
+	string  $new_attr_mg,$new_attr_j,$new_attr_nmg;
+    for($i=0;$i<size($selected_object_for_mirror);$i++)
+    {
+        $attr_on_obj=`listAttr -k -v -ud  $selected_object_for_mirror[$i]`;
+        for($att in  $attr_on_obj)
+        {
+            $new_attr_nmg=MIRR_81710030388b6f6922e422fe523dd15a( $att,$base_locks[$i]);
+            connectAttr -f ($selected_object_for_mirror[$i] + "." + $att) $new_attr_nmg ;
+            $new_attr_mg=MIRR_81710030388b6f6922e422fe523dd15a( $att,$mirror_grpp_to_calc[$i]);
+			setAttr $new_attr_mg (`getAttr $new_attr_nmg`);
+            catchQuiet($new_attr_j=MIRR_81710030388b6f6922e422fe523dd15a( $att,$mirror_jnts[$i]));
+            catchQuiet(`connectAttr -f $new_attr_mg $new_attr_j `);
+        }
+    }
+	select $mirror_grpp;
+	rotate -os 0 0 0 $mirror_grpp $mirror_jnts;
+	move -os 0 0 0  $mirror_grpp;
+	MIRR_32a3829df17c3736d9757e423eeaf0e3($mirror_grpp,$mirror_grpp_to_calc);
+	MIRR_5e8af8371c687e5c50d7ded5040ffe13($base_locks, $mirror_jnts);
+	scale -os 1 1 1 $mirror_jnts;
+	select $mirror_grpp;
+	$base_mirror_group=`group -name(MIRR_c954f3ebe8232ef721ae19221935b64e("base_group_for_mirror")) `;
+	xform -os -piv 0 0 0;
+	setAttr ($base_mirror_group + ".scale" + $mirror_axis) -1;
+	createNode blindDataTemplate;
+	$nodenames=MIRR_e706e982298fe9e8f94ae04b06b5d6b2("mirror_barnev_system");
+	string $attribname;
+    for($i=0;$i<size($selected_object_for_mirror); $i++)
+    {
+		$attribname=MIRR_65107bc37ea4a0d842be293fd78287a9("mirr_obj" + $i, $nodenames[0]);
+		connectAttr -f ($base_locks[$i] + ".visibility")   $attribname;
+		connectAttr -f $attribname ($mirror_grpp_to_calc[$i] + ".visibility");
+		$attribname=MIRR_65107bc37ea4a0d842be293fd78287a9("mirr_group" + $i, $nodenames[0]);
+		connectAttr -f ($base_grpp[$i] + ".visibility")   $attribname;
+		connectAttr -f $attribname ($mirror_grpp[$i] + ".visibility");
+    }
+	select $mirror_jnts $mirror_grpp_to_calc;
+	MIRR_aa074854107180f09880ea0e8edd43f8;
+	select $mirror_jnts;
+	move -os 0 0 0  $mirror_jnts;
+	$attribname=MIRR_65107bc37ea4a0d842be293fd78287a9("base_groupps", $nodenames[0]);
+	connectAttr -f ($base_not_mirror_group + ".visibility")   $attribname;
+	$attribname_ggg=MIRR_65107bc37ea4a0d842be293fd78287a9("not_delete_this_attr", $base_mirror_group);
+	connectAttr -f   $attribname $attribname_ggg;
+	select $base_mirror_group $base_not_mirror_group;
+	$general_mirror_system_group=`group -name (MIRR_c954f3ebe8232ef721ae19221935b64e("mirror_system_gr"))`;
+	xform -os -piv 0 0 0;
+	$attribname=MIRR_65107bc37ea4a0d842be293fd78287a9("general_mirror_system_group", $nodenames[0]);
+	connectAttr -f ($general_mirror_system_group + ".visibility")   $attribname;
+	MIRR_aa074854107180f09880ea0e8edd43f8;
+	select -cl;
+	string $diamond[]=MIRR_8a435c1e94becce7728e63b61ba412bd($dist/2);
+	string $tmp_new_nm=MIRR_c954f3ebe8232ef721ae19221935b64e("mirror_system");
+	$diamond[0]=`rename $diamond[0]  $tmp_new_nm`;
+	$general_mirror_system_locator=$diamond;
+	setAttr ($general_mirror_system_locator[0] + ".hideOnPlayback") 0;
+	$attribname=MIRR_41a30a2e9e6a02aac72ab138d3f62f90("Offset", $general_mirror_system_locator[0]);
+	setAttr $attribname $offset;
+	$attribname_node=MIRR_41a30a2e9e6a02aac72ab138d3f62f90("offset", $nodenames[0]);
+	connectAttr -f $attribname $attribname_node;
+	$attribname=MIRR_65107bc37ea4a0d842be293fd78287a9("Cycled", $general_mirror_system_locator[0]);
+	setAttr $attribname $cycled;
+	$attribname_node=MIRR_65107bc37ea4a0d842be293fd78287a9("cycled", $nodenames[0]);
+	connectAttr -f $attribname $attribname_node;
+	addAttr -ln "calculate"  -at "enum" -en "Yes:No:" $general_mirror_system_locator[0];
+	setAttr -e-channelBox true ($general_mirror_system_locator[0] + ".calculate");
+	setAttr  ($general_mirror_system_locator[0] + ".calculate") 0;
+	$attribname_node=MIRR_65107bc37ea4a0d842be293fd78287a9("calculate", $nodenames[0]);
+	connectAttr -f ($general_mirror_system_locator[0] + ".calculate") $attribname_node;
+	global string $mirror_tool_icon_path;
+	string $name_annotation = `annotate -tx ( "mirror           ") -p 0 0 0  $general_mirror_system_locator[0]`;
+	string $ann_base[]=`pickWalk -d up $name_annotation`;
+	setAttr ($name_annotation + ".displayArrow") 0;
+	toggle -template;
+	select -add  $general_mirror_system_locator[0];
+	parent -r;
+	select $base_not_mirror_group;
+	MIRR_4c2952dd9f486573856c8eb6a0dc46ac(0);
+	select $general_mirror_system_locator[0];
+	MIRR_cc20e95399a3b6da44eb78e45451d764(22);
+	MIRR_c89bf830cdb2b9cc874e6c8604e8b257;
+	MIRR_ef6700cd4efa166b5d6bde47732f420a;
+	move -r 0 0 0 ;
+	select $mirror_jnts;
+	MIRR_d709ffba9755e96e5977d4e5832da1cd($mirror_jnts);
+	MIRR_10b1c67feba7e9570357d44ba9306692 ("", $selected_object_for_mirror,"_m");
+	select $mirror_grpp_to_calc;
+	MIRR_10b1c67feba7e9570357d44ba9306692 ("", $selected_object_for_mirror,"_mg");
+	select  $mirror_grpp;
+	MIRR_10b1c67feba7e9570357d44ba9306692 ("", $selected_object_for_mirror,"_Mpiv");
+	select $base_grpp;
+	MIRR_10b1c67feba7e9570357d44ba9306692 ("", $selected_object_for_mirror,"_Bpiv");
+	string $name_button=  MIRR_27fa0883c172ae08e08f5b2f5e58ad38($mirror_tool_icon_path,  "",  $general_mirror_system_locator[0]);
+	$command="execute_single_MT_calculation(\"" + $name_button + "\")";
+	setAttr -type "string" ($name_button + ".script") $command;
+	MIRR_e9a3d5ffe283044f2485219b12ac5f73({$ann_base[0],$name_button}, 1);
+	select $general_mirror_system_locator[0];
+	manipMoveContext -edit -mode 0 Move;
+    setToolTo moveSuperContext;
+}
+global proc MIRR_9147e5087e953411782b272b89b1ddb6()
+{
+	$selected=`ls-sl`;
+	select -cl;
+	select $selected;
+	$mirror_sys_lock=`ls-sl -tail 1`;
+	select -d $mirror_sys_lock;
+	$select_obj_to_add=`ls-sl`;
+	select $mirror_sys_lock;
+	$name_mirror_sys_node=MIRR_e8f0c3b3e6300189aca31ae83320ec92("*mirror_barnev_system*");
+	if ( $name_mirror_sys_node=="")
+	{
+		error "select Mirror System Lockator last";
+		return;
+	}
+	$node_attrib= `attributeInfo -all   $name_mirror_sys_node`;
+	$tmp_input=`listConnections  -d 0 -s 1  ($name_mirror_sys_node + ".base_groupps")`;
+	$base_group_not_mirror =$tmp_input[0];
+	$tmp_output=`listConnections  -d 1 -s 0  ($name_mirror_sys_node + ".base_groupps")`;
+	$base_group_mirror =$tmp_output[0];
+	string $obj;
+	$number_connected_obj=0;
+	for($obj in $node_attrib)
+		if(`gmatch $obj "mirr_obj*"`)
+			$number_connected_obj++;
+	select $select_obj_to_add;
+	$base_grpp_add=MIRR_e6d1cc62e700198ddfd8906d663761ba();
+	$base_locks_add=`ls-sl`;
+	MIRR_17431451b1be026fdeee93b86579c6b6($select_obj_to_add, $base_locks_add);
+	MIRR_bfe56aae7d5797fb0a4d2b81c633d99e($select_obj_to_add,$base_locks_add);
+	select $base_grpp_add $base_group_not_mirror;
+	float $dist=MIRR_a358a7c27f7a7b80712d695138ed032e(`ls-sl`, 1);
+	parent ;
+	select $base_grpp_add;
+	rotate -os 0 0 0 $base_grpp_add;
+	move -os 0 0 0 $base_grpp_add;
+	select $select_obj_to_add;
+		$mirror_grpp_to_calc= MIRR_0a10c57fddb9b8e3dc07486c3a9a5eed();
+	float $rad=($dist/8)/MIRR_f71c299bf7b53f7243b078a9990e581c(1);
+	string $mirror_jnt_to_calc[]=MIRR_19d76f37038db0f20211caf8b74f382f($rad, 0.3);
+	MIRR_32a3829df17c3736d9757e423eeaf0e3($mirror_grpp_to_calc,$mirror_jnt_to_calc);
+	rotate -os 180 0 0 $mirror_jnt_to_calc;
+	$mirror_grpp=MIRR_0a10c57fddb9b8e3dc07486c3a9a5eed();
+	MIRR_32a3829df17c3736d9757e423eeaf0e3($mirror_grpp,$mirror_grpp_to_calc);
+	select  $mirror_grpp;
+	MIRR_ade4e354383a28fcefcaf5ce40e6639d;
+	parent $mirror_grpp $base_group_mirror;
+	select 	$mirror_grpp;
+	rotate -os 0 0 0 $mirror_grpp;
+	move -os 0 0 0 $mirror_grpp;
+	MIRR_37979d5db724aeac3ec6046edc570bbd;
+	MIRR_8f1bbed6c413bd9cd1ae5d3c63afb5cc($base_locks_add,$mirror_grpp_to_calc);
+	MIRR_9ef8981ccf72c74373e900ef581dfaea($base_locks_add,$mirror_grpp_to_calc);
+	MIRR_2fa2b06e9166235ba786cb6586606b52($base_locks_add,$mirror_grpp_to_calc);
+	string $attribname;
+	for($i=0;$i<size($select_obj_to_add); $i++)
+	{
+		$attribname=MIRR_65107bc37ea4a0d842be293fd78287a9("mirr_obj" + ($number_connected_obj + $i), $name_mirror_sys_node);
+		connectAttr -f ($base_locks_add[$i] + ".visibility")   $attribname;
+		connectAttr -f $attribname ($mirror_grpp_to_calc[$i] + ".visibility");
+		$attribname=MIRR_65107bc37ea4a0d842be293fd78287a9("mirr_group" + ($number_connected_obj + $i), $name_mirror_sys_node);
+		connectAttr -f ($base_grpp_add[$i] + ".visibility")   $attribname;
+		connectAttr -f $attribname ($mirror_grpp[$i] + ".visibility");
+	}
+	string $attr_on_obj[];
+	string  $new_attr_mg,$new_attr_j,$new_attr_nmg;
+    for($i=0;$i<size($select_obj_to_add);$i++)
+    {
+        $attr_on_obj=`listAttr -k -v -ud  $select_obj_to_add[$i]`;
+        for($att in  $attr_on_obj)
+        {
+            $new_attr_nmg=MIRR_81710030388b6f6922e422fe523dd15a( $att,$base_locks_add[$i]);
+            connectAttr -f ($select_obj_to_add[$i] + "." + $att) $new_attr_nmg ;
+            $new_attr_mg=MIRR_81710030388b6f6922e422fe523dd15a( $att,$mirror_grpp_to_calc[$i]);
+			setAttr $new_attr_mg (`getAttr $new_attr_nmg`);
+             catchQuiet($new_attr_j=MIRR_81710030388b6f6922e422fe523dd15a( $att,$mirror_jnt_to_calc[$i]));
+             catchQuiet(`connectAttr -f $new_attr_mg $new_attr_j`);
+        }
+    }
+	select $base_grpp_add;
+	MIRR_10b1c67feba7e9570357d44ba9306692 ("", $select_obj_to_add,"_Bpiv");
+	select $mirror_grpp_to_calc;
+	MIRR_aa074854107180f09880ea0e8edd43f8;
+	MIRR_10b1c67feba7e9570357d44ba9306692 ("", $select_obj_to_add,"_mg");
+	select  $mirror_grpp;
+	MIRR_10b1c67feba7e9570357d44ba9306692 ("", $select_obj_to_add,"_Mpiv");
+	select $mirror_jnt_to_calc;
+	MIRR_d709ffba9755e96e5977d4e5832da1cd($mirror_jnt_to_calc);
+	MIRR_10b1c67feba7e9570357d44ba9306692 ("", $select_obj_to_add,"_m");
+}
+global proc MIRR_4e55dd5ee0a5a72502e97cf0ed202fa7()
+{
+$neight=MIRR_6c03bcf1c4cd077aea727f60dfb001f6(0, "*mirror_barnev_system*");
+select $neight;
+doDelete;
+}
+global proc MIRR_c8f9519489b62d03fdd39080a1626293(string $axis)
+{
+	$axis=`capitalizeString $axis`;
+	$selection=`ls-sl`;
+	if(size($selection)!=2)
+	{
+		warning "select 2 object!";
+		return;
+	}
+	select -cl;
+	select $selection[0];
+	$joint=MIRR_f2d5a2798ed7cfee36eb77ee8a281ed8();
+	$grpp=`group` ;
+	xform -os -piv 0 0 0;
+	select $joint;
+	if ($axis=="X")
+	{
+		$mirrored=`mirrorJoint -mirrorBehavior -mirrorYZ`;
+		rotate -r -os -fo 180 0 0;
+	}
+	if ($axis=="Y")
+	{
+		$mirrored=`mirrorJoint -mirrorBehavior -mirrorXZ`;
+		rotate -r -os -fo -180 0 0 ;
+		rotate -r -os -fo 0 0 -180;
+	}
+	if ($axis=="Z")
+	{
+		$mirrored=`mirrorJoint -mirrorBehavior -mirrorXY`;
+		rotate -r -os -fo 0 0 180;
+		rotate -r -os -fo 0 180 0 ;
+	}
+	select -add $selection[1];
+	MIRR_9a8d2e62249cad27916aacc736478655;
+	MIRR_95d47209f5832c068ce7614b82201089;
+	delete $grpp;
+	select $selection;
+}
+global proc MIRR_9d6d9b3fa6689f784a8751133c4da807(string $axis)
+{
+    $axis=`capitalizeString $axis`;
+		$selection=`ls-sl`;
+		if(size($selection)!=2)
+		{
+			warning "select 2 object!";
+			return;
+		}
+		select -cl;
+		$grpp=MIRR_0a10c57fddb9b8e3dc07486c3a9a5eed();
+		select $selection[0];
+		$lock=MIRR_54d92f8424c4459e6d996d9fd93902f0();
+		select $lock $grpp ;
+		parent;
+		select $grpp;
+		setAttr ($grpp[0] + ".scale" + $axis) -1;
+		select $lock $selection[1];
+		MIRR_9713c7abe7f317a1eaefb22b30d9ce1c;
+		delete $grpp;
+		select $selection;
+}
+global proc MIRR_ebdde21f7478f2e87c8125a749c52f7a()
+{
+    string $selection[]=`ls-sl`;
+    for($i=0;$i<size($selection);$i+=2)
+        MIRR_c8fcd9a605f50c9c5156cafe60648ba3({$selection[0]},{$selection[1]});
+}
+global proc  MIRR_66c56c7553b8c48c1c480f58c19084ce()
+{
+    string $selected[]=`ls-sl`;
+    if(size($selected)!=1)
+    {
+        warning "select 1 object";
+        return;
+    }
+    MIRR_95d47209f5832c068ce7614b82201089;
+    global float $MT_REM_selected_Rotate[];
+    $MT_REM_selected_Rotate =`getAttr   ($selected[0] + ".rotate")`;
+    print $MT_REM_selected_Rotate;
+}
+global proc  MIRR_f0a28d7c6e1c7cd0114c5b790b5810db()
+{
+    string $selected[]=`ls-sl`;
+    global float $MT_REM_selected_Rotate[];
+    rotate -os $MT_REM_selected_Rotate[0] $MT_REM_selected_Rotate[1] $MT_REM_selected_Rotate[2] $selected;
+}
+global proc MIRR_0d9dbbe39a5758068cdf30cf9c7cb924(string $side_from,string $side_to, string $rig_type)
+{
+		string $connection_output[]= MIRR_1b5534c2455631fcdd51693bf0e0f9d5();
+		if(size($connection_output)==0)
+			return;
+		string $rig_mirr_names[];
+		int $num_ch;
+		string   $names_variations[] ;
+		string $fin_name;
+		$rig_mirr_names=$connection_output;
+        for($i=0;$i<size($connection_output); $i++)
+        {
+            $rig_mirr_names[$i]=`match "^.*_" $rig_mirr_names[$i]`;
+            $num_ch=sizeBytes($rig_mirr_names[$i])-1;
+            $rig_mirr_names[$i]=`substring $rig_mirr_names[$i] 1 $num_ch`;
+            $names_variations=MIRR_b3acc831f9f61a01a45fe7165ec12c62( $rig_mirr_names[$i], $side_from, $side_to);
+			$names_variations=stringArrayRemove({$rig_mirr_names[$i]}, $names_variations);
+            $fin_name="";
+            for($name in $names_variations)
+                if(`objExists $name`)
+                    $fin_name=$name;
+            $rig_mirr_names[$i]= $fin_name;
+        }
+        print "\nExpected names for mirror controls:\n\n";
+        print $rig_mirr_names;
+		print "\n";
+		catch (`setKeyframe $rig_mirr_names`);
+		MIRR_194c7b09c27128a45486ac17560c7a25($rig_mirr_names);
+		sets -n "mirrored_objects";
+		for($i=0;$i<size($connection_output); $i++)
+		{
+			if(`objExists $rig_mirr_names[$i]`)
+			{
+				select $connection_output[$i] $rig_mirr_names[$i];
+				MIRR_ebdde21f7478f2e87c8125a749c52f7a();
+				if($rig_type=="AdvSkel")
+				{
+					catchQuiet (MIRR_18a1bcd5e135a60ba68f5eb3c465884e("parent",0));
+					if( `gmatch $rig_mirr_names[$i] "FK*"`)
+						rotate -os -180 0 0;
+					else
+						rotate -os 0 0 0;
+				}
+				if($rig_type=="Symmetric")
+				{
+					catchQuiet (MIRR_18a1bcd5e135a60ba68f5eb3c465884e("parent",0));
+				}
+				if($rig_type=="SymmetricRotate")
+				{
+					catchQuiet (MIRR_18a1bcd5e135a60ba68f5eb3c465884e("orient",0));
+				}
+			}
+			else
+				print ("\nno match presumed  name found \n\n" + $connection_output[$i] + " >>> ???\ncheck the correct spelling of the prefixes\n" ) ;
+		}
+}
+global proc MIRR_af16024bff0824c73ab6c4082569d9ed(string $side_from,string $side_to)
+{
+    string $selected_obj[]=`ls-sl`;
+    if(size($selected_obj)==0)
+        return;
+    string $m_object;
+    string $fin_name="";
+    string $fin_names[];
+    string $name;
+    string $finobjs[],$names_variation[];
+    for($m_object in $selected_obj)
+    {
+        $m_object=`match "^.*_" $m_object`;
+        $num_ch=sizeBytes($m_object)-1;
+        $m_object=`substring $m_object 1 $num_ch`;
+        $names_variations=MIRR_b3acc831f9f61a01a45fe7165ec12c62( $m_object, $side_from, $side_to);
+		$names_variations=stringArrayRemove({$m_object}, $names_variations);
+        for($name in $names_variations)
+            if(`objExists $name`)
+            {
+                appendStringArray ($fin_names,{$name}, 1);
+                break;
+            }
+            else
+            {
+                print ("\nno match presumed  name found \n\n" + $selected_obj[0] + " >>> ???\ncheck the correct spelling of the prefixes\n" ) ;
+                return;
+            }
+    }
+    catch (`setKeyframe $fin_names`);
+    for($i=0;$i<size($selected_obj);$i++)
+        appendStringArray ($finobjs,{$selected_obj[$i],$fin_names[$i]}, 2);
+    MIRR_194c7b09c27128a45486ac17560c7a25($finobjs);
+}
+global proc MIRR_18a1bcd5e135a60ba68f5eb3c465884e(string $type,int $offset)
+{
+    string $selection[]=`ls-sl`;
+    float $rad=1;
+    string $all_locks[];
+    for($i=0;$i<size($selection);$i+=2)
+    {
+        select $selection[$i] $selection[$i+1];
+        MIRR_b3a0af3dcb5c339fc02c21363528b660($type,0);
+        appendStringArray ($all_locks,`ls-sl`, 1);
+    }
+    select $all_locks;
+    MIRR_6de8028af587b467034457b4d6349f89 ($rad);
+	MIRR_10b1c67feba7e9570357d44ba9306692 ("", $selection,"l");
+}
+global proc MT_calcul_single()
+{
+	MIRR_692e2fda85cadfdf0f28e93323f58c08;
+	MIRR_338d6d9c2032e82a688aa841f622a6cf();
+	MIRR_f4b1a2b52ab1771321003f86cde63160;
+}
+global proc string[] MIRR_54d92f8424c4459e6d996d9fd93902f0()
+{
+	string $selection[];
+	$selection_true = `ls -fl -sl `;
+	$selection = `ls -fl -os`;
+	string $locators[];
+	string $b[];
+	if (size ($selection)>0)
+	{
+		$j=0;
+		for($obj in $selection)
+		{
+			$getPvPos=MIRR_8598296823aa3af15686cb0d78f1615d($obj);
+			$b=`spaceLocator -p 0 0 0`;
+			$locators[$j]=$b[0];
+			xform -ws -t $getPvPos[0] $getPvPos[1] $getPvPos[2] $b[0];
+			rotate -ws $getPvPos[3] $getPvPos[4] $getPvPos[5]  $b[0];
+			$j++;
+		}
+		select -cl;
+		for($obj in $locators)
+		{
+			select -add $obj;
+		}
+	}
+	else
+	{
+		$locators = `spaceLocator -p 0 0 0`;
+	}
+	return $locators;
+}
+global proc string[] MIRR_f2d5a2798ed7cfee36eb77ee8a281ed8()
+{
+	string $selection[];
+	$selection_true = `ls -fl -sl `;
+	$selection = `ls -fl -os`;
+	string $locators[];
+	string $b[];
+	select -cl;
+	float $getPvPos[];
+	if (size ($selection)>0)
+	{
+	    $j=0;
+	    for($obj in $selection)
+	    {
+            $getPvPos=MIRR_8598296823aa3af15686cb0d78f1615d($obj);
+            $b[0]=`joint`;
+            $locators[$j]=$b[0];
+            xform -ws -t $getPvPos[0] $getPvPos[1] $getPvPos[2] $b[0];
+            rotate -ws $getPvPos[3] $getPvPos[4] $getPvPos[5]  $b[0];
+            $j++;
+		}
+		for($obj in $locators)
+		{
+		    select -add $obj;
+		}
+	}
+	else
+	{
+		$locators[0] =`joint -p 0 0 0`;
+	}
+	select -cl;
+	select $locators;
+	return $locators;
+}
+global proc string[] MIRR_0a10c57fddb9b8e3dc07486c3a9a5eed()
+{
+	string $selection[];
+	$selection_true = `ls -fl -sl `;
+	$selection = `ls -fl -os`;
+	string $locators[];
+	string $gr;
+	if (size ($selection)>0)
+	{
+         $j=0;
+	    for($obj in $selection)
+	    {
+            $getPvPos=MIRR_8598296823aa3af15686cb0d78f1615d($obj);
+            $gr=`group -r -em`;
+            $locators[$j]=$gr;
+            xform -ws -t $getPvPos[0] $getPvPos[1] $getPvPos[2] $gr;
+            rotate -ws $getPvPos[3] $getPvPos[4] $getPvPos[5]  $gr;
+            $j++;
+		}
+		select -cl;
+		for($obj in $locators)
+		{
+		    select -add $obj;
+		}
+	}
+	else
+	{
+	$locators[0] = `group -r -em`;
+	}
+	return $locators;
+}
+global proc string[] MIRR_910f54508e7e0e76ffe92926566add2d()
+{
+	$selected=`ls-fl-os`;
+	$grpps=`MIRR_0a10c57fddb9b8e3dc07486c3a9a5eed`;
+	$jnts=`MIRR_f2d5a2798ed7cfee36eb77ee8a281ed8`;
+	MIRR_32a3829df17c3736d9757e423eeaf0e3($grpps,$jnts);
+	catchQuiet(delete(MIRR_ac2021d0d7ff3ecfad4dbca9f9f88248($selected,$grpps)));
+	select $jnts;
+	MIRR_9a3ce25cfdbc96f0053e2e03715d7f2b;
+	MIRR_3a25eaad774c71ebdcb06ee4d2b25ce3;
+	return $grpps;
+}
+global proc string[] MIRR_e6d1cc62e700198ddfd8906d663761ba()
+{
+	$selected=`ls-fl-os`;
+	$grpps=`MIRR_0a10c57fddb9b8e3dc07486c3a9a5eed`;
+	$jnts=`MIRR_54d92f8424c4459e6d996d9fd93902f0`;
+	MIRR_32a3829df17c3736d9757e423eeaf0e3($grpps,$jnts);
+	catchQuiet(delete(MIRR_ac2021d0d7ff3ecfad4dbca9f9f88248($selected,$grpps)));
+	select $jnts;
+	MIRR_9a3ce25cfdbc96f0053e2e03715d7f2b;
+	return $grpps;
+}
+global proc MIRR_32a3829df17c3736d9757e423eeaf0e3 (string $target[], string $object[])
+{
+    select $object;
+    $createSetResult_object = `sets -name "object"`;
+    for($i=0;$i<size($target);$i++)
+    {
+        $childs=`listConnections -t node $createSetResult_object`;
+        catchQuiet (`parent $childs[$i] $target[$i]`);
+    }
+    $childs=`listConnections -t node $createSetResult_object`;
+    select  $childs;
+    delete $createSetResult_object;
+}
+global proc string[] MIRR_e706e982298fe9e8f94ae04b06b5d6b2(string $prefix)
+{
+	string $objs[] = `ls -selection`;
+	$j=0;
+		for($i=0;$i<size($objs);$i++)
+		{
+			while (`objExists ($prefix + $j)`)
+			{
+				$j++;
+			}
+		rename $objs[$i]($prefix + $j);
+		$objs = `ls -selection`;
+		}
+	return $objs;
+}
+global proc string[] MIRR_10b1c67feba7e9570357d44ba9306692 (string $prefix, string $name_massive[],string $postfix)
+{
+	$objs = `ls-sl`;
+    string $new_names[];
+	for($i=0;$i<size($objs);$i++)
+		$new_names[$i]=`rename $objs[$i] ($prefix + $name_massive[$i] + $postfix + "#")`;
+	return $new_names;
+}
+global proc MIRR_ade4e354383a28fcefcaf5ce40e6639d()
+{
+	for($objs in `ls-sl`)
+	{
+		setAttr -lock true ($objs + ".scaleX");
+		setAttr -lock true ($objs + ".scaleY");
+		setAttr -lock true ($objs + ".scaleZ");
+	}
+}
+global proc MIRR_37979d5db724aeac3ec6046edc570bbd()
+{
+string $objs;
+	if(!size(`ls-sl`))
+		return;
+	for($objs in `ls-sl`)
+	{
+		setAttr -lock false ($objs + ".scale");
+		setAttr -lock false ($objs + ".scaleX");
+		setAttr -lock false ($objs + ".scaleY");
+		setAttr -lock false ($objs + ".scaleZ");
+	}
+}
+global proc MIRR_c89bf830cdb2b9cc874e6c8604e8b257()
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	for($i=0;$i<size($objs);$i++)
+	{
+		setAttr -keyable false -channelBox false ($objs[$i] + ".sx");
+		setAttr -keyable false -channelBox false ($objs[$i] + ".sy");
+		setAttr -keyable false -channelBox false ($objs[$i] + ".sz");
+		setAttr -keyable false -channelBox false ($objs[$i] + ".v");
+	}
+}
+global proc MIRR_ef6700cd4efa166b5d6bde47732f420a()
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	for($i=0;$i<size($objs);$i++)
+	{
+		setAttr -keyable false -channelBox false ($objs[$i] + ".rx");
+		setAttr -keyable false -channelBox false ($objs[$i] + ".ry");
+		setAttr -keyable false -channelBox false ($objs[$i] + ".rz");
+	}
+}
+global proc MIRR_aa074854107180f09880ea0e8edd43f8()
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	for($i=0;$i<size($objs);$i++)
+		setAttr -lock true ($objs[$i] + ".v");
+}
+global proc MIRR_cc20e95399a3b6da44eb78e45451d764(int $color)
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	for($i=0;$i<size($objs);$i++)
+	{
+		catchQuiet(`setAttr ($objs[$i] + ".overrideEnabled") 1`);
+		catchQuiet(`setAttr -lock false ($objs[$i] + ".overrideColor") $color`);
+	}
+}
+global proc int[] MIRR_d709ffba9755e96e5977d4e5832da1cd(string $objects[])
+{
+    if(!size($objects))
+        return {};
+    string $obj;
+    int $colors[]={13,22,6,14,9,18,12,31,19,28,30,31,1,4,5};
+    int $col_num[];
+    $i=0;
+    int $num;
+    for($obj in $objects)
+    {
+        catchQuiet(`setAttr ($obj + ".overrideEnabled") 1`);
+		catchQuiet(`setAttr -lock false ($obj + ".overrideColor") $colors[$i]`);
+		$col_num[$i]= $colors[$i];
+		$i++;
+		if($i>=size( $colors))
+		    $i=0;
+    }
+    return $col_num;
+}
+global proc MIRR_92de112c5c170c44ad9daf4d48b1acdd(float $rad)
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	for($i=0;$i<size($objs);$i++)
+		catchQuiet (`setAttr ($objs[$i] + ".radius") $rad`);
+}
+global proc float[] MIRR_1b2691cd3c4740f4f00465c7e94c0373(string $jnts[], float $rad)
+{
+    string $jnt;
+    float $glob_scale[];
+    float $curr_j_disp_scale=`jointDisplayScale -q -a`;
+    float $fin_local_scales[];
+    $i=0;
+    for($jnt in $jnts)
+    {
+        $glob_scale=`xform -q -ws -s $jnt`;
+        $glob_scale[0]= abs($glob_scale[0]);
+        $glob_scale[1]= abs($glob_scale[1]);
+        $glob_scale[2]= abs($glob_scale[2]);
+        $glob_scale=sort( $glob_scale);
+        $fin_local_scales[$i]=$rad/$glob_scale[2]/$curr_j_disp_scale;
+        catchQuiet (`setAttr ($jnt + ".radius") $fin_local_scales[$i]`);
+        $i++;
+    }
+    return $fin_local_scales;
+}
+global proc MIRR_29941243f77aa0343e79460d48136072 (float $local_scale)
+{
+	string $objs[] = `ls-sl`;
+	$local_scale=MIRR_f71c299bf7b53f7243b078a9990e581c($local_scale)*MIRR_f71c299bf7b53f7243b078a9990e581c(1);
+	if(!size($objs))
+		return;
+	for($i=0;$i<size($objs);$i++)
+	{
+		catchQuiet (`setAttr ($objs[$i] + ".localScaleX") $local_scale`);
+		catchQuiet (`setAttr ($objs[$i] + ".localScaleY") $local_scale`);
+		catchQuiet (`setAttr ($objs[$i] + ".localScaleZ") $local_scale`);
+	}
+}
+global proc MIRR_e9a3d5ffe283044f2485219b12ac5f73(string $objs[], int $vis)
+{
+	if(!size($objs))
+		return;
+	string $obj;
+	for($obj in $objs)
+			setAttr ($obj + ".hiddenInOutliner") $vis;
+}
+global proc MIRR_4c2952dd9f486573856c8eb6a0dc46ac(int $vis)
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	string $obj;
+	for($obj in $objs)
+	{
+		if (!`getAttr -lock ($obj + ".v")`)
+			setAttr ($obj + ".v") $vis;
+	}
+}
+global proc MIRR_6de8028af587b467034457b4d6349f89(float $subScale)
+{
+    int $camera_ortograf=0;
+	float $dist=50;
+	$subScale=MIRR_f71c299bf7b53f7243b078a9990e581c($subScale)/MIRR_f71c299bf7b53f7243b078a9990e581c(1)/MIRR_f71c299bf7b53f7243b078a9990e581c(1);
+	$sel=`ls-head 1 -sl`;
+	string $camera_name="";
+	float $camera_scale=1;
+	catchQuiet( $camera_name= MIRR_20a28b95c1b8b4dd29397ab332dbc667());
+	if( $camera_name =="no model panel viewport")
+	    $camera_name="persp";
+	catchQuiet( $camera_scale=`getAttr ($camera_name + ".cameraScale")`);
+	catchQuiet( $dist=MIRR_c7822f1f10b007a6803735c105e40799($sel[0], $camera_name));
+	catchQuiet( $camera_ortograf=`getAttr ($camera_name + ".orthographic")`);
+	catchQuiet( $camera_orthographicWidth=`getAttr ($camera_name + ".orthographicWidth")`);
+	if(!$camera_ortograf)
+	    catchQuiet(MIRR_29941243f77aa0343e79460d48136072 (($dist/25)*$subScale*$camera_scale));
+	else
+	   catchQuiet(MIRR_29941243f77aa0343e79460d48136072 (($camera_orthographicWidth/25)*$subScale*$camera_scale));
+}
+global proc string [] MIRR_ac2021d0d7ff3ecfad4dbca9f9f88248(string $target_massiv[], string $object_massiv[])
+{
+	string $name_of_constrain[];
+	string $tmp[];
+	for($i=0;$i<size($target_massiv);$i++)
+		{
+		$rx_lock=`getAttr -lock ($object_massiv[$i] + ".rx")`;
+		$ry_lock=`getAttr -lock ($object_massiv[$i] + ".ry")`;
+		$rz_lock=`getAttr -lock ($object_massiv[$i] + ".rz")`;
+		$h=$rx_lock+$ry_lock+$rz_lock;
+		if ($h<3)
+		{
+			$skipX= "";
+			$skipY= "";
+			$skipZ= "";
+			if($rx_lock)
+				$skipX= " -skip x";
+			if($ry_lock)
+				$skipY= " -skip y";
+			if($rz_lock)
+				$skipZ= " -skip z";
+			$skipped = $skipX + $skipY + $skipZ;
+			$tmp=`eval ("orientConstraint  " + $skipped + " " + $target_massiv[$i] + " " + $object_massiv[$i])`;
+			$name_of_constrain[$i]=$tmp[0];
+		}
+	}
+	return $name_of_constrain;
+}
+global proc string [] MIRR_bfe56aae7d5797fb0a4d2b81c633d99e(string $target_massiv[], string $object_massiv[])
+{
+	string $name_of_constrain[];
+	string $tmp[];
+	int $h;
+	int $rx_lock;
+	int $ry_lock;
+	int $rz_lock;
+	string $skipX;
+	string $skipY;
+	string $skipZ;
+	string $skipped;
+	for($i=0;$i<size($target_massiv);$i++)
+		{
+		$rx_lock=`getAttr -lock ($object_massiv[$i] + ".sx")`;
+		$ry_lock=`getAttr -lock ($object_massiv[$i] + ".sy")`;
+		$rz_lock=`getAttr -lock ($object_massiv[$i] + ".sz")`;
+		$h=$rx_lock+$ry_lock+$rz_lock;
+		if ($h<3)
+		{
+			$skipX= "";
+			$skipY= "";
+			$skipZ= "";
+			if($rx_lock)
+				$skipX= " -skip x";
+			if($ry_lock)
+				$skipY= " -skip y";
+			if($rz_lock)
+				$skipZ= " -skip z";
+			$skipped = $skipX + $skipY + $skipZ;
+			$tmp=`eval ("scaleConstraint " + $skipped + " " + $target_massiv[$i] + " " + $object_massiv[$i])`;
+			$name_of_constrain[$i]=$tmp[0];
+		}
+	}
+	return $name_of_constrain;
+}
+global proc float[] MIRR_8598296823aa3af15686cb0d78f1615d(string $selection)
+{
+    float $objPosition[];
+    float $getPvPos[];
+    float $Rot[];
+    string $buffer[];
+    string $e_f_result[];
+    vector $coords[];
+    vector $coo;
+    float $pos[];
+    int $num;
+    if ((`objectType -isType "mesh" $selection`)+(`objectType -isType "nurbsSurface" $selection`)+(`objectType -isType "nurbsCurve" $selection`)+(`objectType -isType "lattice" $selection`))
+	{
+        if (`objectType -isType "mesh" $selection`)
+        {
+            tokenize  $selection "." $buffer;
+            $objname=$buffer[0];
+            tokenize  $buffer[1] "[]" $buffer;
+            $component_name=$buffer[0];
+            if($component_name=="vtx")
+            {
+                $getPvPos=`pointPosition -world $selection`;
+                $objPosition={$getPvPos[0],$getPvPos[1],$getPvPos[2],0,0,0};
+            }
+            if($component_name=="e")
+            {
+                $e_f_result=`polyInfo -ev $selection`;
+                $num=`tokenize  $e_f_result[0] " " $buffer`;
+                $j=0;
+                for($i=2;$i<$num-1;$i++)
+                {
+                    $getPvPos=`pointPosition -world ($objname + ".vtx[" + $buffer[$i] + "]")`;
+                    print ($objname + ".vtx[" + $buffer[$i] + "]");
+                    $coords[$j]=<<$getPvPos[0],$getPvPos[1],$getPvPos[2]>>;
+                    $j++;
+                }
+                $coo=MIRR_e3bea614176fbceebe7c7aae67e953b0($coords);
+                $objPosition={$coo.x,$coo.y,$coo.z,0,0,0};
+            }
+            if($component_name=="f")
+            {
+                $e_f_result=`polyInfo -fv $selection`;
+                tokenize  $e_f_result[0] " " $buffer;
+                $j=0;
+                for($i=2;$i<size($buffer)-1;$i++)
+                {
+                    $getPvPos=`pointPosition -world ($objname + ".vtx[" + $buffer[$i] + "]")`;
+                    $coords[$j]=<<$getPvPos[0],$getPvPos[1],$getPvPos[2]>>;
+                    $j++;
+                }
+                $coo=MIRR_e3bea614176fbceebe7c7aae67e953b0($coords);
+                $objPosition={$coo.x,$coo.y,$coo.z,0,0,0};
+            }
+        }
+        else
+        {
+    		$getPvPos=`pointPosition -world $selection`;
+    		$objPosition={$getPvPos[0],$getPvPos[1],$getPvPos[2],0,0,0};
+		}
+	}
+	else
+	{
+		$getPvPos = `xform -q -ws -piv $selection `;
+		$Rot= `xform -q -ro -ws $selection`;
+		$objPosition={$getPvPos[0],$getPvPos[1],$getPvPos[2],$Rot[0],$Rot[1],$Rot[2]};
+	}
+	return $objPosition;
+}
+global proc string[] MIRR_17431451b1be026fdeee93b86579c6b6(string $target_massiv[], string $object_massiv[])
+{
+	string $name_constrain[];
+	string $tmp_constrain[];
+	string $skipTX;
+	string $skipTY;
+	string $skipTZ;
+	string $skipRX;
+	string $skipRY;
+	string $skipRZ;
+	string $delChannelTX;
+	string $delChannelTY;
+	string $delChannelTZ;
+	string $delChannelRX;
+	string $delChannelRY;
+	string $delChannelRZ;
+	int $rx_lock;
+	int $ry_lock;
+	int $rz_lock;
+	int $tx_lock;
+	int $ty_lock;
+	int $tz_lock;
+	for($i=0;$i<size($target_massiv);$i++)
+	{
+		$rx_lock=`getAttr -lock ($object_massiv[$i] + ".rx")`;
+		$ry_lock=`getAttr -lock ($object_massiv[$i] + ".ry")`;
+		$rz_lock=`getAttr -lock ($object_massiv[$i] + ".rz")`;
+		$tx_lock=`getAttr -lock ($object_massiv[$i] + ".tx")`;
+		$ty_lock=`getAttr -lock ($object_massiv[$i] + ".ty")`;
+		$tz_lock=`getAttr -lock ($object_massiv[$i] + ".tz")`;
+		$h=$rx_lock+$ry_lock+$rz_lock+$tx_lock+$ty_lock+$tz_lock;
+		if ($h<6)
+		{
+			$skipTX= "";
+			$skipTY= "";
+			$skipTZ= "";
+			$skipRX= "";
+			$skipRY= "";
+			$skipRZ= "";
+			$delChannelTX = "";
+			$delChannelTY = "";
+			$delChannelTZ = "";
+			$delChannelRX = "";
+			$delChannelRY = "";
+			$delChannelRZ = "";
+			if($tx_lock)
+				$skipTX= " -st x";
+			else
+				$delChannelTX =" -at \"tx\"";
+			if($ty_lock)
+				$skipTY= " -st y";
+			else
+				$delChannelTY =" -at \"ty\"";
+			if($tz_lock)
+				$skipTZ= " -st z";
+			else
+				$delChannelTZ =" -at \"tz\"";
+			if($rx_lock)
+				$skipRX= " -sr x";
+			else
+				$delChannelRX =" -at \"rx\"";
+			if($ry_lock)
+				$skipRY= " -sr y";
+			else
+				$delChannelRY =" -at \"ry\"";
+			if($rz_lock)
+				$skipRZ= " -sr z";
+			else
+				$delChannelRZ =" -at \"rz\"";
+			$skipped = $skipTX + $skipTY + $skipTZ + $skipRX + $skipRY + $skipRZ;
+			if($target_massiv[$i]!="")
+			{
+			$tmp_constrain=`eval ("parentConstraint -mo " + $skipped + " " + $target_massiv[$i] + " " + $object_massiv[$i])`;
+			}
+			$name_constrain[$i]=$tmp_constrain[0];
+		}
+	}
+	return $name_constrain;
+}
+global proc MIRR_5e8af8371c687e5c50d7ded5040ffe13(string $target_position[], string $object_to_move[])
+{
+	float $Trans[];
+	float $Rot[];
+	for($i=0;$i<size($target_position);$i++)
+	{
+        $Trans=MIRR_8598296823aa3af15686cb0d78f1615d($target_position[$i]);
+        $Rot={$Trans[3],$Trans[4],$Trans[5]};
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $object_to_move[$i];
+		move -rpr $Trans[0] $Trans[1] $Trans[2] $object_to_move[$i];
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $object_to_move[$i];
+		move -rpr $Trans[0] $Trans[1] $Trans[2] $object_to_move[$i];
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $object_to_move[$i];
+		move -rpr $Trans[0] $Trans[1] $Trans[2] $object_to_move[$i];
+	}
+}
+global proc MIRR_5145561f67290e54dacf2e0b5d4f02b7(string $target_position[], string $object_to_move[])
+{
+	for($i=0;$i<size($target_position);$i++)
+	{
+		$Rot = `xform -q -ro -ws $target_position[$i]`;
+		$Trans = `xform -q -ws -piv $target_position[$i]`;
+		$Scale =`xform -q -s -ws $target_position[$i]`;
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $object_to_move[$i];
+		move -rpr $Trans[0] $Trans[1] $Trans[2] $object_to_move[$i];
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $object_to_move[$i];
+		move -rpr $Trans[0] $Trans[1] $Trans[2] $object_to_move[$i];
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $object_to_move[$i];
+		move -rpr $Trans[0] $Trans[1] $Trans[2] $object_to_move[$i];
+		scale -a $Scale[0] $Scale[1] $Scale[2]  $object_to_move[$i];
+		scale -a $Scale[0] $Scale[1] $Scale[2]  $object_to_move[$i];
+		scale -a $Scale[0] $Scale[1] $Scale[2]  $object_to_move[$i];
+	}
+}
+global proc MIRR_9a8d2e62249cad27916aacc736478655()
+{
+	$obj=`ls-sl`;
+	if (size($obj) == 2)
+	{
+		$Rot = `xform -q -ro -ws $obj[0]`;
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $obj[1];
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $obj[1];
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $obj[1];
+	}
+	else
+	{
+		warning "Select 2 object!";
+	}
+}
+global proc float[] MIRR_9713c7abe7f317a1eaefb22b30d9ce1c()
+{
+	$obj=`ls-sl`;
+	float $distance[];
+	float $pos1[];
+	float $pos2[];
+	if(size($obj)<2)
+	{
+		warning "Select 2 object!";
+		return $pos1;
+	}
+	else
+	{
+		$pos1=`xform -q  -ws -piv $obj[0]`;
+		$pos2=`xform -q  -ws -piv $obj[1]`;
+		for($i=0;$i<3;$i++)
+		{
+			$distance[$i]=$pos1[$i]-$pos2[$i];
+		}
+	}
+	if (size($obj) == 2)
+	{
+		move -rpr $pos1[0] $pos1[1] $pos1[2] $obj[1];
+		move -rpr $pos1[0] $pos1[1] $pos1[2] $obj[1];
+		move -rpr $pos1[0] $pos1[1] $pos1[2] $obj[1];
+		return $pos1;
+	}
+	if (size($obj) > 2)
+	{
+		$range=size($obj)-1;
+		$x=$distance[0]/$range;
+		$y=$distance[1]/$range;
+		$z=$distance[2]/$range;
+		for($i=2;$i<size($obj);$i++)
+		{
+		   move -rpr ($pos1[0] - $x*($i-1)) ($pos1[1] - $y*($i-1)) ($pos1[2] - $z*($i-1)) $obj[$i];
+		   move -rpr ($pos1[0] - $x*($i-1)) ($pos1[1] - $y*($i-1)) ($pos1[2] - $z*($i-1)) $obj[$i];
+		   move -rpr ($pos1[0] - $x*($i-1)) ($pos1[1] - $y*($i-1)) ($pos1[2] - $z*($i-1)) $obj[$i];
+		}
+		return $pos1;
+	}
+}
+global proc MIRR_3a25eaad774c71ebdcb06ee4d2b25ce3()
+{
+	$objs = `ls-sl`;
+	for($obj in $objs)
+	{
+	    if(`objectType -i "joint" $obj`)
+	    {
+    		if(!`getAttr -lock ($obj + ".jointOrientX")`)
+    			setAttr ($obj + ".jointOrientX") 0;
+    		if(!`getAttr  -lock ($obj + ".jointOrientY") `)
+    			setAttr ($obj + ".jointOrientY") 0;
+    		if(!`getAttr  -lock ($obj + ".jointOrientZ")`)
+    			setAttr ($obj + ".jointOrientZ") 0;
+    	}
+	}
+}
+global proc MIRR_9a3ce25cfdbc96f0053e2e03715d7f2b()
+{
+	$objs = `ls-sl`;
+	for($obj in $objs)
+	{
+		if(!`getAttr -lock ($obj + ".rx") `)
+			setAttr ($obj + ".rx") 0;
+		if(!`getAttr  -lock ($obj + ".ry") `)
+			setAttr ($obj + ".ry") 0;
+		if(!`getAttr  -lock ($obj + ".rz")`)
+			setAttr ($obj + ".rz") 0;
+	}
+}
+global proc MIRR_41b4e3b470ec48427b6ebd4f09a607e7()
+{
+	$objs = `ls-sl`;
+	for($obj in $objs)
+	{
+		if(!`getAttr -lock ($obj + ".tx") `)
+			setAttr ($obj + ".tx") 0;
+		if(!`getAttr  -lock ($obj + ".ty") `)
+			setAttr ($obj + ".ty") 0;
+		if(!`getAttr  -lock ($obj + ".tz")`)
+			setAttr ($obj + ".tz") 0;
+	}
+}
+global proc string[] MIRR_194c7b09c27128a45486ac17560c7a25(string $objs[])
+{
+	string $new_selected[];
+	$j=0;
+	for($i=0;$i<size($objs);$i++)
+	{
+		if( `objExists $objs[$i]` )
+		{
+			$new_selected[$j] = $objs[$i];
+			$j++;
+		}
+	}
+	select -r $new_selected;
+	return $new_selected;
+}
+global proc float MIRR_c7822f1f10b007a6803735c105e40799(string $obj1, string $obj2)
+{
+	float $temp[]=MIRR_8598296823aa3af15686cb0d78f1615d($obj1);
+	vector $point1 = <<$temp[0], $temp[1], $temp[2]>>;
+	$temp=MIRR_8598296823aa3af15686cb0d78f1615d($obj2);
+	vector $point2 = <<$temp[0], $temp[1], $temp[2]>>;
+	float $lenght=`mag($point1-$point2)`;
+	return  $lenght;
+}
+global proc string[] MIRR_b3acc831f9f61a01a45fe7165ec12c62(string $full_name,string $side_from,string $side_to)
+{
+	string $buffer[], $short_names_buff[],$short_names_variations[],$namespaces[],$short_names_plus_buff[],$short_names_plus_buff_vari[];
+	int $num_buf,$snb;
+	string $temp_namespaces="";
+	tokenize  $full_name ":" $buffer;
+	$num_buf=size($buffer)-1;
+	$namespaces=$buffer;
+	stringArrayRemoveAtIndex($num_buf, $namespaces);
+	if(size($namespaces)>0)
+	    $temp_namespaces=stringArrayToString($namespaces, ":") + ":";
+	string $short_name=$buffer[$num_buf];
+	$short_names_buff=MIRR_465f2c70f8e4bf417e93834f61ee4f6e($short_name, $side_from);
+	$snb=size($short_names_buff);
+	for($i=0;$i<$snb; $i++)
+	{
+		$short_names_plus_buff[$i*2]=$short_names_buff[$i];
+		$short_names_plus_buff[$i*2+1]="";
+	}
+	for($i=0;$i<$snb; $i++)
+	{
+		$short_names_plus_buff_vari= $short_names_plus_buff;
+    		for($j=0;$j<$snb-1; $j++)
+    		{
+    			$short_names_plus_buff_vari[$j*2+1]=$side_from;
+    			$short_names_plus_buff_vari[$i*2+1]=$side_to;
+    		}
+		$short_names_variations[$i]=$temp_namespaces + stringArrayToString($short_names_plus_buff_vari,"") ;
+	}
+	return $short_names_variations;
+}
+global proc string MIRR_c954f3ebe8232ef721ae19221935b64e(string $take_name)
+{
+    $i=0;
+    while (`objExists $take_name`)
+    {
+        $take_name=( $take_name + $i);
+	}
+   return $take_name;
+}
+global proc MIRR_95d47209f5832c068ce7614b82201089()
+{
+	$selection=`ls-sl`;
+	$lock_name =` spaceLocator `;
+	setKeyframe -at rx -at ry -at rz $lock_name[0];
+	$currTime=(`currentTime -q`) -1;
+    setKeyframe  -at rx -at ry -at rz -t $currTime;
+	string $obj;
+	for($obj in $selection)
+	{
+		$rx=getAttr($obj + ".rx");
+		$ry=getAttr($obj + ".ry");
+		$rz=getAttr($obj + ".rz");
+		rotate -a $rx $ry $rz $lock_name[0];
+		setKeyframe -at rx -at ry -at rz $lock_name[0];
+		filterCurve $lock_name.rotateX $lock_name.rotateY $lock_name.rotateZ;
+	    $rx=getAttr($lock_name[0] + ".rx");
+		$ry=getAttr($lock_name[0] + ".ry");
+		$rz=getAttr($lock_name[0] + ".rz");
+		rotate -a $rx $ry $rz $obj;
+	}
+	delete $lock_name;
+	select $selection;
+}
+global proc MIRR_9ef8981ccf72c74373e900ef581dfaea(string $target[], string $object[])
+{
+    float $targ_attr[];
+    for($i=0;$i<size($target);$i++)
+    {
+        catchQuiet($targ_attr=`getAttr ($target[$i] + ".translate")`);
+        catchQuiet(`setAttr ($object[$i] + ".translateX") $targ_attr[0]`);
+		catchQuiet(`setAttr ($object[$i] + ".translateY") $targ_attr[1]`);
+		catchQuiet(`setAttr ($object[$i] + ".translateZ") $targ_attr[2]`);
+    }
+}
+global proc MIRR_8f1bbed6c413bd9cd1ae5d3c63afb5cc(string $target[], string $object[])
+{
+    float $targ_attr[];
+    for($i=0;$i<size($target);$i++)
+    {
+        catchQuiet($targ_attr=`getAttr ($target[$i] + ".rotate")`);
+		catchQuiet(`setAttr ($object[$i] + ".rotateX") $targ_attr[0]`);
+		catchQuiet(`setAttr ($object[$i] + ".rotateY") $targ_attr[1]`);
+		catchQuiet(`setAttr ($object[$i] + ".rotateZ") $targ_attr[2]`);
+    }
+}
+global proc MIRR_2fa2b06e9166235ba786cb6586606b52(string $target[], string $object[])
+{
+    float $targ_attr[];
+    for($i=0;$i<size($target);$i++)
+    {
+        catchQuiet($targ_attr=`getAttr ($target[$i] + ".scale")`);
+        catchQuiet(`setAttr ($object[$i] + ".scale") $targ_attr[0] $targ_attr[1] $targ_attr[2]`);
+    }
+}
+global proc MIRR_c8fcd9a605f50c9c5156cafe60648ba3(string $target[], string $object[])
+{
+	string $attrib[], $attr;
+    for($i=0;$i<size($target);$i++)
+    {
+		$attrib=`listAttr -k -v -ud $target[$i]`;
+		for($attr in $attrib)
+			catchQuiet(`connectAttr -f ($target[$i] + "." + $attr) ($object[$i] + "." + $attr) `);
+    }
+}
+global proc string MIRR_27fa0883c172ae08e08f5b2f5e58ad38(string $icon, string $command, string $to_object)
+{
+    $exist_manip=`ls -o "Manipulator*"`;
+    buttonManip -icon $icon $command $to_object;
+    $all_with_new_manip = `ls -o "Manipulator*"`;
+    string $new_manip_object[] = stringArrayRemove($exist_manip,$all_with_new_manip);
+    string $returned=$new_manip_object[0];
+    return $returned;
+}
+global proc string MIRR_20a28b95c1b8b4dd29397ab332dbc667()
+{
+    $currentPanel = `getPanel -withFocus`;
+    $error=catch($cam_name=`modelEditor -q -camera  $currentPanel`);
+    if($error)
+    {
+        $cam_name="no model panel viewport";
+    }
+    return $cam_name;
+}
+global proc string[] MIRR_8a435c1e94becce7728e63b61ba412bd(float $radius)
+{
+	$selection = `ls -fl -sl `;
+	string $curve_sphere[];
+	if(size($selection)>0)
+	{
+		for($i=0;$i<size($selection);$i++)
+		{
+			$curve_sphere[$i]=MIRR_1a0417e38be183894da98c3ef5716f0d($radius);
+		}
+		MIRR_847308ac6f1debf8edcc8d63e128d64c( $selection, $curve_sphere);
+		rotate_to_position( $selection,$curve_sphere);
+	}
+	else
+	{
+		$curve_sphere[0]=MIRR_1a0417e38be183894da98c3ef5716f0d($radius);
+	}
+   select $curve_sphere ;
+   return $curve_sphere;
+}
+global proc string MIRR_1a0417e38be183894da98c3ef5716f0d(float $radius)
+{
+	string $curves[];
+	$crv=`curve -d 1
+        -p 0  0.5  0
+        -p 0  -0.5  0
+        -p 0  0  0
+        -p 0.5  0  0
+        -p -0.5  0  0
+        -p 0  0  0
+        -p 0  0  0.5
+        -p 0  0  -0.5 ` ;
+        scale -a (1*$radius) (1*$radius) (1*$radius)  $crv;
+        makeIdentity -apply true -t 1 -r 1 -s 1 -n 0 -pn 1;
+        select $crv;
+        return $crv;
+};
+global proc string[] MIRR_465f2c70f8e4bf417e93834f61ee4f6e(string $stroka, string $poisk)
+{
+	string $buffer[]={};
+	string $fin_str=$stroka;
+	int $siz_stroka=sizeBytes($stroka);
+	int $siz_poisk=sizeBytes($poisk);
+	for($i=0;$i<($siz_stroka/ $siz_poisk)+1;$i++)
+	    $fin_str=`substitute $poisk $fin_str "###^@@@"`;
+	tokenize $fin_str "^" $buffer;
+	for($i=0;$i<size($buffer);$i++)
+	{
+	    $buffer[$i]=`substitute "###" $buffer[$i] ""`;
+	    $buffer[$i]=`substitute "@@@" $buffer[$i] ""`;
+	}
+	return $buffer;
+}
+global proc float MIRR_a358a7c27f7a7b80712d695138ed032e(string $objects[], int $average)
+{
+    float $distance;
+    for($i=0;$i<size($objects)-1;$i++)
+        $distance=$distance + MIRR_c7822f1f10b007a6803735c105e40799($objects[$i] , $objects[$i+1]);
+    if($average)
+         $distance=$distance/(size($objects)-1);
+    return $distance;
+}
+global proc vector MIRR_e3bea614176fbceebe7c7aae67e953b0(vector $coords[])
+{
+	int $num = `size $coords`;
+	vector $ff;
+	for ($each in $coords)
+	    $ff+=$each;
+	$ff=($ff/$num);
+	return $ff;
+}
+global proc float MIRR_f71c299bf7b53f7243b078a9990e581c(float $input)
+{
+   string $un=`currentUnit -query -linear`;
+   float $output;
+   float $coeff;
+   if($un=="mm")
+       $coeff=0.1;
+   if($un=="cm")
+       $coeff=1;
+   if($un=="m")
+       $coeff=100;
+   if($un=="km")
+       $coeff=100000;
+   if($un=="in")
+       $coeff=2.54;
+   if($un=="ft")
+       $coeff=30.48;
+   if($un=="yd")
+       $coeff=91.44;
+   if($un=="mi")
+       $coeff=160934.4;
+    $output =  $input/$coeff;
+    return $output;
+}
+global proc string MIRR_41a30a2e9e6a02aac72ab138d3f62f90(string $attribname, string $object)
+{
+    addAttr -ln $attribname -nn $attribname -at double -dv 0 $object;
+    setAttr -e-channelBox true ($object + "." + $attribname);
+    return   ($object + "." + $attribname);
+}
+global proc string MIRR_81710030388b6f6922e422fe523dd15a(string $attribname, string $object)
+{
+    addAttr -ln $attribname -nn $attribname -at double -dv 0 $object;
+    setAttr -e -channelBox true   ($object + "." + $attribname);
+    setAttr -keyable true ($object + "." + $attribname);
+    return   ($object + "." + $attribname);
+}
+global proc string MIRR_65107bc37ea4a0d842be293fd78287a9(string $attribname, string $object)
+{
+    addAttr -ln $attribname -nn $attribname -at long  -dv 0 $object;
+    setAttr -e-channelBox true ($object + "." + $attribname);
+    return   ($object + "." + $attribname);
+}
+global proc string MIRR_e8f0c3b3e6300189aca31ae83320ec92(string $node_name_mask)
+{
+	$connected_nodes=`listConnections -t node`;
+	string $nodename;
+	int $has_connect_to_recalculate=0;
+	string $obj;
+	for($obj in $connected_nodes)
+		{
+		   if(`gmatch $obj $node_name_mask`)
+		   {
+		   $nodename=$obj;
+		   $has_connect_to_recalculate=1;
+		   }
+		}
+		return  $nodename;
+}
+global proc string[] MIRR_6c03bcf1c4cd077aea727f60dfb001f6(int $mode, string $nodename_mask)
+{
+    string $prevouos[];
+    string $next[];
+    string  $connected_items[];
+    int $current_item_index;
+    int $connected_items_size;
+    $select_items=`ls-sl`;
+    $j=0;
+    string $all_connected_items[];
+	string $top_connected_items[];
+    for($obj in $select_items)
+    {
+        select $obj;
+        $nodename=MIRR_e8f0c3b3e6300189aca31ae83320ec92($nodename_mask);
+        if($nodename!="")
+        {
+            $connected_items=`listConnections  -d 1 $nodename`;
+            $connected_items_size =size($connected_items)-1;
+            for ($i=0; $i<=$connected_items_size;$i++)
+            {
+              if($connected_items[$i]==$obj)
+                    $current_item_index=$i;
+            }
+        }
+        if($current_item_index!=0)
+            $prevouos[$j]=$connected_items[$current_item_index -1];
+        else
+            $prevouos[$j]=$connected_items[$connected_items_size];
+        if($current_item_index!=$connected_items_size)
+            $next[$j]=$connected_items[$current_item_index+1];
+        else
+            $next[$j]=$connected_items[0];
+        $j++;
+        appendStringArray( $all_connected_items, $connected_items, `size $connected_items`);
+		appendStringArray( $top_connected_items, $connected_items, 1);
+    }
+	$all_connected_items=stringArrayRemoveDuplicates($all_connected_items);
+	$top_connected_items=stringArrayRemoveDuplicates($top_connected_items);
+	select $select_items;
+	if($mode==2)
+		return $top_connected_items;
+    if($mode==-1)
+        return $prevouos;
+    if($mode==1)
+        return $next;
+        else
+        return $all_connected_items;
+}
+global proc string MIRR_b3a0af3dcb5c339fc02c21363528b660(string $type_of_connection, int $offset)
+{
+    string $selection[]=`ls-sl`;
+    string $constr;
+    string $lock=MIRR_1ae288c6b64a87de88c296f40fb5ed72($selection[0]) ;
+    select $lock $selection[1];
+   if( $type_of_connection=="parent")
+   {
+		delete `orientConstraint $selection[1] $lock`;
+        $constr=MIRR_3463baee6dea488d87f160cd40a14353({$lock,$selection[1]}, $offset);
+		catchQuiet (`setAttr ($constr + ".interpType") 2`);
+        catchQuiet (`setAttr ($constr + ".target[0].targetOffsetTranslateX") 0`);
+        catchQuiet (`setAttr ($constr + ".target[0].targetOffsetTranslateY") 0`);
+        catchQuiet (`setAttr ($constr + ".target[0].targetOffsetTranslateZ") 0`);
+   }
+    if( $type_of_connection=="orient")
+	{
+		delete `orientConstraint $selection[1] $lock`;
+        $constr=MIRR_008e7eaba89cfdd4ba3b1eca102e0dba({$lock,$selection[1]}, $offset);
+		setAttr ($constr + ".interpType") 2;
+	}
+     if( $type_of_connection=="point")
+        $constr=MIRR_e0b44e5f427a869b704a743cf1d3614c();
+   select  $lock;
+   return  $constr;
+}
+global proc string MIRR_1ae288c6b64a87de88c296f40fb5ed72(string $object)
+{
+	$selection=`ls-sl`;
+	select $object;
+	$lock_name=MIRR_7c2ba8388365b4e58c01dc0fb2c2d23c();
+	select $selection;
+	return $lock_name[0];
+}
+global proc MIRR_338d6d9c2032e82a688aa841f622a6cf()
+{
+	$name_mirror_sys_node=MIRR_e8f0c3b3e6300189aca31ae83320ec92("*mirror_barnev_system*");
+	if($name_mirror_sys_node=="")
+	{
+		warning "selected object not connected to Mirror System";
+		return;
+	}
+	if (`getAttr($name_mirror_sys_node + ".calculate")`==0)
+	{
+		string $obj;
+		$j=0;
+		string  $connection_input[];
+		string  $connection_output[];
+		string $list_mirr_obj_attribs[];
+		if($name_mirror_sys_node!="")
+		{
+		  for($obj in `attributeInfo -all   $name_mirror_sys_node`)
+		  {
+			   if(`gmatch $obj "mirr_obj*"`)
+			   {
+				   $tmp_input=`listConnections  -d 0 -s 1  ($name_mirror_sys_node + "." + $obj)`;
+				   $tmp_output=`listConnections  -d 1 -s 0  ($name_mirror_sys_node + "." + $obj)`;
+				  if(( $tmp_input[0]!="")&&($tmp_output[0]!=""))
+				  {
+					  $list_mirr_obj_attribs[$j]=$obj;
+					  $connection_input[$j]=$tmp_input[0];
+					  $connection_output[$j]=$tmp_output[0];
+					  $j++;
+				  }
+			   }
+		  }
+		}
+		if(size($list_mirr_obj_attribs)==0)
+		{
+			error "mirror system not have connections";
+		}
+		$time=`currentTime -q`;
+		autoKeyframe -state off;
+		cutKey -cl -t ":" -f ":"   $connection_output;
+		for($i=`playbackOptions -q -min`;$i<=`playbackOptions -q -max`;$i++)
+		{
+			currentTime $i;
+			MIRR_8f1bbed6c413bd9cd1ae5d3c63afb5cc($connection_input, $connection_output);
+			MIRR_9ef8981ccf72c74373e900ef581dfaea($connection_input, $connection_output);
+			MIRR_2fa2b06e9166235ba786cb6586606b52($connection_input, $connection_output);
+			MIRR_4aba01922b93bf80f149ac6b55439e7d($connection_input, $connection_output);
+			setKeyframe $connection_output;
+		}
+		autoKeyframe -state on;
+		currentTime $time;
+		keyframe -e -iub true -r -o over -tc (`getAttr($name_mirror_sys_node + ".offset")`) $connection_output;
+		if (`getAttr($name_mirror_sys_node + ".cycled")`==1)
+			setInfinity -pri cycle -poi cycle $connection_output;
+		else
+			setInfinity -pri constant -poi constant $connection_output;
+	}
+}
+global proc execute_single_MT_calculation(string $manip_name)
+{
+$selected=`ls-sl`;
+select `listConnections  -d 0 -s 1 $manip_name`;
+MIRR_692e2fda85cadfdf0f28e93323f58c08;
+MIRR_338d6d9c2032e82a688aa841f622a6cf();
+MIRR_f4b1a2b52ab1771321003f86cde63160;
+select $selected;
+}
+global proc rotate_to_position(string $target_position[], string $object_to_move[])
+{
+	for($i=0;$i<size($target_position);$i++)
+	{
+		$Rot = `xform -q -ro -ws $target_position[$i]`; 
+		//3 раза - потому что иначе не проставляется в слое
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $object_to_move[$i];
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $object_to_move[$i];
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $object_to_move[$i];
+	}	
+}
+global proc string[] MIRR_19d76f37038db0f20211caf8b74f382f(float $radius, float $rnd_persent)
+{
+	$selection = `ls -fl -sl `;
+	string $curve_sphere[];
+	if(size($selection)>0)
+	{
+		for($i=0;$i<size($selection);$i++)
+			$curve_sphere[$i]= MIRR_ccabd0c1dfc9e3be77b0702d110cbb7c( $radius*(`rand  (-1*$rnd_persent) $rnd_persent` + 1));
+		MIRR_847308ac6f1debf8edcc8d63e128d64c( $selection, $curve_sphere);
+		rotate_to_position( $selection,$curve_sphere);
+	}
+	else
+	{
+		$curve_sphere[0]=MIRR_ccabd0c1dfc9e3be77b0702d110cbb7c($radius);
+	}
+   select $curve_sphere ;
+   return $curve_sphere;
+}
+global proc string[] MIRR_1b5534c2455631fcdd51693bf0e0f9d5()
+{
+	$name_mirror_sys_node=MIRR_e8f0c3b3e6300189aca31ae83320ec92("*mirror_barnev_system*");
+		if ( $name_mirror_sys_node=="")
+		{
+			warning "select Mirror System Lockator";
+			return {};
+		}
+			string  $connection_input[];
+			string  $connection_output[];
+			string $list_mirr_obj_attribs[];
+			string $obj;
+			$j=0;
+			if($name_mirror_sys_node!="")
+			{
+			  for($obj in `attributeInfo -all   $name_mirror_sys_node`)
+			  {
+				   if(`gmatch $obj "mirr_obj*"`)
+				   {
+					   $tmp_input=`listConnections  -d 0 -s 1  ($name_mirror_sys_node + "." + $obj)`;
+					   $tmp_output=`listConnections  -d 1 -s 0  ($name_mirror_sys_node + "." + $obj)`;
+					  if(( $tmp_input[0]!="")&&($tmp_output[0]!=""))
+					  {
+						  $list_mirr_obj_attribs[$j]=$obj;
+						  $connection_input[$j]=$tmp_input[0];
+						  $connection_output[$j]=$tmp_output[0];
+						  $j++;
+					  }
+				   }
+			  }
+			}
+			$connection_output=`pickWalk -d down $connection_output`;
+			return $connection_output;
+}
+global proc string MIRR_e0b44e5f427a869b704a743cf1d3614c()
+{
+	$obj=`ls-sl`;
+	string $name_of_constrain[];
+	$tx_lock=`getAttr -lock ($obj[1] + ".tx")`;
+	$ty_lock=`getAttr -lock ($obj[1] + ".ty")`;
+	$tz_lock=`getAttr -lock ($obj[1] + ".tz")`;
+	$h=$tx_lock+$ty_lock+$tz_lock;
+	if ($h<3)
+	{
+		$skipX= "";
+		$skipY= "";
+		$skipZ= "";
+		if($tx_lock)
+			$skipX= " -skip x";
+		if($ty_lock)
+			$skipY= " -skip y";
+		if($tz_lock)
+			$skipZ= " -skip z";
+		$skipped = $skipX + $skipY + $skipZ;
+		string $objects = "";
+		for($i=0;$i<size($obj);$i++)
+		{
+			$objects = $objects + $obj[$i] + " ";
+		}
+			$name_of_constrain=`eval ("pointConstraint  " + $skipped + " " + $objects)`;
+	}
+	return  $name_of_constrain[0];
+}
+global proc string MIRR_008e7eaba89cfdd4ba3b1eca102e0dba(string $obj[],int $offset)
+{
+	string $tmp_constr[];
+	$rx_lock=`getAttr -lock ($obj[(size($obj)-1)] + ".rx")`;
+	$ry_lock=`getAttr -lock ($obj[(size($obj)-1)] + ".ry")`;
+	$rz_lock=`getAttr -lock ($obj[(size($obj)-1)] + ".rz")`;
+	string $off= "";
+	if($offset)
+	    $off= " -mo ";
+	$h=$rx_lock+$ry_lock+$rz_lock;
+	if ($h<3)
+	{
+		$skipX= "";
+		$skipY= "";
+		$skipZ= "";
+		if($rx_lock)
+			$skipX= " -skipRotate x";
+		if($ry_lock)
+			$skipY= " -skipRotate y";
+		if($rz_lock)
+			$skipZ= " -skipRotate z";
+		string $objects = "";
+		$skipped = $skipX + $skipY + $skipZ;
+		for($i=0;$i<size($obj);$i++)
+		{
+			$objects = $objects + $obj[$i] + " ";
+		}
+		$tmp_constr=`eval ("parentConstraint  " + $off + "-skipTranslate x -skipTranslate y -skipTranslate z " + $skipped + " " + $objects)`;
+	}
+	return $tmp_constr[0];
+}
+global proc string MIRR_3463baee6dea488d87f160cd40a14353(string $obj[], int $offset)
+{
+	int $num_obj=size($obj);
+	string $ret_name;
+	string $name_of_constrain[];
+	$weight_all=MIRR_9de233870ac6b9c5087a491c3b4ca38a($obj);
+	string $off=" ";
+	if($offset)
+	    $off=" -mo ";
+	$rx_lock=`getAttr -lock ($obj[$num_obj-1] + ".rx")`;
+	$ry_lock=`getAttr -lock ($obj[$num_obj-1] + ".ry")`;
+	$rz_lock=`getAttr -lock ($obj[$num_obj-1] + ".rz")`;
+	$tx_lock=`getAttr -lock ($obj[$num_obj-1] + ".tx")`;
+	$ty_lock=`getAttr -lock ($obj[$num_obj-1] + ".ty")`;
+	$tz_lock=`getAttr -lock ($obj[$num_obj-1] + ".tz")`;
+	$h=$rx_lock+$ry_lock+$rz_lock+$tx_lock+$ty_lock+$tz_lock;
+	if ($h<6)
+	{
+		$skipTX= "";
+		$skipTY= "";
+		$skipTZ= "";
+		$skipRX= "";
+		$skipRY= "";
+		$skipRZ= "";
+		if($tx_lock)
+			$skipTX= " -st x";
+		if($ty_lock)
+			$skipTY= " -st y";
+		if($tz_lock)
+			$skipTZ= " -st z";
+		if($rx_lock)
+			$skipRX= " -sr x";
+		if($ry_lock)
+			$skipRY= " -sr y";
+		if($rz_lock)
+			$skipRZ= " -sr z";
+		$skipped = $skipTX + $skipTY + $skipTZ + $skipRX + $skipRY + $skipRZ;
+		string $objects = "";
+		for($i=0;$i<$num_obj;$i++)
+		{
+			$objects = $objects + $obj[$i] + " ";
+		}
+		$name_of_constrain=`eval ("parentConstraint " + $off + $skipped + " " + $objects)`;
+		for($i=0;$i<($num_obj-1);$i++)
+		{
+			$attr_name=`listAttr -string ("*W" + $i) $name_of_constrain[0]`;
+			catch (`setAttr ($name_of_constrain[0] + "." +  $attr_name[0]) $weight_all[$i]`);
+		}
+	}
+		$ret_name=$name_of_constrain[0];
+		return $ret_name;
+}
+global proc MIRR_847308ac6f1debf8edcc8d63e128d64c(string $target_position[], string $object_to_move[])
+{
+    float $Trans[];
+	for($i=0;$i<size($target_position);$i++)
+	{
+        $Trans=MIRR_8598296823aa3af15686cb0d78f1615d($target_position[$i]);
+		move -rpr $Trans[0] $Trans[1] $Trans[2] $object_to_move[$i];
+		move -rpr $Trans[0] $Trans[1] $Trans[2] $object_to_move[$i];
+		move -rpr $Trans[0] $Trans[1] $Trans[2] $object_to_move[$i];
+	}
+}
+global proc MIRR_4aba01922b93bf80f149ac6b55439e7d(string $target[], string $object[])
+{
+    float $targ_attr_val;
+	string $attrib[], $attr;
+    for($i=0;$i<size($target);$i++)
+    {
+		$attrib=`listAttr -k -v -ud $target[$i]`;
+		for($attr in $attrib)
+		{
+			catchQuiet($targ_attr_val=`getAttr ($target[$i] + "." + $attr)`);
+			catchQuiet(`setAttr ($object[$i] + "." + $attr) $targ_attr_val`);
+		}
+    }
+}
+global proc string MIRR_ccabd0c1dfc9e3be77b0702d110cbb7c(float $radius)
+{
+	string $curves[];
+	clear $curves;
+	$crv=`circle -c 0 0 0 -nr 0 0 1 -sw 360 -r  $radius -d 3 -ut 0 -tol 0.01 -s 8 -ch 0`;
+	catchQuiet (`setAttr -lock true ($crv[0] + ".rcurve")`);
+	catchQuiet (`setAttr -lock true ($crv[0] + ".cwdth")`);
+	catchQuiet (`setAttr -lock true ($crv[0] + ".srate")`);
+	catchQuiet (`setAttr -lock true ($crv[0] + ".ai_curve_shaderr")`);
+	catchQuiet (`setAttr -lock true ($crv[0] + ".ai_curve_shaderg")`);
+	catchQuiet (`setAttr -lock true ($crv[0] + ".ai_curve_shaderb")`);
+	appendStringArray( $curves, $crv, 1);
+	$crv=`duplicate -rr -rc`;
+	rotate -a -ws -fo 0 90 0 ;
+	appendStringArray( $curves, $crv, 1);
+	$crv=`duplicate -rr -rc`;
+	rotate -r -ws -fo 0 0 90 ;
+	appendStringArray( $curves, $crv, 1);
+	select $curves;
+	makeIdentity -apply true -t 1 -r 1 -s 1 -n 0 -pn 1;
+	for($i=1;$i<size($curves);$i++)
+	{
+		$shapes=`listRelatives -shapes  $curves[$i]`;
+		parent -add  -s  $shapes $curves[0];
+	}
+	select $curves;
+	select -d $curves[0];
+	delete;
+	select $curves[0];
+	makeIdentity -apply true -t 1 -r 1 -s 1 -n 0 -pn 1;
+	return $curves[0];
+}
+global proc string[] MIRR_7c2ba8388365b4e58c01dc0fb2c2d23c()
+{
+	string $object[]=`ls-sl`;
+	select -cl;
+	select $object;
+	string $lock[]=MIRR_e0a5f9682afe5d450c5614dd6a49ac78();
+	MIRR_32a3829df17c3736d9757e423eeaf0e3($object,$lock);
+	return $lock;
+}
+global proc string[] MIRR_e0a5f9682afe5d450c5614dd6a49ac78()
+{
+    string $selection[]=`ls-fl-os`;
+    string $lock[]=MIRR_54d92f8424c4459e6d996d9fd93902f0();
+    for($i=0;$i<size($selection);$i++)
+        if(!((`objectType -isType "mesh" $selection[$i]`)+(`objectType -isType "nurbsSurface" $selection[$i]`)+(`objectType -isType "nurbsCurve" $selection[$i]`)+(`objectType -isType "lattice" $selection[$i]`)))
+            delete `orientConstraint $selection[$i] $lock[$i]`;
+    return $lock;
+}
+global proc float[] MIRR_9de233870ac6b9c5087a491c3b4ca38a(string $objects[])
+{
+	float $distanse_all[];
+	float $distanse_all_normalized[];
+	float $weight_all[];
+	float $getPvPos[];
+    $getPvPos=MIRR_174b5e03acbe9a8ba7bf83b031094a2e( $objects[size($objects)-1]);
+	vector $end_point = <<$getPvPos[0], $getPvPos[1], $getPvPos[2]>>;
+	for($i=0;$i<(size($objects)-1);$i++)
+	{
+        $getPvPos=MIRR_174b5e03acbe9a8ba7bf83b031094a2e($objects[$i]);
+		vector $start_point = <<$getPvPos[0], $getPvPos[1], $getPvPos[2]>>;
+		$distanse_all[$i]=mag($start_point - $end_point);
+	}
+	$sort_dist=`sort $distanse_all`;
+	float $max_dist = $sort_dist[size($sort_dist)-1];
+	float $min_dist = $sort_dist[0];
+	if($min_dist>0)
+	{
+		for($i=0;$i<size($distanse_all);$i++)
+		{
+		$distanse_all_normalized[$i]=$distanse_all[$i]/$max_dist;
+		$weight_all[$i]=1/$distanse_all_normalized[$i] ;
+		}
+	}
+	else
+	{
+		for($i=0;$i<size($distanse_all);$i++)
+		{
+			if($distanse_all[$i])
+			{
+			$weight_all[$i]=0;
+			}
+			else
+			{
+			$weight_all[$i]=1;
+			}
+		}
+	}
+	float $summ=0;
+	for($obj in $weight_all)
+	    $summ+=$obj;
+	float $weight_all_normi[];
+	for($i=0;$i<size($weight_all);$i++)
+	{
+	    $weight_all_normi[$i]=$weight_all[$i]/$summ;
+	}
+	return $weight_all_normi;
+}
+global proc float[] MIRR_174b5e03acbe9a8ba7bf83b031094a2e(string $object)
+{
+    float $getPvPos[];
+    float $getPvRot[];
+    string $obj_selected_shape[];
+    string $obj_selected[];
+		if ((`objectType -isType "mesh" $object`)+(`objectType -isType "nurbsSurface" $object`)+(`objectType -isType "nurbsCurve" $object`))
+			{
+				$getPvPos=`pointPosition -world $object`;
+                $obj_selected_shape = `listRelatives -f -p  $object`;
+                $obj_selected = `listRelatives -f -p $obj_selected_shape`;
+                $getPvRot = `xform -q -ro -ws $obj_selected[0]`;
+			}
+			else
+			{
+				$getPvPos = `xform -q -ws -piv $object`;
+                $getPvRot = `xform -q -ro -ws $object`;
+			}
+	$getPvPos[3]=$getPvRot[0];
+	$getPvPos[4]=$getPvRot[1];
+	$getPvPos[5]=$getPvRot[2];
+	return $getPvPos;
+}

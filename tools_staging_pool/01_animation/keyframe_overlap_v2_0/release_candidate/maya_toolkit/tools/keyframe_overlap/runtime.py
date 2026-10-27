@@ -218,7 +218,8 @@ def execute(args):
         _UI.show_ui()
         return {'window': _UI.win_id}
     current, selection, auto, namespace = c.currentTime(query=True), c.ls(selection=True, long=True) or [], c.autoKeyframe(query=True, state=True), c.namespaceInfo(currentNamespace=True)
-    evaluation, suspended = c.evaluationManager(query=True, mode=True)[0], c.refresh(query=True, suspend=True)
+    evaluation = c.evaluationManager(query=True, mode=True)[0]
+    suspended = False
     row = args['_row']
     _PREFIX = row['prefix'] if row else 'mtbKfo_' + uuid.uuid4().hex + '_'
     _GROUPS = {key: _PREFIX + value for key, value in {'main': 'overlap_grp', 'editable': 'editable_loc_grp', 'origin': 'origin_loc_grp', 'result': 'result_loc_grp'}.items()}

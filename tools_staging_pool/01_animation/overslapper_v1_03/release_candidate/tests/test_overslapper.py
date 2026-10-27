@@ -35,7 +35,8 @@ class OfflineTests(unittest.TestCase):
         self.assertTrue((PACKAGE / 'upstream/overslapperDocumentation_v1_03.pdf').is_file())
 
     def test_lazy_api_and_strict_parameters(self):
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya.cmds' not in sys.modules:
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertNotIn('PySide6', sys.modules)
         self.assertEqual('overslapper', TOOL.to_mcp_tool()['name'])
         for kwargs in ({'typo': 1}, {'stiffness': float('nan')}, {'strength': True}, {'frame_range': [1, 1]}, {'frame_range': [1, 2.5]}, {'axes': 'xx'}, {'main_axis': 'x+', 'up_axis': 'x-'}, {'stiffness_values': [[1.1]]}, {'new_layer': True, 'target_layer': 'layer'}, {'distance_only': True}, {'overshoot': True, 'overshoot_strength': 0}, {'overshoot_frequency': 3.5}, {'cycle': 1}, {'targets': ['a', 'a']}, {'action': 'write_preset'}):

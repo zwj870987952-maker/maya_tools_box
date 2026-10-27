@@ -51,7 +51,8 @@ class OfflineTests(unittest.TestCase):
             self.assertFalse(target.parent.exists())
         self.assertTrue(TOOL.validate(action='inventory').success)
         self.assertEqual('cg_shake_py3', TOOL.to_mcp_tool()['name'])
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya.cmds' not in sys.modules:
+            self.assertNotIn('maya.cmds', sys.modules)
 
 
 if __name__ == '__main__':

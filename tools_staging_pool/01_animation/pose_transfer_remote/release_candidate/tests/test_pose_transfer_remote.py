@@ -26,7 +26,8 @@ class Offline(unittest.TestCase):
         klass=next(n for n in ast.parse(native).body if isinstance(n,ast.ClassDef))
         self.assertEqual(set(c['methods']),{n.name for n in klass.body if isinstance(n,ast.FunctionDef)})
         self.assertEqual(9,len(c['methods']))
-        self.assertNotIn('maya.cmds',sys.modules)
+        if 'maya' not in sys.executable.lower():
+            self.assertNotIn('maya.cmds',sys.modules)
         self.assertEqual('pose_transfer_remote',TOOL.to_mcp_tool()['name'])
 
     def test_strict_inputs(self):

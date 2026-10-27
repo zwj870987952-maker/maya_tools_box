@@ -30,7 +30,8 @@ class Offline(unittest.TestCase):
                 tree = ast.parse((PKG / name).read_bytes())
                 methods = {n.name for c in tree.body if isinstance(c, ast.ClassDef) for n in c.body if isinstance(n, ast.FunctionDef)}
                 self.assertEqual(set(catalog['original_methods'][row['path']]), methods)
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya' not in sys.executable.lower():
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertEqual('timeline_enhanced', TOOL.to_mcp_tool()['name'])
         self.assertIn('blocks', TOOL.parameters_schema['properties']['state']['properties'])
 

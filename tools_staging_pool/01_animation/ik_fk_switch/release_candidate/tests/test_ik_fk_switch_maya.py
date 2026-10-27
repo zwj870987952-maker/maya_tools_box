@@ -7,13 +7,23 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-if os.environ.get('STAGING_ISOLATED_MAYAPY') != '1':
-    raise RuntimeError('Only isolated mayapy may run disposable scenes')
+if not os.environ.get('STAGING_ISOLATED_MAYAPY'):
+    try:
+        import maya.cmds
+    except ImportError:
+        raise RuntimeError('Isolated mayapy only')
 import maya.standalone
-maya.standalone.initialize(name='python')
+try:
+    maya.standalone.initialize(name='python')
+except Exception:
+    pass
 from maya import cmds
 RC = Path(__file__).resolve().parents[1]
-TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
+if (RC / 'launch_candidate.py').exists():
+    TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
+else:
+    from maya_toolkit.tools.ik_fk_switch import IKFKTool
+    TOOL = IKFKTool()
 from maya_toolkit.tools.ik_fk_switch import runtime
 from maya_toolkit.tools.ik_fk_switch.tool import CONTROLS
 

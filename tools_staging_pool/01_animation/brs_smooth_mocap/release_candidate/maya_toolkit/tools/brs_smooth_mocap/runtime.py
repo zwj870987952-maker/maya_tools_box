@@ -14,7 +14,10 @@ def execute(args):
     from .backend import legacy, runtime as backend_runtime, scene
     selection = cmds.ls(selection=True, long=True) or []
     time = cmds.currentTime(query=True)
-    refresh = cmds.refresh(query=True, suspend=True)
+    try:
+        refresh = cmds.refresh(query=True, suspend=True)
+    except Exception:
+        refresh = False
     paused = None if cmds.about(batch=True) else cmds.ogs(query=True, pause=True)
     selected_keys = {curve: cmds.keyframe(curve, query=True, selected=True, indexValue=True) or [] for curve in (cmds.keyframe(query=True, name=True, selected=True) or [])}
     before_backend_active = backend_runtime._ACTIVE

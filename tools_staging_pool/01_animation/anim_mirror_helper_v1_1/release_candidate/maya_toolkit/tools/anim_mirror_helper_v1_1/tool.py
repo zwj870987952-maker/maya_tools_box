@@ -13,7 +13,7 @@ WARNINGS = ['Original catch/catchQuiet can conceal partial failures; inspect Scr
 class AnimMirrorHelperTool(BaseMayaTool):
     tool_id = 'anim_mirror_helper_v1_1'
     tool_name = '动画镜像辅助'
-    category = 'Animation'
+    category = 'animation'
     version = '1.1.1-adapter'
     description = 'Pavel Barnev 动画镜像系统：创建、连接、错帧重算、烘焙及删除；保留完整原始过程。'
     parameters_schema = dict(type='object', additionalProperties=False, properties={

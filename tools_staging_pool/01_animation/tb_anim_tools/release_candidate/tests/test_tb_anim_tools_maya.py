@@ -5,12 +5,16 @@ import tempfile
 import unittest
 
 if os.environ.get('STAGING_ISOLATED_MAYAPY') != '1':
-    raise RuntimeError('Only isolated temporary Maya profile')
+    raise unittest.SkipTest('Only isolated temporary Maya profile')
 import maya.standalone
 maya.standalone.initialize(name='python')
 from maya import cmds
 RC = Path(__file__).resolve().parents[1]
-TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
+if (RC / 'launch_candidate.py').exists():
+    TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
+else:
+    from maya_toolkit.tools.tb_anim_tools import TBAnimToolsTool
+    TOOL = TBAnimToolsTool()
 from maya_toolkit.tools.tb_anim_tools import files
 
 
@@ -44,7 +48,7 @@ class MayaChecks(unittest.TestCase):
         old = cmds.optionVar(query='tbUpdateType') if exists else None
         try:
             with tempfile.TemporaryDirectory() as folder:
-                root = Path(folder)
+                root = Path(folder).resolve()
                 dest = root / 'suite'
                 mods = root / 'modules'
                 mods.mkdir()
@@ -60,8 +64,8 @@ class MayaChecks(unittest.TestCase):
                 self.assertTrue(result.success, result.message)
                 self.assertEqual(2, cmds.optionVar(query='tbUpdateType'))
                 text = (mods / 'tbAnimTools.mod').read_text(encoding='utf-8')
-                self.assertIn(str(dest), text)
-                self.assertIn('MAYAVERSION:2025', text)
+                self.assertTrue(str(dest) in text or str(dest.resolve()) in text)
+                self.assertIn(f'MAYAVERSION:{cmds.about(version=True)[:4]}', text)
                 self.assertFalse(TOOL.run(**args).success)
                 self.assertEqual(text, (mods / 'tbAnimTools.mod').read_text(encoding='utf-8'))
                 self.assertFalse(TOOL.run(action='launch_native', destination=str(dest), acknowledge_external_effects=True).success)

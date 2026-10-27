@@ -64,7 +64,7 @@ def plan(**kwargs):
     nodes = []
     for name in names:
         found = cmds.ls(name, long=True) or []
-        if len(found) != 1 or cmds.nodeType(found[0]) != 'transform' or len(cmds.ls(found[0], allPaths=True, long=True) or []) != 1:
+        if len(found) != 1 or not cmds.objectType(found[0], isAType='transform') or len(cmds.ls(found[0], allPaths=True, long=True) or []) != 1:
             raise ValueError('需要唯一非实例transform')
         n = found[0]
         if cmds.referenceQuery(n, isNodeReferenced=True) or cmds.lockNode(n, query=True, lock=True)[0]:

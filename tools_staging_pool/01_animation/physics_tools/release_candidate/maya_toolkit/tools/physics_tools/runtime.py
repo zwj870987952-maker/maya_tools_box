@@ -291,7 +291,8 @@ def load():
         return
     # Do not replace another candidate copy's already compiled procedures.
     if mel.eval('exists "' + PREFIX + 'Native_PhysicsToolsWin"'):
-        raise ValueError('Private candidate MEL procedures already exist from another loader')
+        _LOADED = digest
+        return
     mel.eval(path.read_text(encoding='utf-8'))
     _LOADED = digest
 
@@ -302,7 +303,7 @@ def scope(options, plan, create_session=True):
     if _ACTIVE is not None:
         raise ValueError('Reentrant API mutation refused')
     session = existing_session() if create_session else None
-    original = dict(time=cmds.currentTime(q=True), selection=[whole(n) for n in cmds.ls(sl=True, long=True) or []], namespace=':' + cmds.namespaceInfo(currentNamespace=True).lstrip(':'), relative=cmds.namespace(q=True, relativeNames=True), auto=cmds.autoKeyframe(q=True, state=True), playback=[cmds.playbackOptions(q=True, min=True), cmds.playbackOptions(q=True, max=True)], speeds=[cmds.playbackOptions(q=True, playbackSpeed=True), cmds.playbackOptions(q=True, maxPlaybackSpeed=True)], refresh=cmds.refresh(q=True, suspend=True), layers={whole(l): [cmds.animLayer(l, q=True, selected=True), cmds.animLayer(l, q=True, preferred=True)] for l in cmds.ls(type='animLayer') or []})
+    original = dict(time=cmds.currentTime(q=True), selection=[whole(n) for n in cmds.ls(sl=True, long=True) or []], namespace=':' + cmds.namespaceInfo(currentNamespace=True).lstrip(':'), relative=cmds.namespace(q=True, relativeNames=True), auto=cmds.autoKeyframe(q=True, state=True), playback=[cmds.playbackOptions(q=True, min=True), cmds.playbackOptions(q=True, max=True)], speeds=[cmds.playbackOptions(q=True, playbackSpeed=True), cmds.playbackOptions(q=True, maxPlaybackSpeed=True)], refresh=False, layers={whole(l): [cmds.animLayer(l, q=True, selected=True), cmds.animLayer(l, q=True, preferred=True)] for l in cmds.ls(type='animLayer') or []})
     if create_session and session is None:
         sid = uuid.uuid4().hex
         ns = 'mtkPhysics_' + sid
@@ -334,7 +335,7 @@ def scope(options, plan, create_session=True):
             except Exception as error:
                 errors.append(str(error))
         _ACTIVE = None
-        restore = [lambda: cmds.namespace(relativeNames=False), lambda: cmds.namespace(set=original['namespace']), lambda: cmds.namespace(relativeNames=original['relative']), lambda: cmds.autoKeyframe(state=original['auto']), lambda: cmds.currentTime(original['time']), lambda: cmds.playbackOptions(min=original['playback'][0], max=original['playback'][1]), lambda: cmds.refresh(suspend=original['refresh'])]
+        restore = [lambda: cmds.namespace(relativeNames=False), lambda: cmds.namespace(set=original['namespace']), lambda: cmds.namespace(relativeNames=original['relative']), lambda: cmds.autoKeyframe(state=original['auto']), lambda: cmds.currentTime(original['time']), lambda: cmds.playbackOptions(min=original['playback'][0], max=original['playback'][1]), lambda: (not cmds.about(batch=True) and cmds.refresh(suspend=False))]
         for l in {whole(l) for l in cmds.ls(type='animLayer') or []} - set(original['layers']):
             restore.append(lambda l=l: cmds.animLayer(l, e=True, selected=False, preferred=False))
         for l, flags in original['layers'].items():

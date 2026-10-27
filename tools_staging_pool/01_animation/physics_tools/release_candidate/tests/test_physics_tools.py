@@ -36,7 +36,8 @@ class OfflineTests(unittest.TestCase):
         self.assertIn('mtkPTC_CreateJiggle', source)
 
     def test_strict_schema_and_lazy_import(self):
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya' not in sys.executable.lower():
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertEqual('physics_tools', TOOL.to_mcp_tool()['name'])
         for args in ({'action': 'invoke'}, {'procedure': 'unknown'}, {'weight': True}, {'overlap': float('nan')}, {'frame_range': [1, 0]}, {'frame_range': [1, 3.5]}, {'targets': ['a', 'a']}, {'allow_reference_edits': 1}, {'unknown': True}):
             with self.assertRaises(ValueError):

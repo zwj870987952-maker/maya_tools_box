@@ -1,0 +1,114 @@
+{
+  "tool_id": "bh_local_nudge",
+  "original_procedures": [
+    "bh_localNudge",
+    "bh_localNudgeIt",
+    "bh_localNudgeRotIt",
+    "bh_printNudgeVal",
+    "bh_printRotNudgeVal"
+  ],
+  "runtime_procedures": [
+    "mtbLN_bh_localNudge",
+    "mtbLN_bh_localNudgeIt",
+    "mtbLN_bh_localNudgeRotIt",
+    "mtbLN_bh_printNudgeVal",
+    "mtbLN_bh_printRotNudgeVal"
+  ],
+  "raw_files": [
+    {
+      "path": "upstream/bh_localNudge.mel",
+      "sha256": "0ae02db17c8fd5cbfac30e51fd164e4ec4521c670d5986ba26b5a193daaedeaa"
+    },
+    {
+      "path": "upstream/bhLocalNudge.png",
+      "sha256": "9a7b37efd000c9159f89e9879e689301e5084ce6839c0ea4b28e533f54803f2d"
+    },
+    {
+      "path": "upstream/READ ME.txt",
+      "sha256": "02a75176194b60fd38ec5e2cf68c6ce24153d567f9a95cbc3188f0aab162b6e7"
+    }
+  ],
+  "runtime_audit": {
+    "file": "E:\\GitHub\\maya_tools_box\\tools_staging_pool\\01_animation\\bh_local_nudge\\release_candidate\\maya_toolkit\\tools\\bh_local_nudge\\runtime.mel",
+    "sha256": "251f0f0708170b6e5bd5360a85eac99f98313571c43095048f64a564a9570808",
+    "bytes": 5223,
+    "lexical_decoding": "utf-8-sig",
+    "procedures": [
+      {
+        "name": "mtbLN_bh_localNudge",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 6,
+        "end_line": 80
+      },
+      {
+        "name": "mtbLN_bh_localNudgeIt",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "direction",
+            "type": "string"
+          },
+          {
+            "name": "plusMinus",
+            "type": "string"
+          }
+        ],
+        "line": 84,
+        "end_line": 122
+      },
+      {
+        "name": "mtbLN_bh_localNudgeRotIt",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "direction",
+            "type": "string"
+          },
+          {
+            "name": "plusMinus",
+            "type": "string"
+          }
+        ],
+        "line": 124,
+        "end_line": 155
+      },
+      {
+        "name": "mtbLN_bh_printNudgeVal",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 157,
+        "end_line": 161
+      },
+      {
+        "name": "mtbLN_bh_printRotNudgeVal",
+        "global_scope": true,
+        "return_type": "void",
+        "parameters": [],
+        "line": 163,
+        "end_line": 167
+      }
+    ],
+    "duplicate_names": {},
+    "top_level_lines": [],
+    "source_executed": false,
+    "limitation": "Lexical declarations/effect review only; actual Maya source is the syntax authority"
+  },
+  "source_license": "Purchased tool; no independent redistribution license found; private preparation",
+  "behavior": [
+    "Local attribute arithmetic, not world/object-space vector translation",
+    "CTRL halves, ALT quarters; both reduce to one eighth",
+    "Right is negative X, Left positive X",
+    "No explicit setKeyframe; animation/key/autokey behavior needs GUI acceptance"
+  ],
+  "changes": [
+    "Definition-only private names",
+    "Explicit amount and modifier flags without business widgets",
+    "Original twelve UI buttons use standard API",
+    "Read-only preflight and grouped Undo"
+  ]
+}

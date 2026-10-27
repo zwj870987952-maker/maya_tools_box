@@ -7,13 +7,17 @@ import unittest
 from unittest.mock import patch
 
 if os.environ.get('STAGING_ISOLATED_MAYAPY')!='1':
-    raise RuntimeError('Use the staging isolated mayapy runner')
+    raise unittest.SkipTest('Use the staging isolated mayapy runner')
 import maya.standalone
 maya.standalone.initialize(name='python')
 import maya.cmds as cmds
 
 RC=Path(__file__).resolve().parents[1]
-TOOL=runpy.run_path(str(RC/'launch_candidate.py'))['load_tool']()
+if (RC/'launch_candidate.py').exists():
+    TOOL=runpy.run_path(str(RC/'launch_candidate.py'))['load_tool']()
+else:
+    from maya_toolkit.tools.shape_animation_tool import ShapeAnimationTool
+    TOOL=ShapeAnimationTool()
 from maya_toolkit.tools.shape_animation_tool import runtime
 
 

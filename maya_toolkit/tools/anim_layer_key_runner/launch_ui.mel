@@ -1,0 +1,4 @@
+// Formal-install MEL bridge. Sourcing defines a procedure; it does not execute commands.
+global proc mayaToolkitAnimLayerKeyRunnerUI() {
+    python("from maya_toolkit.tools.anim_layer_key_runner.ui import show_ui; show_ui()");
+}

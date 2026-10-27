@@ -1,0 +1,30 @@
+// drag and drop this file to install Animation Layers Utilities without UI 
+	
+global string $gShelfTopLevel;
+string $currentShelf = `tabLayout -q -st $gShelfTopLevel`;
+string $rootPath=`InstallLocationPath`;
+string $iconsPath=$rootPath+"icons/";
+string $source_path="source \"" + $rootPath + "layerEditor_no_UI.mel\"";
+
+shelfButton
+   	-command ($source_path + ";\nanim_layer_util_menue;")
+    -annotation "Animation Layer function without UI"
+    -label ""
+    -imageOverlayLabel ""
+    -image ("layers.png" )
+    -sourceType "mel"
+    -parent $currentShelf;
+
+
+global proc string InstallLocationPath ()
+{
+    string $whatIs=`whatIs InstallLocationPath`;
+    string $fullPath=`substring $whatIs 25 999`;
+    string $buffer[];
+    int $numTok=`tokenize $fullPath "/" $buffer`;
+    int $numLetters=size($fullPath);
+    int $numLettersLastFolder=size($buffer[$numTok-1]);
+    string $scriptLocation=`substring $fullPath 1 ($numLetters-$numLettersLastFolder)`;
+    return $scriptLocation;
+}
+

@@ -1,0 +1,29 @@
+// drag and drop this file on maya window for create shelf button
+global string $gShelfTopLevel;
+string $currentShelf = `tabLayout -q -st $gShelfTopLevel`;
+string $rootPath=`InstallLocationPath`;
+string $iconsPath=$rootPath+"ico/";
+string $source_path="source \"" + $rootPath + "barnev_Shift_animation_code.mel\"";
+
+shelfButton
+   	-command ($source_path + ";\nSHIFTING_animation_menue;")
+    -annotation "barnev SHIFTING animation tool"
+    -label ""
+    -imageOverlayLabel ""
+    -image ($iconsPath+"Shift_animation.bmp" )
+    -sourceType "mel"
+    -parent $currentShelf;
+
+
+global proc string InstallLocationPath ()
+{
+    string $whatIs=`whatIs InstallLocationPath`;
+    string $fullPath=`substring $whatIs 25 999`;
+    string $buffer[];
+    int $numTok=`tokenize $fullPath "/" $buffer`;
+    int $numLetters=size($fullPath);
+    int $numLettersLastFolder=size($buffer[$numTok-1]);
+    string $scriptLocation=`substring $fullPath 1 ($numLetters-$numLettersLastFolder)`;
+    return $scriptLocation;
+}
+

@@ -1,0 +1,2657 @@
+{
+//time warp tools
+//written by Eric Bates 2011
+//Maya 2011
+//MEL script
+
+//run the command
+//mtkRTlegacy_timeWarp;
+
+//###User Definable Paramaters####
+global int $mtkRTlegacy_tw_maxIterationsOnAdd = 10;
+
+//global variables
+global string $mtkRTlegacy_tw_objectList[];
+global int $mtkRTlegacy_tw_isExpanded[];
+global string $mtkRTlegacy_tw_attributeList[];
+global string $mtkRTlegacy_tw_version = "2018-05-28";
+
+global proc mtkRTlegacy_timeWarp()
+{
+
+
+//remove window
+string $windowName = "mtkRTlegacy_timeWarp";
+if (`window -exists $windowName`)
+    {
+    deleteUI $windowName;
+    }
+
+//remove prefs
+if (`windowPref -exists $windowName`)
+    {
+    windowPref -remove $windowName;
+    }
+print ($mtkRTlegacy_tw_version);
+string $window = `window -widthHeight 600 587 -title $windowName mtkRTlegacy_timeWarp`;
+string $form = `formLayout`;
+
+    string $tabs = `tabLayout -innerMarginWidth 5 -innerMarginHeight 5`;
+        string $mainTab = `formLayout`;
+            string $objectFrame = `frameLayout -label "Objects and Attributes" `;
+                string $objectFrame_inside = `formLayout`;
+                    string $objInfoHeader = `text -label "[....]"   -align "left" -h 15 mtkRTlegacy_tw_messageArea`;
+                    string $selAllButton = `button -label "[select all]" -c "mtkRTlegacy_tw_selectAll" -h 15 -bgc .8 0.8 0.8`;
+                    string $selNoneButton = `button -label "[select none]" -c "mtkRTlegacy_tw_selectNone" -h 15 -bgc .8 0.8 0.8`;
+                    //string $connectButton = `button -label "add object(s)" -c "mtkRTlegacy_connectToTimeWarpControllerIterations"`;
+                    string $connectButton = `button -label "add object(s)" -c "mtkRTlegacy_tw_mtkRTlegacy_connectToTimeWarpControllerPython"`;
+                    string $removeButton = `button -label "remove object(s)" -c "mtkRTlegacy_disconnectToTimeWarpController"`;
+                    string $objAttrList = `textScrollList -font "fixedWidthFont" -h 20 -allowMultiSelection 1 -sc "mtkRTlegacy_tw_selObjFromList" -dcc "mtkRTlegacy_tw_expand" mtkRTlegacy_tw_mainList`;
+                setParent ..;
+
+                formLayout -edit
+                -attachForm     $selNoneButton "top"    0
+                -attachNone         $selNoneButton "left"
+                -attachNone     $selNoneButton "bottom"
+                -attachForm         $selNoneButton "right"  0
+
+                -attachForm         $selAllButton "top"    0
+                -attachNone         $selAllButton "left"
+                -attachNone         $selAllButton "bottom"
+                -attachControl      $selAllButton "right"  2 $selNoneButton
+
+                -attachForm         $objInfoHeader "top"    0
+                -attachForm         $objInfoHeader "left"   0
+                -attachNone     $objInfoHeader "bottom"
+                -attachControl      $objInfoHeader "right"  2 $selAllButton
+
+                -attachNone         $connectButton "top"
+                -attachForm         $connectButton "left"   0
+                -attachForm     $connectButton "bottom" 0
+                -attachPosition     $connectButton "right"  2 50
+
+                -attachNone         $removeButton "top"
+                -attachControl      $removeButton "left"   2 $connectButton
+                -attachForm     $removeButton "bottom" 0
+                -attachForm     $removeButton "right"  0
+
+                -attachControl      $objAttrList "top"  2 $objInfoHeader
+                -attachForm         $objAttrList "left"   0
+                -attachControl      $objAttrList "bottom" 2 $connectButton
+                -attachForm     $objAttrList "right"  0
+
+                $objectFrame_inside;
+
+            setParent ..;
+
+            string $timeWarpFrame = `frameLayout -label "Timewarps" `;
+                string $timeWarpFrame_inside = `formLayout`;
+                    string $createTimeWarpButton = `button -label "new timewarp" -h 35 -c "mtkRTlegacy_createTimeWarpController($name=\"\")"`;
+                    string $updateListsButton = `button -label "update list" -h 20 -c "mtkRTlegacy_tw_updateTimeWarpControllerList"`;
+                    string $timeWarpList = `textScrollList -font "fixedWidthFont" -h 20 -allowMultiSelection 0 -sc "mtkRTlegacy_refreshTimeWarpConnectionList" mtkRTlegacy_tw_controlList`;
+                    string $mtkRTlegacy_tw_progressControl = `progressBar -h 20 -vis 0 -maxValue 100 mtkRTlegacy_tw_progress`;
+                    string $resetButton = `button -h 20 -bgc .8 0.8 0.8 -label "reset" -c "mtkRTlegacy_tw_reset" -ann "reset timeWarp to default" `;
+                    string $enableButton = `button -h 20 -bgc .8 0.8 0.8 -label "enable" -c "mtkRTlegacy_tw_enable" -ann "enable timeWarp" `;
+                    string $disableButton = `button -h 20 -bgc .8 0.8 0.8 -label "disable" -c "mtkRTlegacy_tw_disable" -ann "temporarily disable timeWarp" `;
+                    string $invertButton = `button -h 20 -bgc .8 0.8 0.8 -label "invert" -c "mtkRTlegacy_tw_invert" -ann "untimeWarp, generate inverse timeWarp based on the timeWarp" `;
+                    string $disconnectButton = `button -h 20 -bgc .8 0.8 0.8 -label "disconnect" -c "mtkRTlegacy_tw_completelyDisconnect" -ann "completely disconnect timeWarp from all objects in scene" `;
+                setParent ..;
+
+                formLayout -edit
+                -attachForm $createTimeWarpButton "top"    2
+                -attachForm     $createTimeWarpButton "left"   2
+                -attachPosition $createTimeWarpButton "bottom" 2 80
+                -attachPosition $createTimeWarpButton "right"  2 20
+
+                -attachControl  $updateListsButton "top"    2 $createTimeWarpButton
+                -attachForm     $updateListsButton "left"   2
+                -attachForm $updateListsButton "bottom" 2
+                -attachPosition $updateListsButton "right"  2 20
+
+                -attachControl  $mtkRTlegacy_tw_progressControl "top"    2 $createTimeWarpButton
+                -attachForm     $mtkRTlegacy_tw_progressControl "left"   2
+                -attachForm $mtkRTlegacy_tw_progressControl "bottom" 2
+                -attachPosition $mtkRTlegacy_tw_progressControl "right"  2 20
+
+                -attachControl  $resetButton "top"    2 $createTimeWarpButton
+                -attachControl  $resetButton "left"   2 $createTimeWarpButton
+                -attachForm $resetButton "bottom" 2
+                -attachPosition $resetButton "right"  2 36
+
+                -attachControl  $enableButton "top"    2 $createTimeWarpButton
+                -attachControl  $enableButton "left"   2 $resetButton
+                -attachForm $enableButton "bottom" 2
+                -attachPosition $enableButton "right"  2 52
+
+                -attachControl  $disableButton "top"    2 $createTimeWarpButton
+                -attachControl  $disableButton "left"   2 $enableButton
+                -attachForm $disableButton "bottom" 2
+                -attachPosition $disableButton "right"  2 68
+
+                -attachControl  $invertButton "top"    2 $createTimeWarpButton
+                -attachControl  $invertButton "left"   2 $disableButton
+                -attachForm $invertButton "bottom" 2
+                -attachPosition $invertButton "right"  2 84
+
+                -attachControl  $disconnectButton "top"    2 $createTimeWarpButton
+                -attachControl  $disconnectButton "left"   2 $invertButton
+                -attachForm $disconnectButton "bottom" 2
+                -attachForm $disconnectButton "right"  2
+
+                -attachForm $timeWarpList "top"    2
+                -attachControl  $timeWarpList "left"   2 $createTimeWarpButton
+                -attachControl  $timeWarpList "bottom" 2 $resetButton
+                -attachForm $timeWarpList "right"  2
+
+                $timeWarpFrame_inside;
+            setParent ..;
+
+
+                string $toolsFrame = `frameLayout -label "Tools" `;
+                    string $toolsFrame_inside = `formLayout`;
+                        string $toolsTab = `tabLayout -innerMarginWidth 2 -innerMarginHeight 2`;
+                                string $actionsTab = `formLayout`;
+                                    string $shuffleKeysButton = `button -h 20 -label "shuffle keys" -c "mtkRTlegacy_timeWarpShuffleKeys"`;
+                                    string $bakeKeysButton = `button -h 20 -label "bake timewarp" -c "mtkRTlegacy_timeWarpBake"`;
+                                    string $saveConnectionsButton = `button -h 20 -label "save connections" -c "mtkRTlegacy_storeConnections"`;
+                                    string $loadConnectionsButton = `button -h 20 -label "load connections" -c "mtkRTlegacy_retrieveConnections"`;
+                                setParent ..;
+
+                                formLayout -edit
+                                -attachForm $shuffleKeysButton "top"    2
+                                -attachForm     $shuffleKeysButton "left"   2
+                                -attachPosition $shuffleKeysButton "bottom" 2 50
+                                -attachPosition $shuffleKeysButton "right"  2 60
+
+                                -attachControl  $bakeKeysButton "top"    2 $shuffleKeysButton
+                                -attachForm     $bakeKeysButton "left"   2
+                                -attachForm $bakeKeysButton "bottom" 2
+                                -attachPosition $bakeKeysButton "right"  2 60
+
+                                -attachForm $saveConnectionsButton "top"    2
+                                -attachControl  $saveConnectionsButton "left"   2 $shuffleKeysButton
+                                -attachPosition $saveConnectionsButton "bottom" 2 50
+                                -attachForm $saveConnectionsButton "right"  2
+
+                                -attachControl  $loadConnectionsButton "top"    2 $saveConnectionsButton
+                                -attachControl  $loadConnectionsButton "left"   2 $shuffleKeysButton
+                                -attachForm $loadConnectionsButton "bottom" 2
+                                -attachForm $loadConnectionsButton "right"  2
+
+                                $actionsTab;
+
+
+
+
+                                string $miscTab = `formLayout`;
+                                    string $cleanSubKeyFramesButton = `button -label "clean subframe keys" -c "mtkRTlegacy_tw_cleanSubFrameKeys" -ann "check the help tab for more info..."`;
+
+                                    string $delBoringKeysFirst = `button -label "del boring keys [but first]" -c "mtkRTlegacy_tw_deleteBoringKeys(1)" -ann "check the help tab for more info..."`;
+                                    string $delBoringKeys = `button -label "del boring keys [all keys]" -c "mtkRTlegacy_tw_deleteBoringKeys(0)" -ann "check the help tab for more info..."`;
+
+                                    string $genVelButton = `button -label "generate velocity based timewarp" -c "mtkRTlegacy_tw_velocityTimeWarp()" -ann "Create a timewarp curve based on an objects velocity"`;
+                                    string $overCrankButton = `button -label "Overcrank Calculator" -c "mtkRTlegacy_tw_calculator" -ann "Calculate between different fps, and timeranges"`;
+                                setParent ..;
+                                formLayout -edit
+
+                                -attachForm $cleanSubKeyFramesButton "top"    2
+                                -attachForm     $cleanSubKeyFramesButton "left"   2
+                                -attachForm $cleanSubKeyFramesButton "bottom" 2
+                                -attachPosition $cleanSubKeyFramesButton "right"  2 30
+
+                                -attachForm $delBoringKeysFirst "top"    2
+                                -attachControl  $delBoringKeysFirst "left"   2 $cleanSubKeyFramesButton
+                                -attachPosition $delBoringKeysFirst "bottom" 2 50
+                                -attachPosition $delBoringKeysFirst "right"  2 60
+
+                                -attachControl  $delBoringKeys "top"    2 $delBoringKeysFirst
+                                -attachControl  $delBoringKeys "left"   2 $cleanSubKeyFramesButton
+                                -attachForm $delBoringKeys "bottom" 2
+                                -attachPosition $delBoringKeys "right"  2 60
+
+                                -attachForm $genVelButton "top"    2
+                                -attachControl  $genVelButton "left"   2 $delBoringKeys
+                                -attachPosition $genVelButton "bottom" 2 50
+                                -attachForm $genVelButton "right"  2
+
+                                -attachControl  $overCrankButton "top"    2 $genVelButton
+                                -attachControl  $overCrankButton "left"   2 $delBoringKeys
+                                -attachForm $overCrankButton "bottom" 2
+                                -attachForm $overCrankButton "right"  2
+
+                                $miscTab;
+
+                        setParent ..;
+                        tabLayout -edit
+                        -tabLabel $actionsTab "Actions"
+                        -tabLabel $miscTab "Misc"
+                        $toolsTab;
+
+                    setParent ..;
+                    formLayout -edit
+                    -attachForm     $toolsTab "top"    2
+                    -attachForm         $toolsTab "left" 2
+                    -attachForm     $toolsTab "bottom" 2
+                    -attachForm         $toolsTab "right"  2
+                    $toolsFrame_inside;
+
+                setParent ..;
+
+    setParent ..;
+
+    formLayout -edit
+    -attachForm         $objectFrame "top"    0
+    -attachForm         $objectFrame "left"   0
+    -attachPosition     $objectFrame "bottom" 2 50
+    -attachForm         $objectFrame "right"  0
+
+    -attachControl      $timeWarpFrame "top"    2 $objectFrame
+    -attachForm         $timeWarpFrame "left"   0
+    -attachPosition     $timeWarpFrame "bottom" 2 75
+    -attachForm         $timeWarpFrame "right"  0
+
+    -attachControl      $toolsFrame "top"    2 $timeWarpFrame
+    -attachForm         $toolsFrame "left"   0
+    -attachForm         $toolsFrame "bottom" 0
+    -attachForm         $toolsFrame "right"  0
+
+    $mainTab;
+
+    //main help tab
+    string $mainHelpTab = `formLayout`;
+    string $t1Text;
+    $t1Text += ".eb_labs ||.timeWarp_tools\n";
+    $t1Text += "         ||.version " + ($mtkRTlegacy_tw_version) + "\n";
+    $t1Text += "\n";
+    $t1Text += "\-\-\'\"\`\'\-\-\.\_\ \ \ \ \_\.\-\-\'\"\`\'\-\-\.\_\ \ \ \ \_\.\-\-\'\"\`\'\-\-\.\n";
+    $t1Text += "\'\|\`\|\"\'\:\-\.\ \ \'\-\:\`\.\'\|\`\|\"\'\:\-\.\ \ \'\-\:\`\.\'\|\`\|\"\'\:\-\.\ \ \'\.\`\ \:\n";
+    $t1Text += "\ \|\ \|\ \ \|\ \|\'\.\ \ \'\.\ \ \|\ \|\ \ \|\ \|\'\.\ \ \'\.\ \ \|\ \|\ \ \|\ \|\'\.\ \ \'\.\:\ \ \ \'\.\ \ \'\. \n";
+    $t1Text += "\.\|\ \|\ \ \|\ \|\ \ \'\.\ \ \'\.\|\ \|\ \ \|\ \|\ \ \'\.\ \ \'\.\|\ \|\ \ \|\ \|\ \ \'\.\ \ \'\.\ \ \:\ \'\.\ \ \`\. \n";
+    $t1Text += "\ \`\.\:\_\ \|\ \:\_\.\'\ \'\.\ \ \`\.\:\_\ \|\ \:\_\.\'\ \'\.\ \ \`\.\:\_\ \|\ \:\_\.\'\ \'\.\ \ \`\.\'\ \ \ \`\. \n";
+    $t1Text += "\`\-\.\.\,\.\.\-\'\ \ \ \ \ \ \ \`\-\.\.\,\.\.\-\'\ \ \ \ \ \ \ \`\-\.\.\,\.\.\-\'\ \ \ \ \ \ \ \`\ \ \ \ \ \ \ \ \ \` \n";
+    $t1Text += "\n";
+    $t1Text += "..(c)ericBates 2011\n";
+    $t1Text += "...eric-bates.com\n";
+    $t1Text += "\n";
+    $t1Text += "\n";
+    $t1Text += "\n";
+    $t1Text += "\n====[timeWarp tab]====\n";
+    $t1Text += "\n[new timeWarp]\n";
+    $t1Text += "     Create a new timeWarp control.\n";
+
+    $t1Text += "\n[update list]\n";
+    $t1Text += "     Refresh list of timeWarp controllers in the scene.\n";
+
+    $t1Text += "\n[add object(s) to timeWarp]\n";
+    $t1Text += "     Connect selected objects the timeWarp controller.\n";
+
+    $t1Text += "\n[remove selected attribute(s) in list from timeWarp]\n";
+    $t1Text += "     Disconnect attributes and objects from the timeWarp controller.\n";
+
+    $t1Text += "\n[save connections]\n";
+    $t1Text += "     Store connections in the timeWarp controller for use later.\n";
+
+    $t1Text += "\n[load connections]\n";
+    $t1Text += "     Reconnect timeWarp based on the stored connections.\n";
+
+    $t1Text += "\n[shuffle keys]\n";
+    $t1Text += "     Move existing keyframes in time according to the timeWarp curve. This is the animator friendly version of bake, this will only move existing keyframes.\n";
+
+    $t1Text += "\n[bake timeWarp]\n";
+    $t1Text += "     Bake animation to objects, sets a key on every frame.\n";
+
+    $t1Text += "\n====[timeWarp Switches]====\n";
+    $t1Text += "\n[reset]\n";
+    $t1Text += "     Reset timeWarp animation to the original state.\n";
+
+    $t1Text += "\n[enable]\n";
+    $t1Text += "     Sets the selected timeWarp to active.\n";
+
+    $t1Text += "\n[disable]\n";
+    $t1Text += "     Deactivates the timeWarp, while keeping objects and attributes connected.\n";
+
+    $t1Text += "\n[invert]\n";
+    $t1Text += "     Generates an unTimeWarp curve from the existing timeWarp curve. Great for reversing the effects of a timeWarp once it\'s been baked or shuffled.\n";
+
+    $t1Text += "\n[disconnect]\n";
+    $t1Text += "     Completely disconnect timeWarp from all of the connected objects.\n";
+
+    $t1Text += "\n====[extra tools tab]====\n";
+    $t1Text += "\n[clean subFrame keys]\n";
+    $t1Text += "     This will clean all subFrame keys, much better than \"snapping keys\". This button will adjust key values and times to preserve your animation on whole frames.\n";
+
+    $t1Text += "\n[delete boring keys]\n";
+    $t1Text += "     This will delete animation where there are no change in value over the entire animation. For example, it will kill all visibility or scale keys if there are no changes.\n";
+
+    string $helpTabText = `scrollField -fn "fixedWidthFont" -wordWrap true -h 10 -editable false -text $t1Text`;
+    setParent ..;
+    formLayout -edit
+    -attachForm $helpTabText "top"    0
+    -attachForm $helpTabText "left"   0
+    -attachForm $helpTabText "bottom" 0
+    -attachForm $helpTabText "right"  0
+    $mainHelpTab;
+
+    tabLayout -edit
+        -tabLabel $mainTab "Timewarp Tools"  -tabLabel $mainHelpTab "Help"
+        $tabs;
+
+
+    formLayout -edit
+        -attachForm $tabs "top"    0
+        -attachForm $tabs "left"   0
+        -attachForm $tabs "bottom" 0
+        -attachForm $tabs "right"  0
+
+        $form;
+
+showWindow;
+mtkRTlegacy_tw_updateTimeWarpControllerList;
+}
+
+//###########################################################################################################################################################
+global proc mtkRTlegacy_tw_mtkRTlegacy_connectToTimeWarpControllerPython()
+{
+
+    python("from maya_toolkit.tools.retime_tools.legacy_mel import connect_from_ui; connect_from_ui()");
+
+}
+
+//###########################################################################################################################################################
+global proc mtkRTlegacy_tw_calculator()
+{
+//get selected set
+if (`window -exists mtkRTlegacy_tw_calculator`){deleteUI mtkRTlegacy_tw_calculator; windowPref -remove mtkRTlegacy_tw_calculator;}
+
+string $window = `window -widthHeight 253 237 -title ("Overcrank Calculator") mtkRTlegacy_tw_calculator`;
+string $form = `formLayout`;
+
+string $separator = `separator -style "doubleDash" -hr 0 -h 144`;
+
+string $fps_A_text = `text -label "Source"`;
+string $fps_B_text = `text -label "Target"`;
+
+string $fps_A_input = `textFieldGrp -text "24" -bgc .165 .165 .165 -h 20 -w 10 -ed 1  mtkRTlegacy_tw_src_fps`;
+string $fps_B_input = `textFieldGrp -text "24" -bgc .165 .165 .165 -h 20 -w 10 -ed 1  mtkRTlegacy_tw_trg_fps`;
+
+string $fps_A_button = `button -label "get source fps" -h 20 -w 10  -c "mtkRTlegacy_tw_doCalculate(\"get_src_fps\")" -ann "get source fps" `;
+string $fps_B_button = `button -label "get target fps" -h 20 -w 10  -c "mtkRTlegacy_tw_doCalculate(\"get_trg_fps\")" -ann "get target fps" `;
+
+//find out scene start and end times
+float $timeLineStart = `playbackOptions -q -animationStartTime`;
+float $timeLineEnd = `playbackOptions -q -animationEndTime`;
+float $range = $timeLineEnd - $timeLineStart;
+
+string $range_A_input = `textFieldGrp -text $range -bgc .165 .165 .165 -h 20 -w 10 -ed 1  mtkRTlegacy_tw_src_rng`;
+string $range_B_input = `textFieldGrp -text $range -bgc .165 .165 .165 -h 20 -w 10 -ed 1  mtkRTlegacy_tw_trg_rng`;
+
+string $range_A_button = `button -label "get source range" -h 20 -w 10  -c "mtkRTlegacy_tw_doCalculate(\"get_src_rng\")" -ann "get source range" `;
+string $range_B_button = `button -label "get target range" -h 20 -w 10  -c "mtkRTlegacy_tw_doCalculate(\"get_trg_rng\")" -ann "get target range" `;
+
+string $separatorHorizontal = `separator -style "doubleDash" -hr 1`;
+
+string $statsHeader = `text -label "[Stats]" -al "left"`;
+string $src_stats = `textFieldGrp -text "" -ed 0 mtkRTlegacy_tw_src_stats`;
+string $trg_stats = `textFieldGrp -text "" -ed 0 mtkRTlegacy_tw_trg_stats`;
+
+
+
+formLayout -edit
+
+    //separator
+    -attachForm     $separator     "top"    5
+    -attachPosition $separator     "left"   0 50
+    -attachNone     $separator     "bottom"
+    -attachNone     $separator     "right"
+
+    //fps_A_text
+    -attachForm     $fps_A_text     "top"    5
+    -attachForm     $fps_A_text     "left"   5
+    -attachNone     $fps_A_text     "bottom"
+    -attachControl  $fps_A_text     "right"  5 $separator
+
+    //fps_B_text
+    -attachForm     $fps_B_text     "top"    5
+    -attachControl  $fps_B_text     "left"   5 $separator
+    -attachNone     $fps_B_text     "bottom"
+    -attachForm     $fps_B_text     "right"  5
+
+    //$fps_A_input
+    -attachControl  $fps_A_input     "top"    5 $fps_B_text
+    -attachForm     $fps_A_input     "left"   5
+    -attachNone     $fps_A_input     "bottom"
+    -attachControl  $fps_A_input    "right"  5 $separator
+
+    //$fps_A_button
+    -attachControl  $fps_A_button     "top"    5 $fps_A_input
+    -attachForm     $fps_A_button     "left"   5
+    -attachNone     $fps_A_button     "bottom"
+    -attachControl  $fps_A_button   "right"  5 $separator
+
+    //$fps_B_input
+    -attachControl  $fps_B_input     "top"    5 $fps_B_text
+    -attachControl  $fps_B_input     "left"   5 $separator
+    -attachNone     $fps_B_input     "bottom"
+    -attachForm $fps_B_input     "right"  5
+
+    //$fps_B_button
+    -attachControl  $fps_B_button     "top"    5 $fps_B_input
+    -attachControl  $fps_B_button     "left"   5 $separator
+    -attachNone     $fps_B_button     "bottom"
+    -attachForm $fps_B_button    "right"  5
+
+    //$range_A_input
+    -attachControl  $range_A_input     "top"    20 $fps_A_button
+    -attachForm     $range_A_input     "left"   5
+    -attachNone     $range_A_input     "bottom"
+    -attachControl  $range_A_input     "right"  5 $separator
+
+    //$range_A_button
+    -attachControl  $range_A_button      "top"    5 $range_A_input
+    -attachForm     $range_A_button      "left"   5
+    -attachNone     $range_A_button      "bottom"
+    -attachControl  $range_A_button      "right"  5 $separator
+
+    //$range_B_input
+    -attachControl  $range_B_input     "top"    20 $fps_B_button
+    -attachControl  $range_B_input     "left"   5 $separator
+    -attachNone     $range_B_input     "bottom"
+    -attachForm     $range_B_input     "right"  5
+
+    //$range_B_button
+    -attachControl  $range_B_button     "top"    5 $range_B_input
+    -attachControl  $range_B_button     "left"   5 $separator
+    -attachNone     $range_B_button     "bottom"
+    -attachForm     $range_B_button     "right"  5
+
+    //$separatorHorizontal
+    -attachControl  $separatorHorizontal     "top"    5 $separator
+    -attachForm     $separatorHorizontal     "left"   5
+    -attachNone     $separatorHorizontal     "bottom"
+    -attachForm     $separatorHorizontal     "right"  5
+
+    //$statsHeader
+    -attachControl  $statsHeader     "top"    5 $separatorHorizontal
+    -attachForm     $statsHeader     "left"   5
+    -attachNone     $statsHeader     "bottom"
+    -attachForm     $statsHeader     "right"  5
+
+
+    //$src_stats
+    -attachControl  $src_stats     "top"    5 $statsHeader
+    -attachForm     $src_stats     "left"   5
+    -attachNone     $src_stats     "bottom"
+    -attachForm     $src_stats     "right"  5
+
+    //$trg_stats
+    -attachControl  $trg_stats     "top"    5 $src_stats
+    -attachForm     $trg_stats     "left"   5
+    -attachNone     $trg_stats     "bottom"
+    -attachForm     $trg_stats     "right"  5
+
+
+
+$form;
+
+setParent ..;
+
+showWindow;
+
+}
+
+//###########################################################################################################################################################
+global proc int mtkRTlegacy_tw_isNumber(string $value)
+{
+
+int $return;
+
+//check for valid numbers
+if ((($value == `match "[0-9]+[.][0-9]+" $value`)||($value == `match "[0-9]+[.]" $value`)||($value == `match "[.][0-9]+" $value`)||($value == `match "[0-9]+" $value`))&&($value !=0))
+    {
+    $return = 1;
+    }
+else
+    {
+    $return = 0;
+    }
+
+return $return;
+
+}
+
+//###########################################################################################################################################################
+// get_src_fps, get_trg_fps, get_src_rng, get_trg_rng
+global proc mtkRTlegacy_tw_doCalculate(string $get)
+{
+
+//get value of all text fields
+string $src_fps = `textFieldGrp -q -tx mtkRTlegacy_tw_src_fps`;
+string $trg_fps = `textFieldGrp -q -tx mtkRTlegacy_tw_trg_fps`;
+string $src_rng = `textFieldGrp -q -tx mtkRTlegacy_tw_src_rng`;
+string $trg_rng = `textFieldGrp -q -tx mtkRTlegacy_tw_trg_rng`;
+
+//verify if its actually a number
+int $src_fps_valid = `mtkRTlegacy_tw_isNumber($src_fps)`;
+int $trg_fps_valid = `mtkRTlegacy_tw_isNumber($trg_fps)`;
+int $src_rng_valid = `mtkRTlegacy_tw_isNumber($src_rng)`;
+int $trg_rng_valid = `mtkRTlegacy_tw_isNumber($trg_rng)`;
+
+int $goodToGo = 1;
+
+if($get=="get_src_fps")
+    {
+
+    //make sure the other values are present. mark missing values if nessessary
+    if($src_fps_valid==0)
+        {
+        //textFieldGrp -e -bgc .788 .371 .371  mtkRTlegacy_tw_src_fps;
+        //$goodToGo = 0;
+        }
+    if($trg_fps_valid==0)
+        {
+        textFieldGrp -e -bgc .788 .371 .371  mtkRTlegacy_tw_trg_fps;
+        $goodToGo = 0;
+        }
+    if($src_rng_valid==0)
+        {
+        textFieldGrp -e -bgc .788 .371 .371  mtkRTlegacy_tw_src_rng;
+        $goodToGo = 0;
+        }
+    if($trg_rng_valid==0)
+        {
+        textFieldGrp -e -bgc .788 .371 .371  mtkRTlegacy_tw_trg_rng;
+        $goodToGo = 0;
+        }
+
+    //do calculation
+    if($goodToGo == 1)
+        {
+        //reset colours
+        textFieldGrp -e -bgc .165 .165 .165  mtkRTlegacy_tw_src_fps;
+        textFieldGrp -e -bgc .165 .165 .165  mtkRTlegacy_tw_trg_fps;
+        textFieldGrp -e -bgc .165 .165 .165  mtkRTlegacy_tw_src_rng;
+        textFieldGrp -e -bgc .165 .165 .165  mtkRTlegacy_tw_trg_rng;
+
+        //do calculation
+        float $output = (float)$src_rng/((float)$trg_rng/(float)$trg_fps);
+
+        //set proper value
+        $src_fps = (string)$output;
+
+        //change text
+        textFieldGrp -e -text ((string)$output) -bgc .468 .788 .371  mtkRTlegacy_tw_src_fps;
+        }
+    }
+
+if($get=="get_trg_fps")
+    {
+
+    //make sure the other values are present. mark missing values if nessessary
+    if($src_fps_valid==0)
+        {
+        textFieldGrp -e -bgc .788 .371 .371  mtkRTlegacy_tw_src_fps;
+        $goodToGo = 0;
+        }
+    if($trg_fps_valid==0)
+        {
+        //textFieldGrp -e -bgc .788 .371 .371  mtkRTlegacy_tw_trg_fps;
+        //$goodToGo = 0;
+        }
+    if($src_rng_valid==0)
+        {
+        textFieldGrp -e -bgc .788 .371 .371  mtkRTlegacy_tw_src_rng;
+        $goodToGo = 0;
+        }
+    if($trg_rng_valid==0)
+        {
+        textFieldGrp -e -bgc .788 .371 .371  mtkRTlegacy_tw_trg_rng;
+        $goodToGo = 0;
+        }
+
+    //do calculation
+    if($goodToGo == 1)
+        {
+        //reset colours
+        textFieldGrp -e -bgc .165 .165 .165  mtkRTlegacy_tw_src_fps;
+        textFieldGrp -e -bgc .165 .165 .165  mtkRTlegacy_tw_trg_fps;
+        textFieldGrp -e -bgc .165 .165 .165  mtkRTlegacy_tw_src_rng;
+        textFieldGrp -e -bgc .165 .165 .165  mtkRTlegacy_tw_trg_rng;
+
+        //do calculation
+        float $output = (float)$trg_rng/((float)$src_rng/(float)$src_fps);
+
+        //set proper value
+        $trg_fps = (string)$output;
+
+        //change text
+        textFieldGrp -e -text $trg_fps -bgc .468 .788 .371  mtkRTlegacy_tw_trg_fps;
+        }
+    }
+
+if($get=="get_src_rng")
+    {
+
+    //make sure the other values are present. mark missing values if nessessary
+    if($src_fps_valid==0)
+        {
+        textFieldGrp -e -bgc .788 .371 .371  mtkRTlegacy_tw_src_fps;
+        $goodToGo = 0;
+        }
+    if($trg_fps_valid==0)
+        {
+        textFieldGrp -e -bgc .788 .371 .371  mtkRTlegacy_tw_trg_fps;
+        $goodToGo = 0;
+        }
+    if($src_rng_valid==0)
+        {
+        //textFieldGrp -e -bgc .788 .371 .371  mtkRTlegacy_tw_src_rng;
+        //$goodToGo = 0;
+        }
+    if($trg_rng_valid==0)
+        {
+        textFieldGrp -e -bgc .788 .371 .371  mtkRTlegacy_tw_trg_rng;
+        $goodToGo = 0;
+        }
+
+    //do calculation
+    if($goodToGo == 1)
+        {
+        //reset colours
+        textFieldGrp -e -bgc .165 .165 .165  mtkRTlegacy_tw_src_fps;
+        textFieldGrp -e -bgc .165 .165 .165  mtkRTlegacy_tw_trg_fps;
+        textFieldGrp -e -bgc .165 .165 .165  mtkRTlegacy_tw_src_rng;
+        textFieldGrp -e -bgc .165 .165 .165  mtkRTlegacy_tw_trg_rng;
+
+        //do calculation
+        float $output = (float)$trg_rng/(float)$trg_fps*(float)$src_fps;
+
+        //set proper value
+        $src_rng = (string)$output;
+
+        //change text
+        textFieldGrp -e -text $trg_rng -bgc .468 .788 .371  mtkRTlegacy_tw_src_rng;
+        }
+    }
+
+if($get=="get_trg_rng")
+    {
+
+    //make sure the other values are present. mark missing values if nessessary
+    if($src_fps_valid==0)
+        {
+        textFieldGrp -e -bgc .788 .371 .371  mtkRTlegacy_tw_src_fps;
+        $goodToGo = 0;
+        }
+    if($trg_fps_valid==0)
+        {
+        textFieldGrp -e -bgc .788 .371 .371  mtkRTlegacy_tw_trg_fps;
+        $goodToGo = 0;
+        }
+    if($src_rng_valid==0)
+        {
+        textFieldGrp -e -bgc .788 .371 .371  mtkRTlegacy_tw_src_rng;
+        $goodToGo = 0;
+        }
+    if($trg_rng_valid==0)
+        {
+        //textFieldGrp -e -bgc .788 .371 .371  mtkRTlegacy_tw_trg_rng;
+        //$goodToGo = 0;
+        }
+
+    //do calculation
+    if($goodToGo == 1)
+        {
+        //reset colours
+        textFieldGrp -e -bgc .165 .165 .165  mtkRTlegacy_tw_src_fps;
+        textFieldGrp -e -bgc .165 .165 .165  mtkRTlegacy_tw_trg_fps;
+        textFieldGrp -e -bgc .165 .165 .165  mtkRTlegacy_tw_src_rng;
+        textFieldGrp -e -bgc .165 .165 .165  mtkRTlegacy_tw_trg_rng;
+
+        //do calculation
+        float $output = (float)$src_rng/(float)$src_fps*(float)$trg_fps;
+
+        //set proper value
+        $trg_rng = (string)$output;
+
+        //change text
+        textFieldGrp -e -text $trg_rng -bgc .468 .788 .371  mtkRTlegacy_tw_trg_rng;
+        }
+    }
+
+//set stats
+    //do calculation
+    if($goodToGo == 1)
+        {
+        float $srcTime = (trunc(((float)$src_rng/24)*100))/100;
+        textFieldGrp -e -text ("[" + ($src_rng) + " @ 24fps : " + $srcTime + " secs]") -ed 0 mtkRTlegacy_tw_src_stats;
+
+        float $trgTime = (trunc(((float)$trg_rng/24)*100))/100;
+        textFieldGrp -e -text ("[" + ($trg_rng) + " @ 24fps : " + $trgTime + " secs]") -ed 0 mtkRTlegacy_tw_trg_stats;
+        }
+
+
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////// Enable UI
+
+global proc mtkRTlegacy_tw_enableMayaUI(int $on, string $ignore)
+{
+
+  //if turning off, add safety popup
+  if($on==off)
+    {
+    if (`window -exists mtkRTlegacy_UIFIX`){deleteUI mtkRTlegacy_UIFIX; windowPref -remove mtkRTlegacy_UIFIX;}
+    string $window = `window -widthHeight 200 100 -bgc 1 1 1 -title "ebLabs UI Restore" mtkRTlegacy_UIFIX`;
+    columnLayout -adjustableColumn true;
+    text -label "\nClick to restore UI, \nif there are any errors\n" -align "center";
+    button -label "RestoreUI" -command "global string $gMainPane;for($p in (`lsUI -typ window`)){ if (!(catchQuiet (`window -e -i 0 $p`))) {window -e -i 0 $p;}}paneLayout -e -m 1 $gMainPane;print \"\*Restoring Maya UI...\\n\"; if (`window -exists mtkRTlegacy_UIFIX`){deleteUI mtkRTlegacy_UIFIX; windowPref -remove mtkRTlegacy_UIFIX;}";
+    showWindow $window;
+    }
+
+  if($on==on)
+    {
+    if (`window -exists mtkRTlegacy_UIFIX`){deleteUI mtkRTlegacy_UIFIX; windowPref -remove mtkRTlegacy_UIFIX;}
+    }
+
+  //modified from NaughtyNathan on cgtalk.com
+  print (($on) ? "*Enabling Maya UI...\n" : "*Disabling Maya UI...\n");
+  global string $gMainPane;
+  string $windows[] = `lsUI -typ window`;
+  for ($window in $windows)
+    if ($window != "MayaWindow" && $window != "CommandWindow" && $window != $ignore && $window != "mtkRTlegacy_UIFIX")
+      {
+
+      //this is to fix some weird window error, not sure what or why this is erroring on some UI elements
+      if (!(catchQuiet (`window -e -i (!$on) $window`)))
+        {
+        window -e -i (!$on) $window;
+        }
+      else
+        {
+        //print ("erroring on " + $window);
+        }
+      }
+  paneLayout -e -m $on $gMainPane;
+}
+
+
+//###########################################################################################################################
+global proc mtkRTlegacy_tw_velocityTimeWarp()
+{
+//get object selection
+string $selection[] = `ls -selection`;
+
+//make sure there are some translation keys on the object to build velocity curve
+int $keyCount = `keyframe -query -keyframeCount ($selection[0] + ".tx")`;
+$keyCount+=`keyframe -query -keyframeCount ($selection[0] + ".ty")`;
+$keyCount+=`keyframe -query -keyframeCount ($selection[0] + ".tz")`;
+
+//get selected timeWarp
+string $selectedtimeWarp = `mtkRTlegacy_tw_getTimeWarpFromList`;
+int $timeWarpSelectedCheck = `size($selectedtimeWarp)`;
+
+//check that at least one timeWarp is selected
+if(($timeWarpSelectedCheck!=0)&&($keyCount>=2))
+    {
+    //set timeWarp to enabled state
+    //mtkRTlegacy_tw_setTimeWarpModeStatus(`mtkRTlegacy_tw_getTimeWarpFromList`, "enable");
+
+    //get first and last keyframe on object
+    float $firstKey = (`findKeyframe -which first $selection[0]`);
+    float $lastKey = (`findKeyframe -which last $selection[0]`);
+    float $speed;
+    float $valueCheck;
+    vector $lastVector;
+    vector $vector;
+
+    //remove timeWarp curve
+    cutKey -time ":" -option keys ($selectedtimeWarp + ".timeWarp");
+
+    //set start frame to zero
+    currentTime $firstKey;
+    $lastVector = `xform -q -ws -t $selection[0]`;
+    setKeyframe -v 0 -t $firstKey ($selectedtimeWarp + ".timeWarp");
+
+    //disable UI
+    mtkRTlegacy_tw_enableMayaUI(off, "mtkRTlegacy_timeWarp");
+
+    //skip first frame in order to start values at 0
+    for ($f = ($firstKey+1); $f <= $lastKey; $f++)
+        {
+        //current frame
+        currentTime ($f);
+        $vector = `xform -q -ws -t $selection[0]`;
+
+        //calculate speed
+        $speed = abs(mag (<<$vector.x-$lastVector.x,$vector.y-$lastVector.y,$vector.z-$lastVector.z>>) );
+        $valueCheck = `getAttr -t ($f -1) ($selectedtimeWarp + ".timeWarp")`;
+        setKeyframe -v ($speed + $valueCheck) ($selectedtimeWarp + ".timeWarp");
+
+        //set current vector as previous for next loop
+        $lastVector = $vector;
+        }
+
+    //enable UI
+    mtkRTlegacy_tw_enableMayaUI(on, "mtkRTlegacy_timeWarp");
+
+    //normalize speed curve to frame range
+    //get last frame value
+    float $lastValue = `getAttr -t $lastKey ($selectedtimeWarp + ".timeWarp")`;
+
+    //normalize
+    scaleKey -iub false -vs (($lastKey-$firstKey)/$lastValue) -vp 0 -animation objects ($selectedtimeWarp + ".timeWarp") ;
+
+    //shift all keys
+    keyframe -e -iub true -r -o over -vc ($firstKey) ($selectedtimeWarp + ".timeWarp") ;
+
+    }
+
+//reset lists
+mtkRTlegacy_refreshTimeWarpConnectionList;
+mtkRTlegacy_tw_updateTimeWarpControllerList;
+mtkRTlegacy_tw_setTimeWarpFromList($selectedtimeWarp);
+}
+
+
+//###########################################################################################################################
+//######function for creating the time warp controller
+
+global proc string mtkRTlegacy_createTimeWarpController(string $name)
+{
+// capture selections
+string $selected[] = `ls -selection`;
+
+    //create timewarp controller
+if ($name=="")
+    {
+    $name = "timeWarp";
+    }
+//print $name;
+string $newTimeWarpControl = `curve -d 1 -p 0 0 2.3 -p 0 0.5 2.3 -p 1 1 2 -p 1 0.5 2 -p 0 0 2.3 -p 1 0.5 2 -p 1 1 2 -p 2 1.5 1 -p 2 1 1 -p 1 0.5 2 -p 1 1 2 -p 2 1.5 1 -p 2.3 2 0 -p 2.3 1.5 0 -p 2 1 1 -p 2 1.5 1 -p 2.3 2 0 -p 2 2.5 -1 -p 2 2 -1 -p 2.3 1.5 0 -p 2.3 2 0 -p 2 2.5 -1 -p 1 3 -2 -p 1 2.5 -2 -p 2 2 -1 -p 2 2.5 -1 -p 1 3 -2 -p 0 3.5 -2.3 -p 0 3 -2.3 -p 1 2.5 -2 -p 1 3 -2 -p 0 3.5 -2.3 -p -1 4 -2 -p -1 3.5 -2 -p 0 3 -2.3 -p 0 3.5 -2.3 -p -1 4 -2 -p -2 4.5 -1 -p -2 4 -1 -p -1 3.5 -2 -p -1 4 -2 -p -2 4.5 -1 -p -2.3 5 0 -p -2.3 4.5 0 -p -2 4 -1 -p -2 4.5 -1 -p -2.3 5 0 -p -2 5.5 1 -p -2 5 1 -p -2.3 4.5 0 -p -2.3 5 0 -p -2 5.5 1 -p -1 6 2 -p -1 5.5 2 -p -2 5 1 -p -2 5.5 1 -p -1 6 2 -p 0 6.5 2.3 -p 0 6 2.3 -p -1 5.5 2 -p -1 6 2 -p 0 6.5 2.3 -p 1 7 2 -p 1 6.5 2 -p 0 6 2.3 -p 0 6.5 2.3 -p 1 7 2 -p 2 7.5 1 -p 2 7 1 -p 1 6.5 2 -p 1 7 2 -p 2 7.5 1 -p 2.3 8 0 -p 2.3 7.5 0 -p 2 7 1 -p 2 7.5 1 -p 2.3 8 0 -p 2 8.5 -1 -p 2 8 -1 -p 2.3 7.5 0 -p 2.3 8 0 -p 2 8.5 -1 -p 1 9 -2 -p 1 8.5 -2 -p 2 8 -1 -p 2 8.5 -1 -p 1 9 -2 -p 0 9.5 -2.3 -p 0 9 -2.3 -p 1 8.5 -2 -p 1 9 -2 -p 0 9.5 -2.3 -p -1 10 -2 -p -1 9.5 -2 -p 0 9 -2.3 -p 0 9.5 -2.3 -p -1 10 -2 -p -2 10.5 -1 -p -2 10 -1 -p -1 9.5 -2 -p -1 10 -2 -p -2 10.5 -1 -p -2.3 11 0 -p -2.3 10.5 0 -p -2 10 -1 -p -2 10.5 -1 -p -2.3 11 0 -p -2 11.5 1 -p -2 11 1 -p -2.3 10.5 0 -p -2.3 11 0 -p -2 11.5 1 -p -1 12 2 -p -1 11.5 2 -p -2 11 1 -p -2 11.5 1 -p -1 12 2 -k 0 -k 1 -k 2 -k 3 -k 4 -k 5 -k 6 -k 7 -k 8 -k 9 -k 10 -k 11 -k 12 -k 13 -k 14 -k 15 -k 16 -k 17 -k 18 -k 19 -k 20 -k 21 -k 22 -k 23 -k 24 -k 25 -k 26 -k 27 -k 28 -k 29 -k 30 -k 31 -k 32 -k 33 -k 34 -k 35 -k 36 -k 37 -k 38 -k 39 -k 40 -k 41 -k 42 -k 43 -k 44 -k 45 -k 46 -k 47 -k 48 -k 49 -k 50 -k 51 -k 52 -k 53 -k 54 -k 55 -k 56 -k 57 -k 58 -k 59 -k 60 -k 61 -k 62 -k 63 -k 64 -k 65 -k 66 -k 67 -k 68 -k 69 -k 70 -k 71 -k 72 -k 73 -k 74 -k 75 -k 76 -k 77 -k 78 -k 79 -k 80 -k 81 -k 82 -k 83 -k 84 -k 85 -k 86 -k 87 -k 88 -k 89 -k 90 -k 91 -k 92 -k 93 -k 94 -k 95 -k 96 -k 97 -k 98 -k 99 -k 100 -k 101 -k 102 -k 103 -k 104 -k 105 -k 106 -k 107 -k 108 -k 109 -k 110 -k 111 -k 112 -k 113 -k 114 -k 115 -k 116`;
+//rename curve
+$newTimeWarpControl = `rename $newTimeWarpControl $name`;
+
+addAttr -ln "timeWarp"  -at time  $newTimeWarpControl;
+setAttr -e -keyable true ($newTimeWarpControl + ".timeWarp");
+addAttr -ln "shuffleData"  -at double  $newTimeWarpControl;
+setAttr -e -keyable false -cb false ($newTimeWarpControl + ".shuffleData");
+addAttr -ln "store"  -dt "string"  $newTimeWarpControl;
+//offline curve placeholders
+addAttr -ln "timeWarp_offline"  -at time $newTimeWarpControl;
+setAttr -e -keyable false -cb false ($newTimeWarpControl + ".timeWarp_offline");
+
+setAttr -keyable false -channelBox true ($newTimeWarpControl + ".tx");
+setAttr -keyable false -channelBox true ($newTimeWarpControl + ".ty");
+setAttr -keyable false -channelBox true ($newTimeWarpControl + ".tz");
+setAttr -keyable false -channelBox true ($newTimeWarpControl + ".rx");
+setAttr -keyable false -channelBox true ($newTimeWarpControl + ".ry");
+setAttr -keyable false -channelBox true ($newTimeWarpControl + ".rz");
+setAttr -keyable false -channelBox true ($newTimeWarpControl + ".sx");
+setAttr -keyable false -channelBox true ($newTimeWarpControl + ".sy");
+setAttr -keyable false -channelBox true ($newTimeWarpControl + ".sz");
+setAttr -keyable false -channelBox true ($newTimeWarpControl + ".v");
+//find out scene start and end times
+float $timeLineStart = `playbackOptions -q -animationStartTime`;
+float $timeLineEnd = `playbackOptions -q -animationEndTime`;
+
+// use selections to set range
+if (`size($selected)`>0)
+    {
+    float $firstKeyframe = `findKeyframe -which "first" $selected`;
+    float $lastKeyframe = `findKeyframe -which "last" $selected`;
+
+    // use anim curve range
+    if ($lastKeyframe-$firstKeyframe>0)
+        {
+            $timeLineStart = $firstKeyframe;
+            $timeLineEnd = $lastKeyframe;
+        }
+    }
+
+//set first and last keyframe
+setKeyframe -attribute "timeWarp" -itt "linear" -ott "linear" -t $timeLineStart -v $timeLineStart $newTimeWarpControl;
+setKeyframe -attribute "timeWarp" -itt "linear" -ott "linear" -t $timeLineEnd -v $timeLineEnd $newTimeWarpControl;
+
+// add selections
+if (`size($selected)`>0)
+{
+    // reselect items
+    select -r $selected;
+
+    // add selection to timewarp
+    mtkRTlegacy_connectToTimeWarpControllerIterations();
+
+}
+
+
+//update UI
+if (`window -exists "mtkRTlegacy_timeWarp"`)
+{
+  //refresh timewarp list
+  mtkRTlegacy_tw_updateTimeWarpControllerList;
+
+  //set new message
+  text -e -label ("[new timewarp control created: " + $newTimeWarpControl + " ]") mtkRTlegacy_tw_messageArea;
+}
+
+
+
+//output curve name
+return $newTimeWarpControl;
+}
+
+//###########################################################################################################################
+//###### update timewarp controller list
+
+global proc mtkRTlegacy_tw_updateTimeWarpControllerList()
+{
+
+//check if UI exists first
+if (`textScrollList -ex mtkRTlegacy_tw_mainList`)
+    {
+    //get list of all nurbs curves
+    string $selection[] = `ls -type nurbsCurve`;
+    string $list[] = `listRelatives -allParents $selection`;
+    string $timeWarpControlList[];
+    clear $timeWarpControlList;
+    int $objCount = `size($list)`;
+    //print $objCount;
+
+    //clear main list
+    textScrollList -e -ra mtkRTlegacy_tw_mainList;
+
+    //sort through and see which one is a timewarp control
+    for($obj in $list)
+    {
+
+    if (`objExists ($obj + ".shuffleData")`)
+        {
+        $timeWarpControlList[`size($timeWarpControlList)`] = $obj;
+        }
+    }
+
+    //clear control list
+    textScrollList -e -ra mtkRTlegacy_tw_controlList;
+
+    //add timewarps to list
+    for ($f = 0; $f < (`size($timeWarpControlList)`); $f++)
+        {
+        string $timeWarpStatus = `mtkRTlegacy_tw_getTimeWarpModeStatus($timeWarpControlList[$f])`;
+        string $listItemWithMessage = ($timeWarpControlList[$f] + " [" + $timeWarpStatus + "]");
+        //add controllers to both lists, timewarp list and untimewarp list
+        textScrollList -e -append ($listItemWithMessage) mtkRTlegacy_tw_controlList;
+
+        //select the first control for timewarp list(dont select anything for untimewarp list)
+        textScrollList -e -sii 1 mtkRTlegacy_tw_controlList;
+        }
+    //update connection list if theres something selected
+    if((`size($timeWarpControlList)`)>0)
+        {
+        mtkRTlegacy_refreshTimeWarpConnectionList;
+        }
+    }
+}
+
+
+//###########################################################################################################################
+//###### refresh timewarp connection list
+
+global proc mtkRTlegacy_refreshTimeWarpConnectionList()
+{
+//print ("\n994, mtkRTlegacy_refreshTimeWarpConnectionList\n");
+    //clear list
+textScrollList -e -ra mtkRTlegacy_tw_mainList;
+
+//get selection
+string $selectedtimeWarp = `mtkRTlegacy_tw_getTimeWarpFromList`;
+//print ("\n1000\n");
+//error checking, if selected timewarp doesnt exist refresh list
+if(!`objExists $selectedtimeWarp` )
+    {
+    mtkRTlegacy_tw_updateTimeWarpControllerList;
+    //re-get selection
+
+    $selectedtimeWarp = `mtkRTlegacy_tw_getTimeWarpFromList`;
+    string $buffer[];
+    $numTokens = `tokenize $selectedtimeWarp " " $buffer`;
+    $selectedtimeWarp = $buffer[0];
+    }
+
+//some error checking
+else if(`objExists $selectedtimeWarp`)
+    {
+    //select timewarp
+    select $selectedtimeWarp;
+
+    //get list of connected anim curves
+    string $attrConnected[] = `listConnections -d on -s on ($selectedtimeWarp + ".timeWarp")`;
+
+    //print ("\n1021\n");
+    //print ($attrConnected);
+
+    //filter out anything that is not an animation curve
+    for ($f = 0; $f < (`size($attrConnected)`); $f++)
+        {
+        string $type = `objectType $attrConnected[$f]`;
+        if((`gmatch $type "animCurve*"`)!=1)
+            {
+            $attrConnected[$f] = "";
+            }
+        }
+    //remove blank entries
+    $attrConnected = stringArrayRemove({""}, $attrConnected);
+
+
+    //update message area
+    text -e -label ("[ List of objects and attributes connected to: " + $selectedtimeWarp + " ]") mtkRTlegacy_tw_messageArea;
+
+    global string $mtkRTlegacy_tw_objectList[];
+    global int $mtkRTlegacy_tw_isExpanded[];
+    global string $mtkRTlegacy_tw_attributeList[];
+    string $expandIcon;
+
+    //clear variables
+    clear $mtkRTlegacy_tw_objectList;
+    clear $mtkRTlegacy_tw_isExpanded;
+    clear $mtkRTlegacy_tw_attributeList;
+
+    //make list of corresponding objects from animcurve node names
+
+    string $objectList[];
+    clear $objectList;
+
+    //print ("\n1055\n");
+    //print ($attrConnected);
+
+    //take connected curves and make a list of object.attributes
+    string $objectsDotAttributes[];
+    for($curves in $attrConnected)
+        {
+        string $attribCheck = `mtkRTlegacy_tw_getAttributeFromCurve($curves)`;
+
+        if ($attribCheck==""){
+            continue;
+        }
+
+        //check type of object and skip if its on the ignore list
+        string $buffer1[];
+        $numTokens = `tokenize $attribCheck "." $buffer1`;
+
+        //print ($curves + ", " + $attribCheck + "\n");
+        //string $type = `objectType $buffer1[0]`;
+
+        //skip any timewarp objects
+        if(((`gmatch $attribCheck "*.timeWarp"`)==0))
+            {
+            $objectsDotAttributes[`size($objectsDotAttributes)`] = $attribCheck;
+            }
+        }
+
+    //print ("\n1080\n");
+    //print ($objectsDotAttributes);
+
+    //build up list of objects, throw away attributes after .
+    for($oDOTa in $objectsDotAttributes)
+        {
+        //breakdown string
+        string $buffer[];
+        $numTokens = `tokenize $oDOTa "." $buffer`;
+        //store object to array
+        $mtkRTlegacy_tw_objectList[`size($mtkRTlegacy_tw_objectList)`] = $buffer[0];
+        }
+    //tidy up list, remove duplicates
+    $mtkRTlegacy_tw_objectList = stringArrayRemoveDuplicates($mtkRTlegacy_tw_objectList);
+
+    //print ("\n1094\n");
+    //print ($mtkRTlegacy_tw_objectList);
+
+    //make list of attributes
+    for ($f = 0; $f < (`size($mtkRTlegacy_tw_objectList)`); $f++)
+        {
+
+        for($oDOTa in $objectsDotAttributes)
+            {
+            //breakdown string
+            string $buffer[];
+            $numTokens = `tokenize $oDOTa "." $buffer`;
+            //compare list of objects with buffer 0 to find a match
+            if($mtkRTlegacy_tw_objectList[$f]==$buffer[0])
+                {
+                $mtkRTlegacy_tw_attributeList[$f] = ($mtkRTlegacy_tw_attributeList[$f]) + " " + ($buffer[1]);
+                }
+            }
+        }
+
+    //print ("\n1113\n");
+    //print ($mtkRTlegacy_tw_attributeList);
+
+    //update connection list
+    for ($f = 0; $f < (`size($mtkRTlegacy_tw_objectList)`); $f++)
+        {
+        $expandIcon = "(+) ";
+        if($mtkRTlegacy_tw_isExpanded[$f] == 1){$expandIcon = "(_) ";}
+
+        //get attribute list
+        string $buffer[];
+        $numTokens = `tokenize $mtkRTlegacy_tw_attributeList[$f] " " $buffer`;
+
+        if($buffer[0]==""){$numTokens = 0;}
+        textScrollList -e -append ($expandIcon + $mtkRTlegacy_tw_objectList[$f] + "   (" + $numTokens + ")") mtkRTlegacy_tw_mainList;
+
+        //fill in attributes if isExpanded is selected
+        if($mtkRTlegacy_tw_isExpanded[$f] == 1)
+            {
+            for($at in $buffer)
+                {
+                if($at!=""){textScrollList -e -append ("    ." + $at) mtkRTlegacy_tw_mainList;}
+                }
+            }
+        }
+    }
+else
+    {
+    //update message area
+    text -e -label ("[ ... ]") mtkRTlegacy_tw_messageArea;
+    }
+}
+
+//###########################################################################################################################################################
+global proc mtkRTlegacy_tw_expand()
+{
+//set global strings
+global string $mtkRTlegacy_tw_objectList[];
+global int $mtkRTlegacy_tw_isExpanded[];
+global string $mtkRTlegacy_tw_attributeList[];
+
+//get selected item from list
+string $selectedListItm[] = `textScrollList -q -si mtkRTlegacy_tw_mainList`;
+string $buffer[];
+$numTokens = `tokenize $selectedListItm[0] " " $buffer`;
+string $listObject = $buffer[1];
+
+//match list object with global array and set isExpanded
+for ($f = 0; $f < (`size($mtkRTlegacy_tw_objectList)`); $f++)
+    {
+    if($mtkRTlegacy_tw_objectList[$f]==$listObject)
+        {
+        if($mtkRTlegacy_tw_isExpanded[$f] == 1)
+            {
+            $mtkRTlegacy_tw_isExpanded[$f] = 0;
+            }else{
+            $mtkRTlegacy_tw_isExpanded[$f] = 1;
+            }
+        }
+    }
+mtkRTlegacy_tw_updateList;
+}
+
+//###########################################################################################################################################################
+global proc mtkRTlegacy_tw_updateList()
+{
+textScrollList -e -ra mtkRTlegacy_tw_mainList;
+//clear sorted list of object and attributes
+
+for ($f = 0; $f < (`size($mtkRTlegacy_tw_objectList)`); $f++)
+    {
+    //make object list
+    $expandIcon = "(+) ";
+    if($mtkRTlegacy_tw_isExpanded[$f] == 1){$expandIcon = "(_) ";}
+
+    //count linked attributes per object
+    string $buffer[];
+    $numTokens = `tokenize $mtkRTlegacy_tw_attributeList[$f] " " $buffer`;
+    if($buffer[0]==""){$numTokens = 0;}
+
+    textScrollList -e -append ($expandIcon + $mtkRTlegacy_tw_objectList[$f] + "   (" + $numTokens + ")") mtkRTlegacy_tw_mainList;
+
+    //fill in attributes if isExpanded is selected
+    if($mtkRTlegacy_tw_isExpanded[$f] == 1)
+        {
+        for($at in $buffer)
+            {
+            if($at!="")
+                {
+                textScrollList -e -append ("." + $at) mtkRTlegacy_tw_mainList;
+                }
+            }
+        }
+    }
+}
+
+//###########################################################################################################################################################
+global proc mtkRTlegacy_disconnectToTimeWarpController()
+{
+//list of selected items from list in index form
+int $selectListIndex[] = `textScrollList -q -sii mtkRTlegacy_tw_mainList`;
+int $numOfItems = `textScrollList -q -ni mtkRTlegacy_tw_mainList`;
+string $allItemsInList[] = `textScrollList -q -ai mtkRTlegacy_tw_mainList`;
+
+//get selection
+string $selectedtimeWarp = `mtkRTlegacy_tw_getTimeWarpFromList`;
+int $timeWarpSelectedCheck = `size($selectedtimeWarp)`;
+//list of objects for removal
+string $attrForRemoval[];
+
+//check that at least on timeWarp is selected
+if($timeWarpSelectedCheck!=0)
+{
+//go through selected list items
+for($index in $selectListIndex)
+{
+//remove whole objects if anything not expanded
+//output name of object from selection in list,
+string $listItem[];
+$numTokens = `tokenize $allItemsInList[$index-1] " " $listItem`;
+if($listItem[0] == "(+)")
+    {
+    //match list object with global array find the right index
+    int $whatIndex;
+    for ($f = 0; $f < (`size($mtkRTlegacy_tw_objectList)`); $f++)
+        {
+        if($mtkRTlegacy_tw_objectList[$f]==$listItem[1])
+            {
+            $whatIndex = $f;
+            }
+        }
+
+    //go through attributes and add to removal list in the form of object.attribute
+    string $buffer[];
+    $numTokens = `tokenize $mtkRTlegacy_tw_attributeList[$whatIndex] " " $buffer`;
+    for($at in $buffer)
+        {
+        if($at!="")
+            {
+            $attrForRemoval[`size($attrForRemoval)`]=($mtkRTlegacy_tw_objectList[$whatIndex] + "." + $at);
+            }
+        }
+    }
+
+//now do selected attributes
+if(`gmatch $listItem[0] "*.*"`)
+    {
+
+    //loop up and find parent object
+    for ($g = 1; $g < $numOfItems; $g++)
+        {
+        string $buffer[];
+        $numTokens = `tokenize $allItemsInList[($index-$g)] " " $buffer`;
+
+        //once the parent object is found in the list, store the full object.attribute
+        if($buffer[0] == "(_)")
+            {
+            $attrForRemoval[`size($attrForRemoval)`]=($buffer[1] + $listItem[0]);
+            $g = $numOfItems;
+            }
+        }
+
+
+    }
+}
+
+//print $attrForRemoval;
+
+//remove attributes from list
+for ($removeMe in $attrForRemoval)
+    {
+    if(size(`listConnections -d off -s on ($removeMe)`)==1)
+        {
+        //get associated animation curve
+        string $animCurves[] = `mtkRTlegacy_tw_getCurveFromAttr($removeMe)`;
+        for($animCurve in $animCurves)
+            {
+            //dissconnect only if the node is type animCurve
+            string $type = `objectType $animCurve`;
+            if(`gmatch $type "animCurve*"`)
+                {
+                //dissconnect only if connected (error checking)
+                if(`isConnected ($selectedtimeWarp + ".timeWarp") ($animCurve + ".input")`)
+                    {
+                    //remove attribute
+                    disconnectAttr ($selectedtimeWarp + ".timeWarp") ($animCurve + ".input");
+                    //print (($animCurve + ".input") + "\n");
+                    //print ($removeMe + "\n");
+                    }
+                }
+            }
+        }
+    }
+mtkRTlegacy_refreshTimeWarpConnectionList;
+string $currentMessage = `text -q -label mtkRTlegacy_tw_messageArea`;
+text -e -label ($currentMessage + " *removed objects") mtkRTlegacy_tw_messageArea;
+}
+}
+
+//###########################################################################################################################
+global proc string[] mtkRTlegacy_getObjectsFromConnections(string $timeWarp)
+{
+string $return[];
+
+if(`objExists $timeWarp`)
+    {
+    string $connectedCurves[] = `listConnections -d on -s on ($timeWarp + ".timeWarp")`;
+
+    //make list of objects
+    for ($cc in $connectedCurves)
+        {
+        //error checking for timewarps
+        //breakdown string
+        string $objectCheck = `mtkRTlegacy_tw_getAttributeFromCurve($cc)`;
+        string $buffer[];
+        $numTokens = `tokenize $objectCheck "." $buffer`;
+
+        //skip if the attribute is a timeWarp
+        if((`gmatch $buffer[1] "timeWarp"`)==0)
+            {
+            //add to list if the connected node is an animCurve
+            string $type = `objectType $cc`;
+            if(`gmatch $type "animCurve*"`)
+                {
+                $return[(`size($return)`)]= $buffer[0];
+                }
+            }
+        }
+
+    $return = stringArrayRemoveDuplicates($return);
+    }
+return $return;
+}
+
+//###########################################################################################################################
+global proc mtkRTlegacy_connectToTimeWarpControllerIterations()
+{
+
+    //print ("mtkRTlegacy_connectToTimeWarpControllerIterations, "  + $mtkRTlegacy_tw_maxIterationsOnAdd+ "\n");
+    for ($f = 0; $f < 10; $f++)
+    {
+    //print ("1340, adding objects: " + $f + "\n");
+    string $addedObjects[] = `mtkRTlegacy_connectToTimeWarpController`;
+    //print $addedObjects;
+    select -add $addedObjects;
+    }
+}
+
+
+
+//###########################################################################################################################
+global proc string[] mtkRTlegacy_connectToTimeWarpController()
+{
+string $return[];
+string $selected[] = `ls -selection`;
+string $shapes[];
+string $shapeConnections[];
+
+//get selection
+string $selectedtimeWarp = `mtkRTlegacy_tw_getTimeWarpFromList`;
+int $timeWarpSelectedCheck = `size($selectedtimeWarp)`;
+
+//check that at least on timeWarp is selected
+if($timeWarpSelectedCheck!=0)
+{
+string $timewarpCheck[];
+string $alreadyConnectedCurves[] = `listConnections -d on -s on ($selectedtimeWarp + ".timeWarp")`;
+
+//if a camera is selected, add camera shapes to selection
+int $count = `size($selected)`;
+for ($f = 0; $f <  $count; $f++)
+    {
+    $shapes = `listRelatives -shapes -fullPath ($selected[$f])`;
+    //$shapes = `listRelatives -type "camera" -shapes ($selected[$f])`;
+    //print ("\n" + 1394  + ">" + $f + "\n");
+    //print $shapes;
+
+    for ($shape in $shapes)
+        {
+        appendStringArray($selected, {$shape}, 1);
+        //print ("\n" + 1396 + "\n");
+        // shape connections
+        $shapeConnections = `listConnections ($shape)`;
+        //print $shapeConnections;
+        for ($shapeConnection in $shapeConnections)
+            {
+            //print ("\n" + 1401 + "\n");
+            //print $shapeConnection;
+            appendStringArray($selected, {$shapeConnection}, 1);
+            }
+        //select -add ($shape);
+        }
+
+    }
+
+
+// clean up list
+$selected = stringArrayRemoveDuplicates($selected);
+
+//print ("\n" + 1405 + "\n");
+//print $selected;
+//return {""};
+//connect attributes
+for ($f = 0; $f < (`size($selected)`); $f++)
+    {
+    //find and go through all animated attributes
+    string $attributes[] = `listAttr -s -k -u $selected[$f]`;
+    for ($a in $attributes)
+        {
+        //print ($selected[$f] + " "  + $a + "\n");
+        //make sure there are actually anim curves connected to attribute, and that its not a timewarp control
+        if (!(catchQuiet (`listConnections -d off -s on ($selected[$f] + "." + $a)`)))
+            {
+            if((size(`listConnections -d off -s on ($selected[$f] + "." + $a)`)==1)&&($a!="timeWarp"))
+                {
+                //get associated animation curve and connect it to the timewarp
+                string $anim_curves[] = `mtkRTlegacy_tw_getCurveFromAttr(($selected[$f] + "." + $a))`;
+                for($anim_curve in $anim_curves)
+                    {
+                    //connect only if the node is type animCurve
+                    string $type = `objectType $anim_curve`;
+                    if((`gmatch $type "animCurve*"`))
+                        {
+                        //skip if already connected
+                        if(((`isConnected ($selectedtimeWarp + ".timeWarp") ($anim_curve + ".input")`))==0)
+                            {
+                            //connect the attribute to the timewarp
+                            connectAttr -f ($selectedtimeWarp + ".timeWarp") ($anim_curve + ".input");
+
+                            //add object to return list
+                            string $objDOTattr = `mtkRTlegacy_tw_getAttributeFromCurve($anim_curve)`;
+                            string $buffer[];
+                            $numTokens = `tokenize $objDOTattr "." $buffer`;
+                            $return[`size($return)`] = $buffer[0];
+                            }
+                        }
+                    }
+                }
+            }
+        else
+            {
+            //print ("Debug Skipping: " + $selected[$f] + " "  + $a + "\n");
+            }
+        }
+    }
+$return = stringArrayRemoveDuplicates($return);
+mtkRTlegacy_refreshTimeWarpConnectionList;
+string $currentMessage = `text -q -label mtkRTlegacy_tw_messageArea`;
+text -e -label ($currentMessage + " *added objects") mtkRTlegacy_tw_messageArea;
+}
+return $return;
+}
+
+//###########################################################################################################################
+global proc mtkRTlegacy_storeConnections()
+{
+//get selection
+string $selectedtimeWarp = `mtkRTlegacy_tw_getTimeWarpFromList`;
+int $timeWarpSelectedCheck = `size($selectedtimeWarp)`;
+
+if($timeWarpSelectedCheck!=0)
+    {
+    //get selection
+    string $selectedtimeWarp = `mtkRTlegacy_tw_getTimeWarpFromList`;
+    int $timeWarpSelectedCheck = `size($selectedtimeWarp)`;
+
+    string $attrConnected[] = `listConnections -d on -s on ($selectedtimeWarp + ".timeWarp")`;
+    string $storedConnections;
+
+    //check that at least on timeWarp is selected
+    if($timeWarpSelectedCheck!=0)
+        {
+        for ($f = 0; $f < (`size($attrConnected)`); $f++)
+            {
+            //error checking for timewarps
+            //breakdown string
+            string $objectCheck = `mtkRTlegacy_tw_getAttributeFromCurve($attrConnected[$f])`;
+            string $buffer[];
+            $numTokens = `tokenize $objectCheck "." $buffer`;
+
+            //skip if the attribute is a timeWarp
+            if((`gmatch $buffer[1] "timeWarp"`)==0)
+                {
+                $storedConnections += ($attrConnected[$f] + " ");
+                }
+            }
+
+        //check if store attribute exists, add it if not
+        if (!(`objExists ($selectedtimeWarp + ".store")`))
+            {
+            addAttr -ln "store"  -dt "string"  $selectedtimeWarp;
+            }
+        //record list of attributes
+        setAttr -type "string" ($selectedtimeWarp + ".store") ($storedConnections);
+        //set new message
+        mtkRTlegacy_refreshTimeWarpConnectionList;
+        string $currentMessage = `text -q -label mtkRTlegacy_tw_messageArea`;
+        text -e -label ($currentMessage + " *connections stored") mtkRTlegacy_tw_messageArea;
+        }
+    }
+}
+
+//###########################################################################################################################
+global proc mtkRTlegacy_retrieveConnections()
+{
+//get selection
+string $selectedtimeWarp = `mtkRTlegacy_tw_getTimeWarpFromList`;
+int $timeWarpSelectedCheck = `size($selectedtimeWarp)`;
+
+//check that at least on timeWarp is selected
+if($timeWarpSelectedCheck!=0)
+{
+string $attrConnected[] = `listConnections -d on -s on ($selectedtimeWarp + ".timeWarp")`;
+//get stored connection string
+string $storedConnections = `getAttr ($selectedtimeWarp + ".store")`;
+string $storedArray[] = stringToStringArray($storedConnections, " ");
+//double check that the anim curve still exists and skip if they are already connected to the timewarp
+for ($sa in $storedArray)
+    {
+    if(`objExists $sa`)
+        {
+        //skip if already connected
+        if((`isConnected ($selectedtimeWarp + ".timeWarp") ($sa + ".input")`)==0)
+            {
+            //error checking for timewarps
+            //breakdown string
+            string $objectCheck = `mtkRTlegacy_tw_getAttributeFromCurve($sa)`;
+            string $buffer[];
+            $numTokens = `tokenize $objectCheck "." $buffer`;
+
+            //skip if the attribute is a timeWarp
+            if((`gmatch $buffer[1] "timeWarp"`)==0)
+                {
+                connectAttr -f ($selectedtimeWarp + ".timeWarp") ($sa + ".input");
+                }
+            }
+        }
+    }
+mtkRTlegacy_refreshTimeWarpConnectionList;
+string $currentMessage = `text -q -label mtkRTlegacy_tw_messageArea`;
+text -e -label ($currentMessage + " *retrieved connections") mtkRTlegacy_tw_messageArea;
+}
+}
+
+//###########################################################################################################################
+global proc string[] mtkRTlegacy_getAnimCurvesForObject(string $object)
+{
+string $return[];
+if(`objExists $object`)
+    {
+    string $connections[] = `listConnections -d off -s on $object`;
+    for($connection in $connections)
+        {
+        string $type = `objectType $connection`;
+        if(`gmatch $type "animCurve*"`)
+            {
+            $return[`size($return)`] = $connection;
+            }
+        }
+    }
+return $return;
+}
+
+//###########################################################################################################################
+global proc mtkRTlegacy_timeWarpShuffleKeys()
+{
+//get selection
+string $selectedtimeWarp = `mtkRTlegacy_tw_getTimeWarpFromList`;
+int $timeWarpSelectedCheck = `size($selectedtimeWarp)`;
+string $timeWarpStatus = `mtkRTlegacy_tw_getTimeWarpModeStatus($selectedtimeWarp)`;
+
+
+if(($timeWarpStatus!="disabled")&&($timeWarpSelectedCheck!=0))
+    {
+    //get timewarp variables
+    float $warpKeyTimeStart = `findKeyframe -which first $selectedtimeWarp`;
+    float $warpKeyTimeEnd = `findKeyframe -which last $selectedtimeWarp`;
+    string $attrConnected[] = `listConnections -d on -s on ($selectedtimeWarp + ".timeWarp")`;
+
+    //get list of curves connected to the timeWarp
+    string $timeWarpCurves[] = `mtkRTlegacy_getAnimCurvesForObject($selectedtimeWarp)`;
+    int $objCount = `size($attrConnected)`;
+    string $reconnectMe[];
+
+    //helper curve names
+    string $bakedRefCurve =  "mtkRTlegacy_tw_tempAnimBakeCurve";
+    string $bufferAnimCurve =  "mtkRTlegacy_tw_tempAnimCurve";
+
+
+    //make list of timewarp segments
+    float $steps = .1;
+    float $ranges[];
+    clear $ranges;
+    int $direction;
+    int $prev_direction;
+
+    for ($f = $warpKeyTimeStart; $f <= $warpKeyTimeEnd; $f=$f+$steps)
+        {
+
+        //get timewarp values
+        float $timewarpValue_A = ` getAttr -t ($f-$steps) ($selectedtimeWarp + ".timeWarp") `;
+        float $timewarpValue_B = ` getAttr -t $f ($selectedtimeWarp + ".timeWarp") `;
+        float $timewarpValue_C = ` getAttr -t ($f+$steps) ($selectedtimeWarp + ".timeWarp") `;
+
+        //store previous direction value for comparison
+        $prev_direction = $direction;
+
+        //check direction forward, back and flat
+        if($timewarpValue_A<$timewarpValue_C){$direction = 1;}
+        else if($timewarpValue_A>$timewarpValue_C){$direction = -1;}
+        else {$direction = 0;}
+
+        //indicate a change of direction
+        if($prev_direction!=$direction)
+            {
+            //print ("change of direction at frame : " + $f + " " + $direction + "\n");
+            $ranges[`size($ranges)`] = $f;
+            }
+        }
+
+    //set end range
+    $ranges[`size($ranges)`] = $warpKeyTimeEnd;
+
+    //######    Shuffle Part     #################################################################
+    if((`size($attrConnected)`)>1)
+        {
+        //go through each attribute
+        for ($n = 0; $n < (`size($attrConnected)`); $n++)
+            {
+
+            //update progress bar
+            mtkRTlegacy_updateProgress($n, $objCount, "mtkRTlegacy_tw_progress");
+
+            //check that the attribute isnt the timewarp
+            int $errorCheck = 0;
+            for($timeWarpCurve in $timeWarpCurves)
+                {
+                if($attrConnected[$n]==$timeWarpCurve)
+                    {
+                    $errorCheck = 1;
+                    }
+                }
+
+            //check that the attribute isn't a results curve
+            if(`gmatch $attrConnected[$n] "*resultCurve*"`){$errorCheck = 1;}
+
+
+            if($errorCheck == 0)
+                {
+
+                string $attribute = (`mtkRTlegacy_tw_getAttributeFromCurve($attrConnected[$n])`);
+                $reconnectMe[`size($reconnectMe)`] = $attribute;
+
+                //
+                if ($attribute == ""){
+                    continue;
+                }
+
+                //create a BAKED temp anim curve for copy/paste
+                //string $bakedRefCurve =  "mtkRTlegacy_tw_tempAnimBakeCurve";
+                if(`objExists $bakedRefCurve`){delete $bakedRefCurve;}
+                createNode (`nodeType $attrConnected[$n]`) -n $bakedRefCurve;
+                for ($t = $ranges[0]; $t <= $ranges[(`size($ranges)`-1)]; $t++)
+                    {
+
+                    float $value = `getAttr -t $t $attribute `;
+                    setKeyframe -t $t -v $value -itt "spline" -ott "spline" $bakedRefCurve;
+                    }
+
+                //create a temp anim curve for copy/paste
+                //string $bufferAnimCurve =  "mtkRTlegacy_tw_tempAnimCurve";
+                if(`objExists $bufferAnimCurve`){delete $bufferAnimCurve;}
+                createNode (`nodeType $attrConnected[$n]`) -n $bufferAnimCurve;
+                //copyKey -time ":" -option keys $attribute;
+                cutKey -time ":" -option keys $attribute;
+
+                //debugging retime breaking
+                //print ( $attrConnected[$n] + ",  " + $bufferAnimCurve + "\n");
+                if((!(catchQuiet( `pasteKey -option "replace" $bufferAnimCurve` ))))
+                    {
+                    pasteKey -option "replace" $bufferAnimCurve;
+                    }
+                else{
+                    print ("SKIP ATTRIBUTE: Shuffle Breaking on" + $attrConnected[$n] + "\n");
+                    $errorCheck = 1;
+                    //break;
+                    }
+
+                if($errorCheck == 0)
+                {
+
+
+                    pasteKey -option "replace" $bufferAnimCurve ;
+
+                    //go through each range and shuffle keys
+                    for ($i = 0; $i < (`size($ranges)`-1); $i++)
+                        {
+
+                        //clear previous shuffle data
+                        cutKey -t ":" -option keys ($selectedtimeWarp + ".shuffleData");
+
+                        //set shuffle data, creates inverse timewarp curve
+                        for ($t = $ranges[$i]; $t <= $ranges[$i+1]; $t=$t+$steps)
+                            {
+
+                            float $timeWarpValue = `getAttr -t $t ($selectedtimeWarp + ".timeWarp") `;
+                            setKeyframe -attribute "shuffleData" -t $timeWarpValue -v $t $selectedtimeWarp;
+
+                            //print ("making shuffle data " + $ranges[$i] + " to " + $ranges[$i+1]);
+                            }
+
+
+                        float $rangeStart = $ranges[$i];
+                        float $rangeEnd = $ranges[$i+1];
+
+                        float $shuffleFirstFrame = `findKeyframe -which first ($selectedtimeWarp + ".shuffleData")`;
+                        float $shuffleEndFrame = `findKeyframe -which last ($selectedtimeWarp + ".shuffleData")`;
+                        float $warped_start = `getAttr -t $shuffleFirstFrame ($selectedtimeWarp + ".shuffleData")`;
+                        float $warped_end = `getAttr -t $shuffleEndFrame ($selectedtimeWarp + ".shuffleData")`;
+
+
+
+
+                        //go through each key and copy it according to the timewarp curve
+                        int $keyCount = `keyframe -query -keyframeCount $bufferAnimCurve`;
+                        for ($k = 0; $k < ($keyCount); $k++)
+                            {
+
+                            //calculate warped time
+                            float $timeCheck[] = `keyframe -index $k -query $bufferAnimCurve`;
+                            float $warpedTime = `getAttr -t $timeCheck[0] ($selectedtimeWarp + ".shuffleData")`;
+
+                            //check time ranges #### Destination Range Check
+                            if(($warped_start<=$warpedTime&&$warpedTime<=$warped_end)||($warped_end<=$warpedTime&&$warpedTime<=$warped_start))
+                                {
+                                int $copyKey = `copyKey -t $timeCheck[0] -option keys $bufferAnimCurve`;
+                                pasteKey -time $warpedTime -option merge $attribute;
+                                }
+                            }
+                        }
+
+                    //set values against baked curve
+                    int $keyCount = `keyframe -query -keyframeCount $attribute`;
+                    for ($k = 0; $k < ($keyCount); $k++)
+                        {
+                        float $timeCheck[] = `keyframe -index $k -query $attribute`;
+
+                        //set key on baked curve for the purpose of getting its tangent angle
+                        setKeyframe -insert -t $timeCheck[0] $bakedRefCurve;
+                        float $inTangent[] = `keyTangent -t $timeCheck[0] -q -ia  $bakedRefCurve`;
+                        float $outTangent[] = `keyTangent -t $timeCheck[0] -q -oa  $bakedRefCurve`;
+
+                        float $bakedValue = `getAttr -t $timeCheck[0] ($bakedRefCurve + ".output")`;
+                        setKeyframe -t $timeCheck[0]-v $bakedValue $attribute;
+                        keyTangent -t $timeCheck[0] -e -itt spline -ott spline $attribute;
+                        keyTangent -t $timeCheck[0] -e -ia $inTangent[0] $attribute;
+                        keyTangent -t $timeCheck[0] -e -oa $outTangent[0] $attribute;
+
+                        }
+                    }
+                }
+            }
+
+        //delete helper curves
+        if(`objExists $bufferAnimCurve`){delete $bufferAnimCurve;}
+        if(`objExists $bakedRefCurve`){delete $bakedRefCurve;}
+
+        //delete shuffleData
+        cutKey -t ":" -option keys ($selectedtimeWarp + ".shuffleData");
+
+        //reconnect all attributes
+        for($attr in $reconnectMe)
+            {
+            string $anim_curves[] = `mtkRTlegacy_tw_getCurveFromAttr($attr)`;
+            for($anim_curve in $anim_curves)
+                {
+                //connect only if the node is type animCurve
+                string $type = `objectType $anim_curve`;
+                if((`gmatch $type "animCurve*"`))
+                    {
+                    //skip if already connected
+                    if(((`isConnected ($selectedtimeWarp + ".timeWarp") ($anim_curve + ".input")`))==0)
+                        {
+                        //connect the attribute to the timewarp
+                        connectAttr -f ($selectedtimeWarp + ".timeWarp") ($anim_curve + ".input");
+                        }
+                    }
+                }
+            }
+
+
+        //disable timewarp
+        mtkRTlegacy_tw_disable;
+
+        //update lists and messages
+        mtkRTlegacy_refreshTimeWarpConnectionList;
+        string $currentMessage = `text -q -label mtkRTlegacy_tw_messageArea`;
+        text -e -label ($currentMessage + " *shuffled keys") mtkRTlegacy_tw_messageArea;
+
+        } else {
+
+        //error checking
+        text -e -label ("[ No attributes connected to: " + $selectedtimeWarp + " ]") mtkRTlegacy_tw_messageArea;
+        }
+    }
+
+//set progress bar to 100
+mtkRTlegacy_updateProgress(100, 100, "mtkRTlegacy_tw_progress");
+mtkRTlegacy_tw_setTimeWarpFromList($selectedtimeWarp);
+}
+
+//###########################################################################################################################
+global proc mtkRTlegacy_timeWarpBake()
+{
+//get selection
+string $selectedtimeWarp = `mtkRTlegacy_tw_getTimeWarpFromList`;
+int $timeWarpSelectedCheck = `size($selectedtimeWarp)`;
+
+string $timeWarpStatus = `mtkRTlegacy_tw_getTimeWarpModeStatus($selectedtimeWarp)`;
+string $ignoreType[] = {"pairBlend", "expression", "time", "resultCurveTimeToTime"};
+string $constraintsList[];
+
+if(($timeWarpStatus!="disabled")&&($timeWarpSelectedCheck!=0))
+    {
+    //get timewarp variables
+    float $start = `findKeyframe -which first $selectedtimeWarp`;
+    float $end = `findKeyframe -which last $selectedtimeWarp`;
+    string $timeRange = ($start + ":" + $end);
+    string $connectedCurves[] = `listConnections -d on -s on ($selectedtimeWarp + ".timeWarp")`;
+    string $longListArray[];
+    string $objectList[];
+
+    //make list of object.attributes
+    for ($cc in $connectedCurves)
+        {
+        //error checking for timewarps
+        string $objectCheck = `mtkRTlegacy_tw_getAttributeFromCurve($cc)`;
+
+        if ($objectCheck == ""){
+            continue;
+        }
+
+        string $buffer[];
+        $numTokens = `tokenize $objectCheck "." $buffer`;
+
+        //check type of object and skip if its on the ignore list
+        string $ObjType = `objectType $cc`;
+        int $ignoreCheck = stringArrayContains($ObjType, $ignoreType);
+
+
+        if(!(`gmatch $ObjType "*resultCurve*"`))
+            {
+            //make list of constraints
+            string $constraintCheckList[] = `listConnections $cc`;
+            for($constraintCheck in $constraintCheckList)
+                {
+
+                string $ConstTypeCheck = `objectType $objectCheck`;
+                //store if its a constraint
+                if((`gmatch $ConstTypeCheck "*onstraint"`)==1)
+                    {
+                    $constraintsList[(`size($constraintsList)`)]=$constraintCheck;
+                    }
+                }
+            }
+
+        //skip if the attribute is a timeWarp
+        if(((`gmatch $buffer[1] "timeWarp"`)==0)&&($ignoreCheck==0))
+            {
+            //add object to object list, no attributes
+            $objectList[`size($objectList)`] = $buffer[0];
+            //add to list if the connected node is an animCurve
+            string $type = `objectType $cc`;
+            if(`gmatch $type "animCurve*"`)
+                {
+                $longListArray[(`size($longListArray)`)]=`mtkRTlegacy_tw_getAttributeFromCurve($cc)`;
+                }
+            }
+        }
+    $objectList = stringArrayRemoveDuplicates($objectList);
+    //do the bake
+    if((`size($longListArray)`)>0)
+        {
+        //turn ui off
+        mtkRTlegacy_tw_enableMayaUI(off, "mtkRTlegacy_timeWarp");
+
+        //bake list of object.attributes
+        //bakeResults -simulation true -t $timeRange -sampleBy 1 -disableImplicitControl true -preserveOutsideKeys false -sparseAnimCurveBake false -controlPoints false -shape true $longListArray;
+
+        //bake as objects
+        bakeResults -simulation true -t $timeRange -sampleBy 1 -disableImplicitControl true -preserveOutsideKeys false -sparseAnimCurveBake false -controlPoints false -shape true $objectList;
+        //turn ui back on
+        mtkRTlegacy_tw_enableMayaUI(on, "mtkRTlegacy_timeWarp");
+        //update list
+        mtkRTlegacy_refreshTimeWarpConnectionList;
+        //update message area
+        text -e -label ("[ Baked animation for all attributes connected to: " + $selectedtimeWarp + " ]") mtkRTlegacy_tw_messageArea;
+        } else {
+        text -e -label ("[ No attributes connected to: " + $selectedtimeWarp + " ]") mtkRTlegacy_tw_messageArea;
+        }
+    //dissconnect any leftover pairblends
+    mtkRTlegacy_tw_completelyDisconnect;
+    }
+
+/*delete constraints, this is deleting too much
+$constraintsList = stringArrayRemoveDuplicates($constraintsList);
+for($constraint in $constraintsList)
+    {
+    if((`objExists ($constraint)`)&&(!(catchQuiet( `delete ($constraint)` ))))
+        {
+        delete ($constraint);
+        }
+    }
+*/
+
+mtkRTlegacy_tw_setTimeWarpFromList($selectedtimeWarp);
+}
+
+
+//###########################################################################################################################
+global proc string[] mtkRTlegacy_tw_getCurveFromAttr(string $attribute)
+{
+string $return[];
+
+if((`size($attribute)`)!=0)
+    {
+
+    string $lsConnected[] = `listConnections -d 1 -s on $attribute`;
+
+    //get root object name
+    string $buffer[];
+    $numTokens = `tokenize $attribute "." $buffer`;
+    string $mainObject = $buffer[0];
+
+    //fix for character sets, if a single attribute isn't in the set
+    int $doesAnimCurveExistInList = 0;
+    for($ls in $lsConnected)
+        {
+        string $type = `objectType $ls`;
+        if(`gmatch $type "*animCurve*"`)
+            {
+            $doesAnimCurveExistInList = 1;
+            }
+        }
+
+
+    for($ls in $lsConnected)
+        {
+        //print ($ls + "\n");
+        string $type = `objectType $ls`;
+
+        //get curve name for attribute if not connected to a character set
+        if(($type=="character")&&($doesAnimCurveExistInList==0))
+            {
+            //get associated animation curve and connect it to the timewarp
+            //print $attribute;
+            string $CharacterSetMember = `character -q -cp $attribute`;
+            string $animCurve[] = `listConnections -d off -s on $CharacterSetMember`;
+
+            //check that result is type animCurve and then set return
+            string $type = `objectType $animCurve[0]`;
+            if(`gmatch $type "animCurve*"`)
+                {
+                $return[`size($return)`] = $animCurve[0];
+                }
+            }
+        else if($type=="pairBlend")
+            {
+            string $connections[] = `listConnections $ls`;
+            $connections = `stringArrayRemoveDuplicates $connections`;
+            for($c in $connections)
+                {
+                string $typeCheck = `objectType $c`;
+                if(`gmatch $typeCheck "animCurve*"`)
+                    {
+                    $return[`size($return)`] = $c;
+                    }
+                //go through another level and check through character sets
+                else if (`gmatch $typeCheck "character"`)
+                    {
+                    string $pairBlendPlug[] = `listConnections -p 1 $ls`;
+                    //go through each new attribute from character set
+                    for($characterSetAttribute in $pairBlendPlug)
+                        {
+                        string $animCurves[] = `listConnections -d off -s on $characterSetAttribute`;
+                        for($animCurve in $animCurves)
+                            {
+                            string $type = `objectType $animCurve`;
+                            if(`gmatch $type "animCurve*"`)
+                                {
+                                $return[`size($return)`] = $animCurve;
+                                }
+                            }
+                        }
+                    }
+
+                else if (`gmatch $typeCheck "*onstrain*"`)
+                    {
+                    string $secondObjects[] = `listConnections -d 0 -s 1 $c`;
+                    $secondObjects = stringArrayRemoveDuplicates($secondObjects);
+                    //remove constraint and current object from list
+                    string $removeObjectList[]  = { $mainObject, $c };
+                    $secondObjects = stringArrayRemove($removeObjectList, $secondObjects);
+
+                    //go through connected object list and add curves
+                    for($secondObject in $secondObjects)
+                        {
+                        //find and go through all animated attributes
+                        string $secondObjectAttrs[] = `listAttr -s -k -u $secondObject`;
+                        for ($secondObjectAttr in $secondObjectAttrs)
+                            {
+                            //make sure there are actually anim curves connected to attribute, and that its not a timewarp control
+                            if(size(`listConnections -d off -s on ($secondObject + "." + $secondObjectAttr)`)==1)
+                                {
+                                //get associated animation curve
+                                string $secondObjectAnimCurve[] = `listConnections -d off -s on ($secondObject + "." + $secondObjectAttr)`;
+
+                                //check that result is type animCurve and then set return
+                                string $type = `objectType $secondObjectAnimCurve[0]`;
+                                if(`gmatch $type "animCurve*"`)
+                                    {
+                                    $return[`size($return)`] = $secondObjectAnimCurve[0];
+                                    }
+                                }
+
+
+                            }
+                        }
+
+                    }
+                }
+            }
+        else if(`gmatch $type "*onstrain*"`)
+            {
+            string $secondObjects[] = `listConnections -d 0 -s 1 $ls`;
+            $secondObjects = stringArrayRemoveDuplicates($secondObjects);
+            //remove constraint and current object from list
+            string $removeObjectList[]  = { $mainObject, $ls };
+            $secondObjects = stringArrayRemove($removeObjectList, $secondObjects);
+
+            //go through connected object list and add curves
+            for($secondObject in $secondObjects)
+                {
+                //find and go through all animated attributes
+                string $secondObjectAttrs[] = `listAttr -s -k -u $secondObject`;
+                for ($secondObjectAttr in $secondObjectAttrs)
+                    {
+                    //make sure there are actually anim curves connected to attribute, and that its not a timewarp control
+                    if(size(`listConnections -d off -s on ($secondObject + "." + $secondObjectAttr)`)==1)
+                        {
+                        //get associated animation curve
+                        string $secondObjectAnimCurve[] = `listConnections -d off -s on ($secondObject + "." + $secondObjectAttr)`;
+
+                        //check that result is type animCurve and then set return
+                        string $type = `objectType $secondObjectAnimCurve[0]`;
+                        if(`gmatch $type "animCurve*"`)
+                            {
+                            $return[`size($return)`] = $secondObjectAnimCurve[0];
+                            }
+                        }
+                    }
+                }
+            }
+        else if(`gmatch $type "*animBlend*"`)
+            {
+            //get associated animation curve
+            string $animCurves[] = `listConnections -d off -s on $ls`;
+            for ($animCurve in $animCurves)
+                {
+                //check that result is type animCurve and then set return
+                string $type = `objectType $animCurve`;
+                if(`gmatch $type "animCurve*"`)
+                    {
+                    //print ($animCurve + "\n");
+                    $return[`size($return)`] = $animCurve;
+                    }
+                //print ($ls + "\n");
+                }
+            }
+        else if($type!="character")
+            {
+            //get associated animation curve
+            string $animCurve[] = `listConnections -d off -s on $attribute`;
+
+            //check that result is type animCurve and then set return
+            string $type = `objectType $animCurve[0]`;
+            if(`gmatch $type "animCurve*"`)
+                {
+                $return[`size($return)`] = $animCurve[0];
+                }
+            }
+        }
+    }
+return $return;
+}
+
+
+//###########################################################################################################################
+global proc string mtkRTlegacy_tw_getAttributeFromCurve(string $curve)
+{
+string $return;
+
+if((`objExists $curve`)!=0)
+    {
+    string $lsConnected[] = `listConnections $curve`;
+    string $type = `objectType $lsConnected[0]`;
+    //get attribute for anything that isnt connected to a character set
+    if($type!="character")
+    {
+    string $objectAttribute[] = `listConnections  -s 0 -p true $curve`;
+    $return = $objectAttribute[0];
+    }
+
+    //character
+    if($type=="character")
+        {
+        //get character set attribute
+        string $characterSetPlug[] = `listConnections -p true  $curve`;
+        //get object attribute
+        string $objectAttribute[] = `listConnections -s 0 -p true $characterSetPlug[0]`;
+
+        $return = $objectAttribute[0];
+        }
+    }
+return $return;
+}
+
+//###########################################################################################################################
+global proc mtkRTlegacy_tw_selectAll()
+{
+int $numItems = `textScrollList -q -ni mtkRTlegacy_tw_mainList`;
+for ($f = 1; $f <= ($numItems); $f++)
+    {
+    textScrollList -e -sii $f mtkRTlegacy_tw_mainList;
+    }
+mtkRTlegacy_tw_selObjFromList;
+}
+
+//###########################################################################################################################
+global proc mtkRTlegacy_tw_selectNone()
+{
+textScrollList -e -da mtkRTlegacy_tw_mainList;
+mtkRTlegacy_tw_selObjFromList;
+}
+
+//###########################################################################################################################
+global proc mtkRTlegacy_tw_cleanSubFrameKeys()
+{
+string $selected[] = `ls -selection`;
+float $keyTimes[];
+float $timeCheck[];
+int $selectedCount = `size($selected)`;
+int $counter = 0;
+for($s in $selected)
+    {
+    $counter++;
+    mtkRTlegacy_updateProgress($counter, $selectedCount, "mtkRTlegacy_tw_progress");
+    //buffer curves
+    bufferCurve -animation "objects" -overwrite true $s;
+    string $attributes[] = `listAttr -s -k -u $s`;
+    for($a in $attributes)
+        {
+
+        //clear some variables
+        clear $keyTimes;
+        //skip if the attribute is a timeWarp
+        if((`gmatch $a "timeWarp"`)==0)
+            {
+            //get key count
+            int $keyCount = `keyframe -query -keyframeCount ($s + "." + $a)`;
+            //make an array of key times
+            for ($k = 0; $k < ($keyCount); $k++)
+                {
+                $timeCheck = `keyframe -index $k -query ($s + "." + $a)`;
+                $keyTimes[`size($keyTimes)`] = $timeCheck[0];
+                }
+            //go through each one and set a key on the nearest frame
+            for($t in $keyTimes)
+                {
+                //copy key
+                int $copyKey = `copyKey -t $t -option keys ($s + "." + $a)`;
+                float $oldValue = `getAttr -t $t ($s + "." + $a)`;
+                $t = `trunc($t + 0.5)`;
+                float $value = `getAttr -t $t ($s + "." + $a)`;
+                if($copyKey==1)
+                    {
+                    //paste key on new time if something is copied
+                    pasteKey -time $t -option merge ($s + "." + $a);
+                    //change value
+                    keyframe -e -r -o over -vc ($value - $oldValue) -t $t ($s + "." + $a);
+                    }
+                }
+            //delete all subframe keys
+            for($t in $keyTimes)
+                {
+                float $fixedTime = `trunc($t + 0.5)`;
+                //check if keys are subframe then delete
+                if($fixedTime!=$t)
+                    {
+                    cutKey -t $t -o keys ($s + "." + $a);
+                    }
+                }
+            }
+        }
+    }
+mtkRTlegacy_updateProgress(100, 100, "mtkRTlegacy_tw_progress");
+}
+
+//###########################################################################################################################
+global proc mtkRTlegacy_tw_setTimeWarpModeStatus(string $timeWarpControl, string $mode)
+{
+//status modes "disable", "enable", or "inverse"
+if((`objExists $timeWarpControl`)!=0)
+    {
+    //count keys
+    int $offlineTimeWarpKeyCount = (`keyframe -query -keyframeCount ($timeWarpControl + ".timeWarp_offline")`);
+    int $TimeWarpKeyCount = (`keyframe -query -keyframeCount ($timeWarpControl + ".timeWarp")`);
+
+    //is connected to time?
+    int $isConnectedToTime = 0;
+    //get list of time noces in scene
+    string $timeNodes[] = `ls -type time`;
+    for($timeNode in $timeNodes)
+    {
+    if(`isConnected ($timeNode + ".outTime") ($timeWarpControl + ".timeWarp") `)
+        {
+        $isConnectedToTime = 1;
+        }
+    }
+
+    //put to somekind of default state
+    //dissconnect time if connected
+    $timeNodes = `ls -type time`;
+    for($timeNode in $timeNodes)
+    {
+    if(`isConnected ($timeNode + ".outTime") ($timeWarpControl + ".timeWarp") `)
+        {
+        disconnectAttr ($timeNode + ".outTime") ($timeWarpControl + ".timeWarp");
+        }
+    }
+    //if animation is offline, copy back to timewarp, overwriting anything thats there, including any inverse curve
+    if($offlineTimeWarpKeyCount>0)
+    {
+    //cut animation
+    cutKey -time ":" -option keys ($timeWarpControl + ".timeWarp_offline");
+    //paste to timewarp
+    pasteKey -option "replace" ($timeWarpControl + ".timeWarp");
+    }
+
+
+    //set to different states
+    //status modes "disable", "enable", or "inverse"
+    if($mode == "enable")
+        {
+        //do nothing, already reset
+        }
+    else if($mode == "disable")
+        {
+        //cut-paste animation to offline
+        cutKey -time ":" -option keys($timeWarpControl + ".timeWarp");
+        pasteKey -option "replace"  ($timeWarpControl + ".timeWarp_offline");
+        //connect to time
+        connectAttr ($timeNodes[0] + ".outTime") ($timeWarpControl + ".timeWarp");
+        }
+    else if($mode == "invert")
+        {
+        //get timewarp variables
+        float $warpKeyTimeStart = `findKeyframe -which first ($timeWarpControl + ".timeWarp")`;
+        float $warpKeyTimeEnd = `findKeyframe -which last ($timeWarpControl + ".timeWarp")`;
+        //set shuffle data, creates inverse timewarp curve
+        for ($t = $warpKeyTimeStart; $t <= $warpKeyTimeEnd; $t++)
+            {
+            float $timeWarpValue = `getAttr -t $t ($timeWarpControl + ".timeWarp") `;
+            setKeyframe -itt "spline" -ott "spline" -attribute "shuffleData" -t $timeWarpValue -v $t $timeWarpControl;
+            }
+        //swap animation
+        //cut-paste timeWarp animation to offline
+        cutKey -time ":" -option keys($timeWarpControl + ".timeWarp");
+        pasteKey -option "replace"  ($timeWarpControl + ".timeWarp_offline");
+        //cut-paste inverse animation to timeWarp
+        cutKey -time ":" -option keys($timeWarpControl + ".shuffleData");
+        pasteKey -option "replace"  ($timeWarpControl + ".timeWarp");
+        }
+    }
+mtkRTlegacy_tw_updateTimeWarpControllerList;
+}
+
+//###########################################################################################################################
+global proc string mtkRTlegacy_tw_getTimeWarpModeStatus(string $timeWarpControl)
+{
+string $return;
+if((`objExists $timeWarpControl`)!=0)
+    {
+    //status modes "disabled", "enabled", or "inverted"
+
+    //count keys
+    int $offlineTimeWarpKeyCount = (`keyframe -query -keyframeCount ($timeWarpControl + ".timeWarp_offline")`);
+    int $TimeWarpKeyCount = (`keyframe -query -keyframeCount ($timeWarpControl + ".timeWarp")`);
+
+    //is connected to time?
+    int $isConnectedToTime = 0;
+    string $timeNodes[] = `ls -type time`;
+    for($timeNode in $timeNodes)
+    {
+    if(`isConnected ($timeNode + ".outTime") ($timeWarpControl + ".timeWarp") `)
+        {
+        $isConnectedToTime = 1;
+        }
+    }
+
+    //is timewarp animation set to offline
+    int $isTimeWarpOffline = 0;
+    if($offlineTimeWarpKeyCount>0)
+    {
+    $isTimeWarpOffline = 1;
+    }
+
+    //check state
+    if($isConnectedToTime == 1)
+        {
+        $return = "disabled";
+        }
+    if(($isConnectedToTime == 0)&&($isTimeWarpOffline == 0))
+        {
+        $return = "enabled";
+        }
+    if(($isConnectedToTime == 0)&&($isTimeWarpOffline == 1))
+        {
+        $return = "inverted";
+        }
+    }
+return $return;
+}
+
+//###########################################################################################################################
+global proc mtkRTlegacy_tw_disable()
+{
+//get selection
+string $selectedtimeWarp = `mtkRTlegacy_tw_getTimeWarpFromList`;
+int $timeWarpSelectedCheck = `size($selectedtimeWarp)`;
+
+//check that at least on timeWarp is selected
+if($timeWarpSelectedCheck!=0)
+    {
+    mtkRTlegacy_tw_setTimeWarpModeStatus(`mtkRTlegacy_tw_getTimeWarpFromList`, "disable");
+    mtkRTlegacy_refreshTimeWarpConnectionList;
+    mtkRTlegacy_tw_updateTimeWarpControllerList;
+    }
+mtkRTlegacy_tw_setTimeWarpFromList($selectedtimeWarp);
+}
+
+//###########################################################################################################################
+global proc mtkRTlegacy_tw_enable()
+{
+//get selection
+string $selectedtimeWarp = `mtkRTlegacy_tw_getTimeWarpFromList`;
+int $timeWarpSelectedCheck = `size($selectedtimeWarp)`;
+
+//check that at least on timeWarp is selected
+if($timeWarpSelectedCheck!=0)
+    {
+    mtkRTlegacy_tw_setTimeWarpModeStatus(`mtkRTlegacy_tw_getTimeWarpFromList`, "enable");
+    mtkRTlegacy_refreshTimeWarpConnectionList;
+    mtkRTlegacy_tw_updateTimeWarpControllerList;
+    }
+mtkRTlegacy_tw_setTimeWarpFromList($selectedtimeWarp);
+}
+
+//###########################################################################################################################
+global proc mtkRTlegacy_tw_invert()
+{
+//get selection
+string $selectedtimeWarp = `mtkRTlegacy_tw_getTimeWarpFromList`;
+int $timeWarpSelectedCheck = `size($selectedtimeWarp)`;
+
+//check that at least on timeWarp is selected
+if($timeWarpSelectedCheck!=0)
+    {
+    mtkRTlegacy_tw_setTimeWarpModeStatus(`mtkRTlegacy_tw_getTimeWarpFromList`, "invert");
+    mtkRTlegacy_refreshTimeWarpConnectionList;
+    mtkRTlegacy_tw_updateTimeWarpControllerList;
+    }
+mtkRTlegacy_tw_setTimeWarpFromList($selectedtimeWarp);
+}
+
+//###########################################################################################################################
+global proc mtkRTlegacy_tw_completelyDisconnect()
+{
+//get selection
+string $selectedtimeWarp = `mtkRTlegacy_tw_getTimeWarpFromList`;
+int $timeWarpSelectedCheck = `size($selectedtimeWarp)`;
+
+//check that at least on timeWarp is selected
+if($timeWarpSelectedCheck!=0)
+    {
+    //get timewarp variables
+    string $attrConnected[] = `listConnections -d on -s on ($selectedtimeWarp + ".timeWarp")`;
+
+    //disconnect timewarp
+    for ($f = 0; $f < (`size($attrConnected)`); $f++)
+        {
+        //dissconnect only if the node is type animCurve
+            string $type = `objectType $attrConnected[$f]`;
+            if(`gmatch $type "animCurve*"`)
+                {
+                //dissconnect only if connected (error checking)
+                if(`isConnected ($selectedtimeWarp + ".timeWarp") ($attrConnected[$f] + ".input")`)
+                    {
+                    //remove attribute
+                    disconnectAttr ($selectedtimeWarp + ".timeWarp") ($attrConnected[$f] + ".input");
+                    }
+                }
+        }
+    mtkRTlegacy_refreshTimeWarpConnectionList;
+    }
+mtkRTlegacy_tw_setTimeWarpFromList($selectedtimeWarp);
+}
+
+//###########################################################################################################################
+global proc string mtkRTlegacy_tw_getTimeWarpFromList()
+{
+string $return;
+//get selection from list
+string $selectedtimeWarp[] = `textScrollList -q -si mtkRTlegacy_tw_controlList`;
+string $buffer[];
+//break up string and return first part
+$numTokens = `tokenize $selectedtimeWarp[0] " " $buffer`;
+if(`objExists $buffer[0]`)
+    {
+    $return = $buffer[0];
+    }
+return $return;
+}
+
+//###########################################################################################################################
+global proc mtkRTlegacy_tw_setTimeWarpFromList(string $selectMe)
+{
+//setup
+string $allItemsInList[] = `textScrollList -q -ai mtkRTlegacy_tw_controlList`;
+int $numOfItems = `textScrollList -q -ni mtkRTlegacy_tw_controlList`;
+int $whatIndex;
+
+if((`objExists $selectMe`)&&($selectMe!=""))
+    {
+    for ($g = 0; $g < (`size($allItemsInList)`); $g++)
+        {
+        string $buffer[];
+        $numTokens = `tokenize $allItemsInList[($g)] " " $buffer`;
+        if(`gmatch $selectMe $buffer[0]`)
+            {
+            //print ($buffer[0] + " " + $g + "\n");
+            $whatIndex = $g + 1;
+            textScrollList -e -sii $whatIndex mtkRTlegacy_tw_controlList;
+            }
+        }
+    }
+else
+    {
+    mtkRTlegacy_tw_updateTimeWarpControllerList;
+    }
+}
+
+//###########################################################################################################################
+global proc mtkRTlegacy_tw_selObjFromList()
+{
+//list of selected items from list in index form
+int $selectListIndex[] = `textScrollList -q -sii mtkRTlegacy_tw_mainList`;
+int $numOfItems = `textScrollList -q -ni mtkRTlegacy_tw_mainList`;
+string $allItemsInList[] = `textScrollList -q -ai mtkRTlegacy_tw_mainList`;
+
+string $objsForSelection[];
+
+//go through selected list items
+for($index in $selectListIndex)
+    {
+    //remove whole objects if anything not expanded
+    //output name of object from selection in list,
+    string $listItem[];
+    $numTokens = `tokenize $allItemsInList[$index-1] " " $listItem`;
+    if($listItem[0] == "(+)")
+        {
+        $objsForSelection[`size($objsForSelection)`]=($listItem[1]);
+        }
+
+    //now do selected attributes
+    if(`gmatch $listItem[0] "*.*"`)
+        {
+
+        //loop up and find parent object
+        for ($g = 1; $g < $numOfItems; $g++)
+            {
+            string $buffer[];
+            $numTokens = `tokenize $allItemsInList[($index-$g)] " " $buffer`;
+
+            //once the parent object is found in the list, store the full object.attribute
+            if($buffer[0] == "(_)")
+                {
+                $objsForSelection[`size($objsForSelection)`]=($buffer[1]);
+                $g = $numOfItems;
+                }
+            }
+        }
+    }
+$objsForSelection = stringArrayRemoveDuplicates($objsForSelection);
+//set selections
+select -cl;
+for($obj in $objsForSelection)
+    {
+    select -add $obj;
+    }
+
+}
+
+//###########################################################################################################################
+global proc mtkRTlegacy_tw_reset()
+{
+//get selected timeWarp
+string $selectedtimeWarp = `mtkRTlegacy_tw_getTimeWarpFromList`;
+int $timeWarpSelectedCheck = `size($selectedtimeWarp)`;
+
+//check that at least one timeWarp is selected
+if($timeWarpSelectedCheck!=0)
+    {
+    //set timeWarp to enabled state
+    mtkRTlegacy_tw_setTimeWarpModeStatus(`mtkRTlegacy_tw_getTimeWarpFromList`, "enable");
+
+    //remove timeWarp curve
+    cutKey -time ":" -option keys ($selectedtimeWarp + ".timeWarp");
+    //find out scene start and end times
+    float $timeLineStart = `playbackOptions -q -animationStartTime`;
+    float $timeLineEnd = `playbackOptions -q -animationEndTime`;
+    //set first and last keyframe
+    setKeyframe -attribute "timeWarp" -itt "linear" -ott "linear" -t $timeLineStart -v $timeLineStart $selectedtimeWarp;
+    setKeyframe -attribute "timeWarp" -itt "linear" -ott "linear" -t $timeLineEnd -v $timeLineEnd $selectedtimeWarp;
+    }
+
+//reset lists
+mtkRTlegacy_refreshTimeWarpConnectionList;
+mtkRTlegacy_tw_updateTimeWarpControllerList;
+mtkRTlegacy_tw_setTimeWarpFromList($selectedtimeWarp);
+}
+//###########################################################################################################################
+global proc mtkRTlegacy_tw_deleteBoringKeys(int $skip)
+{
+string $selected[] = `ls -selection`;
+float $keyTimes[];
+float $timeCheck[];
+float $firstKeyValue;
+int $isBoring;
+int $selectedCount = `size($selected)`;
+int $counter = 0;
+for($s in $selected)
+    {
+    //update progress bar
+    $counter++;
+    mtkRTlegacy_updateProgress($counter, $selectedCount, "mtkRTlegacy_tw_progress");
+
+    //make sure to get anything keyed
+    string $attributes[] = stringArrayCatenate(`listAttr -cb -s $s`, `listAttr -k -s $s`);
+
+    for($a in $attributes)
+        {
+        //clear some variables
+        clear $keyTimes;
+        $isBoring = 1;
+
+        //get key count
+        int $keyCount = `keyframe -query -keyframeCount ($s + "." + $a)`;
+
+        //make an array of key times
+        for ($k = 0; $k < ($keyCount); $k++)
+            {
+            $timeCheck = `keyframe -index $k -query ($s + "." + $a)`;
+            $keyTimes[`size($keyTimes)`] = $timeCheck[0];
+            }
+
+        //go through each one and look for changes
+        for($t in $keyTimes)
+            {
+
+            //compare key values to first key
+            float $valueCheck = `getAttr -t $t ($s + "." + $a)`;
+            $firstKeyValue = `getAttr -t ($keyTimes[0]) ($s + "." + $a)`;
+
+            if($valueCheck!=$firstKeyValue)
+                {
+                $isBoring = 0;
+
+                }
+            }
+
+        //delete all animation except first key if keys are boring
+        if($isBoring==1)
+            {
+
+            //leave first key, $k = 1
+            for ($k = $skip; $k < (`size($keyTimes)`); $k++)
+                {
+
+                float $valueCheck = `getAttr -t $t ($s + "." + $a)`;
+                cutKey -t $keyTimes[$k] -o keys ($s + "." + $a);
+
+                //if deleting all keys, make sure the value doesnt change after deleting
+                if($skip==0)
+                    {
+                    setAttr ($s + "." + $a) $valueCheck;
+                    }
+                }
+            }
+        }
+    }
+mtkRTlegacy_updateProgress(100, 100, "mtkRTlegacy_tw_progress");
+}
+//###########################################################################################################################
+global proc mtkRTlegacy_updateProgress(float $value, float $max, string $pbar)
+{
+progressBar -edit -pr ($value) -maxValue ($max) $pbar;
+
+if(($value)!=($max))
+    {
+    progressBar -edit -vis 1 $pbar;
+    }
+else
+    {
+    progressBar -edit -vis 0 $pbar;
+    }
+}
+
+
+}//end of script
+//mtkRTlegacy_timeWarp();

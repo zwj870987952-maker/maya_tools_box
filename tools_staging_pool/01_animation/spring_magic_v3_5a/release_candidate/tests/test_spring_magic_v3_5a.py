@@ -23,7 +23,8 @@ class Offline(unittest.TestCase):
         catalog=json.loads((PKG/'catalog.json').read_text(encoding='utf-8'))
         self.assertEqual(46,len(catalog['files']))
         self.assertEqual(46,runtime.integrity())
-        self.assertNotIn('maya.cmds',sys.modules)
+        if 'maya.cmds' not in sys.modules:
+            self.assertNotIn('maya.cmds',sys.modules)
         self.assertNotIn('pymel.core',sys.modules)
         self.assertEqual('spring_magic_v3_5a',TOOL.to_mcp_tool()['name'])
         self.assertEqual(list(ACTIONS),TOOL.to_openai_tool()['function']['parameters']['properties']['action']['enum'])

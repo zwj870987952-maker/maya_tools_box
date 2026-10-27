@@ -1,0 +1,42 @@
+*********************************************************************************************************************************************************
+							This set of scripts is for polishing weapon animations
+							It is especially relevant for game animators.
+*********************************************************************************************************************************************************
+									Make Sword 
+*********************************************************************************************************************************************************	
+	what is he doing?
+
+				allows you to adjust the trajectory of the tip of the weapon, which itself rotates and moves in the palm
+				the correction will be transmitted to the wrist while maintaining the relative rotation of the weapon, 
+				and the length of the entire arm will not change
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	how it work	
+				bakes the rotation of the selected object (weapon and wrist) 
+				by 3 locators, one of which controls the TOP of rotation, and the second SIDE
+				and additional system with special locator transmitting hand movement
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	usage		
+				After launch, 2 locators will appear, the first highlighted - TOP - immediately pull it to the top of the weapon. 
+				After that, either with the button in the menu - or with the standard hotkey - arrow to the right 
+				- select SIDE and pull it in the perpendicular direction - towards the blade.
+				And when everything is ready, click on an empty spot in the scene. The script is recalculated
+				
+*********************************************************************************************************************************************************
+									Make Reverse
+*********************************************************************************************************************************************************
+	what is he doing?
+				allows you to fix the weapon at any point (for example, if it stumbles into the ground)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	how it work	
+				bakes the rotation of the selected object (weapon and wrist(and something else)) 
+				by 3 locators, one of which controls the TOP of rotation, the second SIDE
+				and PIVOT of weapon
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	usage		
+				After launch, 3 locators will appear, 
+				the first highlighted PIVOT - move it to the place where you want to fix the weapon
+				After that, either with the button in the menu - or with the standard hotkey - arrow to the right 
+				select - TOP - immediately pull it to the weapon hilt. 
+				After that, either with the button in the menu - or with the standard hotkey - arrow to the right 
+				- select SIDE and pull it in the perpendicular direction - towards the blade.
+				And when everything is ready, click on an empty spot in the scene. The script is recalculated			

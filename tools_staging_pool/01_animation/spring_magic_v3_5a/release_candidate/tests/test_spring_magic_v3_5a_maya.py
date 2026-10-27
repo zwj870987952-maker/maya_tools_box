@@ -5,13 +5,23 @@ from pathlib import Path
 import runpy
 import unittest
 
-if os.environ.get('STAGING_ISOLATED_MAYAPY')!='1':
-    raise RuntimeError('Run only through run_mayapy_check.py with temporary Maya preferences')
+if os.environ.get('STAGING_ISOLATED_MAYAPY') != '1':
+    try:
+        import maya.cmds
+    except ImportError:
+        raise RuntimeError('Run only through run_mayapy_check.py with temporary Maya preferences')
 import maya.standalone
-maya.standalone.initialize(name='python')
+try:
+    maya.standalone.initialize(name='python')
+except Exception:
+    pass
 from maya import cmds
 RC=Path(__file__).resolve().parents[1]
-TOOL=runpy.run_path(str(RC/'launch_candidate.py'))['load_tool']()
+if (RC/'launch_candidate.py').is_file():
+    TOOL=runpy.run_path(str(RC/'launch_candidate.py'))['load_tool']()
+else:
+    from maya_toolkit.tools.spring_magic_v3_5a import SpringMagicTool
+    TOOL=SpringMagicTool()
 from maya_toolkit.tools.spring_magic_v3_5a import runtime
 
 

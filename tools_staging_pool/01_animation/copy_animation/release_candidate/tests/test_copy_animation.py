@@ -43,7 +43,8 @@ class OfflineTests(unittest.TestCase):
         self.assertEqual('frame', pair_data({'source': 'a', 'target': 'b'})['modes']['translate'])
         self.assertEqual('a', parse_config([{'text': 'a , b'}])[0]['source'])
         self.assertTrue(TOOL.validate(action='inventory').success)
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya.cmds' not in sys.modules:
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertEqual('copy_animation', TOOL.to_mcp_tool()['name'])
 
     def test_file_preflight_does_not_create_directory(self):

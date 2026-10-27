@@ -40,7 +40,8 @@ class OfflineTests(unittest.TestCase):
                 normalize(**args)
         self.assertTrue(TOOL.validate(action='inventory').success)
         self.assertEqual('brs_smooth_mocap', TOOL.to_mcp_tool()['name'])
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya' not in sys.executable.lower():
+            self.assertNotIn('maya.cmds', sys.modules)
 
 
 if __name__ == '__main__':

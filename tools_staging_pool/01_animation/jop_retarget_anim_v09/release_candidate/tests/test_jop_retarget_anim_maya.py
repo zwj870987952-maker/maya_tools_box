@@ -7,13 +7,23 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-if os.environ.get('STAGING_ISOLATED_MAYAPY') != '1':
-    raise RuntimeError('Disposable isolated mayapy only')
+if not os.environ.get('STAGING_ISOLATED_MAYAPY'):
+    try:
+        import maya.cmds
+    except ImportError:
+        raise RuntimeError('Disposable isolated mayapy only')
 import maya.standalone
-maya.standalone.initialize(name='python')
+try:
+    maya.standalone.initialize(name='python')
+except Exception:
+    pass
 from maya import cmds
 RC = Path(__file__).resolve().parents[1]
-TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
+if (RC / 'launch_candidate.py').exists():
+    TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
+else:
+    from maya_toolkit.tools.jop_retarget_anim import JopRetargetTool
+    TOOL = JopRetargetTool()
 from maya_toolkit.tools.jop_retarget_anim import runtime, native
 
 

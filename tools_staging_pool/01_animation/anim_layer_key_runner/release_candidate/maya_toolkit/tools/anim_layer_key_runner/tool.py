@@ -38,7 +38,7 @@ def normalize(kwargs):
 class AnimLayerKeyRunnerTool(BaseMayaTool):
     tool_id = 'anim_layer_key_runner'
     tool_name = '动画层逐关键帧命令执行器'
-    category = 'Animation'
+    category = 'animation'
     version = '1.1.0'
     description = '查询选定动画层的关键帧，在每帧执行显式 MEL/Python 命令；dry_run 仅列帧，不执行命令。命令副作用取决于输入脚本。'
     parameters_schema = {

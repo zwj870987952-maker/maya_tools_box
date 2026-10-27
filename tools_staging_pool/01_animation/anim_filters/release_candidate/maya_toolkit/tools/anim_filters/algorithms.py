@@ -35,8 +35,11 @@ def filter_samples(raw, mode="adaptive", tolerance=0.25, window_size=35, sample_
     warnings = []
     processed = {}
     if mode in ("median", "butterworth"):
-        import numpy as np
-        from scipy.signal import butter, filtfilt, medfilt
+        try:
+            import numpy as np
+            from scipy.signal import butter, filtfilt, medfilt
+        except ImportError as exc:
+            raise ImportError("模式 '{}' 需要 numpy 与 scipy 科学计算库支持: {}".format(mode, exc))
     for curve, keys in raw.items():
         start, end = min(keys), max(keys)
         if mode == "adaptive":

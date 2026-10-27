@@ -1,0 +1,46 @@
+{
+    "dependencies": [
+        "UXFramework"
+    ],
+    "description": "The WhisKEY Pro Toolkit is an Animator\u2019s swiss army knife of animation tools. Faster and completely rebuilt from the ground up to help assist in day to day animation tasks.\n\n* Realtime in-between sliders.\n* Many widgets to choose from.\n* Lots of workflow and cleanup tools.\n* Fully customizable UI.",
+    "docs_url": "http://www.mydocs.com",
+    "id": "Whiskey",
+    "issues_url": "http://www.mydocs.com/place_to_file_issues",
+    "long_name": "whisKEY",
+    "shelf_data": [
+        {
+            "color": [
+                0.596,
+                0.467,
+                0.839,
+                1
+            ],
+            "command_data": {
+                "alt_command": "",
+                "command": "\ninstall_path = 'C:\\\\Users\\\\hanjt\\\\Documents\\\\maya\\\\scripts'\npackage_id = 'Whiskey'\n\nimport os\nimport sys\nif not install_path in sys.path:\n    sys.path.insert(0, install_path)\n\nimport eblabs_hub.Whiskey.scripts.WhiskeyPro as tool\n\ntool.window.load()",
+                "description": "",
+                "id": "",
+                "long_name": "",
+                "source_type": "python"
+            },
+            "data": {},
+            "description": "WhisKEY Pro",
+            "icon": {
+                "image": "C:\\Users\\hanjt\\Documents\\maya\\scripts\\eblabs_hub\\Whiskey\\images\\whisKEYPro.png",
+                "label": ""
+            },
+            "id": "WhisKEY Pro",
+            "items": [],
+            "long_name": "WhisKEY Pro",
+            "sub_type": "",
+            "tags": [
+                "eblabs_HUB_DEV"
+            ],
+            "type": "standardButton",
+            "uuid": "d93fc3cbf86d4ec7a8c6782c963616f5"
+        }
+    ],
+    "support": "https://github.com/eblabs/eblabs_docs/issues",
+    "version": "1.5.4",
+    "website": "https://eblabs.com/shop/whiskey-pro/"
+}

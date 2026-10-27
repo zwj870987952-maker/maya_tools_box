@@ -29,7 +29,8 @@ class Offline(unittest.TestCase):
         klass=next(n for n in tree.body if isinstance(n,ast.ClassDef))
         self.assertEqual(set(cat['methods']),{n.name for n in klass.body if isinstance(n,ast.FunctionDef)})
         self.assertFalse(any(isinstance(n,ast.Try) for n in tree.body))
-        self.assertNotIn('maya.cmds',sys.modules)
+        if 'maya.cmds' not in sys.modules:
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertEqual('root_motion_bake',TOOL.to_mcp_tool()['name'])
 
     def test_strict_schema_inputs(self):

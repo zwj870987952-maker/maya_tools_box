@@ -1,0 +1,333 @@
+//mtbWI_bh_waveIt - V 1.09 // 100718
+
+
+// added 'interactive' option to avoid filling up undo queue (off by default)
+// added compact/advanced UI toggle button to GUI
+// added support for custom attrs in channelbox
+
+global proc mtbWI_bh_waveIt()
+{
+
+if (`window -exists mtbWI_waveItUI`)
+    deleteUI mtbWI_waveItUI;
+
+     string $window = `window -tlb 1 -title "bh_waveIt" mtbWI_waveItUI`;
+
+     columnLayout -adj 1  mtbWI_mainCol;
+     button -l " Compact/Advanced UI "  -c "mtbWI_bhResizeWaveUIToggle" ;
+
+        iconTextStaticLabel -st "textOnly"  -l "Size";
+        floatSliderGrp  -field 1
+     //-cal 1 "left"
+      -minValue 0 -maxValue 1.0
+        -fieldMinValue 0 -fieldMaxValue 1.0
+        -value .15
+        -step 0.001
+         -cat 2 "left" 0
+      -dc "python(\"import maya_toolkit.tools.bh_wave_it.ui as _u; _u.dispatch('interactive')\");"
+        -cc "python(\"import maya_toolkit.tools.bh_wave_it.ui as _u; _u.dispatch('interactive')\");"
+        "mtbWI_Size"
+        ;
+
+
+
+
+        //button -label "Invert mtbWI_Freq" -c mtbWI_bh_invertFields;
+        setParent ..;
+        rowColumnLayout  -numberOfColumns 2;
+
+        button -label "     S Curve     " -c "python(\"import maya_toolkit.tools.bh_wave_it.ui as _u; _u.dispatch('basic_s')\");";
+        button -label "  inv S Curve   " -c "python(\"import maya_toolkit.tools.bh_wave_it.ui as _u; _u.dispatch('inverse_s')\");";
+        button -label "     C Curve     " -c "python(\"import maya_toolkit.tools.bh_wave_it.ui as _u; _u.dispatch('basic_c')\");";
+        button -label "  inv C Curve   " -c "python(\"import maya_toolkit.tools.bh_wave_it.ui as _u; _u.dispatch('inverse_c')\");";
+
+
+      setParent ..;
+      rowColumnLayout  -numberOfColumns 3;
+      checkBox -label "rot X" -value 1 mtbWI_rotXBox;
+      checkBox -label "rot Y" -value 0 mtbWI_rotYBox;
+      checkBox -label "rot Z" -value 0 mtbWI_rotZBox;
+
+       checkBox -label "tra X" -value 0 mtbWI_traXBox;
+      checkBox -label "tra Y" -value 0 mtbWI_traYBox;
+      checkBox -label "tra Z" -value 0 mtbWI_traZBox;
+        setParent ..;
+        rowColumnLayout  -numberOfColumns 1;
+    checkBox -label "channel box" -value 0 mtbWI_chBox;
+
+        iconTextStaticLabel -st "textOnly"  -l "Rotate Base Offset";
+             floatSliderGrp   -field 1
+    // -cal 1 "left"
+      -minValue -180    -maxValue 180
+        -fieldMinValue -180 -fieldMaxValue 180.0
+        -value 0
+        -step 0.001
+         -cat 2 "left" 0
+      -dc "python(\"import maya_toolkit.tools.bh_wave_it.ui as _u; _u.dispatch('base_offset')\");"
+        -cc "python(\"import maya_toolkit.tools.bh_wave_it.ui as _u; _u.dispatch('base_offset')\");"
+        "mtbWI_RotOffset"
+        ;
+
+     checkBox -label "Interactive Mode" -value 0 mtbWI_intBox;
+            iconTextStaticLabel -st "textOnly"  -l "Frequency";
+             floatSliderGrp -field 1
+    // -cal 1 "left"
+      -minValue -1 -maxValue 1.0
+        -fieldMinValue -1 -fieldMaxValue 1
+        -value 1
+
+        -step 0.001
+         -cat 2 "left" 0
+      -dc "python(\"import maya_toolkit.tools.bh_wave_it.ui as _u; _u.dispatch('interactive')\");"
+        -cc "python(\"import maya_toolkit.tools.bh_wave_it.ui as _u; _u.dispatch('interactive')\");"
+        "mtbWI_Freq"
+        ;
+
+
+
+
+
+
+
+          iconTextStaticLabel -st "textOnly"  -l "Offset";
+     floatSliderGrp  -field 1
+    // -cal 1 "left"
+      -minValue -10 -maxValue 10.0
+        -fieldMinValue -10     -fieldMaxValue 10.0
+        -value 0
+        -step 0.001
+         -cat 2 "left" 0
+
+
+        -dc "python(\"import maya_toolkit.tools.bh_wave_it.ui as _u; _u.dispatch('interactive')\");"
+        -cc "python(\"import maya_toolkit.tools.bh_wave_it.ui as _u; _u.dispatch('interactive')\");"
+        "mtbWI_WaveIt"
+        ;
+
+
+    showWindow $window;
+    mtbWI_bhResizeWaveUIToggle;
+  }
+
+
+
+/////////////////////////////////////////////////////////////////////
+/// main wave proc ///////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+    global proc mtbWI_bh_waveVal()
+    {
+python("import maya_toolkit.tools.bh_wave_it.runtime as _r; _r.require_active()");
+
+
+global string $mtbWI_objects[]; string $sel[]=$mtbWI_objects;
+
+if (`size $sel`>0)
+{
+
+
+
+float $period=`mtbWI_read_float "phase"`;
+float $amp=`mtbWI_read_float "amplitude"`;
+float $freq=`mtbWI_read_float "frequency"`;
+float $rotOffset=`mtbWI_read_float "base_offset"`;
+
+
+
+float $factor=(6.28/(`size $sel`));
+int $count=0;
+
+
+
+for ($each in $sel)
+{
+
+   float $math=( sin( (((($count+1)+$period)*$factor)) * $freq )*$amp );
+   float $rotVal=(`rad_to_deg $math`);
+   if ($count==0)
+   {
+       $rotVal=$rotVal-$rotOffset;
+   }
+   //setAttr ($sel[$count]+".translateY") $rotVal;
+
+   int $xOrNot=`mtbWI_read_flag "rotXBox"`;
+   int $yOrNot=`mtbWI_read_flag "rotYBox"`;
+   int $zOrNot=`mtbWI_read_flag "rotZBox"`;
+
+   int $txOrNot=`mtbWI_read_flag "traXBox"`;
+   int $tyOrNot=`mtbWI_read_flag "traYBox"`;
+   int $tzOrNot=`mtbWI_read_flag "traZBox"`;
+
+    int $cbOrNot=`mtbWI_read_flag "chBox"`;
+
+   if ($xOrNot==1)
+   {
+   setAttr ($sel[$count]+".rotateX") $rotVal;
+   }
+    if ($yOrNot==1)
+   {
+   setAttr ($sel[$count]+".rotateY") $rotVal;
+   }
+    if ($zOrNot==1)
+   {
+   setAttr ($sel[$count]+".rotateZ") $rotVal;
+   }
+
+     if ($txOrNot==1)
+   {
+   setAttr ($sel[$count]+".translateX") $rotVal;
+   }
+    if ($tyOrNot==1)
+   {
+   setAttr ($sel[$count]+".translateY") $rotVal;
+   }
+    if ($tzOrNot==1)
+   {
+   setAttr ($sel[$count]+".translateZ") $rotVal;
+   }
+
+   if ($cbOrNot==1)
+   {
+
+   string $cbAttrs[] = `mtbWI_read_attrs`;
+   for ($each in $cbAttrs)
+   {
+     setAttr ($sel[$count]+"."+$each) $rotVal;
+   }
+
+   }
+
+
+   $count++;
+   }
+
+   }
+
+    }
+
+  ///////////////////////////////////////////////////////
+
+  global proc mtbWI_bh_invertFields()
+  {
+python("import maya_toolkit.tools.bh_wave_it.runtime as _r; _r.require_active()");
+
+      float $amp=`mtbWI_read_float "amplitude"`;
+      float $freq=`mtbWI_read_float "frequency"`;
+     float $rotOffset=`mtbWI_read_float "base_offset"`;
+
+     mtbWI_set_float "frequency" ($freq*-1);
+     //mtbWI_set_float "amplitude" ($amp*-1);
+    //mtbWI_set_float "base_offset" ($rotOffset*-1);
+    mtbWI_bh_waveVal;
+  }
+
+
+
+  global proc mtbWI_bh_basicS()
+  {
+python("import maya_toolkit.tools.bh_wave_it.runtime as _r; _r.require_active()");
+//mtbWI_set_float "amplitude" 0.15;
+    mtbWI_set_float "frequency" 1;
+    mtbWI_set_float "phase" 0;
+    mtbWI_bh_waveVal;
+  }
+
+    global proc mtbWI_bh_inverseS()
+  {
+python("import maya_toolkit.tools.bh_wave_it.runtime as _r; _r.require_active()");
+//mtbWI_set_float "amplitude" 0.15;
+    mtbWI_set_float "frequency" -1;
+    mtbWI_set_float "phase" 0;
+    mtbWI_bh_waveVal;
+  }
+
+  global proc mtbWI_bh_basicC()
+  {
+python("import maya_toolkit.tools.bh_wave_it.runtime as _r; _r.require_active()");
+//mtbWI_set_float "amplitude" 0.15;
+    mtbWI_set_float "frequency" 0.5;
+    mtbWI_set_float "phase" 0;
+    mtbWI_bh_waveVal;
+  }
+
+    global proc mtbWI_bh_inverseC()
+  {
+python("import maya_toolkit.tools.bh_wave_it.runtime as _r; _r.require_active()");
+//mtbWI_set_float "amplitude" 0.15;
+    mtbWI_set_float "frequency" -0.5;
+    mtbWI_set_float "phase" 0;
+    mtbWI_bh_waveVal;
+  }
+
+  global proc mtbWI_bh_baseOffset()
+  {
+python("import maya_toolkit.tools.bh_wave_it.runtime as _r; _r.require_active()");
+
+      global string $mtbWI_objects[]; string $sel[]=$mtbWI_objects;
+      float $rotOffset=`mtbWI_read_float "base_offset"`;
+
+      int $xOrNot=`mtbWI_read_flag "rotXBox"`;
+   int $yOrNot=`mtbWI_read_flag "rotYBox"`;
+   int $zOrNot=`mtbWI_read_flag "rotZBox"`;
+
+   if ($xOrNot==1)
+   {
+   setAttr ($sel[0]+".rotateX") ($rotOffset*-1);
+   }
+    if ($yOrNot==1)
+   {
+   setAttr ($sel[0]+".rotateY") ($rotOffset*-1);
+   }
+    if ($zOrNot==1)
+   {
+   setAttr ($sel[0]+".rotateZ") ($rotOffset*-1);
+   }
+
+      //setAttr ($sel[0]+".rotateZ") ($rotOffset*-1);
+  }
+
+ /////////////////////////////////////////////////////
+
+
+
+
+
+
+/////////////////////////////////////////
+
+global proc mtbWI_bhResizeWaveUIToggle()
+{
+    int $advancedH=300;
+    int $compactH=130;
+    int $winWidth=190;
+
+int $curWinSize = `window -q -height mtbWI_waveItUI`;
+
+if ($curWinSize!=$compactH)
+{
+   window -edit -widthHeight $winWidth $compactH mtbWI_waveItUI;
+}
+else
+{
+    window -edit -widthHeight $winWidth $advancedH mtbWI_waveItUI;
+}
+
+
+
+}
+
+///////////////////////
+global proc mtbWI_bh_intCheck()
+{
+python("import maya_toolkit.tools.bh_wave_it.runtime as _r; _r.require_active()");
+
+    int $intOrNot=`checkBox -q -v mtbWI_intBox`;
+    if ($intOrNot==1)
+    {
+        mtbWI_bh_waveVal;
+    }
+}
+
+global proc float mtbWI_read_float(string $name) { global float $mtbWI_values[]; if ($name == "amplitude") return $mtbWI_values[0]; if ($name == "frequency") return $mtbWI_values[1]; if ($name == "phase") return $mtbWI_values[2]; if ($name == "base_offset") return $mtbWI_values[3]; error "Unknown float"; return 0; }
+global proc mtbWI_set_float(string $name, float $value) { python("import maya_toolkit.tools.bh_wave_it.runtime as _r; _r.require_active()"); global float $mtbWI_values[]; if ($name == "amplitude") { $mtbWI_values[0]=$value; return; } if ($name == "frequency") { $mtbWI_values[1]=$value; return; } if ($name == "phase") { $mtbWI_values[2]=$value; return; } if ($name == "base_offset") { $mtbWI_values[3]=$value; return; } error "Unknown float"; }
+global proc int mtbWI_read_flag(string $name) { global int $mtbWI_flags[]; if ($name == "rotXBox") return $mtbWI_flags[0]; if ($name == "rotYBox") return $mtbWI_flags[1]; if ($name == "rotZBox") return $mtbWI_flags[2]; if ($name == "traXBox") return $mtbWI_flags[3]; if ($name == "traYBox") return $mtbWI_flags[4]; if ($name == "traZBox") return $mtbWI_flags[5]; if ($name == "chBox") return $mtbWI_flags[6]; error "Unknown flag"; return 0; }
+global proc string[] mtbWI_read_attrs() { global string $mtbWI_attrs[]; return $mtbWI_attrs; }

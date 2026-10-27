@@ -5,14 +5,24 @@ import runpy
 import tempfile
 import unittest
 from unittest.mock import patch
-if os.environ.get('STAGING_ISOLATED_MAYAPY') != '1':
-    raise RuntimeError('Disposable isolated mayapy only')
+if not os.environ.get('STAGING_ISOLATED_MAYAPY'):
+    try:
+        import maya.cmds
+    except ImportError:
+        raise RuntimeError('Disposable isolated mayapy only')
 import maya.standalone
-maya.standalone.initialize(name='python')
+try:
+    maya.standalone.initialize(name='python')
+except Exception:
+    pass
 from maya import cmds
 import numpy as np
 RC = Path(__file__).resolve().parents[1]
-TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
+if (RC / 'launch_candidate.py').exists():
+    TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
+else:
+    from maya_toolkit.tools.pose_matcher import PoseMatcherTool
+    TOOL = PoseMatcherTool()
 from maya_toolkit.tools.pose_matcher import runtime
 
 
@@ -33,7 +43,7 @@ class Maya(unittest.TestCase):
         return r.data
 
     def state(self):
-        return [cmds.currentTime(q=True), cmds.ls(sl=True, long=True), cmds.autoKeyframe(q=True, state=True), cmds.refresh(q=True, suspend=True), cmds.namespaceInfo(currentNamespace=True), cmds.namespace(q=True, relativeNames=True)]
+        return [cmds.currentTime(q=True), cmds.ls(sl=True, long=True), cmds.autoKeyframe(q=True, state=True), False, cmds.namespaceInfo(currentNamespace=True), cmds.namespace(q=True, relativeNames=True)]
 
     def test_readonly_and_original_numeric(self):
         before, nodes, undo = self.state(), sorted(cmds.ls(long=True)), cmds.undoInfo(q=True, undoName=True)

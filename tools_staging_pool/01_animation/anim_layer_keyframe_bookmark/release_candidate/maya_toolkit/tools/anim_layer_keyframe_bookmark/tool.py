@@ -49,7 +49,7 @@ def plan_intervals(frames, palette_name, prefix):
 class AnimLayerKeyframeBookmarkTool(BaseMayaTool):
     tool_id = 'anim_layer_keyframe_bookmark'
     tool_name = '动画层关键帧区间书签生成器'
-    category = 'Animation'
+    category = 'animation'
     version = '1.1.0'
     description = '按选定动画层相邻关键帧生成四色板交替区间书签；支持关键帧检查与清空。清空影响场景所有书签。'
     parameters_schema = {

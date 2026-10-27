@@ -26,7 +26,8 @@ class Offline(unittest.TestCase):
         new = next(n for n in ast.parse((PKG / 'tool.py').read_bytes()).body if isinstance(n, ast.FunctionDef) and n.name == 'get_linear_distance')
         self.assertEqual(ast.dump(old.body[-1]), ast.dump(new.body[-1]))
         self.assertEqual(5., get_linear_distance([0, 0, 0], [3, 4, 0]))
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya' not in sys.executable.lower():
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertEqual('velocity_calculator', TOOL.to_mcp_tool()['name'])
 
     def test_scope_mode_and_finite_parameter_guards(self):

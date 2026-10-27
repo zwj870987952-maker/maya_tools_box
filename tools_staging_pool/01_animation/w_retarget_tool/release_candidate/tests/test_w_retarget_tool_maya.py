@@ -5,12 +5,16 @@ import tempfile
 import unittest
 from unittest import mock
 if os.environ.get('STAGING_ISOLATED_MAYAPY') != '1':
-    raise RuntimeError('Isolated temporary mayapy only')
+    raise unittest.SkipTest('Isolated temporary mayapy only')
 import maya.standalone
 maya.standalone.initialize(name='python')
 from maya import cmds, mel
 RC = Path(__file__).resolve().parents[1]
-TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
+if (RC / 'launch_candidate.py').exists():
+    TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
+else:
+    from maya_toolkit.tools.w_retarget_tool import WRetargetTool
+    TOOL = WRetargetTool()
 
 
 def snapshot():

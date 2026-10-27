@@ -1,0 +1,75 @@
+{
+  "files": [
+    {
+      "path": "__init__.py",
+      "archive": "upstream/__init__.py.original",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "images/amount.svg",
+      "archive": "upstream/images/amount.svg",
+      "sha256": "e08e52e0b6d34e19cb03713d7e60dd04385398c57c847b91933041096c4100ac"
+    },
+    {
+      "path": "images/end.svg",
+      "archive": "upstream/images/end.svg",
+      "sha256": "57eb1825a16c01dcb15aa0ce4b9f1870537814c508325efbe7a16068a02b72ee"
+    },
+    {
+      "path": "images/end_h.svg",
+      "archive": "upstream/images/end_h.svg",
+      "sha256": "7036b7deebd4a706aa159ef3e1936d6574c113f425177d4c0e0d94846cd0ccb8"
+    },
+    {
+      "path": "images/stagger_icon.svg",
+      "archive": "upstream/images/stagger_icon.svg",
+      "sha256": "0e703a819fdbfb0d363460d48a61e237e087a20dbfd28c945779298560b21f6d"
+    },
+    {
+      "path": "images/stagger_it.svg",
+      "archive": "upstream/images/stagger_it.svg",
+      "sha256": "dd5f2f3c37ccfc3d3e9e3f92837b17ec0549763b09b8cd0a81e27d2aac7b2a2c"
+    },
+    {
+      "path": "images/stagger_it_h.svg",
+      "archive": "upstream/images/stagger_it_h.svg",
+      "sha256": "3835d29f5fd0d2417b9c0a747b1d6d64406fea94d41eb3c947bc9e897153d6b5"
+    },
+    {
+      "path": "images/start.svg",
+      "archive": "upstream/images/start.svg",
+      "sha256": "8ce1ea072aad9d2138b6a53ee1f1d0881c4fca02514c7c9c74dbbc6e5e3a3fb1"
+    },
+    {
+      "path": "images/start_h.svg",
+      "archive": "upstream/images/start_h.svg",
+      "sha256": "3bc4784d9814966c0aa1c3ea41a7539cc663f7f1151435e14b70c40d33877f31"
+    },
+    {
+      "path": "Stagger Demo.gif",
+      "archive": "upstream/Stagger Demo.gif",
+      "sha256": "6df284b3e2ec19cbc8c6964d18b16c055f03f60e64f114942e653cbadf5d23b8"
+    },
+    {
+      "path": "Stagger Installation.pdf",
+      "archive": "upstream/Stagger Installation.pdf",
+      "sha256": "9ddf3a085b4488d26b6046b035900a26d04e4727a9875dd22ed4ddc9a9da416e"
+    },
+    {
+      "path": "ui.py",
+      "archive": "upstream/ui.py.original",
+      "sha256": "6643fb6a8f9a1602ecd2e12c32e3c13eb4da26a0b0bcf1d9759539c9035f81b7"
+    }
+  ],
+  "author": "Animation Creation",
+  "copyright": "2022 animationcreation.com",
+  "version": "1.1.0",
+  "license": "No independent license supplied; preserve credits, local preparation only",
+  "original_functions": [
+    "commander",
+    "stagger_it",
+    "get_frame",
+    "adjust_height",
+    "win"
+  ]
+}

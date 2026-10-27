@@ -1,0 +1,25 @@
+{
+  "methods": [
+    "__init__",
+    "get_selected_root",
+    "get_all_controllers",
+    "is_controller",
+    "manual_select_and_create_locators",
+    "create_locators_and_record_pose",
+    "move_locators_to_new_root_position",
+    "apply_pose_from_locators",
+    "cleanup_locators"
+  ],
+  "raw_files": [
+    {
+      "path": "PoseTransfer.py.original",
+      "sha256": "65fe234b712542c74db0ed8f46118d62dbca926afe158876f1d85f53974fb48b"
+    },
+    {
+      "path": "Readme.txt",
+      "sha256": "e1ccdd0bb7c21ee0d33fa11562e80ac855c7a075ce9b3c57602983cf136a729f"
+    }
+  ],
+  "native_sha256": "f35f612bc7149f659cd174e37d5dfd95a461ff92d4586749efc17d11b1f1fde4",
+  "license": "No independent license supplied; local personal candidate only"
+}

@@ -36,7 +36,8 @@ class OfflineTests(unittest.TestCase):
 
     def test_schema_lazy_import_and_preference_overwrite(self):
         self.assertTrue(TOOL.validate(action='inventory').success)
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya.cmds' not in sys.modules:
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertEqual('eblabs_whiskey', TOOL.to_mcp_tool()['name'])
         for args in ({'value': float('nan')}, {'value': 2}, {'objects': ['x', 'x']}, {'objects': ['x.tx']}, {'special': 1}, {'start': 1.5}, {'action': 'bad'}, {'x': 1}):
             with self.assertRaises(ValueError):

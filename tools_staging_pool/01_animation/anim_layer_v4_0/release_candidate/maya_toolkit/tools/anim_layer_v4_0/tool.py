@@ -12,7 +12,7 @@ CALL_WARNING = '原始 MEL 回调/过程未重写；参数预检不等于原算�
 class AnimLayerSuiteTool(BaseMayaTool):
     tool_id = 'anim_layer_v4_0'
     tool_name = 'Anim Layer v4.0 第三方层编辑器套件'
-    category = 'Animation'
+    category = 'animation'
     version = '4.0.1-adapter'
     description = '保留完整版/NoUI 原始 MEL 与全部 global 过程。先 inventory 查签名，再通过 invoke 调用；dry_run 不 source、不运行过程。遵循包内原许可。'
     parameters_schema = {

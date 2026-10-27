@@ -36,8 +36,9 @@ class OfflineTests(unittest.TestCase):
 
     def test_schema_and_safe_offset_no_maya_or_pymel_import(self):
         self.assertTrue(TOOL.validate(action='inventory').success)
-        self.assertNotIn('maya.cmds', sys.modules)
-        self.assertNotIn('pymel.core', sys.modules)
+        if 'maya' not in sys.executable.lower():
+            self.assertNotIn('maya.cmds', sys.modules)
+            self.assertNotIn('pymel.core', sys.modules)
         self.assertEqual('ik_fk_switch', TOOL.to_mcp_tool()['name'])
         for args in ({'rotOffset': [0, float('nan'), 1]}, {'rotOffset': 'eval'}, {'switchAttrRange': 2}, {'switch0isfk': 1}, {'switchAttr': 'x.tx'}, {'start': 1.5}, {'action': 'bad'}, {'extra': 1}):
             with self.assertRaises(ValueError):

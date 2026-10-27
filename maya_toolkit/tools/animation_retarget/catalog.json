@@ -1,0 +1,80 @@
+{
+  "source": "upstream/动画重定向.py",
+  "sha256": "a16c733ff17fc935cb4124f6ac2e682657c9d0770486d6c622624047b2d1cf41",
+  "original_ui_methods": {
+    "CustomListWidgetItem": [
+      "__init__",
+      "set_flags",
+      "set_mode",
+      "toggle_mode"
+    ],
+    "CustomItemDelegate": [
+      "paint",
+      "channel_at_position"
+    ],
+    "CustomListWidget": [
+      "__init__",
+      "mousePressEvent",
+      "get_available_modes"
+    ],
+    "EditDialog": [
+      "__init__",
+      "accept",
+      "reject"
+    ],
+    "AutoAlignUI": [
+      "__init__",
+      "add_selection",
+      "clear_list",
+      "edit_list",
+      "update_list",
+      "create_rematch_group",
+      "get_valid_objects",
+      "align_objects_only",
+      "record_pose_info",
+      "bake_animation",
+      "apply_numeric_copy",
+      "copy_numeric_keys",
+      "show_bake_menu",
+      "show_load_menu",
+      "show_context_menu",
+      "select_objects",
+      "load_from_info_node",
+      "apply_pose_info",
+      "save_data",
+      "load_data"
+    ]
+  },
+  "retained_ui": [
+    "colored channel dots",
+    "per-row and selected batch modes",
+    "selection input",
+    "drag reorder",
+    "list edit",
+    "delete",
+    "double click selection",
+    "default/smart bake",
+    "save/load JSON",
+    "load scene",
+    "restore poses"
+  ],
+  "removed_scene_methods": [
+    "apply_numeric_copy",
+    "copy_numeric_keys",
+    "create_rematch_group",
+    "get_valid_objects",
+    "record_pose_info"
+  ],
+  "api_bridge_methods": [
+    "_pairs",
+    "_rebuild",
+    "_run",
+    "align_objects_only",
+    "apply_pose_info",
+    "bake_animation",
+    "load_data",
+    "load_from_info_node",
+    "preview_operation",
+    "save_data"
+  ]
+}

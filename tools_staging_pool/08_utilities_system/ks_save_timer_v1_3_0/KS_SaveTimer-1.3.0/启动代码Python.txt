@@ -1,3 +1,0 @@
-import maya.cmds as cmds
-from ks_saveTimer.runApp import runMaya
-cmds.evalDeferred('runMaya.openSaveTimer_maya_embed()')

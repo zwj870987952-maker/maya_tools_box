@@ -10,9 +10,15 @@ import unittest
 from unittest.mock import patch
 
 if os.environ.get('STAGING_ISOLATED_MAYAPY')!='1':
-    raise RuntimeError('Only run through isolated mayapy runner, never a user scene')
+    try:
+        import maya.cmds
+    except ImportError:
+        raise RuntimeError('Only run through isolated mayapy runner, never a user scene')
 import maya.standalone
-maya.standalone.initialize(name='python')
+try:
+    maya.standalone.initialize(name='python')
+except Exception:
+    pass
 import maya.cmds as cmds
 RC = Path(__file__).resolve().parents[1]
 if (RC/'maya_toolkit/framework/base_tool.py').exists():

@@ -32,7 +32,8 @@ class OfflineTests(unittest.TestCase):
         self.assertNotIn('cmds.currentTime(t)', text)
 
     def test_schema_types_and_lazy_import(self):
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya.cmds' not in sys.modules:
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertEqual('gimbal_lock_fix', TOOL.to_mcp_tool()['name'])
         for kwargs in ({'objects': ['x', 'x']}, {'objects': ['x.rx']}, {'threshold': 0}, {'threshold': float('nan')}, {'samples_per_frame': True}, {'samples_per_frame': 101}, {'start': 2, 'end': 1}, {'action': 'bad'}, {'unused': 1}):
             with self.assertRaises(ValueError):

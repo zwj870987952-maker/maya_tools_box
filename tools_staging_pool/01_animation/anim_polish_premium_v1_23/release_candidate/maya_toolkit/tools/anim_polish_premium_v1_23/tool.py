@@ -15,7 +15,7 @@ WARNINGS = ['Original exception swallowing may hide partial failure; check scene
 class AnimPolishTool(BaseMayaTool):
     tool_id = 'anim_polish_premium_v1_23'
     tool_name = 'AnimPolish 动画变形润色'
-    category = 'Animation'
+    category = 'animation'
     version = '1.23.1-adapter'
     description = '完整 AnimPolish：Sculpt/P2P、Wrap、Subdue、Grow/Shrink、Iron、Sticky Mod、缓存和辅助功能。'
     parameters_schema = dict(type='object',additionalProperties=False,properties={

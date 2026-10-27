@@ -30,7 +30,8 @@ class OfflineTests(unittest.TestCase):
         self.assertEqual(43, len(data['methods']))
         self.assertEqual(data['methods'], [n.name for n in cls.body if isinstance(n, ast.FunctionDef)])
         self.assertEqual(data['functions'], [n.name for n in tree.body if isinstance(n, ast.FunctionDef)])
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya' not in sys.executable.lower():
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertEqual('mov_playblast', TOOL.to_mcp_tool()['name'])
         for a in ({'action': 'bad'}, {'unknown': 1}, {'overwrite': 1}, {'hold': 11}, {'start': 2.5}, {'scale': float('nan')}, {'mode': 'qt', 'hold': 2}, {'cameras': ['a', 'a']}):
             with self.assertRaises(ValueError):

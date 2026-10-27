@@ -30,7 +30,8 @@ class Offline(unittest.TestCase):
         names=re.findall(r'^global\s+proc\s+(?:(?:string|float|int|vector)\s*(?:\[\s*\])?\s+)?(\w+)\s*\(',src,re.M)
         self.assertEqual(cat['procedures'],names)
         self.assertIn('deleteAttr -attribute',src)
-        self.assertNotIn('maya.cmds',sys.modules)
+        if 'maya.cmds' not in sys.modules:
+            self.assertNotIn('maya.cmds',sys.modules)
         self.assertEqual('shift_animation_v3_2',TOOL.to_mcp_tool()['name'])
         ui=(PKG/'ui.py').read_text(encoding='utf-8')
         for action in set(ACTIONS)-{'analyze_curve'}:

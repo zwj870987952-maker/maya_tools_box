@@ -32,7 +32,8 @@ class OfflineTests(unittest.TestCase):
         self.assertNotIn('loadPlugin', (PACKAGE / 'native.py').read_text(encoding='utf-8'))
 
     def test_lazy_schema_and_snapshot_validation(self):
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya' not in sys.executable.lower():
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertEqual('jop_retarget_anim', TOOL.to_mcp_tool()['name'])
         for kwargs in ({'bake': 1}, {'objects': ['a', 'a']}, {'objects': ['a.tx']}, {'start': True}, {'start': 5, 'end': 1}, {'snapshot_data': []}, {'unknown': 1}):
             with self.assertRaises(ValueError):

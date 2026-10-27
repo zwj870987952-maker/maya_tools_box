@@ -30,7 +30,8 @@ class OfflineTests(unittest.TestCase):
 
     def test_schema_and_lazy_readonly(self):
         self.assertTrue(TOOL.validate().success)
-        self.assertNotIn('maya.cmds', sys.modules)
+        if 'maya' not in sys.executable.lower():
+            self.assertNotIn('maya.cmds', sys.modules)
         self.assertEqual('fd_multi_space', TOOL.to_mcp_tool()['name'])
         for args in ({'attribute': 'bad.name'}, {'attribute': '1bad'}, {'driven': 'x.vtx[0]'}, {'allow_reference_edits': 1}, {'mode': 'bad'}, {'action': 'bad'}, {'extra': 1}):
             with self.assertRaises(ValueError):

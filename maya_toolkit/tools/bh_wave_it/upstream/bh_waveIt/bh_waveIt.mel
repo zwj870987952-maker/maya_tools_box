@@ -1,0 +1,312 @@
+//bh_waveIt - V 1.09 // 100718
+
+
+// added 'interactive' option to avoid filling up undo queue (off by default)
+// added compact/advanced UI toggle button to GUI
+// added support for custom attrs in channelbox
+
+global proc bh_waveIt()
+{
+
+if (`window -exists waveItUI`)
+    deleteUI waveItUI;
+
+     string $window = `window -tlb 1 -title "bh_waveIt" waveItUI`;
+ 
+     columnLayout -adj 1  mainCol;
+	 button -l " Compact/Advanced UI "  -c "bhResizeWaveUIToggle" ;
+		
+		iconTextStaticLabel -st "textOnly"  -l "Size";
+        floatSliderGrp  -field 1
+     //-cal 1 "left"
+      -minValue 0 -maxValue 1.0
+    	-fieldMinValue 0 -fieldMaxValue 1.0
+    	-value .15
+		-step 0.001
+		 -cat 2 "left" 0
+      -dc "bh_intCheck"
+    	-cc "bh_intCheck"
+    	"Size"
+    	;
+    	
+    
+    	
+    	
+		//button -label "Invert Freq" -c bh_invertFields;
+		setParent ..;
+    	rowColumnLayout  -numberOfColumns 2;
+		
+		button -label "     S Curve     " -c bh_basicS;
+		button -label "  inv S Curve   " -c bh_inverseS;
+		button -label "     C Curve     " -c bh_basicC;
+		button -label "  inv C Curve   " -c bh_inverseC;
+		
+		
+	  setParent ..;
+	  rowColumnLayout  -numberOfColumns 3; 
+      checkBox -label "rot X" -value 1 rotXBox;
+	  checkBox -label "rot Y" -value 0 rotYBox;
+	  checkBox -label "rot Z" -value 0 rotZBox;
+	  
+	   checkBox -label "tra X" -value 0 traXBox;
+	  checkBox -label "tra Y" -value 0 traYBox;
+	  checkBox -label "tra Z" -value 0 traZBox;
+		setParent ..;
+		rowColumnLayout  -numberOfColumns 1; 
+    checkBox -label "channel box" -value 0 chBox;
+    
+    	iconTextStaticLabel -st "textOnly"  -l "Rotate Base Offset";
+    		 floatSliderGrp   -field 1
+    // -cal 1 "left"
+      -minValue -180    -maxValue 180
+    	-fieldMinValue -180 -fieldMaxValue 180.0
+    	-value 0
+		-step 0.001
+		 -cat 2 "left" 0
+      -dc "bh_baseOffset"
+    	-cc "bh_baseOffset"
+    	"RotOffset"
+    	;
+    
+     checkBox -label "Interactive Mode" -value 0 intBox;
+    		iconTextStaticLabel -st "textOnly"  -l "Frequency";
+    		 floatSliderGrp -field 1
+    // -cal 1 "left"
+      -minValue -1 -maxValue 1.0
+    	-fieldMinValue -1 -fieldMaxValue 1
+    	-value 1
+    	
+		-step 0.001
+		 -cat 2 "left" 0
+      -dc "bh_intCheck"
+    	-cc "bh_intCheck"
+    	"Freq"
+    	;
+    	
+    	
+    	
+    
+    	
+    
+    	
+    	  iconTextStaticLabel -st "textOnly"  -l "Offset";
+     floatSliderGrp  -field 1
+    // -cal 1 "left"
+      -minValue -10 -maxValue 10.0
+    	-fieldMinValue -10     -fieldMaxValue 10.0
+    	-value 0
+		-step 0.001
+		 -cat 2 "left" 0
+       
+		
+    	-dc "bh_intCheck"
+    	-cc "bh_intCheck"
+    	"WaveIt"
+    	;
+    
+   
+    showWindow $window;
+    bhResizeWaveUIToggle;
+  }  
+  
+bh_waveIt;
+
+/////////////////////////////////////////////////////////////////////
+/// main wave proc ///////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+    global proc bh_waveVal()
+    {
+	
+string $sel[]=`ls -sl`;
+
+if (`size $sel`>0)
+{
+
+
+   
+float $period=` floatSliderGrp -q -value "WaveIt"`;
+float $amp=` floatSliderGrp -q -value "Size"`;
+float $freq=` floatSliderGrp -q -v "Freq"`;
+float $rotOffset=`floatSliderGrp -q -v "RotOffset"`;
+
+
+
+float $factor=(6.28/(`size $sel`));
+int $count=0;
+
+
+
+for ($each in $sel)
+{
+  
+   float $math=( sin( (((($count+1)+$period)*$factor)) * $freq )*$amp );
+   float $rotVal=(`rad_to_deg $math`);
+   if ($count==0)
+   {
+       $rotVal=$rotVal-$rotOffset;
+   }
+   //setAttr ($sel[$count]+".translateY") $rotVal;
+   
+   int $xOrNot=`checkBox -q -v rotXBox`;
+   int $yOrNot=`checkBox -q -v rotYBox`;
+   int $zOrNot=`checkBox -q -v rotZBox`;
+   
+   int $txOrNot=`checkBox -q -v traXBox`;
+   int $tyOrNot=`checkBox -q -v traYBox`;
+   int $tzOrNot=`checkBox -q -v traZBox`;
+   
+    int $cbOrNot=`checkBox -q -v chBox`;
+   
+   if ($xOrNot==1)
+   {
+   setAttr ($sel[$count]+".rotateX") $rotVal;
+   }
+    if ($yOrNot==1)
+   {
+   setAttr ($sel[$count]+".rotateY") $rotVal;
+   }
+    if ($zOrNot==1)
+   {
+   setAttr ($sel[$count]+".rotateZ") $rotVal;
+   }
+   
+     if ($txOrNot==1)
+   {
+   setAttr ($sel[$count]+".translateX") $rotVal;
+   }
+    if ($tyOrNot==1)
+   {
+   setAttr ($sel[$count]+".translateY") $rotVal;
+   }
+    if ($tzOrNot==1)
+   {
+   setAttr ($sel[$count]+".translateZ") $rotVal;
+   }
+   
+   if ($cbOrNot==1)
+   {
+   
+   string $cbAttrs[] = `channelBox -q  -sma "mainChannelBox"`;
+   for ($each in $cbAttrs)
+   {
+     setAttr ($sel[$count]+"."+$each) $rotVal; 
+   }
+   
+   }
+   
+  
+   $count++;
+   }
+
+   }
+    
+    }
+    
+  ///////////////////////////////////////////////////////  
+    
+  global proc bh_invertFields()
+  {
+      float $amp=` floatSliderGrp -q -value "Size"`;
+      float $freq=` floatSliderGrp -q -value "Freq"`;
+     float $rotOffset=`floatSliderGrp -q -v "RotOffset"`;
+     
+     floatSliderGrp -e -v   ($freq*-1) "Freq";
+     //floatSliderGrp -e -v  ($amp*-1) "Size" ;
+    //floatSliderGrp -e -v   ($rotOffset*-1) "RotOffset";
+    bh_waveVal;
+  }  
+  
+  
+  
+  global proc bh_basicS()
+  {//floatSliderGrp -e -v  0.15 "Size" ;
+    floatSliderGrp -e -v   1 "Freq";
+	floatSliderGrp -e -v   0 "WaveIt";
+	bh_waveVal;
+  }
+  
+    global proc bh_inverseS()
+  {//floatSliderGrp -e -v  0.15 "Size" ;
+    floatSliderGrp -e -v   -1 "Freq";
+	floatSliderGrp -e -v   0 "WaveIt";
+	bh_waveVal;
+  }
+  
+  global proc bh_basicC()
+  {//floatSliderGrp -e -v  0.15 "Size" ;
+    floatSliderGrp -e -v   0.5 "Freq";
+	floatSliderGrp -e -v   0 "WaveIt";
+	bh_waveVal;
+  }
+  
+    global proc bh_inverseC()
+  {//floatSliderGrp -e -v  0.15 "Size" ;
+    floatSliderGrp -e -v   -0.5 "Freq";
+	floatSliderGrp -e -v   0 "WaveIt";
+	bh_waveVal;
+  }
+  
+  global proc bh_baseOffset()
+  {
+      string $sel[]=`ls -sl`;
+      float $rotOffset=`floatSliderGrp -q -v "RotOffset"`;
+      
+      int $xOrNot=`checkBox -q -v rotXBox`;
+   int $yOrNot=`checkBox -q -v rotYBox`;
+   int $zOrNot=`checkBox -q -v rotZBox`;
+   
+   if ($xOrNot==1)
+   {
+   setAttr ($sel[0]+".rotateX") ($rotOffset*-1);
+   }
+    if ($yOrNot==1)
+   {
+   setAttr ($sel[0]+".rotateY") ($rotOffset*-1);
+   }
+    if ($zOrNot==1)
+   {
+   setAttr ($sel[0]+".rotateZ") ($rotOffset*-1);
+   }
+   
+      //setAttr ($sel[0]+".rotateZ") ($rotOffset*-1);
+  }
+    
+ /////////////////////////////////////////////////////
+    
+bh_waveIt;
+
+
+
+
+/////////////////////////////////////////
+
+global proc bhResizeWaveUIToggle()
+{
+    int $advancedH=300;
+    int $compactH=130;
+    int $winWidth=190;
+
+int $curWinSize = `window -q -height waveItUI`;
+
+if ($curWinSize!=$compactH)
+{
+   window -edit -widthHeight $winWidth $compactH waveItUI;
+}
+else 
+{
+    window -edit -widthHeight $winWidth $advancedH waveItUI;
+}
+
+
+
+}
+
+///////////////////////
+global proc bh_intCheck()
+{
+    int $intOrNot=`checkBox -q -v intBox`;
+    if ($intOrNot==1)
+    {
+        bh_waveVal;
+    }
+}

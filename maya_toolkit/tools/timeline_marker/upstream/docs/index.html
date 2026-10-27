@@ -1,0 +1,163 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>timelineMarker package &#8212; timelineMarker  &#39;&#39; documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     ' &#39;&#39;',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">timelineMarker  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-timelineMarker">
+<span id="timelinemarker-package"></span><h1>timelineMarker package<a class="headerlink" href="#module-timelineMarker" title="Permalink to this headline">¶</a></h1>
+<p>Create coloured markers on top of Maya’s native timeline. Comments can be 
+added to each marker that appear as tool tips.</p>
+<div class="figure align-center">
+<img alt="_images/timelineMarkerExample.gif" src="_images/timelineMarkerExample.gif" />
+</div>
+<p><a class="reference external" href="https://vimeo.com/126181906">Link to Video</a></p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Extract the content of the .rar file anywhere on disk.</li>
+<li>Drag the timelineMarker.mel file in Maya to permanently install the script.</li>
+</ul>
+</div>
+<div class="section" id="note">
+<h2>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h2>
+<p>The UI elements are added to the timeline menu and can be accessed by 
+right clicking on the timeline. You have the option to change the color 
+of your marker points and also add comments where necessary. ToolTips 
+will appear to show the comment while hovering over the timeline. 
+The markers are stored in the maya file.</p>
+</div>
+<div class="section" id="hotkey">
+<h2>Hotkey<a class="headerlink" href="#hotkey" title="Permalink to this headline">¶</a></h2>
+<p>The hotkey function can be used to setup hotkeys to manage the timeline 
+markers. There are three options, this is to either add, remove or clear 
+the markers. Make sure the language is set to python.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">timelineMarker</span>
+<span class="n">timelineMarker</span><span class="o">.</span><span class="n">hotkey</span><span class="p">(</span><span class="s1">&#39;add&#39;</span><span class="p">)</span>
+<span class="n">timelineMarker</span><span class="o">.</span><span class="n">hotkey</span><span class="p">(</span><span class="s1">&#39;remove&#39;</span><span class="p">)</span>
+<span class="n">timelineMarker</span><span class="o">.</span><span class="n">hotkey</span><span class="p">(</span><span class="s1">&#39;clear&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="command-line">
+<h2>Command Line<a class="headerlink" href="#command-line" title="Permalink to this headline">¶</a></h2>
+<p>The following functions can be used outside of the ui. Make sure the 
+language is set to python.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">timelineMarker</span> 
+<span class="n">timelineMarker</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">comment</span><span class="p">)</span>
+<span class="n">timelineMarker</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span>
+<span class="n">timelineMarker</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="n">timelineMarker</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">comments</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="timelineMarker.commands.html">timelineMarker.commands module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timelineMarker.decorators.html">timelineMarker.decorators module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timelineMarker.hotkey.html">timelineMarker.hotkey module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timelineMarker.ui.html">timelineMarker.ui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timelineMarker.utils.html">timelineMarker.utils module</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">timelineMarker package</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#note">Note</a></li>
+<li><a class="reference internal" href="#hotkey">Hotkey</a></li>
+<li><a class="reference internal" href="#command-line">Command Line</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/timelineMarker.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">timelineMarker  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, &#39;Robert Joosten&#39;.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>
