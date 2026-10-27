@@ -1,0 +1,3918 @@
+/*
+**************************************
+**									**
+**		autor Pavel Barnev         	**  
+**		pavel_barnev2000@mail.ru	**
+**									**
+**************************************
+
+
+barnev_Joint_Optimal_Pro_Application
+Author: Pavel Barnev pavel_barnev2000@mail.ru
+This tool is intended for:
+    Full  toolset for creating and orienting skeletons
+	most of these tools work not only with bones, but in general with any objects
+     Include:
+	 - several ways to create bones
+	 - including a unique method of adding bones to a nonlinear chain
+	 - tools for quickly parenting
+	 - a set of tools for alignment, smoothing and bone distribution
+	 - a set of tools for selection bones, including a unique tool for selection the shortest path between two bones
+	 - a set of tools for orienting bones - automatic and manual
+	 - tool for painting bones in various colors
+	 - a set of tools for quick naming, searching for matching names for removing namespaces, etc.
+Installation:
+    Unpack the .zip file to any place on the disk where you are comfortable
+    Open Maya.
+    Drag and drop file:
+    drag_and_drop_THIS_FILE_on_maya_window_for_install_Joint_Optimal_Pro_Application.mel
+    To an open MAYA window. An icon will appear in the Custom tab of the Shelf Editor.
+	JOPA_skeleton_tools_menue()
+*/
+global proc JOPA_skeleton_tools_menue()
+{
+	if(`window -q -ex "create_skeleton_tools"`)deleteUI("create_skeleton_tools");
+		if(`dockControl -q -ex "JointOPtimalAalign"`)deleteUI("JointOPtimalAalign");
+	string $jopa_version="version J.O.P.A.   4.1";
+	window  -w 250 -minimizeButton false -resizeToFitChildren true -maximizeButton false -title $jopa_version -titleBar true -menuBar true "create_skeleton_tools";
+	selectPref  -trackSelectionOrder 1;
+	string $final_name;
+	$separator_len=300;
+	float $red[]={0.7,0.4,0.5};
+	float $blue[]={ 0.3, 0.3,0.5};
+	float $green[]={0.4,0.6,0.4};
+	$small_button_h=16;
+	$mid_button_h=19;
+	$sep_h=2;
+	$base_text_height=12;
+	tabLayout -ann $jopa_version -tv 1 "tabLayout2";
+{
+	columnLayout
+			-p "tabLayout2"
+			-adj  true
+			"skeleton_scripts";
+string $fral=`frameLayout
+            -bgc $red[0] $red[1] $red[2]
+            -mh 0
+            -mw 1
+			-ann $jopa_version
+            -cc " window -e -h 500 create_skeleton_tools"
+            -p "skeleton_scripts" -cl 0 -cll true -l "CREATING JOINTS"`;
+	columnLayout  -adj 1 -p $fral   "jnts_create";
+        rowLayout -parent "jnts_create"  -numberOfColumns 3 ;
+		int $btnn_w=100;
+        	button -h $mid_button_h  -w $btnn_w -command "setToolTo jointContext;" -annotation "standard maya joint creation tool"  "Create Joints tool";
+        	button -h $mid_button_h -w ($btnn_w/4 )-command "setToolTo jointContext; toolPropertyWindow" -annotation "standard maya joint creation tool options"  "o";
+        	text -label " - create joint tool" -annotation "create joint standart maya tool";
+         rowLayout -parent "jnts_create"  -numberOfColumns 3 ;
+        	button -h $mid_button_h -w $btnn_w -command "repeatLast -ac \"JOPA_4_1_6d2bbf47e863c2f0037cf0467b97cef6\" -acl \"create joints \";JOPA_4_1_6d2bbf47e863c2f0037cf0467b97cef6;" -annotation "create a joint in the center of the selected vertices" "joint on center";
+        	text -label " - joint vtx center" -annotation "create a joint in the center of the selected vertices";
+         rowLayout -parent "jnts_create"  -numberOfColumns 3 ;
+        	button -h $mid_button_h -w $btnn_w -command " repeatLast -ac \" JOPA_4_1_a724b4b2abdd9e942758573c2c47afe6(100) \" -acl \"create joints \"; JOPA_4_1_a724b4b2abdd9e942758573c2c47afe6(100);" -annotation "create joints on selected  - not more than 100" "joint";
+        	text -label " - joints on selected" -annotation "create joints on selected";
+ 		rowLayout -p "jnts_create" -numberOfColumns 2 ;
+			button   -h $mid_button_h -w $btnn_w -command "repeatLast -ac \"select (`JOPA_4_1_d3cdf2488e5fc40a8060f5da3e93637a`)\" -acl \"create joints and parent \"; select (`JOPA_4_1_d3cdf2488e5fc40a8060f5da3e93637a`)"  -ann "create joints inside selected " "inside joints";
+			text " - create joints inside";
+ 		rowLayout -cw 1 35 -cw 2 35 -parent "jnts_create"   -numberOfColumns 4 ;
+				button   -w ($btnn_w/3) -h $mid_button_h -command "repeatLast -ac \" JOPA_4_1_5ca4dc00d401eb19d3b3eaf8ceb68c51(0);\" -acl \" add joint in chain \";JOPA_4_1_5ca4dc00d401eb19d3b3eaf8ceb68c51(1);" -annotation " add 1 joint " " + ";
+				button   -w ($btnn_w/3) -h $mid_button_h -command "repeatLast -ac \" JOPA_4_1_9d2772351e5b1bd29134402e8ccbbda0();\" -acl \" remove joint from chain \";JOPA_4_1_9d2772351e5b1bd29134402e8ccbbda0();" -annotation " remove 1 joint " " - ";
+				  text " - add/remove 1 joint between";
+		rowLayout -cw 1 35 -cw 2 35 -parent "jnts_create"  -adj 4 -numberOfColumns 5 ;
+				button   -w ($btnn_w/3) -h $mid_button_h
+				-command "repeatLast -ac \" JOPA_4_1_ad3e5fee1a27e33794ab15e8350f4b53(1);\" -acl \" add joint on selected curve \";JOPA_4_1_ad3e5fee1a27e33794ab15e8350f4b53(1);"
+				-bgc 0.7 0.7 0.8
+				-annotation "add joint on selected curve chain" " + ";
+				button   -w ($btnn_w/3) -h $mid_button_h
+				-command "repeatLast -ac \" JOPA_4_1_ad3e5fee1a27e33794ab15e8350f4b53(0);\" -acl \" remove joint from selected curve chain \";JOPA_4_1_ad3e5fee1a27e33794ab15e8350f4b53(0);"
+				-bgc 0.7 0.7 0.8
+				-annotation "remove joint from selected curve chain " " - ";
+				text " - add/remove 1 joint on selected curve";
+ $fral=`frameLayout
+            -bgc $red[0] $red[1] $red[2]
+            -mh 0
+            -mw 1
+			-ann $jopa_version
+            -cc " window -e -h 500 create_skeleton_tools"
+            -p "skeleton_scripts" -cl 0 -cll true -l "PRECISION CREATE"`;
+		 rowLayout -cw 1 35 -cw 2 35  -cw 3 35 -cw 4 35 -p $fral  -numberOfColumns 6 ;
+					global string $SM_create_joint_by_3_selected_mod;
+					button   -w ($btnn_w/3) -h ($mid_button_h-2)
+							-command "$SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod=\"T\"; repeatLast -ac \" JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);\" -acl \" create by 3 T form \" ; JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);"
+							-annotation " create joint by 3 selection by  T-form (between 1 2 oriented to 3)" " T ";
+					button   -w ($btnn_w/3) -h ($mid_button_h-2)
+							-command "$SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod=\"-T\"; repeatLast -ac \" JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);\" -acl \" create by 3 -T form \" ; JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);"
+							-annotation " create joint by 3 selection by  -T-form (between 1 2 oriented between 1 2 secondary axis 3)" " -T ";
+					button   -w ($btnn_w/3) -h ($mid_button_h-2)
+							-command "$SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod=\"L\"; repeatLast -ac \" JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);\" -acl \" create by 3 L form \" ; JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);"
+							-annotation " create joint by 3 selection by  L-form    (position on 3 oriented 1 2)" " L ";
+					button   -w ($btnn_w/3) -h ($mid_button_h-2)
+							-command "$SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod=\"V\"; repeatLast -ac \" JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);\" -acl \" create by 3 V form \" ; JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e($SM_JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e_mod);"
+							-annotation " create joint by 3 selection by  V-form    (position close to 3, on equal distance to 1-2,  oriented 1 2)" " V ";
+					button   -w ($btnn_w/3) -h ($mid_button_h-2)
+							-command " repeatLast -ac \"  JOPA_4_1_ede435b7fff94dfd41b52ef93374d3ee();\" -acl \" place center by 3 \" ;  JOPA_4_1_ede435b7fff94dfd41b52ef93374d3ee()"
+							-annotation " place joint center of circle  by 3 selection " " C ";
+					  text " - create joint by 3 selection";
+ $fral=`frameLayout
+            -bgc 0.6 0.42 0.6
+            -mh 0
+            -mw 1
+			-ann $jopa_version
+            -cc " window -e -h 500 create_skeleton_tools"
+            -p "skeleton_scripts" -cl 0 -cll true -l "FREEZE ORIENTS"`;
+ 	columnLayout  -adj 1 -p $fral  "freezer";
+ 			rowLayout -parent "freezer"  -numberOfColumns 4 ;
+    	        button  -h $mid_button_h  -w ($btnn_w*1.4) -command "repeatLast -ac \"JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1();\" -acl \"freeze transform joints();\"; JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1();"  -annotation "freeze ROTATE AND JOINT ORIENT. On complex bifurcated chains it is better not to use" "Freeze rotate and orient";
+    	        text -label " - freeze rotate/j. orient selected" -annotation "freeze ROTATE AND JOINT ORIENT. On complex bifurcated chains it is better not to use";
+             rowLayout -parent "freezer"  -numberOfColumns 4 ;
+                button  -h $mid_button_h  -w ($btnn_w*1.4) -command " makeIdentity -apply true -t 0 -r 1 -s 0 -n 0 -pn 1;"  -annotation "freeze rotate of bones throughout the hierarchy" "Freeze rotate ALL hierarhy";
+                text -label " - freeze rotate hierarchy" -annotation "freeze rotate of bones throughout the hierarchy";
+             rowLayout -parent "freezer"  -numberOfColumns 4 ;
+                button  -h $mid_button_h -w ($btnn_w*1.4) -command "repeatLast -ac \" JOPA_4_1_0f1ac522d0b034408fd36bd87fb46cb3\" -acl \" joint orient \"; JOPA_4_1_0f1ac522d0b034408fd36bd87fb46cb3()"  -annotation "Zero joint orient only for selected bones. With their transfer to rotate" "Orient->Rotate";
+                text -label " - orient transfer to rotate  " -annotation "Zero joint orient only for selected bones. With their transfer to rotate";
+            rowLayout -parent "freezer"  -numberOfColumns 4 ;
+				button  -h $mid_button_h -w ($btnn_w*1.4) -command "repeatLast -ac \"JOPA_4_1_0bec9b327a3b7f3839a0d58cf92ce02c\" -acl \"freeze rotate \"; JOPA_4_1_0bec9b327a3b7f3839a0d58cf92ce02c()"  -annotation "- zero Rotate on selected joints and transfer to Joint Orient" "Rotate>Orient";
+                text -label " - rotate transfer to orient  " -annotation "Zero joint orient only for selected bones. With their transfer to rotate";
+$fral=`frameLayout
+            -bgc $red[0] $red[1] $red[2]
+            -mh 0
+            -mw 1
+			-ann $jopa_version
+            -cc " window -e -h 500 create_skeleton_tools"
+            -p "skeleton_scripts" -cl 0 -cll true -l "PARENTING JOINTS"`;
+    columnLayout  -adj 1 -p $fral  "parenting";
+    	rowLayout -adj 2 -parent "parenting" -numberOfColumns 4;
+        	button  -h $mid_button_h -w ($btnn_w ) -command "repeatLast -ac \"$objects=JOPA_4_1_f0209cb5b5931bdfa7ae6801db19a0f8();select -cl;select ($objects);\" -acl \"parent sequent \"; $objects=JOPA_4_1_f0209cb5b5931bdfa7ae6801db19a0f8();select -cl;select ($objects);" -annotation "sequentially parent selected objects from first to last" "parent sequent";
+        	text -label "" -annotation "sequentially parent selected objects from first to last";
+        	button
+				-h $mid_button_h  -w ($btnn_w )
+				-command  "undoInfo -ock -cn \"true_parent\";JOPA_4_1_95a1a70cbaa809195c99a215410318c8(1);undoInfo -cck;"
+				-bgc 0.8 0.9 0.9
+				-annotation "true parent joints without transform groupp" "true parent";
+        	button  -h $mid_button_h  -w ($btnn_w ) -command  "undoInfo -ock -cn \"JOPA_4_1_a2b81a3977941c0eac1cda769570172c\";JOPA_4_1_a2b81a3977941c0eac1cda769570172c();undoInfo -cck;" -annotation "true unparent while maintaining selection" "true unparent";
+  $fral=`frameLayout
+            -bgc $red[0] $red[1] $red[2]
+            -mh 0
+			-ann $jopa_version
+            -mw 1
+            -cc " window -e -h 500 create_skeleton_tools"
+            -p "skeleton_scripts" -cl 0 -cll true -l "POSITIONING AND DISTRIBUTION"`;
+    columnLayout  -adj 1 -p $fral "align";
+    	rowLayout -adj 2 -parent "align"  -numberOfColumns 5 ;
+                button  -h $mid_button_h  -w ($btnn_w) -command "repeatLast -ac \" JOPA_4_1_b9629ebf4695f6ad1940993b73361ead(10)\" -acl \"Smooth position \"; JOPA_4_1_b9629ebf4695f6ad1940993b73361ead(10)" -annotation "smooth positions selected " "Smooth position";
+                text " - smooth/straight - ";
+                 button   -h $mid_button_h  -w ($btnn_w+1)  -command "repeatLast -ac \" JOPA_4_1_b9629ebf4695f6ad1940993b73361ead(100)\" -acl \" Straight position \"; JOPA_4_1_b9629ebf4695f6ad1940993b73361ead(100)" -annotation "arrange in a straight line selected" "Straight position";
+     	rowLayout  -parent "align"  -numberOfColumns 8 -adj 4 ;
+                button  -h $mid_button_h -w ($btnn_w/2) -command "repeatLast -ac \" JOPA_4_1_0cb8b5d4e384a1ba8b59ac35529bc7eb(-0.2)\" -acl \" align object position \"; JOPA_4_1_0cb8b5d4e384a1ba8b59ac35529bc7eb(-0.2)" -annotation "move to the first selected object" "<<<<";
+                button -h $small_button_h -w ($btnn_w)-command "repeatLast -ac \" JOPA_4_1_a8aee5f7819058e898a22052bd3773a1\" -acl \"align distribution \"; JOPA_4_1_a8aee5f7819058e898a22052bd3773a1 " -annotation "align distance distribution" "align distribution";
+                button   -h $mid_button_h -w ($btnn_w/2) -command "repeatLast -ac \" JOPA_4_1_0cb8b5d4e384a1ba8b59ac35529bc7eb(0.2)\" -acl \" align object position \";JOPA_4_1_0cb8b5d4e384a1ba8b59ac35529bc7eb(0.2)" -annotation "move to the last selected object " ">>>>";
+				text "";
+				rowLayout   -numberOfColumns 3 ;
+					                button  -h $small_button_h
+											-bgc 0.7 0.8 0.7
+											-w ($btnn_w/3 -1) -command "JOPA_4_1_266cf15f213f144bd5577f55c93329d0(0)" "<";
+									button  -h $small_button_h
+											-bgc 0.7 0.8 0.7
+											-w ($btnn_w/3 -1) -command "JOPA_4_1_266cf15f213f144bd5577f55c93329d0(1)" "0";
+									button  -h $small_button_h
+											-bgc 0.7 0.8 0.7
+											-w ($btnn_w/3 -1) -command "JOPA_4_1_266cf15f213f144bd5577f55c93329d0(2)" ">";
+         rowLayout -cw 1 70 -parent "align" -adj 2 -numberOfColumns 8 ;
+                button  -h $mid_button_h  -w ($btnn_w)-command "repeatLast -ac \" JOPA_4_1_3ee4702003ee8d11faa99588f53763ed\" -acl \" align on plane \";JOPA_4_1_3ee4702003ee8d11faa99588f53763ed()" -annotation "align the plane selected joints" "align plane";
+                text "  - align the plane - ";
+                button  -h $mid_button_h
+						-bgc 0.7 0.8 0.7
+						-w ($btnn_w*0.7+1)
+						-command "repeatLast -ac \" JOPA_4_1_d6b9c21beb7156b6229e41d3d9f7ef3c\" -acl \" align on plane \";JOPA_4_1_d6b9c21beb7156b6229e41d3d9f7ef3c()" -annotation "align the plane selected joints manually "
+						"manually";
+				button   -h $mid_button_h
+						-bgc 0.7 0.8 0.7
+						-w ($btnn_w*0.28) -command " pickWalk -d up; pickWalk -d up; select -hi; DeleteConstraints; delete;" -annotation "delete plane manipulator"  "del";
+         rowLayout -parent "align"  -numberOfColumns 8 ;
+                button  -h ($mid_button_h-2)  -w ($btnn_w/2) -command " JOPA_4_1_ee610d2367958b592a8726aa94ff0ff1(\"x\",`checkBox -q -v abs_mode`);" -annotation "align the world plane X projection" "align X";
+                button  -h ($mid_button_h-2)  -w ($btnn_w/2) -command " JOPA_4_1_ee610d2367958b592a8726aa94ff0ff1(\"y\",`checkBox -q -v abs_mode`);" -annotation "align the world plane Y projection" "align Y";
+                button  -h ($mid_button_h-2)  -w ($btnn_w/2) -command " JOPA_4_1_ee610d2367958b592a8726aa94ff0ff1(\"z\",`checkBox -q -v abs_mode`);" -annotation "align the world plane Z projection" "align Z";
+                text "  - align the world   ";
+				checkBox -v false -l " - abs" abs_mode;
+        rowLayout -parent "align"  -numberOfColumns 8 ;
+				button   -w ($btnn_w ) -h $mid_button_h
+				-command "JOPA_4_1_972cbf131f510c941b6fca958a7d0c69()"
+				-bgc 0.7 0.7 0.8
+				-annotation "snap selected joints to selected curve " "snap to curve";
+                text "  - snap selected joints to selected curve";
+ $fral=`frameLayout
+            -bgc $green[0] $green[1] $green[2]
+            -mh 0
+            -mw 1
+			-ann $jopa_version
+            -cc " window -e -h 500 create_skeleton_tools"
+            -p "skeleton_scripts" -cl 0 -cll true -l "SELECTION"`;
+		columnLayout -adj 1 -p $fral "selection";
+			rowLayout -p "selection"  -numberOfColumns 3;
+				button  -h ($mid_button_h-2) -w ($btnn_w*1.5) -command "JOPA_4_1_cf07169f94f84aada068ef575331b875(\"forward\")" -annotation "hierarchically selects a piece of chain between selected joints" "select between";
+				text -label " - selects a piece of chain" -annotation "select chain between 2 selected joints";
+ 			 rowLayout -p "selection"  -numberOfColumns 3;
+				button  -h ($mid_button_h-2) -w ($btnn_w*1.5)-command "SelectHierarchy; $sel_joints=JOPA_4_1_1ed150b12535ee196bee8b74a6bf5f5c(`ls-sl`, \"joint\");select $sel_joints;" -annotation "hierarchically selects joints only" "select joints hierarchy";
+				text -label " - selects joints only" -annotation "hierarchically selects joints only";
+ 			 rowLayout -p "selection"  -numberOfColumns 3;
+				button  -h ($mid_button_h-2) -w ($btnn_w*1.5)
+					-command "repeatLast -ac \" JOPA_4_1_f4a01868ca61fbc2847abcd1b618cc24();\" -acl \" swap selection order \";JOPA_4_1_f4a01868ca61fbc2847abcd1b618cc24()"
+					-annotation "swapping selection order"
+					-l "swap";
+				text -label " - swap selection order" -annotation "swap selection order";
+ $fral=`frameLayout
+            -bgc $green[0] $green[1] $green[2]
+            -mh 0
+            -mw 1
+			-ann $jopa_version
+            -cc " window -e -h 500 create_skeleton_tools"
+            -p "skeleton_scripts" -cl 0 -cll true -l "TOOLS"`;
+	columnLayout -adj 1 -p $fral "tools";
+	rowLayout -parent "tools"  -adj 3 -numberOfColumns 4;
+		button -w ($btnn_w/2) -h $small_button_h
+		-bgc 0.7 0.7 0.8
+		-command " JOPA_4_1_f16154a48b6bb7af40bdec525973aa99(1)"
+		-annotation "disable all skincluster" -l "ENTER";
+		button -w ($btnn_w/2) -h $small_button_h
+		-bgc 0.7 0.7 0.8
+		-command " JOPA_4_1_f16154a48b6bb7af40bdec525973aa99(0)"
+		-annotation "enable all skincluster" -l "EXIT";
+		text " - move skinned joint mode";
+		button -w ($btnn_w ) -h $small_button_h
+		-bgc 0.7 0.7 0.8
+		-command " JOPA_4_1_e79dd31d96c9498499196fdfdddd4698()"
+		-annotation "mirror connection menue" -l "mirror connection";
+	rowLayout -p "tools" -numberOfColumns 2 ;
+	    button -w ($btnn_w)  -h $mid_button_h  -command " JOPA_4_1_95d47209f5832c068ce7614b82201089;" -annotation "make rotations selected joint like after an euler filter"  "Rotate like Euler";
+	     text " - make rotations like after an euler filter";
+     	rowLayout -parent "tools"   -numberOfColumns 4;
+        	button -w ($btnn_w/2) -h $small_button_h -command "repeatLast -ac \" JOPA_4_1_975573a52a98abc101c2b805675f922b(0)\" -acl \" segment scale compensate OFF\"; JOPA_4_1_975573a52a98abc101c2b805675f922b(0)" -annotation " off segment scale compensate " "OFF";
+        	button -w ($btnn_w/2) -h $small_button_h -command "repeatLast -ac \" JOPA_4_1_975573a52a98abc101c2b805675f922b(1)\" -acl \" segment scale compensate ON\"; JOPA_4_1_975573a52a98abc101c2b805675f922b(1)" -annotation "  on segment scale compensate " "ON";
+        	text " - segment scale compensate";
+     	rowLayout  -parent "tools" -numberOfColumns 3;
+        	button -w ($btnn_w) -h $mid_button_h  -command "repeatLast -ac \" JOPA_4_1_3a25eaad774c71ebdcb06ee4d2b25ce3\" -acl \" null joint orient \"; JOPA_4_1_3a25eaad774c71ebdcb06ee4d2b25ce3"  -annotation "zero joint orient selected" "null joint orient";
+        	button -w ($btnn_w) -h $mid_button_h  -command "repeatLast -ac \" JOPA_4_1_9a3ce25cfdbc96f0053e2e03715d7f2b\" -acl \" null joint rotate\"; JOPA_4_1_9a3ce25cfdbc96f0053e2e03715d7f2b;" -annotation "zero rotates selected" "null joint rotate";
+     	rowLayout -parent "tools" -numberOfColumns 4;
+        	button  -w ($btnn_w/2) -h $small_button_h -command "repeatLast -ac \"JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(1) \" -acl \" show local axis\"; JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(1)" -annotation "show local axis" "show";
+        	button -w ($btnn_w/2) -h $small_button_h -command " repeatLast -ac \" JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(0)\" -acl \" hide local axis\"; JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(0)"  -annotation "hide local axis" "hide";
+        	text " - local axis              ";
+		rowLayout -p "tools" -numberOfColumns 3 ;
+				button -w ($btnn_w/2) -h $small_button_h -command " selectPref -sch 1;" -annotation "highlited all childs"  "Ch_OFF";
+				button -w ($btnn_w/2) -h $small_button_h -command " selectPref -sch 0;" -annotation "highlited selected objects only  "  "Ch_ON";
+				 text " - childs highlite mode";
+		rowLayout -p "tools" -numberOfColumns 7 -adj 5 ;
+				button -w ($btnn_w/3) -h $small_button_h
+				-c "repeatLast -ac \"JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(0.5) \" -acl \" scale size 0.5 \"; JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(0.5)"
+				-annotation "scale size selected joints by 0.5"  -l "--";
+				button -w ($btnn_w/3) -h $small_button_h
+				-c "repeatLast -ac \"JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(0.9) \" -acl \" scale size 0.9 \"; JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(0.9)"
+				-annotation "scale size selected joints by 0.9"  -l "-";
+				button -w ($btnn_w/3) -h $small_button_h
+				-c "repeatLast -ac \"JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(1.1) \" -acl \" scale size 1.1 \"; JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(1.1)"
+				-annotation "scale size selected joints by 1.1"  -l "+";
+				button -w ($btnn_w/3) -h $small_button_h
+				-c "repeatLast -ac \"JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(1.5) \" -acl \" scale size 1.5 \"; JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e(1.5)"
+				-annotation "scale size selected joints by 1.5"  -l "++";
+				 text " - change joint size";
+				button -w ($btnn_w/3) -h $small_button_h
+						-c "repeatLast -ac \"JOPA_4_1_2db96bd9c47870bc6534b47731f587ae(`ls-sl`,6) \" -acl \" set size by lenght \"; JOPA_4_1_2db96bd9c47870bc6534b47731f587ae(`ls-sl`,6)"
+						-annotation "set size selected joints by average lenght"  -l "len";
+				 button -w ($btnn_w/3) -h $small_button_h
+							-c "repeatLast -ac \"JOPA_4_1_15760bd5ac6225f582185bab24346a67(0.5) \" -acl \" set size by camera dist \"; JOPA_4_1_15760bd5ac6225f582185bab24346a67(0.5)"
+							-annotation "set size selected joints by distance to viewport camera"  -l "cam";
+ $fral=`frameLayout
+            -bgc 0.6 0.42 0.6
+            -mh 0
+            -mw 1
+			-ann $jopa_version
+            -cc " window -e -h 500 create_skeleton_tools"
+            -p "skeleton_scripts" -cl 0 -cll true -l "ORIENTING"`;
+	columnLayout -adj 1 -p $fral "orienting";
+	rowLayout -p "orienting"  -numberOfColumns 13 ;
+    	text "<";
+        	radioCollection;
+           global string $barnev_skeleton_menue_axis="x";
+           radioButton -sl -label "x" -cc "$barnev_skeleton_menue_axis=\"x\"";
+           radioButton -label "y" -cc "$barnev_skeleton_menue_axis=\"y\"";
+           radioButton -label "z" -cc "$barnev_skeleton_menue_axis=\"z\"";
+           radioButton -label "-x" -cc "$barnev_skeleton_menue_axis=\"-x\"";
+           radioButton -label "-y" -cc "$barnev_skeleton_menue_axis=\"-y\"";
+           radioButton -label "-z" -cc "$barnev_skeleton_menue_axis=\"-z\"";
+     	text ">";
+    	text " - set axis ";
+         rowLayout -p "orienting"  -numberOfColumns 4 ;
+            button  -w ($btnn_w )-h $mid_button_h  -command "repeatLast -ac \" JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1(); JOPA_4_1_a9acebc46d5277d92e6d954501ac53c7( $barnev_skeleton_menue_axis , $SAO_napr, $minus_up); JOPA_4_1_95d47209f5832c068ce7614b82201089;	\" -acl \" orient joint null rotate\";JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1(); JOPA_4_1_a9acebc46d5277d92e6d954501ac53c7( $barnev_skeleton_menue_axis , $SAO_napr, $minus_up); JOPA_4_1_95d47209f5832c068ce7614b82201089;	" -annotation "improved version of the standard system. Well oriented along the axes"  "true orient";
+            text " - orient joint";
+			global string $minus_up="";
+			global string $minus_MM="";
+			checkBox -v false -l " - inverse up" -onCommand "$minus_MM=\"-\";$minus_up=\"change\"" -offCommand "$minus_MM=\"\";$minus_up=\"\"" inv_up;
+			global string $SAO_napr="up";
+			checkBox -v false -l " - change up"  -onCommand "$SAO_napr=\"down\"" -offCommand "$SAO_napr=\"up\""ch_up;
+     	rowLayout -p "orienting" -numberOfColumns 2 "child_bttn";
+        	button -w ($btnn_w*1.5)  -h $mid_button_h -p "child_bttn" -command "repeatLast -ac \" JOPA_4_1_773705e2fd3f8e12d1cd931401dc396e($minus_MM + $barnev_skeleton_menue_axis)\" -acl \" orient joint on parent\"; JOPA_4_1_773705e2fd3f8e12d1cd931401dc396e($minus_MM + $barnev_skeleton_menue_axis);" -annotation "orient the bone by the selected axis from the parent"  "orient joint from parent";
+        	button -w ($btnn_w*1.5)  -h $mid_button_h -p "child_bttn" -command "repeatLast -ac \" JOPA_4_1_18250f0751da33452100ea861e8e386a($minus_MM + $barnev_skeleton_menue_axis)\" -acl \" orient joint on parent\"; JOPA_4_1_18250f0751da33452100ea861e8e386a($minus_MM +  $barnev_skeleton_menue_axis);" -annotation "orient the bone chosen for the child"  "orient joint on child";
+ $fral=`frameLayout
+            -bgc 0.6 0.42 0.6
+            -mh 0
+            -mw 1
+            -cc " window -e -h 500 create_skeleton_tools"
+            -p "skeleton_scripts" -cl 0 -cll true -l "MANUAL CORRECTING"`;
+	columnLayout -adj 1-p   $fral "manu_corr";
+	rowLayout  -p "manu_corr" -numberOfColumns 7 ;
+    	button -h $small_button_h -w ($btnn_w/3) -command "JOPA_4_1_52c981703a2cf84e5e60002e83f3fa52(90, 0, 0);" -annotation "rotate Õ"  "rX 90";
+    	button -h $small_button_h -w ($btnn_w/3) -command "JOPA_4_1_52c981703a2cf84e5e60002e83f3fa52(0, 90, 0);" -annotation "rotate Y"  "rY 90";
+    	button -h $small_button_h -w ($btnn_w/3) -command "JOPA_4_1_52c981703a2cf84e5e60002e83f3fa52(0, 0, 90);" -annotation "rotate Z"  "rZ 90";
+		button  -h $mid_button_h  -w ($btnn_w*0.9) -command " JOPA_4_1_7c23beeb22741f0c0bad91ebefb06e18()" -annotation "correcting joint rotate manually"  "correct manually";
+    	button   -h $mid_button_h -w ($btnn_w*0.9) -command " pickWalk -d up; pickWalk -d up; select -hi; DeleteConstraints; delete;" -annotation "delete rotators"  "delete manip";
+		button   -h $mid_button_h -w ($btnn_w/2) -command "JOPA_4_1_7c23beeb22741f0c0bad91ebefb06e18();JOPA_4_1_39488f9fb9b49f3b387fe78ea9cda2f0();JOPA_4_1_cc20e95399a3b6da44eb78e45451d764(13); JOPA_4_1_6de8028af587b467034457b4d6349f89(1.5) " -annotation " - proportion_rotate - for delete - use DELETE MANIP button"  "prop";
+ $fral=`frameLayout
+            -bgc $red[0] $red[1] $red[2]
+            -mh 0
+            -mw 1
+			-ann $jopa_version
+            -cc " window -e -h 500 create_skeleton_tools"
+            -p "skeleton_scripts" -cl 0 -cll true -l "MIRRORING"`;
+	columnLayout -adj 1-p   $fral "mirr";
+	rowLayout -parent "mirr"  -adj 3 -numberOfColumns 5 ;
+	    button  -h $mid_button_h -w $btnn_w  -command "JOPA_4_1_911ce829ffadd631db0afd6c10b8a9c1()" -annotation "multiply mirror tool" "MultiMirror";
+	    button  -h $mid_button_h -w ($btnn_w/4) -command "MirrorJointOptions;" -annotation "maya mirror tool options"  "o";
+	    text -label " - maya mirror tool" -annotation "maya mirror tool";
+	    button
+			-h $mid_button_h -w ($btnn_w)
+			-bgc 0.8 0.9 0.9
+			-command "JOPA_4_1_9e849622a64e61725d0526208e8aee88"
+			-annotation "myrror of extra bones on the other side. Option from mirror joints optionbox"  "mirror extra";
+columnLayout -p $fral -adj 1  "coloring";
+ 	int $index_values[]={ 1, 13, 18, 22 ,14 , 4, 16, 3, 6, 12, 15, 19, 29, 30, 27, 17,2,15,20};
+	string $index_val_string="{" + $index_values[0];
+	for($i=1; $i<size( $index_values); $i++)
+	{
+	    $index_val_string =$index_val_string + "," + $index_values[$i];
+	}
+   $index_val_string =$index_val_string + "}";
+	$maxOverrideColors =size ($index_values);
+    $formOffset = 2;
+    $mainWindow = "coloring";
+    $mainLayout = `formLayout -parent $mainWindow`;
+    $columns = $maxOverrideColors / 2;
+    $rows = 2;
+    $cellWidth = 17;
+    $cellHeight = 17;
+    $colorPalette = `palettePort -dimensions $columns $rows
+                                 -transparent 0
+                                 -width ($columns * $cellWidth)
+                                 -height ($rows * $cellHeight)
+                                 -topDown 1
+                                 -colorEditable 0`;
+    print $colorPalette;
+    int $index;
+    for ($index = 1; $index < $maxOverrideColors-1;  $index++)
+    {
+        $colorComponent = `colorIndex -q $index_values[$index]`;
+        palettePort -e -rgbValue $index $colorComponent[0] $colorComponent[1] $colorComponent[2] $colorPalette;
+    }
+    palettePort -e -rgbValue 0 0.6 0.6 0.6 -cc ("JOPA_4_1_feece4078c8aeb0c08bb278bcaf1bd05(`palettePort -q -setCurCell " + $colorPalette + "`, " + $index_val_string + ")") $colorPalette;
+    formLayout -e -attachForm $colorPalette "top" $formOffset $mainLayout;
+    formLayout -e -attachForm $colorPalette "left" $formOffset $mainLayout;
+    formLayout -e -attachForm $colorPalette "right" $formOffset $mainLayout;
+ 		columnLayout -adj 1  -ann $jopa_version -parent "skeleton_scripts" "podpis";
+    	text  -h ($base_text_height+5)  -p  "podpis" -al "center" -ww false  -l "autor  Pavel Barnev       pavel_barnev2000@mail.ru";
+ }
+columnLayout -adj 1   -ann $jopa_version  -p  "tabLayout2" "naming";
+int $btnn_w=100;
+ $fral=`frameLayout
+            -bgc 0.6 0.42 0.6
+            -mh 0
+            -mw 1
+			-ann $jopa_version
+            -cc " window -e -h 500 create_skeleton_tools"
+            -p "naming" -cl 0 -cll true -l "NAME"`;
+			rowLayout - p $fral -nc 4 -adj 2 "namings";
+			text -l " final name   ";
+			textField -ec "$final_name=`textField -q -tx fin_text_field`;" -en true -cc "$final_name=`textField -q -tx fin_text_field`;" -w 150 -rfc "$final_name=`textField -q -tx fin_text_field`;" -ed true "fin_text_field";
+			button -h $mid_button_h -w ($btnn_w/4) -c "$final_name=\"\";textField -edit -tx \"\" fin_text_field;" "clr";
+			button -h $mid_button_h -w ($btnn_w) -c "renameSelectionList(`textField -q -tx fin_text_field`)" -l "apply to selected";
+ $fral=`frameLayout
+            -bgc 0.6 0.42 0.6
+            -mh 0
+            -mw 1
+			-ann $jopa_version
+            -cc " window -e -h 500 create_skeleton_tools"
+            -p "naming" -cl 0 -cll true -l "POSTFIXES"`;
+rowLayout -p  $fral -nc 14;
+	button -h $mid_button_h -w ($btnn_w/4) -c "textField -edit -tx (`textField -q -tx fin_text_field` + \"_f\") fin_text_field" "_f";
+	button -h $mid_button_h -w ($btnn_w/4) -c "textField -edit -tx (`textField -q -tx fin_text_field` + \"_b\") fin_text_field" "_b";
+	button -h $mid_button_h -w ($btnn_w/4) -c "textField -edit -tx (`textField -q -tx fin_text_field` + \"_r\") fin_text_field" "_r";
+	button -h $mid_button_h -w ($btnn_w/4) -c "textField -edit -tx (`textField -q -tx fin_text_field` + \"_l\") fin_text_field" "_l";
+	button -h $mid_button_h -w ($btnn_w/4) -c "textField -edit -tx (`textField -q -tx fin_text_field` + \"_R\") fin_text_field" "_R";
+	button -h $mid_button_h -w ($btnn_w/4) -c "textField -edit -tx (`textField -q -tx fin_text_field` + \"_L\") fin_text_field" "_L";
+	button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx (`textField -q -tx fin_text_field` + \"_low\") fin_text_field" "_low";
+	button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx (`textField -q -tx fin_text_field` + \"_mid\") fin_text_field" "_mid";
+	button -h $mid_button_h -w ($btnn_w/2) -c "textField -edit -tx (`textField -q -tx fin_text_field` + \"_center\") fin_text_field" "_center";
+	button -h $mid_button_h -w ($btnn_w/4) -c "textField -edit -tx (`textField -q -tx fin_text_field` + \"_hi\") fin_text_field" "_hi";
+	button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx (`textField -q -tx fin_text_field` + \"_top\") fin_text_field" "_top";
+rowLayout -p  $fral -nc 12;
+	button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx (`textField -q -tx fin_text_field` + \"_twist\") fin_text_field" "_twist";
+	button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx (`textField -q -tx fin_text_field` + \"_side\") fin_text_field" "_side";
+	button -h $mid_button_h -w ($btnn_w/2) -c "textField -edit -tx (`textField -q -tx fin_text_field` + \"_corner\") fin_text_field" "_corner";
+	button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx (`textField -q -tx fin_text_field` + \"_part\") fin_text_field" "_part";
+	button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx (`textField -q -tx fin_text_field` + \"_end\") fin_text_field" "_end";
+  $fral=`frameLayout
+            -bgc 0.6 0.42 0.6
+            -mh 0
+            -mw 1
+			-ann $jopa_version
+            -cc " window -e -h 500 create_skeleton_tools"
+            -p "naming" -cl 0 -cll true -l "BASE NAMES"`;
+rowLayout -p  $fral -nc 8;
+	button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"root\") fin_text_field" "root";
+	button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"pelvis\") fin_text_field" "pelvis";
+	button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"spine\") fin_text_field" "spine";
+	button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"belly\") fin_text_field" "belly";
+	button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"chest\") fin_text_field" "chest";
+	button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"neck\") fin_text_field" "neck";
+	button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"head\") fin_text_field" "head";
+ $fral=`frameLayout
+            -bgc 0.6 0.42 0.6
+            -mh 0
+            -mw 1
+			-ann $jopa_version
+            -cc " window -e -h 500 create_skeleton_tools"
+            -p "naming" -cl 0 -cll true -l "LIMBS"`;
+	rowLayout -p  $fral -nc 7;
+		button  -h $mid_button_h -w ($btnn_w/2) -c "textField -edit -tx ( \"shoulder\") fin_text_field" "shoulder";
+		button  -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"hand\") fin_text_field" "hand";
+		button  -h $mid_button_h -w ($btnn_w/2) -c "textField -edit -tx ( \"elbow\") fin_text_field" "elbow";
+		button  -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"arm\") fin_text_field" "arm";
+		button  -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"wrist\") fin_text_field" "wrist";
+	rowLayout -p $fral -nc 8;
+		button  -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"leg\") fin_text_field" "leg";
+		button  -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"knee\") fin_text_field" "knee";
+		button  -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"ankle\") fin_text_field" "ankle";
+		button  -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"toe\") fin_text_field" "toe";
+		button  -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"foot\") fin_text_field" "foot";
+	rowLayout -p $fral -nc 8;
+		button  -h $mid_button_h -w ($btnn_w/2) -c "textField -edit -tx ( \"finger\") fin_text_field" "finger";
+		button  -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"wing\") fin_text_field" "wing";
+		button  -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"tail\") fin_text_field" "tail";
+		button  -h $mid_button_h -w ($btnn_w/2) -c "textField -edit -tx ( \"tentacle\") fin_text_field" "tentacle";
+ $fral=`frameLayout
+            -bgc 0.6 0.42 0.6
+            -mh 0
+            -mw 1
+			-ann $jopa_version
+            -cc " window -e -h 500 create_skeleton_tools"
+            -p "naming" -cl 0 -cll true -l "FINGERS"`;
+	rowLayout -p  $fral -nc 8;
+		button -h $mid_button_h -w ($btnn_w/2) -c "textField -edit -tx ( \"thumb\") fin_text_field" "thumb";
+		button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"index\") fin_text_field" "index";
+		button -h $mid_button_h -w ($btnn_w/2) -c "textField -edit -tx ( \"middle\") fin_text_field" "middle";
+		button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"ring\") fin_text_field" "ring";
+		button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"pinky\") fin_text_field" "pinky";
+ $fral=`frameLayout
+            -bgc 0.6 0.42 0.6
+            -mh 0
+            -mw 1
+			-ann $jopa_version
+            -cc " window -e -h 500 create_skeleton_tools"
+            -p "naming" -cl 0 -cll true -l "FACE"`;
+	rowLayout -p  $fral -nc 12;
+		button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx (\"face\") fin_text_field" "face";
+		button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx (\"jaw\") fin_text_field" "jaw";
+		button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx (\"nose\") fin_text_field" "nose";
+		button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx (\"eye\") fin_text_field" "eye";
+		button -h $mid_button_h -w ($btnn_w/2) -c "textField -edit -tx (\"eyelid\") fin_text_field" "eyelid";
+	rowLayout -p  $fral -nc 12;
+		button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx (\"brow\") fin_text_field" "brow";
+		button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx (\"ears\") fin_text_field" "ear";
+		button -h $mid_button_h -w ($btnn_w/2) -c "textField -edit -tx (\"teeth\") fin_text_field" "teeth";
+		button -h $mid_button_h -w ($btnn_w/2) -c "textField -edit -tx ( \"tongue\") fin_text_field" "tongue";
+		button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx (\"lip\") fin_text_field" "lip";
+ $fral=`frameLayout
+            -bgc 0.6 0.42 0.6
+            -mh 0
+            -mw 1
+			-ann $jopa_version
+            -cc " window -e -h 500 create_skeleton_tools"
+            -p "naming" -cl 0 -cll true -l "OTHER"`;
+	rowLayout -p  $fral -nc 8;
+		button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"hair\") fin_text_field" "hair";
+		button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"cloth\") fin_text_field" "cloth";
+		button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"skirt\") fin_text_field" "skirt";
+		button -h $mid_button_h -w ($btnn_w/2) -c "textField -edit -tx ( \"sleeve\") fin_text_field" "sleeve";
+		button -h $mid_button_h -w ($btnn_w/3) -c "textField -edit -tx ( \"item\") fin_text_field" "item";
+		button -h $mid_button_h -w ($btnn_w/2) -c "textField -edit -tx ( \"object\") fin_text_field" "object";
+ $fral=`frameLayout
+            -bgc $red[0] $red[1] $red[2]
+            -mh 0
+            -mw 1
+			-ann $jopa_version
+            -cc " window -e -h 500 create_skeleton_tools"
+            -p "naming" -cl 0 -cll true -l "TOOLS"`;
+columnLayout -adj 1  -p $fral "n_tools";
+rowLayout -p "n_tools"  -numberOfColumns 3;
+		button  -h $mid_button_h -w ($btnn_w*1.5)  -command "SelectHierarchy; $sel_joints=JOPA_4_1_1ed150b12535ee196bee8b74a6bf5f5c(`ls-sl`, \"joint\");select $sel_joints;" -annotation "hierarchically selects joints only" "select joints hierarchy";
+		text -label " - selects joints only" -annotation "hierarchically selects joints only";
+rowLayout -p "n_tools"  -numberOfColumns 3;
+		button  -h $mid_button_h -w ($btnn_w) -command "JOPA_4_1_cf07169f94f84aada068ef575331b875(\"forward\")" -annotation "hierarchically selects a piece of chain between selected joints" "select between";
+		text -label " - selects a piece of chain" -annotation "select chain between 2 selected joints";
+rowLayout -p "n_tools" -nc 6;
+	button  -annotation " find duplicates from selected joints and create set with them"
+		-h $mid_button_h -w ($btnn_w)  -c "select (`JOPA_4_1_c81811a11b8f20fafe4877c444b7b2a7`);sets -n name_Duplicates" "find duplicates";
+	text -label " - finds the same names on selected" -annotation "finds the same names on selected objects";
+rowLayout -p "n_tools" -numberOfColumns 3 ;
+	button  -h $small_button_h -w ($btnn_w/2)  -command " selectPref -sch 1;" -annotation "highlited all childs"  "OFF";
+	button -h $small_button_h -w ($btnn_w/2) -command " selectPref -sch 0;" -annotation "highlited selected objects only  "  "ON";
+	text " - childs highlite mode";
+ $fral=`frameLayout
+            -bgc $red[0] $red[1] $red[2]
+            -mh 0
+            -mw 1
+			-ann $jopa_version
+            -cc " window -e -h 500 create_skeleton_tools"
+            -p "naming" -cl 0 -cll true -l "MASS RENAME TOOLS"`;
+columnLayout -adj 1  -p   $fral "n_postf";
+rowLayout -cw 1 40 -cw 2 75 -cw 3 10  -cw 4 75 -cw 5 50 -p "n_postf" -adj 5 -nc 8 ;
+	text -ann "rename selected object with insert prefix and suffix" -l "prefix> ";
+	textField -ec "$final_name=`textField -q -tx prefix_text_field`;" -en true -cc "$final_name=`textField -q -tx prefix_text_field`;" -w 75 -rfc "$final_name=`textField -q -tx prefix_text_field`;" -ed true "prefix_text_field";
+	text -ann "rename selected object with insert prefix and suffix" -l "...";
+	textField -ec "$final_name=`textField -q -tx postfix_text_field`;" -en true -cc "$final_name=`textField -q -tx postfix_text_field`;" -w 75 -rfc "$final_name=`textField -q -tx postfix_text_field`;" -ed true "postfix_text_field";
+	text -ann "rename selected object with insert prefix and suffix" -l "<postfix";
+	button -ann "rename selected object with insert prefix and suffix"
+			-c "JOPA_4_1_3cee12804dcac45527d4bfcfcb7c7431(`textField -q -tx prefix_text_field` , `textField -q -tx postfix_text_field`); "
+			-w ($btnn_w*0.8)
+			-l "apply";
+	separator -p "naming" -width $separator_len;
+rowLayout -cw 1 40 -cw 2 80 -cw 3 80 -cw 4 50 -p "n_postf" -adj 4 -nc 8 ;
+	text -ann "search and replace from selected" -l "search>";
+	textField -ec "$final_name=`textField -q -tx search_text_field`;" -en true -cc "$final_name=`textField -q -tx search_text_field`;" -w 80 -rfc "$final_name=`textField -q -tx search_text_field`;" -ed true "search_text_field";
+ 	textField -ec "$final_name=`textField -q -tx replace_text_field`;" -en true -cc "$final_name=`textField -q -tx replace_text_field`;" -w 80 -rfc "$final_name=`textField -q -tx replace_text_field`;" -ed true "replace_text_field";
+	text -ann "search and replace from selected" -l "<replace";
+ 	button   -w ($btnn_w*0.8)
+			-ann "search and replace from selected" -c "searchReplaceNames(`textField -q -tx search_text_field` , `textField -q -tx replace_text_field`,	\"selected\"); " -l "S_and_R";
+rowLayout -p "n_postf"   -nc 8 ;
+	button  -w ($btnn_w*1.5)
+			-ann "search and replace from selected" -c " catchQuiet(`JOPA_4_1_f17bdd4811ed4c79ad676fdc4d5a1414`); " -l "remove namespaces";
+	text -ann "remove all namespaces exclude from reference" -l " - remove all namespaces";
+columnLayout -adj 1  -ann $jopa_version -parent "naming" "podpis2";
+ text  -h ($base_text_height+5)  -p  "podpis2" -al "center" -ww false  -l "autor  Pavel Barnev       pavel_barnev2000@mail.ru";
+showWindow "create_skeleton_tools";
+dockControl   -h 30 -label "J.oint O.ptimal P.ro A.pplication " -aa "left" -aa "right" -aa "top" -aa "bottom"-p "tabLayout2" -a "left" -con "create_skeleton_tools" "JointOPtimalAalign";
+}
+global proc JOPA_4_1_f16154a48b6bb7af40bdec525973aa99(int $on_off)
+{
+    string $skins[] = `ls -type "skinCluster"`;
+    for ($skin in $skins)
+		if ($on_off)
+			skinCluster -e -moveJointsMode true $skin;
+		else
+			skinCluster -e -moveJointsMode false $skin;
+}
+global proc JOPA_4_1_5ca4dc00d401eb19d3b3eaf8ceb68c51(int $mod)
+{
+    string $selected[]=`ls-sl`;
+    string $createSetResult_object = `sets -name "object"`;
+    $num=size($selected);
+    if($num<=1)
+    {
+		warning "select more then 1 object";
+		delete $createSetResult_object;
+		return;
+    }
+    string $curve_name;
+    if($mod==1)
+        $curve_name=JOPA_4_1_52cb8fd96018b22c9d21d83beb0fbc31(3);
+    else
+        $curve_name=JOPA_4_1_a8d1933a966541e62d79a2fcbf6e4ea4(1);
+    string $curves[]=`rebuildCurve -ch 1 -rpo 0 -rt 0 -end 1 -kr 0 -kcp 0 -kep 0 -kt 0 -s ($num*2) -d  3 -tol 0.01 $curve_name`;
+    string $rebild_curve_shape[]=JOPA_4_1_5e702211108f11813c411c94f8b1b380($curves[0]);
+    select -cl;
+    float $rad=1;
+    catchQuiet($rad=`getAttr  ($selected[$num-1] + ".radius")`);
+	select $selected[$num-1];
+	string $tmpp[]=`JOPA_4_1_f2d5a2798ed7cfee36eb77ee8a281ed8`;
+    string $joint= $tmpp[0];
+    JOPA_4_1_92de112c5c170c44ad9daf4d48b1acdd($rad);
+    select -cl;
+    select $selected;
+    select -d	$selected[$num-1];
+    select -add $joint  $selected[$num-1];
+	string $new_selected[]=`ls-sl`;
+	string $createSetResult_new_selected  = `sets -name "object"`;
+	string $base_locks[]=JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0();
+    string $p_constrain[]=JOPA_4_1_4a0278149f801323f33f7bb9e4ee597d($base_locks,$new_selected);
+    string $point_on_curve_info_node=`createNode pointOnCurveInfo`;
+    connectAttr -f ($rebild_curve_shape[0] + ".worldSpace[0]") ($point_on_curve_info_node + ".inputCurve");
+    float $distt=1.0/($num);
+    $i=0;
+    for($obj in $base_locks)
+    {
+        $param=$distt*$i;
+        setAttr ($point_on_curve_info_node + ".parameter") $param;
+        $new_pos=`getAttr  ($point_on_curve_info_node + ".position ")`;
+        move -a $new_pos[0] $new_pos[1]  $new_pos[2] $obj ;
+        $i++;
+    }
+    string $parent[]=`listRelatives -f -p $selected[$num-1]`;
+    string $parent2[]=`listRelatives -f -p $selected[$num-2]`;
+    string $childs[]=`listConnections-t node $createSetResult_object`;
+    $childs=`ls -l $childs`;
+    if ($parent[0]!="")
+    {
+        JOPA_4_1_4666e1e44291e7950c6d8b3906bbb9c7 ({$parent[0]}, { $joint},1);
+	}
+	if($parent[0]==$childs[$num-2])
+	{
+	    JOPA_4_1_4666e1e44291e7950c6d8b3906bbb9c7 ({$joint}, {$childs[$num-1]},1);
+	}
+	if($parent2[0]==$childs[$num-1])
+	{
+	    JOPA_4_1_4666e1e44291e7950c6d8b3906bbb9c7 ({$childs[$num-1]}, {$joint},1);
+	    $childs=`listConnections -t node $createSetResult_object`;
+	    $childs=`ls -l $childs`;
+	    JOPA_4_1_4666e1e44291e7950c6d8b3906bbb9c7 ({$joint}, {$childs[$num-2]},1);
+	}
+	$childs=`listConnections -t node $createSetResult_new_selected`;
+	select -cl;
+    select $childs;
+	JOPA_4_1_18df331e107c49828a5c6e6e0b53d687();
+	catchQuiet(`delete $p_constrain`);
+	catchQuiet(`delete $base_locks`);
+	delete $createSetResult_object $createSetResult_new_selected;
+	delete $curves $point_on_curve_info_node  $curve_name;
+    select $joint;
+    JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1();
+    select -cl;
+    select $childs;
+}
+global proc JOPA_4_1_9d2772351e5b1bd29134402e8ccbbda0()
+{
+    string $selected[]=`ls -l -sl`;
+    select -cl;
+    select $selected;
+    string $createSetResult = `sets -name "object"`;
+    $num=size($selected);
+    if($num<=2)
+    {
+        warning "select more then 2 joints";
+        delete $createSetResult;
+        return;
+    }
+    string $curve_name=JOPA_4_1_52cb8fd96018b22c9d21d83beb0fbc31(3);
+    string $curves[]=`rebuildCurve -ch 1 -rpo 0 -rt 0 -end 1 -kr 0 -kcp 0 -kep 0 -kt 0 -s ($num*2) -d  3 -tol 0.01 $curve_name`;
+    string $rebild_curve_shape[]=JOPA_4_1_5e702211108f11813c411c94f8b1b380($curves[0]);
+    select -cl;
+    select $selected[$num-1];
+    string $parent[]=`listRelatives -f -p $selected[$num-1]`;
+    string $parent2[]=`listRelatives -f -p $selected[$num-2]`;
+    if ($parent[0]==$selected[$num-2])
+    {
+       JOPA_4_1_a2b81a3977941c0eac1cda769570172c();
+    }
+    delete $selected[$num-2];
+    string $childs[]=`listConnections  -t node $createSetResult`;
+    string $new_selected[]=`ls -l $childs`;
+    select  $new_selected;
+    string $base_locks[]=JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0();
+    string $p_constrain[]=JOPA_4_1_4a0278149f801323f33f7bb9e4ee597d($base_locks,$new_selected);
+    string $point_on_curve_info_node=`createNode pointOnCurveInfo`;
+    connectAttr -f ($rebild_curve_shape[0] + ".worldSpace[0]") ($point_on_curve_info_node + ".inputCurve");
+    float $distt=1.0/($num-2);
+    $i=0;
+    for($obj in $base_locks)
+    {
+        $param=$distt*$i;
+        setAttr ($point_on_curve_info_node + ".parameter") $param;
+        $new_pos=`getAttr  ($point_on_curve_info_node + ".position ")`;
+        move -a $new_pos[0] $new_pos[1]  $new_pos[2] $obj ;
+        $i++;
+    }
+    if ($parent[0]!=""&& $parent2[0]!="")
+    {
+         JOPA_4_1_4666e1e44291e7950c6d8b3906bbb9c7 ({$parent2[0]}, {$new_selected[size($new_selected)-1]},1);
+	}
+	$childs=`listConnections  -t node $createSetResult`;
+	select -cl;
+	select $childs;
+	JOPA_4_1_18df331e107c49828a5c6e6e0b53d687();
+	delete $p_constrain $base_locks $createSetResult;
+	delete $curves $point_on_curve_info_node  $curve_name;
+}
+global proc string JOPA_4_1_f911544bbc1f8bd26197ce3206a3d51e(string $mod)
+{
+    $selection=`ls-fl-os`;
+    if(size($selection)!=3)
+    {
+        warning "select 3 object!";
+        return "";
+    }
+    $lock=`JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0`;
+    select -cl;
+    string $join=`joint`;
+    string  $p_constr[];
+    string $aim_c[];
+    float $point_jo[];
+    $mod=capitalizeString($mod);
+    if($mod=="T")
+    {
+        $p_constr=`pointConstraint $lock[0] $lock[1] $join`;
+        $aim_c=`aimConstraint -offset 0 0 0 -weight 1 -aimVector 1 0 0 -upVector 0 1 0 -worldUpType "object" -worldUpObject $lock[0] $lock[2] $join`;
+    }
+	if($mod=="-T"|| $mod=="-t")
+    {
+        $p_constr=`pointConstraint $lock[0] $lock[1] $join`;
+        $aim_c=`aimConstraint -offset 0 0 0 -weight 1 -aimVector 0 1 0 -upVector 1 0 0 -worldUpType "object" -worldUpObject  $lock[2] $lock[0] $join`;
+    }
+    if($mod=="L")
+    {
+        $p_constr=`pointConstraint $lock[2] $join`;
+        $aim_c=`aimConstraint -offset 0 0 0 -weight 1 -aimVector 1 0 0 -upVector 0 1 0 -worldUpType "object" -worldUpObject $lock[1] $lock[0] $join`;
+    }
+	if($mod=="V")
+    {
+		$point_jo=JOPA_4_1_a5d8b0122c186b9a25fc1b6d3ff9b430($lock,1,0.5);
+		move -a  $point_jo[0]  $point_jo[1]  $point_jo[2] $lock[2];
+        $p_constr=`pointConstraint $lock[2] $join`;
+        $aim_c=`aimConstraint -offset 0 0 0 -weight 1 -aimVector 1 0 0 -upVector 0 1 0 -worldUpType "object" -worldUpObject $lock[1] $lock[0] $join`;
+    }
+    delete $p_constr $aim_c;
+    delete $lock;
+    select  $join;
+    JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(1);
+    return $join;
+}
+global proc string JOPA_4_1_52cb8fd96018b22c9d21d83beb0fbc31(int $degree)
+{
+	$selection=`ls-sl`;
+	string $name_s;
+	string $name[];
+	vector $positions[]=JOPA_4_1_72356eaf232b169651a82383ba9e7e57($selection);
+	float $tmp_float0[];
+	float $tmp_float1[];
+	float $tmp_float2[];
+	$num=`size($selection)`;
+	int $spans=($num-1)/2;
+	int $rought=$num- $spans*2 -1;
+	string $curves_dup[];
+	clear  $curves_dup;
+	$j=0;
+	for($i=0;$i<size($selection)-2;$i+=2)
+	{
+	$tmp_float0=$positions[$i];
+	$tmp_float1=$positions[$i+1];
+	$tmp_float2=$positions[$i+2];
+		int $ang=JOPA_4_1_4d4e630bb3f78b918b505c8ebfcbb814($tmp_float0, $tmp_float1, $tmp_float2, 0);
+		if($ang>0&&$ang<178)
+		{
+			$curves_dup[$j]=JOPA_4_1_b059868e801453725e5c31a1938f0210($tmp_float0, $tmp_float1, $tmp_float2, 1, 8);
+		}else
+		{
+			$curves_dup[$j]=JOPA_4_1_83a9015d514ecd1326a1648b28396ba2({$positions[$i], $positions[$i+1]},1);
+			$i--;
+			$rought++;
+		}
+		$j++;
+	}
+	int $jj= $rought/2;
+	float $kk = $rought/2.0;
+	if( $jj!=$kk )
+	{
+		$curves_dup[$j]=JOPA_4_1_83a9015d514ecd1326a1648b28396ba2({$positions[$i], $positions[$i+1]},1);
+	}
+	select $curves_dup;
+	for($i=1;$i<size($curves_dup);$i++)
+	{
+		catchQuiet ($fin_curve=`attachCurve  -ch 1 -rpo 1 -kmk 1 -m 1 -bb 0.5 -bki 0 -p 0.1 $curves_dup[0] $curves_dup[$i]`);
+		DeleteHistory;
+		delete $curves_dup[$i];
+	}
+	$fin_curve=`ls-sl`;
+	select $fin_curve;
+	catchQuiet (`DeleteHistory`);
+	catchQuiet ($name=`rebuildCurve -ch 1 -rpo 1 -rt 0 -end 1 -kr 0 -kcp 0 -kep 0 -kt 0 -s $num -d $degree -tol 0.01 $fin_curve`);
+	$name_s=$name[0];
+	select $name;
+	return $name_s;
+}
+global proc JOPA_4_1_b9629ebf4695f6ad1940993b73361ead(int $coeff)
+{
+    $selected=`ls-sl`;
+    $base_locks=JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0();
+    $p_constrain=JOPA_4_1_4a0278149f801323f33f7bb9e4ee597d($base_locks,$selected);
+	$curve_name=JOPA_4_1_52cb8fd96018b22c9d21d83beb0fbc31(3);
+    $num=size($selected);
+    int $knots=$num -$num*($coeff/100.0) -1;
+    $degree=2;
+    if($knots<1)
+    {
+        $knots=1;
+        $degree=1;
+    }
+    $curves=`rebuildCurve -ch 1 -rpo 0 -rt 0 -end 1 -kr 1 -kcp 0 -kep 0 -kt 0 -s $knots -d  $degree -tol 0.01 $curve_name`;
+    $rebild_curve_shape=JOPA_4_1_5e702211108f11813c411c94f8b1b380($curves[0]);
+    $point_on_curve_node=`createNode nearestPointOnCurve`;
+    connectAttr -f ($rebild_curve_shape[0] + ".worldSpace[0]") ($point_on_curve_node + ".inputCurve");
+    for($obj in $base_locks)
+    {
+        $pos=JOPA_4_1_8598296823aa3af15686cb0d78f1615d($obj);
+        setAttr ($point_on_curve_node + ".inPositionX") $pos[0];
+        setAttr ($point_on_curve_node + ".inPositionY") $pos[1];
+        setAttr ($point_on_curve_node + ".inPositionZ") $pos[2];
+        $new_pos=`getAttr  ($point_on_curve_node + ".position ")`;
+        move -a $new_pos[0] $new_pos[1]  $new_pos[2] $obj ;
+    }
+	select $selected;
+	JOPA_4_1_18df331e107c49828a5c6e6e0b53d687();
+    delete $p_constrain $base_locks $curves $curve_name;
+}
+global proc JOPA_4_1_a8aee5f7819058e898a22052bd3773a1()
+{
+    $selected=`ls-sl`;
+    $base_locks=JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0();
+    $p_constrain=JOPA_4_1_4a0278149f801323f33f7bb9e4ee597d($base_locks,$selected);
+	$curve_name=JOPA_4_1_52cb8fd96018b22c9d21d83beb0fbc31(3);
+    $num=size($selected);
+	select $curve_name;
+    $curves=`rebuildCurve -ch 1 -rpo 0 -rt 0 -end 1 -kr 0 -kcp 0 -kep 0 -kt 0 -s ($num*2) -d  3 -tol 0.01 $curve_name`;
+    $rebild_curve_shape=JOPA_4_1_5e702211108f11813c411c94f8b1b380($curves[0]);
+    $point_on_curve_info_node=`createNode pointOnCurveInfo`;
+    connectAttr -f ($rebild_curve_shape[0] + ".worldSpace[0]") ($point_on_curve_info_node + ".inputCurve");
+    float $distt=1.0/($num-1);
+    $i=0;
+    for($obj in $base_locks)
+    {
+        $param=$distt*$i;
+        setAttr ($point_on_curve_info_node + ".parameter") $param;
+        $new_pos=`getAttr  ($point_on_curve_info_node + ".position ")`;
+        move -a $new_pos[0] $new_pos[1]  $new_pos[2] $obj ;
+        $i++;
+    }
+    select $selected;
+	JOPA_4_1_18df331e107c49828a5c6e6e0b53d687();
+	delete $p_constrain $base_locks;
+	delete $curves $point_on_curve_info_node  $curve_name;
+}
+global proc JOPA_4_1_0cb8b5d4e384a1ba8b59ac35529bc7eb(float $coeff)
+{
+	$coeff=$coeff/2;
+	$selected=`ls-sl`;
+	$base_locks=JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0();
+	$p_constrain=JOPA_4_1_4a0278149f801323f33f7bb9e4ee597d($base_locks,$selected);
+	$curve_name=JOPA_4_1_52cb8fd96018b22c9d21d83beb0fbc31(3);
+	$num=size($selected);
+	$curves=`rebuildCurve -ch 1 -rpo 0 -rt 0 -end 1 -kr 0 -kcp 0 -kep 0 -kt 0 -s ($num*2) -d  3 -tol 0.01 $curve_name`;
+	$rebild_curve_shape=JOPA_4_1_5e702211108f11813c411c94f8b1b380($curves[0]);
+	$point_on_curve_node=`createNode nearestPointOnCurve`;
+	connectAttr -f ($rebild_curve_shape[0] + ".worldSpace[0]") ($point_on_curve_node + ".inputCurve");
+	float $start_param[];
+	float $new_param[];
+	for($i=1;$i<$num;$i++)
+	{
+		$pos=JOPA_4_1_8598296823aa3af15686cb0d78f1615d($base_locks[$i]);
+		setAttr ($point_on_curve_node + ".inPositionX") $pos[0];
+		setAttr ($point_on_curve_node + ".inPositionY") $pos[1];
+		setAttr ($point_on_curve_node + ".inPositionZ") $pos[2];
+		$start_param[$i]=`getAttr  ($point_on_curve_node + ".parameter ")`;
+		$p=$start_param[$i];
+		$new_param[$i]=(((1-$p)*$p)/(1-$coeff))*$coeff + $p;
+	}
+	$point_on_curve_info_node=`createNode pointOnCurveInfo`;
+	connectAttr -f ($rebild_curve_shape[0] + ".worldSpace[0]") ($point_on_curve_info_node + ".inputCurve");
+	float $distt=1.0/($num-1);
+	$i=0;
+	for($obj in $base_locks)
+	{
+		setAttr ($point_on_curve_info_node + ".parameter") $new_param[$i];
+		$new_pos=`getAttr  ($point_on_curve_info_node + ".position ")`;
+		move -a $new_pos[0] $new_pos[1]  $new_pos[2] $obj ;
+		$i++;
+	}
+	select $selected;
+	JOPA_4_1_18df331e107c49828a5c6e6e0b53d687();
+	delete $p_constrain $base_locks;
+	delete $curves $point_on_curve_info_node  $curve_name;
+}
+global proc JOPA_4_1_266cf15f213f144bd5577f55c93329d0(int $pos)
+{
+    string $neighbors[];
+    float $position[];
+    $neighbors=JOPA_4_1_6c03bcf1c4cd077aea727f60dfb001f6(0,"*PGB_plane_joints_positioning*");
+    if(size($neighbors)==0)
+    {
+        warning "Selected object not manual plain correction system";
+        return;
+    }
+    if ($pos==0)
+        $position=`xform -q  -os  -t $neighbors[0]`;
+    if ($pos==2)
+        $position=`xform -q  -os  -t $neighbors[1]`;
+    if ($pos==1)
+        $position={0,0,0};
+    move -a -ls $position[0] $position[1] $position[2] ($neighbors[2] + ".scalePivot") ($neighbors[2] + ".rotatePivot") ;
+}
+global proc float JOPA_4_1_2db96bd9c47870bc6534b47731f587ae(string $joints[],float $div)
+{
+    float $fin_scale=0;
+    if(size($joints)<=1)
+    {
+        warning "select few joints";
+        return $fin_scale;
+    }
+    float $len=JOPA_4_1_a358a7c27f7a7b80712d695138ed032e(`ls-sl`,1);
+    $fin_scale=$len/$div;
+    JOPA_4_1_1b2691cd3c4740f4f00465c7e94c0373(`ls-sl`, $fin_scale);
+    return $fin_scale;
+}
+global proc JOPA_4_1_d6b9c21beb7156b6229e41d3d9f7ef3c()
+{
+	string $selected[]=`ls-sl`;
+	JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(0);
+	string $locators[]=JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0();
+	JOPA_4_1_6de8028af587b467034457b4d6349f89(0.5);
+	int $num=size($selected)-1;
+	JOPA_4_1_cc20e95399a3b6da44eb78e45451d764(13);
+	JOPA_4_1_34cdd1e4469c2d3c695448db824d2ecb(1);
+	JOPA_4_1_e9a3d5ffe283044f2485219b12ac5f73( $locators, 1);
+	vector $avge=JOPA_4_1_e3bea614176fbceebe7c7aae67e953b0(JOPA_4_1_72356eaf232b169651a82383ba9e7e57({$selected[0],$selected[$num]}));
+	string $plane[]=`polyPlane -w 1 -h 1 -sx 1 -sy 1 -ax 0 1 0 -cuv 2 -ch 1`;
+	string $plane2[]=`polyPlane -w 1 -h 1 -sx 1 -sy 1 -ax 0 1 0 -cuv 2 -ch 1`;
+	rotate  0 0 180 $plane2;
+	$plane=`polyUnite -ch 1 -mergeUVSets 1 -name $plane[0] $plane[0] $plane2[0]`;
+	delete -ch $plane;
+	string $plane_sh[]=JOPA_4_1_5e702211108f11813c411c94f8b1b380($plane[0]);
+	setAttr ($plane[0] + ".doubleSided") 0;
+	setAttr ($plane[0] + ".displayBorders") 1;
+	setAttr ($plane[0] + ".borderWidth") 3;
+	JOPA_4_1_cc20e95399a3b6da44eb78e45451d764(13);
+	polyColorPerVertex -r 0 -g 1 -b 0 -cdo $plane[0];
+	polyColorPerVertex -a 0.2 -cdo $plane[0];
+	move ($avge.x) ($avge.y) ($avge.z) $plane[0];
+	string $max_h_j= JOPA_4_1_f9ccf45626df05475e8ab66b6f511dd6($selected);
+	float $max_h_j_pos[]=JOPA_4_1_8598296823aa3af15686cb0d78f1615d($max_h_j);
+	$tp_lock=`spaceLocator`;
+	string $longest_height_obj=$tp_lock[0];
+	move $max_h_j_pos[0] $max_h_j_pos[1] $max_h_j_pos[2] $longest_height_obj;
+	delete(`aimConstraint -offset 0 0 0 -weight 1 -aimVector 1 0 0 -upVector 0 0 1 -worldUpType "object" -worldUpObject $longest_height_obj $selected[$num] $plane[0]`);
+	$dist= JOPA_4_1_c7822f1f10b007a6803735c105e40799($selected[0],$selected[$num]);
+	scale -a  ($dist*1.2) 1 0 $plane[0];
+	makeIdentity -apply true -t 0 -r 0 -s 1 -n 0 -pn 1 $plane[0];
+	parent $locators $plane[0];
+	move -ls -y 0 0 0 $locators;
+	rotate  0 0 0 $locators;
+	JOPA_4_1_4a0278149f801323f33f7bb9e4ee597d($locators,$selected);
+	select $locators;
+	delete $longest_height_obj;
+	vector $local_pos[]=JOPA_4_1_329067de90245bf18aa04dd0b6c95e8b($locators);
+	vector $pos;
+	float $z_pos[];
+	for($i=0;$i<=$num;$i++)
+	{
+	    $pos=$local_pos[$i];
+	    $z_pos[$i]=$pos.z;
+	}
+	$z_pos=sort($z_pos);
+	float $otstup=($z_pos[$num]-$z_pos[0])/5;
+    move -r -os -wd 0 0 ($z_pos[$num]+$otstup)($plane_sh[0] + ".vtx[0:1]") ($plane_sh[0] + ".vtx[4:5]") ;
+    move -r -os -wd 0 0 ($z_pos[0]-$otstup) ($plane_sh[0] + ".vtx[2:3]") ($plane_sh[0] + ".vtx[6:7]") ;
+	JOPA_4_1_38212629cf9ce2087192134a449b78d6(0, 1,0,1, 1,1,1, 1,1, 1);
+	JOPA_4_1_94c81da260931e06d6e51c78e142796f({$locators[0],$locators[$num],$plane[0]}, "PGB_plane_joints_positioning");
+	select $plane[0];
+}
+global proc JOPA_4_1_3ee4702003ee8d11faa99588f53763ed()
+{
+	$selected=`ls-sl`;
+	select -cl;
+	select $selected;
+	$locks=JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0();
+	$point_constrs=JOPA_4_1_4a0278149f801323f33f7bb9e4ee597d($locks,$selected);
+    $base_lock=`duplicate $locks[0]`;
+	vector $coords[]=JOPA_4_1_72356eaf232b169651a82383ba9e7e57($locks);
+	int $ind=JOPA_4_1_b370e1f695c58fe83552587a1fd52907($coords);
+    float $tmpp[];
+	$aim_name=`aimConstraint -offset 0 0 0 -weight 1 -aimVector 1 0 0 -upVector 0 1 0 -worldUpType "object" -worldUpObject $locks[$ind] $locks[size($locks)-1] $base_lock`;
+	delete $aim_name;
+	select $locks;
+	$w_new_coords=JOPA_4_1_72d9b297f109729673f6fe9d719defbd($base_lock[0],"z");
+	for($i=1;$i<size($locks)-1;$i++)
+	{
+		if($i!=$ind)
+		{
+			$tmpp=$w_new_coords[$i];
+			move $tmpp[0] $tmpp[1] $tmpp[2] $locks[$i];
+		}
+	}
+	select $selected;
+	JOPA_4_1_18df331e107c49828a5c6e6e0b53d687();
+	delete $point_constrs;
+	delete $locks $base_lock;
+}
+global proc JOPA_4_1_ee610d2367958b592a8726aa94ff0ff1(string $w_axis, int $abs_mode)
+{
+	$selected=`ls-sl`;
+	$locks=JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0();
+	$point_constrs=JOPA_4_1_4a0278149f801323f33f7bb9e4ee597d($locks,$selected);
+	$base_lock= $locks[0];
+	rotate -a 0 0 0 $base_lock;
+	if($abs_mode)
+	{
+	    if ($w_axis=="x")
+            move -a -x 0 0 0 $base_lock;
+ 	    if ($w_axis=="y")
+            move -a -y 0 0 0 $base_lock;
+	    if ($w_axis=="z")
+            move -a -z 0 0 0 $base_lock;
+    }
+	vector $coords[]=JOPA_4_1_72356eaf232b169651a82383ba9e7e57($locks);
+	float $tmpp[];
+	select $locks;
+	vector $w_new_coords[];
+	$w_new_coords=JOPA_4_1_72d9b297f109729673f6fe9d719defbd($base_lock,$w_axis);
+	for($i=1;$i<size($locks);$i++)
+	{
+		$tmpp=$w_new_coords[$i];
+		move $tmpp[0] $tmpp[1] $tmpp[2] $locks[$i];
+	}
+	select $selected;
+	JOPA_4_1_18df331e107c49828a5c6e6e0b53d687();
+	delete $point_constrs;
+	delete $locks $base_lock;
+}
+global proc JOPA_4_1_911ce829ffadd631db0afd6c10b8a9c1()
+{
+    string $obj;
+    for($obj in `ls-sl`)
+    {
+        select $obj;
+        performMirrorJoint 0;
+    }
+}
+global proc JOPA_4_1_7c23beeb22741f0c0bad91ebefb06e18()
+{
+	$currentPanel = `getPanel -withFocus`;
+	$panelType = `getPanel -to $currentPanel`;
+	if ($panelType == "modelPanel")
+	{
+	  modelEditor -e -locators 1 $currentPanel;
+	}
+	JOPA_4_1_13f03d6a42bbd197e6eb294d298faacd();
+	float $dist=50;
+	$sel=`ls-head 1 -sl`;
+	catchQuiet($dist=JOPA_4_1_c7822f1f10b007a6803735c105e40799($sel[0], JOPA_4_1_20a28b95c1b8b4dd29397ab332dbc667()));
+	catchQuiet(JOPA_4_1_29941243f77aa0343e79460d48136072 ($dist/25));
+	JOPA_4_1_cc20e95399a3b6da44eb78e45451d764(22);
+}
+global proc JOPA_4_1_39488f9fb9b49f3b387fe78ea9cda2f0()
+{
+	$selected=`ls-sl`;
+	$num=size($selected);
+	$len_proportion=JOPA_4_1_3f2307b9993ee7d97577d190465f37c9($selected,1);
+	$node_name_pm=`createNode plusMinusAverage`;
+	setAttr ($node_name_pm + ".operation") 2;
+	connectAttr -f ($selected[0] + ".rx") ($node_name_pm + ".input3D[1].input3Dx");
+	connectAttr -f ($selected[0] + ".ry") ($node_name_pm + ".input3D[1].input3Dy");
+	connectAttr -f ($selected[0] + ".rz") ($node_name_pm + ".input3D[1].input3Dz");
+	connectAttr -f ($selected[$num-1] + ".rx") ($node_name_pm + ".input3D[0].input3Dx");
+	connectAttr -f ($selected[$num-1] + ".ry") ($node_name_pm + ".input3D[0].input3Dy");
+	connectAttr -f ($selected[$num-1] + ".rz") ($node_name_pm + ".input3D[0].input3Dz");
+	for($i=1;$i<$num-1;$i++)
+	{
+		$M_D_node_name=`createNode multiplyDivide`;
+		connectAttr -f ($node_name_pm + ".output3Dx") ($M_D_node_name + ".input1X");
+		connectAttr -f ($node_name_pm + ".output3Dy") ($M_D_node_name + ".input1Y");
+		connectAttr -f ($node_name_pm + ".output3Dz") ($M_D_node_name + ".input1Z");
+		setAttr($M_D_node_name + ".input2X") $len_proportion[$i];
+		setAttr($M_D_node_name + ".input2Y") $len_proportion[$i];
+		setAttr($M_D_node_name + ".input2Z") $len_proportion[$i];
+		$node_name_pm2=`createNode plusMinusAverage`;
+		setAttr ($node_name_pm2 + ".operation") 1;
+		connectAttr -f ($selected[0] + ".rx") ($node_name_pm2 + ".input3D[1].input3Dx");
+		connectAttr -f ($selected[0] + ".ry") ($node_name_pm2 + ".input3D[1].input3Dy");
+		connectAttr -f ($selected[0] + ".rz") ($node_name_pm2 + ".input3D[1].input3Dz");
+		connectAttr -f ($M_D_node_name + ".outputX") ($node_name_pm2 + ".input3D[0].input3Dx");
+		connectAttr -f ($M_D_node_name + ".outputY") ($node_name_pm2 + ".input3D[0].input3Dy");
+		connectAttr -f ($M_D_node_name + ".outputZ") ($node_name_pm2 + ".input3D[0].input3Dz");
+		connectAttr -f ($node_name_pm2 + ".output3Dx") ($selected[$i] + ".rotateX");
+		connectAttr -f ($node_name_pm2 + ".output3Dy") ($selected[$i] + ".rotateY");
+		connectAttr -f ($node_name_pm2 + ".output3Dz") ($selected[$i] + ".rotateZ");
+	}
+	select $selected[$num-1];
+}
+global proc JOPA_4_1_a724b4b2abdd9e942758573c2c47afe6(int $limit)
+{
+    if(size(`ls-fl-sl`)<$limit)
+        JOPA_4_1_f2d5a2798ed7cfee36eb77ee8a281ed8;
+    else
+        warning "selected more than 100 object - canselled" ;
+}
+global proc JOPA_4_1_52c981703a2cf84e5e60002e83f3fa52(float $rx, float $ry, float $rz)
+{
+    $selection=`ls-sl`;
+    string $lock[]=JOPA_4_1_13f03d6a42bbd197e6eb294d298faacd();
+    rotate -r -os -fo $rx $ry $rz  $lock;
+    pickWalk -d up;
+    pickWalk -d up;
+    select -hi;
+    DeleteConstraints;
+    delete;
+    select $selection;
+}
+global proc string[] JOPA_4_1_d3cdf2488e5fc40a8060f5da3e93637a()
+{
+    $selected=`ls-sl`;
+    float $rad;
+    $joints=JOPA_4_1_f2d5a2798ed7cfee36eb77ee8a281ed8();
+    $joints=JOPA_4_1_a2b81a3977941c0eac1cda769570172c();
+    for($i=0;$i<size($selected);$i++)
+    {
+        $rad=1;
+        catchQuiet($rad=`getAttr ($selected[$i] + ".radius")`);
+        $rad=$rad+$rad*0.1;
+        setAttr ($joints[$i] + ".radius")$rad;
+    }
+    JOPA_4_1_4666e1e44291e7950c6d8b3906bbb9c7($selected,$joints,1);
+    catchQuiet(`JOPA_4_1_3a25eaad774c71ebdcb06ee4d2b25ce3`);
+    JOPA_4_1_9a3ce25cfdbc96f0053e2e03715d7f2b;
+	select -cl;
+	select 	$joints;
+    return $joints;
+}
+global proc JOPA_4_1_773705e2fd3f8e12d1cd931401dc396e(string $axis)
+{
+	$selection=`ls-l-sl`;
+	string $constr[];
+	string $locks[];
+	for($obj in $selection)
+	{
+        select -cl;
+        select $obj;
+    	$children=JOPA_4_1_2edf2909df70a7e657b4b646868a0b9c();
+    	if (size($children)>0)
+    	{
+        	select $children;
+        	$locks=JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0();
+        	$constr=JOPA_4_1_17431451b1be026fdeee93b86579c6b6($locks, $children);
+        }
+    	select $obj;
+    	JOPA_4_1_ee505820b9f32e5106abbdfa4f840186($axis);
+        if (size($children)>0)
+        {
+            delete  $constr;
+            delete $locks ;
+        }
+	}
+	select $selection;
+}
+global proc string[] JOPA_4_1_13f03d6a42bbd197e6eb294d298faacd()
+{
+    JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(1);
+    $selection=`ls-l-sl`;
+    $children=JOPA_4_1_2edf2909df70a7e657b4b646868a0b9c();
+	if(size( $children)>0)
+        select  $children;
+    else
+        select $selection;
+    $grpp=JOPA_4_1_cf7d60c10a2e981ece1b4edc00bb807f(0);
+    $child_lock=`ls-sl`;
+    string $par_grpp[];
+    $parents=stringArrayRemove($children, $selection);
+    if(size( $parents)>0 && size( $children)>0)
+    {
+        select ($parents);
+        $par_grpp=JOPA_4_1_cf7d60c10a2e981ece1b4edc00bb807f(0);
+    }
+    if(size( $selection)!=size(`ls-sl`))
+    {
+        select -add $child_lock;
+    }
+    string $sel_lock[]=`ls-sl`;
+    catchQuiet (`select  $grpp $par_grpp`);
+    catchQuiet (`group`);
+    select $sel_lock;
+	manipRotateContext -e -ah 3 -mode 0  Rotate;
+	setToolTo RotateSuperContext;
+	return $sel_lock;
+}
+global proc JOPA_4_1_ad3e5fee1a27e33794ab15e8350f4b53(int $add)
+{
+    string $selected_curve[]=`filterExpand -sm 9`;
+    string $selected_joints[]=`ls-sl -type "joint"`;
+    string $c_shps[]=JOPA_4_1_5e702211108f11813c411c94f8b1b380($selected_curve[0]);
+    float $c_par_min=`getAttr ($c_shps[0] + ".mmv.min")`;
+    float $c_par_max=`getAttr ($c_shps[0] + ".mmv.max")`;
+    int $curr_j_num=`size $selected_joints`;
+    float $distrib_range;
+    float $j_rad=1;
+    string $new_jnt;
+    float $pos[];
+    if(!$curr_j_num && ! $add)
+        return;
+    if(!$curr_j_num)
+        select -cl;
+    else
+    {
+        select $selected_joints[$curr_j_num-1];
+        $j_rad=`getAttr ".radius"`;
+    }
+    if($add)
+    {
+        $new_jnt=`joint -rad $j_rad `;
+        appendStringArray($selected_joints,{$new_jnt},1);
+        $curr_j_num=$curr_j_num+1;
+    }
+    else
+    {
+        delete $selected_joints[$curr_j_num-1];
+        stringArrayRemoveAtIndex($curr_j_num-1, $selected_joints);
+        $curr_j_num=$curr_j_num-1;
+    }
+    if(!$curr_j_num)
+        $distrib_range=0;
+    else
+    {
+        if( $curr_j_num >1)
+            $distrib_range=($c_par_max-$c_par_min)/($curr_j_num-1);
+    }
+    for($i=0; $i<$curr_j_num; $i++)
+    {
+        $pos=`pointOnCurve -pr ($c_par_min + $i*$distrib_range) $selected_curve[0]`;
+        move -a $pos[0] $pos[1] $pos[2] $selected_joints[$i];
+    }
+    select -cl;
+    select  $selected_joints $selected_curve[0] ;
+}
+global proc float[] JOPA_4_1_972cbf131f510c941b6fca958a7d0c69()
+{
+    string $selected[]=`ls-fl-sl`;
+    string $selected_curve[]=`filterExpand -sm 9`;
+    string $objects[]=`ls -fl -sl -type "joint"`;
+    float $params[]=JOPA_4_1_e849743d83b9357359884fec322c28ec($selected_curve[0], $objects);
+    select $selected;
+    return $params;
+}
+global proc JOPA_4_1_e79dd31d96c9498499196fdfdddd4698()
+{
+    if(`window -q -ex "per_ch_connection"`)deleteUI("per_ch_connection");
+    window
+        -minimizeButton true -maximizeButton true -titleBar true
+        -bgc 0.2 0.555 0.580
+        -t "mirror connection selection" -sizeable true -toolbox true -menuBar true "per_ch_connection";
+    columnLayout "columnLayout4";
+    rowLayout -numberOfColumns 4;
+    text -label "from";
+    textField
+        -bgc 1  1.0 0.79
+        -text "_L" -w 70 tx_get_from;
+    text -label "to>>";
+    textField
+        -bgc 1  1.0 0.79
+        -text "_R" -w 70 tx_set_to;
+    rowLayout -parent "columnLayout4" -numberOfColumns 5;
+    checkBox -v 0 -l "X" r_x_set;
+    checkBox -v 0 -l "Y" r_y_set;
+    checkBox -v 0 -l "Z" r_z_set;
+    text -l "- inverse by channel ";
+    button
+        -w 90
+        -c "JOPA_4_1_33737a5f897286cfa410615445094c2a(`textField -q -tx tx_get_from`,`textField -q -tx tx_set_to`, \"rotate\", `checkBox -q -v r_x_set`,`checkBox -q -v r_y_set`,`checkBox -q -v r_z_set`)"
+        -bgc 0.995  1.0 0.79
+        -l "rotation";
+    rowLayout -parent "columnLayout4" -numberOfColumns 5;
+    checkBox -v 1 -l "X" tr_x_set;
+    checkBox -v 1 -l "Y" tr_y_set;
+    checkBox -v 1 -l "Z" tr_z_set;
+    text -l "- inverse by channel ";
+    button
+        -w 90
+        -c "JOPA_4_1_33737a5f897286cfa410615445094c2a(`textField -q -tx tx_get_from`,`textField -q -tx tx_set_to`, \"translate\",`checkBox -q -v tr_x_set`,`checkBox -q -v tr_y_set`,`checkBox -q -v tr_z_set`)"
+        -bgc 0.995  1.0 0.79
+        -l "translation";
+    showWindow "per_ch_connection";
+}
+global proc string[] JOPA_4_1_a0656c7a9e8e5e98ead5c90575dbfb28()
+{
+    string $createSetResult;
+    string $selected[]=`ls -sl`;
+    string $selected_long[]=`ls-l-sl`;
+    if(size($selected)==0)
+    {
+        warning "select something";
+        return {};
+    }
+    string $sets[]={};
+    string $side_from = `optionVar -query mirrorJointSearch`;
+	string $side_to = `optionVar -query mirrorJointReplace`;
+    string $parents[]=JOPA_4_1_e34225338b41391d68d09634ca599397(1);
+    string $mirror_parent[]=JOPA_4_1_ce7b9a074764f1b06f64dfc666cf4813($parents,  $side_from, $side_to);
+	print "\n\nfind mirrored parents:\n";
+	print $mirror_parent;
+    if(size($mirror_parent)!=size($selected) )
+    {
+        warning "one ore more joint parent not have mirrored pair. Check Replacement names for duplicated joints";
+        return $mirror_parent;
+    }
+    for($obj in $selected)
+    {
+        select $obj;
+        $createSetResult=`sets -name "set1"`;
+        appendStringArray($sets,  {$createSetResult},1);
+    }
+    string $root=JOPA_4_1_933d4aecbe9d9d0ce9a6591c5b2e3770($selected[0]);
+    select $root;
+    string $dupli_root[]=`duplicate $root`;
+    JOPA_4_1_90a059e9200ad500213586e0ecabdd0d($dupli_root,0,0,0,0);
+    select $dupli_root[0];
+    string $cmd=JOPA_4_1_0bb35ddf616d7cd6bdc38d3dd23af1bf();
+    eval($cmd);
+    string $new_root[]=`ls-sl`;
+    delete $dupli_root[0];
+    string $mirrored[]={};
+    for($i=0;$i<size($selected_long);$i++)
+    {
+        sets -e -rm $sets[$i] $selected_long[$i];
+        appendStringArray( $mirrored,`sets -q $sets[$i]`,1);
+    }
+    select $mirrored;
+    JOPA_4_1_90a059e9200ad500213586e0ecabdd0d($mirrored,1,1,1,1);
+    JOPA_4_1_bd56535e7e051ab809c6591e7c585696($mirrored,1);
+    $mirrored=JOPA_4_1_a2b81a3977941c0eac1cda769570172c();
+    string $group[]=JOPA_4_1_e34225338b41391d68d09634ca599397(1);
+    string $transform_grpp[]=stringArrayRemove($mirrored,$group);
+    delete $new_root;
+    JOPA_4_1_4666e1e44291e7950c6d8b3906bbb9c7 ($mirror_parent,$mirrored,0);
+    $mirrored=`sets -q $sets`;
+    JOPA_4_1_90a059e9200ad500213586e0ecabdd0d($mirrored,0,0,0,0);
+    JOPA_4_1_bd56535e7e051ab809c6591e7c585696($mirrored,0);
+    delete $sets;
+    if(size($transform_grpp)>0)
+        delete $transform_grpp;
+    return $mirrored;
+}
+global proc JOPA_4_1_9e849622a64e61725d0526208e8aee88()
+{
+    if(`window -q -ex "JOPA_4_1_9e849622a64e61725d0526208e8aee88"`)deleteUI("JOPA_4_1_9e849622a64e61725d0526208e8aee88");
+    window -tb true -bgc  0.8 0.6 0.8 -t "mirror extra joints" -tlb true -mb true "JOPA_4_1_9e849622a64e61725d0526208e8aee88";
+    columnLayout -adj true "columnLayout5";
+    rowLayout -p "columnLayout5" -nc 4 -adj 1;
+    text -l "mirror by behavior only"  -al right -fn  "fixedWidthFont";
+    optionVar -iv mirrorJointFunction 1;
+    textField -p "columnLayout5" -h 2 -bgc  1 1 1 ;
+    text -p "columnLayout5" -al left -h 22 -fn  "fixedWidthFont"-l "find parent joint:";
+    rowLayout -p "columnLayout5" -nc 4-adj 2;
+    textField -h 30
+        -bgc  0.95 0.85 0.95
+        -fn  "fixedWidthFont"
+        -cc "optionVar -sv mirrorJointSearch `textField -q -tx txt_from`" txt_from;
+    text -l ">>";
+    textField -h 30
+        -bgc  0.95 0.85 0.95
+        -fn  "fixedWidthFont"
+        -cc "optionVar -sv mirrorJointReplace `textField -q -tx txt_to`" txt_to;
+    button
+        -p "columnLayout5"
+        -h 30
+        -c "undoInfo -ock -cn \"mirror_extra\"; JOPA_4_1_a0656c7a9e8e5e98ead5c90575dbfb28(); undoInfo -cck;"
+        -bgc  0.2 0.6 0.6
+        "mirror extra";
+    int $mirrorJointMode = `optionVar -query mirrorJointMode`;
+    int $mirrorJointFunction = `optionVar -query mirrorJointFunction`;
+    string $side_from = `optionVar -query mirrorJointSearch`;
+    string $side_to = `optionVar -query mirrorJointReplace`;
+    textField -e -tx $side_from txt_from;
+    textField -e -tx $side_to txt_to;
+    showWindow "JOPA_4_1_9e849622a64e61725d0526208e8aee88";
+}
+global proc vector[] JOPA_4_1_72356eaf232b169651a82383ba9e7e57(string $objects[])
+{
+    vector $vec_pos[];
+    $i=0;
+	float $pos[];
+   for($obj in $objects)
+   {
+       $pos=JOPA_4_1_8598296823aa3af15686cb0d78f1615d($obj);
+       $vec_pos[$i]=<<$pos[0],$pos[1],$pos[2]>>;
+       $i++;
+   }
+   return $vec_pos;
+}
+global proc float[] JOPA_4_1_a5d8b0122c186b9a25fc1b6d3ff9b430(string $objects[],float $lenght_coeff, float $distribution_coeff)
+{
+    if(size($objects)!=3)
+    {
+        warning "need 3 objects!";
+        return {};
+    }
+    float $pA[]=JOPA_4_1_8598296823aa3af15686cb0d78f1615d($objects[0]);
+    float $pB[]=JOPA_4_1_8598296823aa3af15686cb0d78f1615d($objects[1]);
+    float $pC[]=JOPA_4_1_8598296823aa3af15686cb0d78f1615d($objects[2]);
+    float $perp_point[]=JOPA_4_1_05c4f6d59fdd2a71f23116d9d4f892c2($pA,$pB,$pC);
+    float $perp_len=JOPA_4_1_9cf10c253bb06da91bcfe3836a7e5f36($perp_point,$pC);
+    float $AB_len=JOPA_4_1_9cf10c253bb06da91bcfe3836a7e5f36($pA,$pB);
+    float $proportion=($perp_len/$AB_len)*$lenght_coeff;
+    float $point_jo[]=JOPA_4_1_8aba008b6f6ae60b66a902e6ab3eed1c($objects,$proportion, $distribution_coeff);
+    return $point_jo;
+}
+global proc float[] JOPA_4_1_8aba008b6f6ae60b66a902e6ab3eed1c(string $objects[], float $lenght_coeff, float $distribution_coeff)
+{
+	if(size($objects)!=3)
+    {
+        warning "need 3 objects!";
+        return {};
+    }
+	float $fin_coords[];
+	float $p1[];
+	float $p2[];
+	float $p3[];
+	$p1 =JOPA_4_1_8598296823aa3af15686cb0d78f1615d($objects[0]);
+	$p2 =JOPA_4_1_8598296823aa3af15686cb0d78f1615d($objects[1]);
+	$p3 =JOPA_4_1_8598296823aa3af15686cb0d78f1615d($objects[2]);
+	$vector=JOPA_4_1_6f6ae5b84133776f167ce9bbf3409540($p1,$p2,$p3);
+	vector $p1_p2=<<$p1[0],$p1[1],$p1[2]>> -<<$p2[0],$p2[1],$p2[2]>>;
+	$lenght=(`mag $p1_p2`)*$lenght_coeff;
+	float $x=$vector[0]*$lenght + $p2[0]*$distribution_coeff + $p1[0]*(1-$distribution_coeff);
+	float $y=$vector[1]*$lenght + $p2[1]*$distribution_coeff + $p1[1]*(1-$distribution_coeff);
+	float $z=$vector[2]*$lenght + $p2[2]*$distribution_coeff + $p1[2]*(1-$distribution_coeff);
+	$fin_coords={$x,$y,$z};
+	return $fin_coords;
+}
+global proc float JOPA_4_1_a358a7c27f7a7b80712d695138ed032e(string $objects[], int $average)
+{
+    float $distance;
+    for($i=0;$i<size($objects)-1;$i++)
+        $distance=$distance + JOPA_4_1_c7822f1f10b007a6803735c105e40799($objects[$i] , $objects[$i+1]);
+    if($average)
+         $distance=$distance/(size($objects)-1);
+    return $distance;
+}
+global proc float[] JOPA_4_1_05c4f6d59fdd2a71f23116d9d4f892c2(float $pos_A[], float $pos_B[], float $pos_C[])
+{
+    float $H_c=JOPA_4_1_476390711655739e4d4919b7f7336b00($pos_A,$pos_B,$pos_C);
+    float $c_base_len=JOPA_4_1_9cf10c253bb06da91bcfe3836a7e5f36($pos_A, $pos_B);
+    float $b=JOPA_4_1_9cf10c253bb06da91bcfe3836a7e5f36($pos_A, $pos_C);
+    float $a=JOPA_4_1_9cf10c253bb06da91bcfe3836a7e5f36($pos_C, $pos_B);
+    float $distA_H=sqrt(`pow $b 2` - `pow $H_c 2`);
+    float $distH_B=sqrt(`pow $a 2` - `pow $H_c 2`);
+    int $znak=1;
+    if($distA_H + $distH_B - $c_base_len> 0.001)
+    {
+        if($distH_B>$distA_H)
+        {
+           $znak=-1;
+        }
+    }
+    float $iskomoe[]=JOPA_4_1_3a5adc63366ca7a6c7ff1a4a0eb042a1($pos_A,$pos_B,($distA_H* $znak));
+    return  $iskomoe;
+}
+global proc string JOPA_4_1_f9ccf45626df05475e8ab66b6f511dd6(string $objects[])
+{
+    $num=size($objects);
+    $posA=JOPA_4_1_8598296823aa3af15686cb0d78f1615d($objects[0]);
+    $posB=JOPA_4_1_8598296823aa3af15686cb0d78f1615d($objects[$num-1]);
+    float $dists[];
+    $dists[0]=0;
+    $dists[$num-1]=0;
+    for($i=1;$i<$num-1;$i++)
+    {
+        $pos3=JOPA_4_1_8598296823aa3af15686cb0d78f1615d($objects[$i]);
+        $dists[$i]=JOPA_4_1_476390711655739e4d4919b7f7336b00($posA,$posB,$pos3);
+    }
+    int $index=JOPA_4_1_d0a0b515ba819d3c77adb0bbe48cfd1d( $dists,1);
+    return  $objects[$index];
+}
+global proc int JOPA_4_1_b370e1f695c58fe83552587a1fd52907(vector $coords[])
+{
+	$num=size($coords);
+	$posA= $coords[0];
+	$posB=$coords[$num-1];
+	float $dists[];
+	for($i=1;$i<$num-1;$i++)
+	{
+		$dists[$i]=JOPA_4_1_476390711655739e4d4919b7f7336b00($posA,$posB,$coords[$i]);
+	}
+	$index=JOPA_4_1_d0a0b515ba819d3c77adb0bbe48cfd1d( $dists,1);
+	return $index;
+}
+global proc vector JOPA_4_1_e3bea614176fbceebe7c7aae67e953b0(vector $coords[])
+{
+	int $num = `size $coords`;
+	vector $ff;
+	for ($each in $coords)
+	    $ff+=$each;
+	$ff=($ff/$num);
+	return $ff;
+}
+global proc int JOPA_4_1_d0a0b515ba819d3c77adb0bbe48cfd1d(float $massive[],int $min_max)
+{
+    $num=`size $massive`;
+    int $number;
+    string $str_ind_massive[];
+    string $buffer[];
+    for($i=0;$i<$num;$i++)
+    {
+        $str_ind_massive[$i]=$massive[$i] + ";" + $i;
+    }
+     $massive=`sort  $massive`;
+     float $znach=$massive[0];
+     if($min_max==1)
+     {
+	     if($num>0)
+            $znach=$massive[$num-1];
+         else
+            $znach=$massive[$num];
+     }
+     string $obj;
+     for($obj in $str_ind_massive)
+     {
+         tokenize $obj ";" $buffer;
+         if($buffer[0]==$znach)
+         {
+             $number=$buffer[1];
+             break;
+         }
+     }
+     return $number;
+}
+global proc float JOPA_4_1_4d4e630bb3f78b918b505c8ebfcbb814(float $A[], float $B[], float $C[], int $RAD)
+{
+    vector $vBA=JOPA_4_1_b785f6145105d03029da5b3e19367cbd($B,  $A, 1);
+    vector $vBC=JOPA_4_1_b785f6145105d03029da5b3e19367cbd($B,  $C, 1);
+    $grad=`angle $vBA $vBC`;
+    if(!$RAD)
+        $grad=rad_to_deg( $grad);
+    return  $grad;
+}
+global proc vector[] JOPA_4_1_72d9b297f109729673f6fe9d719defbd(string $base_object, string $coords)
+{
+	$selected=`ls-fl-sl`;
+	vector $global_positions[] = JOPA_4_1_72356eaf232b169651a82383ba9e7e57($selected);
+	vector $local_positions[] = JOPA_4_1_054bd1354cce44fe1809d56e47e98bd1( $base_object,$global_positions);
+	vector $new_local_pos[];
+	vector $tmp_v;
+    if ($coords=="x")
+    {
+        for($i=0;$i<`size $local_positions`;$i++)
+        {
+            $tmp_v=$local_positions[$i];
+            $new_local_pos[$i]=<<0,$tmp_v.y,$tmp_v.z>>;
+        }
+    }
+    if ($coords=="y")
+    {
+        for($i=0;$i<`size $local_positions`;$i++)
+        {
+            $tmp_v=$local_positions[$i];
+            $new_local_pos[$i]=<<$tmp_v.x,0,$tmp_v.z>>;
+        }
+    }
+    if ($coords=="z")
+    {
+        for($i=0;$i<`size $local_positions`;$i++)
+        {
+            $tmp_v=$local_positions[$i];
+            $new_local_pos[$i]=<<$tmp_v.x,$tmp_v.y,0>>;
+        }
+    }
+	if ($coords=="xy")
+    {
+        for($i=0;$i<`size $local_positions`;$i++)
+        {
+            $tmp_v=$local_positions[$i];
+            $new_local_pos[$i]=<<0,0,$tmp_v.z>>;
+        }
+    }
+	if ($coords=="xz")
+    {
+        for($i=0;$i<`size $local_positions`;$i++)
+        {
+            $tmp_v=$local_positions[$i];
+            $new_local_pos[$i]=<<0,$tmp_v.y,0>>;
+        }
+    }
+	if ($coords=="yz")
+    {
+        for($i=0;$i<`size $local_positions`;$i++)
+        {
+            $tmp_v=$local_positions[$i];
+            $new_local_pos[$i]=<<$tmp_v.x,0,0>>;
+        }
+    }
+	 vector $abs_coords[] =JOPA_4_1_f36a2b49955bde470eba9a552b27050a ( $base_object,$new_local_pos);
+    return  $abs_coords;
+}
+global proc vector[] JOPA_4_1_329067de90245bf18aa04dd0b6c95e8b(string $objects[])
+{
+    vector $positions[];
+    $i=0;
+    for($obj in $objects)
+    {
+        $positions[$i]=`xform -q -r -translation $obj`;
+		$i++;
+    }
+    return $positions;
+}
+global proc vector[] JOPA_4_1_054bd1354cce44fe1809d56e47e98bd1(string $base_object, vector $coords[])
+{
+    float $input_matrix[]=`xform -q -m  -ws $base_object`;
+    $input_matrix[12]=JOPA_4_1_f71c299bf7b53f7243b078a9990e581c($input_matrix[12]);
+    $input_matrix[13]=JOPA_4_1_f71c299bf7b53f7243b078a9990e581c($input_matrix[13]);
+    $input_matrix[14]=JOPA_4_1_f71c299bf7b53f7243b078a9990e581c($input_matrix[14]);
+    float $inverce_matrix[]=JOPA_4_1_67e18bc2c5d60ae22ef30973f2f543ec($input_matrix);
+    matrix $m2[4][4]=JOPA_4_1_bbdcb7aa2a9fb9f578c6918e969707df($inverce_matrix);
+    float $gg_hhh[];
+    matrix $mr14[1][4];
+    matrix $r14[1][4];
+    vector $final_position[];
+    $i=0;
+    vector $obj;
+    for($obj in $coords)
+    {
+        $gg_hhh=$obj;
+        $mr14 = <<$gg_hhh[0],$gg_hhh[1],$gg_hhh[2],1>>;
+        $r14= $mr14 * $m2;
+        $final_position[$i]=<<$r14[0][0],$r14[0][1],$r14[0][2]>>;
+        $i++;
+    }
+    return  $final_position;
+}
+global proc vector[] JOPA_4_1_f36a2b49955bde470eba9a552b27050a(string $base_object, vector $coords[])
+{
+    float $input_matrix[]=`xform -q -m -ws $base_object`;
+    $input_matrix[12]=JOPA_4_1_f71c299bf7b53f7243b078a9990e581c($input_matrix[12]);
+    $input_matrix[13]=JOPA_4_1_f71c299bf7b53f7243b078a9990e581c($input_matrix[13]);
+    $input_matrix[14]=JOPA_4_1_f71c299bf7b53f7243b078a9990e581c($input_matrix[14]);
+    matrix $m2[4][4]=JOPA_4_1_bbdcb7aa2a9fb9f578c6918e969707df($input_matrix);
+    float $gg_hhh[];
+    matrix $mr14[1][4];
+    matrix $r14[1][4];
+    vector $final_position[];
+    $i=0;
+    vector $obj;
+    for($obj in $coords)
+    {
+        $gg_hhh=$obj;
+        $mr14 = <<$gg_hhh[0],$gg_hhh[1],$gg_hhh[2],1>>;
+        $r14= $mr14 * $m2;
+        $final_position[$i]=<<$r14[0][0],$r14[0][1],$r14[0][2]>>;
+        $i++;
+    }
+    return  $final_position;
+}
+global proc float JOPA_4_1_f71c299bf7b53f7243b078a9990e581c(float $input)
+{
+   string $un=`currentUnit -query -linear`;
+   float $output;
+   float $coeff;
+   if($un=="mm")
+       $coeff=0.1;
+   if($un=="cm")
+       $coeff=1;
+   if($un=="m")
+       $coeff=100;
+   if($un=="km")
+       $coeff=100000;
+   if($un=="in")
+       $coeff=2.54;
+   if($un=="ft")
+       $coeff=30.48;
+   if($un=="yd")
+       $coeff=91.44;
+   if($un=="mi")
+       $coeff=160934.4;
+    $output =  $input/$coeff;
+    return $output;
+}
+global proc matrix JOPA_4_1_bbdcb7aa2a9fb9f578c6918e969707df(float $input_float[])
+{
+	float $i[]=$input_float;
+	matrix $m[4][4]=<<$i[0],$i[1],$i[2],$i[3];
+					$i[4],$i[5],$i[6],$i[7];
+					$i[8],$i[9],$i[10],$i[11];
+					$i[12],$i[13],$i[14],$i[15]>>;
+	return $m;
+}
+global proc float[] JOPA_4_1_67e18bc2c5d60ae22ef30973f2f543ec(float $input_matrix[])
+{
+    float $i00=$input_matrix[0];
+    float $i01=$input_matrix[1];
+    float $i02=$input_matrix[2];
+    float $i03=$input_matrix[3];
+    float $i10=$input_matrix[4];
+    float $i11=$input_matrix[5];
+    float $i12=$input_matrix[6];
+    float $i13=$input_matrix[7];
+    float $i20=$input_matrix[8];
+    float $i21=$input_matrix[9];
+    float $i22=$input_matrix[10];
+    float $i23=$input_matrix[11];
+    float $i30=$input_matrix[12];
+    float $i31=$input_matrix[13];
+    float $i32=$input_matrix[14];
+    float $i33=$input_matrix[15];
+    float $s0 = $i00 * $i11 - $i10 * $i01;
+    float $s1 = $i00 * $i12 - $i10 * $i02;
+    float $s2 = $i00 * $i13 - $i10 * $i03;
+    float $s3 = $i01 * $i12 - $i11 * $i02;
+    float $s4 = $i01 * $i13 - $i11 * $i03;
+    float $s5 = $i02 * $i13 - $i12 * $i03;
+    float $c5 = $i22 * $i33 - $i32 * $i23;
+    float $c4 = $i21 * $i33 - $i31 * $i23;
+    float $c3 = $i21 * $i32 - $i31 * $i22;
+    float $c2 = $i20 * $i33 - $i30 * $i23;
+    float $c1 = $i20 * $i32 - $i30 * $i22;
+    float $c0 = $i20 * $i31 - $i30 * $i21;
+    float $invdet = 1 / ($s0 * $c5 - $s1 * $c4 + $s2 * $c3 + $s3 * $c2 - $s4 * $c1 + $s5 * $c0);
+    float $m[];
+    $m[0] = ($i11 * $c5 - $i12 * $c4 + $i13 * $c3) * $invdet;
+    $m[1] = (-$i01 * $c5 + $i02 * $c4 - $i03 * $c3) * $invdet;
+    $m[2] = ($i31 * $s5 - $i32 * $s4 + $i33 * $s3) * $invdet;
+    $m[3] = (-$i21 * $s5 + $i22 * $s4 - $i23 * $s3) * $invdet;
+    $m[4] = (-$i10 * $c5 + $i12 * $c2 - $i13 * $c1) * $invdet;
+    $m[5] = ($i00 * $c5 - $i02 * $c2 + $i03 * $c1) * $invdet;
+    $m[6] = (-$i30 * $s5 + $i32 * $s2 - $i33 * $s1) * $invdet;
+    $m[7] = ($i20 * $s5 - $i22 * $s2 + $i23 * $s1) * $invdet;
+    $m[8] = ($i10 * $c4 - $i11 * $c2 + $i13 * $c0) * $invdet;
+    $m[9] = (-$i00 * $c4 + $i01 * $c2 - $i03 * $c0) * $invdet;
+    $m[10] = ($i30 * $s4 - $i31 * $s2 + $i33 * $s0) * $invdet;
+    $m[11] = (-$i20 * $s4 + $i21 * $s2 - $i23 * $s0) * $invdet;
+    $m[12] = (-$i10 * $c3 + $i11 * $c1 - $i12 * $c0) * $invdet;
+    $m[13] = ($i00 * $c3 - $i01 * $c1 + $i02 * $c0) * $invdet;
+    $m[14] = (-$i30 * $s3 + $i31 * $s1 - $i32 * $s0) * $invdet;
+    $m[15] = ($i20 * $s3 - $i21 * $s1 + $i22 * $s0) * $invdet;
+    return $m;
+}
+global proc string JOPA_4_1_6d2bbf47e863c2f0037cf0467b97cef6()
+{
+	setToolTo moveSuperContext;
+	float $getPvPos[]=`manipMoveContext -q -p  Move`;
+	select -cl;
+	$locators = `joint -p 0 0 0`;
+	xform -ws -t $getPvPos[0] $getPvPos[1] $getPvPos[2];
+	return $locators;
+}
+global proc string JOPA_4_1_6d2bbf47e863c2f0037cf0467b97cef6()
+{
+	setToolTo moveSuperContext;
+	float $getPvPos[]=`manipMoveContext -q -p  Move`;
+	select -cl;
+	$locators = `joint -p ($getPvPos[0] + "cm") ($getPvPos[1] + "cm") ($getPvPos[2] + "cm")`;
+	return $locators;
+}
+global proc string JOPA_4_1_94c81da260931e06d6e51c78e142796f(string $toggler_items[], string $nodename)
+{
+    string $nodenames=`createNode blindDataTemplate -n $nodename`;
+    string $attribname;
+    for($i=0;$i<size($toggler_items); $i++)
+    {
+       $attribname=JOPA_4_1_65107bc37ea4a0d842be293fd78287a9("toggler" + $i, $nodenames);
+       connectAttr -f ($toggler_items[$i] + ".visibility")   $attribname;
+    }
+	return  $nodenames;
+}
+global proc string[] JOPA_4_1_6c03bcf1c4cd077aea727f60dfb001f6(int $mode, string $nodename_mask)
+{
+    string $prevouos[];
+    string $next[];
+    string  $connected_items[];
+    int $current_item_index;
+    int $connected_items_size;
+    $select_items=`ls-sl`;
+    $j=0;
+    string $all_connected_items[];
+	string $top_connected_items[];
+    for($obj in $select_items)
+    {
+        select $obj;
+        $nodename=JOPA_4_1_e8f0c3b3e6300189aca31ae83320ec92($nodename_mask);
+        if($nodename!="")
+        {
+            $connected_items=`listConnections  -d 1 $nodename`;
+            $connected_items_size =size($connected_items)-1;
+            for ($i=0; $i<=$connected_items_size;$i++)
+            {
+              if($connected_items[$i]==$obj)
+                    $current_item_index=$i;
+            }
+        }
+        if($current_item_index!=0)
+            $prevouos[$j]=$connected_items[$current_item_index -1];
+        else
+            $prevouos[$j]=$connected_items[$connected_items_size];
+        if($current_item_index!=$connected_items_size)
+            $next[$j]=$connected_items[$current_item_index+1];
+        else
+            $next[$j]=$connected_items[0];
+        $j++;
+        appendStringArray( $all_connected_items, $connected_items, `size $connected_items`);
+		appendStringArray( $top_connected_items, $connected_items, 1);
+    }
+	$all_connected_items=stringArrayRemoveDuplicates($all_connected_items);
+	$top_connected_items=stringArrayRemoveDuplicates($top_connected_items);
+	select $select_items;
+	if($mode==2)
+		return $top_connected_items;
+    if($mode==-1)
+        return $prevouos;
+    if($mode==1)
+        return $next;
+        else
+        return $all_connected_items;
+}
+global proc JOPA_4_1_feece4078c8aeb0c08bb278bcaf1bd05(int $num , int $indexses[])
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	if ($num <= 0)
+        for ($obj in $objs)
+            setAttr ($obj + ".overrideEnabled") 0;
+    else
+    	for($i=0;$i<size($objs);$i++)
+    	{
+    		setAttr ($objs[$i] + ".overrideEnabled") 1;
+    		setAttr -lock false ($objs[$i] + ".overrideColor") $indexses[$num];
+    	}
+}
+global proc string[] JOPA_4_1_cf7d60c10a2e981ece1b4edc00bb807f(int $rebike_animation)
+{
+    $selection = `ls  -sl`;
+    if(!size($selection))
+	{
+		warning "nothing selected!!!!";
+		return {};
+	}
+    JOPA_4_1_ac692345fba3e827ad5d6e26de39ba07;
+    $groups=JOPA_4_1_e6d1cc62e700198ddfd8906d663761ba();
+    catchQuiet (JOPA_4_1_c9088e941b7677113499bb19ad80f9bf ("rot_", $selection));
+    $createSetResult = `sets -name "object"`;
+    $rot_lock=`ls-sl`;
+    delete (JOPA_4_1_ac2021d0d7ff3ecfad4dbca9f9f88248 ($selection,$groups));
+    delete (JOPA_4_1_ac2021d0d7ff3ecfad4dbca9f9f88248 ($selection,$rot_lock));
+    JOPA_4_1_3323b46f97bc12510f86536ae21ff525;
+    JOPA_4_1_ade4e354383a28fcefcaf5ce40e6639d;
+    JOPA_4_1_aa074854107180f09880ea0e8edd43f8;
+    JOPA_4_1_29941243f77aa0343e79460d48136072 (5);
+    if($rebike_animation)
+    {
+		JOPA_4_1_17431451b1be026fdeee93b86579c6b6($selection, $groups);
+        select $groups;
+        JOPA_4_1_de88efca2929f0080ae1d45ff5db42d4;
+        JOPA_4_1_09f1edc0a69a4931b08e1bcc40e94a55;
+    }
+    JOPA_4_1_17431451b1be026fdeee93b86579c6b6($rot_lock, $selection);
+    select -r $groups;
+    catchQuiet ($groups=JOPA_4_1_c9088e941b7677113499bb19ad80f9bf ("b_DUL_", $selection));
+    JOPA_4_1_5fce4865a9fd47748e6796c1be9d64b2;
+    $rot_lock=`listConnections -t node $createSetResult`;
+    delete $createSetResult;
+    select -r $rot_lock;
+    return $groups;
+}
+global proc string[] JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0()
+{
+	string $selection[];
+	$selection_true = `ls -fl -sl `;
+	$selection = `ls -fl -os`;
+	string $locators[];
+	string $b[];
+	if (size ($selection)>0)
+	{
+		$j=0;
+		for($obj in $selection)
+		{
+			$getPvPos=JOPA_4_1_8598296823aa3af15686cb0d78f1615d($obj);
+			$b=`spaceLocator -p 0 0 0`;
+			$locators[$j]=$b[0];
+			xform -ws -t $getPvPos[0] $getPvPos[1] $getPvPos[2] $b[0];
+			rotate -ws $getPvPos[3] $getPvPos[4] $getPvPos[5]  $b[0];
+			$j++;
+		}
+		select -cl;
+		for($obj in $locators)
+		{
+			select -add $obj;
+		}
+	}
+	else
+	{
+		$locators = `spaceLocator -p 0 0 0`;
+	}
+	return $locators;
+}
+global proc string[] JOPA_4_1_f2d5a2798ed7cfee36eb77ee8a281ed8()
+{
+	string $selection[];
+	$selection_true = `ls -fl -sl `;
+	$selection = `ls -fl -os`;
+	string $locators[];
+	string $b[];
+	select -cl;
+	float $getPvPos[];
+	if (size ($selection)>0)
+	{
+	    $j=0;
+	    for($obj in $selection)
+	    {
+            $getPvPos=JOPA_4_1_8598296823aa3af15686cb0d78f1615d($obj);
+            $b[0]=`joint`;
+            $locators[$j]=$b[0];
+            xform -ws -t $getPvPos[0] $getPvPos[1] $getPvPos[2] $b[0];
+            rotate -ws $getPvPos[3] $getPvPos[4] $getPvPos[5]  $b[0];
+            $j++;
+		}
+		for($obj in $locators)
+		{
+		    select -add $obj;
+		}
+	}
+	else
+	{
+		$locators[0] =`joint -p 0 0 0`;
+	}
+	select -cl;
+	select $locators;
+	return $locators;
+}
+global proc string JOPA_4_1_a8d1933a966541e62d79a2fcbf6e4ea4(int $interpolation)
+{
+    $selection_true = `ls -fl -sl `;
+	string $selection[]=`ls -fl -os`;
+	vector $coords[];
+	string $pnt = "";
+	float $getPvPos[];
+	if (size ($selection)<=1)
+	{
+		warning "select 2 object or points";
+		return "";
+	}
+    $coords=JOPA_4_1_72356eaf232b169651a82383ba9e7e57($selection);
+    $curve_name=JOPA_4_1_83a9015d514ecd1326a1648b28396ba2($coords,$interpolation);
+    return $curve_name;
+}
+global proc string JOPA_4_1_83a9015d514ecd1326a1648b28396ba2(vector $coords[],int $interp)
+{
+	string $pnt = "";
+	if (size ($coords)<=1)
+	{
+		warning "need 2 object or points";
+		return "";
+	}
+	for ($i=0;$i<size($coords);$i++)
+	{
+		$pnt= $pnt + " -p " + $coords[$i];
+	}
+	$curve_name=`eval("curve" + $pnt + "-d " + $interp)`;
+	return $curve_name;
+}
+global proc string JOPA_4_1_b059868e801453725e5c31a1938f0210(float $p1[],float $p2[], float $p3[], int $degree, int $spans)
+{
+    $selected=`ls-sl`;
+	$single_curve=`curve -d 1 -p 0 0 0 -p 0 0 1 -k 0 -k 1 `;
+	$arc_node=`createNode makeThreePointCircularArc`;
+	setAttr ($arc_node + ".d") $degree;
+	setAttr ($arc_node + ".s") $spans;
+	connectAttr ($arc_node + ".oc") ($single_curve + ".cr");
+	setAttr ($arc_node + ".pt1") $p1[0] $p1[1] $p1[2] ;
+	setAttr ($arc_node + ".pt2") $p2[0] $p2[1] $p2[2] ;
+	setAttr ($arc_node + ".pt3") $p3[0] $p3[1] $p3[2] ;
+	$curves_dup_tmp=`duplicate $single_curve`;
+	delete $arc_node $single_curve;
+	select 	$selected;
+	return $curves_dup_tmp[0];
+}
+global proc string[] JOPA_4_1_e6d1cc62e700198ddfd8906d663761ba()
+{
+	$selected=`ls-fl-os`;
+	$grpps=`JOPA_4_1_0a10c57fddb9b8e3dc07486c3a9a5eed`;
+	$jnts=`JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0`;
+	JOPA_4_1_32a3829df17c3736d9757e423eeaf0e3($grpps,$jnts);
+	catchQuiet(delete(JOPA_4_1_ac2021d0d7ff3ecfad4dbca9f9f88248($selected,$grpps)));
+	select $jnts;
+	JOPA_4_1_9a3ce25cfdbc96f0053e2e03715d7f2b;
+	return $grpps;
+}
+global proc string[] JOPA_4_1_f0209cb5b5931bdfa7ae6801db19a0f8 ()
+{
+	string $uid_objs[]=`ls -uuid -sl`;
+    string $curr_objs[];
+    string $fin_objs[];
+	string $group[];
+	string $transform_grpp[];
+	string $tmpp[]=JOPA_4_1_a2b81a3977941c0eac1cda769570172c();;
+	for ($i=0; $i<(size($uid_objs)-1);$i++)
+	{
+	    $curr_objs=`ls -uuid {$uid_objs[$i+1],$uid_objs[$i]}`;
+        if(objectType($curr_objs[0])=="joint" && objectType($curr_objs[1])=="joint")
+        {
+			select $curr_objs[0];
+			$group=JOPA_4_1_e34225338b41391d68d09634ca599397(1);
+			$transform_grpp=stringArrayRemove($tmpp,$group);
+			$curr_objs=`ls -uuid {$uid_objs[$i+1],$uid_objs[$i]}`;
+			connectJoint -pm $curr_objs[0] $curr_objs[1];
+			catchQuiet(`delete $transform_grpp`);
+        }
+        else
+             catchQuiet (`parent $curr_objs[0] $curr_objs[1]`);
+	}
+    $fin_objs=`ls -uuid $uid_objs`;
+	select -cl;
+	select $fin_objs;
+	return $fin_objs;
+}
+global proc string[] JOPA_4_1_32a3829df17c3736d9757e423eeaf0e3 (string $target[], string $object[])
+{
+    if(size($target)!=size($object))
+		warning "size parent massives is DIFFERENT!!! Only relevant objects will be processed! This can lead to unexpected consequences!!!!";
+	if(size($target)> size($object))
+		$target=`ls -head (size($object)) $target`;
+    string $curr_objs[];
+    string $fin_objs[];
+	string $uid_objs[]=`ls -uuid $object`;
+	string $uid_targts[]=`ls -uuid $target`;
+    for($i=0;$i<size($target);$i++)
+    {
+        $curr_objs=`ls -uuid {$uid_objs[$i],$uid_targts[$i]}`;
+        catchQuiet (`parent $curr_objs[0] $curr_objs[1]`);
+    }
+    $fin_objs=`ls -uuid $uid_objs`;
+	select -cl;
+	select $fin_objs;
+	return $fin_objs;
+}
+global proc string[] JOPA_4_1_4666e1e44291e7950c6d8b3906bbb9c7 (string $target[], string $object[], int $reset_scale)
+{
+    if(size($target)!=size($object))
+		warning "size parent massives is DIFFERENT!!! Only relevant objects will be processed! This can lead to unexpected consequences!!!!";
+	if(size($target)> size($object))
+		$target=`ls -head (size($object)) $target`;
+    string $curr_objs[];
+    string $fin_objs[];
+	string $uid_objs[]=`ls -uuid $object`;
+	string $uid_targts[]=`ls -uuid $target`;
+	select $object;
+	JOPA_4_1_a2b81a3977941c0eac1cda769570172c();
+    for($i=0;$i<size($target);$i++)
+    {
+        $curr_objs=`ls -uuid {$uid_objs[$i],$uid_targts[$i]}`;
+        if(objectType($curr_objs[0])=="joint" && objectType($curr_objs[1])=="joint")
+            connectJoint -pm $curr_objs[0] $curr_objs[1];
+            if($reset_scale)
+                scale 1 1 1 $curr_objs[0];
+        else
+             catchQuiet (`parent $curr_objs[0] $curr_objs[1]`);
+    }
+    $fin_objs=`ls -uuid $uid_objs`;
+	select -cl;
+	select $fin_objs;
+	return $fin_objs;
+}
+global proc JOPA_4_1_95a1a70cbaa809195c99a215410318c8(int $scale_mod)
+{
+    string $selected[]=`ls-fl-sl`;
+    int $num=size($selected);
+    string $objects[]=`ls-fl-head ($num-1) $selected`;
+    string $target[]={};
+    for($i=0;$i<$num-1;$i++)
+        $target[$i]=$selected[$num-1];
+    JOPA_4_1_4666e1e44291e7950c6d8b3906bbb9c7 ($target, $objects,$scale_mod);
+}
+global proc string[] JOPA_4_1_f4a01868ca61fbc2847abcd1b618cc24()
+{
+	$objs = `ls -fl -os`;
+	string $revers_objs[];
+	$j=size($objs)-1;
+	for ($obj in $objs)
+	{
+		$revers_objs[$j]=$obj;
+		$j--;
+	}
+	select -cl;
+	select $revers_objs;
+	return $revers_objs;
+}
+global proc string[] JOPA_4_1_e706e982298fe9e8f94ae04b06b5d6b2(string $prefix)
+{
+    string $uuids[],$uid;
+    string $curr_obj[], $fin_obj[];
+    $uuids=`ls  -uuid-sl`;
+    for($uid in $uuids)
+    {
+        $curr_obj=`ls -uuid $uid`;
+        rename $curr_obj[0] ($prefix  + "#");
+    }
+    select -cl;
+    $fin_obj=`ls -uuid $uuids`;
+    select $fin_obj;
+    return $fin_obj;
+}
+global proc string[] JOPA_4_1_3cee12804dcac45527d4bfcfcb7c7431(string $prefix, string $postfix)
+{
+    string $uuids[]=`ls  -uuid-sl`;
+    string $curr_obj[], $short_name, $fin_obj[];
+    for($uid in $uuids)
+    {
+        $curr_obj=`ls  -l -uuid $uid`;
+        $short_name= `match "[^|\\]*$"$curr_obj[0]`;
+        rename $curr_obj[0] ($prefix +  $short_name + $postfix);
+    }
+    $fin_obj= `ls -uuid $uuids`;
+    select -cl;
+    select -r $fin_obj;
+    return $fin_obj;
+}
+global proc string [] JOPA_4_1_c9088e941b7677113499bb19ad80f9bf (string $prefix, string $name_massive[])
+{
+    string $uuids[];
+    string $curr_obj[],$short_name_curr,$short_name,$namesps,$new_names[];
+    $uuids=`ls  -uuid-sl`;
+	for($i=0;$i<size($uuids);$i++)
+	{
+	    $namesps = `match "^.*:"  $name_massive[$i]`;
+	    $short_name = `match "[^/\:]*$" $name_massive[$i]`;
+		$fin_name=JOPA_4_1_c954f3ebe8232ef721ae19221935b64e( $namesps   + $prefix + $short_name);
+		$curr_obj=`ls  -l -uuid $uuids[$i]`;
+		$short_name_curr= `match "[^|\\]*$"$curr_obj[0]`;
+		rename $curr_obj[0] $fin_name;
+	}
+	select -cl;
+    $new_names=`ls -uuid $uuids`;
+    select $new_names;
+	return $new_names;
+}
+global proc JOPA_4_1_ade4e354383a28fcefcaf5ce40e6639d()
+{
+	for($objs in `ls-sl`)
+	{
+		setAttr -lock true ($objs + ".scaleX");
+		setAttr -lock true ($objs + ".scaleY");
+		setAttr -lock true ($objs + ".scaleZ");
+	}
+}
+global proc JOPA_4_1_975573a52a98abc101c2b805675f922b(int $lock)
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	string $obj;
+    for($obj in $objs)
+		 catch(`setAttr ($obj + ".segmentScaleCompensate") $lock`);
+}
+global proc JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(int $show)
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	string $obj;
+    for($obj in $objs)
+		 catch(`setAttr ($obj + ".displayLocalAxis") $show`);
+    $currentPanel = `getPanel -withFocus`;
+    $panelType = `getPanel -to $currentPanel`;
+    if ($panelType == "modelPanel")
+        modelEditor -e -handles 1  $currentPanel;
+}
+global proc JOPA_4_1_91de40fecac3ba14bdc612af67e8ee8e( float $scale_on)
+{
+    string $shape_name[];
+    float $num;
+    for($obj in `ls-sl`)
+    {
+        $shape_name=JOPA_4_1_5e702211108f11813c411c94f8b1b380($obj);
+        if(`attributeQuery -node $shape_name[0] -ex localScaleX`)
+        {
+            $num=`getAttr ($shape_name[0] + ".localScaleX")`;
+            catchQuiet( `setAttr ($shape_name[0] + ".localScaleX") ($num*$scale_on)` );
+            $num=`getAttr ($shape_name[0] + ".localScaleY")`;
+            catchQuiet( `setAttr ($shape_name[0] + ".localScaleY") ($num*$scale_on)` );
+            $num=`getAttr ($shape_name[0] + ".localScaleZ")`;
+            catchQuiet( `setAttr ($shape_name[0] + ".localScaleZ") ($num*$scale_on)` );
+        }
+        if(`attributeQuery -node $shape_name[0] -ex radius`)
+        {
+            $num=`getAttr ($shape_name[0] + ".radius")`;
+            catchQuiet( `setAttr ($shape_name[0] + ".radius") ($num*$scale_on)` );
+        }
+    }
+}
+global proc JOPA_4_1_bd56535e7e051ab809c6591e7c585696(string $objects[], int $lock)
+{
+	if(!size($objects))
+		return;
+	string $obj;
+	for($obj in $objects)
+	{
+		if(objectType($obj)=="joint")
+		{
+    		setAttr -lock $lock ($obj + ".jointOrientX");
+    		setAttr -lock $lock ($obj + ".jointOrientY");
+    		setAttr -lock $lock ($obj + ".jointOrientZ");
+		}
+	}
+}
+global proc JOPA_4_1_38212629cf9ce2087192134a449b78d6(int $tx, int $ty,int $tz, int $rx, int $ry,int $rz, int $sx, int $sy,int $sz, int $viz)
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	string $obj;
+	for($obj in `ls-sl`)
+	{
+		setAttr -lock $tx ($obj + ".translateX");
+		setAttr -lock $ty ($obj + ".translateY");
+		setAttr -lock $tz ($obj + ".translateZ");
+		setAttr -lock $rx ($obj + ".rotateX");
+		setAttr -lock $ry ($obj + ".rotateY");
+		setAttr -lock $rz ($obj + ".rotateZ");
+		setAttr -lock $sx ($obj + ".scaleX");
+		setAttr -lock $sy ($obj + ".scaleY");
+		setAttr -lock $sz ($obj + ".scaleZ");
+		setAttr -lock $viz ($obj + ".visibility");
+	}
+}
+global proc JOPA_4_1_aa074854107180f09880ea0e8edd43f8()
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	for($i=0;$i<size($objs);$i++)
+		setAttr -lock true ($objs[$i] + ".v");
+}
+global proc JOPA_4_1_90a059e9200ad500213586e0ecabdd0d(string $objects[], int $t_lock, int $r_lock, int $s_lock, int $v_lock)
+{
+    if(!size($objects))
+        return;
+    string $obj;
+    for($obj in $objects)
+    {
+        if($t_lock==1)
+        {
+            setAttr ($obj + ".tx") -lock 1;
+            setAttr ($obj + ".ty") -lock 1;
+            setAttr ($obj + ".tz") -lock 1;
+        }
+        if($t_lock==0)
+        {
+            setAttr -lock false ($obj + ".translate");
+            setAttr ($obj + ".tx") -lock 0;
+            setAttr ($obj + ".ty") -lock 0;
+            setAttr ($obj + ".tz") -lock 0;
+        }
+        if($t_lock==2)
+        {
+            setAttr ($obj + ".tx") -lock (!`getAttr -lock ($obj + ".tx")`);
+            setAttr ($obj + ".ty") -lock (!`getAttr -lock ($obj + ".ty")`);
+            setAttr ($obj + ".tz") -lock (!`getAttr -lock ($obj + ".tz")`);
+        }
+        if($r_lock==1)
+        {
+            setAttr ($obj + ".rx") -lock 1;
+            setAttr ($obj + ".ry") -lock 1;
+            setAttr ($obj + ".rz") -lock 1;
+        }
+        if($r_lock==0)
+        {
+            setAttr -lock false ($obj + ".rotate");
+            setAttr ($obj + ".rx") -lock 0;
+            setAttr ($obj + ".ry") -lock 0;
+            setAttr ($obj + ".rz") -lock 0;
+        }
+        if($r_lock==2)
+        {
+            setAttr ($obj + ".rx") -lock (!`getAttr -lock ($obj + ".rx")`);
+            setAttr ($obj + ".ry") -lock (!`getAttr -lock ($obj + ".ry")`);
+            setAttr ($obj + ".rz") -lock (!`getAttr -lock ($obj + ".rz")`);
+        }
+        if($s_lock==1)
+        {
+            setAttr ($obj + ".sx") -lock 1;
+            setAttr ($obj + ".sy") -lock 1;
+            setAttr ($obj + ".sz") -lock 1;
+        }
+        if($s_lock==0)
+        {
+            setAttr -lock 0 ($obj + ".scale");
+            setAttr ($obj + ".sx") -lock 0;
+            setAttr ($obj + ".sy") -lock 0;
+            setAttr ($obj + ".sz") -lock 0;
+        }
+        if($s_lock==2)
+        {
+            setAttr ($obj + ".sx") -lock (!`getAttr -lock ($obj + ".sx")`);
+            setAttr ($obj + ".sy") -lock (!`getAttr -lock ($obj + ".sy")`);
+            setAttr ($obj + ".sz") -lock (!`getAttr -lock ($obj + ".sz")`);
+        }
+        if($v_lock==1)
+            setAttr ($obj + ".v") -lock 1;
+        if($v_lock==0)
+            setAttr ($obj + ".v") -lock 0;
+        if($v_lock==2)
+            setAttr ($obj + ".v") -lock (!`getAttr -lock ($obj + ".v")`);
+    }
+}
+global proc JOPA_4_1_34cdd1e4469c2d3c695448db824d2ecb(int $on)
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	string $obj;
+	for($obj in $objs)
+		setAttr ($obj + ".displayHandle") $on;
+}
+global proc JOPA_4_1_cc20e95399a3b6da44eb78e45451d764(int $color)
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	for($i=0;$i<size($objs);$i++)
+	{
+		catchQuiet(`setAttr ($objs[$i] + ".overrideEnabled") 1`);
+		catchQuiet(`setAttr -lock false ($objs[$i] + ".overrideColor") $color`);
+	}
+}
+global proc JOPA_4_1_92de112c5c170c44ad9daf4d48b1acdd(float $rad)
+{
+	string $objs[] = `ls-sl`;
+	if(!size($objs))
+		return;
+	for($i=0;$i<size($objs);$i++)
+		catchQuiet (`setAttr ($objs[$i] + ".radius") $rad`);
+}
+global proc float[] JOPA_4_1_1b2691cd3c4740f4f00465c7e94c0373(string $jnts[], float $rad)
+{
+    string $jnt;
+    float $glob_scale[];
+    float $curr_j_disp_scale=`jointDisplayScale -q -a`;
+    float $fin_local_scales[];
+    $i=0;
+    for($jnt in $jnts)
+    {
+        $glob_scale=`xform -q -ws -s $jnt`;
+        $glob_scale[0]= abs($glob_scale[0]);
+        $glob_scale[1]= abs($glob_scale[1]);
+        $glob_scale[2]= abs($glob_scale[2]);
+        $glob_scale=sort( $glob_scale);
+        $fin_local_scales[$i]=$rad/$glob_scale[2]/$curr_j_disp_scale;
+        catchQuiet (`setAttr ($jnt + ".radius") $fin_local_scales[$i]`);
+        $i++;
+    }
+    return $fin_local_scales;
+}
+global proc JOPA_4_1_29941243f77aa0343e79460d48136072 (float $local_scale)
+{
+	string $objs[] = `ls-sl`;
+	$local_scale=JOPA_4_1_f71c299bf7b53f7243b078a9990e581c($local_scale)*JOPA_4_1_f71c299bf7b53f7243b078a9990e581c(1);
+	if(!size($objs))
+		return;
+	for($i=0;$i<size($objs);$i++)
+	{
+		catchQuiet (`setAttr ($objs[$i] + ".localScaleX") $local_scale`);
+		catchQuiet (`setAttr ($objs[$i] + ".localScaleY") $local_scale`);
+		catchQuiet (`setAttr ($objs[$i] + ".localScaleZ") $local_scale`);
+	}
+}
+global proc JOPA_4_1_e9a3d5ffe283044f2485219b12ac5f73(string $objs[], int $vis)
+{
+	if(!size($objs))
+		return;
+	string $obj;
+	for($obj in $objs)
+			setAttr ($obj + ".hiddenInOutliner") $vis;
+}
+global proc JOPA_4_1_15760bd5ac6225f582185bab24346a67(float $subScale)
+{
+	float $dist=50;
+	$subScale=JOPA_4_1_f71c299bf7b53f7243b078a9990e581c($subScale);
+	string $sel[]=`ls-head 1 -sl`;
+	string $camera_name="";
+	float $camera_scale=1;
+	catchQuiet( $camera_name= JOPA_4_1_20a28b95c1b8b4dd29397ab332dbc667());
+	if( $camera_name =="no model panel viewport")
+	    $camera_name="persp";
+	catchQuiet( $camera_scale=`getAttr ($camera_name + ".cameraScale")`);
+	catchQuiet( $dist=JOPA_4_1_c7822f1f10b007a6803735c105e40799($sel[0], $camera_name));
+	catchQuiet( $camera_ortograf=`getAttr ($camera_name + ".orthographic")`);
+	catchQuiet( $camera_orthographicWidth=`getAttr ($camera_name + ".orthographicWidth")`);
+	if(!$camera_ortograf)
+	    catchQuiet(JOPA_4_1_92de112c5c170c44ad9daf4d48b1acdd (($dist/25)*$subScale* (1/`jointDisplayScale -q`)*$camera_scale));
+	else
+	    catchQuiet(JOPA_4_1_92de112c5c170c44ad9daf4d48b1acdd (($camera_orthographicWidth/25)*$subScale* (1/`jointDisplayScale -q`)*$camera_scale));
+}
+global proc JOPA_4_1_6de8028af587b467034457b4d6349f89(float $subScale)
+{
+    int $camera_ortograf=0;
+	float $dist=50;
+	$subScale=JOPA_4_1_f71c299bf7b53f7243b078a9990e581c($subScale)/JOPA_4_1_f71c299bf7b53f7243b078a9990e581c(1)/JOPA_4_1_f71c299bf7b53f7243b078a9990e581c(1);
+	string $sel[]=`ls-head 1 -sl`;
+	string $camera_name="";
+	float $camera_scale=1;
+	catchQuiet( $camera_name= JOPA_4_1_20a28b95c1b8b4dd29397ab332dbc667());
+	if( $camera_name =="no model panel viewport")
+	    $camera_name="persp";
+	catchQuiet( $camera_scale=`getAttr ($camera_name + ".cameraScale")`);
+	catchQuiet( $dist=JOPA_4_1_c7822f1f10b007a6803735c105e40799($sel[0], $camera_name));
+	catchQuiet( $camera_ortograf=`getAttr ($camera_name + ".orthographic")`);
+	catchQuiet( $camera_orthographicWidth=`getAttr ($camera_name + ".orthographicWidth")`);
+	if(!$camera_ortograf)
+	    catchQuiet(JOPA_4_1_29941243f77aa0343e79460d48136072 (($dist/25)*$subScale*$camera_scale));
+	else
+	   catchQuiet(JOPA_4_1_29941243f77aa0343e79460d48136072 (($camera_orthographicWidth/25)*$subScale*$camera_scale));
+}
+global proc float[] JOPA_4_1_3f2307b9993ee7d97577d190465f37c9(string $objects[],int $normalised)
+{
+	float $part_dist_real[]={0};
+	float $part_dist[]={0};
+	float $part_dist_normalized[]={0};
+	float $total_dist;
+	for($i=1;$i<size($objects);$i++)
+	{
+		$part_dist[$i]=JOPA_4_1_c7822f1f10b007a6803735c105e40799($objects[$i-1] , $objects[$i]);
+		$total_dist+=$part_dist[$i];
+		$part_dist_real[$i]=$total_dist;
+	}
+	for($i=1;$i<size($objects);$i++)
+		$part_dist_normalized[$i]=$part_dist_real[$i]/$total_dist;
+	if($normalised)
+		return $part_dist_normalized;
+	else
+		return $part_dist_real;
+}
+global proc string [] JOPA_4_1_4a0278149f801323f33f7bb9e4ee597d(string $target_massiv[], string $object_massiv[])
+{
+	string $name_of_constrain[];
+	string $tmp[];
+	int $tx_lock;
+	int $ty_lock;
+	int $tz_lock;
+	int $h;
+	string $skipX;
+	string $skipY;
+	string $skipZ;
+	string $skipped;
+	if(size($target_massiv)!=size($object_massiv))
+		warning "size smart_point constraints massives is DIFFERENT!!! Only relevant objects will be processed! This can lead to unexpected consequences!!!!";
+	if(size($target_massiv)> size($object_massiv))
+		$target_massiv=`ls -head (size($object_massiv)) $target_massiv`;
+	for($i=0;$i<size($target_massiv);$i++)
+	{
+		$tx_lock=`getAttr -lock ($object_massiv[$i] + ".tx")`;
+		$ty_lock=`getAttr -lock ($object_massiv[$i] + ".ty")`;
+		$tz_lock=`getAttr -lock ($object_massiv[$i] + ".tz")`;
+		$h=$tx_lock+$ty_lock+$tz_lock;
+		if ($h<3)
+		{
+			$skipX= "";
+			$skipY= "";
+			$skipZ= "";
+			if($tx_lock)
+				$skipX= " -skip x";
+			if($ty_lock)
+				$skipY= " -skip y";
+			if($tz_lock)
+				$skipZ= " -skip z";
+			$skipped = $skipX + $skipY + $skipZ;
+			$tmp=`eval ("pointConstraint " + $skipped + " " + $target_massiv[$i] + " " + $object_massiv[$i])`;
+			$name_of_constrain[$i]=$tmp[0];
+		}
+	}
+	return $name_of_constrain;
+}
+global proc string [] JOPA_4_1_ac2021d0d7ff3ecfad4dbca9f9f88248(string $target_massiv[], string $object_massiv[])
+{
+	string $name_of_constrain[];
+	string $tmp[];
+	for($i=0;$i<size($target_massiv);$i++)
+		{
+			$rx_lock=`getAttr -lock ($object_massiv[$i] + ".rx")`;
+			$ry_lock=`getAttr -lock ($object_massiv[$i] + ".ry")`;
+			$rz_lock=`getAttr -lock ($object_massiv[$i] + ".rz")`;
+			$h=$rx_lock+$ry_lock+$rz_lock;
+			if ($h<3)
+			{
+				$skipX= "";
+				$skipY= "";
+				$skipZ= "";
+				if($rx_lock)
+					$skipX= " -skip x";
+				if($ry_lock)
+					$skipY= " -skip y";
+				if($rz_lock)
+					$skipZ= " -skip z";
+				$skipped = $skipX + $skipY + $skipZ;
+				$tmp=`eval ("orientConstraint  " + $skipped + " " + $target_massiv[$i] + " " + $object_massiv[$i])`;
+				$name_of_constrain[$i]=$tmp[0];
+			}
+	}
+	return $name_of_constrain;
+}
+global proc float[] JOPA_4_1_8598296823aa3af15686cb0d78f1615d(string $selection)
+{
+    float $objPosition[];
+    float $getPvPos[];
+    float $Rot[];
+    string $buffer[];
+    string $e_f_result[];
+    vector $coords[];
+    vector $coo;
+    int $num;
+    string $points[]=`filterExpand -sm 28  -sm 30 -sm 31 -sm 35  -sm 36-sm 39-sm 40-sm 41-sm 42 -sm 46-sm 47-sm 70 -sm 73 $selection`;
+	string $edges[]=`filterExpand -sm 32 -sm 37 $selection`;
+	string $poly[]=`filterExpand -sm 34 -sm 38 -sm 72 $selection`;
+	string $objname=`match "^[^\.]*" $selection`;
+	if(size ($points)>0)
+	{
+		$getPvPos=`pointPosition -world $selection`;
+		$objPosition={$getPvPos[0],$getPvPos[1],$getPvPos[2],0,0,0};
+	}
+	else if(size ($edges)>0)
+	{
+		$e_f_result=`polyInfo -ev $selection`;
+		$num=`tokenize  $e_f_result[0] " " $buffer`;
+		$j=0;
+		for($i=2;$i<$num-1;$i++)
+		{
+			$getPvPos=`pointPosition -world ($objname + ".vtx[" + $buffer[$i] + "]")`;
+			$coords[$j]=<<$getPvPos[0],$getPvPos[1],$getPvPos[2]>>;
+			$j++;
+		}
+		$coo=JOPA_4_1_e3bea614176fbceebe7c7aae67e953b0($coords);
+		$objPosition={$coo.x,$coo.y,$coo.z,0,0,0};
+	}
+	else if(size ($poly)>0)
+    {
+        $e_f_result=`polyInfo -fv $selection`;
+        tokenize  $e_f_result[0] " " $buffer;
+        $j=0;
+        for($i=2;$i<size($buffer)-1;$i++)
+        {
+            $getPvPos=`pointPosition -world ($objname + ".vtx[" + $buffer[$i] + "]")`;
+            $coords[$j]=<<$getPvPos[0],$getPvPos[1],$getPvPos[2]>>;
+            $j++;
+        }
+        $coo=JOPA_4_1_e3bea614176fbceebe7c7aae67e953b0($coords);
+        $objPosition={$coo.x,$coo.y,$coo.z,0,0,0};
+    }
+	else
+	{
+		$getPvPos = `xform -q -ws -piv $selection `;
+		$Rot= `xform -q -ro -ws $selection`;
+		$objPosition={$getPvPos[0],$getPvPos[1],$getPvPos[2],$Rot[0],$Rot[1],$Rot[2]};
+	}
+	return $objPosition;
+}
+global proc string[] JOPA_4_1_17431451b1be026fdeee93b86579c6b6(string $target_massiv[], string $object_massiv[])
+{
+	string $name_constrain[],$tmp_constrain[];
+	string $skipTX,$skipTY,$skipTZ,$skipRX,$skipRY,$skipRZ;
+	string $delChannelTX,$delChannelTY,$delChannelTZ,$delChannelRX,$delChannelRY,$delChannelRZ;
+	int $rx_lock,$ry_lock,$rz_lock,$tx_lock,$ty_lock,$tz_lock;
+	if(size($target_massiv)!=size($object_massiv))
+		warning "size smart_parent constraints massives is DIFFERENT!!! Only relevant objects will be processed! This can lead to unexpected consequences!!!!";
+	if(size($target_massiv)> size($object_massiv))
+		$target_massiv=`ls -head (size($object_massiv)) $target_massiv`;
+	for($i=0;$i<size($target_massiv);$i++)
+	{
+		$rx_lock=`getAttr -lock ($object_massiv[$i] + ".rx")`;
+		$ry_lock=`getAttr -lock ($object_massiv[$i] + ".ry")`;
+		$rz_lock=`getAttr -lock ($object_massiv[$i] + ".rz")`;
+		$tx_lock=`getAttr -lock ($object_massiv[$i] + ".tx")`;
+		$ty_lock=`getAttr -lock ($object_massiv[$i] + ".ty")`;
+		$tz_lock=`getAttr -lock ($object_massiv[$i] + ".tz")`;
+		$h=$rx_lock+$ry_lock+$rz_lock+$tx_lock+$ty_lock+$tz_lock;
+		if ($h<6)
+		{
+			$skipTX= "";
+			$skipTY= "";
+			$skipTZ= "";
+			$skipRX= "";
+			$skipRY= "";
+			$skipRZ= "";
+			$delChannelTX = "";
+			$delChannelTY = "";
+			$delChannelTZ = "";
+			$delChannelRX = "";
+			$delChannelRY = "";
+			$delChannelRZ = "";
+			if($tx_lock)
+				$skipTX= " -st x";
+			else
+				$delChannelTX =" -at \"tx\"";
+			if($ty_lock)
+				$skipTY= " -st y";
+			else
+				$delChannelTY =" -at \"ty\"";
+			if($tz_lock)
+				$skipTZ= " -st z";
+			else
+				$delChannelTZ =" -at \"tz\"";
+			if($rx_lock)
+				$skipRX= " -sr x";
+			else
+				$delChannelRX =" -at \"rx\"";
+			if($ry_lock)
+				$skipRY= " -sr y";
+			else
+				$delChannelRY =" -at \"ry\"";
+			if($rz_lock)
+				$skipRZ= " -sr z";
+			else
+				$delChannelRZ =" -at \"rz\"";
+			$skipped = $skipTX + $skipTY + $skipTZ + $skipRX + $skipRY + $skipRZ;
+			if($target_massiv[$i]!="")
+				$tmp_constrain=`eval ("parentConstraint -mo " + $skipped + " " + $target_massiv[$i] + " " + $object_massiv[$i])`;
+			$name_constrain[$i]=$tmp_constrain[0];
+		}
+	}
+	return $name_constrain;
+}
+global proc JOPA_4_1_5fce4865a9fd47748e6796c1be9d64b2()
+{
+	global string $GloabalCopyPaste[];
+	$GloabalCopyPaste=`ls-sl`;
+}
+global proc JOPA_4_1_3323b46f97bc12510f86536ae21ff525()
+{
+	global string $GloabalCopyPaste2[];
+	$GloabalCopyPaste2=`ls-sl`;
+}
+global proc JOPA_4_1_ac692345fba3e827ad5d6e26de39ba07()
+{
+	global string $GloabalCopyPaste3[];
+	$GloabalCopyPaste3=`ls-sl`;
+}
+global proc JOPA_4_1_de88efca2929f0080ae1d45ff5db42d4()
+{
+	$selection=`ls-sl`;
+    $mayaVersion = `getApplicationVersionAsFloat` ;
+    string $eval_mode[];
+    if ($mayaVersion>=2016)
+    {
+        $eval_mode=`evaluationManager -q -mode`;
+		if($eval_mode[0]!="off")
+			evaluationManager -mode "off";
+    }
+    $min=`playbackOptions -q -ast`;
+    $max=`playbackOptions -q -aet`;
+    $its_baked=catchQuiet (`bakeResults -sm 1 -s false -t ($min+":"+$max) $selection`);
+	if ($mayaVersion>=2016)
+    {
+		if($eval_mode[0]!="off")
+			evaluationManager -mode $eval_mode[0];
+    }
+    if($its_baked)
+    {
+        warning "select something!";
+    }
+}
+global proc JOPA_4_1_d1b73d0512bac8d20998bdbab9b3aed7(string $target[], string $object[])
+{
+	int $ro;
+	for($i=0;$i<size($target);$i++)
+	{
+		$ro=`getAttr($target[$i] + ".rotateOrder")`;
+		setAttr ($object[$i] + ".rotateOrder")$ro;
+	}
+}
+global proc JOPA_4_1_3a25eaad774c71ebdcb06ee4d2b25ce3()
+{
+	string $objs[] = `ls-sl`;
+	for($obj in $objs)
+	{
+	    if(`objectType -i "joint" $obj`)
+	    {
+    		if(!`getAttr -lock ($obj + ".jointOrientX")`)
+    			setAttr ($obj + ".jointOrientX") 0;
+    		if(!`getAttr  -lock ($obj + ".jointOrientY") `)
+    			setAttr ($obj + ".jointOrientY") 0;
+    		if(!`getAttr  -lock ($obj + ".jointOrientZ")`)
+    			setAttr ($obj + ".jointOrientZ") 0;
+    	}
+	}
+}
+global proc JOPA_4_1_9a3ce25cfdbc96f0053e2e03715d7f2b()
+{
+	string $objs[] = `ls-sl`;
+	for($obj in $objs)
+	{
+		if(!`getAttr -lock ($obj + ".rx") `)
+			setAttr ($obj + ".rx") 0;
+		if(!`getAttr  -lock ($obj + ".ry") `)
+			setAttr ($obj + ".ry") 0;
+		if(!`getAttr  -lock ($obj + ".rz")`)
+			setAttr ($obj + ".rz") 0;
+	}
+}
+global proc JOPA_4_1_09f1edc0a69a4931b08e1bcc40e94a55()
+{
+	string $selected[]= `ls -sl`;
+	if(size($selected)==0)
+	{
+		warning "select something!!!!";
+		return;
+	}
+	string $crvs[] = `keyframe -q -n`;
+	float $statTime[] = `keyframe -index 0 -q -tc $crvs`;
+	$statTime=`sort $statTime`;
+	float $null_frame = $statTime[0] - 10;
+	catchQuiet(`setKeyframe -v 0 -t $null_frame -at rotateX -at rotateY -at rotateZ`) ;
+	catchQuiet(`filterCurve $selected.rotateX $selected.rotateY $selected.rotateZ`);
+	selectKey -clear;
+	catchQuiet(`cutKey -t $null_frame  -at rotateX -at rotateY -at rotateZ `);
+	selectKey -clear;
+}
+global proc float JOPA_4_1_c7822f1f10b007a6803735c105e40799(string $obj1, string $obj2)
+{
+	float $temp[]=JOPA_4_1_8598296823aa3af15686cb0d78f1615d($obj1);
+	vector $point1 = <<$temp[0], $temp[1], $temp[2]>>;
+	$temp=JOPA_4_1_8598296823aa3af15686cb0d78f1615d($obj2);
+	vector $point2 = <<$temp[0], $temp[1], $temp[2]>>;
+	float $lenght=`mag($point1-$point2)`;
+	return  $lenght;
+}
+global proc JOPA_4_1_f17bdd4811ed4c79ad676fdc4d5a1414()
+{
+	string $root_namesps[]= `namespaceInfo -r  -lon  ":"`;
+	$root_namesps = stringArrayRemoveDuplicates( stringArrayRemove({"ClipBuffer","UI","shared"}, $root_namesps));
+	for($i=size($root_namesps)-1; $i>=0;$i--)
+	{
+        catchQuiet (`namespace  -mv  $root_namesps[$i] ":" -force`) ;
+        catchQuiet (`namespace -removeNamespace $root_namesps[$i]`) ;
+	}
+	print ("Delete " + `size($root_namesps)` + " namespaces");
+}
+global proc string[] JOPA_4_1_5e702211108f11813c411c94f8b1b380( string $transfrm )
+{
+   string $shapes[];
+   $shapes[0] = $transfrm;
+   if ( "transform" == `nodeType $transfrm` )
+		$shapes = `listRelatives -f -shapes $transfrm`;
+   return $shapes;
+}
+global proc string[] JOPA_4_1_1ed150b12535ee196bee8b74a6bf5f5c(string $objects[], string $obj_type)
+{
+    string $fin_listing[];
+    string $fin_listing_prev[];
+    string $shape_type_listing[];
+    string $tmp_shapes[];
+    string $shapes[];
+    for($obj in $objects)
+    {
+       $tmp_shapes=JOPA_4_1_5e702211108f11813c411c94f8b1b380($obj);
+       appendStringArray($shapes,  $tmp_shapes, `size($tmp_shapes)`);
+    }
+    $j=0;
+    for($obj in $shapes)
+    {
+        if(`objectType $obj`==$obj_type)
+        {
+          $shape_type_listing[$j] = $obj;
+          $j++;
+        }
+    }
+    $j=0;
+    if($obj_type!="joint")
+    {
+        for($obj in $shape_type_listing)
+        {
+             $fin_listing_prev[$j]=JOPA_4_1_399e6ca23a24d0e48ed5cb872f4729dd($obj);
+             $j++;
+             $fin_listing=stringArrayRemoveDuplicates ($fin_listing_prev);
+        }
+    }
+	else
+       $fin_listing=$shape_type_listing;
+    return $fin_listing;
+}
+global proc string[] JOPA_4_1_ce7b9a074764f1b06f64dfc666cf4813(string $objects[], string $side_from, string $side_to)
+{
+    string $name_variations[];
+    string $mirr_obj_names[];
+    for($obj in $objects)
+    {
+        $name_variations=JOPA_4_1_b3acc831f9f61a01a45fe7165ec12c62($obj,$side_from,$side_to);
+        for($n in $name_variations)
+            if( objExists($n))
+                appendStringArray($mirr_obj_names, {$n}, 1);
+    }
+    return $mirr_obj_names;
+}
+global proc string JOPA_4_1_c954f3ebe8232ef721ae19221935b64e(string $take_name)
+{
+    $i=0;
+    while (`objExists $take_name`)
+        $take_name=( $take_name + $i);
+   return $take_name;
+}
+global proc JOPA_4_1_95d47209f5832c068ce7614b82201089()
+{
+	$selection=`ls-sl`;
+	$lock_name =` spaceLocator `;
+	setKeyframe -at rx -at ry -at rz $lock_name[0];
+	$currTime=(`currentTime -q`) -1;
+    setKeyframe  -at rx -at ry -at rz -t $currTime;
+	string $obj;
+	int $rotOrder;
+	float $rx,$ry,$rz;
+	for($obj in $selection)
+	{ 
+	    $rotOrder=getAttr($obj + ".rotateOrder");
+		$rx=getAttr($obj + ".rx");
+		$ry=getAttr($obj + ".ry");
+		$rz=getAttr($obj + ".rz");
+		setAttr ($lock_name[0] + ".rotateOrder") $rotOrder;
+		rotate -a $rx $ry $rz $lock_name[0];
+		setKeyframe -at rx -at ry -at rz $lock_name[0];
+		filterCurve $lock_name.rotateX $lock_name.rotateY $lock_name.rotateZ;
+	    $rx=getAttr($lock_name[0] + ".rx");
+		$ry=getAttr($lock_name[0] + ".ry");
+		$rz=getAttr($lock_name[0] + ".rz");
+		rotate -a $rx $ry $rz $obj;
+	}
+	delete $lock_name;
+	select $selection;
+}
+global proc string[] JOPA_4_1_2edf2909df70a7e657b4b646868a0b9c()
+{
+	$selection=`ls-l-sl`;
+	string  $childrens[];
+	string  $childrens_last_hierarhy[];
+	string  $childrens_all[];
+	string  $childrens_all1[];
+	for($obj in $selection)
+	{
+		$childrens=`listRelatives -f -c -typ "joint" $obj`;
+		appendStringArray ($childrens_all,$childrens,size($childrens));
+	}
+	$childrens_all1=stringArrayRemove ( $selection,$childrens_all);
+	return $childrens_all1;
+}
+global proc JOPA_4_1_a9acebc46d5277d92e6d954501ac53c7(string $axis,  string $sao_napr, string $ch_up)
+{
+    $axis=`tolower $axis`;
+    $selection=`ls-sl`;
+    JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(1);
+    $kk=size($selection);
+    if($kk<2)
+    {
+        warning "select 2 or more joint";
+        return;
+    }
+    $childrens=JOPA_4_1_2edf2909df70a7e657b4b646868a0b9c();
+    int $have_childrens=0;
+	string $ch_locks[];
+	string  $par_ch_constrain[];
+    if(size($childrens)>0)
+    {
+        select $childrens;
+	    JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(1);
+	    $ch_locks=JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0();
+	    $par_ch_constrain=JOPA_4_1_17431451b1be026fdeee93b86579c6b6($ch_locks, $childrens);
+	    $have_childrens=1;
+	    select $selection;
+    }
+    if(size($childrens)==1)
+    {
+	    select $selection $childrens;
+    }
+    $sec_joints=JOPA_4_1_f2d5a2798ed7cfee36eb77ee8a281ed8();
+    $sec_joints2=`ls-head (size($sec_joints)-1) $sec_joints`;
+    if(size($childrens)==1)
+    {
+	    select   $sec_joints2;
+    }
+	JOPA_4_1_5cca387e40527d14dd0862d275b6a5fc(`ls-sl`, $axis, $sao_napr, $ch_up);
+    select  $sec_joints;
+    $lock=JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0();
+    $constr=JOPA_4_1_c99bdb5a898efbfb1d4fa2221eba881b($lock,$sec_joints);
+    select -cl;
+    select $sec_joints;
+    JOPA_4_1_3a25eaad774c71ebdcb06ee4d2b25ce3;
+    delete $constr;
+    delete $lock;
+    JOPA_4_1_95d47209f5832c068ce7614b82201089();
+    if(size($childrens)==1)
+    {
+	    $sec_joints=`ls -head ($kk)  $sec_joints`;
+    }
+    JOPA_4_1_5e8af8371c687e5c50d7ded5040ffe13($sec_joints, $selection);
+    delete $sec_joints;
+    select $selection;
+    if($have_childrens)
+	{
+	    delete  $par_ch_constrain;
+	    delete $ch_locks;
+	}
+}
+global proc JOPA_4_1_d1f6eb5ab8caa780647f498704025cf1()
+{
+    $selection=`ls-l-sl`;
+    $b_lock=JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0();
+    string  $locks[];
+    string  $constr[];
+    $constr_point=JOPA_4_1_4a0278149f801323f33f7bb9e4ee597d($b_lock, $selection);
+    select $selection;
+    $children=JOPA_4_1_2edf2909df70a7e657b4b646868a0b9c();
+    if(size($children)>0)
+    {
+        select $children;
+        $locks=JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0();
+        $constr=JOPA_4_1_17431451b1be026fdeee93b86579c6b6($locks, $children);
+    }
+    select $selection;
+    catchQuiet (`JOPA_4_1_3a25eaad774c71ebdcb06ee4d2b25ce3`);
+    JOPA_4_1_9a3ce25cfdbc96f0053e2e03715d7f2b;
+    catchQuiet (`delete $constr_point $constr`);
+    catchQuiet (`delete $locks $b_lock`);
+}
+global proc string[] JOPA_4_1_c81811a11b8f20fafe4877c444b7b2a7()
+{
+	$all_joints=`ls-sl`;
+	string $dupli[];
+	string $obj;
+	$k=0;
+	for($obj in `ls-sl`)
+	{
+		if(`gmatch   $obj "*|*"`)
+		{
+			$dupli[$k]=$obj;
+			$k++;
+		}
+	}
+	print $dupli;
+	return $dupli;
+}
+global proc string[] JOPA_4_1_e34225338b41391d68d09634ca599397(int $return_scene_like_first)
+{
+    $selection=`ls-l-sl`;
+    string $parents[];
+    string $tmp[];
+    $i=0;
+    string $s_selection[];
+    for($obj in  $selection)
+    {
+        $s_selection[$i]=$selection[$i];
+        $tmp=`listRelatives -f  -p $obj`;
+        $parents[$i]= $tmp[0];
+        if (size($tmp)==0&&$return_scene_like_first==0)
+        {
+            $parents[$i]="";
+        }
+        if (size($tmp)==0&&$return_scene_like_first==1)
+        {
+            $parents[$i]=$obj;
+            $s_selection[$i]="";
+        }
+        $i++;
+    }
+    $diff = stringArrayRemove($s_selection, $parents);
+    $diff =`ls-fl $diff`;
+    return $diff;
+}
+global proc string[] JOPA_4_1_ab8c8018d47d542b750e72df0fa0b3ee()
+{
+    string $sorted_massive[];
+    string $selected[]=`ls-fl-l-sl`;
+    string $buffer[];
+    float $num_list[];
+    for($i=0;$i<size($selected);$i++)
+        $num_list[$i]=`tokenize $selected[$i] "|" $buffer`;
+    $sorted_massive=JOPA_4_1_1d56f8884d88d7b022ffa48bc52b3755 ($selected,$num_list);
+    return $sorted_massive;
+}
+global proc string[] JOPA_4_1_cf07169f94f84aada068ef575331b875(string $mod)
+{
+	$selected_obj=`ls -l -sl`;
+	string $buffer_1[];
+	string $buffer_2[];
+	string $tmpp;
+	$tmpp=$selected_obj[0];
+	$num_1=`tokenize $tmpp "|" $buffer_1`;
+	$tmpp=$selected_obj[1];
+	$num_2=`tokenize $tmpp "|" $buffer_2`;
+	if($buffer_1[0]!=$buffer_2[0])
+	{
+		warning "this objects not in one hierarchy";
+		return {};
+	}
+	string $buffer_1_min[];
+	string $buffer_2_min[];
+	string $final_hierarhy[];
+	for($i=0;$i<$num_1; $i++)
+	{
+		for($j=0;$j<=$i;$j++)
+		{
+			$buffer_1_min[$i]= $buffer_1_min[$i] + ("|" +  $buffer_1[$j]);
+		}
+	}
+	for($i=0;$i<$num_2; $i++)
+	{
+		for($j=0;$j<=$i;$j++)
+		{
+			$buffer_2_min[$i]= $buffer_2_min[$i] + ("|" +  $buffer_2[$j]);
+		}
+	}
+	$buffer_1_max=$buffer_1_min;
+	$buffer_2_max=$buffer_2_min;
+	for($i=0;$i<`min $num_1 $num_2`-1;$i++)
+	{
+		if($buffer_1_min[$i]==$buffer_2_min[$i]&&$buffer_1_min[$i+1]==$buffer_2_min[$i+1])
+			{
+				stringArrayRemoveAtIndex(0, $buffer_1_max);
+				stringArrayRemoveAtIndex(0, $buffer_2_max);
+			}
+	}
+	for($i=0;$i<`min $num_1 $num_2`;$i++)
+	{
+		if($buffer_1[$i]==$buffer_2[$i])
+		{
+			stringArrayRemoveAtIndex(0, $buffer_1_min);
+			stringArrayRemoveAtIndex(0, $buffer_2_min);
+		}
+	}
+	$num_1_min=size( $buffer_1_min);
+	$num_2_min=size( $buffer_2_min);
+	$num_1_max=size( $buffer_1_max);
+	$num_2_max=size( $buffer_2_max);
+	if(`min $num_1_min $num_2_min`==0)
+	{
+    	if($num_1_min==0)
+    	{
+    		$final_hierarhy[0]=$selected_obj[0];
+    		appendStringArray($final_hierarhy,$buffer_2_min,$num_2_min) ;
+    	}
+    	else
+    	{
+    		$final_hierarhy[0]=$selected_obj[1];
+    		appendStringArray($final_hierarhy,$buffer_1_min,$num_1_min) ;
+	    }
+	}
+	else
+		if($num_1<=$num_2)
+    	{
+    		appendStringArray($final_hierarhy, JOPA_4_1_9542c11845a1e56080fc5b7a1c5e8a5b($buffer_1_max),$num_1_max) ;
+    		appendStringArray($final_hierarhy,$buffer_2_max,$num_2_max) ;
+    	}
+    	else
+    	{
+    		appendStringArray($final_hierarhy, JOPA_4_1_9542c11845a1e56080fc5b7a1c5e8a5b($buffer_2_max),$num_2_max) ;
+    		appendStringArray($final_hierarhy,$buffer_1_max,$num_1_max) ;
+	    }
+	if ($mod=="revers")
+	{
+		$final_hierarhy=JOPA_4_1_9542c11845a1e56080fc5b7a1c5e8a5b($final_hierarhy);
+	}
+	if ($mod=="")
+	{
+	    if ($final_hierarhy[0]!=$selected_obj[0])
+		    $final_hierarhy=JOPA_4_1_9542c11845a1e56080fc5b7a1c5e8a5b($final_hierarhy);
+	}
+	select -cl;
+	select $final_hierarhy;
+	return $final_hierarhy;
+}
+global proc JOPA_4_1_0bec9b327a3b7f3839a0d58cf92ce02c()
+{
+    string $selection[]=`ls-type joint -sl`;
+    string $join;
+    for($join in  $selection)
+    {
+        select -cl;
+        select `listRelatives -parent $join`  $join;
+        string $tmp_joints[]=JOPA_4_1_a7e0d73da2a8798cbe2f405b170f6598();
+        makeIdentity -apply true -t 0 -r 1 -s 0 -n 0 -pn 1 $tmp_joints;
+        JOPA_4_1_b0727bdb3ca55fb364a5d867d3297ff5({$tmp_joints[size($tmp_joints)-1]},{$join});
+        rotate 0 0 0 $join;
+        delete  $tmp_joints;
+    }
+    select -cl;
+    select  $selection;
+}
+global proc JOPA_4_1_0f1ac522d0b034408fd36bd87fb46cb3()
+{
+    string $selected[]=`ls-sl`;
+    string $selected_joints[]=`ls-sl-type "joint"`;
+    select  $selected_joints;
+    string $lock_name[]=JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0();
+    string $constrain_name[]=JOPA_4_1_17431451b1be026fdeee93b86579c6b6($lock_name, $selected_joints);
+    select $selected_joints;
+    JOPA_4_1_3a25eaad774c71ebdcb06ee4d2b25ce3;
+    delete $constrain_name;
+    delete $lock_name;
+    JOPA_4_1_95d47209f5832c068ce7614b82201089;
+    select  $selected;
+}
+global proc string[] JOPA_4_1_a2b81a3977941c0eac1cda769570172c()
+{
+    string $uuid_selection[] = `ls -uuid -sl`;
+    string $selection[]=`ls-sl`;
+    string $fin_names[];
+    string $joint_uid[]={};
+    string $rootj,$uuid_root[];
+    string $in_place_tmp_j;
+    for($uid in $uuid_selection)
+    {
+        $tmppp=`ls -uuid $uid `;
+        if(objectType($tmppp[0])=="joint")
+            appendStringArray($joint_uid,{$uid},1);
+        else
+            catchQuiet( `parent -w $tmppp[0]`);
+    }
+    for($uid in $joint_uid)
+    {
+        $tmppp=`ls -uuid $uid `;
+        select $tmppp;
+        $rootj=JOPA_4_1_933d4aecbe9d9d0ce9a6591c5b2e3770($tmppp[0]);
+        $uuid_root=`ls -uuid $rootj`;
+        if($uuid_root[0]!= $uid)
+        {
+            $tmp_j=`joint`;
+            $in_place_tmp_j=`disconnectJoint  $tmppp[0]`;
+            delete $tmp_j  $in_place_tmp_j;
+        }
+        else
+            catchQuiet( `parent -w $tmppp[0]`);
+    }
+    $fin_names=`ls -uuid $uuid_selection`;
+    select -cl;
+    select $fin_names;
+    return $fin_names ;
+}
+global proc JOPA_4_1_18250f0751da33452100ea861e8e386a(string $axis)
+{
+	$axis=`tolower $axis`;
+	int $axis_aim[];
+	int $axis_up_vector[];
+	int $axis_w_up_vector[];
+	if($axis=="x")
+	{
+		$axis_aim={1,0,0} ;
+		$axis_up_vector={0,1,0};
+		$axis_w_up_vector={0,1,0};
+	}
+	if($axis=="y")
+	{
+		$axis_aim={0,1,0} ;
+		$axis_up_vector={0,0,1};
+		$axis_w_up_vector={0,0,1};
+	}
+	if($axis=="z")
+	{
+		$axis_aim={0,0,1} ;
+		$axis_up_vector={1,0,0};
+		$axis_w_up_vector={1,0,0};
+	}
+	if($axis=="-x")
+	{
+		$axis_aim={-1,0,0} ;
+		$axis_up_vector={0,1,0};
+		$axis_w_up_vector={0,1,0};
+	}
+	if($axis=="-y")
+	{
+		$axis_aim={0,-1,0} ;
+		$axis_up_vector={0,0,1};
+		$axis_w_up_vector={0,0,1};
+	}
+	if($axis=="-z")
+	{
+		$axis_aim={0,0,-1} ;
+		$axis_up_vector={1,0,0};
+		$axis_w_up_vector={1,0,0};
+	}
+	$cmd="aimConstraint -offset 0 0 0 -weight 1 -aimVector " + $axis_aim[0] + " " + $axis_aim[1] + " " + $axis_aim[2] + " -upVector " + " " + $axis_up_vector[0] + " " + $axis_up_vector[1] + " " + $axis_up_vector[2] + " -worldUpType \"objectrotation\" -worldUpVector  " + " " + $axis_w_up_vector[0] + " " + $axis_w_up_vector[1] + " " + $axis_w_up_vector[2] + " -worldUpObject ";
+	string $temp_jnts_pair[];
+	string  $tmppp[];
+	$selection=`ls-l-sl`;
+	string $parents[];
+	$i=0;
+	for($obj in $selection)
+	{
+		$tmppp=`listRelatives -f -c $obj`;
+		$parents[$i]=$tmppp[0];
+		$i++;
+	}
+	int $have_childrens=0;
+    string $ch_locks[];
+    string  $par_ch_constrain[];
+    string $childrens[];
+	for($i=0;$i<size($selection);$i++)
+	{
+		if($parents[$i]!="")
+		{
+		    select 	$selection[$i];
+        	$childrens=JOPA_4_1_2edf2909df70a7e657b4b646868a0b9c();
+        	if(size($childrens)>0)
+        	{
+        	    select $childrens;
+        	    JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(1);
+        	    $ch_locks=JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0();
+        	    $par_ch_constrain=JOPA_4_1_17431451b1be026fdeee93b86579c6b6($ch_locks, $childrens);
+        	    $have_childrens=1;
+        	}
+			select $parents[$i] $selection[$i];
+			$temp_jnts_pair=JOPA_4_1_f2d5a2798ed7cfee36eb77ee8a281ed8();
+			rotate 0 0 0 $temp_jnts_pair[1];
+			$aim_name= eval ($cmd + $temp_jnts_pair[0] + " " + $temp_jnts_pair[0] + " " + $temp_jnts_pair[1]);
+			select $temp_jnts_pair[1]  $selection[$i];
+			JOPA_4_1_9a8d2e62249cad27916aacc736478655;
+			delete $temp_jnts_pair;
+			select $selection[$i];
+			JOPA_4_1_95d47209f5832c068ce7614b82201089();
+        	if($have_childrens)
+        	{
+        	    delete  $par_ch_constrain;
+        	    delete $ch_locks;
+        	}
+		}
+	}
+	select  $selection;
+	JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(1);
+}
+global proc JOPA_4_1_ee505820b9f32e5106abbdfa4f840186(string $axis)
+{
+	$axis=`tolower $axis`;
+	int $axis_aim[];
+	int $axis_up_vector[];
+	int $axis_w_up_vector[];
+	if($axis=="x")
+	{
+		$axis_aim={-1,0,0} ;
+		$axis_up_vector={0,1,0};
+		$axis_w_up_vector={0,1,0};
+	}
+	if($axis=="y")
+	{
+		$axis_aim={0,-1,0} ;
+		$axis_up_vector={0,0,1};
+		$axis_w_up_vector={0,0,1};
+	}
+	if($axis=="z")
+	{
+		$axis_aim={0,0,-1} ;
+		$axis_up_vector={1,0,0};
+		$axis_w_up_vector={1,0,0};
+	}
+	if($axis=="-x")
+	{
+		$axis_aim={1,0,0} ;
+		$axis_up_vector={0,-1,0};
+		$axis_w_up_vector={0,1,0};
+	}
+	if($axis=="-y")
+	{
+		$axis_aim={0,1,0} ;
+		$axis_up_vector={0,0,-1};
+		$axis_w_up_vector={0,0,1};
+	}
+	if($axis=="-z")
+	{
+		$axis_aim={0,0,1} ;
+		$axis_up_vector={-1,0,0};
+		$axis_w_up_vector={1,0,0};
+	}
+	$cmd="aimConstraint -offset 0 0 0 -weight 1 -aimVector " + $axis_aim[0] + " " + $axis_aim[1] + " " + $axis_aim[2] + " -upVector " + " " + $axis_up_vector[0] + " " + $axis_up_vector[1] + " " + $axis_up_vector[2] + " -worldUpType \"objectrotation\" -worldUpVector  " + " " + $axis_w_up_vector[0] + " " + $axis_w_up_vector[1] + " " + $axis_w_up_vector[2] + " -worldUpObject ";
+	string $temp_jnts_pair[];
+	string  $tmppp[];
+	$selection=`ls -head 1 -sl`;
+	string $parents[];
+	$parents=`listRelatives -p $selection[0]`;
+	if($parents[0]!="")
+	{
+		select -cl;
+		select $parents[0] $selection[0];
+		$temp_jnts_pair=JOPA_4_1_f2d5a2798ed7cfee36eb77ee8a281ed8();
+		rotate 0 0 0 $temp_jnts_pair[1];
+		$aim_name= eval ($cmd + $temp_jnts_pair[0] + " " + $temp_jnts_pair[0] + " " + $temp_jnts_pair[1]);
+		select $temp_jnts_pair[1]  $selection[0];
+		JOPA_4_1_9a8d2e62249cad27916aacc736478655;
+		delete $temp_jnts_pair;
+		select $selection[0];
+		JOPA_4_1_95d47209f5832c068ce7614b82201089();
+	}
+	select  $selection;
+	JOPA_4_1_8c16c9163e07a819fc2186f2d338a280(1);
+}
+global proc JOPA_4_1_18df331e107c49828a5c6e6e0b53d687()
+{
+    $selection=`ls-sl`;
+    for($obj in $selection)
+    {
+      if(size(`listConnections  -d 0 -s 1 -type "pairBlend" ($obj + ".tx")`)!=0)
+       setKeyframe -at translateX $obj;
+             if(size(`listConnections  -d 0 -s 1 -type "pairBlend" ($obj + ".ty")`)!=0)
+       setKeyframe -at translateY $obj;
+             if(size(`listConnections  -d 0 -s 1 -type "pairBlend" ($obj + ".tz")`)!=0)
+       setKeyframe -at translateZ $obj;
+             if(size(`listConnections  -d 0 -s 1 -type "pairBlend" ($obj + ".rx")`)!=0)
+       setKeyframe -at rotateX $obj;
+             if(size(`listConnections  -d 0 -s 1 -type "pairBlend" ($obj + ".ry")`)!=0)
+       setKeyframe -at  rotateY $obj;
+             if(size(`listConnections  -d 0 -s 1 -type "pairBlend" ($obj + ".rz")`)!=0)
+       setKeyframe -at  rotateZ $obj;
+               if(size(`listConnections  -d 0 -s 1 -type "pairBlend" ($obj + ".sx")`)!=0)
+       setKeyframe -at  scaleX $obj;
+               if(size(`listConnections  -d 0 -s 1 -type "pairBlend" ($obj + ".sy")`)!=0)
+       setKeyframe -at  scaleY $obj;
+               if(size(`listConnections  -d 0 -s 1 -type "pairBlend" ($obj + ".sz")`)!=0)
+       setKeyframe -at  scaleZ $obj;
+    }
+}
+global proc JOPA_4_1_ede435b7fff94dfd41b52ef93374d3ee()
+{
+    $selected=`ls-fl-sl`;
+    if(size ($selected)!=3)
+    {
+        error "select 3 object!";
+        return;
+    }
+    $locks=JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0();
+    select -cl;
+    $joint=`joint`;
+    $p1=JOPA_4_1_8598296823aa3af15686cb0d78f1615d($selected[0]);
+    $p2=JOPA_4_1_8598296823aa3af15686cb0d78f1615d($selected[1]);
+    $p3=JOPA_4_1_8598296823aa3af15686cb0d78f1615d($selected[2]);
+    $single_curve=`curve -d 1 -p 0 0 0 -p 0 0 1 -k 0 -k 1 `;
+    $arc_node=`createNode makeThreePointCircularArc`;
+    connectAttr ($arc_node + ".oc") ($single_curve + ".cr");
+    connectAttr ($locks[0] + ".translate") ($arc_node + ".pt1") ;
+    connectAttr ($locks[1] + ".translate")($arc_node + ".pt2");
+    connectAttr ($locks[2] + ".translate")($arc_node + ".pt3") ;
+    connectAttr -f ($arc_node + ".center") ($joint + ".translate");
+    disconnectAttr  ($arc_node + ".center") ($joint + ".translate");
+    connectAttr -f ($arc_node + ".center") ($joint + ".translate");
+    $pos=`getAttr ($arc_node + ".center")`;
+    delete $arc_node  $locks $single_curve;
+    move -ws -a $pos[0] $pos[1] $pos[2] $joint;
+    select  $joint;
+}
+global proc string JOPA_4_1_20a28b95c1b8b4dd29397ab332dbc667()
+{
+    $currentPanel = `getPanel -withFocus`;
+    $error=catch($cam_name=`modelEditor -q -camera  $currentPanel`);
+    if($error)
+    {
+        $cam_name="no model panel viewport";
+    }
+    return $cam_name;
+}
+global proc string find(string $procedure)
+{
+	string $path= `whatIs($procedure)`;
+	string $fullPath=`substring $path 25 999`;
+	system("load " + $fullPath);
+	return $fullPath;
+}
+global proc string JOPA_4_1_0bb35ddf616d7cd6bdc38d3dd23af1bf()
+{
+	string $cmd = "mirrorJoint";
+	string $mode;
+	$mode = " -mirrorYZ";
+	$cmd = ($cmd + $mode);
+	$func = " -mirrorBehavior";
+	$cmd = ($cmd + $func);
+	string $search = `optionVar -query mirrorJointSearch`;
+	string $replace = `optionVar -query mirrorJointReplace`;
+	if (size($search) > 0 && size($replace) > 0) {
+		$cmd += (" -searchReplace \""+$search+"\" \""+$replace+"\"");
+	}
+    return $cmd;
+}
+global proc string  JOPA_4_1_933d4aecbe9d9d0ce9a6591c5b2e3770(string $jnt)
+{
+    string $selected[]=`ls -l $jnt`;
+    string $buffer[];
+    string $root;
+    $buffer=JOPA_4_1_465f2c70f8e4bf417e93834f61ee4f6e($selected[0], "|");
+    string $var[]={};
+    for($i=1;$i<size($buffer);$i++)
+        $var[$i]=$var[$i-1]+"|"+$buffer[$i];
+    for($i=1;$i<size($var);$i++)
+    {
+        if(`objectType $var[$i]`=="joint")
+        {
+            $root=$var[$i];
+            break;
+        }
+    }
+    return $root;
+}
+global proc float[] JOPA_4_1_e849743d83b9357359884fec322c28ec(string $curve, string $objects[])
+{
+    float $params[];
+    if(size($objects)<1)
+    {
+        warning "no object for connect to curve";
+        return $params;
+    }
+    string $lock[]=JOPA_4_1_526c020cd7c9a859fd08d49719a4fddf($objects);
+    string $lockfin[]=JOPA_4_1_526c020cd7c9a859fd08d49719a4fddf($objects);
+    string $near_point_on_crve_nodes[];
+    string $decompose_matrix_nodes[];
+    string $constr[];
+    string $crve_shape[]=JOPA_4_1_5e702211108f11813c411c94f8b1b380($curve);
+    for($i=0;$i<size($objects);$i++)
+    {
+        $near_point_on_crve_nodes[$i]=`createNode nearestPointOnCurve`;
+        $decompose_matrix_nodes[$i]=`createNode decomposeMatrix`;
+        connectAttr -f ($lock[$i] + ".worldMatrix[0]") ($decompose_matrix_nodes[$i] + ".inputMatrix");
+        connectAttr -f ($decompose_matrix_nodes[$i] + ".outputTranslate") ($near_point_on_crve_nodes[$i] + ".inPosition");
+        connectAttr -f ($crve_shape[0] + ".worldSpace[0]")  ($near_point_on_crve_nodes[$i] + ".inputCurve");
+        connectAttr -f ($near_point_on_crve_nodes[$i] + ".position") ($lockfin[$i] + ".translate");
+        $params[$i]=`getAttr ($near_point_on_crve_nodes[$i] + ".result.parameter")`;
+    }
+    delete (JOPA_4_1_4a0278149f801323f33f7bb9e4ee597d($lockfin,$objects));
+    delete $near_point_on_crve_nodes $decompose_matrix_nodes $lock $lockfin;
+    return $params;
+}
+global proc string[] JOPA_4_1_33737a5f897286cfa410615445094c2a(string $side_from, string $side_to, string $rule, int $x, int $y, int $z)
+{
+    string $selection[]=`ls-fl-sl`;
+    string $mirror_object[]=JOPA_4_1_ce7b9a074764f1b06f64dfc666cf4813($selection,  $side_from,  $side_to);
+    if(size($mirror_object)!=size($selection))
+    {
+        warning "not all mirror objects found!";
+        return $mirror_object;
+    }
+    if(size($mirror_object)==0)
+    {
+        warning "no mirror objects found!";
+        return $mirror_object;
+    }
+    if($rule=="translate")
+        JOPA_4_1_b360a99bae10f4014414d48a6e4f58bd( $selection , $mirror_object , $x, $y, $z);
+    if($rule=="rotate")
+        JOPA_4_1_dd7661a2f1ff7e388148027fc411f9cb( $selection , $mirror_object , $x, $y, $z);
+    select $selection;
+    return $mirror_object;
+}
+global proc float[] JOPA_4_1_b785f6145105d03029da5b3e19367cbd(float $p1[], float $p2[], int $normalize)
+{
+  float $v2_1[]={$p2[0]-$p1[0],$p2[1]-$p1[1],$p2[2]-$p1[2]};
+  if($normalize)
+      normalize ($v2_1);
+  return $v2_1;
+}
+global proc float JOPA_4_1_9cf10c253bb06da91bcfe3836a7e5f36(float $pos1[], float $pos2[])
+{
+    vector $p1_p2=<<$pos1[0],$pos1[1],$pos1[2]>> -<<$pos2[0],$pos2[1],$pos2[2]>>;
+    $lenght=(`mag $p1_p2`);
+    return $lenght;
+}
+global proc float[] JOPA_4_1_6f6ae5b84133776f167ce9bbf3409540(float $point1[],float $point2[],float $point3[])
+{
+	float $vector1[]={$point2[0]-$point1[0],$point2[1]-$point1[1],$point2[2]-$point1[2]};
+	float $vector2[]={$point3[0]-$point1[0],$point3[1]-$point1[1],$point3[2]-$point1[2]};
+	float $orto[]=crossProduct($vector2, $vector1, 1, 1);
+	float $result[]=crossProduct($vector1, $orto, 1, 1);
+	return $result;
+}
+global proc float[] JOPA_4_1_3a5adc63366ca7a6c7ff1a4a0eb042a1(float $point1[],float $point2[],float $distance)
+{
+	float $res[];
+	vector $a=<<$point1[0],$point1[1],$point1[2]>>;
+	vector $b=<<$point2[0],$point2[1],$point2[2]>>;
+	$c=JOPA_4_1_9cf10c253bb06da91bcfe3836a7e5f36($point1, $point2);
+	$kratnost=$distance/$c;
+	$k=$a + ($b-$a)*$kratnost;
+	$res=$k;
+	return $res;
+}
+global proc float JOPA_4_1_476390711655739e4d4919b7f7336b00(float $pos_A[], float $pos_B[], float $pos_C[])
+{
+	float $c=JOPA_4_1_9cf10c253bb06da91bcfe3836a7e5f36($pos_A, $pos_B);
+    float $b=JOPA_4_1_9cf10c253bb06da91bcfe3836a7e5f36($pos_A, $pos_C);
+    float $a=JOPA_4_1_9cf10c253bb06da91bcfe3836a7e5f36($pos_C, $pos_B);
+    float $p=($a+$b+$c)/2;
+    float  $arg=($p*($p-$a)*($p-$b)*($p-$c));
+    if($arg<=0)
+        $arg=0;
+	float $sqr=sqrt($arg);
+    float $H_c=(2*$sqr)/$c;
+    return $H_c;
+}
+global proc string[] JOPA_4_1_1d56f8884d88d7b022ffa48bc52b3755 (string $name_massive[],float $float_massive[])
+{
+    global string $my_name_massive[];
+    global float $my_float_massive[];
+    $my_name_massive= $name_massive;
+    $my_float_massive=$float_massive;
+    $shapka="import maya.cmds as cmds\nimport maya.mel as mel\nimport operator\n";
+    $procdres="def sort_by_float_array(arr1, float_array):\n    tmp = [(x, y) for x, y in zip(arr1, float_array)]\n    tmp.sort(key=lambda element: element[1])\n    return [x for x, _ in tmp]\n";
+    $KKKK_menue=$shapka + $procdres + "stringarr = maya.mel.eval('$tmppp2string=$my_name_massive')\nfloatarr = maya.mel.eval('$tmppp2float=$my_float_massive')\nmy_python_res = sort_by_float_array(stringarr,floatarr)";
+    python($KKKK_menue);
+    string $TransferVarPy[] = `python "my_python_res"`;
+    return $TransferVarPy;
+}
+global proc string JOPA_4_1_65107bc37ea4a0d842be293fd78287a9(string $attribname, string $object)
+{
+    addAttr -ln $attribname -nn $attribname -at long  -dv 0 $object;
+    setAttr -e-channelBox true ($object + "." + $attribname);
+    return   ($object + "." + $attribname);
+}
+global proc string JOPA_4_1_e8f0c3b3e6300189aca31ae83320ec92(string $node_name_mask)
+{
+	$connected_nodes=`listConnections -t node`;
+	string $nodename;
+	int $has_connect_to_recalculate=0;
+	string $obj;
+	for($obj in $connected_nodes)
+		{
+		   if(`gmatch $obj $node_name_mask`)
+		   {
+		   $nodename=$obj;
+		   $has_connect_to_recalculate=1;
+		   }
+		}
+		return  $nodename;
+}
+global proc JOPA_4_1_9a8d2e62249cad27916aacc736478655()
+{
+	$obj=`ls-sl`;
+	if (size($obj) == 2)
+	{
+		$Rot = `xform -q -ro -ws $obj[0]`;
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $obj[1];
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $obj[1];
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $obj[1];
+	}
+	else
+	{
+		warning "Select 2 object!";
+	}
+}
+global proc string[] JOPA_4_1_0a10c57fddb9b8e3dc07486c3a9a5eed()
+{
+	string $selection[];
+	$selection_true = `ls -fl -sl `;
+	$selection = `ls -fl -os`;
+	string $locators[];
+	string $gr;
+	if (size ($selection)>0)
+	{
+         $j=0;
+	    for($obj in $selection)
+	    {
+            $getPvPos=JOPA_4_1_8598296823aa3af15686cb0d78f1615d($obj);
+            $gr=`group -r -em`;
+            $locators[$j]=$gr;
+            xform -ws -t $getPvPos[0] $getPvPos[1] $getPvPos[2] $gr;
+            rotate -ws $getPvPos[3] $getPvPos[4] $getPvPos[5]  $gr;
+            $j++;
+		}
+		select -cl;
+		for($obj in $locators)
+		{
+		    select -add $obj;
+		}
+	}
+	else
+	{
+	$locators[0] = `group -r -em`;
+	}
+	return $locators;
+}
+global proc string[] JOPA_4_1_a7e0d73da2a8798cbe2f405b170f6598()
+{
+    string $selection[]=`ls-fl-os`;
+    string $lock[]=JOPA_4_1_f2d5a2798ed7cfee36eb77ee8a281ed8();
+    catchQuiet ( JOPA_4_1_d1b73d0512bac8d20998bdbab9b3aed7($selection, $lock) );
+    for($i=0;$i<size($selection);$i++)
+        if(!((`objectType -isType "mesh" $selection[$i]`)+(`objectType -isType "nurbsSurface" $selection[$i]`)+(`objectType -isType "nurbsCurve" $selection[$i]`)+(`objectType -isType "lattice" $selection[$i]`)))
+            delete `orientConstraint $selection[$i] $lock[$i]`;
+    return $lock;
+}
+global proc string[] JOPA_4_1_526c020cd7c9a859fd08d49719a4fddf(string $objects[])
+{
+	string $selection[] = `ls -fl -os`;
+	select -cl;
+	string $locators[],$b[];
+	if (size ($objects)>0)
+	{
+		for($obj in $objects)
+		{
+			$getPvPos=JOPA_4_1_8598296823aa3af15686cb0d78f1615d($obj);
+			$b=`spaceLocator -p 0 0 0`;
+			appendStringArray($locators, $b, 1);
+			move -a  $getPvPos[0] $getPvPos[1] $getPvPos[2] $b[0];
+			rotate -ws $getPvPos[3] $getPvPos[4] $getPvPos[5]  $b[0];
+		}
+	}
+	else
+		$locators = `spaceLocator -p 0 0 0`;
+	select $selection;
+	return $locators;
+}
+global proc string [] JOPA_4_1_c99bdb5a898efbfb1d4fa2221eba881b(string $target_massiv[], string $object_massiv[])
+{
+	string $name_of_constrain[];
+	string $tmp[];
+	int $rx_lock;
+	int $ry_lock;
+	int $rz_lock;
+	int $h;
+	string $skipX;
+	string $skipY;
+	string $skipZ;
+	string $skipped;
+	for($i=0;$i<size($target_massiv);$i++)
+		{
+		$rx_lock=`getAttr -lock ($object_massiv[$i] + ".rx")`;
+		$ry_lock=`getAttr -lock ($object_massiv[$i] + ".ry")`;
+		$rz_lock=`getAttr -lock ($object_massiv[$i] + ".rz")`;
+		$h=$rx_lock+$ry_lock+$rz_lock;
+		if ($h<3)
+		{
+			$skipX= "";
+			$skipY= "";
+			$skipZ= "";
+			if($rx_lock)
+				$skipX= " -skip x";
+			if($ry_lock)
+				$skipY= " -skip y";
+			if($rz_lock)
+				$skipZ= " -skip z";
+			$skipped = $skipX + $skipY + $skipZ;
+			$tmp=`eval ("orientConstraint -mo " + $skipped + " " + $target_massiv[$i] + " " + $object_massiv[$i])`;
+			$name_of_constrain[$i]=$tmp[0];
+		}
+	}
+	return $name_of_constrain;
+}
+global proc JOPA_4_1_5e8af8371c687e5c50d7ded5040ffe13(string $target_position[], string $object_to_move[])
+{
+	float $Trans[];
+	float $Rot[];
+	for($i=0;$i<size($target_position);$i++)
+	{
+        $Trans=JOPA_4_1_8598296823aa3af15686cb0d78f1615d($target_position[$i]);
+        $Rot={$Trans[3],$Trans[4],$Trans[5]};
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $object_to_move[$i];
+		move -rpr $Trans[0] $Trans[1] $Trans[2] $object_to_move[$i];
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $object_to_move[$i];
+		move -rpr $Trans[0] $Trans[1] $Trans[2] $object_to_move[$i];
+		rotate -ws $Rot[0] $Rot[1] $Rot[2] $object_to_move[$i];
+		move -rpr $Trans[0] $Trans[1] $Trans[2] $object_to_move[$i];
+	}
+}
+global proc JOPA_4_1_b360a99bae10f4014414d48a6e4f58bd(string $target[], string $object[], int $x, int $y, int $z)
+{
+	string $nodename;
+	for($i=0;$i<size($target);$i++)
+	{
+		$nodename=`createNode multiplyDivide`;
+		connectAttr -f ($target[$i] + ".translate") ($nodename + ".input1");
+		setAttr ($nodename + ".operation") 1;
+		setAttr ($nodename + ".input2X")  1;
+		setAttr ($nodename + ".input2Y")  1;
+		setAttr ($nodename + ".input2Z")  1;
+		if($x)
+		    setAttr ($nodename + ".input2X")  -1;
+		if($y)
+		    setAttr ($nodename + ".input2Y")  -1;
+		if($z)
+		    setAttr ($nodename + ".input2Z")  -1;
+		connectAttr -f ($nodename + ".output") ($object[$i] + ".translate");
+	}
+}
+global proc JOPA_4_1_dd7661a2f1ff7e388148027fc411f9cb(string $target[], string $object[], int $x, int $y, int $z)
+{
+	string $nodename;
+	for($i=0;$i<size($target);$i++)
+	{
+		$nodename=`createNode multiplyDivide`;
+		connectAttr -f ($target[$i] + ".rotate") ($nodename + ".input1");
+		setAttr ($nodename + ".operation") 1;
+		setAttr ($nodename + ".input2X")  1;
+		setAttr ($nodename + ".input2Y")  1;
+		setAttr ($nodename + ".input2Z")  1;
+		if($x)
+		    setAttr ($nodename + ".input2X")  -1;
+		if($y)
+		    setAttr ($nodename + ".input2Y")  -1;
+		if($z)
+		    setAttr ($nodename + ".input2Z")  -1;
+		connectAttr -f ($nodename + ".output") ($object[$i] + ".rotate");
+	}
+}
+global proc string JOPA_4_1_399e6ca23a24d0e48ed5cb872f4729dd( string $shape )
+{
+    string $transform;
+	if ( "transform" != `nodeType $shape` )
+	{
+		string $parents[] = `listRelatives  -parent $shape`;
+		$transform = $parents[0];
+	}
+   return $transform;
+}
+global proc string[] JOPA_4_1_b3acc831f9f61a01a45fe7165ec12c62(string $full_name, string $side_from, string $side_to)
+{
+	string $buffer[], $short_names_buff[];
+	$short_names_buff=JOPA_4_1_465f2c70f8e4bf417e93834f61ee4f6e($full_name, $side_from);
+	string $fin_var[];
+	int $count=size($short_names_buff)-1;
+	int $bit;
+	int $step=pow (2,$count);
+	string $new_short[]={};
+	for($j=0;$j<$step;$j++)
+	{
+		for($k=0;$k<$count;$k++)
+		{
+			$bit=JOPA_4_1_606ff0264a96e1d3ce1e41778c87d876(floor($j/(pow(2,$k))));
+			if($bit)
+				$new_short[$k]=$short_names_buff[$k] + $side_from;
+			else
+				$new_short[$k]=$short_names_buff[$k] + $side_to;
+		}
+		$fin_var[$j]=stringArrayToString($new_short,"") + $short_names_buff[$count];
+	}
+	$fin_var =stringArrayRemove({$full_name}, $fin_var);
+	return  $fin_var;
+}
+global proc JOPA_4_1_5cca387e40527d14dd0862d275b6a5fc(string $j_chain[], string $axis, string $sao_napr, string $ch_up)
+{
+    float $sao_napr_angle=0;
+    if($sao_napr=="down")
+    {
+         $sao_napr_angle=180;
+    }
+    float $ch_angle=0;
+    if($ch_up=="change")
+    {
+         $ch_angle=180;
+    }
+    $selected=$j_chain;
+    select $selected[0];
+	    string $or;
+        string $up;
+        string $aim_V;
+        string $up_v;
+    if($axis=="x"||$axis=="-x")
+    {
+	    $or="xyz";
+        $up="x" +  $sao_napr;
+        $aim_V=" 0 -1 0 ";
+        $up_v=" 0 0 1 ";
+    }
+    if($axis=="y"||$axis=="-y")
+    {
+        $or="yzx";
+        $up="y" +  $sao_napr;
+        $aim_V=" 0 0 -1 ";
+        $up_v=" 1 0 0 ";
+    }
+    if($axis=="z"||$axis=="-z")
+    {
+        $or="zxy";
+        $up="z" +  $sao_napr;
+        $aim_V=" -1 0 0 ";
+        $up_v=" 0 1 0 ";
+    }
+	$locks_for_aim=JOPA_4_1_54d92f8424c4459e6d996d9fd93902f0();
+	select $selected;
+	$max_dist=JOPA_4_1_18a895830f3c7ec611ca2fbd58e5730f(1);
+	float $diist=$max_dist[2];
+	vector $coords[]=JOPA_4_1_72356eaf232b169651a82383ba9e7e57($selected);
+	int $ind=JOPA_4_1_b370e1f695c58fe83552587a1fd52907($coords);
+    string $aim_name[];
+    string $cmd;
+    if ($sao_napr=="up")
+        $cmd="aimConstraint -offset 0 0 0 -weight 1 -aimVector " + $aim_V + " -upVector " + $up_v + "-worldUpType \"object\" -worldUpObject " +  $selected[$ind] + " "  + $selected[size($selected)-1] + " "  + $locks_for_aim[0];
+    else
+        $cmd="aimConstraint -offset 0 0 0 -weight 1 -aimVector " + $up_v  + " -upVector " + $aim_V + "-worldUpType \"object\" -worldUpObject " +  $selected[$ind] + " "  + $selected[size($selected)-1] + " "  + $locks_for_aim[0];
+	$aim_name =eval($cmd);
+	delete $aim_name;
+    $locks_true_position=`duplicate $locks_for_aim`;
+	$ori_cstr=`orientConstraint -mo -weight 1 $locks_for_aim $selected[0]`;
+	if($sao_napr=="up")
+	    rotate -a 0 0 0  $locks_for_aim;
+	    else
+	    rotate -a 90 90 0  $locks_for_aim;
+	delete 	$ori_cstr;
+	select $selected;
+	makeIdentity -apply true -t 0 -r 1 -s 0 -n 0 -pn 1;
+    joint -e  -oj $or -secondaryAxisOrient $up;
+    $childrens=`listRelatives -f -c -typ "joint" $selected[size($selected)-1]`;
+    if (size($childrens)==0)
+    {
+    	setAttr ($selected[size($selected)-1] + ".jointOrientX") 0;
+        setAttr ($selected[size($selected)-1] + ".jointOrientY") 0;
+        setAttr ($selected[size($selected)-1] + ".jointOrientZ") 0;
+    }
+    $ori_cstr=`orientConstraint -mo -weight 1   $locks_for_aim $selected[0]`;
+    select $locks_true_position $locks_for_aim;
+    JOPA_4_1_9a8d2e62249cad27916aacc736478655();
+    delete 	$ori_cstr;
+    delete $locks_for_aim  $locks_true_position;
+    select $selected;
+    JOPA_4_1_a2b81a3977941c0eac1cda769570172c();
+    if($axis=="x")
+    {
+        rotate -r -os -fo ($ch_angle) 0 0 ;
+    }
+    if($axis=="y")
+    {
+        rotate -r -os -fo 0 ($ch_angle) 0 ;
+    }
+    if($axis=="z")
+    {
+        rotate -r -os -fo 0 0 ($ch_angle) ;
+    }
+    if($axis=="-x")
+    {
+        rotate -r -os -fo ($ch_angle-$sao_napr_angle) 0 180 ;
+    }
+    if($axis=="-y")
+    {
+        rotate -r -os -fo 180 ($ch_angle-$sao_napr_angle) 0 ;
+    }
+    if($axis=="-z")
+    {
+        rotate -r -os -fo 0 180 ($ch_angle-$sao_napr_angle) ;
+    }
+    JOPA_4_1_f0209cb5b5931bdfa7ae6801db19a0f8();
+    select -cl;
+    select $selected;
+}
+global proc string[] JOPA_4_1_18a895830f3c7ec611ca2fbd58e5730f(int $min_max)
+{
+	$selection=`ls-fl-sl`;
+	$TotSize = `size $selection`;
+	string $return_pair[];
+	float $pi[] = `xform -ws -q -t $selection[0]`;
+	float $pj[] = `xform -ws -q -t $selection[1]`;
+	float $maxdist = `mag(<<$pi[0],$pi[1],$pi[2]>> - <<$pj[0],$pj[1],$pj[2]>>)`;
+	float $distance=$maxdist;
+	int $found=0;
+	for ($i=0;$i<$TotSize-1;$i++)
+	{
+		for ($j=$i+1; $j<$TotSize; $j++)
+		{
+			$pi = `xform -ws -q -t $selection[$i]`;
+			$pj = `xform -ws -q -t $selection[$j]`;
+			$distance = `mag(<<$pi[0],$pi[1],$pi[2]>>-<<$pj[0],$pj[1],$pj[2]>>)`;
+			if($min_max==1)
+			{
+				if ($distance > $maxdist || $found==0)
+				{
+				    $found=1;
+					$maxdist = $distance;
+					$return_pair[0]=$selection[$i];
+					$return_pair[1]=$selection[$j];
+					$return_pair[2]=$maxdist;
+				}
+			}
+			if($min_max==0)
+			{
+				if ($distance <= $maxdist || $found==0)
+				{
+					$found=1;
+					$maxdist = $distance;
+					$return_pair[0]=$selection[$i];
+					$return_pair[1]=$selection[$j];
+					$return_pair[2]=$maxdist;
+				}
+			}
+		}
+	}
+return $return_pair;
+}
+global proc JOPA_4_1_b0727bdb3ca55fb364a5d867d3297ff5(string $target[], string $object[])
+{
+    for($i=0;$i<size($target);$i++)
+    {
+        setAttr ($object[$i] + ".jointOrientX") `getAttr ($target[$i] + ".jointOrientX")`;
+        setAttr ($object[$i] + ".jointOrientY") `getAttr ($target[$i] + ".jointOrientY")`;
+        setAttr ($object[$i] + ".jointOrientZ") `getAttr ($target[$i] + ".jointOrientZ")`;
+    }
+}
+global proc string[] JOPA_4_1_9542c11845a1e56080fc5b7a1c5e8a5b(string $get_string_for_revers[])
+{
+    string $revers_objs[];
+	$j=size($get_string_for_revers)-1;
+	for ($obj in $get_string_for_revers)
+	{
+		$revers_objs[$j]=$obj;
+		$j--;
+	}
+	return $revers_objs;
+}
+global proc string[] JOPA_4_1_465f2c70f8e4bf417e93834f61ee4f6e(string $stroka, string $poisk)
+{
+	string $buffer[]={};
+	string $fin_str=$stroka;
+	int $siz_stroka=sizeBytes($stroka);
+	int $siz_poisk=sizeBytes($poisk);
+	for($i=0;$i<($siz_stroka/ $siz_poisk)+1;$i++)
+	    $fin_str=`substitute $poisk $fin_str "###^@@@"`;
+	tokenize $fin_str "^" $buffer;
+	for($i=0;$i<size($buffer);$i++)
+	{
+	    $buffer[$i]=`substitute "###" $buffer[$i] ""`;
+	    $buffer[$i]=`substitute "@@@" $buffer[$i] ""`;
+	}
+	return $buffer;
+}
+global proc int JOPA_4_1_606ff0264a96e1d3ce1e41778c87d876(float $num)
+{
+    int $odd;
+    if($num/2==ceil ($num/2))
+        $odd=1;
+    else
+        $odd=0;
+    return $odd;
+}

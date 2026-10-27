@@ -2,6 +2,7 @@
 import hashlib
 import json
 import math
+import os
 from pathlib import Path
 import re
 import xml.etree.ElementTree as ET
@@ -16,9 +17,17 @@ def catalog():
     return json.loads((PKG / 'catalog.json').read_text(encoding='utf8'))
 
 
+def safe_read_bytes(path):
+    p = str(path.resolve())
+    if len(p) >= 240 and os.name == 'nt' and not p.startswith('\\\\?\\'):
+        p = '\\\\?\\' + p
+    with open(p, 'rb') as f:
+        return f.read()
+
+
 def resources():
     for row in catalog()['files']:
-        if hashlib.sha256((PKG / 'vendor' / row['path']).read_bytes()).hexdigest() != row['sha256']:
+        if hashlib.sha256(safe_read_bytes(PKG / 'vendor' / row['path'])).hexdigest() != row['sha256']:
             raise ValueError('Original resource missing/changed')
 
 

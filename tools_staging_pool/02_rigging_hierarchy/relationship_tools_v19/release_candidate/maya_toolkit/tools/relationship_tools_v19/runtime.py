@@ -116,7 +116,7 @@ def uuids():
 
 
 def snapshot():
-    return {'time': cmds.currentTime(query=True), 'selection': [engine.identifier(n) for n in cmds.ls(selection=True, long=True) or []], 'namespace': cmds.namespaceInfo(currentNamespace=True), 'autokey': cmds.autoKeyframe(query=True, state=True), 'track': cmds.selectPref(query=True, trackSelectionOrder=True), 'evaluation': cmds.evaluationManager(query=True, mode=True)[0], 'refresh': cmds.refresh(query=True, suspend=True)}
+    return {'time': cmds.currentTime(query=True), 'selection': [engine.identifier(n) for n in cmds.ls(selection=True, long=True) or []], 'namespace': cmds.namespaceInfo(currentNamespace=True), 'autokey': cmds.autoKeyframe(query=True, state=True), 'track': cmds.selectPref(query=True, trackSelectionOrder=True), 'evaluation': cmds.evaluationManager(query=True, mode=True)[0], 'refresh': False}
 
 
 def restore(state, advance=False):
@@ -126,7 +126,7 @@ def restore(state, advance=False):
     selected = [found[0] for uuid in state['selection'] for found in [cmds.ls(uuid, long=True) or []] if len(found) == 1]
     cmds.select(selected, replace=True) if selected else cmds.select(clear=True)
     cmds.selectPref(trackSelectionOrder=state['track'])
-    cmds.refresh(suspend=state['refresh'])
+    cmds.refresh(suspend=False)
     cmds.evaluationManager(mode=state['evaluation'])
 
 

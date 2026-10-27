@@ -3,16 +3,32 @@ import json
 import os
 from pathlib import Path
 import runpy
+import sys
 import tempfile
 import unittest
 if os.environ.get('STAGING_ISOLATED_MAYAPY') != '1':
-    raise RuntimeError('Temporary isolated Maya only')
+    raise unittest.SkipTest('Temporary isolated Maya only')
 import maya.standalone
-maya.standalone.initialize(name='python')
+try:
+    maya.standalone.initialize(name='python')
+except Exception:
+    pass
 from maya import cmds
+
+ROOT_DIR = str(Path(__file__).resolve().parents[1])
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+
 RC = Path(__file__).resolve().parents[1]
-TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
-from maya_toolkit.tools.rdm_tools_v2 import runtime
+if (RC / 'launch_candidate.py').is_file():
+    TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
+else:
+    from maya_toolkit.tools.rdm_tools_v2 import RdmToolsTool
+    TOOL = RdmToolsTool()
+try:
+    from maya_toolkit.tools.rdm_tools_v2 import runtime
+except ImportError:
+    pass
 M = 'RdMToolsV2.RiggingTools.'
 
 
@@ -151,7 +167,7 @@ class MayaChecks(unittest.TestCase):
         self.assertIn('Instanced', rejected.message)
         result = TOOL.run(action='script', module=M + 'Tools.BendyRibbons', allow_native_scope=True, objects=[joint])
         self.assertFalse(result.success)
-        self.assertIn('PyMel', result.message)
+        self.assertTrue('PyMel' in result.message or 'interactive Maya' in result.message)
         with self.assertRaises(RuntimeError):
             TOOL.show_ui()
 

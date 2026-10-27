@@ -1,0 +1,597 @@
+/////////////////////////////////////////////////
+// Skin Info V1.92                             //
+// Export - Import skin maps tool for Maya.    //
+// This tool was developed by 'Khaled Hussein' //
+/////////////////////////////////////////////////
+
+
+if (`window -exists SkinInfo`)
+{
+   deleteUI SkinInfo;
+}
+//windowPref -ra;
+window -minimizeButton on -maximizeButton false -dockStation -rtf on -t "Skin Info v1.92  |  Export - Import skin maps." -s on -wh 200 100  SkinInfo;
+columnLayout -rowSpacing 5 -adj true ;
+
+// Get info part:=============================
+text -align "left" -l "Get skinCluster info.";
+rowLayout -childArray -numberOfColumns 2  -adjustableColumn 1;
+    textFieldGrp -label "Total Influences:  "  -columnAlign 1 "left" -columnWidth 1 100 -columnWidth 2 60 -highlightColor .1 .6 .8 TextF_TotalInfluences;
+    textFieldGrp -label "Weighted Influences:  "  -columnAlign 1 "left" -columnWidth 1 120 -columnWidth 2 60 -highlightColor .1 .6 .8 TextF_WeightedInfluences;
+    setParent ..;
+
+rowLayout  
+    -numberOfColumns 2  
+    -columnWidth2 150 150
+    -columnAttach 1 "right" 4
+    -columnAttach 1 "left" 0
+    -columnAttach 2 "left" 4
+    -adjustableColumn 1 ;
+    button  -label "Get info" -c "GetInfo" -ann "Select skin object and click   ( Get info )";
+    button -w 185 -label "Select Weighted Joints" -c "SelectWeightedJnts" -ann "Select skin object and click   ( Select Weighted Joints )";
+    setParent ..;
+
+separator -backgroundColor .1 .6 .8 -st "in";
+
+// Export skin part:===========================
+text -align "left" -l "Export skinCluster info." -font "boldLabelFont";
+textFieldButtonGrp 
+    -buttonLabel "  Browse  "  
+    -adjustableColumn 1 
+    -columnAlign 1 "left" 
+    -columnAlign 2 "right"
+    -buttonCommand "BrowseToExport"
+    -highlightColor .1 .6 .8
+    -ann "Get path for export."
+    tFButton_export; 
+
+rowLayout -childArray -numberOfColumns 3  -adjustableColumn 1;
+    textFieldGrp -adjustableColumn 2 -label "File Name:  "-columnAlign 1 "left" -columnWidth 1 70 -columnWidth 2 200 -highlightColor .1 .6 .8 TextF_FileName;
+    checkBox -value on -l ".JSON" CHB_JSON;
+    checkBox -value on -l ".XML" CHB_XML;
+    setParent ..;
+
+rowLayout -columnWidth 1 100  -childArray -numberOfColumns 3   -adjustableColumn3 1 -adjustableColumn1 1;
+    button -backgroundColor .1 .6 .8 -label "Export" -c "ExportInfo" -ann "Click to export skin weights.";
+    text  -width 2 -l " ";
+    button -backgroundColor .3 .6 .8 -w 185 -label "   Export all selections   " -c "ExportAllInfo" -ann "Click to export skin weights.";
+    setParent ..;
+
+separator  -st "in";
+
+// Import skin part:==============================
+text -align "left" -l "Import skinCluster info." -font "boldLabelFont";
+rowLayout -childArray -numberOfColumns 3  -adjustableColumn 1;
+    textFieldButtonGrp 
+        -buttonLabel "  Import  "  
+        -adjustableColumn 1 
+        -columnAlign 1 "left" 
+        -columnAlign 2 "right"
+        -buttonCommand "BrowseToImport"
+        -highlightColor .5 .6 .2
+        -ann "Get skin info file."
+        tFButton_import;
+    separator  -st "in" -hr on;
+    button  -label "Auto Import" -c "AutoImport" -ann "Select your object, then click  ( Auto Import ) \n( import any file manually before use this function. )";
+    setParent ..;
+
+
+rowLayout  -numberOfColumns 6  -adjustableColumn 1 ;
+    button 
+        -backgroundColor .5 .6 .2 
+        -label " Select Influences " 
+        -c "eval `SelectInfluences`;" 
+        -ann "Select your object and click ..Select Influences.. then click import skin";
+    text -l " ";
+    button -backgroundColor .4 .5 .2 -l " Import skin weights to selected object " -c "ImportSkin_proc";
+    text -l "  ";
+    checkBox -offCommand "checkBox -e -value on CHB_XML2;" -onCommand "checkBox -e -value off CHB_XML2;" -value off -l ".JSON" CHB_JSON2;
+    checkBox -offCommand "checkBox -e -value on CHB_JSON2;" -onCommand "checkBox -e -value off CHB_JSON2;" -value on -l ".XML" CHB_XML2;
+    setParent ..;
+
+//separator  -st "in";
+button -backgroundColor .45 .5 .2 -l " Auto import skin weights to all selection " -c "AutoImportAllSelection";
+
+//separator  -st "in";
+
+separator -st "in";
+
+rowLayout  -numberOfColumns 2  -adjustableColumn 2 -columnWidth2 150 150;
+    text -align "left" -l "Transfer SkinCluster." -font "boldLabelFont";
+    text -align "left" -l "  Select 'Skin object' first and then tergets. ";
+    //text -l "";
+    setParent ..;
+
+rowLayout  -numberOfColumns 4  -adjustableColumn 2 -columnWidth4 170 10 105 100;
+    checkBox -align "left" -v on -l "Delete history before transfer" DeleteHistoryChBox;
+    text -l "";
+    button -bgc .45 .5 .2  -l "     Transfer Skin    " -annotation "Select 'Skin object' first, then select objects to transfer skin to them." -c "TransferSkin";
+    button -bgc .45 .5 .2  -l "     Copy Skin Only     " -annotation "Select 'Skin object' first, then targets." -c "CopySkinAll";
+    setParent ..;
+
+separator -st "in";
+//rowLayout  -numberOfColumns 2  -adjustableColumn 2 ;
+//button -label "Lock selected joints weight"  -width 220 -c "LockSelectedJoints";
+//button -label "Unlock selected joints weight" -c "UnLockSelectedJoints";
+//setParent ..;
+
+progressBar  
+        //-beginProgress 
+        -minValue 0
+        -height 15
+        -isInterruptable true
+        -maxValue 10
+        gMainProgressBar;
+        
+rowLayout  -numberOfColumns 2 -adjustableColumn1 100 -adjustableColumn 1 -columnWidth 1 100 -columnWidth 2 20;
+       
+textField -highlightColor .4 .5 .2 -backgroundColor 0 0 0 -tx "Select skin object and click   ( Get info )"  Result;
+textField -highlightColor .4 .5 .2 -backgroundColor 0 0 0  -width 20  ResultLamb;
+setParent ..;
+separator -st "in";
+//text -l "If you have any questions, please feel free to email me on KhaledGraphic@msn.com"  ;
+
+showWindow SkinInfo;
+// ================= End of content:==========================================================================
+
+global proc GetInfo()//Get info:
+{
+   string $Sel_01[] = `ls -sl`;
+   
+   if(size($Sel_01) == 0){
+       textField -e -backgroundColor 1 0 0   ResultLamb;
+       confirmDialog -b "OK" -message "Please select skin object.";
+       //error "Please select skin object.";
+       textField -e -backgroundColor 0 0 0   ResultLamb;
+       }else{
+        string $listHistory[] = `listHistory $Sel_01[0]`;
+        string $skinClusterNode[] = `ls -type skinCluster $listHistory`;
+        string $influences[] = ` skinCluster  -q   -influence  $skinClusterNode[0] `;
+        string $Winfluences[] = ` skinCluster  -q  -weightedInfluence $skinClusterNode[0] `;
+        textFieldGrp -e -tx `size ($influences)` TextF_TotalInfluences;
+        textFieldGrp -e -tx `size ($Winfluences)` TextF_WeightedInfluences;
+        
+        string $spliters[];
+        tokenize  $Sel_01[0] ":" $spliters; // Remove namespace:
+        
+        
+        if (size($spliters) == 1){
+            textFieldGrp -e -tx $Sel_01[0] TextF_FileName; // No namespace found:
+            textField -e -tx ($Sel_01[0] + " ... Ready to export ....")  Result;
+        }else{
+            textFieldGrp -e -tx $spliters[size($spliters)-1] TextF_FileName; // With namespace found:
+            textField -e -tx ($spliters[size($spliters)-1] + " ... Ready to export ....")  Result;
+        }
+   
+   textField -e -backgroundColor 1 1 0   ResultLamb;
+       }
+}// End of get info:------------------------------------------------------------------------------------------
+
+
+global proc BrowseToExport()//Get Direction:
+{
+    string $FileBrowse1[] = `fileDialog2 -hideNameEdit off -okCaption "Set Directory" -fileMode 2  -dialogStyle 4 -caption "Export skin info"`;
+    textFieldButtonGrp -e  -text $FileBrowse1 tFButton_export;
+    textField -e -tx ("Export direction has been set to ... " + $FileBrowse1[0])  Result;
+    textField -e -backgroundColor 0 0 0   ResultLamb;
+}//End of Get Direction:--------------------------------------------------------------------------------------
+
+global proc ExportInfo()//Export weighted influence joints in a text file:
+{
+   string $Sel_01[] = `ls -sl`;
+   string $listHistory[] = `listHistory $Sel_01[0]`;
+   string $skinClusterNode[] = `ls -type skinCluster $listHistory`;
+   string $influences[] = ` skinCluster  -q  -weightedInfluence $skinClusterNode[0] `;
+   string $FileName = `textFieldGrp -q -tx TextF_FileName`;
+   int $JSON = ` checkBox -q -value  CHB_JSON `;
+   int $XML = ` checkBox -q -value  CHB_XML `;
+   string $MayaVersion = `about -v`;
+
+   textField -e -backgroundColor 0 0 0   ResultLamb;
+
+   // Clear data:
+   string $exampleFileName = `textFieldButtonGrp -q  -text tFButton_export`;
+   int $fileId= `fopen ($exampleFileName + "/" +  $FileName + ".txt") "w"`;
+   fclose $fileId;
+   
+   if($MayaVersion == 2018 || $MayaVersion == 2017 || $MayaVersion == 2016)
+   {
+        // Export Skin map:
+        if($XML == 1) {deformerWeights -export -deformer $skinClusterNode[0] -path $exampleFileName ($FileName + ".xml");}
+
+   }else{
+        // Export Skin map:
+        if($JSON == 1) {deformerWeights -export -deformer $skinClusterNode[0] -format "JSON" -path $exampleFileName ($FileName + ".json");}
+        if($XML == 1) {deformerWeights -export -deformer $skinClusterNode[0] -format "XML" -path $exampleFileName ($FileName + ".xml");}
+   }
+   
+   
+   // Export data to text file:
+   for($influence in $influences)
+   {
+       $fileId= `fopen ($exampleFileName + "/" +  $FileName + ".txt") "a"`;
+       fprint $fileId ("select -add " + $influence + "; \n");
+       fclose $fileId;
+   }
+   
+   // Print result:
+   textField -e -tx ($skinClusterNode[0] + " weighted influences has been exported.")  Result;
+   textField -e -backgroundColor 0 1 0   ResultLamb;
+}//End of Export:---------------------------------------------------------------------------------------------
+
+
+global proc BrowseToImport() //Get Direction:
+{
+    string $FileBrowse1[] = `fileDialog2 -fileFilter "*.txt" -dialogStyle 2 -fileMode 1 -caption "Export skin info"`;
+    
+    textFieldButtonGrp -e  -text $FileBrowse1 tFButton_import;
+    textField -e -backgroundColor 0 0 0   ResultLamb;
+    textField -e -tx ("Select your object , then select influance , then import skin ...")  Result;
+}//End of Get Direction:--------------------------------------------------------------------------------------
+
+
+global proc AutoImport() //Auto import path for selectd object:
+{
+    string $sourcePath = `textFieldButtonGrp -q  -text tFButton_import`; // Get full path:
+    string $BaseName = ` basenameEx ($sourcePath) `; // Get file name only
+    string $EmptyPath = `substitute ($BaseName + ".txt") $sourcePath ""`; // Get path only
+    string $selectedObj[] = `ls -sl`;
+
+    if(size($sourcePath) == 0)
+    {
+        textField -e -backgroundColor 1 0 0   ResultLamb;
+        confirmDialog -b "Ok" -t "Don't be hurry." -m "Please import any file manually before ues Auto Import function.";
+        textField -e -tx ("Please import any file manually before ues Auto Import function.")  Result;
+    }else{
+        string $spliters[];
+        tokenize  $selectedObj[0] ":" $spliters; // Remove namespace:
+        textFieldButtonGrp -e  -text ($EmptyPath + $spliters[size($spliters)-1] + ".txt") tFButton_import;
+    }
+
+     textField -e -backgroundColor 0 0 0   ResultLamb;   
+}//End of Auto import:---------------------------------------------------------------------------------------
+
+global proc string SelectInfluences()// Open file and read the data:
+{
+   string $exampleFileName = `textFieldButtonGrp -q  -text tFButton_import`;
+   if(size($exampleFileName) == 0){
+       textField -e -backgroundColor 1 0 0   ResultLamb;
+       confirmDialog -b "OK" -m "Please import skin info file.";
+       textField -e -backgroundColor 0 0 0   ResultLamb;
+       return "print \"Please import skin info file.\""; 
+   }else{
+        string $allText = freadAllText($exampleFileName);
+        textField -e -tx "Weighted influences has been selectd."  Result;
+        return $allText;
+   }
+   textField -e -backgroundColor 0 0 0   ResultLamb;
+}//End of Open the file and read the data:--------------------------------------------------------------------
+
+
+global proc  ImportSkin_proc()// Import skin weights to selected object:
+{
+   
+   string $exampleFileName = `textFieldButtonGrp -q  -text tFButton_import`;
+   string $BaseName = ` basenameEx ($exampleFileName) `; // Get file name only
+   string $EmptyPath = `substitute ($BaseName + ".txt") $exampleFileName ""`; // Get path only
+   string $JSON_path_test = `substitute ".txt" $exampleFileName ".json"`;
+   string $XML_path_test = `substitute ".txt" $exampleFileName ".xml"`;
+   string $JSON_name = ($BaseName + ".json");
+   string $XML_name = ($BaseName + ".xml");
+   string $Sel_01[] = `ls -sl`;
+   string $listHistory[] = `listHistory $Sel_01[0]`;
+   string $skinClusterNode[] = `ls -type skinCluster $listHistory`;
+   int $JSON2 = ` checkBox -q -value  CHB_JSON2 `;
+   int $XML2 = ` checkBox -q -value  CHB_XML2 `;
+   
+    textField -e -backgroundColor 0 0 0   ResultLamb;
+
+   // Create SkinCluster node:
+   if(size ($skinClusterNode) == 0){
+       newSkinCluster "-toSelectedBones -bindMethod 0 -skinMethod 2 -normalizeWeights 1 -weightDistribution 0 -mi 6 -dr 5 -rui false,multipleBindPose,1";
+       select $Sel_01;
+       ImportSkin_proc();
+   }
+   
+   // Import weights:
+   if(size ($skinClusterNode) == 1){
+       if($JSON2 == 1){
+           deformerWeights -import -method "index" -deformer $skinClusterNode[0] -path $EmptyPath  $JSON_name ; 
+           skinCluster -e -forceNormalizeWeights $skinClusterNode[0];
+           textField -e -tx ("Skin weightes imported Successfully.  " + "'" + $JSON_name + "'")  Result;
+           textField -e -backgroundColor 0 1 0   ResultLamb;
+       }
+       if($XML2 == 1){
+           deformerWeights -import -method "index" -deformer $skinClusterNode[0] -path $EmptyPath  $XML_name ; 
+           skinCluster -e -forceNormalizeWeights $skinClusterNode[0];
+           textField -e -tx ("Skin weightes imported Successfully.  " + "'" + $XML_name + "'")  Result;
+           textField -e -backgroundColor 0 1 0   ResultLamb;
+       }
+   }
+   
+       
+}//End of Import skin weights:--------------------------------------------------------------------------------
+
+
+// Export all selection:--------------------------------------------------------------------------------------
+global proc ExportAllInfo()
+{
+    string $selection[] = `ls -sl`;
+    
+    
+    // Check size of selection:
+    if(`size ($selection)` == 0)
+    {
+        
+        textField -e -backgroundColor 1 0 0   ResultLamb;
+        textField -e -tx  " Please select skinned objects to export skin"  Result;
+        error -n "Please select skinned objects to export skin";
+    }
+    
+    string $ExportPass = ` textFieldButtonGrp -q  -text tFButton_export `;
+    if(`size ($ExportPass)` == 0)
+    {
+        
+        textField -e -backgroundColor 1 0 0   ResultLamb;
+        textField -e -tx  " Please click 'Browse' to set direction."  Result;
+        error -n " No direction found, Please click 'Browse' to set direction.";
+    }
+    
+    progressBar -edit
+        -beginProgress
+        -isInterruptable true
+        -maxValue (`size $selection`)
+        gMainProgressBar;
+
+    for($item in $selection)
+    {
+        select -cl; 
+        select -r $item;
+        GetInfo();
+        ExportInfo();
+        
+        progressBar -edit -step 1 gMainProgressBar;
+        
+    }
+    progressBar -edit -endProgress gMainProgressBar;
+    
+    inViewMessage 
+		-smg ("<font color=\"yellow\">" + "( " + (size ($selection)) + " ) Skin map successfully  exported") 
+		-pos topCenter 
+		-bkc 0x00000000  
+		-fade  
+		-fadeOutTime 1500 
+		-fadeStayTime 2000  
+		-fontSize 12;
+}
+
+
+// Import all selection:========================================================
+global proc AutoImportAllSelection()
+{
+    string $Selection[] = `ls -sl`;
+    
+    
+    // Check pass:
+    string $exampleFileName = `textFieldButtonGrp -q  -text tFButton_import`;
+    if(`size ($exampleFileName)` == 0)
+    {
+        
+        textField -e -backgroundColor 1 0 0   ResultLamb;
+        textField -e -tx  " Please import direction pass before use import all"  Result;
+        error -n "Please import direction pass before use import all";
+    }
+    
+    // Check size of selection:
+    if(`size ($Selection)` == 0)
+    {
+        
+        textField -e -backgroundColor 1 0 0   ResultLamb;
+        textField -e -tx  " Please select mesh objects to import skin"  Result;
+        error -n "Please select mesh objects to import skin";
+    }
+    
+        
+    progressBar -edit
+        -beginProgress
+        -isInterruptable true
+        -maxValue (`size $Selection`)
+        gMainProgressBar;
+
+    for($item in $Selection)
+    {
+        select -cl; 
+        select -r $item;
+        AutoImport(); // Correct pass with selected object name:
+        eval `SelectInfluences`; // Select influences:
+        ImportSkin_proc(); // Import skin info to selected object:
+        
+        progressBar -edit -step 1 gMainProgressBar;
+
+
+    }
+    progressBar -edit -endProgress gMainProgressBar;
+    
+    inViewMessage 
+		-smg ("<font color=\"yellow\">" + "( " + (size ($Selection)) + " ) Skin map successfully  imported") 
+		-pos topCenter 
+		-bkc 0x00000000  
+		-fade  
+		-fadeOutTime 1500 
+		-fadeStayTime 2000  
+		-fontSize 12;
+}// Import all selection End:===================================================
+
+global proc LockSelectedJoints()//Lock weights:
+{
+    
+    string $sel01[] = `ls -sl`;
+    for($eatch in $sel01)
+    {
+    	setAttr ($eatch + ".liw" )1;
+    }
+    textField -e -tx "Selected joints has been locked."  Result;
+}//End of Lock weights:---------------------------------------------------------------------------------------
+
+global proc UnLockSelectedJoints()//Unlock weights:
+{
+    
+    string $sel01[] = `ls -sl`;
+    for($eatch in $sel01)
+    {
+    	setAttr ($eatch + ".liw" )0;
+    }
+    textField -e -tx "Selected joints has been unlocked."  Result;textField -e -tx "The skin has been transferred successfully."  Result;
+}//End of Unlock weights:-------------------------------------------------------------------------------------
+
+global proc ChechMayaVer() // Check maya version:
+{
+    string $MayaVersion = `about -v`;
+    if($MayaVersion == 2018 || $MayaVersion == 2017 || $MayaVersion == 2016)
+    {
+        checkBox -e -enable false  CHB_JSON;
+        checkBox -e -v false  CHB_JSON;
+        checkBox -e -annotation "This option available in Maya 2019 and 2020 and newer versions"  CHB_JSON;
+
+
+        checkBox -e -enable false  CHB_JSON2;
+        checkBox -e -annotation "This option available in Maya 2019 and 2020 and newer versions"  CHB_JSON2;
+    }
+}//End of Check maya version:----------------------------------------------------------------------------------
+
+
+global proc TransferSkin()// Transfer Skin:
+{
+	string $skinGyo[] = ` ls -sl -type "transform"`;
+    int $DeleteH = `checkBox -q -v  DeleteHistoryChBox`;
+	
+	if(size($skinGyo) < 2)
+	{
+		 textField -e -backgroundColor 1 0 0   ResultLamb;
+		 confirmDialog -title "Error" -b "OK" -message "Please select 'Skin object' first, then select objects to transfer skin to them. \nThis will delete the construction history of target objects before transferring skin ";
+		 textField -e -backgroundColor 0 0 0   ResultLamb;
+         textField -e -tx "Please select 'Skin object' first, then select objects to transfer skin to them."  Result;
+	}else
+	{
+        // Transferring Skin >>>>>>>>>
+		string $baseGyo = $skinGyo[0];
+		
+		string $AllskinJoints[] = `skinCluster -query -inf $baseGyo`;// Get all skin joints
+		
+		string $skinC =  eval("findRelatedSkinCluster "+ $baseGyo);// Get SkinCluster node
+		
+		int $numG = size($skinGyo);
+		int $num = size($AllskinJoints);
+		
+		textField -e -backgroundColor 0 0 0   ResultLamb;
+		progressBar -edit
+	        -beginProgress
+	        -isInterruptable true
+	        -maxValue (`size $skinGyo`)
+	        gMainProgressBar;
+		
+		string $skinJoint[] ;
+		
+		for($N=0; $N <= $num; $N++)
+		{
+			
+			if($N == ($num-1))
+				{
+					$skinJoint[size($skinJoint)] = $AllskinJoints [$N];
+				}else{
+					$skinJoint[size($skinJoint)] = $AllskinJoints [$N];
+				}
+				
+		}
+		
+		
+		for($N=1; $N < $numG; $N++)
+		{
+			
+			
+			
+            if($DeleteH == 1)
+            {
+                delete -ch $skinGyo[$N];// Delete history
+            }
+			
+			catch ( `skinCluster -tsb $AllskinJoints $skinGyo[$N]` ) ;
+			
+			string $skinCT =  eval("findRelatedSkinCluster " + $skinGyo[$N]);
+			
+			copySkinWeights  -ss $skinC -ds $skinCT -noMirror  -normalize ;
+		  skinPercent -pruneWeights 0.05 $skinCT  $skinGyo[$N] ;
+		  skinCluster -edit -removeUnusedInfluence on  $skinCT ;
+		    
+		  select -r  $skinGyo[$N] ;
+		  eval("removeUnusedInfluences()");
+		  
+		  progressBar -edit -step 1 gMainProgressBar;
+				
+		}
+		progressBar -edit -step 1 gMainProgressBar;
+		pause -sec 1;
+		progressBar -edit -endProgress gMainProgressBar;
+
+
+        // Select objects:
+        select -cl;
+        for($item in $skinGyo)
+        {
+            select -add $item;
+        }
+        CopySkinAll();
+        textField -e -tx "The skin has been transferred successfully."  Result;
+        textField -e -backgroundColor 0 1 0   ResultLamb;
+	}
+
+    
+}//End Transfer Skin:------------------------------------------------------------------------------------------
+
+
+global proc CopySkinAll() // Copy Skin:
+{
+    string $selection[] = `ls -sl`; 
+    int $size = size($selection);
+
+    if(size($selection) < 2)
+	{
+		 textField -e -backgroundColor 1 0 0   ResultLamb;
+		 confirmDialog -title "Error" -b "OK" -message "Please select 'Skin object' first, then select objects to copy skin to them.";
+		 textField -e -backgroundColor 0 0 0   ResultLamb;
+         textField -e -tx "Please select 'Skin object' first, then select objects to copy skin to them."  Result;
+	}else{
+        for($N=1; $N < $size; $N++) // Copying Skin
+        {
+            textField -e -backgroundColor 0 0 0   ResultLamb;
+            select -r $selection[0];
+            select -add $selection[$N];
+            CopySkinWeights;
+            select -cl;
+            textField -e -backgroundColor 0 1 0   ResultLamb;
+            //print ($selection[$N] + "\n");
+        }
+        textField -e -tx "The skin has been Copied successfully."  Result;
+    }
+
+    
+}// End Copy skin:---------------------------------------------------------------------------------------------
+
+
+global proc SelectWeightedJnts()
+{
+    string $Sel_01[] = `ls -sl`;
+    string $listHistory[] = `listHistory $Sel_01[0]`;
+    string $skinClusterNode[] = `ls -type skinCluster $listHistory`;
+    //string $influences[] = ` skinCluster  -q   -influence  $skinClusterNode[0] `;
+    string $Winfluences[] = ` skinCluster  -q  -weightedInfluence $skinClusterNode[0] `;
+
+    select -cl;
+    for($jnt in $Winfluences)
+    {
+        select -add $jnt;
+    }
+}
+
+// Run Check vresion proc:
+ChechMayaVer();

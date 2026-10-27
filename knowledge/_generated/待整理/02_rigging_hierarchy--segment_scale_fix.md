@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/02_rigging_hierarchy|02_rigging_hierarchy]]
 - 源目录：02_rigging_hierarchy/segment_scale_fix
-- 代码文件：9 个，约 12.3 KiB
+- 代码文件：9 个，约 12.9 KiB
 - 原清单登记：否，尚需核对名称与描述
 - 主入口：[查看源码](../../../tools_staging_pool/02_rigging_hierarchy/segment_scale_fix/release_candidate/launch_candidate.py)
 

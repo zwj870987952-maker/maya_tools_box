@@ -4,12 +4,24 @@ import runpy
 import sys
 import unittest
 if os.environ.get('STAGING_ISOLATED_MAYAPY') != '1':
-    raise RuntimeError('Only isolated temporary Maya')
+    raise unittest.SkipTest('Only isolated temporary Maya')
 import maya.standalone
-maya.standalone.initialize(name='python')
+try:
+    maya.standalone.initialize(name='python')
+except Exception:
+    pass
 from maya import cmds, mel
+
+ROOT_DIR = str(Path(__file__).resolve().parents[1])
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+
 RC = Path(__file__).resolve().parents[1]
-TOOL = runpy.run_path(str(RC/'launch_candidate.py'))['load_tool']()
+if (RC / 'launch_candidate.py').is_file():
+    TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
+else:
+    from maya_toolkit.tools.bb_tools import BBToolsTool
+    TOOL = BBToolsTool()
 mod = sys.modules[TOOL.__class__.__module__]
 runtime = __import__(mod.__package__+'.runtime', fromlist=['runtime'])
 

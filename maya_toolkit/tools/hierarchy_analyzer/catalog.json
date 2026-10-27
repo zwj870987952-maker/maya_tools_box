@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "path": "maya_hierarchy_analysis.py",
+      "archive": "vendor/maya_hierarchy_analysis.py.original",
+      "sha256": "b354bdedb01ef5d2d655b7e074daa7ef488f0a783c8d3360a502c11287dcf71c",
+      "bytes": 13764
+    }
+  ],
+  "functions": [
+    "get_hierarchy_info",
+    "get_constraint_info",
+    "build_global_influence_graph",
+    "analyze_influence_hierarchy",
+    "topological_sort",
+    "verify_influence_hierarchy",
+    "main"
+  ],
+  "original_modified": false
+}

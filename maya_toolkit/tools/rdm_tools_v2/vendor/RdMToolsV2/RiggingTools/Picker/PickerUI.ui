@@ -1,0 +1,4707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>484</width>
+    <height>565</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>510</y>
+     <width>481</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Zero">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>530</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ZERO Sel</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="NamespaceLine">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>530</y>
+     <width>201</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"> border-radius: 10px</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Lock">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>530</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Lock</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="namespaceLabel">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>550</y>
+     <width>181</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>6</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="text">
+    <string>NAMESPACE</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="SetKey">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>530</y>
+     <width>51</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Set key</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="SelectAll">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>530</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Select All</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="R_PVLeg">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>350</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+}
+
+
+QPushButton:hover:!pressed
+{
+color: rgb(255, 255,255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>PV</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="R_FKLeg04">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>480</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>FK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="R_FKLeg01">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>360</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>FK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="L_FKLeg04">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>480</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>FK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="L_PVLeg">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>350</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: rgb(0, 0,255);
+	color: rgb(0, 0, 0);
+}
+
+
+QPushButton:hover:!pressed
+{
+color: rgb(255, 255,255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>PV</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="L_FKLeg03">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>440</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>FK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="R_FKLeg03">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>440</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>FK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="LLegIKFK">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>480</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton
+
+{
+
+border-style: solid;
+border-color:rgb(71, 136, 199);
+
+border-width: 2px;
+}
+
+QPushButton:hover:!pressed
+
+{
+
+border-style: solid;
+
+border-color:rgb(255, 255, 255);
+
+border-width: 2px;
+
+}</string>
+   </property>
+   <property name="text">
+    <string>IK FK</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>60</width>
+     <height>50</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="R_FKLeg02">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>400</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>FK</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line_5">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>390</y>
+     <width>20</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="L_FKLeg01">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>360</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>FK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="RLegIKFK">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>480</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton
+
+{
+
+border-style: solid;
+border-color:rgb(71, 136, 199);
+
+border-width: 2px;
+}
+
+QPushButton:hover:!pressed
+
+{
+
+border-style: solid;
+
+border-color:rgb(255, 255, 255);
+
+border-width: 2px;
+
+}</string>
+   </property>
+   <property name="text">
+    <string>IK FK</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>60</width>
+     <height>50</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="R_IKLeg">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>410</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+}
+
+
+QPushButton:hover:!pressed
+{
+color: rgb(255, 255,255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>IK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="L_FKLeg02">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>400</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>FK</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line_4">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>390</y>
+     <width>20</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="L_IKLeg">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>410</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: rgb(0, 0,255);
+	color: rgb(0, 0, 0);
+}
+
+
+QPushButton:hover:!pressed
+{
+color: rgb(255, 255,255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>IK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="TorsoNeck">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>40</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton
+
+{
+
+border-style: solid;
+border-color:rgb(71, 136, 199);
+
+border-width: 2px;
+}
+
+QPushButton:hover:!pressed
+
+{
+
+border-style: solid;
+
+border-color:rgb(255, 255, 255);
+
+border-width: 2px;
+
+}</string>
+   </property>
+   <property name="text">
+    <string>Mode</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>80</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="COG">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>300</y>
+     <width>151</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+
+QPushButton{
+background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+
+   border-radius:25px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(200, 200, 200);
+
+}
+</string>
+   </property>
+   <property name="text">
+    <string>COG</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Pelvis">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>330</y>
+     <width>91</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+
+QPushButton{
+background-color: rgb(0, 255, 0);
+color: rgb(0, 0, 0);
+
+   border-radius:25px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Pelvis</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Neck">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>89</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: rgb(0, 255, 200);
+	color: rgb(0, 0, 0);
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Neck</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Head">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>30</y>
+     <width>50</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: rgb(0, 255, 200);
+	color: rgb(0, 0, 0);
+   border-radius:25px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Head</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line_3">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>160</y>
+     <width>31</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="L_Clav">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>100</y>
+     <width>21</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: rgb(0, 0,255);
+	color: rgb(0, 0, 0);
+}
+
+
+QPushButton:hover:!pressed
+{
+color: rgb(255, 255,255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>C</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="L_FKArm01">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>100</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius: 20px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>FK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="L_FKArm02">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>100</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius: 20px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>FK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="LArmIKFK">
+   <property name="geometry">
+    <rect>
+     <x>429</x>
+     <y>200</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton
+
+{
+
+border-style: solid;
+border-color:rgb(71, 136, 199);
+
+border-width: 2px;
+}
+
+QPushButton:hover:!pressed
+
+{
+
+border-style: solid;
+
+border-color:rgb(255, 255, 255);
+
+border-width: 2px;
+
+}</string>
+   </property>
+   <property name="text">
+    <string>IK FK</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>60</width>
+     <height>50</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="L_FKArm03">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>100</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius: 20px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>FK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="L_PVArm">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>150</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: rgb(0, 0,255);
+	color: rgb(0, 0, 0);
+}
+
+
+QPushButton:hover:!pressed
+{
+color: rgb(255, 255,255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>PV</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="L_IKArm">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>150</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: rgb(0, 0,255);
+	color: rgb(0, 0, 0);
+}
+
+
+QPushButton:hover:!pressed
+{
+color: rgb(255, 255,255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>IK</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line_2">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>160</y>
+     <width>31</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="R_PVArm">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>150</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+}
+
+
+QPushButton:hover:!pressed
+{
+color: rgb(255, 255,255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>PV</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="R_FKArm02">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>100</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius: 20px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>FK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="R_Clav">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>100</y>
+     <width>21</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+}
+
+
+QPushButton:hover:!pressed
+{
+color: rgb(255, 255,255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>C</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="R_FKArm03">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>100</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius: 20px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>FK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="RArmIKFK">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>200</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton
+
+{
+
+border-style: solid;
+border-color:rgb(71, 136, 199);
+
+border-width: 2px;
+}
+
+QPushButton:hover:!pressed
+
+{
+
+border-style: solid;
+
+border-color:rgb(255, 255, 255);
+
+border-width: 2px;
+
+}</string>
+   </property>
+   <property name="text">
+    <string>IK FK</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>60</width>
+     <height>50</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="R_FKArm01">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>100</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius: 20px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>FK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="R_IKArm">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>150</y>
+     <width>40</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+}
+
+
+QPushButton:hover:!pressed
+{
+color: rgb(255, 255,255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>IK</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="RightHandBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>230</y>
+     <width>141</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-style: solid;
+</string>
+   </property>
+   <property name="title">
+    <string>Right Hand</string>
+   </property>
+   <widget class="Line" name="line_6">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>20</y>
+      <width>16</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="R_PinkyBtn4">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>80</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="R_ThumbBtn1">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>20</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="R_MiddleBtn1">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>20</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="R_RingBtn4">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>80</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="R_RingBtn1">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="R_PinkyBtn2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>40</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="R_RingBtn3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>60</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="R_PinkyBtn3">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>60</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="R_IndexBtn2">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>40</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="R_RingBtn2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="R_MiddleBtn2">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>40</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="R_IndexBtn4">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>80</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="R_PinkyBtn1">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>20</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="R_MiddleBtn4">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>80</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="R_MiddleBtn3">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>60</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="R_IndexBtn3">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>60</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="R_IndexBtn1">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>20</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="Line" name="line_14">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>20</y>
+      <width>51</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_9">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>20</y>
+      <width>16</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_7">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>16</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_8">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>20</y>
+      <width>16</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="R_ThumbBtn3">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>20</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="R_ThumbBtn2">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>20</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_21">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>70</y>
+      <width>31</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Hide</string>
+    </property>
+   </widget>
+   <zorder>line_14</zorder>
+   <zorder>line_8</zorder>
+   <zorder>line_7</zorder>
+   <zorder>line_9</zorder>
+   <zorder>line_6</zorder>
+   <zorder>R_PinkyBtn4</zorder>
+   <zorder>R_ThumbBtn1</zorder>
+   <zorder>R_MiddleBtn1</zorder>
+   <zorder>R_RingBtn4</zorder>
+   <zorder>R_RingBtn1</zorder>
+   <zorder>R_PinkyBtn2</zorder>
+   <zorder>R_RingBtn3</zorder>
+   <zorder>R_PinkyBtn3</zorder>
+   <zorder>R_IndexBtn2</zorder>
+   <zorder>R_RingBtn2</zorder>
+   <zorder>R_MiddleBtn2</zorder>
+   <zorder>R_IndexBtn4</zorder>
+   <zorder>R_PinkyBtn1</zorder>
+   <zorder>R_MiddleBtn4</zorder>
+   <zorder>R_MiddleBtn3</zorder>
+   <zorder>R_IndexBtn3</zorder>
+   <zorder>R_IndexBtn1</zorder>
+   <zorder>R_ThumbBtn3</zorder>
+   <zorder>R_ThumbBtn2</zorder>
+   <zorder>pushButton_21</zorder>
+  </widget>
+  <widget class="QGroupBox" name="LeftHandBox">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>230</y>
+     <width>151</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-style: solid;
+</string>
+   </property>
+   <property name="title">
+    <string>Left Hand</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <widget class="QPushButton" name="L_RingBtn2">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>40</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(200, 200, 255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="L_RingBtn1">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>20</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(200, 200, 255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="L_MiddleBtn1">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>20</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(200, 200, 255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="L_ThumbBtn3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(200, 200, 255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="Line" name="line_11">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>20</y>
+      <width>16</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="L_RingBtn4">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>80</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(200, 200, 255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="Line" name="line_13">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>20</y>
+      <width>16</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="L_MiddleBtn3">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>60</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(200, 200, 255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="L_PinkyBtn2">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>40</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(200, 200, 255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="L_PinkyBtn3">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>60</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(200, 200, 255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="L_IndexBtn3">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>60</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(200, 200, 255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="L_ThumbBtn2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(200, 200, 255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="L_IndexBtn2">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>40</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(200, 200, 255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="L_MiddleBtn4">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>80</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(200, 200, 255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="L_MiddleBtn2">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>40</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(200, 200, 255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="Line" name="line_12">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>20</y>
+      <width>16</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_15">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>51</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="L_IndexBtn4">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>80</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(200, 200, 255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="L_RingBtn3">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>60</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(200, 200, 255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="L_IndexBtn1">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>20</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(200, 200, 255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="L_PinkyBtn4">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>80</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <stylestrategy>PreferAntialias</stylestrategy>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(200, 200, 255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>10</width>
+      <height>16</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="L_PinkyBtn1">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>20</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(200, 200, 255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="L_ThumbBtn1">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>20</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0, 255);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(200, 200, 255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="Line" name="line_10">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>20</y>
+      <width>16</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_22">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>70</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Hide</string>
+    </property>
+   </widget>
+   <zorder>line_10</zorder>
+   <zorder>line_11</zorder>
+   <zorder>line_12</zorder>
+   <zorder>line_15</zorder>
+   <zorder>L_RingBtn2</zorder>
+   <zorder>L_RingBtn1</zorder>
+   <zorder>L_MiddleBtn1</zorder>
+   <zorder>L_ThumbBtn3</zorder>
+   <zorder>L_RingBtn4</zorder>
+   <zorder>line_13</zorder>
+   <zorder>L_MiddleBtn3</zorder>
+   <zorder>L_PinkyBtn2</zorder>
+   <zorder>L_PinkyBtn3</zorder>
+   <zorder>L_IndexBtn3</zorder>
+   <zorder>L_ThumbBtn2</zorder>
+   <zorder>L_IndexBtn2</zorder>
+   <zorder>L_MiddleBtn4</zorder>
+   <zorder>L_MiddleBtn2</zorder>
+   <zorder>L_IndexBtn4</zorder>
+   <zorder>L_RingBtn3</zorder>
+   <zorder>L_IndexBtn1</zorder>
+   <zorder>L_PinkyBtn4</zorder>
+   <zorder>L_PinkyBtn1</zorder>
+   <zorder>L_ThumbBtn1</zorder>
+   <zorder>pushButton_22</zorder>
+  </widget>
+  <widget class="QPushButton" name="ShowRHand">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>230</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Hand</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ShowLHand">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>230</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Hand</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="IKSpineON">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>210</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>FK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="FKSpineON">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>210</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>IK</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>100</y>
+     <width>91</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-style: solid;
+</string>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+   <widget class="QPushButton" name="SpineFK01">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>160</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton{
+background-color: rgb(200, 0, 200);
+	color: rgb(0, 0, 0);
+   border-radius:25px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+background-color: rgb(200, 0, 200);</string>
+    </property>
+    <property name="text">
+     <string>Spine FK</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="SpineIK02">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+
+QPushButton{
+background-color: rgb(0, 255, 0);
+color: rgb(0, 0, 0);
+
+   border-radius:25px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Spine IK</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="SpineIK01">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+
+QPushButton{
+background-color: rgb(0, 255, 0);
+color: rgb(0, 0, 0);
+
+   border-radius:25px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Spine IK</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="SpineFK03">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>20</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton{
+background-color: rgb(200, 0, 200);
+	color: rgb(0, 0, 0);
+   border-radius:25px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Spine FK</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="SpineFK02">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>90</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton{
+background-color: rgb(200, 0, 200);
+	color: rgb(0, 0, 0);
+   border-radius:25px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Spine FK</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="FKSpineBox">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>100</y>
+     <width>91</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-style: solid;
+</string>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+   <widget class="QPushButton" name="SpineFK01_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>160</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+
+QPushButton{
+background-color: rgb(0, 255, 0);
+color: rgb(0, 0, 0);
+
+   border-radius:25px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Spine FK</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="SpineFK03_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>70</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+
+QPushButton{
+background-color: rgb(255, 255, 0);
+color: black;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Spine FK</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="SpineFK02_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>110</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+
+QPushButton{
+background-color: rgb(255, 255, 0);
+color: black;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Spine FK</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="SpineFK04_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>20</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+
+QPushButton{
+background-color: rgb(0, 255, 0);
+color: rgb(0, 0, 0);
+
+   border-radius:25px;
+}
+
+
+QPushButton:hover:!pressed
+{
+	color: rgb(255, 255, 255);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Spine FK</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QCheckBox" name="checkBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>480</y>
+     <width>70</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Ribbons</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="RLegRibbonBox">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>350</y>
+     <width>41</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="RRibbonLeg1">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="RRibbonLeg2">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="RRibbonLeg3">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="RRibbonLeg4">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="RRibbonLeg5">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="RRibbonLeg6">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="RRibbonLeg7">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="LLegRibbonBox">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>350</y>
+     <width>31</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QPushButton" name="LRibbonLeg1">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="LRibbonLeg2">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="LRibbonLeg3">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="LRibbonLeg4">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="LRibbonLeg5">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="LRibbonLeg6">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="LRibbonLeg7">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="LArmRibbonBox">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>60</y>
+     <width>171</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QPushButton" name="LRibbonArm1">
+      <property name="minimumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="LRibbonArm2">
+      <property name="minimumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="LRibbonArm3">
+      <property name="minimumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="LRibbonArm4">
+      <property name="minimumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="LRibbonArm5">
+      <property name="minimumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="LRibbonArm6">
+      <property name="minimumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="LRibbonArm7">
+      <property name="minimumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="RArmRibbonBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>60</y>
+     <width>171</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="RRibbonArm7">
+      <property name="minimumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="RRibbonArm6">
+      <property name="minimumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="RRibbonArm5">
+      <property name="minimumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="RRibbonArm4">
+      <property name="minimumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="RRibbonArm3">
+      <property name="minimumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="RRibbonArm2">
+      <property name="minimumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="RRibbonArm1">
+      <property name="minimumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>400</y>
+     <width>61</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>RFL</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+   <widget class="QPushButton" name="LRF01">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>60</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0,255);
+	color: rgb(0, 0, 0);
+}
+
+
+QPushButton:hover:!pressed
+{
+color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="LRF03">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0,255);
+	color: rgb(0, 0, 0);
+}
+
+
+QPushButton:hover:!pressed
+{
+color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="LRF06">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>80</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0,255);
+	color: rgb(0, 0, 0);
+}
+
+
+QPushButton:hover:!pressed
+{
+color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="LRF04">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0,255);
+	color: rgb(0, 0, 0);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="LRF02">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>60</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0,255);
+	color: rgb(0, 0, 0);
+}
+
+
+QPushButton:hover:!pressed
+{
+color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="LRF05">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>60</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(0, 0,255);
+	color: rgb(0, 0, 0);
+}
+
+
+QPushButton:hover:!pressed
+{
+color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_3">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>400</y>
+     <width>61</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="title">
+    <string>RFL</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+   <widget class="QPushButton" name="RRF02">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>60</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="RRF01">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>60</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="RRF05">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>60</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="RRF03">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="RRF06">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>80</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="RRF04">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+   border-radius:15px;
+}
+
+
+QPushButton:hover:!pressed
+{
+background-color: rgb(255, 255,255);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>19</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="UnLock">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>530</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Un</string>
+   </property>
+  </widget>
+  <zorder>UnLock</zorder>
+  <zorder>Lock</zorder>
+  <zorder>LLegRibbonBox</zorder>
+  <zorder>groupBox</zorder>
+  <zorder>RightHandBox</zorder>
+  <zorder>FKSpineBox</zorder>
+  <zorder>RLegRibbonBox</zorder>
+  <zorder>LArmRibbonBox</zorder>
+  <zorder>RArmRibbonBox</zorder>
+  <zorder>ShowLHand</zorder>
+  <zorder>ShowRHand</zorder>
+  <zorder>line</zorder>
+  <zorder>Zero</zorder>
+  <zorder>NamespaceLine</zorder>
+  <zorder>namespaceLabel</zorder>
+  <zorder>SetKey</zorder>
+  <zorder>SelectAll</zorder>
+  <zorder>R_PVLeg</zorder>
+  <zorder>R_FKLeg04</zorder>
+  <zorder>R_FKLeg01</zorder>
+  <zorder>L_FKLeg04</zorder>
+  <zorder>L_PVLeg</zorder>
+  <zorder>L_FKLeg03</zorder>
+  <zorder>R_FKLeg03</zorder>
+  <zorder>LLegIKFK</zorder>
+  <zorder>R_FKLeg02</zorder>
+  <zorder>line_5</zorder>
+  <zorder>L_FKLeg01</zorder>
+  <zorder>RLegIKFK</zorder>
+  <zorder>R_IKLeg</zorder>
+  <zorder>L_FKLeg02</zorder>
+  <zorder>line_4</zorder>
+  <zorder>L_IKLeg</zorder>
+  <zorder>TorsoNeck</zorder>
+  <zorder>COG</zorder>
+  <zorder>Pelvis</zorder>
+  <zorder>Neck</zorder>
+  <zorder>Head</zorder>
+  <zorder>line_3</zorder>
+  <zorder>L_Clav</zorder>
+  <zorder>L_FKArm01</zorder>
+  <zorder>L_FKArm02</zorder>
+  <zorder>LArmIKFK</zorder>
+  <zorder>L_FKArm03</zorder>
+  <zorder>L_PVArm</zorder>
+  <zorder>L_IKArm</zorder>
+  <zorder>line_2</zorder>
+  <zorder>R_PVArm</zorder>
+  <zorder>R_FKArm02</zorder>
+  <zorder>R_Clav</zorder>
+  <zorder>R_FKArm03</zorder>
+  <zorder>RArmIKFK</zorder>
+  <zorder>R_FKArm01</zorder>
+  <zorder>R_IKArm</zorder>
+  <zorder>LeftHandBox</zorder>
+  <zorder>IKSpineON</zorder>
+  <zorder>FKSpineON</zorder>
+  <zorder>checkBox</zorder>
+  <zorder>groupBox_2</zorder>
+  <zorder>groupBox_3</zorder>
+ </widget>
+ <resources>
+  <include location="../../Resources/iconResources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>ShowLHand</sender>
+   <signal>clicked()</signal>
+   <receiver>LeftHandBox</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>457</x>
+     <y>241</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>371</x>
+     <y>285</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ShowRHand</sender>
+   <signal>clicked()</signal>
+   <receiver>RightHandBox</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>28</x>
+     <y>248</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>113</x>
+     <y>298</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_22</sender>
+   <signal>clicked()</signal>
+   <receiver>LeftHandBox</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>373</x>
+     <y>308</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>342</x>
+     <y>281</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_21</sender>
+   <signal>clicked()</signal>
+   <receiver>RightHandBox</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>118</x>
+     <y>313</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>130</x>
+     <y>286</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_22</sender>
+   <signal>clicked()</signal>
+   <receiver>ShowLHand</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>387</x>
+     <y>319</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>435</x>
+     <y>241</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_21</sender>
+   <signal>clicked()</signal>
+   <receiver>ShowRHand</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>120</x>
+     <y>308</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>57</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ShowLHand</sender>
+   <signal>clicked()</signal>
+   <receiver>ShowLHand</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>466</x>
+     <y>242</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>445</x>
+     <y>243</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ShowRHand</sender>
+   <signal>clicked()</signal>
+   <receiver>ShowRHand</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>51</x>
+     <y>248</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>26</x>
+     <y>245</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>IKSpineON</sender>
+   <signal>clicked()</signal>
+   <receiver>groupBox</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>178</x>
+     <y>213</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>204</x>
+     <y>182</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>FKSpineON</sender>
+   <signal>clicked()</signal>
+   <receiver>groupBox</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>319</x>
+     <y>213</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>288</x>
+     <y>185</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>FKSpineON</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>FKSpineBox</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>327</x>
+     <y>217</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>238</x>
+     <y>108</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>IKSpineON</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>FKSpineBox</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>170</x>
+     <y>211</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>238</x>
+     <y>110</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>FKSpineON</sender>
+   <signal>clicked()</signal>
+   <receiver>FKSpineON</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>307</x>
+     <y>213</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>316</x>
+     <y>217</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>IKSpineON</sender>
+   <signal>clicked()</signal>
+   <receiver>IKSpineON</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>189</x>
+     <y>213</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>172</x>
+     <y>212</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>FKSpineON</sender>
+   <signal>clicked()</signal>
+   <receiver>IKSpineON</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>308</x>
+     <y>215</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>169</x>
+     <y>217</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>IKSpineON</sender>
+   <signal>clicked()</signal>
+   <receiver>FKSpineON</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>170</x>
+     <y>225</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>322</x>
+     <y>220</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>RLegRibbonBox</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>49</x>
+     <y>487</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>99</x>
+     <y>412</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>RLegRibbonBox</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>33</x>
+     <y>496</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>91</x>
+     <y>454</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>LLegRibbonBox</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>74</x>
+     <y>482</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>396</x>
+     <y>456</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>LLegRibbonBox</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>63</x>
+     <y>480</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>387</x>
+     <y>416</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>RArmRibbonBox</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>28</x>
+     <y>491</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>52</x>
+     <y>89</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>RArmRibbonBox</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>28</x>
+     <y>488</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>54</x>
+     <y>65</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>LArmRibbonBox</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>54</x>
+     <y>485</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>364</x>
+     <y>64</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>LArmRibbonBox</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>41</x>
+     <y>487</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>416</x>
+     <y>95</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Lock</sender>
+   <signal>clicked()</signal>
+   <receiver>UnLock</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>383</x>
+     <y>530</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>429</x>
+     <y>503</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UnLock</sender>
+   <signal>clicked()</signal>
+   <receiver>Lock</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>426</x>
+     <y>513</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>369</x>
+     <y>538</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UnLock</sender>
+   <signal>clicked()</signal>
+   <receiver>UnLock</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>433</x>
+     <y>493</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>433</x>
+     <y>493</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Lock</sender>
+   <signal>clicked()</signal>
+   <receiver>Lock</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>365</x>
+     <y>538</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>373</x>
+     <y>551</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

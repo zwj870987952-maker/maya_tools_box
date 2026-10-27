@@ -1,0 +1,284 @@
+global proc scpstg_skin17_legacy_GetInfo()//Get info:
+{
+   string $Sel_01[] = `ls -sl`;
+
+   if(size($Sel_01) == 0){
+       textField -e -backgroundColor 1 0 0   ResultLamb;
+       confirmDialog -b "OK" -message "Please select skin object.";
+       //error "Please select skin object.";
+       textField -e -backgroundColor 0 0 0   ResultLamb;
+       }else{
+        string $listHistory[] = `listHistory $Sel_01[0]`;
+        string $skinClusterNode[] = `ls -type skinCluster $listHistory`;
+        string $influences[] = ` skinCluster  -q   -influence  $skinClusterNode[0] `;
+        string $Winfluences[] = ` skinCluster  -q  -weightedInfluence $skinClusterNode[0] `;
+        textFieldGrp -e -tx `size ($influences)` TextF_TotalInfluences;
+        textFieldGrp -e -tx `size ($Winfluences)` TextF_WeightedInfluences;
+
+        string $spliters[];
+        tokenize  $Sel_01[0] ":" $spliters; // Remove namespace:
+
+
+        if (size($spliters) == 1){
+            textFieldGrp -e -tx $Sel_01[0] TextF_FileName; // No namespace found:
+            textField -e -tx ($Sel_01[0] + " ... Ready to export ....")  Result;
+        }else{
+            textFieldGrp -e -tx $spliters[size($spliters)-1] TextF_FileName; // With namespace found:
+            textField -e -tx ($spliters[size($spliters)-1] + " ... Ready to export ....")  Result;
+        }
+
+   textField -e -backgroundColor 1 1 0   ResultLamb;
+       }
+}// End of get info:------------------------------------------------------------------------------------------
+global proc scpstg_skin17_legacy_BrowseToExport()//Get Direction:
+{
+    string $FileBrowse1[] = `fileDialog2 -hideNameEdit off -okCaption "Set Directory" -fileMode 2  -dialogStyle 4 -caption "Export skin info"`;
+    textFieldButtonGrp -e  -text $FileBrowse1 tFButton_export;
+    textField -e -tx ("Export direction has been set to ... " + $FileBrowse1[0])  Result;
+    textField -e -backgroundColor 0 0 0   ResultLamb;
+}//End of Get Direction:--------------------------------------------------------------------------------------
+global proc scpstg_skin17_legacy_ExportInfo()//Export weighted influence joints in a text file:
+{
+   string $Sel_01[] = `ls -sl`;
+   string $listHistory[] = `listHistory $Sel_01[0]`;
+   string $skinClusterNode[] = `ls -type skinCluster $listHistory`;
+   string $influences[] = ` skinCluster  -q  -weightedInfluence $skinClusterNode[0] `;
+   string $FileName = `textFieldGrp -q -tx TextF_FileName`;
+   int $JSON = ` checkBox -q -value  CHB_JSON `;
+   int $XML = ` checkBox -q -value  CHB_XML `;
+
+   textField -e -backgroundColor 0 0 0   ResultLamb;
+
+   // Clear data:
+   string $exampleFileName = `textFieldButtonGrp -q  -text tFButton_export`;
+   int $fileId= `fopen ($exampleFileName + "/" +  $FileName + ".txt") "w"`;
+   fclose $fileId;
+
+   // Export Skin map:
+   if($JSON == 1) {deformerWeights -export -deformer $skinClusterNode[0] -format "JSON" -path $exampleFileName ($FileName + ".json");}
+   if($XML == 1) {deformerWeights -export -deformer $skinClusterNode[0] -format "XML" -path $exampleFileName ($FileName + ".xml");}
+
+   // Export data to text file:
+   for($influence in $influences)
+   {
+       $fileId= `fopen ($exampleFileName + "/" +  $FileName + ".txt") "a"`;
+       fprint $fileId ("select -add " + $influence + "; \n");
+       fclose $fileId;
+   }
+
+   // Print result:
+   textField -e -tx ($skinClusterNode[0] + " weighted influences has been exported.")  Result;
+   textField -e -backgroundColor 0 1 0   ResultLamb;
+}//End of Export:---------------------------------------------------------------------------------------------
+global proc scpstg_skin17_legacy_BrowseToImport() //Get Direction:
+{
+    string $FileBrowse1[] = `fileDialog2 -fileFilter "*.txt" -dialogStyle 2 -fileMode 1 -caption "Export skin info"`;
+
+    textFieldButtonGrp -e  -text $FileBrowse1 tFButton_import;
+    textField -e -backgroundColor 0 0 0   ResultLamb;
+    textField -e -tx ("Select your object , then select influance , then import skin ...")  Result;
+}//End of Get Direction:--------------------------------------------------------------------------------------
+global proc scpstg_skin17_legacy_AutoImport() //Auto import path for selectd object:
+{
+    string $sourcePath = `textFieldButtonGrp -q  -text tFButton_import`; // Get full path:
+    string $BaseName = ` basenameEx ($sourcePath) `; // Get file name only
+    string $EmptyPath = `substitute ($BaseName + ".txt") $sourcePath ""`; // Get path only
+    string $selectedObj[] = `ls -sl`;
+
+    if(size($sourcePath) == 0)
+    {
+        textField -e -backgroundColor 1 0 0   ResultLamb;
+        confirmDialog -b "Ok" -t "Don't be hurry." -m "Please import any file manually before ues Auto Import function.";
+        textField -e -tx ("Please import any file manually before ues Auto Import function.")  Result;
+    }else{
+        string $spliters[];
+        tokenize  $selectedObj[0] ":" $spliters; // Remove namespace:
+        textFieldButtonGrp -e  -text ($EmptyPath + $spliters[size($spliters)-1] + ".txt") tFButton_import;
+    }
+
+     textField -e -backgroundColor 0 0 0   ResultLamb;
+}//End of Auto import:---------------------------------------------------------------------------------------
+global proc string scpstg_skin17_legacy_SelectInfluences()// Open file and read the data:
+{
+   string $exampleFileName = `textFieldButtonGrp -q  -text tFButton_import`;
+   if(size($exampleFileName) == 0){
+       textField -e -backgroundColor 1 0 0   ResultLamb;
+       confirmDialog -b "OK" -m "Please import skin info file.";
+       textField -e -backgroundColor 0 0 0   ResultLamb;
+       return "print \"Please import skin info file.\"";
+   }else{
+        string $allText = freadAllText($exampleFileName);
+        textField -e -tx "Weighted influences has been selectd."  Result;
+        return $allText;
+   }
+   textField -e -backgroundColor 0 0 0   ResultLamb;
+}//End of Open the file and read the data:--------------------------------------------------------------------
+global proc  scpstg_skin17_legacy_ImportSkin_proc()// Import skin weights to selected object:
+{
+
+   string $exampleFileName = `textFieldButtonGrp -q  -text tFButton_import`;
+   string $BaseName = ` basenameEx ($exampleFileName) `; // Get file name only
+   string $EmptyPath = `substitute ($BaseName + ".txt") $exampleFileName ""`; // Get path only
+   string $JSON_path_test = `substitute ".txt" $exampleFileName ".json"`;
+   string $XML_path_test = `substitute ".txt" $exampleFileName ".xml"`;
+   string $JSON_name = ($BaseName + ".json");
+   string $XML_name = ($BaseName + ".xml");
+   string $Sel_01[] = `ls -sl`;
+   string $listHistory[] = `listHistory $Sel_01[0]`;
+   string $skinClusterNode[] = `ls -type skinCluster $listHistory`;
+   int $JSON2 = ` checkBox -q -value  CHB_JSON2 `;
+   int $XML2 = ` checkBox -q -value  CHB_XML2 `;
+
+    textField -e -backgroundColor 0 0 0   ResultLamb;
+
+   // Create SkinCluster node:
+   if(size ($skinClusterNode) == 0){
+       newSkinCluster "-toSelectedBones -bindMethod 0 -skinMethod 2 -normalizeWeights 1 -weightDistribution 0 -mi 6 -dr 5 -rui false,multipleBindPose,1";
+       select $Sel_01;
+       scpstg_skin17_legacy_ImportSkin_proc();
+   }
+
+   // Import weights:
+   if(size ($skinClusterNode) == 1){
+       if($JSON2 == 1){
+           deformerWeights -import -method "index" -deformer $skinClusterNode[0] -path $EmptyPath  $JSON_name ;
+           skinCluster -e -forceNormalizeWeights $skinClusterNode[0];
+           textField -e -tx ("Skin weightes imported Successfully.  " + "'" + $JSON_name + "'")  Result;
+           textField -e -backgroundColor 0 1 0   ResultLamb;
+       }
+       if($XML2 == 1){
+           deformerWeights -import -method "index" -deformer $skinClusterNode[0] -path $EmptyPath  $XML_name ;
+           skinCluster -e -forceNormalizeWeights $skinClusterNode[0];
+           textField -e -tx ("Skin weightes imported Successfully.  " + "'" + $XML_name + "'")  Result;
+           textField -e -backgroundColor 0 1 0   ResultLamb;
+       }
+   }
+
+
+}//End of Import skin weights:--------------------------------------------------------------------------------
+global proc scpstg_skin17_legacy_ExportAllInfo()
+{
+    string $selection[] = `ls -sl`;
+
+
+    // Check size of selection:
+    if(`size ($selection)` == 0)
+    {
+
+        textField -e -backgroundColor 1 0 0   ResultLamb;
+        textField -e -tx  " Please select skinned objects to export skin"  Result;
+        error -n "Please select skinned objects to export skin";
+    }
+
+    string $ExportPass = ` textFieldButtonGrp -q  -text tFButton_export `;
+    if(`size ($ExportPass)` == 0)
+    {
+
+        textField -e -backgroundColor 1 0 0   ResultLamb;
+        textField -e -tx  " Please click 'Browse' to set direction."  Result;
+        error -n " No direction found, Please click 'Browse' to set direction.";
+    }
+
+    progressBar -edit
+        -beginProgress
+        -isInterruptable true
+        -maxValue (`size $selection`)
+        gMainProgressBar;
+
+    for($item in $selection)
+    {
+        select -cl;
+        select -r $item;
+        scpstg_skin17_legacy_GetInfo();
+        scpstg_skin17_legacy_ExportInfo();
+
+        progressBar -edit -step 1 gMainProgressBar;
+
+
+
+    }
+    progressBar -edit -endProgress gMainProgressBar;
+
+    inViewMessage
+		-smg ("<font color=\"yellow\">" + "( " + (size ($selection)) + " ) Skin map successfully  exported")
+		-pos topCenter
+		-bkc 0x00000000
+		-fade
+		-fadeOutTime 1500
+		-fadeStayTime 2000
+		-fontSize 12;
+}
+global proc scpstg_skin17_legacy_AutoImportAllSelection()
+{
+    string $Selection[] = `ls -sl`;
+
+
+    // Check pass:
+    string $exampleFileName = `textFieldButtonGrp -q  -text tFButton_import`;
+    if(`size ($exampleFileName)` == 0)
+    {
+
+        textField -e -backgroundColor 1 0 0   ResultLamb;
+        textField -e -tx  " Please import direction pass before use import all"  Result;
+        error -n "Please import direction pass before use import all";
+    }
+
+    // Check size of selection:
+    if(`size ($Selection)` == 0)
+    {
+
+        textField -e -backgroundColor 1 0 0   ResultLamb;
+        textField -e -tx  " Please select mesh objects to import skin"  Result;
+        error -n "Please select mesh objects to import skin";
+    }
+
+
+    progressBar -edit
+        -beginProgress
+        -isInterruptable true
+        -maxValue (`size $Selection`)
+        gMainProgressBar;
+
+    for($item in $Selection)
+    {
+        select -cl;
+        select -r $item;
+        scpstg_skin17_legacy_AutoImport(); // Correct pass with selected object name:
+        eval `scpstg_skin17_legacy_SelectInfluences`; // Select influences:
+        scpstg_skin17_legacy_ImportSkin_proc(); // Import skin info to selected object:
+
+        progressBar -edit -step 1 gMainProgressBar;
+
+
+    }
+    progressBar -edit -endProgress gMainProgressBar;
+
+    inViewMessage
+		-smg ("<font color=\"yellow\">" + "( " + (size ($Selection)) + " ) Skin map successfully  imported")
+		-pos topCenter
+		-bkc 0x00000000
+		-fade
+		-fadeOutTime 1500
+		-fadeStayTime 2000
+		-fontSize 12;
+}// Import all selection End:===================================================
+global proc scpstg_skin17_legacy_LockSelectedJoints()//Lock weights:
+{
+
+    string $sel01[] = `ls -sl`;
+    for($eatch in $sel01)
+    {
+    	setAttr ($eatch + ".liw" )1;
+    }
+    textField -e -tx "Selected joints has been locked."  Result;
+}//End of Lock weights:---------------------------------------------------------------------------------------
+global proc scpstg_skin17_legacy_UnLockSelectedJoints()//Unlock weights:
+{
+
+    string $sel01[] = `ls -sl`;
+    for($eatch in $sel01)
+    {
+    	setAttr ($eatch + ".liw" )0;
+    }
+    textField -e -tx "Selected joints has been unlocked."  Result;
+}//End of Unlock weights:-------------------------------------------------------------------------------------

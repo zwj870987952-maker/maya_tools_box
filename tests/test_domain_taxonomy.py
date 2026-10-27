@@ -75,6 +75,24 @@ class TestDomainTaxonomy(unittest.TestCase):
 
         rig_tools = ToolRegistry.list_tools(domain=ToolDomain.RIGGING)
         self.assertTrue(any(t["tool_id"] == "copy_overlapping_weights" for t in rig_tools))
+        self.assertTrue(any(t["tool_id"] == "base_overrig_v9_0" for t in rig_tools))
+        self.assertTrue(any(t["tool_id"] == "batch_skin_bind" for t in rig_tools))
+        self.assertTrue(any(t["tool_id"] == "bb_tools" for t in rig_tools))
+        self.assertTrue(any(t["tool_id"] == "constraint_manager_v6" for t in rig_tools))
+        self.assertTrue(any(t["tool_id"] == "hierarchy_analyzer" for t in rig_tools))
+        self.assertTrue(any(t["tool_id"] == "joint_optimal_pro_v4_1" for t in rig_tools))
+        self.assertTrue(any(t["tool_id"] == "rdm_tools_v2" for t in rig_tools))
+        self.assertTrue(any(t["tool_id"] == "relationship_tools_v19" for t in rig_tools))
+        self.assertTrue(any(t["tool_id"] == "reparent_pro_v1_5_1" for t in rig_tools))
+        self.assertTrue(any(t["tool_id"] == "segment_scale_fix" for t in rig_tools))
+        self.assertTrue(any(t["tool_id"] == "skeleton_generator" for t in rig_tools))
+        self.assertTrue(any(t["tool_id"] == "skin_info_and_super_connect" for t in rig_tools))
+        self.assertTrue(any(t["tool_id"] == "skin_magic" for t in rig_tools))
+        self.assertTrue(any(t["tool_id"] == "skin_weight_transfer" for t in rig_tools))
+
+        model_tools = ToolRegistry.list_tools(domain=ToolDomain.MODELING_SURFACING)
+        self.assertTrue(any(t["tool_id"] == "camera_f_fix" for t in model_tools))
+        self.assertTrue(any(t["tool_id"] == "cvwrap_weightdriver" for t in model_tools))
 
     def test_domains_summary(self):
         """测试 list_domains_summary 的统计完整性"""

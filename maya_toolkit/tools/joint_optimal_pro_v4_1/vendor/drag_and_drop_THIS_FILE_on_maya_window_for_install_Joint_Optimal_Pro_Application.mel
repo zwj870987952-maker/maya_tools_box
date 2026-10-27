@@ -1,0 +1,47 @@
+// drag and drop this file on maya window for create shelf button
+global proc JOPA_hello_i_am_here()
+{
+}
+global proc string asInstallScriptLocation (string $proc_name)
+{
+    string $whatIs=`whatIs $proc_name`;
+    string $fullPath=`substring $whatIs 25 999`;
+    string $buffer[];
+    string $slash="/";
+    if (`gmatch $whatIs "*\\\\*"`)
+    	$slash="\\";
+    int $numTok=`tokenize $fullPath $slash $buffer`;
+    int $numLetters=size($fullPath);
+    int $numLettersLastFolder=size($buffer[$numTok-1]);
+    string $scriptLocation=`substring $fullPath 1 ($numLetters-$numLettersLastFolder)`;
+    return $scriptLocation;
+}
+global proc create_JOPA_shelf_button(string $path)
+{
+	global string $gShelfTopLevel;
+	string $shelves[] = `tabLayout -q -childArray $gShelfTopLevel`;
+	$valid=stringArrayContains("Custom",$shelves);
+	if($valid==0)
+		addNewShelfTab("Custom");
+
+    $fin_path=$path + "barnev_Joint_Optimal_Pro_Application_code.mel";
+	$ico_path=$path + "ico/" + "create_joint_tools.png";
+    $command="source \"" + $fin_path + "\"; \nJOPA_skeleton_tools_menue;";
+    	
+	
+	shelfButton -parent "Custom" 
+				-enable 1 
+				-width 34 
+				-height 34 
+				-manage 1 
+				-visible 1 
+				-annotation "barnev Joint Optimal Pro Application - toolset for creation skeletons" 
+				-label "Select None" 
+				-image1 $ico_path
+				-style "iconOnly" 
+				-command $command;
+	tabLayout -e -st "Custom" $gShelfTopLevel;
+}
+$place_path=asInstallScriptLocation ("JOPA_hello_i_am_here");
+print $place_path;
+create_JOPA_shelf_button($place_path);

@@ -1,0 +1,24 @@
+{
+  "source": "骨骼权重转移.py",
+  "sha256": "bd1673267bd40227c1487a60606c77dace103b761f1bd8edd635b1215694a9d0",
+  "functions": [
+    "short_name",
+    "get_full_path",
+    "resolve_to_full_path",
+    "get_mobject",
+    "get_dagpath",
+    "get_skin_clusters_from_mesh",
+    "get_meshes_from_source_joint",
+    "find_influence_index",
+    "normalize_meshes",
+    "transfer_joint_weights_fast",
+    "remove_influence_from_mesh",
+    "parse_task_line",
+    "load_selection_to_list",
+    "run_tasks",
+    "build_ui"
+  ],
+  "license": "No attribution or independent license supplied; local preparation only",
+  "behavior": "Source weight added to target, source zero, all vertices normalize, optional remove source skin influence; multiline ordered tasks with source-linked automatic mesh discovery",
+  "changes": "Exact UUID/DAG matching instead of ambiguous short-name fallback; all-task preflight instead of silent per-mesh skip/partial success; API weight reads with undoable cmds writes, full task list UI/API"
+}

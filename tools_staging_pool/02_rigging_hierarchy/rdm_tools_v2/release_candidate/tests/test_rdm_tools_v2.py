@@ -1,11 +1,22 @@
 import ast
 import hashlib
+import os
 from pathlib import Path
 import runpy
 import sys
 import tempfile
 import unittest
 import xml.etree.ElementTree as ET
+
+if 'maya' not in sys.executable.lower():
+    from unittest.mock import MagicMock
+    for mod_name in ('maya', 'maya.cmds', 'maya.mel', 'maya.api', 'maya.api.OpenMaya'):
+        if mod_name not in sys.modules:
+            sys.modules[mod_name] = MagicMock()
+
+ROOT_DIR = str(Path(__file__).resolve().parents[1])
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
 
 RC = Path(__file__).resolve().parents[1]
 if (RC / 'launch_candidate.py').is_file():

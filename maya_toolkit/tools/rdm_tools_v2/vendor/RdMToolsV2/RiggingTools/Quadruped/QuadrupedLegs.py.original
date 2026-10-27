@@ -1,0 +1,154 @@
+from maya import cmds , OpenMaya
+import math
+
+
+def create_locator(side):
+    loc = cmds.spaceLocator(n = '{}_upper_Leg_loc'.format(side))
+    cmds.delete(cmds.parentConstraint('{}_Leg_JJ'.format(side),loc))
+    cmds.move(0,5,0, loc, r = True)
+    
+create_locator(side = 'L')
+
+#---------------------------------------------
+
+def create_upper_leg():
+    
+    Rloc = cmds.spaceLocator(n = 'R_upper_Leg_loc')
+    cmds.delete(cmds.parentConstraint('L_upper_Leg_loc',Rloc))
+    mirror_grp = cmds.group(em = True)
+    cmds.parent(Rloc, mirror_grp)
+    cmds.setAttr('{}.scaleX'.format(mirror_grp),-1)
+    
+    #Create JJ ,IK ,FK Joints based on locator
+    def jointSwitch(side):
+        cmds.select(cl =True)
+        upper_joint = cmds.joint(n = '{}_upperLeg_JJ'.format(side))
+        cmds.delete(cmds.parentConstraint('{}_upper_Leg_loc'.format(side), upper_joint), '{}_upper_Leg_loc'.format(side))
+
+        ik_joint = cmds.duplicate(upper_joint, n = '{}_IK_JC'.format(upper_joint))
+        cmds.makeIdentity(t= 1, r =1,jo=1)
+
+        fk_joint = cmds.duplicate(upper_joint, n = '{}_FK_JC'.format(upper_joint))
+        cmds.makeIdentity(t= 1, r =1,jo=1)
+        
+        #Switch
+        cmds.parentConstraint(ik_joint, fk_joint, upper_joint )
+        cmds.connectAttr('{}_Leg_FKIK_BlendShape.Blend_IKFK'.format(side),'{}_upperLeg_JJ_parentConstraint1.{}_upperLeg_JJ_IK_JCW0'.format(side, side))
+        mel.eval('shadingNode -asUtility reverse -n {}_upperLeg_reverse'.format(side))
+        mel.eval('connectAttr -f {}_upperLeg_reverse.outputX {}_upperLeg_JJ_parentConstraint1.{}_upperLeg_JJ_FK_JCW1;'.format(side,side,side))
+        mel.eval('connectAttr -f {}_Leg_FKIK_BlendShape.Blend_IKFK {}_upperLeg_reverse.inputX;'.format(side,side))
+
+    jointSwitch(side = 'L')
+    jointSwitch(side = 'R')
+
+    #Parent Stuff
+    #cmds.parentConstraint ('L_upperLeg_JJ_FK_JC','L_Leg_JJ_FK_GRP', mo = True)    
+    #cmds.parentConstraint ('R_upperLeg_JJ_FK_JC','R_Leg_JJ_FK_GRP', mo = True)    
+    #cmds.parentConstraint ('L_upperLeg_JJ_IK_JC','L_Leg_JJ_IK', mo = True)    
+    #cmds.parentConstraint ('R_upperLeg_JJ_IK_JC','R_Leg_JJ_IK', mo = True)  
+    #cmds.parentConstraint ('L_upperLeg_JJ_IK_JC','L_Leg_JJ_IK_Stretchy01', mo = True)  
+    #cmds.parentConstraint ('R_upperLeg_JJ_IK_JC','R_Leg_JJ_IK_Stretchy01', mo = True)      
+    
+        
+    #Ik
+    cmds.parent('L_Leg_JJ_IK','L_upperLeg_JJ_IK_JC')
+    cmds.parent('L_upperLeg_JJ_IK_JC','L_Leg_JJ_IK_GRP')
+    cmds.parent('R_Leg_JJ_IK','R_upperLeg_JJ_IK_JC')
+    cmds.parent('R_upperLeg_JJ_IK_JC','R_Leg_JJ_IK_GRP')
+    
+    '''
+    IkHandleL = cmds.ikHandle (n='L_upper_leg_IKrp', sj='L_upperLeg_JJ_IK_JC', ee= 'L_Knee_JJ_IK', sol = 'ikRPsolver')
+    IkHandleR = cmds.ikHandle (n='R_upper_leg_IKrp', sj='R_upperLeg_JJ_IK_JC', ee= 'R_Knee_JJ_IK', sol = 'ikRPsolver')
+    
+    #delete old IK and create a new one
+    cmds.delete('L_Ankle_JJ_IKIKrp')    
+    cmds.delete('R_Ankle_JJ_IKIKrp')    
+
+    IkHandleL2 = cmds.ikHandle (n='L_Ankle_JJ_IKIKrp', sj='L_Leg_JJ_IK', ee= 'L_Ankle_JJ_IK', sol = 'ikRPsolver')
+    IkHandleR2 = cmds.ikHandle (n='R_Ankle_JJ_IKIKrp', sj='R_Leg_JJ_IK', ee= 'R_Ankle_JJ_IK', sol = 'ikRPsolver')
+    cmds.poleVectorConstraint('L_Knee_PV', IkHandleL2[0])
+    cmds.poleVectorConstraint('R_Knee_PV', IkHandleR2[0])
+
+    #parent All Ik Stuff
+    cmds.parent(IkHandleL[0],'L_Leg_IK_CC')
+    cmds.parent(IkHandleR[0],'R_Leg_IK_CC')
+    cmds.parent(IkHandleL2[0],'L_RF_Ankle')
+    cmds.parent(IkHandleR2[0],'R_RF_Ankle')
+
+
+    #Thanks to >>> https://vimeo.com/66015036
+    cmds.select('L_upperLeg_JJ_IK_JC','L_Leg_JJ_IK','L_Knee_JJ_IK')
+    sel = cmds.ls(sl = 1)
+    start = cmds.xform(sel[0] ,q= 1 ,ws = 1,t =1 )
+    mid = cmds.xform(sel[1] ,q= 1 ,ws = 1,t =1 )
+    end = cmds.xform(sel[2] ,q= 1 ,ws = 1,t =1 )
+    startV = OpenMaya.MVector(start[0] ,start[1],start[2])
+    midV = OpenMaya.MVector(mid[0] ,mid[1],mid[2])
+    endV = OpenMaya.MVector(end[0] ,end[1],end[2])
+    startEnd = endV - startV
+    startMid = midV - startV
+    dotP = startMid * startEnd
+    proj = float(dotP) / float(startEnd.length())
+    startEndN = startEnd.normal()
+    projV = startEndN * proj
+    arrowV = startMid - projV
+    arrowV*= 0.5
+    finalV = arrowV + midV
+    cross1 = startEnd ^ startMid
+    cross1.normalize()
+    cross2 = cross1 ^ arrowV
+    cross2.normalize()
+    arrowV.normalize()
+    matrixV = [arrowV.x , arrowV.y , arrowV.z , 0 ,
+    cross1.x ,cross1.y , cross1.z , 0 ,
+    cross2.x , cross2.y , cross2.z , 0,
+    0,0,0,1]
+    matrixM = OpenMaya.MMatrix()
+    OpenMaya.MScriptUtil.createMatrixFromList(matrixV , matrixM)
+    matrixFn = OpenMaya.MTransformationMatrix(matrixM)
+    rot = matrixFn.eulerRotation()
+    loc = cmds.spaceLocator(n = 'nullLocPV')[0]
+    cmds.xform(loc , ws =1 , t= (finalV.x , finalV.y ,finalV.z))
+    cmds.xform ( loc , ws = 1 , rotation = ((rot.x/math.pi*180.0),
+    (rot.y/math.pi*180.0),
+    (rot.z/math.pi*180.0)))    
+        
+    pvDistance = cmds.getAttr('L_Leg_JJ_IK.translateY')*1.5    
+    cmds.select(loc)     
+
+    cmds.move(-pvDistance/2, 0, 0, r=1, os=1, wd=1) 
+
+    cmds.poleVectorConstraint(loc, IkHandleL[0])
+    cmds.rename(loc, 'L_PV_loc')
+    
+    #duplciate to right side
+    Rloc = cmds.spaceLocator(n = 'R_PV_loc')
+    cmds.delete(cmds.parentConstraint('L_PV_loc',Rloc))
+    mirror_grp = cmds.group(em = True)
+    cmds.parent(Rloc, mirror_grp)
+    cmds.setAttr('{}.scaleX'.format(mirror_grp),-1)
+    cmds.poleVectorConstraint(Rloc, IkHandleR[0])
+        
+    '''
+
+
+#-----------------------------------------------------------------------------------------------------------   
+    #Fk
+    ctrl = cmds.circle(n = 'L_upper_leg_Fk_CC', r = cmds.getAttr('L_Leg_JJ_FK.translateY')/2, nr = (1,0,0))
+    offset = cmds.group(ctrl, n = '{}_OffsetGrp'.format(ctrl[0]))
+    cmds.delete(cmds.parentConstraint('L_upperLeg_JJ_FK_JC',offset, mo = False))
+    cmds.parentConstraint(ctrl, 'L_upperLeg_JJ_FK_JC')    
+    cmds.parent('L_Leg_JJ_FK_GRP','L_upperLeg_JJ_FK_JC')    
+    cmds.parent('L_upperLeg_JJ_FK_JC',ctrl)    
+    cmds.parent(offset,'L_Leg_GRP')
+
+    ctrl = cmds.circle(n = 'R_upper_leg_Fk_CC', r = cmds.getAttr('R_Leg_JJ_FK.translateY')/2, nr = (1,0,0))
+    offset = cmds.group(ctrl, n = '{}_OffsetGrp'.format(ctrl[0]))
+    cmds.delete(cmds.parentConstraint('R_upperLeg_JJ_FK_JC',offset, mo = False))
+    cmds.parentConstraint(ctrl, 'R_upperLeg_JJ_FK_JC')    
+    cmds.parent('R_Leg_JJ_FK_GRP','R_upperLeg_JJ_FK_JC')    
+    cmds.parent('R_upperLeg_JJ_FK_JC',ctrl)    
+    cmds.parent(offset,'R_Leg_GRP')
+
+    
+create_upper_leg()    

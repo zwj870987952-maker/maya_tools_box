@@ -1,0 +1,25 @@
+{
+  "files": [
+    {
+      "path": "批量绑骨头.py",
+      "archive": "upstream/批量绑骨头.py.original",
+      "sha256": "24ecaea96d83c98f0fcdc5f8d00e0dddd8a3647aa861a61daca1270efe8f057c"
+    },
+    {
+      "path": "生成代理.py",
+      "archive": "upstream/生成代理.py.original",
+      "sha256": "5e5d9cbc08af589ab0495bba2557ef31bfc8524968edc694c4d7f361d650c6ed"
+    }
+  ],
+  "proxy_functions": [
+    "create_joint_and_parent_constraint",
+    "create_locator_and_parent_constraint",
+    "create_cube_and_parent_constraint"
+  ],
+  "ui_methods": [
+    "__init__",
+    "create_window",
+    "create_objects"
+  ],
+  "license": "User prototypes; no independent license file supplied"
+}

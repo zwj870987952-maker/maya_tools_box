@@ -1,0 +1,140 @@
+global proc scpstg_skin17_GetInfo() {python("__import__('maya_toolkit.tools.skin_info_and_super_connect.ui',fromlist=['dispatch']).dispatch('skin17','GetInfo')");}
+global proc scpstg_skin17_BrowseToExport() {python("__import__('maya_toolkit.tools.skin_info_and_super_connect.ui',fromlist=['dispatch']).dispatch('skin17','BrowseToExport')");}
+global proc scpstg_skin17_ExportInfo() {python("__import__('maya_toolkit.tools.skin_info_and_super_connect.ui',fromlist=['dispatch']).dispatch('skin17','ExportInfo')");}
+global proc scpstg_skin17_BrowseToImport() {python("__import__('maya_toolkit.tools.skin_info_and_super_connect.ui',fromlist=['dispatch']).dispatch('skin17','BrowseToImport')");}
+global proc scpstg_skin17_AutoImport() {python("__import__('maya_toolkit.tools.skin_info_and_super_connect.ui',fromlist=['dispatch']).dispatch('skin17','AutoImport')");}
+global proc string scpstg_skin17_SelectInfluences() {string $unused = python("__import__('maya_toolkit.tools.skin_info_and_super_connect.ui',fromlist=['dispatch']).dispatch('skin17','SelectInfluences')"); return "";}
+global proc scpstg_skin17_ImportSkin_proc() {python("__import__('maya_toolkit.tools.skin_info_and_super_connect.ui',fromlist=['dispatch']).dispatch('skin17','ImportSkin_proc')");}
+global proc scpstg_skin17_ExportAllInfo() {python("__import__('maya_toolkit.tools.skin_info_and_super_connect.ui',fromlist=['dispatch']).dispatch('skin17','ExportAllInfo')");}
+global proc scpstg_skin17_AutoImportAllSelection() {python("__import__('maya_toolkit.tools.skin_info_and_super_connect.ui',fromlist=['dispatch']).dispatch('skin17','AutoImportAllSelection')");}
+global proc scpstg_skin17_LockSelectedJoints() {python("__import__('maya_toolkit.tools.skin_info_and_super_connect.ui',fromlist=['dispatch']).dispatch('skin17','LockSelectedJoints')");}
+global proc scpstg_skin17_UnLockSelectedJoints() {python("__import__('maya_toolkit.tools.skin_info_and_super_connect.ui',fromlist=['dispatch']).dispatch('skin17','UnLockSelectedJoints')");}
+global proc scpstg_skin17_showUI() {
+// Skin Info V1.7
+// Export - Import skin maps tool for Maya.
+// This tool was developed by 'Khaled Hussein'
+
+
+
+if (`window -exists scpstg_skin17_SkinInfo`)
+{
+   deleteUI scpstg_skin17_SkinInfo;
+}
+//windowPref -ra;
+window -minimizeButton false -maximizeButton false -dockStation -rtf on -t "Skin Info v1.7  |  Export - Import skin maps." -s on -wh 200 100  scpstg_skin17_SkinInfo;
+columnLayout -rowSpacing 5 -adj true ;
+
+// Get info part:=============================
+text -align "left" -l "Get skinCluster info.";
+rowLayout -childArray -numberOfColumns 2  -adjustableColumn 1;
+textFieldGrp -label "Total Influences:  "  -columnAlign 1 "left" -columnWidth 1 100 -columnWidth 2 60 -highlightColor .1 .6 .8 scpstg_skin17_TextF_TotalInfluences;
+textFieldGrp -label "Weighted Influences:  "  -columnAlign 1 "left" -columnWidth 1 120 -columnWidth 2 60 -highlightColor .1 .6 .8 scpstg_skin17_TextF_WeightedInfluences;
+setParent ..;
+button  -label "Get info" -c "scpstg_skin17_GetInfo" -ann "Select skin object and click   ( Get info )";
+
+separator -backgroundColor .1 .6 .8 -st "in";
+
+// Export skin part:===========================
+text -align "left" -l "Export skinCluster info." -font "boldLabelFont";
+textFieldButtonGrp
+    -buttonLabel "  Browse  "
+    -adjustableColumn 1
+    -columnAlign 1 "left"
+    -columnAlign 2 "right"
+    -buttonCommand "scpstg_skin17_BrowseToExport"
+    -highlightColor .1 .6 .8
+    -ann "Get path for export."
+    scpstg_skin17_tFButton_export;
+
+rowLayout -childArray -numberOfColumns 3  -adjustableColumn 1;
+textFieldGrp -adjustableColumn 2 -label "File Name:  "-columnAlign 1 "left" -columnWidth 1 70 -columnWidth 2 200 -highlightColor .1 .6 .8 scpstg_skin17_TextF_FileName;
+checkBox -value on -l ".JSON" scpstg_skin17_CHB_JSON;
+checkBox -value on -l ".XML" scpstg_skin17_CHB_XML;
+setParent ..;
+
+rowLayout -columnWidth 1 100  -childArray -numberOfColumns 3   -adjustableColumn3 1 -adjustableColumn1 1;
+button -backgroundColor .1 .6 .8 -label "Export" -c "scpstg_skin17_ExportInfo" -ann "Click to export skin weights.";
+text  -width 5 -l " ";
+button -backgroundColor .3 .6 .8 -label "   Export all selections   " -c "scpstg_skin17_ExportAllInfo" -ann "Click to export skin weights.";
+setParent ..;
+
+separator  -st "in";
+
+// Import skin part:==============================
+text -align "left" -l "Import skinCluster info." -font "boldLabelFont";
+rowLayout -childArray -numberOfColumns 3  -adjustableColumn 1;
+textFieldButtonGrp
+    -buttonLabel "  Import  "
+    -adjustableColumn 1
+    -columnAlign 1 "left"
+    -columnAlign 2 "right"
+    -buttonCommand "scpstg_skin17_BrowseToImport"
+    -highlightColor .5 .6 .2
+    -ann "Get skin info file."
+    scpstg_skin17_tFButton_import;
+separator  -st "in" -hr on;
+button  -label "Auto Import" -c "scpstg_skin17_AutoImport" -ann "Select your object, then click  ( Auto Import ) \n( import any file manually before use this function. )";
+setParent ..;
+
+
+rowLayout  -numberOfColumns 6  -adjustableColumn 1 ;
+button
+    -backgroundColor .5 .6 .2
+    -label " Select Influences "
+    -c "scpstg_skin17_SelectInfluences();"
+    -ann "Select your object and click ..Select Influences.. then click import skin";
+text -l "  ";
+button -backgroundColor .4 .5 .2 -l " Import skin weights to selected object " -c "scpstg_skin17_ImportSkin_proc";
+text -l "  ";
+checkBox -offCommand "checkBox -e -value on scpstg_skin17_CHB_XML2;" -onCommand "checkBox -e -value off scpstg_skin17_CHB_XML2;" -value off -l ".JSON" scpstg_skin17_CHB_JSON2;
+checkBox -offCommand "checkBox -e -value on scpstg_skin17_CHB_JSON2;" -onCommand "checkBox -e -value off scpstg_skin17_CHB_JSON2;" -value on -l ".XML" scpstg_skin17_CHB_XML2;
+setParent ..;
+
+separator  -st "in";
+button -backgroundColor .45 .5 .2 -l " Auto import skin weights to all selection " -c "scpstg_skin17_AutoImportAllSelection";
+
+//separator  -st "in";
+//button -label "Lock selected joints weight" -c "scpstg_skin17_LockSelectedJoints";
+//button -label "Unlock selected joints weight" -c "scpstg_skin17_UnLockSelectedJoints";
+separator -st "in";
+
+progressBar
+        //-beginProgress
+        -minValue 0
+        -height 15
+        -isInterruptable true
+        -maxValue 10
+        scpstg_skin17_gMainProgressBar;
+
+rowLayout  -numberOfColumns 2 -adjustableColumn1 100 -adjustableColumn 1 -columnWidth 1 100 -columnWidth 2 20;
+
+textField -highlightColor .4 .5 .2 -backgroundColor 0 0 0 -tx "Select skin object and click   ( Get info )"  scpstg_skin17_Result;
+textField -highlightColor .4 .5 .2 -backgroundColor 0 0 0  -width 20  scpstg_skin17_ResultLamb;
+setParent ..;
+separator -st "in";
+text -l "If you have any questions, please feel free to email me on KhaledGraphic@msn.com"  ;
+
+showWindow scpstg_skin17_SkinInfo;
+// ================= End of content:==========================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Export all selection:--------------------------------------------------------------------------------------
+
+
+// Import all selection:========================================================
+
+
+
+
+}

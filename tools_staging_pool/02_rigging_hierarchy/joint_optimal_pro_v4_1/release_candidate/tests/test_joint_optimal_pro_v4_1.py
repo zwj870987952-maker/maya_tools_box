@@ -1,8 +1,19 @@
 import hashlib
+import os
 from pathlib import Path
 import runpy
 import sys
 import unittest
+
+if 'maya' not in sys.executable.lower():
+    from unittest.mock import MagicMock
+    for mod_name in ('maya', 'maya.cmds', 'maya.mel', 'maya.api', 'maya.api.OpenMaya'):
+        if mod_name not in sys.modules:
+            sys.modules[mod_name] = MagicMock()
+
+ROOT_DIR = str(Path(__file__).resolve().parents[1])
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
 
 RC = Path(__file__).resolve().parents[1]
 if (RC / 'launch_candidate.py').is_file():
@@ -27,7 +38,9 @@ class OfflineChecks(unittest.TestCase):
         self.assertIn('JOPA_skeleton_tools_menue', c['public'])
         self.assertEqual(sorted(c['public']), tool.parameters_schema['properties']['procedure']['enum'])
         for row in c['files']:
-            self.assertEqual(row['sha256'], hashlib.sha256((PKG / 'vendor' / row['path']).read_bytes()).hexdigest())
+            path = (PKG / 'vendor' / row['path']).resolve()
+            p_check = Path('\\\\?\\' + str(path)) if os.name == 'nt' else path
+            self.assertEqual(row['sha256'], hashlib.sha256(p_check.read_bytes()).hexdigest())
         self.assertIn('You may not', (PKG / 'vendor/License.txt').read_text())
         for name, definition in c['public'].items():
             for parameter in definition['parameters']:

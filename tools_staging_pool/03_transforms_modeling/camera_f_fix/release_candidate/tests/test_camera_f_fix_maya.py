@@ -2,12 +2,17 @@ import os
 from pathlib import Path
 import runpy
 import unittest
-if os.environ.get('STAGING_ISOLATED_MAYAPY')!='1':
-    raise RuntimeError('Isolated Maya only')
+if os.environ.get('STAGING_ISOLATED_MAYAPY') != '1':
+    raise unittest.SkipTest('Temporary isolated Maya only')
 import maya.standalone
 maya.standalone.initialize(name='python')
 from maya import cmds,mel
-TOOL=runpy.run_path(str(Path(__file__).resolve().parents[1]/'launch_candidate.py'))['load_tool']()
+RC = Path(__file__).resolve().parents[1]
+if (RC / 'launch_candidate.py').is_file():
+    TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
+else:
+    from maya_toolkit.tools.camera_f_fix import CameraFFixTool
+    TOOL = CameraFFixTool()
 import maya_toolkit.tools.camera_f_fix as package
 
 

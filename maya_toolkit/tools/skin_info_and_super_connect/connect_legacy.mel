@@ -1,0 +1,275 @@
+global proc scpstg_connect_legacy_Store_01()
+{
+	string $stor1[] = `ls -sl`;
+	int $stor1Size1 = `size $stor1`;
+	textScrollList -e -ra ChangeControlsTSL_01;
+	for ($R=0 ; $R < $stor1Size1; $R=$R)
+	{
+		textScrollList -e -ai -a $stor1[$R]  ChangeControlsTSL_01;
+		++$R;
+	}
+}
+global proc scpstg_connect_legacy_Store_02()
+{
+	string $stor2[] = `ls -sl`;
+	int $stor1Size2 = `size $stor2`;
+	textScrollList -e -ra ChangeControlsTSL_02;
+	for ($T=0 ; $T < $stor1Size2; $T=$T)
+	{
+		textScrollList -e -ai -a $stor2[$T]  ChangeControlsTSL_02;
+		++$T;
+	}
+}
+global proc scpstg_connect_legacy_Connect()
+{
+	string $sel1[] = `textScrollList -q -ai ChangeControlsTSL_01`;
+	int $sizeSel1 = `size $sel1`;
+
+
+	string $sel2[] = `textScrollList -q -ai ChangeControlsTSL_02`;
+	int $sizeSel2 = `size $sel2`;
+
+    if($sizeSel1 < 1 || $sizeSel2 < 1)
+    {
+        error -n "We have no data to deal with, Please fill in source and destination lists";
+    }
+
+	// Query for radioButton:
+    int $Direct_Connect = `radioButton -q -sl RB1`;
+    int $Parent_Constraints = `radioButton -q -sl RB2`;
+    int $Point_Orient_Constraint = `radioButton -q -sl RB3`;
+
+	// query for textField:
+	string $DestinationTXF = `textFieldGrp -q -tx DestinationTXF`;
+	string $SourceTXF = `textFieldGrp -q -tx SourceTXF`;
+
+    global string $Destination_prefix;
+    global string $Source_prefix;
+
+    $Destination_prefix = $DestinationTXF;
+    $Source_prefix = $SourceTXF;
+
+	//progressBar -e  -progress 0 CBSprogressBar;
+	//progressBar -e -minValue 0 -maxValue $sizeSel1  CBSprogressBar;
+
+	if($Direct_Connect) scpstg_connect_legacy_Super_Direct_Connect;
+
+    if($Parent_Constraints) scpstg_connect_legacy_Super_ParentConstraint;
+
+    if($Point_Orient_Constraint) scpstg_connect_legacy_Super_Point_Orient;
+
+}
+global proc string scpstg_connect_legacy_Remove_nameSpace(string $name)
+{
+    string $spliters[];
+    tokenize  $name ":" $spliters; // Remove namespace:
+    $name = $spliters[size($spliters)-1];
+    //print $name;
+    return $name;
+}// End Remove Namespace:=======================================================================================
+global proc scpstg_connect_legacy_Super_Direct_Connect()
+{
+    print "Direct scpstg_connect_legacy_Connect";
+    // query for textField:
+	string $DestinationTXF = `textFieldGrp -q -tx DestinationTXF`;
+	string $SourceTXF = `textFieldGrp -q -tx SourceTXF`;
+
+
+    string $source_Items [] = `textScrollList -q -ai ChangeControlsTSL_02`;
+	int $sizeSel1 = `size $source_Items`;
+
+
+    string $destination_Items [] = `textScrollList -q -ai ChangeControlsTSL_01`;
+	int $sizeSel2 = `size $destination_Items`;
+
+    // query checkBox:
+    // Translate.
+    int $Translate_x = `checkBoxGrp -q -v1 Direct_T_CHB`;
+    int $Translate_y = `checkBoxGrp -q -v2 Direct_T_CHB`;
+    int $Translate_z = `checkBoxGrp -q -v3 Direct_T_CHB`;
+
+    // Rotate.
+    int $Rotate_x = `checkBoxGrp -q -v1 Direct_R_CHB`;
+    int $Rotate_y = `checkBoxGrp -q -v2 Direct_R_CHB`;
+    int $Rotate_z = `checkBoxGrp -q -v3 Direct_R_CHB`;
+
+    // Scale.
+    int $Scale_x = `checkBoxGrp -q -v1 Direct_S_CHB`;
+    int $Scale_y = `checkBoxGrp -q -v2 Direct_S_CHB`;
+    int $Scale_z = `checkBoxGrp -q -v3 Direct_S_CHB`;
+
+
+    progressBar -e -beginProgress CBSprogressBar;
+    progressBar -e -minValue 0 -maxValue $sizeSel1  CBSprogressBar;
+
+
+    // Connecting ...
+    for($N=0; $N < $sizeSel1; $N++)
+    {
+        string $source_with_no_namespace = scpstg_connect_legacy_Remove_nameSpace($source_Items[$N]) ;       // Remove namespace from source object
+        //print ("\n Source name : " + $source_with_no_namespace);
+        string $NewName_source = `substitute $SourceTXF $source_with_no_namespace ""`; // Remove prefix name from source object
+        //print ("\n Source new name : " + $NewName_source);
+        textScrollList -e -selectItem  $source_Items[$N]    ChangeControlsTSL_02;
+        refresh -f -cv;
+
+        for($item in $destination_Items)
+        {
+            //print ($item + "\n");
+            string $destination_with_no_namespace = scpstg_connect_legacy_Remove_nameSpace($item) ; // Remove namespace from destination object
+            //print ("\n Dest name : " + $source_with_no_namespace);
+            string $NewName_dest = `substitute $DestinationTXF $destination_with_no_namespace ""`;     // Remove prefix name from destination object
+            //print ("\n Dest new name : " + $NewName_source);
+
+            if($NewName_dest == $NewName_source)
+            {
+                //print ($source_Items[$N] + "\n");
+                //print ($item + "\n");
+                if($Translate_x) connectAttr -f ($source_Items[$N] + ".translateX") ($item + ".translateX");
+                if($Translate_y) connectAttr -f ($source_Items[$N] + ".translateY") ($item + ".translateY");
+                if($Translate_z) connectAttr -f ($source_Items[$N] + ".translateZ") ($item + ".translateZ");
+
+                if($Rotate_x) connectAttr -f ($source_Items[$N] + ".rotateX") ($item + ".rotateX");
+                if($Rotate_y) connectAttr -f ($source_Items[$N] + ".rotateY") ($item + ".rotateY");
+                if($Rotate_z) connectAttr -f ($source_Items[$N] + ".rotateZ") ($item + ".rotateZ");
+
+                if($Scale_x) connectAttr -f ($source_Items[$N] + ".scaleX") ($item + ".scaleX");
+                if($Scale_y) connectAttr -f ($source_Items[$N] + ".scaleY") ($item + ".scaleY");
+                if($Scale_z) connectAttr -f ($source_Items[$N] + ".scaleZ") ($item + ".scaleZ");
+
+                print ($item + "  ...  Has connected to  ...  " + $source_Items[$N] + "\n");
+                select -r $item;
+                textScrollList -e -selectItem  $item  ChangeControlsTSL_01;
+                //refresh -f -cv;
+                //pause -sec 1;
+            }
+
+        }
+        progressBar -e -step 1 CBSprogressBar;
+    }// Connecting Done.
+    progressBar -e -endProgress CBSprogressBar;
+    print "\nResult:  Direct connect is completed \n";
+}
+global proc scpstg_connect_legacy_Super_ParentConstraint()
+{
+    // print "Parent Constraints";
+    // query for textField:
+	string $DestinationTXF = `textFieldGrp -q -tx DestinationTXF`;
+	string $SourceTXF = `textFieldGrp -q -tx SourceTXF`;
+
+    string $source_Items [] = `textScrollList -q -ai ChangeControlsTSL_02`;
+	int $sizeSel1 = `size $source_Items`;
+
+
+	string $destination_Items [] = `textScrollList -q -ai ChangeControlsTSL_01`;
+	int $sizeSel2 = `size $destination_Items`;
+
+    // Query checkBox:
+    int $maintainOffset = `checkBoxGrp -q -v1 Parent_constraints_CHB`;
+    int $parentCons = `checkBoxGrp -q -v2 Parent_constraints_CHB`;
+
+    progressBar -e -beginProgress CBSprogressBar;
+    progressBar -e -minValue 0 -maxValue $sizeSel1  CBSprogressBar;
+
+    // Connecting ...
+    for($N=0; $N < $sizeSel1; $N++)
+    {
+        string $source_with_no_namespace = scpstg_connect_legacy_Remove_nameSpace($source_Items[$N]) ;       // Remove namespace from source object
+        string $NewName_source = `substitute $SourceTXF $source_with_no_namespace ""`; // Remove prefix name from source object
+        textScrollList -e -selectItem  $source_Items[$N]    ChangeControlsTSL_02;
+        refresh -f -cv;
+
+        for($item in $destination_Items)
+        {
+            //print ($item + "\n");
+            string $destination_with_no_namespace = scpstg_connect_legacy_Remove_nameSpace($item) ; // Remove namespace from destination object
+            string $NewName_dest = `substitute $DestinationTXF $destination_with_no_namespace ""`;     // Remove prefix name from destination object
+
+            if($NewName_dest == $NewName_source)
+            {
+                //print ($NewJnts[$N] + "\n");
+                if($parentCons)
+                {
+                    if($maintainOffset)
+                    {
+                        parentConstraint -weight 1.0  -maintainOffset $source_Items[$N] $item;
+                    }else{
+                        parentConstraint -weight 1.0  $source_Items[$N] $item;
+                    }
+                }
+                print ($item + "  ...  Has connected to  ...  " + $source_Items[$N] + "\n");
+                select -r $item;
+                textScrollList -e -selectItem  $item  ChangeControlsTSL_01;
+                //refresh -f -cv;
+                //pause -sec 1;
+            }
+
+        }
+        progressBar -e -step 1 CBSprogressBar;
+    }// Connecting Done.
+    progressBar -e -endProgress CBSprogressBar;
+}
+global proc scpstg_connect_legacy_Super_Point_Orient()
+{
+    print "Point/Orient Constraints";
+    // query for textField:
+	string $DestinationTXF = `textFieldGrp -q -tx DestinationTXF`;
+	string $SourceTXF = `textFieldGrp -q -tx SourceTXF`;
+
+    string $source_Items [] = `textScrollList -q -ai ChangeControlsTSL_02`;
+	int $sizeSel1 = `size $source_Items`;
+
+
+	string $destination_Items [] = `textScrollList -q -ai ChangeControlsTSL_01`;
+	int $sizeSel2 = `size $destination_Items`;
+
+    // Query checkBox:
+    int $maintainOffset = `checkBoxGrp -q -v1 Point_Orient_constraints_CHB`; // Maintain offset
+    int $pointCons = `checkBoxGrp -q -v2 Point_Orient_constraints_CHB`;      // Point Constraint
+    int $orientCons = `checkBoxGrp -q -v3 Point_Orient_constraints_CHB`;     // Orient Constraint
+
+
+    progressBar -e -beginProgress CBSprogressBar;
+    progressBar -e -minValue 0 -maxValue $sizeSel1  CBSprogressBar;
+
+    // Connecting ...
+    for($N=0; $N < $sizeSel1; $N++)
+    {
+        string $source_with_no_namespace = scpstg_connect_legacy_Remove_nameSpace($source_Items[$N]) ;       // Remove namespace from source object
+        string $NewName_source = `substitute $SourceTXF $source_with_no_namespace ""`; // Remove prefix name from source object
+        textScrollList -e -selectItem  $source_Items[$N]    ChangeControlsTSL_02;
+        refresh -f -cv;
+
+        for($item in $destination_Items)
+        {
+            //print ($item + "\n");
+            string $destination_with_no_namespace = scpstg_connect_legacy_Remove_nameSpace($item) ; // Remove namespace from destination object
+            string $NewName_dest = `substitute $DestinationTXF $destination_with_no_namespace ""`;     // Remove prefix name from destination object
+
+            if($NewName_dest == $NewName_source)
+            {
+                //print ($NewJnts[$N] + "\n");
+
+                if($maintainOffset)
+                {
+                    // with maintainOffset:
+                    if($pointCons) pointConstraint -w 1.0 -maintainOffset $source_Items[$N] $item;
+                    if($orientCons) orientConstraint -w 1.0 -maintainOffset $source_Items[$N] $item;
+                }else{
+                    // without maintainOffset:
+                    if($pointCons) pointConstraint -w 1.0  $source_Items[$N] $item;
+                    if($orientCons) orientConstraint -w 1.0  $source_Items[$N] $item;
+                }
+
+                print ($item + "  ...  Has connected to  ...  " + $source_Items[$N] + "\n");
+                select -r $item;
+                textScrollList -e -selectItem  $item  ChangeControlsTSL_01;
+                //refresh -f -cv;
+                //pause -sec 1;
+            }
+
+        }
+        progressBar -e -step 1 CBSprogressBar;
+    }// Connecting Done.
+    progressBar -e -endProgress CBSprogressBar;
+}

@@ -1,0 +1,10 @@
+{
+string $selected[] = `ls -type joint`;
+select -r $selected;
+}
+string $sel[] = `ls -sl`;
+string $singleJnt;
+for ($singleJnt in $sel)
+{
+setAttr ($singleJnt + ".segmentScaleCompensate") 0;
+}

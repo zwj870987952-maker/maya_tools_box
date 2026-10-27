@@ -1,0 +1,2903 @@
+{
+  "source_version": "4.0/40000",
+  "author": "Yanbin Bai",
+  "files": [
+    {
+      "path": "HowToInstall.txt",
+      "archive": "upstream/HowToInstall.txt",
+      "sha256": "ea2a05fbfeb1958562f0a441b103cfd678fe53b408234dffa95fb9505e4738ee"
+    },
+    {
+      "path": "icons/ali_pay.png",
+      "archive": "upstream/icons/ali_pay.png",
+      "sha256": "290e83b9256b900e16dba5adc2863959df2b5f040156908a604786356e63553a"
+    },
+    {
+      "path": "icons/bilibili.png",
+      "archive": "upstream/icons/bilibili.png",
+      "sha256": "907fb536988bf04509eaf17fa9ebe0e465c6777fbae0cbde1030b5802a2d2c65"
+    },
+    {
+      "path": "icons/bitcoin.png",
+      "archive": "upstream/icons/bitcoin.png",
+      "sha256": "8b690c3a689b968fcfa9fda98bc2179f5a624ede9e519542e3cd37c93cef50d4"
+    },
+    {
+      "path": "icons/bullet_createRagdoll.png",
+      "archive": "upstream/icons/bullet_createRagdoll.png",
+      "sha256": "4b6b3273c5ad48fb458f68f12c976e0d75bdbcf4f7e3701b64f09242bfe3ffd3"
+    },
+    {
+      "path": "icons/China Flag.png",
+      "archive": "upstream/icons/China Flag.png",
+      "sha256": "e68847b3887b22d83c571ffb7885277f75e734fcfbd104eb7b6984eb6e56c984"
+    },
+    {
+      "path": "icons/cleanAttr.png",
+      "archive": "upstream/icons/cleanAttr.png",
+      "sha256": "46da6d2121d900d92de7d5b69f04296acaa140ff7ba9449a5714f2e5ab13c419"
+    },
+    {
+      "path": "icons/cMuscle_misc_help.png",
+      "archive": "upstream/icons/cMuscle_misc_help.png",
+      "sha256": "b0b2bf08d539da7686e566e3191a709d195e792f1e26962c823dc7f95fc34c94"
+    },
+    {
+      "path": "icons/color.png",
+      "archive": "upstream/icons/color.png",
+      "sha256": "86368c01cc0595af21124bfb9103b55b8dfa31bc27898cad30c52d5d01b98481"
+    },
+    {
+      "path": "icons/delNonSkinHistory.png",
+      "archive": "upstream/icons/delNonSkinHistory.png",
+      "sha256": "681390fa3e00650a5020e2c2d05edb2d33ec13e9cf94b4aaefec09b755c2d85f"
+    },
+    {
+      "path": "icons/donut.png",
+      "archive": "upstream/icons/donut.png",
+      "sha256": "75aca46387c2eb050bb1437e03a325b6af5e91cd75fa77a8afcfd86c0b965154"
+    },
+    {
+      "path": "icons/english.png",
+      "archive": "upstream/icons/english.png",
+      "sha256": "925c0a9a57bfd66777fb6ac3f27235c39847d990560e7011ea1dc9a54ae17fdc"
+    },
+    {
+      "path": "icons/gore.png",
+      "archive": "upstream/icons/gore.png",
+      "sha256": "4ceb85b1139e545104dcd98c4cb1e40da12fab85fc89fff6087b53015d9ddd73"
+    },
+    {
+      "path": "icons/hsClearView.png",
+      "archive": "upstream/icons/hsClearView.png",
+      "sha256": "650d10fdb32491874a692298d73d1c48acf16d7250b75323a283fc1024f989f7"
+    },
+    {
+      "path": "icons/info.png",
+      "archive": "upstream/icons/info.png",
+      "sha256": "3b9f571185d2e69f95057facf7b54294ee1ecd4889213b203bff8dd854a2a0f9"
+    },
+    {
+      "path": "icons/japanese.png",
+      "archive": "upstream/icons/japanese.png",
+      "sha256": "a4ed874f7a4613c64fa397d83152defb5be6aef1096d16402a80ebb8222b8f3b"
+    },
+    {
+      "path": "icons/language.png",
+      "archive": "upstream/icons/language.png",
+      "sha256": "608d29fd29e09fce21f5bed1fa9bfd283fa2981fce2c484fd955ae41c140d90e"
+    },
+    {
+      "path": "icons/linkedin.png",
+      "archive": "upstream/icons/linkedin.png",
+      "sha256": "6b12c4a345490cf7ce21533a3df2107804dedca1e9a256e610b1489b39a728bb"
+    },
+    {
+      "path": "icons/MiscTools.png",
+      "archive": "upstream/icons/MiscTools.png",
+      "sha256": "02a20f70eac183b9eea5e0ce611ea514fa780e4a32ed8c749654b4ef80be098f"
+    },
+    {
+      "path": "icons/moveSkinnedJoint.png",
+      "archive": "upstream/icons/moveSkinnedJoint.png",
+      "sha256": "621f687432b985d9003d4ea83aa03b95a5f9ce69daa36caad18dcea5047a0565"
+    },
+    {
+      "path": "icons/paypal.png",
+      "archive": "upstream/icons/paypal.png",
+      "sha256": "15b3b0c79d498eac2579da581b888610a8f324983e6c47acf109904fc06f370e"
+    },
+    {
+      "path": "icons/redo.png",
+      "archive": "upstream/icons/redo.png",
+      "sha256": "23e1c765cf55a0f4c2d16f7081a9922d71a39f633e9fd95bf11c723c7caf0cec"
+    },
+    {
+      "path": "icons/reduce.png",
+      "archive": "upstream/icons/reduce.png",
+      "sha256": "33c8fa1bcf91d54958e85da5fd37c96191cb899f8acc728f8fc89a092204546d"
+    },
+    {
+      "path": "icons/removeInf.png",
+      "archive": "upstream/icons/removeInf.png",
+      "sha256": "e14f24cd17dead8ca037545ca844dccc63650d1c71de9d727b45958dc0a13d54"
+    },
+    {
+      "path": "icons/rename.png",
+      "archive": "upstream/icons/rename.png",
+      "sha256": "738e33701813e1d1aaa560f2174eddef6955ff0b3b91da53cb18ef4bceb60c6e"
+    },
+    {
+      "path": "icons/scriptEditor.png",
+      "archive": "upstream/icons/scriptEditor.png",
+      "sha256": "aee870145b7ee5a648dd9bd07ed1ca2d898900be12887a4e7ad16910c3f6f1ab"
+    },
+    {
+      "path": "icons/Shelf.png",
+      "archive": "upstream/icons/Shelf.png",
+      "sha256": "a95f072a48a6dde2af4c9326bc426d4608dd5e32ca27ed07d5144d631e3e8a59"
+    },
+    {
+      "path": "icons/spring.png",
+      "archive": "upstream/icons/spring.png",
+      "sha256": "9665fd26c6b8bd0970c3653ceaf9f29b479f6e293feac0437d39d5eb3763c260"
+    },
+    {
+      "path": "icons/Title.png",
+      "archive": "upstream/icons/Title.png",
+      "sha256": "40843865cef899dc40bd177a9c65c556cb515d2fda379e2d92bca50d11948e44"
+    },
+    {
+      "path": "icons/update.png",
+      "archive": "upstream/icons/update.png",
+      "sha256": "14b85895a46f4e638e380422b7d58e248de093f2e5fcc48df7de2f780537d2d8"
+    },
+    {
+      "path": "icons/vimeo.png",
+      "archive": "upstream/icons/vimeo.png",
+      "sha256": "9d947f6703d53993d4069c75329dd3d81b4b316cae43d744a257576b3b0821be"
+    },
+    {
+      "path": "icons/wechat_pay.png",
+      "archive": "upstream/icons/wechat_pay.png",
+      "sha256": "ce02e3d1eba7c520ff669418dc4c8869e89e25523a9c1cd03225ce89a8af9a88"
+    },
+    {
+      "path": "icons/weight.png",
+      "archive": "upstream/icons/weight.png",
+      "sha256": "53e085f8cd6c0191fd41666de4e5c383307749d87ac384509142229dbb40c33c"
+    },
+    {
+      "path": "icons/weightBone.png",
+      "archive": "upstream/icons/weightBone.png",
+      "sha256": "e52b889459717e1bcf75bcc2a0dc22744ad64ea13da1177d181b294bd68552fd"
+    },
+    {
+      "path": "icons/youtube.png",
+      "archive": "upstream/icons/youtube.png",
+      "sha256": "ccac8161931b4c42bf94caa6eab8a27b967e21bf71e2c0886c439167689a1f73"
+    },
+    {
+      "path": "skinMagic.py",
+      "archive": "upstream/skinMagic.py.original",
+      "sha256": "432d770f488b08c9abaaf08698af2869538a8806a6fa818fb243f68977e5589d"
+    },
+    {
+      "path": "skinMagic.ui",
+      "archive": "upstream/skinMagic.ui",
+      "sha256": "f26c78af612e0dfcc38288225b93d209784096577728cc0ac43d1b9d09fd90e9"
+    },
+    {
+      "path": "skinMagic_chn.ui",
+      "archive": "upstream/skinMagic_chn.ui",
+      "sha256": "6748d75d94e796ca25e90452c9ac6d65fffa1faa9d38d05ecc2c153b7be4e497"
+    },
+    {
+      "path": "skinMagic_eng.ui",
+      "archive": "upstream/skinMagic_eng.ui",
+      "sha256": "f26c78af612e0dfcc38288225b93d209784096577728cc0ac43d1b9d09fd90e9"
+    },
+    {
+      "path": "skinMagic_jpn.ui",
+      "archive": "upstream/skinMagic_jpn.ui",
+      "sha256": "1545d4610dd313035a03dcdc11124802a3662ea2270dd944b4151108b2251afe"
+    },
+    {
+      "path": "安装说明.txt",
+      "archive": "upstream/安装说明.txt",
+      "sha256": "b518b9b9d6daeb1c9e53e118eaa2d02d67eadc83eaa833a656ee63b5336adf1d"
+    }
+  ],
+  "functions": [
+    "showSpam",
+    "removeUnknowNodeButtonCmd",
+    "meshCleanUpButtonCmd",
+    "bindSkinPlusButtonCmd",
+    "scaleJointButtonCmd",
+    "cleanAttrButtonCmd",
+    "shrinkSelectionCmd",
+    "growSelectionCmd",
+    "elementSelectionCmd",
+    "waveSelectionCmd",
+    "ringSelectionCmd",
+    "loopSelectionCmd",
+    "setWeight0Cmd",
+    "setWeight01Cmd",
+    "setWeight025Cmd",
+    "setWeight05Cmd",
+    "setWeight075Cmd",
+    "setWeight09Cmd",
+    "setWeight1Cmd",
+    "setWeightFromValueCmd",
+    "plusWeightCmd",
+    "minusWeightCmd",
+    "copyWeightCmd",
+    "pasteWeightCmd",
+    "relaxWeightCmd",
+    "rangeExtCmd",
+    "rangeShrCmd",
+    "weightToolOnCmd",
+    "weightToolOffCmd",
+    "addBoneCmd",
+    "removeBoneCmd",
+    "boneListSelectedCmd",
+    "vertexSizeCmd",
+    "pruneWeightCmd",
+    "mirrorWeightCmd",
+    "swapWeightCmd",
+    "swapLoadBoneACmd",
+    "swapLoadBoneBCmd",
+    "transferWeightCmd",
+    "mirrorXSelectedCmd",
+    "mirrorYSelectedCmd",
+    "mirrorZSelectedCmd",
+    "paintVertexOnCmd",
+    "paintVertexOffCmd",
+    "setVertexSizeCmd",
+    "normalizeWeightCmd",
+    "exportVtxWeightCmd",
+    "importVtxWeightCmd",
+    "lodSourceMeshButtonCmd",
+    "lodTargetMeshButtonCmd",
+    "lodAddButtonCmd",
+    "lodRemoveButtonCmd",
+    "lodRefreshButtonCmd",
+    "lodClearButtonCmd",
+    "lodSaveButtonCmd",
+    "lodLoadButtonCmd",
+    "lodResetButtonCmd",
+    "lodMakeButtonCmd",
+    "lodBoneListSelectedCmd",
+    "goreGetBaseMeshButtonCmd",
+    "goreAddButtonCmd",
+    "goreRemoveButtonCmd",
+    "goreClearButtonCmd",
+    "goreMakeButtonCmd",
+    "checkInfluenceCmd",
+    "bsTransLoadSrcButtonCmd",
+    "bsTransLoadTgtButtonCmd",
+    "bsTransDoButtonCmd",
+    "boneLabelDoButtonCmd",
+    "buildWeightMapCmd",
+    "linkinCmd",
+    "renameMakeCmd",
+    "renameStartChangeCmd",
+    "renameUpdatePreviewCmd",
+    "deformerOKCmd",
+    "deformerWebCmd",
+    "springPasteCmd",
+    "springSetCmd",
+    "springStraightCmd",
+    "springApplyCmd",
+    "springCopyCmd",
+    "springPasteCmd",
+    "springWebCmd",
+    "springTwistChangeCmd",
+    "springChangeCmd",
+    "springTensionChangeCmd",
+    "springSubDivChangeCmd",
+    "springAddWindCmd",
+    "springAddBodyCmd",
+    "springRemoveBodyCmd",
+    "springClearBodyCmd",
+    "springBindControllerCmd",
+    "springClearBindCmd",
+    "goShelfCmd",
+    "languageCmd",
+    "languageSelectedCmd",
+    "reSkinPickBoneCmd",
+    "reSkinCmd",
+    "meshDelNonSkinHistoryCmd",
+    "bilibiliCmd",
+    "youtubeCmd",
+    "vimeoCmd",
+    "donatePayPal_buttonCmd",
+    "dockScriptEditorCmd",
+    "updatePageCmd",
+    "applyLanguage",
+    "detectMayaLanguage",
+    "meshCleanWeightlessBoneCmd",
+    "selectWeightedBoneCmd",
+    "loadSourceVtxCmd",
+    "copyClosestVtxCmd",
+    "selectWeightedVertsCmd",
+    "swapMergeWeightCmd",
+    "renameUpdatePreview",
+    "renameBuildString",
+    "replaceString",
+    "addString",
+    "templateString",
+    "renameSetOrderLetter",
+    "renameMake",
+    "renameResetUI",
+    "printTextEdit",
+    "printTextLable",
+    "runProgressBar",
+    "setProgressBar",
+    "resetUI",
+    "closeUI",
+    "find_between",
+    "checkUpdate",
+    "getCurrentSelectVertexs",
+    "changeVertPriority",
+    "getRangeStep",
+    "getDifVertex",
+    "getBoneListBone",
+    "rangeExtend",
+    "rangeShrink",
+    "reSkinPickBone",
+    "reSkin",
+    "vertexSize",
+    "updateWeightUI",
+    "getRelativedJoint",
+    "updateBoneListUI",
+    "updateValueListUI",
+    "boneListSelected",
+    "updateVertexColor",
+    "paintVertexOn",
+    "paintVertexOff",
+    "paintWeightedVertex",
+    "shrinkSelection",
+    "growSelection",
+    "elementSelection",
+    "ringSelection",
+    "waveSelection",
+    "setWeightFromBotton",
+    "checkInfluence",
+    "setWeightFromValue",
+    "setVertexWeight",
+    "plusWeight",
+    "minusWeight",
+    "copyWeight",
+    "getMeshSkinCluster",
+    "getSelectedVertexInfo",
+    "pasteWeight",
+    "setVertexSize",
+    "normalizeWeightObj",
+    "normalizeWeight",
+    "weightToolOff",
+    "resetWeightUI",
+    "addBone",
+    "addBoneGetSelectBone",
+    "addBoneUpdateJointList",
+    "addBoneUI",
+    "removeBone",
+    "pruneWeight",
+    "mirrorXSelected",
+    "mirrorYSelected",
+    "mirrorZSelected",
+    "mirrorWeight",
+    "transferWeight",
+    "exchangeSkinWeight",
+    "swapWeight",
+    "swapLoadBoneA",
+    "swapLoadBoneB",
+    "exportVtxManager",
+    "importVtxManager",
+    "exportVtxWeight2",
+    "importVtxWeight2",
+    "exportVtxWeight",
+    "prepareExprotVertexData",
+    "importVtxWeight",
+    "applyVertexData",
+    "relaxWeight",
+    "relaxWeight_2",
+    "selectWeightedVerts",
+    "lodGetMesh",
+    "lodAdd",
+    "makeBoneDict",
+    "getWeightReceiver",
+    "lodUpdateBoneListUI",
+    "getRootBone",
+    "lodGetSelectBones",
+    "lodRemove",
+    "lodUpdateReceiver",
+    "lodClear",
+    "lodSave",
+    "toJoint",
+    "lodLoad",
+    "lodReset",
+    "lodVerifyReceiveBoneList",
+    "lodMake",
+    "updateSkinClusterCache",
+    "lodMakeLauncher",
+    "findChildrenBone",
+    "mergeSkinWeight",
+    "lodBoneListSelected",
+    "goreGetBaseMesh",
+    "goreAdd",
+    "goreRemove",
+    "goreClear",
+    "goreMake",
+    "unlockTransform",
+    "forceDeleteHistory",
+    "goShelf",
+    "scaleJoint",
+    "cleanAttr",
+    "removeUnknowNode",
+    "meshCleanUp",
+    "bindSkinPlus",
+    "deformerOK",
+    "meshCleanWeightlessBone",
+    "selectWeightBone",
+    "copyVertexWeight",
+    "m_getClosestVtx",
+    "copyClosestVtx",
+    "bakeAnim",
+    "limitTextEditValue",
+    "copyBonePose",
+    "pasteBonePose",
+    "getBlendShapeList",
+    "bsTransLoadSrc",
+    "bsTransLoadTgt",
+    "bsTransDo",
+    "removeBoneKwd",
+    "boneLabelDo",
+    "meshDelNonSkinHistory2",
+    "meshDelNonSkinHistory",
+    "createWeightMapProxyMesh",
+    "buildWeightMap",
+    "selectionChanged",
+    "printPerformanceTime"
+  ],
+  "ui_controls": {
+    "skinMagic.ui": [
+      {
+        "widget": "donatePayPal_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "donatePayPal_buttonCmd"
+      },
+      {
+        "widget": "w1_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight1Cmd"
+      },
+      {
+        "widget": "copyWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "copyWeightCmd"
+      },
+      {
+        "widget": "plusWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "plusWeightCmd"
+      },
+      {
+        "widget": "setWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeightFromValueCmd"
+      },
+      {
+        "widget": "w025_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight025Cmd"
+      },
+      {
+        "widget": "shrink_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "shrinkSelectionCmd"
+      },
+      {
+        "widget": "grow_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "growSelectionCmd"
+      },
+      {
+        "widget": "pasteWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "pasteWeightCmd"
+      },
+      {
+        "widget": "w01_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight01Cmd"
+      },
+      {
+        "widget": "w05_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight05Cmd"
+      },
+      {
+        "widget": "ring_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "ringSelectionCmd"
+      },
+      {
+        "widget": "minusWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "minusWeightCmd"
+      },
+      {
+        "widget": "w09_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight09Cmd"
+      },
+      {
+        "widget": "w075_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight075Cmd"
+      },
+      {
+        "widget": "w0_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight0Cmd"
+      },
+      {
+        "widget": "removeBone_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "removeBoneCmd"
+      },
+      {
+        "widget": "addBone_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "addBoneCmd"
+      },
+      {
+        "widget": "paintVertex_checkBox",
+        "class": "QCheckBox",
+        "flag": "onCommand",
+        "function": "paintVertexOnCmd"
+      },
+      {
+        "widget": "paintVertex_checkBox",
+        "class": "QCheckBox",
+        "flag": "offCommand",
+        "function": "paintVertexOffCmd"
+      },
+      {
+        "widget": "element_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "elementSelectionCmd"
+      },
+      {
+        "widget": "wave_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "waveSelectionCmd"
+      },
+      {
+        "widget": "relax_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "relaxWeightCmd"
+      },
+      {
+        "widget": "reSkinLoadBone_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "reSkinPickBoneCmd"
+      },
+      {
+        "widget": "reSkinApply_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "reSkinCmd"
+      },
+      {
+        "widget": "export_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "exportVtxWeightCmd"
+      },
+      {
+        "widget": "import_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "importVtxWeightCmd"
+      },
+      {
+        "widget": "weightVertexSize_Slider",
+        "class": "QSlider",
+        "flag": "changeCommand",
+        "function": "setVertexSizeCmd"
+      },
+      {
+        "widget": "Normalize_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "normalizeWeightCmd"
+      },
+      {
+        "widget": "mirrorX_radioButton",
+        "class": "QRadioButton",
+        "flag": "onCommand",
+        "function": "mirrorXSelectedCmd"
+      },
+      {
+        "widget": "mirrorY_radioButton",
+        "class": "QRadioButton",
+        "flag": "onCommand",
+        "function": "mirrorYSelectedCmd"
+      },
+      {
+        "widget": "mirrorZ_radioButton",
+        "class": "QRadioButton",
+        "flag": "onCommand",
+        "function": "mirrorZSelectedCmd"
+      },
+      {
+        "widget": "mirrorWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "mirrorWeightCmd"
+      },
+      {
+        "widget": "swap_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "swapWeightCmd"
+      },
+      {
+        "widget": "swapLoadBoneA_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "swapLoadBoneACmd"
+      },
+      {
+        "widget": "swapLoadBoneB_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "swapLoadBoneBCmd"
+      },
+      {
+        "widget": "swapMerge_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "swapMergeWeightCmd"
+      },
+      {
+        "widget": "pruneWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "pruneWeightCmd"
+      },
+      {
+        "widget": "source_Vtx_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "loadSourceVtxCmd"
+      },
+      {
+        "widget": "warp_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "copyClosestVtxCmd"
+      },
+      {
+        "widget": "checkInflunce_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "checkInfluenceCmd"
+      },
+      {
+        "widget": "weightBone_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "selectWeightedBoneCmd"
+      },
+      {
+        "widget": "InfVerts_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "selectWeightedVertsCmd"
+      },
+      {
+        "widget": "bone_listBox",
+        "class": "QListWidget",
+        "flag": "selectCommand",
+        "function": "boneListSelectedCmd"
+      },
+      {
+        "widget": "rangeShr_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "rangeShrCmd"
+      },
+      {
+        "widget": "rangeExt_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "rangeExtCmd"
+      },
+      {
+        "widget": "weightOn_checkBox",
+        "class": "QCheckBox",
+        "flag": "onCommand",
+        "function": "weightToolOnCmd"
+      },
+      {
+        "widget": "weightOn_checkBox",
+        "class": "QCheckBox",
+        "flag": "offCommand",
+        "function": "weightToolOffCmd"
+      },
+      {
+        "widget": "vertexSize_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "vertexSizeCmd"
+      },
+      {
+        "widget": "transferWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "transferWeightCmd"
+      },
+      {
+        "widget": "renameMake_Button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "renameMakeCmd"
+      },
+      {
+        "widget": "renameSearch_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameReplace_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameCase_checkBox",
+        "class": "QCheckBox",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renamePerfix_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renamePrefix_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameSuffix_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameStart_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameStart_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameStartChangeCmd"
+      },
+      {
+        "widget": "renameHierarchy_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameSelected_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameAll_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameTemplate_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameLetter_checkBox",
+        "class": "QCheckBox",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameOrderStart_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameOrderStep_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameOrderLetter_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameUpcase_checkBox",
+        "class": "QCheckBox",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameTemplate_checkBox",
+        "class": "QCheckBox",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreview"
+      },
+      {
+        "widget": "lodSource_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodSourceMeshButtonCmd"
+      },
+      {
+        "widget": "lodTarget_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodTargetMeshButtonCmd"
+      },
+      {
+        "widget": "lodSourceBone_listBox",
+        "class": "QListWidget",
+        "flag": "selectCommand",
+        "function": "lodBoneListSelectedCmd"
+      },
+      {
+        "widget": "lodTargetBone_listBox",
+        "class": "QListWidget",
+        "flag": "selectCommand",
+        "function": "boneListSelectedCmd"
+      },
+      {
+        "widget": "lodAdd_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodAddButtonCmd"
+      },
+      {
+        "widget": "lodRemove_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodRemoveButtonCmd"
+      },
+      {
+        "widget": "lodSave_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodSaveButtonCmd"
+      },
+      {
+        "widget": "lodLoad_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodLoadButtonCmd"
+      },
+      {
+        "widget": "lodClear_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodClearButtonCmd"
+      },
+      {
+        "widget": "lodRefresh_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodRefreshButtonCmd"
+      },
+      {
+        "widget": "lodMake_Button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodMakeButtonCmd"
+      },
+      {
+        "widget": "misc_runButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "removeUnknowNodeButtonCmd"
+      },
+      {
+        "widget": "misc_runButton_3",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "meshCleanUpButtonCmd"
+      },
+      {
+        "widget": "misc_runButton_4",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "bindSkinPlusButtonCmd"
+      },
+      {
+        "widget": "deformerWeb_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "deformerWebCmd"
+      },
+      {
+        "widget": "deformerOK_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "deformerOKCmd"
+      },
+      {
+        "widget": "pushButton_5",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "goShelfCmd"
+      },
+      {
+        "widget": "scaleButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "scaleJointButtonCmd"
+      },
+      {
+        "widget": "misc_runButton_5",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "meshCleanWeightlessBoneCmd"
+      },
+      {
+        "widget": "misc_runButton_6",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "cleanAttrButtonCmd"
+      },
+      {
+        "widget": "misc_runButton_7",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "meshDelNonSkinHistoryCmd"
+      },
+      {
+        "widget": "misc_runButton_8",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "buildWeightMapCmd"
+      },
+      {
+        "widget": "bsTransLoadSrc_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "bsTransLoadSrcButtonCmd"
+      },
+      {
+        "widget": "bsTransLoadTgt_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "bsTransLoadTgtButtonCmd"
+      },
+      {
+        "widget": "bsTransDo_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "bsTransDoButtonCmd"
+      },
+      {
+        "widget": "boneLabelDo_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "boneLabelDoButtonCmd"
+      },
+      {
+        "widget": "link_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "linkinCmd"
+      },
+      {
+        "widget": "miscUpdate_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "updatePageCmd"
+      },
+      {
+        "widget": "vimeo_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "youtubeCmd"
+      },
+      {
+        "widget": "bilibili_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "bilibiliCmd"
+      },
+      {
+        "widget": "language_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "languageCmd"
+      },
+      {
+        "widget": "language_list",
+        "class": "QListWidget",
+        "flag": "selectCommand",
+        "function": "languageSelectedCmd"
+      }
+    ],
+    "skinMagic_chn.ui": [
+      {
+        "widget": "donatePayPal_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "donatePayPal_buttonCmd"
+      },
+      {
+        "widget": "w1_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight1Cmd"
+      },
+      {
+        "widget": "copyWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "copyWeightCmd"
+      },
+      {
+        "widget": "plusWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "plusWeightCmd"
+      },
+      {
+        "widget": "setWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeightFromValueCmd"
+      },
+      {
+        "widget": "w025_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight025Cmd"
+      },
+      {
+        "widget": "shrink_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "shrinkSelectionCmd"
+      },
+      {
+        "widget": "grow_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "growSelectionCmd"
+      },
+      {
+        "widget": "pasteWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "pasteWeightCmd"
+      },
+      {
+        "widget": "w01_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight01Cmd"
+      },
+      {
+        "widget": "w05_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight05Cmd"
+      },
+      {
+        "widget": "ring_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "ringSelectionCmd"
+      },
+      {
+        "widget": "minusWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "minusWeightCmd"
+      },
+      {
+        "widget": "w09_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight09Cmd"
+      },
+      {
+        "widget": "w075_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight075Cmd"
+      },
+      {
+        "widget": "w0_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight0Cmd"
+      },
+      {
+        "widget": "removeBone_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "removeBoneCmd"
+      },
+      {
+        "widget": "addBone_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "addBoneCmd"
+      },
+      {
+        "widget": "paintVertex_checkBox",
+        "class": "QCheckBox",
+        "flag": "onCommand",
+        "function": "paintVertexOnCmd"
+      },
+      {
+        "widget": "paintVertex_checkBox",
+        "class": "QCheckBox",
+        "flag": "offCommand",
+        "function": "paintVertexOffCmd"
+      },
+      {
+        "widget": "element_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "elementSelectionCmd"
+      },
+      {
+        "widget": "wave_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "waveSelectionCmd"
+      },
+      {
+        "widget": "reSkinLoadBone_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "reSkinPickBoneCmd"
+      },
+      {
+        "widget": "reSkinApply_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "reSkinCmd"
+      },
+      {
+        "widget": "Normalize_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "normalizeWeightCmd"
+      },
+      {
+        "widget": "pruneWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "pruneWeightCmd"
+      },
+      {
+        "widget": "source_Vtx_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "loadSourceVtxCmd"
+      },
+      {
+        "widget": "warp_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "copyClosestVtxCmd"
+      },
+      {
+        "widget": "checkInflunce_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "checkInfluenceCmd"
+      },
+      {
+        "widget": "weightBone_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "selectWeightedBoneCmd"
+      },
+      {
+        "widget": "weightVertexSize_Slider",
+        "class": "QSlider",
+        "flag": "changeCommand",
+        "function": "setVertexSizeCmd"
+      },
+      {
+        "widget": "mirrorX_radioButton",
+        "class": "QRadioButton",
+        "flag": "onCommand",
+        "function": "mirrorXSelectedCmd"
+      },
+      {
+        "widget": "mirrorY_radioButton",
+        "class": "QRadioButton",
+        "flag": "onCommand",
+        "function": "mirrorYSelectedCmd"
+      },
+      {
+        "widget": "mirrorZ_radioButton",
+        "class": "QRadioButton",
+        "flag": "onCommand",
+        "function": "mirrorZSelectedCmd"
+      },
+      {
+        "widget": "mirrorWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "mirrorWeightCmd"
+      },
+      {
+        "widget": "swap_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "swapWeightCmd"
+      },
+      {
+        "widget": "swapLoadBoneA_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "swapLoadBoneACmd"
+      },
+      {
+        "widget": "swapLoadBoneB_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "swapLoadBoneBCmd"
+      },
+      {
+        "widget": "swapMerge_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "swapMergeWeightCmd"
+      },
+      {
+        "widget": "export_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "exportVtxWeightCmd"
+      },
+      {
+        "widget": "import_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "importVtxWeightCmd"
+      },
+      {
+        "widget": "InfVerts_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "selectWeightedVertsCmd"
+      },
+      {
+        "widget": "relax_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "relaxWeightCmd"
+      },
+      {
+        "widget": "bone_listBox",
+        "class": "QListWidget",
+        "flag": "selectCommand",
+        "function": "boneListSelectedCmd"
+      },
+      {
+        "widget": "rangeExt_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "rangeExtCmd"
+      },
+      {
+        "widget": "rangeShr_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "rangeShrCmd"
+      },
+      {
+        "widget": "weightOn_checkBox",
+        "class": "QCheckBox",
+        "flag": "onCommand",
+        "function": "weightToolOnCmd"
+      },
+      {
+        "widget": "weightOn_checkBox",
+        "class": "QCheckBox",
+        "flag": "offCommand",
+        "function": "weightToolOffCmd"
+      },
+      {
+        "widget": "vertexSize_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "vertexSizeCmd"
+      },
+      {
+        "widget": "transferWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "transferWeightCmd"
+      },
+      {
+        "widget": "renameMake_Button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "renameMakeCmd"
+      },
+      {
+        "widget": "renameSearch_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameReplace_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameCase_checkBox",
+        "class": "QCheckBox",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renamePerfix_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renamePrefix_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameSuffix_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameStart_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameStart_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameStartChangeCmd"
+      },
+      {
+        "widget": "renameHierarchy_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameSelected_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameAll_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameTemplate_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameLetter_checkBox",
+        "class": "QCheckBox",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameOrderStart_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameOrderStep_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameOrderLetter_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameUpcase_checkBox",
+        "class": "QCheckBox",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameTemplate_checkBox",
+        "class": "QCheckBox",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreview"
+      },
+      {
+        "widget": "lodSource_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodSourceMeshButtonCmd"
+      },
+      {
+        "widget": "lodTarget_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodTargetMeshButtonCmd"
+      },
+      {
+        "widget": "lodSourceBone_listBox",
+        "class": "QListWidget",
+        "flag": "selectCommand",
+        "function": "lodBoneListSelectedCmd"
+      },
+      {
+        "widget": "lodTargetBone_listBox",
+        "class": "QListWidget",
+        "flag": "selectCommand",
+        "function": "boneListSelectedCmd"
+      },
+      {
+        "widget": "lodAdd_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodAddButtonCmd"
+      },
+      {
+        "widget": "lodRemove_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodRemoveButtonCmd"
+      },
+      {
+        "widget": "lodSave_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodSaveButtonCmd"
+      },
+      {
+        "widget": "lodLoad_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodLoadButtonCmd"
+      },
+      {
+        "widget": "lodClear_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodClearButtonCmd"
+      },
+      {
+        "widget": "lodRefresh_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodRefreshButtonCmd"
+      },
+      {
+        "widget": "lodMake_Button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodMakeButtonCmd"
+      },
+      {
+        "widget": "misc_runButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "removeUnknowNodeButtonCmd"
+      },
+      {
+        "widget": "misc_runButton_3",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "meshCleanUpButtonCmd"
+      },
+      {
+        "widget": "misc_runButton_4",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "bindSkinPlusButtonCmd"
+      },
+      {
+        "widget": "deformerWeb_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "deformerWebCmd"
+      },
+      {
+        "widget": "deformerOK_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "deformerOKCmd"
+      },
+      {
+        "widget": "pushButton_5",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "goShelfCmd"
+      },
+      {
+        "widget": "misc_runButton_6",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "cleanAttrButtonCmd"
+      },
+      {
+        "widget": "scaleButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "scaleJointButtonCmd"
+      },
+      {
+        "widget": "misc_runButton_5",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "meshCleanWeightlessBoneCmd"
+      },
+      {
+        "widget": "misc_runButton_7",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "meshDelNonSkinHistoryCmd"
+      },
+      {
+        "widget": "misc_runButton_8",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "buildWeightMapCmd"
+      },
+      {
+        "widget": "bsTransLoadSrc_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "bsTransLoadSrcButtonCmd"
+      },
+      {
+        "widget": "bsTransLoadTgt_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "bsTransLoadTgtButtonCmd"
+      },
+      {
+        "widget": "bsTransDo_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "bsTransDoButtonCmd"
+      },
+      {
+        "widget": "boneLabelDo_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "boneLabelDoButtonCmd"
+      },
+      {
+        "widget": "link_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "linkinCmd"
+      },
+      {
+        "widget": "miscUpdate_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "updatePageCmd"
+      },
+      {
+        "widget": "vimeo_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "youtubeCmd"
+      },
+      {
+        "widget": "bilibili_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "bilibiliCmd"
+      },
+      {
+        "widget": "language_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "languageCmd"
+      },
+      {
+        "widget": "language_list",
+        "class": "QListWidget",
+        "flag": "selectCommand",
+        "function": "languageSelectedCmd"
+      }
+    ],
+    "skinMagic_eng.ui": [
+      {
+        "widget": "donatePayPal_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "donatePayPal_buttonCmd"
+      },
+      {
+        "widget": "w1_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight1Cmd"
+      },
+      {
+        "widget": "copyWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "copyWeightCmd"
+      },
+      {
+        "widget": "plusWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "plusWeightCmd"
+      },
+      {
+        "widget": "setWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeightFromValueCmd"
+      },
+      {
+        "widget": "w025_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight025Cmd"
+      },
+      {
+        "widget": "shrink_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "shrinkSelectionCmd"
+      },
+      {
+        "widget": "grow_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "growSelectionCmd"
+      },
+      {
+        "widget": "pasteWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "pasteWeightCmd"
+      },
+      {
+        "widget": "w01_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight01Cmd"
+      },
+      {
+        "widget": "w05_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight05Cmd"
+      },
+      {
+        "widget": "ring_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "ringSelectionCmd"
+      },
+      {
+        "widget": "minusWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "minusWeightCmd"
+      },
+      {
+        "widget": "w09_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight09Cmd"
+      },
+      {
+        "widget": "w075_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight075Cmd"
+      },
+      {
+        "widget": "w0_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight0Cmd"
+      },
+      {
+        "widget": "removeBone_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "removeBoneCmd"
+      },
+      {
+        "widget": "addBone_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "addBoneCmd"
+      },
+      {
+        "widget": "paintVertex_checkBox",
+        "class": "QCheckBox",
+        "flag": "onCommand",
+        "function": "paintVertexOnCmd"
+      },
+      {
+        "widget": "paintVertex_checkBox",
+        "class": "QCheckBox",
+        "flag": "offCommand",
+        "function": "paintVertexOffCmd"
+      },
+      {
+        "widget": "element_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "elementSelectionCmd"
+      },
+      {
+        "widget": "wave_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "waveSelectionCmd"
+      },
+      {
+        "widget": "relax_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "relaxWeightCmd"
+      },
+      {
+        "widget": "reSkinLoadBone_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "reSkinPickBoneCmd"
+      },
+      {
+        "widget": "reSkinApply_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "reSkinCmd"
+      },
+      {
+        "widget": "export_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "exportVtxWeightCmd"
+      },
+      {
+        "widget": "import_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "importVtxWeightCmd"
+      },
+      {
+        "widget": "weightVertexSize_Slider",
+        "class": "QSlider",
+        "flag": "changeCommand",
+        "function": "setVertexSizeCmd"
+      },
+      {
+        "widget": "Normalize_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "normalizeWeightCmd"
+      },
+      {
+        "widget": "mirrorX_radioButton",
+        "class": "QRadioButton",
+        "flag": "onCommand",
+        "function": "mirrorXSelectedCmd"
+      },
+      {
+        "widget": "mirrorY_radioButton",
+        "class": "QRadioButton",
+        "flag": "onCommand",
+        "function": "mirrorYSelectedCmd"
+      },
+      {
+        "widget": "mirrorZ_radioButton",
+        "class": "QRadioButton",
+        "flag": "onCommand",
+        "function": "mirrorZSelectedCmd"
+      },
+      {
+        "widget": "mirrorWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "mirrorWeightCmd"
+      },
+      {
+        "widget": "swap_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "swapWeightCmd"
+      },
+      {
+        "widget": "swapLoadBoneA_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "swapLoadBoneACmd"
+      },
+      {
+        "widget": "swapLoadBoneB_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "swapLoadBoneBCmd"
+      },
+      {
+        "widget": "swapMerge_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "swapMergeWeightCmd"
+      },
+      {
+        "widget": "pruneWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "pruneWeightCmd"
+      },
+      {
+        "widget": "source_Vtx_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "loadSourceVtxCmd"
+      },
+      {
+        "widget": "warp_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "copyClosestVtxCmd"
+      },
+      {
+        "widget": "checkInflunce_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "checkInfluenceCmd"
+      },
+      {
+        "widget": "weightBone_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "selectWeightedBoneCmd"
+      },
+      {
+        "widget": "InfVerts_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "selectWeightedVertsCmd"
+      },
+      {
+        "widget": "bone_listBox",
+        "class": "QListWidget",
+        "flag": "selectCommand",
+        "function": "boneListSelectedCmd"
+      },
+      {
+        "widget": "rangeShr_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "rangeShrCmd"
+      },
+      {
+        "widget": "rangeExt_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "rangeExtCmd"
+      },
+      {
+        "widget": "weightOn_checkBox",
+        "class": "QCheckBox",
+        "flag": "onCommand",
+        "function": "weightToolOnCmd"
+      },
+      {
+        "widget": "weightOn_checkBox",
+        "class": "QCheckBox",
+        "flag": "offCommand",
+        "function": "weightToolOffCmd"
+      },
+      {
+        "widget": "vertexSize_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "vertexSizeCmd"
+      },
+      {
+        "widget": "transferWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "transferWeightCmd"
+      },
+      {
+        "widget": "renameMake_Button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "renameMakeCmd"
+      },
+      {
+        "widget": "renameSearch_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameReplace_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameCase_checkBox",
+        "class": "QCheckBox",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renamePerfix_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renamePrefix_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameSuffix_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameStart_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameStart_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameStartChangeCmd"
+      },
+      {
+        "widget": "renameHierarchy_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameSelected_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameAll_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameTemplate_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameLetter_checkBox",
+        "class": "QCheckBox",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameOrderStart_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameOrderStep_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameOrderLetter_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameUpcase_checkBox",
+        "class": "QCheckBox",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameTemplate_checkBox",
+        "class": "QCheckBox",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreview"
+      },
+      {
+        "widget": "lodSource_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodSourceMeshButtonCmd"
+      },
+      {
+        "widget": "lodTarget_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodTargetMeshButtonCmd"
+      },
+      {
+        "widget": "lodSourceBone_listBox",
+        "class": "QListWidget",
+        "flag": "selectCommand",
+        "function": "lodBoneListSelectedCmd"
+      },
+      {
+        "widget": "lodTargetBone_listBox",
+        "class": "QListWidget",
+        "flag": "selectCommand",
+        "function": "boneListSelectedCmd"
+      },
+      {
+        "widget": "lodAdd_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodAddButtonCmd"
+      },
+      {
+        "widget": "lodRemove_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodRemoveButtonCmd"
+      },
+      {
+        "widget": "lodSave_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodSaveButtonCmd"
+      },
+      {
+        "widget": "lodLoad_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodLoadButtonCmd"
+      },
+      {
+        "widget": "lodClear_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodClearButtonCmd"
+      },
+      {
+        "widget": "lodRefresh_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodRefreshButtonCmd"
+      },
+      {
+        "widget": "lodMake_Button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodMakeButtonCmd"
+      },
+      {
+        "widget": "misc_runButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "removeUnknowNodeButtonCmd"
+      },
+      {
+        "widget": "misc_runButton_3",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "meshCleanUpButtonCmd"
+      },
+      {
+        "widget": "misc_runButton_4",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "bindSkinPlusButtonCmd"
+      },
+      {
+        "widget": "deformerWeb_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "deformerWebCmd"
+      },
+      {
+        "widget": "deformerOK_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "deformerOKCmd"
+      },
+      {
+        "widget": "pushButton_5",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "goShelfCmd"
+      },
+      {
+        "widget": "scaleButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "scaleJointButtonCmd"
+      },
+      {
+        "widget": "misc_runButton_5",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "meshCleanWeightlessBoneCmd"
+      },
+      {
+        "widget": "misc_runButton_6",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "cleanAttrButtonCmd"
+      },
+      {
+        "widget": "misc_runButton_7",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "meshDelNonSkinHistoryCmd"
+      },
+      {
+        "widget": "misc_runButton_8",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "buildWeightMapCmd"
+      },
+      {
+        "widget": "bsTransLoadSrc_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "bsTransLoadSrcButtonCmd"
+      },
+      {
+        "widget": "bsTransLoadTgt_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "bsTransLoadTgtButtonCmd"
+      },
+      {
+        "widget": "bsTransDo_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "bsTransDoButtonCmd"
+      },
+      {
+        "widget": "boneLabelDo_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "boneLabelDoButtonCmd"
+      },
+      {
+        "widget": "link_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "linkinCmd"
+      },
+      {
+        "widget": "miscUpdate_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "updatePageCmd"
+      },
+      {
+        "widget": "vimeo_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "youtubeCmd"
+      },
+      {
+        "widget": "bilibili_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "bilibiliCmd"
+      },
+      {
+        "widget": "language_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "languageCmd"
+      },
+      {
+        "widget": "language_list",
+        "class": "QListWidget",
+        "flag": "selectCommand",
+        "function": "languageSelectedCmd"
+      }
+    ],
+    "skinMagic_jpn.ui": [
+      {
+        "widget": "donatePayPal_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "donatePayPal_buttonCmd"
+      },
+      {
+        "widget": "w1_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight1Cmd"
+      },
+      {
+        "widget": "copyWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "copyWeightCmd"
+      },
+      {
+        "widget": "plusWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "plusWeightCmd"
+      },
+      {
+        "widget": "setWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeightFromValueCmd"
+      },
+      {
+        "widget": "w025_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight025Cmd"
+      },
+      {
+        "widget": "shrink_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "shrinkSelectionCmd"
+      },
+      {
+        "widget": "grow_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "growSelectionCmd"
+      },
+      {
+        "widget": "pasteWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "pasteWeightCmd"
+      },
+      {
+        "widget": "w01_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight01Cmd"
+      },
+      {
+        "widget": "w05_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight05Cmd"
+      },
+      {
+        "widget": "ring_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "ringSelectionCmd"
+      },
+      {
+        "widget": "minusWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "minusWeightCmd"
+      },
+      {
+        "widget": "w09_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight09Cmd"
+      },
+      {
+        "widget": "w075_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight075Cmd"
+      },
+      {
+        "widget": "w0_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "setWeight0Cmd"
+      },
+      {
+        "widget": "removeBone_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "removeBoneCmd"
+      },
+      {
+        "widget": "addBone_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "addBoneCmd"
+      },
+      {
+        "widget": "paintVertex_checkBox",
+        "class": "QCheckBox",
+        "flag": "onCommand",
+        "function": "paintVertexOnCmd"
+      },
+      {
+        "widget": "paintVertex_checkBox",
+        "class": "QCheckBox",
+        "flag": "offCommand",
+        "function": "paintVertexOffCmd"
+      },
+      {
+        "widget": "element_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "elementSelectionCmd"
+      },
+      {
+        "widget": "wave_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "waveSelectionCmd"
+      },
+      {
+        "widget": "reSkinLoadBone_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "reSkinPickBoneCmd"
+      },
+      {
+        "widget": "reSkinApply_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "reSkinCmd"
+      },
+      {
+        "widget": "Normalize_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "normalizeWeightCmd"
+      },
+      {
+        "widget": "pruneWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "pruneWeightCmd"
+      },
+      {
+        "widget": "source_Vtx_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "loadSourceVtxCmd"
+      },
+      {
+        "widget": "warp_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "copyClosestVtxCmd"
+      },
+      {
+        "widget": "checkInflunce_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "checkInfluenceCmd"
+      },
+      {
+        "widget": "weightBone_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "selectWeightedBoneCmd"
+      },
+      {
+        "widget": "weightVertexSize_Slider",
+        "class": "QSlider",
+        "flag": "changeCommand",
+        "function": "setVertexSizeCmd"
+      },
+      {
+        "widget": "mirrorX_radioButton",
+        "class": "QRadioButton",
+        "flag": "onCommand",
+        "function": "mirrorXSelectedCmd"
+      },
+      {
+        "widget": "mirrorY_radioButton",
+        "class": "QRadioButton",
+        "flag": "onCommand",
+        "function": "mirrorYSelectedCmd"
+      },
+      {
+        "widget": "mirrorZ_radioButton",
+        "class": "QRadioButton",
+        "flag": "onCommand",
+        "function": "mirrorZSelectedCmd"
+      },
+      {
+        "widget": "mirrorWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "mirrorWeightCmd"
+      },
+      {
+        "widget": "swap_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "swapWeightCmd"
+      },
+      {
+        "widget": "swapLoadBoneA_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "swapLoadBoneACmd"
+      },
+      {
+        "widget": "swapLoadBoneB_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "swapLoadBoneBCmd"
+      },
+      {
+        "widget": "swapMerge_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "swapMergeWeightCmd"
+      },
+      {
+        "widget": "export_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "exportVtxWeightCmd"
+      },
+      {
+        "widget": "import_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "importVtxWeightCmd"
+      },
+      {
+        "widget": "InfVerts_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "selectWeightedVertsCmd"
+      },
+      {
+        "widget": "relax_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "relaxWeightCmd"
+      },
+      {
+        "widget": "bone_listBox",
+        "class": "QListWidget",
+        "flag": "selectCommand",
+        "function": "boneListSelectedCmd"
+      },
+      {
+        "widget": "rangeExt_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "rangeExtCmd"
+      },
+      {
+        "widget": "rangeShr_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "rangeShrCmd"
+      },
+      {
+        "widget": "weightOn_checkBox",
+        "class": "QCheckBox",
+        "flag": "onCommand",
+        "function": "weightToolOnCmd"
+      },
+      {
+        "widget": "weightOn_checkBox",
+        "class": "QCheckBox",
+        "flag": "offCommand",
+        "function": "weightToolOffCmd"
+      },
+      {
+        "widget": "vertexSize_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "vertexSizeCmd"
+      },
+      {
+        "widget": "transferWeight_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "transferWeightCmd"
+      },
+      {
+        "widget": "renameMake_Button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "renameMakeCmd"
+      },
+      {
+        "widget": "renameSearch_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameReplace_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameCase_checkBox",
+        "class": "QCheckBox",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renamePerfix_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renamePrefix_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameSuffix_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameStart_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameStart_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameStartChangeCmd"
+      },
+      {
+        "widget": "renameHierarchy_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameSelected_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameAll_radioButton",
+        "class": "QRadioButton",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameTemplate_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameLetter_checkBox",
+        "class": "QCheckBox",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameOrderStart_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameOrderStep_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameOrderLetter_lineEdit",
+        "class": "QLineEdit",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameUpcase_checkBox",
+        "class": "QCheckBox",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreviewCmd"
+      },
+      {
+        "widget": "renameTemplate_checkBox",
+        "class": "QCheckBox",
+        "flag": "changeCommand",
+        "function": "renameUpdatePreview"
+      },
+      {
+        "widget": "lodSource_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodSourceMeshButtonCmd"
+      },
+      {
+        "widget": "lodTarget_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodTargetMeshButtonCmd"
+      },
+      {
+        "widget": "lodSourceBone_listBox",
+        "class": "QListWidget",
+        "flag": "selectCommand",
+        "function": "lodBoneListSelectedCmd"
+      },
+      {
+        "widget": "lodTargetBone_listBox",
+        "class": "QListWidget",
+        "flag": "selectCommand",
+        "function": "boneListSelectedCmd"
+      },
+      {
+        "widget": "lodAdd_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodAddButtonCmd"
+      },
+      {
+        "widget": "lodRemove_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodRemoveButtonCmd"
+      },
+      {
+        "widget": "lodSave_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodSaveButtonCmd"
+      },
+      {
+        "widget": "lodLoad_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodLoadButtonCmd"
+      },
+      {
+        "widget": "lodClear_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodClearButtonCmd"
+      },
+      {
+        "widget": "lodRefresh_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodRefreshButtonCmd"
+      },
+      {
+        "widget": "lodMake_Button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "lodMakeButtonCmd"
+      },
+      {
+        "widget": "misc_runButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "removeUnknowNodeButtonCmd"
+      },
+      {
+        "widget": "misc_runButton_3",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "meshCleanUpButtonCmd"
+      },
+      {
+        "widget": "misc_runButton_4",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "bindSkinPlusButtonCmd"
+      },
+      {
+        "widget": "deformerWeb_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "deformerWebCmd"
+      },
+      {
+        "widget": "deformerOK_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "deformerOKCmd"
+      },
+      {
+        "widget": "pushButton_5",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "goShelfCmd"
+      },
+      {
+        "widget": "misc_runButton_6",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "cleanAttrButtonCmd"
+      },
+      {
+        "widget": "scaleButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "scaleJointButtonCmd"
+      },
+      {
+        "widget": "misc_runButton_5",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "meshCleanWeightlessBoneCmd"
+      },
+      {
+        "widget": "misc_runButton_7",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "meshDelNonSkinHistoryCmd"
+      },
+      {
+        "widget": "misc_runButton_8",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "buildWeightMapCmd"
+      },
+      {
+        "widget": "bsTransLoadSrc_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "bsTransLoadSrcButtonCmd"
+      },
+      {
+        "widget": "bsTransLoadTgt_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "bsTransLoadTgtButtonCmd"
+      },
+      {
+        "widget": "bsTransDo_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "bsTransDoButtonCmd"
+      },
+      {
+        "widget": "boneLabelDo_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "boneLabelDoButtonCmd"
+      },
+      {
+        "widget": "link_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "linkinCmd"
+      },
+      {
+        "widget": "miscUpdate_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "updatePageCmd"
+      },
+      {
+        "widget": "vimeo_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "youtubeCmd"
+      },
+      {
+        "widget": "bilibili_pushButton",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "bilibiliCmd"
+      },
+      {
+        "widget": "language_button",
+        "class": "QPushButton",
+        "flag": "command",
+        "function": "languageCmd"
+      },
+      {
+        "widget": "language_list",
+        "class": "QListWidget",
+        "flag": "selectCommand",
+        "function": "languageSelectedCmd"
+      }
+    ]
+  },
+  "license": "No independent license supplied; local preparation only, no publishing authorization inferred",
+  "missing_upstream": [
+    "Spring callbacks have no implementation or UI tab",
+    "Gore engine supplied without UI controls; companion window provided",
+    "weightToolOn/loopSelection/testCmd missing; explicit repairs documented"
+  ]
+}

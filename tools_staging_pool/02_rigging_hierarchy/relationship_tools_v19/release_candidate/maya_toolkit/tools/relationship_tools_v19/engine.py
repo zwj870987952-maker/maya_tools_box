@@ -156,13 +156,12 @@ class SafeRelationship(RelationshipTool):
 
     def with_performance_optimization(self, func, *args, **kwargs):
         evaluation = cmds.evaluationManager(query=True, mode=True)[0]
-        suspended = cmds.refresh(query=True, suspend=True)
         try:
             cmds.evaluationManager(mode='off')
             cmds.refresh(suspend=True)
             return func(*args, **kwargs)
         finally:
-            cmds.refresh(suspend=suspended)
+            cmds.refresh(suspend=False)
             cmds.evaluationManager(mode=evaluation)
 
     def optimize_keyframes(self, objects, start_frame, end_frame):

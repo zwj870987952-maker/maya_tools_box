@@ -1,0 +1,260 @@
+{
+  "files": [
+    {
+      "path": "reParentIcon.jpg",
+      "sha256": "3eb35b352b5d1d8f661d9dd1fee5d105abafce01e03291e0af12cca3603228b9"
+    },
+    {
+      "path": "reParentPro _v1.5.1.mel",
+      "sha256": "33c1369f6ae2a00926a84996088c2d7401ff79f0d6140f2bb8bf1a9a802623ba"
+    }
+  ],
+  "original_procedures": [
+    {
+      "name": "reParentIntro",
+      "global_scope": false,
+      "return_type": "void",
+      "parameters": [],
+      "line": 50,
+      "end_line": 51
+    },
+    {
+      "name": "BakeAndDelete_reParent",
+      "global_scope": false,
+      "return_type": "void",
+      "parameters": [],
+      "line": 53,
+      "end_line": 89
+    },
+    {
+      "name": "reParentTutorial",
+      "global_scope": false,
+      "return_type": "void",
+      "parameters": [],
+      "line": 92,
+      "end_line": 93
+    },
+    {
+      "name": "reParentStarter",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 96,
+      "end_line": 132
+    },
+    {
+      "name": "reParent",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 144,
+      "end_line": 324
+    },
+    {
+      "name": "reParentManualStarter",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 331,
+      "end_line": 420
+    },
+    {
+      "name": "manualModeCancel",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 422,
+      "end_line": 429
+    },
+    {
+      "name": "manualModeGo",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 432,
+      "end_line": 549
+    },
+    {
+      "name": "reParentRelativeStart",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 554,
+      "end_line": 560
+    },
+    {
+      "name": "reParentRelative",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 563,
+      "end_line": 736
+    },
+    {
+      "name": "reParentStayHere",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 744,
+      "end_line": 925
+    },
+    {
+      "name": "IKmode",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 932,
+      "end_line": 1255
+    },
+    {
+      "name": "reParentLocatorSize",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1261,
+      "end_line": 1361
+    }
+  ],
+  "adapted_procedures": [
+    {
+      "name": "rppstg_setting",
+      "global_scope": true,
+      "return_type": "int",
+      "parameters": [
+        {
+          "name": "key",
+          "type": "string"
+        }
+      ],
+      "line": 1,
+      "end_line": 3
+    },
+    {
+      "name": "rppstg_manualUI",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "active",
+          "type": "int"
+        }
+      ],
+      "line": 4,
+      "end_line": 7
+    },
+    {
+      "name": "rppstg_deleteTemps",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 8,
+      "end_line": 11
+    },
+    {
+      "name": "rppstg_reParentIntro",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 12,
+      "end_line": 13
+    },
+    {
+      "name": "rppstg_BakeAndDelete_reParent",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 15,
+      "end_line": 51
+    },
+    {
+      "name": "rppstg_reParentTutorial",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 54,
+      "end_line": 55
+    },
+    {
+      "name": "rppstg_reParentStarter",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 58,
+      "end_line": 94
+    },
+    {
+      "name": "rppstg_reParent",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 106,
+      "end_line": 286
+    },
+    {
+      "name": "rppstg_reParentManualStarter",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 293,
+      "end_line": 382
+    },
+    {
+      "name": "rppstg_manualModeCancel",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 384,
+      "end_line": 391
+    },
+    {
+      "name": "rppstg_manualModeGo",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 394,
+      "end_line": 511
+    },
+    {
+      "name": "rppstg_reParentRelativeStart",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 516,
+      "end_line": 522
+    },
+    {
+      "name": "rppstg_reParentRelative",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 525,
+      "end_line": 698
+    },
+    {
+      "name": "rppstg_reParentStayHere",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 706,
+      "end_line": 887
+    },
+    {
+      "name": "rppstg_IKmode",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 894,
+      "end_line": 1217
+    },
+    {
+      "name": "rppstg_reParentLocatorSize",
+      "global_scope": true,
+      "return_type": "void",
+      "parameters": [],
+      "line": 1223,
+      "end_line": 1323
+    }
+  ],
+  "original_top_level_ui_deferred": true,
+  "copyright": "Dmitrii Kolpakov 2020; no license file supplied; no redistribution rights inferred"
+}

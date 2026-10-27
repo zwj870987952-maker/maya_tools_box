@@ -9,3 +9,5 @@ domain: "modeling_surfacing"
 ## 正式工具
 
 - [[knowledge/_generated/正式工具/assign_materials_by_rows|按行一对一材质指定工具]]
+- [[knowledge/_generated/正式工具/camera_f_fix|按 F 相机重置]]
+- [[knowledge/_generated/正式工具/cvwrap_weightdriver|cvWrap / weightDriver / mGear 4.0.9]]

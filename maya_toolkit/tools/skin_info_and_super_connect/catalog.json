@@ -1,0 +1,414 @@
+{
+  "files": [
+    {
+      "path": "Export & Import Skin Weights Script/Export-Import JointsWeights v1.3 UI Class.txt",
+      "sha256": "4e0cbc3156b4825f18ea543fa59a7e67d6b9438751e0bee3a6da9404dfd45407"
+    },
+    {
+      "path": "Export - Import SkinCluster/skinInfo_V1.7.mel",
+      "sha256": "681babeb5cc4c31f93e7e98b0039d81ebf9d54b6d30f2010882cffd2e3a34e2e"
+    },
+    {
+      "path": "Export - Import SkinCluster/skinInfo_V1.92.mel",
+      "sha256": "e1165f9d9704239c21b6cbcb3b08a451781ceebf1f466dfaaaccee26e8fc5633"
+    },
+    {
+      "path": "Super Connect/Super_Connect/How to install.txt",
+      "sha256": "be2cda0609916b27ce82270968f9472a9dbf59a93ef77cb35ad4643d83b7c173"
+    },
+    {
+      "path": "Super Connect/Super_Connect/icon/S-Connect_100px.png",
+      "sha256": "d1e7a59dd1b89e367c8136a102174b0840355fdf537d4ef8a5e4b039cdbb2a6e"
+    },
+    {
+      "path": "Super Connect/Super_Connect/Install.mel",
+      "sha256": "5045296a6835ee2a22d628aee386e5c4b55fc51b07035ff0944bd83f94048dc8"
+    },
+    {
+      "path": "Super Connect/Super_Connect/Super_Connect.mel",
+      "sha256": "a81049304395f86378cbb1e39995fee53a4187a225ca29c5b3660f79f6f15555"
+    }
+  ],
+  "suites": {
+    "skin192": {
+      "source": "Export - Import SkinCluster/skinInfo_V1.92.mel",
+      "procedures": [
+        {
+          "name": "GetInfo",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 137,
+          "end_line": 168
+        },
+        {
+          "name": "BrowseToExport",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 171,
+          "end_line": 177
+        },
+        {
+          "name": "ExportInfo",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 179,
+          "end_line": 220
+        },
+        {
+          "name": "BrowseToImport",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 223,
+          "end_line": 230
+        },
+        {
+          "name": "AutoImport",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 233,
+          "end_line": 252
+        },
+        {
+          "name": "SelectInfluences",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [],
+          "line": 254,
+          "end_line": 268
+        },
+        {
+          "name": "ImportSkin_proc",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 271,
+          "end_line": 313
+        },
+        {
+          "name": "ExportAllInfo",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 317,
+          "end_line": 366
+        },
+        {
+          "name": "AutoImportAllSelection",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 370,
+          "end_line": 423
+        },
+        {
+          "name": "LockSelectedJoints",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 425,
+          "end_line": 434
+        },
+        {
+          "name": "UnLockSelectedJoints",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 436,
+          "end_line": 445
+        },
+        {
+          "name": "ChechMayaVer",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 447,
+          "end_line": 460
+        },
+        {
+          "name": "TransferSkin",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 463,
+          "end_line": 549
+        },
+        {
+          "name": "CopySkinAll",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 552,
+          "end_line": 578
+        },
+        {
+          "name": "SelectWeightedJnts",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 581,
+          "end_line": 594
+        }
+      ],
+      "ui_controls": [
+        "CBSprogressBar",
+        "CHB_JSON",
+        "CHB_JSON2",
+        "CHB_XML",
+        "CHB_XML2",
+        "ChangeControlsTSL_01",
+        "ChangeControlsTSL_02",
+        "DeleteHistoryChBox",
+        "DestinationTXF",
+        "Direct_R_CHB",
+        "Direct_S_CHB",
+        "Direct_T_CHB",
+        "Parent_constraints_CHB",
+        "Point_Orient_constraints_CHB",
+        "RB1",
+        "RB2",
+        "RB3",
+        "Result",
+        "ResultLamb",
+        "SkinInfo",
+        "SourceTXF",
+        "Super_Connect",
+        "TextF_FileName",
+        "TextF_TotalInfluences",
+        "TextF_WeightedInfluences",
+        "gMainProgressBar",
+        "tFButton_export",
+        "tFButton_import"
+      ]
+    },
+    "skin17": {
+      "source": "Export - Import SkinCluster/skinInfo_V1.7.mel",
+      "procedures": [
+        {
+          "name": "GetInfo",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 108,
+          "end_line": 139
+        },
+        {
+          "name": "BrowseToExport",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 142,
+          "end_line": 148
+        },
+        {
+          "name": "ExportInfo",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 150,
+          "end_line": 182
+        },
+        {
+          "name": "BrowseToImport",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 185,
+          "end_line": 192
+        },
+        {
+          "name": "AutoImport",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 195,
+          "end_line": 214
+        },
+        {
+          "name": "SelectInfluences",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [],
+          "line": 216,
+          "end_line": 230
+        },
+        {
+          "name": "ImportSkin_proc",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 233,
+          "end_line": 275
+        },
+        {
+          "name": "ExportAllInfo",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 279,
+          "end_line": 330
+        },
+        {
+          "name": "AutoImportAllSelection",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 334,
+          "end_line": 387
+        },
+        {
+          "name": "LockSelectedJoints",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 389,
+          "end_line": 398
+        },
+        {
+          "name": "UnLockSelectedJoints",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 400,
+          "end_line": 409
+        }
+      ],
+      "ui_controls": [
+        "CBSprogressBar",
+        "CHB_JSON",
+        "CHB_JSON2",
+        "CHB_XML",
+        "CHB_XML2",
+        "ChangeControlsTSL_01",
+        "ChangeControlsTSL_02",
+        "DeleteHistoryChBox",
+        "DestinationTXF",
+        "Direct_R_CHB",
+        "Direct_S_CHB",
+        "Direct_T_CHB",
+        "Parent_constraints_CHB",
+        "Point_Orient_constraints_CHB",
+        "RB1",
+        "RB2",
+        "RB3",
+        "Result",
+        "ResultLamb",
+        "SkinInfo",
+        "SourceTXF",
+        "Super_Connect",
+        "TextF_FileName",
+        "TextF_TotalInfluences",
+        "TextF_WeightedInfluences",
+        "gMainProgressBar",
+        "tFButton_export",
+        "tFButton_import"
+      ]
+    },
+    "connect": {
+      "source": "Super Connect/Super_Connect/Super_Connect.mel",
+      "procedures": [
+        {
+          "name": "Store_01",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 225,
+          "end_line": 235
+        },
+        {
+          "name": "Store_02",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 238,
+          "end_line": 248
+        },
+        {
+          "name": "Connect",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 250,
+          "end_line": 288
+        },
+        {
+          "name": "Remove_nameSpace",
+          "global_scope": true,
+          "return_type": "string",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "line": 293,
+          "end_line": 300
+        },
+        {
+          "name": "Super_Direct_Connect",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 305,
+          "end_line": 387
+        },
+        {
+          "name": "Super_ParentConstraint",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 390,
+          "end_line": 448
+        },
+        {
+          "name": "Super_Point_Orient",
+          "global_scope": true,
+          "return_type": "void",
+          "parameters": [],
+          "line": 452,
+          "end_line": 515
+        }
+      ],
+      "ui_controls": [
+        "CBSprogressBar",
+        "CHB_JSON",
+        "CHB_JSON2",
+        "CHB_XML",
+        "CHB_XML2",
+        "ChangeControlsTSL_01",
+        "ChangeControlsTSL_02",
+        "DeleteHistoryChBox",
+        "DestinationTXF",
+        "Direct_R_CHB",
+        "Direct_S_CHB",
+        "Direct_T_CHB",
+        "Parent_constraints_CHB",
+        "Point_Orient_constraints_CHB",
+        "RB1",
+        "RB2",
+        "RB3",
+        "Result",
+        "ResultLamb",
+        "SkinInfo",
+        "SourceTXF",
+        "Super_Connect",
+        "TextF_FileName",
+        "TextF_TotalInfluences",
+        "TextF_WeightedInfluences",
+        "tFButton_export",
+        "tFButton_import"
+      ]
+    }
+  },
+  "timal_methods": [
+    "loadFolder",
+    "exportWeights",
+    "importWeights",
+    "exportImportWeightsUI"
+  ],
+  "copyright": "SkinInfo/SuperConnect Khaled Hussein; Timal attribution from source; no license file supplied"
+}

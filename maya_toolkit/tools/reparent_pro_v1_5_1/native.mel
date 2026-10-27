@@ -1,0 +1,1323 @@
+global proc int rppstg_setting(string $key) {
+    return int(python("__import__('maya_toolkit.tools.reparent_pro_v1_5_1.runtime',fromlist=['native_setting']).native_setting('"+$key+"')"));
+}
+global proc rppstg_manualUI(int $active) {
+    if (`window -exists rppstg_ReParentPanel`) {window -edit -widthHeight 310 (220+44*$active) rppstg_ReParentPanel;}
+    if (`control -exists rppstg_reParentButton`) {button -edit -enable (!$active) rppstg_reParentButton;}
+}
+global proc rppstg_deleteTemps() {
+    string $nodes[] = `ls "rppstg_TempOrientConst*" "rppstg_TempPointConst*" "rppstg_TempParentConst*"`;
+    if (size($nodes)) {delete $nodes;}
+}
+global proc rppstg_reParentIntro()
+{launch -web "https://www.youtube.com/watch?v=7jqzIceFKbo";}
+
+global proc rppstg_BakeAndDelete_reParent()
+{
+     int $currentR =`playbackOptions -q  -min`;
+     int $currentL =`playbackOptions -q -max`;
+
+     select -r rppstg_All_Sessions_reParentControls_set;
+
+     bakeResults
+    -t ($currentR+":"+$currentL)
+    -simulation 1
+    -sampleBy 1
+    -disableImplicitControl 1
+    -preserveOutsideKeys 1
+    -sparseAnimCurveBake 0
+    -removeBakedAttributeFromLayer 0
+    -removeBakedAnimFromLayer 0
+    -bakeOnOverrideLayer 0
+    -minimizeRotation 1
+    -controlPoints 0
+    -shape 0
+    -at "tx"
+    -at "ty"
+    -at "tz"
+    -at "rx"
+    -at "ry"
+    -at "rz";
+
+   if(`objExists "rppstg_All_Session_reParentLocator_set"`) {select -r rppstg_All_Session_reParentLocator_set; delete;}
+   if(`objExists "rppstg_reParent_sets"`) {delete rppstg_reParent_sets;}
+   if(`objExists "rppstg_All_Sessions_reParentControls_set"`) {delete rppstg_All_Sessions_reParentControls_set;}
+   if(`objExists "rppstg_Last_Session_reParentControls_set"`) {delete rppstg_Last_Session_reParentControls_set;}
+
+   if(`objExists "*_RPPStage_reParentIK_grp"`)   {delete "*_RPPStage_reParentIK_grp";}
+   if(`objExists "*:*_RPPStage_reParentIK_grp"`) {delete "*:*_RPPStage_reParentIK_grp";}
+   if(`objExists "*_RPPStage_ReParent_grp"`)     {delete "*_RPPStage_ReParent_grp";}
+   if(`objExists "*:*_RPPStage_ReParent_grp"`)   {delete "*:*_RPPStage_ReParent_grp";}
+}
+
+
+global proc rppstg_reParentTutorial()
+{launch -web "https://www.youtube.com/watch?v=7jqzIceFKbo";}
+
+
+global proc rppstg_reParentStarter()
+{
+	int $FreezeButton = rppstg_setting("FreezeCheckBox");
+	int $RelativeButton = rppstg_setting("RelativeCheckBox");
+	int $IKButton = rppstg_setting("IKCheckBox");
+	int $PinButton = rppstg_setting("PinCheckBox");
+    int $ManualButton = rppstg_setting("ManualCheckBox");
+
+    string $SelectedControls[] = `ls -sl`;
+     if (!size($SelectedControls))
+    {confirmDialog -b "Ok" -t "Oooops.." -m "SELECT ANY CONTROL";}
+
+    else
+    {
+
+    	if ($FreezeButton+$RelativeButton+$IKButton+$PinButton+$ManualButton>1)
+    	{
+    	            confirmDialog -b "Ok" -t "Oooops.." -m "Select one of mode";
+
+    	    }
+    	else
+    	    {
+            	if ($IKButton == 1)
+            	{ string $SelectedControls[] = `ls -sl`;
+            	  if (size($SelectedControls)!=3)
+                    {
+                        confirmDialog -b "Ok" -t "Oooops.." -m "IK mode works only for three controls";
+                    }
+               else {rppstg_IKmode;}}
+            	if ($FreezeButton == 1) {rppstg_reParentStayHere;}
+            	if ($FreezeButton == 0&&$RelativeButton == 0&&$IKButton == 0&&$ManualButton == 0) {rppstg_reParent;}
+            	if ($FreezeButton == 0&&$RelativeButton == 1&&$IKButton == 0&&$ManualButton == 0) {rppstg_reParentRelativeStart;}
+            	if ($FreezeButton == 0&&$RelativeButton == 0&&$IKButton == 0&&$ManualButton == 1) {rppstg_reParentManualStarter;}
+
+    	    }
+    }
+}
+
+
+
+
+
+
+///////////////////////////////////////
+//              rppstg_reParent             //
+///////////////////////////////////////
+
+
+global proc rppstg_reParent()
+{
+    int $PinButton = rppstg_setting("PinCheckBox");
+	int $DelRedMode = rppstg_setting("DelRed");
+
+    string $SelCtrl;
+    string $SelectedControls[] = `ls -sl`;
+
+    int $currentR =`playbackOptions -q  -min`;
+    int $currentL =`playbackOptions -q -max`;
+
+    if(`objExists "rppstg_TempLocator"`) {delete rppstg_TempLocator;}
+
+
+    //Create Sets
+    if(!`objExists "rppstg_reParent_sets"`)
+    {$createSetResult = `sets -em -name "rppstg_reParent_sets"`;}
+
+    if(`objExists "rppstg_All_Sessions_reParentControls_set"`)
+    {
+        sets -edit -forceElement rppstg_All_Sessions_reParentControls_set $SelectedControls;
+        sets -edit -fe  rppstg_reParent_sets rppstg_All_Sessions_reParentControls_set ;
+    }
+    else
+    {
+    	$createSetResult = `sets -name "rppstg_All_Sessions_reParentControls_set"`;
+    	sets -edit -fe  rppstg_reParent_sets rppstg_All_Sessions_reParentControls_set ;
+    }
+
+
+    if(`objExists "rppstg_Last_Session_reParentControls_set"`)
+    {
+       	delete rppstg_Last_Session_reParentControls_set;
+       	$createSetResult = `sets -name "rppstg_Last_Session_reParentControls_set"`;
+        sets -edit -forceElement rppstg_Last_Session_reParentControls_set $SelectedControls;
+        sets -edit -fe  rppstg_reParent_sets rppstg_Last_Session_reParentControls_set ;
+    }
+    else
+    {
+    	$createSetResult = `sets -name "rppstg_Last_Session_reParentControls_set"`;
+    	sets -edit -fe  rppstg_reParent_sets rppstg_Last_Session_reParentControls_set ;
+    }
+
+    select -cl;
+
+    if(`objExists "rppstg_Last_Session_reParentLocator_set"`)
+    {
+    	delete rppstg_Last_Session_reParentLocator_set;
+    	$createSetResult = `sets -name "rppstg_Last_Session_reParentLocator_set"`;
+    	sets -edit -fe  rppstg_reParent_sets rppstg_Last_Session_reParentLocator_set ;
+
+    }
+    else
+    {
+    	$createSetResult = `sets -name "rppstg_Last_Session_reParentLocator_set"`;
+    	sets -edit -fe  rppstg_reParent_sets rppstg_Last_Session_reParentLocator_set ;
+    }
+
+
+    if(!`objExists "rppstg_All_Session_reParentLocator_set"`)
+    {
+     $createSetResult = `sets -em -name "rppstg_All_Session_reParentLocator_set"`;
+     sets -edit -fe  rppstg_reParent_sets rppstg_All_Session_reParentLocator_set ;
+    }
+
+
+
+    for ($SelCtrl in $SelectedControls)
+    {
+        select -r $SelCtrl;
+        string $SelectedControls[]=`ls -sl`;
+
+        spaceLocator -n rppstg_TempLocator;
+        setAttr "rppstg_TempLocator.rotateOrder" 2;
+        matchTransform -pos -rot rppstg_TempLocator $SelectedControls[0];
+
+        select -r $SelCtrl;
+        rppstg_reParentLocatorSize;
+
+        // create rppstg_Last_Session_reParentLocator_set
+        sets -edit -forceElement rppstg_Last_Session_reParentLocator_set rppstg_TempLocator;
+        sets -edit -forceElement rppstg_All_Session_reParentLocator_set rppstg_TempLocator;
+        select -r $SelCtrl rppstg_TempLocator;
+
+        print $PinButton;
+        if ($PinButton == 0)
+        {
+        select -r $SelCtrl rppstg_TempLocator;
+        orientConstraint -n rppstg_TempOrientConst -mo  -weight 1;
+        pointConstraint -n rppstg_TempPointConst -mo  -weight 1;
+        }
+        select rppstg_TempLocator;
+        rename rppstg_TempLocator ($SelCtrl+"_RPPStage_ReParent_Locator");
+
+        select -cl;
+    }
+
+        select -r rppstg_Last_Session_reParentLocator_set;
+
+        if ($PinButton == 0)
+      {
+        bakeResults
+        -t ($currentR+":"+$currentL)
+        -simulation 1
+        -sampleBy 1
+        -disableImplicitControl 1
+        -preserveOutsideKeys 1
+        -sparseAnimCurveBake 0
+        -removeBakedAttributeFromLayer 0
+        -removeBakedAnimFromLayer 0
+        -bakeOnOverrideLayer 0
+        -minimizeRotation 1
+        -controlPoints 0
+        -shape 0
+        -at "tx"
+        -at "ty"
+        -at "tz"
+        -at "rx"
+        -at "ry"
+        -at "rz";
+     }
+
+    rppstg_deleteTemps();
+    if(`objExists "rppstg_TempLocator"`) {rppstg_deleteTemps();}
+
+    for ($SelCtrl in $SelectedControls)
+    {
+    	if (`getAttr -keyable ($SelCtrl+".tx")`==1&&`getAttr -lock ($SelCtrl+".tx")`==0)
+    	{
+     	   select ($SelCtrl+"_RPPStage_ReParent_Locator") $SelCtrl;
+    	   pointConstraint -n ($SelCtrl+"_RPPStageReParent") -weight 1;
+    	}
+    	if (`getAttr -keyable ($SelCtrl+".rx")`==1&&`getAttr -lock ($SelCtrl+".rx")`==0)
+    	{
+    	    select ($SelCtrl+"_RPPStage_ReParent_Locator") $SelCtrl;
+    	    orientConstraint -n ($SelCtrl+"_RPPStageReParent") -weight 1;
+        }
+        cutKey -cl -t ":" -f ":" -at "tx" -at "ty" -at "tz" -at "rx" -at "ry" -at "rz" $SelCtrl;
+    }
+
+        if ($DelRedMode == 1)
+    {
+          // simplifier///
+        select -r rppstg_Last_Session_reParentLocator_set;
+        $SelectedControls = `ls -sl`;
+        selectKey -r -k;
+        string $selectedCurves[] = `keyframe -selected -q -name`;
+
+         //delete redundant
+        for ($currentAnimCurve in $selectedCurves)
+        {
+        	float $allKeys[] = `keyframe  -q -timeChange $currentAnimCurve`;
+            $valArray = `keyframe -q -valueChange $currentAnimCurve`;
+            $keysSize = `size($allKeys)`;
+
+            for ($s=1; $s<$keysSize-1; ++$s )
+            {if ($valArray[$s] == $valArray[$s-1]&&$valArray[$s] == $valArray[$s+1]) {cutKey -time $allKeys[$s] -clear $currentAnimCurve;}}
+        }
+    }
+
+    // euler all anim curves
+	int $ClearElemwnts;
+	global string $rppstg_eulerFilterCurves[];
+    $ClearElemwnts = `size($rppstg_eulerFilterCurves)`; for ($s=0; $s<$ClearElemwnts; ++$s ){stringArrayRemoveAtIndex(0, $rppstg_eulerFilterCurves);}
+    select -r rppstg_Last_Session_reParentLocator_set;
+	string $EulerArrays[] = `ls -sl`;
+
+	for ($obj in $EulerArrays)
+	{
+		$listAnimAttrs = `listAttr -k $obj`;
+		for ($attr in $listAnimAttrs)
+		{
+			$animCurve = `listConnections -type "animCurve" ($obj+"."+$attr)`;
+			int $ClearElemwnts = `size($animCurve)`;
+			appendStringArray($rppstg_eulerFilterCurves, $animCurve, $ClearElemwnts);
+		}
+	}
+	filterCurve $rppstg_eulerFilterCurves;
+
+    select -r $SelectedControls;
+}
+
+
+
+///////////////////////////////////////
+//            Manual MODE            //
+///////////////////////////////////////
+global proc rppstg_reParentManualStarter()
+{
+    rppstg_manualUI(1);
+
+
+    int $PinButton = rppstg_setting("PinCheckBox");
+
+    string $SelCtrl;
+    string $SelectedControls[] = `ls -sl`;
+
+    if(`objExists "rppstg_TempLocator"`) {delete rppstg_TempLocator;}
+
+    //Create Sets
+    if(!`objExists "rppstg_reParent_sets"`)
+    {$createSetResult = `sets -em -name "rppstg_reParent_sets"`;}
+
+    if(`objExists "rppstg_All_Sessions_reParentControls_set"`)
+    {
+        sets -edit -forceElement rppstg_All_Sessions_reParentControls_set $SelectedControls;
+        sets -edit -fe  rppstg_reParent_sets rppstg_All_Sessions_reParentControls_set ;
+    }
+    else
+    {
+    	$createSetResult = `sets -name "rppstg_All_Sessions_reParentControls_set"`;
+    	sets -edit -fe  rppstg_reParent_sets rppstg_All_Sessions_reParentControls_set ;
+    }
+
+
+    if(`objExists "rppstg_Last_Session_reParentControls_set"`)
+    {
+       	delete rppstg_Last_Session_reParentControls_set;
+       	$createSetResult = `sets -name "rppstg_Last_Session_reParentControls_set"`;
+        sets -edit -forceElement rppstg_Last_Session_reParentControls_set $SelectedControls;
+        sets -edit -fe  rppstg_reParent_sets rppstg_Last_Session_reParentControls_set ;
+    }
+    else
+    {
+    	$createSetResult = `sets -name "rppstg_Last_Session_reParentControls_set"`;
+    	sets -edit -fe  rppstg_reParent_sets rppstg_Last_Session_reParentControls_set ;
+    }
+
+    select -cl;
+
+    if(`objExists "rppstg_Last_Session_reParentLocator_set"`)
+    {
+    	delete rppstg_Last_Session_reParentLocator_set;
+    	$createSetResult = `sets -name "rppstg_Last_Session_reParentLocator_set"`;
+    	sets -edit -fe  rppstg_reParent_sets rppstg_Last_Session_reParentLocator_set ;
+
+    }
+    else
+    {
+    	$createSetResult = `sets -name "rppstg_Last_Session_reParentLocator_set"`;
+    	sets -edit -fe  rppstg_reParent_sets rppstg_Last_Session_reParentLocator_set ;
+    }
+
+
+    if(!`objExists "rppstg_All_Session_reParentLocator_set"`)
+    {
+     $createSetResult = `sets -em -name "rppstg_All_Session_reParentLocator_set"`;
+     sets -edit -fe  rppstg_reParent_sets rppstg_All_Session_reParentLocator_set ;
+    }
+
+
+
+    for ($SelCtrl in $SelectedControls)
+    {
+        select -r $SelCtrl;
+        string $SelectedControls[]=`ls -sl`;
+
+        spaceLocator -n rppstg_TempLocator;
+        setAttr "rppstg_TempLocator.rotateOrder" 2;
+        matchTransform rppstg_TempLocator $SelectedControls[0];
+
+        select -r $SelCtrl;
+        rppstg_reParentLocatorSize;
+
+        sets -edit -forceElement rppstg_Last_Session_reParentLocator_set rppstg_TempLocator;
+        sets -edit -forceElement rppstg_All_Session_reParentLocator_set rppstg_TempLocator;
+        select -r $SelCtrl rppstg_TempLocator;
+
+        string $temps[] = `pointConstraint -offset 0 0 0 -weight 1`;
+        delete $temps;
+        $temps = `orientConstraint -offset 0 0 0 -weight 1`;
+        delete $temps;
+
+        select rppstg_TempLocator;
+        rename rppstg_TempLocator ($SelCtrl+"_RPPStage_ReParent_Locator");
+     }
+}
+
+global proc rppstg_manualModeCancel()
+{
+   if ((`window -ex rppstg_ManualWindow`)==true) {deleteUI rppstg_ManualWindow;}
+   rppstg_manualUI(0);
+
+   select -r rppstg_Last_Session_reParentLocator_set;
+   delete;
+}
+
+
+global proc rppstg_manualModeGo()
+{
+   if ((`window -ex rppstg_ManualWindow`)==true) {deleteUI rppstg_ManualWindow;}
+
+    int $PinButton = rppstg_setting("PinCheckBox");
+	int $DelRedMode = rppstg_setting("DelRed");
+
+    select -r rppstg_Last_Session_reParentControls_set;
+    string $SelectedControls[] = `ls -sl`;
+
+    int $currentR =`playbackOptions -q  -min`;
+    int $currentL =`playbackOptions -q -max`;
+
+
+   for ($SelCtrl in $SelectedControls)
+    {
+
+        if ($PinButton == 0)
+        {
+        select -r $SelCtrl ($SelCtrl+"_RPPStage_ReParent_Locator");
+        parentConstraint -n rppstg_TempParentConst -mo  -weight 1;
+        }
+    }
+
+       select -r rppstg_Last_Session_reParentLocator_set;
+
+    if ($PinButton == 0)
+    {
+        bakeResults
+        -t ($currentR+":"+$currentL)
+        -simulation 1
+        -sampleBy 1
+        -disableImplicitControl 1
+        -preserveOutsideKeys 1
+        -sparseAnimCurveBake 0
+        -removeBakedAttributeFromLayer 0
+        -removeBakedAnimFromLayer 0
+        -bakeOnOverrideLayer 0
+        -minimizeRotation 1
+        -controlPoints 0
+        -shape 0
+        -at "tx"
+        -at "ty"
+        -at "tz"
+        -at "rx"
+        -at "ry"
+        -at "rz";
+    }
+    rppstg_deleteTemps();
+
+    if(`objExists "rppstg_TempLocator"`) {rppstg_deleteTemps();}
+
+    for ($SelCtrl in $SelectedControls)
+    {
+    	if (`getAttr -keyable ($SelCtrl+".tx")`==1&&`getAttr -lock ($SelCtrl+".tx")`==0&&`getAttr -keyable ($SelCtrl+".rx")`==1&&`getAttr -lock ($SelCtrl+".rx")`==0)
+    	{
+     	   select ($SelCtrl+"_RPPStage_ReParent_Locator") $SelCtrl;
+    	   parentConstraint -n ($SelCtrl+"_RPPStageReParent") -weight 1 -mo;
+    	}
+    	else
+    	{
+        	if (`getAttr -keyable ($SelCtrl+".tx")`==1&&`getAttr -lock ($SelCtrl+".tx")`==0)
+        	{
+         	   select ($SelCtrl+"_RPPStage_ReParent_Locator") $SelCtrl;
+        	   pointConstraint -n ($SelCtrl+"_RPPStageReParent") -weight 1 -mo;
+        	}
+        	if (`getAttr -keyable ($SelCtrl+".rx")`==1&&`getAttr -lock ($SelCtrl+".rx")`==0)
+        	{
+        	    select ($SelCtrl+"_RPPStage_ReParent_Locator") $SelCtrl;
+        	    orientConstraint -n ($SelCtrl+"_RPPStageReParent") -weight 1 -mo;
+            }
+        }
+        cutKey -cl -t ":" -f ":" -at "tx" -at "ty" -at "tz" -at "rx" -at "ry" -at "rz" $SelCtrl;
+    }
+
+        if ($DelRedMode == 1)
+    {
+          // simplifier///
+        select -r rppstg_Last_Session_reParentLocator_set;
+        $SelectedControls = `ls -sl`;
+        selectKey -r -k;
+        string $selectedCurves[] = `keyframe -selected -q -name`;
+
+         //delete redundant
+        for ($currentAnimCurve in $selectedCurves)
+        {
+        	float $allKeys[] = `keyframe  -q -timeChange $currentAnimCurve`;
+            $valArray = `keyframe -q -valueChange $currentAnimCurve`;
+            $keysSize = `size($allKeys)`;
+
+            for ($s=1; $s<$keysSize-1; ++$s )
+            {if ($valArray[$s] == $valArray[$s-1]&&$valArray[$s] == $valArray[$s+1]) {cutKey -time $allKeys[$s] -clear $currentAnimCurve;}}
+        }
+    }
+
+    // euler all anim curves
+	int $ClearElemwnts;
+	global string $rppstg_eulerFilterCurves[];
+    $ClearElemwnts = `size($rppstg_eulerFilterCurves)`; for ($s=0; $s<$ClearElemwnts; ++$s ){stringArrayRemoveAtIndex(0, $rppstg_eulerFilterCurves);}
+    select -r rppstg_Last_Session_reParentLocator_set;
+	string $EulerArrays[] = `ls -sl`;
+
+	for ($obj in $EulerArrays)
+	{
+		$listAnimAttrs = `listAttr -k $obj`;
+		for ($attr in $listAnimAttrs)
+		{
+			$animCurve = `listConnections -type "animCurve" ($obj+"."+$attr)`;
+			int $ClearElemwnts = `size($animCurve)`;
+			appendStringArray($rppstg_eulerFilterCurves, $animCurve, $ClearElemwnts);
+		}
+	}
+	filterCurve $rppstg_eulerFilterCurves;
+
+    select -r $SelectedControls;
+    rppstg_manualUI(0);
+
+}
+
+///////////////////////////////////////
+//         rppstg_reParentRelative          //
+///////////////////////////////////////
+global proc rppstg_reParentRelativeStart()
+{
+    string $SelectedControls[] = `ls -sl`;
+    int $amountCheck = `size($SelectedControls)`;
+    if ($amountCheck>1) {rppstg_reParentRelative;}
+    else {confirmDialog -b "Ok" -t "Oooops.." -m " FOR RELATIVE MODE YOU NEED TO SELECT 2 AND MORE CONTROLS \n             First for reparent and second relative";}
+}
+
+
+global proc rppstg_reParentRelative()
+{
+    int $PinButton = rppstg_setting("PinCheckBox");
+	int $DelRedMode = rppstg_setting("DelRed");
+
+    string $SelectedControls[] = `ls -sl`;
+    int $amountCheck = `size($SelectedControls)`;
+
+    int $currentR =`playbackOptions -q  -min`;
+    int $currentL =`playbackOptions -q -max`;
+
+    if(`objExists "rppstg_TempLocator"`) {delete rppstg_TempLocator;}
+
+     //Create Sets
+    if(!`objExists "rppstg_reParent_sets"`)
+    {$createSetResult = `sets -em -name "rppstg_reParent_sets"`;}
+
+    if(`objExists "rppstg_All_Sessions_reParentControls_set"`)
+    {
+        sets -edit -forceElement rppstg_All_Sessions_reParentControls_set $SelectedControls;
+        sets -edit -fe  rppstg_reParent_sets rppstg_All_Sessions_reParentControls_set ;
+    }
+    else
+    {
+    	$createSetResult = `sets -name "rppstg_All_Sessions_reParentControls_set"`;
+    	sets -edit -fe  rppstg_reParent_sets rppstg_All_Sessions_reParentControls_set ;
+    }
+
+
+    if(`objExists "rppstg_Last_Session_reParentControls_set"`)
+    {
+       	delete rppstg_Last_Session_reParentControls_set;
+       	$createSetResult = `sets -name "rppstg_Last_Session_reParentControls_set"`;
+        sets -edit -forceElement rppstg_Last_Session_reParentControls_set $SelectedControls;
+        sets -edit -fe  rppstg_reParent_sets rppstg_Last_Session_reParentControls_set ;
+    }
+    else
+    {
+    	$createSetResult = `sets -name "rppstg_Last_Session_reParentControls_set"`;
+    	sets -edit -fe  rppstg_reParent_sets rppstg_Last_Session_reParentControls_set ;
+    }
+
+        select -cl;
+
+
+    if(`objExists "rppstg_Last_Session_reParentLocator_set"`)
+    {
+    	delete rppstg_Last_Session_reParentLocator_set;
+    	$createSetResult = `sets -name "rppstg_Last_Session_reParentLocator_set"`;
+    	sets -edit -fe  rppstg_reParent_sets rppstg_Last_Session_reParentLocator_set ;
+
+    }
+    else
+    {
+    	$createSetResult = `sets -name "rppstg_Last_Session_reParentLocator_set"`;
+    	sets -edit -fe  rppstg_reParent_sets rppstg_Last_Session_reParentLocator_set ;
+    }
+
+
+    if(!`objExists "rppstg_All_Session_reParentLocator_set"`)
+    {
+     $createSetResult = `sets -em -name "rppstg_All_Session_reParentLocator_set"`;
+     sets -edit -fe  rppstg_reParent_sets rppstg_All_Session_reParentLocator_set ;
+    }
+
+
+
+        int $amountOfAllCtrls = `size($SelectedControls)`;
+
+        for ($r=0; $r<$amountOfAllCtrls-1; ++$r )
+        {
+
+            select -r $SelectedControls[$r];
+
+            spaceLocator -n rppstg_TempLocator;
+            setAttr "rppstg_TempLocator.rotateOrder" 2;
+            matchTransform rppstg_TempLocator $SelectedControls[$r];
+
+            select -r $SelectedControls[$r];
+            rppstg_reParentLocatorSize;
+
+            sets -edit -forceElement rppstg_Last_Session_reParentLocator_set rppstg_TempLocator;
+            sets -edit -forceElement rppstg_All_Session_reParentLocator_set rppstg_TempLocator;
+
+            group -name ($SelectedControls[$r]+"_RPPStage_ReParent_grp") rppstg_TempLocator;
+            parentConstraint -mo -w 1 -n ($SelectedControls[$r]+"_RPPStage_ReParent_Const") $SelectedControls[$amountOfAllCtrls-1] ($SelectedControls[$r]+"_RPPStage_ReParent_grp");
+
+            select -r $SelectedControls[$r] rppstg_TempLocator;
+            orientConstraint -n ($SelectedControls[$r]+"rppstg_TempOrientConst") -mo  -weight 1;
+            pointConstraint -n ($SelectedControls[$r]+"rppstg_TempPointConst") -mo  -weight 1;
+
+            rename rppstg_TempLocator ($SelectedControls[$r]+"_RPPStage_ReParent_Locator");
+        }
+
+        select -r rppstg_Last_Session_reParentLocator_set;
+
+        bakeResults
+        -t ($currentR+":"+$currentL)
+        -simulation 1
+        -sampleBy 1
+        -disableImplicitControl 1
+        -preserveOutsideKeys 1
+        -sparseAnimCurveBake 0
+        -removeBakedAttributeFromLayer 0
+        -removeBakedAnimFromLayer 0
+        -bakeOnOverrideLayer 0
+        -minimizeRotation 1
+        -controlPoints 0
+        -shape 0
+        -at "tx"
+        -at "ty"
+        -at "tz"
+        -at "rx"
+        -at "ry"
+        -at "rz";
+
+        for ($r=0; $r<$amountOfAllCtrls-1; ++$r )
+        {
+        	if (`getAttr -keyable ($SelectedControls[$r]+".tx")`==1&&`getAttr -lock ($SelectedControls[$r]+".tx")`==0)
+        	{
+         	   select ($SelectedControls[$r]+"_RPPStage_ReParent_Locator") $SelectedControls[$r];
+        	   pointConstraint -n ($SelectedControls[$r]+"_RPPStageReParent") -weight 1;
+        	}
+        	if (`getAttr -keyable ($SelectedControls[$r]+".rx")`==1&&`getAttr -lock ($SelectedControls[$r]+".rx")`==0)
+        	{
+        	    select ($SelectedControls[$r]+"_RPPStage_ReParent_Locator") $SelectedControls[$r];
+        	    orientConstraint -n ($SelectedControls[$r]+"_RPPStageReParent") -weight 1;
+            }
+            cutKey -cl -t ":" -f ":" -at "tx" -at "ty" -at "tz" -at "rx" -at "ry" -at "rz" $SelectedControls[$r];
+
+            delete ($SelectedControls[$r]+"rppstg_TempOrientConst") ($SelectedControls[$r]+"rppstg_TempPointConst");
+        }
+
+        if ($DelRedMode == 1)
+    {
+          // simplifier///
+        select -r rppstg_Last_Session_reParentLocator_set;
+        $SelectedControls = `ls -sl`;
+        selectKey -r -k;
+        string $selectedCurves[] = `keyframe -selected -q -name`;
+
+         //delete redundant
+        for ($currentAnimCurve in $selectedCurves)
+        {
+        	float $allKeys[] = `keyframe  -q -timeChange $currentAnimCurve`;
+            $valArray = `keyframe -q -valueChange $currentAnimCurve`;
+            $keysSize = `size($allKeys)`;
+
+            for ($s=1; $s<$keysSize-1; ++$s )
+            {if ($valArray[$s] == $valArray[$s-1]&&$valArray[$s] == $valArray[$s+1]) {cutKey -time $allKeys[$s] -clear $currentAnimCurve;}}
+        }
+    }
+
+    // euler all anim curves
+	int $ClearElemwnts;
+	global string $rppstg_eulerFilterCurves[];
+    $ClearElemwnts = `size($rppstg_eulerFilterCurves)`; for ($s=0; $s<$ClearElemwnts; ++$s ){stringArrayRemoveAtIndex(0, $rppstg_eulerFilterCurves);}
+    select -r rppstg_Last_Session_reParentLocator_set;
+	string $EulerArrays[] = `ls -sl`;
+
+	for ($obj in $EulerArrays)
+	{
+		$listAnimAttrs = `listAttr -k $obj`;
+		for ($attr in $listAnimAttrs)
+		{
+			$animCurve = `listConnections -type "animCurve" ($obj+"."+$attr)`;
+			int $ClearElemwnts = `size($animCurve)`;
+			appendStringArray($rppstg_eulerFilterCurves, $animCurve, $ClearElemwnts);
+		}
+	}
+	filterCurve $rppstg_eulerFilterCurves;
+
+    select -r $SelectedControls;
+}
+
+
+
+///////////////////////////////////////
+//             freezeMain            //
+///////////////////////////////////////
+
+global proc rppstg_reParentStayHere()
+{
+
+	//progressBar
+    int $amount = 0;
+     progressWindow
+         -title "progress..."
+         -progress $amount
+         -status "Progress: 0%"
+         -isInterruptable true;
+
+    string $SelCtrl;
+    string $SelectedControls[] = `ls -sl`;
+
+    int $currentR =`playbackOptions -q  -min`;
+    int $currentL =`playbackOptions -q -max`;
+
+    //Create Sets
+    if(!`objExists "rppstg_reParent_sets"`)
+    {$createSetResult = `sets -em -name "rppstg_reParent_sets"`;}
+
+
+    if(`objExists "rppstg_TempLocator"`) {delete rppstg_TempLocator;}
+
+    if(`objExists "rppstg_Last_Session_reParentControls_set"`)
+    {
+    	delete rppstg_Last_Session_reParentControls_set;
+    	$createSetResult = `sets -name "rppstg_Last_Session_reParentControls_set"`;
+    	sets -edit -forceElement rppstg_Last_Session_reParentControls_set $SelectedControls;
+        sets -edit -fe  rppstg_reParent_sets rppstg_Last_Session_reParentControls_set ;
+
+
+    }
+    else
+    {
+    	$createSetResult = `sets -name "rppstg_Last_Session_reParentControls_set"`;
+    	sets -edit -fe  rppstg_reParent_sets rppstg_Last_Session_reParentControls_set ;
+
+    }
+
+        select -cl;
+
+    if(`objExists "rppstg_Last_Session_reParentLocator_set"`)
+    {
+    	delete rppstg_Last_Session_reParentLocator_set;
+    	$createSetResult = `sets -name "rppstg_Last_Session_reParentLocator_set"`;
+    }
+    else
+    {
+    	$createSetResult = `sets -name "rppstg_Last_Session_reParentLocator_set"`;
+    }
+
+ 	//progressBar
+	$amount += 20;
+	progressWindow -edit
+	-progress $amount
+	-status ("Progress: "+$amount+"%");
+
+
+    for ($SelCtrl in $SelectedControls)
+    {
+        select -r $SelCtrl;
+        string $SelectedControls[]=`ls -sl`;
+
+        spaceLocator -n rppstg_TempLocator;
+        setAttr "rppstg_TempLocator.rotateOrder" 2;
+        matchTransform -pos -rot rppstg_TempLocator $SelectedControls[0];
+
+        select -r $SelCtrl;
+        rppstg_reParentLocatorSize;
+
+        sets -edit -forceElement rppstg_Last_Session_reParentLocator_set rppstg_TempLocator;
+        select -r $SelCtrl rppstg_TempLocator;
+
+        select -r $SelCtrl rppstg_TempLocator;
+        orientConstraint -n rppstg_TempOrientConst -mo  -weight 1;
+        pointConstraint -n rppstg_TempPointConst -mo  -weight 1;
+
+        select rppstg_TempLocator;
+        rename rppstg_TempLocator ($SelCtrl+"_RPPStage_ReParent_Locator");
+
+        select -cl;
+    }
+
+     	//progressBar
+	$amount += 20;
+	progressWindow -edit
+	-progress $amount
+	-status ("Progress: "+$amount+"%");
+
+
+        select -r rppstg_Last_Session_reParentLocator_set;
+
+        bakeResults
+        -t ($currentR+":"+$currentL)
+        -simulation 1
+        -sampleBy 1
+        -disableImplicitControl 1
+        -preserveOutsideKeys 1
+        -sparseAnimCurveBake 0
+        -removeBakedAttributeFromLayer 0
+        -removeBakedAnimFromLayer 0
+        -bakeOnOverrideLayer 0
+        -minimizeRotation 1
+        -controlPoints 0
+        -shape 0
+        -at "tx"
+        -at "ty"
+        -at "tz"
+        -at "rx"
+        -at "ry"
+        -at "rz";
+
+ 	//progressBar
+	$amount += 20;
+	progressWindow -edit
+	-progress $amount
+	-status ("Progress: "+$amount+"%");
+
+    delete -constraints ($SelectedControls[0]);
+
+    for ($SelCtrl in $SelectedControls)
+    {
+    	if (`getAttr -keyable ($SelCtrl+".tx")`==1&&`getAttr -lock ($SelCtrl+".tx")`==0)
+    	{
+     	   select ($SelCtrl+"_RPPStage_ReParent_Locator") $SelCtrl;
+    	   pointConstraint -n ($SelCtrl+"_RPPStageReParent") -weight 1;
+    	}
+
+    	if (`getAttr -keyable ($SelCtrl+".rx")`==1&&`getAttr -lock ($SelCtrl+".rx")`==0)
+    	{
+    	    select ($SelCtrl+"_RPPStage_ReParent_Locator") $SelCtrl;
+    	    orientConstraint -n ($SelCtrl+"_RPPStageReParent") -weight 1;
+        }
+
+    }
+        select -r $SelectedControls[0];
+        cutKey -cl -t ":" -f ":" -at "tx" -at "ty" -at "tz" -at "rx" -at "ry" -at "rz" ($SelectedControls[0]);
+        delete -constraints ($SelectedControls[0]);
+
+    //progressBar
+	$amount += 20;
+	progressWindow -edit
+	-progress $amount
+	-status ("Progress: "+$amount+"%");
+
+        select -r rppstg_Last_Session_reParentControls_set;
+        select -d $SelectedControls[0];
+
+        bakeResults
+        -t ($currentR+":"+$currentL)
+        -simulation 0
+        -sampleBy 1
+        -disableImplicitControl 1
+        -preserveOutsideKeys 1
+        -sparseAnimCurveBake 0
+        -removeBakedAttributeFromLayer 0
+        -removeBakedAnimFromLayer 0
+        -bakeOnOverrideLayer 0
+        -minimizeRotation 1
+        -controlPoints 0
+        -shape 0
+        -at "tx"
+        -at "ty"
+        -at "tz"
+        -at "rx"
+        -at "ry"
+        -at "rz";
+
+    //progressBar
+	$amount += 20;
+	progressWindow -edit
+	-progress $amount
+	-status ("Progress: "+$amount+"%");
+
+
+    select -r rppstg_Last_Session_reParentLocator_set;
+    delete;
+    select -r $SelectedControls;
+    progressWindow -endProgress;
+
+}
+
+
+///////////////////////////////////////
+//              IK mode              //
+///////////////////////////////////////
+
+global proc rppstg_IKmode()
+{
+     string $SelectedControls[] = `ls -sl`;
+     global string $rppstg_UpHierarchyObject[];
+
+
+    //Create Sets
+    if(!`objExists "rppstg_reParent_sets"`)
+        {$createSetResult = `sets -em -name "rppstg_reParent_sets"`;}
+
+    if(`objExists "rppstg_All_Sessions_reParentControls_set"`)
+    {
+        sets -edit -forceElement rppstg_All_Sessions_reParentControls_set $SelectedControls;
+        sets -edit -fe  rppstg_reParent_sets rppstg_All_Sessions_reParentControls_set ;
+    }
+    else
+    {
+    	$createSetResult = `sets -name "rppstg_All_Sessions_reParentControls_set"`;
+    	sets -edit -fe  rppstg_reParent_sets rppstg_All_Sessions_reParentControls_set ;
+    }
+
+
+    if(`objExists "rppstg_Last_Session_reParentControls_set"`)
+    {
+       	delete rppstg_Last_Session_reParentControls_set;
+       	$createSetResult = `sets -name "rppstg_Last_Session_reParentControls_set"`;
+        sets -edit -forceElement rppstg_Last_Session_reParentControls_set $SelectedControls;
+        sets -edit -fe  rppstg_reParent_sets rppstg_Last_Session_reParentControls_set ;
+    }
+    else
+    {
+    	$createSetResult = `sets -name "rppstg_Last_Session_reParentControls_set"`;
+    	sets -edit -fe  rppstg_reParent_sets rppstg_Last_Session_reParentControls_set ;
+    }
+
+        select -cl;
+
+
+    if(`objExists "rppstg_Last_Session_reParentLocator_set"`)
+    {
+    	delete rppstg_Last_Session_reParentLocator_set;
+    	$createSetResult = `sets -name "rppstg_Last_Session_reParentLocator_set"`;
+    	sets -edit -fe  rppstg_reParent_sets rppstg_Last_Session_reParentLocator_set ;
+
+    }
+    else
+    {
+    	$createSetResult = `sets -name "rppstg_Last_Session_reParentLocator_set"`;
+    	sets -edit -fe  rppstg_reParent_sets rppstg_Last_Session_reParentLocator_set ;
+    }
+
+
+    if(!`objExists "rppstg_All_Session_reParentLocator_set"`)
+    {
+     $createSetResult = `sets -em -name "rppstg_All_Session_reParentLocator_set"`;
+     sets -edit -fe  rppstg_reParent_sets rppstg_All_Session_reParentLocator_set ;
+
+    }
+
+
+    // create locators for Joints
+    for ($i=0; $i<3; ++$i)
+    	{
+    		spaceLocator -n ($SelectedControls[$i]+"_RPPStage_reParentIKlocator");
+    		parentConstraint -weight 1 $SelectedControls[$i] ($SelectedControls[$i]+"_RPPStage_reParentIKlocator");
+
+    	}
+    		select -cl;
+
+    // create Joints
+
+    for ($i=0; $i<3; ++$i )
+    	{
+    	float $WorldTr[] = `xform -q -ws -t ($SelectedControls[$i]+"_RPPStage_reParentIKlocator")`;
+    	joint -rad 1 -n ($SelectedControls[$i]+"_RPPStage_reParentIKJoint") -p $WorldTr[0] $WorldTr[1] $WorldTr[2];
+        	if ($i>0)
+        	{
+           		joint -e  -oj yxz -secondaryAxisOrient zup -zso ($SelectedControls[$i-1]+"_RPPStage_reParentIKJoint");
+        	}
+    	}
+
+    spaceLocator -n ($SelectedControls[1]+"_RPPStage_reParentIKPole");
+
+
+    float $PoleVectorLengths =  (getAttr ($SelectedControls[1]+"_RPPStage_reParentIKJoint.translateY")) + (getAttr ($SelectedControls[2]+"_RPPStage_reParentIKJoint.translateY"));
+    float $PoleVectorMult =  (getAttr ($SelectedControls[2]+"_RPPStage_reParentIKJoint.translateY")) / (getAttr ($SelectedControls[1]+"_RPPStage_reParentIKJoint.translateY"));
+
+    vector $firstRePArentIK_locator_vector = `xform -q -ws -t ($SelectedControls[0]+"_RPPStage_reParentIKlocator")`;
+    vector $secondRePArentIK_locator_vector = `xform -q -ws -t ($SelectedControls[1]+"_RPPStage_reParentIKlocator")`;
+    vector $thindRePArentIK_locator_vector = `xform -q -ws -t ($SelectedControls[2]+"_RPPStage_reParentIKlocator")`;
+
+    vector $mainVector = (($thindRePArentIK_locator_vector - $firstRePArentIK_locator_vector)/(1+$PoleVectorMult))+$firstRePArentIK_locator_vector;
+    vector $poleVector = ($secondRePArentIK_locator_vector - $mainVector);
+
+    float $poleVectorLen = sqrt( pow(($poleVector.x), 2) + pow(($poleVector.y), 2) + pow(($poleVector.z), 2) );
+    vector $poleNorm = <<(($poleVector.x)/$poleVectorLen), (($poleVector.y)/$poleVectorLen), (($poleVector.z)/$poleVectorLen)>>;
+    vector $FinalPoleVector = ($poleNorm*($PoleVectorLengths)+$mainVector);
+
+    xform -ws -t ($FinalPoleVector.x)($FinalPoleVector.y)($FinalPoleVector.z) ($SelectedControls[1]+"_RPPStage_reParentIKPole");
+
+    parent ($SelectedControls[1]+"_RPPStage_reParentIKPole") ($SelectedControls[1]+"_RPPStage_reParentIKlocator");
+    setAttr ($SelectedControls[1]+"_RPPStage_reParentIKPole.translateX") 0;
+    setAttr ($SelectedControls[1]+"_RPPStage_reParentIKPole.translateY") 0;
+    setAttr ($SelectedControls[1]+"_RPPStage_reParentIKPole.translateZ") 0;
+    setAttr ($SelectedControls[1]+"_RPPStage_reParentIKPole.rotateX") 0;
+    setAttr ($SelectedControls[1]+"_RPPStage_reParentIKPole.rotateY") 0;
+    setAttr ($SelectedControls[1]+"_RPPStage_reParentIKPole.rotateZ") 0;
+    duplicate -n ($SelectedControls[1]+"_RPPStage_reParentIKoffset") ($SelectedControls[1]+"_RPPStage_reParentIKPole");
+    xform -ws -t ($FinalPoleVector.x)($FinalPoleVector.y)($FinalPoleVector.z) ($SelectedControls[1]+"_RPPStage_reParentIKPole");
+
+
+    parent  ($SelectedControls[1]+"_RPPStage_reParentIKoffset") ($SelectedControls[1]+"_RPPStage_reParentIKJoint");
+    parentConstraint -weight 1 -mo ($SelectedControls[1]+"_RPPStage_reParentIKlocator") ($SelectedControls[1]+"_RPPStage_reParentIKoffset") ;
+
+    spaceLocator -n ($SelectedControls[0]+"_RPPStage_reParentIKoffset");
+    parent ($SelectedControls[0]+"_RPPStage_reParentIKoffset") ($SelectedControls[0]+"_RPPStage_reParentIKlocator");
+    setAttr ($SelectedControls[0]+"_RPPStage_reParentIKoffset.translateX") 0;
+    setAttr ($SelectedControls[0]+"_RPPStage_reParentIKoffset.translateY") 0;
+    setAttr ($SelectedControls[0]+"_RPPStage_reParentIKoffset.translateZ") 0;
+    setAttr ($SelectedControls[0]+"_RPPStage_reParentIKoffset.rotateX") 0;
+    setAttr ($SelectedControls[0]+"_RPPStage_reParentIKoffset.rotateY") 0;
+    setAttr ($SelectedControls[0]+"_RPPStage_reParentIKoffset.rotateZ") 0;
+    parent  ($SelectedControls[0]+"_RPPStage_reParentIKoffset") ($SelectedControls[0]+"_RPPStage_reParentIKJoint");
+    parentConstraint -weight 1 -mo ($SelectedControls[0]+"_RPPStage_reParentIKlocator") ($SelectedControls[0]+"_RPPStage_reParentIKoffset") ;
+
+    parent -w ($SelectedControls[1]+"_RPPStage_reParentIKPole");
+
+    parentConstraint -weight 1 -mo ($SelectedControls[1]+"_RPPStage_reParentIKlocator") ($SelectedControls[1]+"_RPPStage_reParentIKPole") ;
+
+    ikHandle -n ($SelectedControls[1]+"_RPPStage_ikHandle") -sj ($SelectedControls[0]+"_RPPStage_reParentIKJoint") -ee ($SelectedControls[2]+"_RPPStage_reParentIKJoint") -p 1 -w 1;
+    poleVectorConstraint -n ($SelectedControls[1]+"_RPPStagepoleVectorConstraint") ($SelectedControls[1]+"_RPPStage_reParentIKPole") ($SelectedControls[1]+"_RPPStage_ikHandle");
+
+    parentConstraint -weight 1 -mo ($SelectedControls[0]+"_RPPStage_reParentIKlocator") ($SelectedControls[0]+"_RPPStage_reParentIKJoint") ;
+    parentConstraint -weight 1 -mo ($SelectedControls[2]+"_RPPStage_reParentIKlocator") ($SelectedControls[1]+"_RPPStage_ikHandle") ;
+
+
+    //Locked attrs
+
+    if(`getAttr -l ($SelectedControls[1]+".rotateX")`==1||`getAttr -l ($SelectedControls[1]+".rotateY")`==1||`getAttr -l ($SelectedControls[1]+".rotateZ")`==1)
+    {
+        if(`objExists ($SelectedControls[1]+"_RPPStagetempLockedCtrl")`) {delete ($SelectedControls[1]+"_RPPStagetempLockedCtrl");}
+
+        duplicate -po -n ($SelectedControls[1]+"_RPPStagetempLockedCtrl") $SelectedControls[1];
+        global string $rppstg_LockedAttr1;
+        global string $rppstg_LockedAttr2;
+
+        if(`getAttr -l ($SelectedControls[1]+".rotateX")`==0){$rppstg_LockedAttr1="y"; $rppstg_LockedAttr2="z";}
+        if(`getAttr -l ($SelectedControls[1]+".rotateY")`==0){$rppstg_LockedAttr1="x"; $rppstg_LockedAttr2="z";}
+        if(`getAttr -l ($SelectedControls[1]+".rotateZ")`==0){$rppstg_LockedAttr1="y"; $rppstg_LockedAttr2="x";}
+
+        setAttr -k 1 ($SelectedControls[1]+"_RPPStagetempLockedCtrl.rotateX"); setAttr -k 1 ($SelectedControls[1]+"_RPPStagetempLockedCtrl.rotateY"); setAttr -k 1 ($SelectedControls[1]+"_RPPStagetempLockedCtrl.rotateZ");
+        setAttr -lock 0 ($SelectedControls[1]+"_RPPStagetempLockedCtrl.rotateX"); setAttr -lock 0 ($SelectedControls[1]+"_RPPStagetempLockedCtrl.rotateY"); setAttr -lock 0 ($SelectedControls[1]+"_RPPStagetempLockedCtrl.rotateZ");
+
+        //parent to First Control
+        select -r $SelectedControls[0];
+        pickWalk -d up;
+        $rppstg_UpHierarchyObject = `ls -sl`;
+
+        if ($SelectedControls[0]!=$rppstg_UpHierarchyObject[0])
+        {
+            group -n ($SelectedControls[0]+"_RPPStage_reParentIK_offset_grp") ($SelectedControls[0]+"_RPPStage_reParentIKlocator");
+            parentConstraint -weight 1 -mo $rppstg_UpHierarchyObject[0] ($SelectedControls[0]+"_RPPStage_reParentIK_offset_grp");
+        }
+
+        //group
+        group -n ($SelectedControls[0]+"_RPPStage_reParentIK_grp")
+        ($SelectedControls[1]+"_RPPStage_reParentIKlocator")
+        ($SelectedControls[2]+"_RPPStage_reParentIKlocator")
+        ($SelectedControls[0]+"_RPPStage_reParentIKJoint")
+        ($SelectedControls[1]+"_RPPStage_ikHandle")
+        ($SelectedControls[1]+"_RPPStage_reParentIKPole")
+        ($SelectedControls[0]+"_RPPStage_reParentIK_offset_grp");
+
+        // Local mode
+        int $LocalPinButton = rppstg_setting("IKCheckLocalBox");
+        select -r $SelectedControls[0];
+        pickWalk -d up;
+        $rppstg_UpHierarchyObject = `ls -sl`;
+        if ($LocalPinButton==1&&$SelectedControls[0]!=$rppstg_UpHierarchyObject[0])
+        {   delete -constraints ($SelectedControls[0]+"_RPPStage_reParentIK_offset_grp");
+        parentConstraint -weight 1 -mo $rppstg_UpHierarchyObject[0] ($SelectedControls[0]+"_RPPStage_reParentIK_grp");}
+
+        int $currentR =`playbackOptions -q  -min`;
+        int $currentL =`playbackOptions -q -max`;
+
+        bakeResults
+        -t ($currentR+":"+$currentL)
+        -simulation 0
+        -sampleBy 1
+        -disableImplicitControl 1
+        -preserveOutsideKeys 1
+        -sparseAnimCurveBake 0
+        -removeBakedAttributeFromLayer 0
+        -removeBakedAnimFromLayer 0
+        -bakeOnOverrideLayer 0
+        -minimizeRotation 1
+        -controlPoints 0
+        -shape 0
+        -at "tx"
+        -at "ty"
+        -at "tz"
+        -at "rx"
+        -at "ry"
+        -at "rz"
+        ($SelectedControls[2]+"_RPPStage_reParentIKlocator")
+        ($SelectedControls[0]+"_RPPStage_reParentIKlocator")
+        ($SelectedControls[1]+"_RPPStage_reParentIKlocator")
+        ($SelectedControls[1]+"_RPPStage_reParentIKPole")
+        ($SelectedControls[0]+"_RPPStage_reParentIKoffset")
+        ($SelectedControls[1]+"_RPPStage_reParentIKoffset");
+
+        transformLimits -erx 0 0 ($SelectedControls[1]+"_RPPStagetempLockedCtrl"); transformLimits -ery 0 0 ($SelectedControls[1]+"_RPPStagetempLockedCtrl"); transformLimits -erz 0 0 ($SelectedControls[1]+"_RPPStagetempLockedCtrl");
+        transformLimits -erx 0 0 $SelectedControls[1]; transformLimits -ery 0 0 $SelectedControls[1]; transformLimits -erz 0 0 $SelectedControls[1];
+
+        orientConstraint -weight 1 -mo ($SelectedControls[1]+"_RPPStage_reParentIKoffset") ($SelectedControls[1]+"_RPPStagetempLockedCtrl");
+
+        orientConstraint -weight 1 -mo ($SelectedControls[0]+"_RPPStage_reParentIKoffset") $SelectedControls[0];
+        orientConstraint -weight 1 -mo -skip $rppstg_LockedAttr1 -skip $rppstg_LockedAttr2 ($SelectedControls[1]+"_RPPStagetempLockedCtrl") $SelectedControls[1];
+        orientConstraint -weight 1 -mo ($SelectedControls[2]+"_RPPStage_reParentIKlocator") $SelectedControls[2];
+    }
+
+    else
+    {
+
+         //parent to First Control
+        select -r $SelectedControls[0];
+        pickWalk -d up;
+        $rppstg_UpHierarchyObject = `ls -sl`;
+
+        if ($SelectedControls[0]!=$rppstg_UpHierarchyObject[0])
+        {
+            group -n ($SelectedControls[0]+"_RPPStage_reParentIK_offset_grp") ($SelectedControls[0]+"_RPPStage_reParentIKlocator");
+            parentConstraint -weight 1 -mo $rppstg_UpHierarchyObject[0] ($SelectedControls[0]+"_RPPStage_reParentIK_offset_grp");
+        }
+
+        int $currentR =`playbackOptions -q  -min`;
+        int $currentL =`playbackOptions -q -max`;
+
+        //group
+        group -n ($SelectedControls[0]+"_RPPStage_reParentIK_grp")
+        ($SelectedControls[1]+"_RPPStage_reParentIKlocator")
+        ($SelectedControls[2]+"_RPPStage_reParentIKlocator")
+        ($SelectedControls[0]+"_RPPStage_reParentIKJoint")
+        ($SelectedControls[1]+"_RPPStage_ikHandle")
+        ($SelectedControls[1]+"_RPPStage_reParentIKPole")
+        ($SelectedControls[0]+"_RPPStage_reParentIK_offset_grp");
+
+        // Local mode
+        int $LocalPinButton = rppstg_setting("IKCheckLocalBox");
+        select -r $SelectedControls[0];
+        pickWalk -d up;
+        $rppstg_UpHierarchyObject = `ls -sl`;
+        if ($LocalPinButton==1&&$SelectedControls[0]!=$rppstg_UpHierarchyObject[0])
+        {   delete -constraints ($SelectedControls[0]+"_RPPStage_reParentIK_offset_grp");
+            parentConstraint -weight 1 -mo $rppstg_UpHierarchyObject[0] ($SelectedControls[0]+"_RPPStage_reParentIK_grp");}
+
+        bakeResults
+        -t ($currentR+":"+$currentL)
+        -simulation 0
+        -sampleBy 1
+        -disableImplicitControl 1
+        -preserveOutsideKeys 1
+        -sparseAnimCurveBake 0
+        -removeBakedAttributeFromLayer 0
+        -removeBakedAnimFromLayer 0
+        -bakeOnOverrideLayer 0
+        -minimizeRotation 1
+        -controlPoints 0
+        -shape 0
+        -at "tx"
+        -at "ty"
+        -at "tz"
+        -at "rx"
+        -at "ry"
+        -at "rz"
+        ($SelectedControls[2]+"_RPPStage_reParentIKlocator")
+        ($SelectedControls[0]+"_RPPStage_reParentIKlocator")
+        ($SelectedControls[1]+"_RPPStage_reParentIKPole")
+        ($SelectedControls[0]+"_RPPStage_reParentIKoffset")
+        ($SelectedControls[1]+"_RPPStage_reParentIKoffset");
+
+    orientConstraint -weight 1 -mo ($SelectedControls[0]+"_RPPStage_reParentIKoffset") $SelectedControls[0];
+    orientConstraint -weight 1 -mo ($SelectedControls[1]+"_RPPStage_reParentIKoffset") $SelectedControls[1];
+    orientConstraint -weight 1 -mo ($SelectedControls[2]+"_RPPStage_reParentIKlocator") $SelectedControls[2];
+
+    }
+
+  //visibility
+    setAttr ($SelectedControls[0]+"_RPPStage_reParentIKJoint.drawStyle") 2;
+    setAttr ($SelectedControls[1]+"_RPPStage_reParentIKJoint.drawStyle") 2;
+    setAttr ($SelectedControls[2]+"_RPPStage_reParentIKJoint.drawStyle") 2;
+
+    setAttr ($SelectedControls[0]+"_RPPStage_reParentIKlocator.visibility") 0;
+    setAttr ($SelectedControls[1]+"_RPPStage_reParentIKlocator.visibility") 0;
+    setAttr ($SelectedControls[0]+"_RPPStage_reParentIKoffset.visibility") 0;
+    setAttr ($SelectedControls[1]+"_RPPStage_reParentIKoffset.visibility") 0;
+    setAttr ($SelectedControls[1]+"_RPPStage_ikHandle.visibility") 0;
+
+
+
+    //size
+    float $JointLentgts = `getAttr ($SelectedControls[1]+"_RPPStage_reParentIKJoint.translateY")`;
+    setAttr ($SelectedControls[2]+"_RPPStage_reParentIKlocator.localScaleX") ($JointLentgts/2);
+    setAttr ($SelectedControls[2]+"_RPPStage_reParentIKlocator.localScaleY") ($JointLentgts/2);
+    setAttr ($SelectedControls[2]+"_RPPStage_reParentIKlocator.localScaleZ") ($JointLentgts/2);
+
+    setAttr ($SelectedControls[1]+"_RPPStage_reParentIKPole.localScaleX") ($JointLentgts/4);
+    setAttr ($SelectedControls[1]+"_RPPStage_reParentIKPole.localScaleY") ($JointLentgts/4);
+    setAttr ($SelectedControls[1]+"_RPPStage_reParentIKPole.localScaleZ") ($JointLentgts/4);
+
+
+    //color
+    setAttr ($SelectedControls[2]+"_RPPStage_reParentIKlocatorShape.overrideEnabled") 1;
+    setAttr ($SelectedControls[2]+"_RPPStage_reParentIKlocatorShape.overrideColor") 17;
+    setAttr ($SelectedControls[1]+"_RPPStage_reParentIKPoleShape.overrideEnabled") 1;
+    setAttr ($SelectedControls[1]+"_RPPStage_reParentIKPoleShape.overrideColor") 13;
+
+    sets -edit -forceElement rppstg_Last_Session_reParentLocator_set ($SelectedControls[2]+"_RPPStage_reParentIKlocator");
+    sets -edit -forceElement rppstg_All_Session_reParentLocator_set ($SelectedControls[2]+"_RPPStage_reParentIKlocator");
+    sets -edit -forceElement rppstg_Last_Session_reParentLocator_set ($SelectedControls[1]+"_RPPStage_reParentIKPole");
+    sets -edit -forceElement rppstg_All_Session_reParentLocator_set ($SelectedControls[1]+"_RPPStage_reParentIKPole");
+
+    select -r ($SelectedControls[2]+"_RPPStage_reParentIKlocator");
+}
+
+
+
+
+//Locator Size
+global proc rppstg_reParentLocatorSize()
+{
+    string $SelectedControls[]=`ls -sl`;
+
+    // Clean Joints
+    if (`objectType $SelectedControls[0]`=="joint" && !`objExists ($SelectedControls[0]+"Shape")` && !`objExists ($SelectedControls[0]+"Shape1")`)
+        {
+            vector $firstPos;
+            vector $secondPos;
+            vector $firstVect;
+            float $firstLen;
+            string $rppstg_UpHierarchyObject[];
+
+            select -r $SelectedControls[0];
+            pickWalk -d down;
+            $rppstg_UpHierarchyObject = `ls -sl`;
+
+            if ($SelectedControls[0]!=$rppstg_UpHierarchyObject[0])
+                {
+                    $firstPos = `xform -q -t -ws $SelectedControls[0]`;
+                    $secondPos = `xform -q -t -ws $rppstg_UpHierarchyObject[0]`;
+                    $firstVect = ($secondPos - $firstPos);
+                    $firstLen = sqrt( pow(($firstVect.x), 2) + pow(($firstVect.y), 2) + pow(($firstVect.z), 2) );
+                    setAttr "rppstg_TempLocatorShape.localScaleX" ($firstLen*2);
+                    setAttr "rppstg_TempLocatorShape.localScaleY" ($firstLen*2);
+                    setAttr "rppstg_TempLocatorShape.localScaleZ" ($firstLen*2);
+                }
+            else
+                {
+                    select -r $SelectedControls[0];
+                    pickWalk -d up ;
+
+                    $rppstg_UpHierarchyObject = `ls -sl`;
+                    if ($SelectedControls[0]!=$rppstg_UpHierarchyObject[0])
+                        {
+                            $firstPos = `xform -q -t -ws $SelectedControls[0]`;
+                            $secondPos = `xform -q -t -ws $rppstg_UpHierarchyObject[0]`;
+                            $firstVect = ($secondPos - $firstPos);
+                            $firstLen = sqrt( pow(($firstVect.x), 2) + pow(($firstVect.y), 2) + pow(($firstVect.z), 2) );
+                            setAttr "rppstg_TempLocatorShape.localScaleX" ($firstLen*2);
+                            setAttr "rppstg_TempLocatorShape.localScaleY" ($firstLen*2);
+                            setAttr "rppstg_TempLocatorShape.localScaleZ" ($firstLen*2);
+                        }
+                }
+        }
+
+
+    // Joint with Shapes
+    if (`objectType $SelectedControls[0]`=="joint" && `objExists ($SelectedControls[0]+"Shape")`)
+    {
+        $SelectedControls[0]=($SelectedControls[0]+"Shape");
+
+        float $bbox[] = `exactWorldBoundingBox $SelectedControls[0]`;
+	    float $locatorSizeX = $bbox[3] - $bbox[0];
+        float $locatorSizeY = $bbox[4] - $bbox[1];
+        float $locatorSizeZ = $bbox[5] - $bbox[2];
+        float $locatorSize = (($locatorSizeX+$locatorSizeY+$locatorSizeZ)/3);
+
+        setAttr "rppstg_TempLocatorShape.localScaleX" ($locatorSize/1);
+        setAttr "rppstg_TempLocatorShape.localScaleY" ($locatorSize/1);
+        setAttr "rppstg_TempLocatorShape.localScaleZ" ($locatorSize/1);
+    }
+
+   // Simple transforms
+    if (`objectType $SelectedControls[0]`=="transform")
+        {
+            float $bbox[] = `exactWorldBoundingBox $SelectedControls[0]`;
+    	    float $locatorSizeX = $bbox[3] - $bbox[0];
+            float $locatorSizeY = $bbox[4] - $bbox[1];
+            float $locatorSizeZ = $bbox[5] - $bbox[2];
+            float $locatorSize = (($locatorSizeX+$locatorSizeY+$locatorSizeZ)/3);
+
+            if (`objExists "*ctlArmUpGimbalLf"`||`objExists "*:*ctlArmUpGimbalLf"`)
+            {
+                setAttr "rppstg_TempLocatorShape.localScaleX" 0.6;
+                setAttr "rppstg_TempLocatorShape.localScaleY" 0.6;
+                setAttr "rppstg_TempLocatorShape.localScaleZ" 0.6;
+            }
+
+           else
+           {
+                setAttr "rppstg_TempLocatorShape.localScaleX" ($locatorSize/1);
+                setAttr "rppstg_TempLocatorShape.localScaleY" ($locatorSize/1);
+                setAttr "rppstg_TempLocatorShape.localScaleZ" ($locatorSize/1);
+           }
+        }
+   // AS
+    if (`objExists "*MotionSystem*"`||`objExists "*:*MotionSystem*"`)
+        {
+            $SelectedControls[0]=($SelectedControls[0]+"Shape");
+            float $bbox[] = `exactWorldBoundingBox $SelectedControls[0]`;
+    	    float $locatorSizeX = $bbox[3] - $bbox[0];
+            float $locatorSizeY = $bbox[4] - $bbox[1];
+            float $locatorSizeZ = $bbox[5] - $bbox[2];
+            float $locatorSize = (($locatorSizeX+$locatorSizeY+$locatorSizeZ)/3);
+
+            setAttr "rppstg_TempLocatorShape.localScaleX" ($locatorSize/1);
+            setAttr "rppstg_TempLocatorShape.localScaleY" ($locatorSize/1);
+            setAttr "rppstg_TempLocatorShape.localScaleZ" ($locatorSize/1);
+        }
+}

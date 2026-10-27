@@ -1,0 +1,5882 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SkinMaigc_mainWindow</class>
+ <widget class="QMainWindow" name="SkinMaigc_mainWindow">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>380</width>
+    <height>425</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>380</width>
+    <height>425</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>380</width>
+    <height>655</height>
+   </size>
+  </property>
+  <property name="cursor">
+   <cursorShape>ArrowCursor</cursorShape>
+  </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::NoFocus</enum>
+  </property>
+  <property name="windowTitle">
+   <string notr="true">Skin Magic 4.0            Yanbin Bai</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/yanbin.bai.TORNBANNER/.designer/backup/icons/Title.png</normaloff>C:/Users/yanbin.bai.TORNBANNER/.designer/backup/icons/Title.png</iconset>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>24</width>
+    <height>24</height>
+   </size>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonIconOnly</enum>
+  </property>
+  <property name="animated">
+   <bool>true</bool>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
+  <property name="dockNestingEnabled">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="main_tab">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>381</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+      <stylestrategy>PreferDefault</stylestrategy>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="statusTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="accessibleName">
+     <string/>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="tabPosition">
+     <enum>QTabWidget::North</enum>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Rounded</enum>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <property name="elideMode">
+     <enum>Qt::ElideNone</enum>
+    </property>
+    <property name="usesScrollButtons">
+     <bool>true</bool>
+    </property>
+    <property name="documentMode">
+     <bool>false</bool>
+    </property>
+    <property name="tabsClosable">
+     <bool>false</bool>
+    </property>
+    <property name="movable">
+     <bool>false</bool>
+    </property>
+    <widget class="QWidget" name="donate_tab">
+     <attribute name="icon">
+      <iconset>
+       <normaloff>icons/donut.png</normaloff>icons/donut.png</iconset>
+     </attribute>
+     <attribute name="title">
+      <string>寄付</string>
+     </attribute>
+     <widget class="QGroupBox" name="eng_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>351</width>
+        <height>291</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="title">
+       <string>サポートをよろしくお願いします！</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>410</y>
+         <width>91</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;BitCoin Wallet Address&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>C:/Users/yanbin.bai.TORNBANNER/.designer/backup/icons/bitcoin.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="donateBitcoin_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>106</x>
+         <y>410</y>
+         <width>235</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="donatePayPal_button">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>170</y>
+         <width>51</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;PayPal Link&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icons/paypal.png</normaloff>icons/paypal.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>donatePayPal_buttonCmd</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>130</y>
+         <width>121</width>
+         <height>121</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;AliPay QR Code&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>icons/ali_pay.png</pixmap>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_21">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>130</y>
+         <width>121</width>
+         <height>121</height>
+        </rect>
+       </property>
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;WeChat Pay QR Code&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>icons/wechat_pay.png</pixmap>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_22">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>321</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:8pt; font-weight:600; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:400;&quot;&gt;Spring Magic はフリーで提供してますので、&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;すべての機能&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:400;&quot;&gt;を無料で使&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:400;&quot;&gt;えます！もしこのスクリプトを使うことで、あなたの作業環境が改善&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:400;&quot;&gt;するようでしたら…&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt;&quot;&gt;私にコーヒー一杯ごちそうしていただけますか？&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="weight_tab">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="font">
+      <font>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <attribute name="icon">
+      <iconset>
+       <normaloff>icons/weight.png</normaloff>icons/weight.png</iconset>
+     </attribute>
+     <attribute name="title">
+      <string>ウェイト</string>
+     </attribute>
+     <attribute name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;快速设置点权重，同 3Ds Max 的 weight tool&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </attribute>
+     <widget class="QGroupBox" name="weight_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>-20</x>
+        <y>-1</y>
+        <width>401</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <widget class="QPushButton" name="w1_button">
+       <property name="geometry">
+        <rect>
+         <x>242</x>
+         <y>56</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>setWeight1Cmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="copyWeight_button">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>136</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>コピー</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>copyWeightCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="plusWeight_button">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>96</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>plusWeightCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="setWeight_button">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>96</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>ウェイト設定</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>setWeightFromValueCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="w025_button">
+       <property name="geometry">
+        <rect>
+         <x>106</x>
+         <y>56</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>.25</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>setWeight025Cmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="shrink_button">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>16</y>
+         <width>35</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>収縮</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>shrinkSelectionCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="grow_button">
+       <property name="geometry">
+        <rect>
+         <x>65</x>
+         <y>16</y>
+         <width>35</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>拡張</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>growSelectionCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pasteWeight_button">
+       <property name="geometry">
+        <rect>
+         <x>125</x>
+         <y>136</y>
+         <width>71</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>ペースト</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>pasteWeightCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="w01_button">
+       <property name="geometry">
+        <rect>
+         <x>72</x>
+         <y>56</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>.1</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>setWeight01Cmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="w05_button">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>56</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>.5</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>setWeight05Cmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="ring_button">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>16</y>
+         <width>51</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>リング</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>ringSelectionCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="minusWeight_button">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>96</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>minusWeightCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="w09_button">
+       <property name="geometry">
+        <rect>
+         <x>208</x>
+         <y>56</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>.9</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>setWeight09Cmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="w075_button">
+       <property name="geometry">
+        <rect>
+         <x>174</x>
+         <y>56</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>.75</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>setWeight075Cmd</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="setWeight_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>102</y>
+         <width>41</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>4</number>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="w0_button">
+       <property name="geometry">
+        <rect>
+         <x>38</x>
+         <y>56</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>setWeight0Cmd</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="vertsText_label">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>171</y>
+         <width>81</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string> バーテックス</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="vertsNum_label">
+       <property name="geometry">
+        <rect>
+         <x>42</x>
+         <y>171</y>
+         <width>25</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="removeBone_button">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>410</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>- Bone</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>removeBoneCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="addBone_button">
+       <property name="geometry">
+        <rect>
+         <x>224</x>
+         <y>190</y>
+         <width>51</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>+ Bone</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>addBoneCmd</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="paintVertex_checkBox">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>410</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Paint weighted vertexs&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;頂点ウェイトのカラー表示&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>C:/Users/yanbin.bai.TORNBANNER/.designer/backup/icons/color.png</normaloff>C:/Users/yanbin.bai.TORNBANNER/.designer/backup/icons/color.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+       <property name="autoRepeat">
+        <bool>false</bool>
+       </property>
+       <property name="tristate">
+        <bool>false</bool>
+       </property>
+       <property name="+onCommand" stdset="0">
+        <string>paintVertexOnCmd</string>
+       </property>
+       <property name="+offCommand" stdset="0">
+        <string>paintVertexOffCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="element_button">
+       <property name="geometry">
+        <rect>
+         <x>206</x>
+         <y>16</y>
+         <width>65</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>エレメント</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>elementSelectionCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="wave_button">
+       <property name="geometry">
+        <rect>
+         <x>151</x>
+         <y>16</y>
+         <width>55</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>ウェーブ</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>waveSelectionCmd</string>
+       </property>
+      </widget>
+      <widget class="QScrollArea" name="weight_scrollArea">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>275</x>
+         <y>13</y>
+         <width>122</width>
+         <height>291</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <property name="lineWidth">
+        <number>2</number>
+       </property>
+       <property name="midLineWidth">
+        <number>2</number>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOn</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="widgetResizable">
+        <bool>false</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <widget class="QWidget" name="weight_scrollAreaWidgetContents">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>-509</y>
+          <width>104</width>
+          <height>800</height>
+         </rect>
+        </property>
+        <widget class="QGroupBox" name="reSkin_groupBox">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>340</y>
+           <width>111</width>
+           <height>81</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="title">
+          <string>再スキン</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <widget class="QPushButton" name="reSkinLoadBone_button">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>71</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;再スキン化に使用するボーンをピックします&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Boneロード</string>
+          </property>
+          <property name="autoDefault">
+           <bool>false</bool>
+          </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+          <property name="+command" stdset="0">
+           <string>reSkinPickBoneCmd</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="reSkin_label">
+          <property name="geometry">
+           <rect>
+            <x>80</x>
+            <y>20</y>
+            <width>16</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>0</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="reSkinApply_button">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>50</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ロードされたボーンに選択された頂点のスキンウェイトをリマップします。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>適用</string>
+          </property>
+          <property name="autoDefault">
+           <bool>false</bool>
+          </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+          <property name="+command" stdset="0">
+           <string>reSkinCmd</string>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="reSkinHoldBone_checkBox">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>-60</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Keep previous bones been assigned after &amp;quot;Apply&amp;quot;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Hold Bone</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QPushButton" name="Normalize_button">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>10</y>
+           <width>51</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>ウェイトを正規化（ノーマライズ）します</string>
+         </property>
+         <property name="text">
+          <string>ノーマライズ</string>
+         </property>
+         <property name="+command" stdset="0">
+          <string>normalizeWeightCmd</string>
+         </property>
+        </widget>
+        <widget class="QGroupBox" name="pruneWeight_groupBox">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>40</y>
+           <width>111</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="title">
+          <string>切下げ</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <widget class="QLineEdit" name="pruneWeight_lineEdit">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>22</y>
+            <width>31</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="inputMask">
+           <string>0.00; </string>
+          </property>
+          <property name="text">
+           <string>0.</string>
+          </property>
+          <property name="maxLength">
+           <number>4</number>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Normal</enum>
+          </property>
+          <property name="cursorPosition">
+           <number>4</number>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pruneWeight_button">
+          <property name="geometry">
+           <rect>
+            <x>45</x>
+            <y>22</y>
+            <width>51</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>ウェイトを切り下げます</string>
+          </property>
+          <property name="text">
+           <string>切下げ</string>
+          </property>
+          <property name="autoDefault">
+           <bool>false</bool>
+          </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+          <property name="+command" stdset="0">
+           <string>pruneWeightCmd</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="warp_groupBox">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>420</y>
+           <width>101</width>
+           <height>101</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="title">
+          <string>ワープ</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <widget class="QPushButton" name="source_Vtx_button">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>71</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;コピーされるソース頂点を割り当てます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>頂点ロード</string>
+          </property>
+          <property name="+command" stdset="0">
+           <string>loadSourceVtxCmd</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="sVertexCount_label">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>20</y>
+            <width>31</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>0</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="warp_button">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>70</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ワープを実行。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>ワープ</string>
+          </property>
+          <property name="+command" stdset="0">
+           <string>copyClosestVtxCmd</string>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="warp_HoldVtxs_checkBox">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>45</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Keep previous vertexs been assigned after &amp;quot;Apply&amp;quot;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Hold Vtxs</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="warp_FineCopy_checkBox">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>45</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Slower procession, but can get more accurate result&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Fine Copy</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="checkInflunce_groupBox">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>520</y>
+           <width>111</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="title">
+          <string>インフルエンスをチェック</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <widget class="QLineEdit" name="checkInflunce_lineEdit">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>21</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="inputMask">
+           <string>0; </string>
+          </property>
+          <property name="text">
+           <string>4</string>
+          </property>
+          <property name="maxLength">
+           <number>1</number>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Normal</enum>
+          </property>
+          <property name="cursorPosition">
+           <number>0</number>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="checkInflunce_button">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>20</y>
+            <width>61</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;選択された頂点がインフルエンス数を越えていないかチェックします。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>チェック</string>
+          </property>
+          <property name="autoDefault">
+           <bool>false</bool>
+          </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+          <property name="+command" stdset="0">
+           <string>checkInfluenceCmd</string>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="checkInflunce_cutMinor_checkBox">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>40</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Cut minor value to fitting the influnce number&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Cut Minor</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="weightBone_groupBox">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>670</y>
+           <width>101</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="title">
+          <string>ウェイト済みBone</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <widget class="QPushButton" name="weightBone_button">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'SimSun'; font-size:9pt;&quot;&gt;ピックされたスキンドメッシュのウェイトボーンを選択する。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Bone選択</string>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="+command" stdset="0">
+           <string>selectWeightedBoneCmd</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="size_groupBox">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>90</y>
+           <width>111</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>调整点的显示大小</string>
+         </property>
+         <property name="title">
+          <string>バーテックスサイズ</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <widget class="QSlider" name="weightVertexSize_Slider">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>91</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>10</number>
+          </property>
+          <property name="singleStep">
+           <number>5</number>
+          </property>
+          <property name="value">
+           <number>3</number>
+          </property>
+          <property name="sliderPosition">
+           <number>3</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="tickPosition">
+           <enum>QSlider::NoTicks</enum>
+          </property>
+          <property name="tickInterval">
+           <number>0</number>
+          </property>
+          <property name="+changeCommand" stdset="0">
+           <string>setVertexSizeCmd</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="mirror_groupBox">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>140</y>
+           <width>111</width>
+           <height>81</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="title">
+          <string>ウェイトミラー</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <widget class="QRadioButton" name="mirrorX_radioButton">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>31</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>X</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+          <property name="+onCommand" stdset="0">
+           <string>mirrorXSelectedCmd</string>
+          </property>
+         </widget>
+         <widget class="QRadioButton" name="mirrorY_radioButton">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>20</y>
+            <width>31</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Y</string>
+          </property>
+          <property name="+onCommand" stdset="0">
+           <string>mirrorYSelectedCmd</string>
+          </property>
+         </widget>
+         <widget class="QRadioButton" name="mirrorZ_radioButton">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>20</y>
+            <width>31</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Z</string>
+          </property>
+          <property name="+onCommand" stdset="0">
+           <string>mirrorZSelectedCmd</string>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="mirror_checkBox">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>40</y>
+            <width>72</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>+  to  -</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="mirrorWeight_button">
+          <property name="geometry">
+           <rect>
+            <x>56</x>
+            <y>60</y>
+            <width>51</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>ミラー</string>
+          </property>
+          <property name="autoDefault">
+           <bool>false</bool>
+          </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+          <property name="+command" stdset="0">
+           <string>mirrorWeightCmd</string>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="mirrorPart_checkBox">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>60</y>
+            <width>51</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;クリックしてONにすることで、選択された頂点のみにウェイトミラーを適用します。&lt;/p&gt;&lt;p&gt;OFFでは、メッシュ全体がミラーの対象になります。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>部分</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="swap_group">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>230</y>
+           <width>111</width>
+           <height>111</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;在选中点上，交换所列出骨骼的权重值&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;通常用于修正镜像权重后由于骨骼重叠而产生的错误&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="title">
+          <string>ウェイト交換</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <widget class="QPushButton" name="swap_button">
+          <property name="geometry">
+           <rect>
+            <x>28</x>
+            <y>40</y>
+            <width>51</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>交換</string>
+          </property>
+          <property name="+command" stdset="0">
+           <string>swapWeightCmd</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="swapLoadBoneA_pushButton">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>40</y>
+            <width>20</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>从场景中或左侧列表中拾取骨骼</string>
+          </property>
+          <property name="text">
+           <string>↑</string>
+          </property>
+          <property name="+command" stdset="0">
+           <string>swapLoadBoneACmd</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="swapBoneA_lineEdit">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>20</y>
+            <width>101</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Bone選択</string>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="swapBoneB_lineEdit">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>60</y>
+            <width>101</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Bone選択</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="swapLoadBoneB_pushButton">
+          <property name="geometry">
+           <rect>
+            <x>86</x>
+            <y>39</y>
+            <width>20</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>从场景中或左侧列表中拾取骨骼</string>
+          </property>
+          <property name="text">
+           <string>↓</string>
+          </property>
+          <property name="+command" stdset="0">
+           <string>swapLoadBoneBCmd</string>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="swapMerge_checkBox">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>82</y>
+            <width>91</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Take weight value from upper bone to lower bone, affect selected verts only&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Merge Down</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="swapMerge_button">
+          <property name="geometry">
+           <rect>
+            <x>28</x>
+            <y>40</y>
+            <width>51</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Merge</string>
+          </property>
+          <property name="+command" stdset="0">
+           <string>swapMergeWeightCmd</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="data_group">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>740</y>
+           <width>111</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;頂点IDに基づき頂点ウェイト情報を出力/入力します。&lt;/p&gt;&lt;p&gt;頂点をいくつか選択するか、もしくはメッシュを選択するかのいずれかで動作します。&lt;/p&gt;&lt;p&gt;入力時にボーンが見つからない場合は何もしません。&lt;/p&gt;&lt;p&gt;新しいメッシュ側に頂点IDが見つからない場合、その頂点はスキップします。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="title">
+          <string>ウェイトデータ</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <widget class="QPushButton" name="export_button">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>20</y>
+            <width>51</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;select mesh, export whole mesh weight data as XML in a fast way&lt;/p&gt;&lt;p&gt;select vtx, export selected vtx weight data only in a slower way&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>出力</string>
+          </property>
+          <property name="+command" stdset="0">
+           <string>exportVtxWeightCmd</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="import_button">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>20</y>
+            <width>51</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;select mesh, import whole mesh weight data from XML in a fast way&lt;/p&gt;&lt;p&gt;select vtx, import selected vtx weight data in a slower way&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>入力</string>
+          </property>
+          <property name="+command" stdset="0">
+           <string>importVtxWeightCmd</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="InfVerts_groupBox">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>590</y>
+           <width>101</width>
+           <height>71</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string>Inf. Verts</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <widget class="QPushButton" name="InfVerts_button">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'SimSun'; font-size:9pt;&quot;&gt;Get weight Verts of picked Bones&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Get Verts</string>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="+command" stdset="0">
+           <string>selectWeightedVertsCmd</string>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="InfVerts_makeSet_checkBox">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>42</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save result into a set&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Make Set</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QLabel" name="Normalize_label">
+         <property name="geometry">
+          <rect>
+           <x>64</x>
+           <y>10</y>
+           <width>31</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>OFF</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <zorder>Normalize_button</zorder>
+        <zorder>pruneWeight_groupBox</zorder>
+        <zorder>weightBone_groupBox</zorder>
+        <zorder>reSkin_groupBox</zorder>
+        <zorder>warp_groupBox</zorder>
+        <zorder>checkInflunce_groupBox</zorder>
+        <zorder>size_groupBox</zorder>
+        <zorder>mirror_groupBox</zorder>
+        <zorder>swap_group</zorder>
+        <zorder>data_group</zorder>
+        <zorder>InfVerts_groupBox</zorder>
+        <zorder>Normalize_label</zorder>
+       </widget>
+      </widget>
+      <widget class="QPushButton" name="relax_button">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>136</y>
+         <width>71</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;選択した頂点のウェイトをスムーズします。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>リラックス</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>relaxWeightCmd</string>
+       </property>
+      </widget>
+      <widget class="QListWidget" name="value_listBox">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>190</y>
+         <width>31</width>
+         <height>111</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="textElideMode">
+        <enum>Qt::ElideNone</enum>
+       </property>
+      </widget>
+      <widget class="QListWidget" name="bone_listBox">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>190</y>
+         <width>151</width>
+         <height>111</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="textElideMode">
+        <enum>Qt::ElideNone</enum>
+       </property>
+       <property name="+selectCommand" stdset="0">
+        <string>boneListSelectedCmd</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="syncBone_checkBox">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>226</x>
+         <y>290</y>
+         <width>45</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;Sync up bone selection in viewport&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;Note: will block undo&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>Sync</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+       <property name="autoRepeat">
+        <bool>false</bool>
+       </property>
+       <property name="tristate">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="weightRange_groupBox">
+       <property name="geometry">
+        <rect>
+         <x>223</x>
+         <y>226</y>
+         <width>51</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;scale bone influence on select vertexs by rate&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="title">
+        <string>Scale</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+       <widget class="QLabel" name="rangeStep_label">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>110</y>
+          <width>31</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Step of shrink or extend&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Step</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="rangeStep_lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>110</y>
+          <width>21</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
+        <property name="inputMask">
+         <string>0; </string>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+        <property name="maxLength">
+         <number>1</number>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Normal</enum>
+        </property>
+        <property name="cursorPosition">
+         <number>1</number>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="rangeExt_button">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>14</y>
+          <width>31</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Λ</string>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
+        <property name="default">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+        <property name="+command" stdset="0">
+         <string>rangeExtCmd</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="rangeShr_button">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>36</y>
+          <width>31</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>V</string>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
+        <property name="default">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+        <property name="+command" stdset="0">
+         <string>rangeShrCmd</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QCheckBox" name="weightOn_checkBox">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>10</y>
+        <width>81</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>On/Off</string>
+      </property>
+      <property name="+onCommand" stdset="0">
+       <string>weightToolOnCmd</string>
+      </property>
+      <property name="+offCommand" stdset="0">
+       <string>weightToolOffCmd</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="vertexSize_button">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>40</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Vertex Size</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+      <property name="+command" stdset="0">
+       <string>vertexSizeCmd</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="transferWeight_button">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>260</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Transfer Wright</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+      <property name="+command" stdset="0">
+       <string>transferWeightCmd</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="rename_tab">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <attribute name="icon">
+      <iconset>
+       <normaloff>icons/rename.png</normaloff>icons/rename.png</iconset>
+     </attribute>
+     <attribute name="title">
+      <string>リネーム</string>
+     </attribute>
+     <widget class="QPushButton" name="renameMake_Button">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>277</y>
+        <width>141</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Good Luck!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>リネーム</string>
+      </property>
+      <property name="+command" stdset="0">
+       <string>renameMakeCmd</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="renameReplace_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>-10</y>
+        <width>341</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>32</y>
+         <width>61</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>検索：</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="renameSearch_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>32</y>
+         <width>271</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="renameReplace_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>58</y>
+         <width>261</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>60</y>
+         <width>71</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string>置換：</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="renameCase_checkBox">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>80</y>
+         <width>161</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>大文字と小文字を区別</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="renameAdd_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>94</y>
+        <width>361</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+      <widget class="QLineEdit" name="renamePerfix_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>10</y>
+         <width>261</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="frame">
+        <bool>true</bool>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>51</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>追加：</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>38</y>
+         <width>31</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>番目</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="renamePrefix_radioButton">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>40</y>
+         <width>51</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>前方</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup_3</string>
+       </attribute>
+      </widget>
+      <widget class="QRadioButton" name="renameSuffix_radioButton">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>40</y>
+         <width>51</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>後方</string>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup_3</string>
+       </attribute>
+      </widget>
+      <widget class="QRadioButton" name="renameStart_radioButton">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>40</y>
+         <width>141</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>指定の文字より開始</string>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup_3</string>
+       </attribute>
+      </widget>
+      <widget class="QLineEdit" name="renameStart_lineEdit">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>39</y>
+         <width>21</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="inputMask">
+        <string>99; </string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameStartChangeCmd</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="renameStart_label">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>40</y>
+         <width>20</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>st</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QRadioButton" name="renameHierarchy_radioButton">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>280</y>
+        <width>61</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>階層</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+      <property name="+changeCommand" stdset="0">
+       <string>renameUpdatePreviewCmd</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="renameSelected_radioButton">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>280</y>
+        <width>51</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>選択</string>
+      </property>
+      <property name="+changeCommand" stdset="0">
+       <string>renameUpdatePreviewCmd</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="renameAll_radioButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>430</y>
+        <width>111</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>All Scene Objects</string>
+      </property>
+      <property name="+changeCommand" stdset="0">
+       <string>renameUpdatePreviewCmd</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup</string>
+      </attribute>
+     </widget>
+     <widget class="QGroupBox" name="renameTemplate_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>160</y>
+        <width>361</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="title">
+       <string>テンプレートを使用</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <widget class="QLineEdit" name="renameTemplate_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>20</y>
+         <width>261</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Bone_#</string>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>51</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>テンプレート：</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_13">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>49</y>
+         <width>61</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>順序(#):</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="renameLetter_checkBox">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>51</y>
+         <width>91</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>文字を使用</string>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="renameOrderNumber_groupBox">
+       <property name="geometry">
+        <rect>
+         <x>82</x>
+         <y>6</y>
+         <width>171</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="title">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+       <widget class="QLabel" name="label_10">
+        <property name="geometry">
+         <rect>
+          <x>77</x>
+          <y>43</y>
+          <width>51</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>ステップ</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="renameOrderStart_lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>8</x>
+          <y>43</y>
+          <width>21</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="inputMask">
+         <string>00; </string>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+        <property name="+changeCommand" stdset="0">
+         <string>renameUpdatePreviewCmd</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="renameOrderStep_lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>136</x>
+          <y>44</y>
+          <width>21</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="inputMask">
+         <string>0; </string>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+        <property name="+changeCommand" stdset="0">
+         <string>renameUpdatePreviewCmd</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QLineEdit" name="renameOrderLetter_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>49</y>
+         <width>21</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="inputMask">
+        <string>A; </string>
+       </property>
+       <property name="text">
+        <string>A</string>
+       </property>
+       <property name="maxLength">
+        <number>1</number>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="renameUpcase_checkBox">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>51</y>
+         <width>61</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>大文字</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <property name="tristate">
+        <bool>false</bool>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>50</y>
+         <width>41</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>より開始</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <zorder>renameOrderNumber_groupBox</zorder>
+      <zorder>renameTemplate_lineEdit</zorder>
+      <zorder>label_12</zorder>
+      <zorder>label_13</zorder>
+      <zorder>renameLetter_checkBox</zorder>
+      <zorder>renameOrderLetter_lineEdit</zorder>
+      <zorder>renameUpcase_checkBox</zorder>
+      <zorder>label_9</zorder>
+     </widget>
+     <widget class="QGroupBox" name="renamePreview_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>230</y>
+        <width>341</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="title">
+       <string>直前の選択をプレビュー</string>
+      </property>
+      <widget class="QLineEdit" name="renamePreview_lineEdit">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>15</y>
+         <width>321</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QCheckBox" name="renameTemplate_checkBox">
+      <property name="geometry">
+       <rect>
+        <x>-90</x>
+        <y>290</y>
+        <width>70</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>CheckBox</string>
+      </property>
+      <property name="+changeCommand" stdset="0">
+       <string>renameUpdatePreview</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Lod_tab">
+     <attribute name="icon">
+      <iconset>
+       <normaloff>icons/reduce.png</normaloff>icons/reduce.png</iconset>
+     </attribute>
+     <attribute name="title">
+      <string>LoD</string>
+     </attribute>
+     <attribute name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;从高模拷贝点权重至低模，并精简骨骼&lt;/p&gt;&lt;p&gt;也可用来精简模型自身骨骼&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </attribute>
+     <widget class="QGroupBox" name="lodMesh_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>6</y>
+        <width>351</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="title">
+       <string>メッシュを選択</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>22</y>
+         <width>41</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string>ソース：</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lodSource_lineEdit">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>22</y>
+         <width>261</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;在此指定高模&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>スキニング済みのハイポリメッシュを選択</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="lodSource_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>20</y>
+         <width>31</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>拾取</string>
+       </property>
+       <property name="text">
+        <string>&lt;-</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>lodSourceMeshButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="lodTarget_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>50</y>
+         <width>31</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>拾取</string>
+       </property>
+       <property name="text">
+        <string>&lt;-</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>lodTargetMeshButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lodTarget_lineEdit">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>51</x>
+         <y>52</y>
+         <width>261</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;在此指定低模&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;如留空，则会精简高模自身骨骼&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>ローポリメッシュを選択 (Option, スキニングされてなくてもよい )</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>52</y>
+         <width>41</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>ターゲット：</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="lodBone_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>85</y>
+        <width>351</width>
+        <height>191</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string/>
+      </property>
+      <property name="title">
+       <string>ボーン削減</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+      <widget class="QListWidget" name="lodSourceBone_listBox">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>141</width>
+         <height>161</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ここのボーンリストが取り除かれます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Sunken</enum>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAsNeeded</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="autoScroll">
+        <bool>true</bool>
+       </property>
+       <property name="showDropIndicator" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="selectionMode">
+        <enum>QAbstractItemView::ExtendedSelection</enum>
+       </property>
+       <property name="textElideMode">
+        <enum>Qt::ElideNone</enum>
+       </property>
+       <property name="movement">
+        <enum>QListView::Static</enum>
+       </property>
+       <property name="flow">
+        <enum>QListView::TopToBottom</enum>
+       </property>
+       <property name="layoutMode">
+        <enum>QListView::SinglePass</enum>
+       </property>
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="viewMode">
+        <enum>QListView::ListMode</enum>
+       </property>
+       <property name="wordWrap">
+        <bool>false</bool>
+       </property>
+       <property name="currentRow">
+        <number>-1</number>
+       </property>
+       <property name="sortingEnabled">
+        <bool>false</bool>
+       </property>
+       <property name="+selectCommand" stdset="0">
+        <string>lodBoneListSelectedCmd</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>ボーンの選択および追加</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QListWidget" name="lodTargetBone_listBox">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>20</y>
+         <width>121</width>
+         <height>161</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;左列のボーンが取り除かれた後、ここのリストのボーンがスキンウェイトを受け取ります。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="autoScroll">
+        <bool>true</bool>
+       </property>
+       <property name="showDropIndicator" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="selectionMode">
+        <enum>QAbstractItemView::ExtendedSelection</enum>
+       </property>
+       <property name="textElideMode">
+        <enum>Qt::ElideNone</enum>
+       </property>
+       <property name="movement">
+        <enum>QListView::Static</enum>
+       </property>
+       <property name="flow">
+        <enum>QListView::TopToBottom</enum>
+       </property>
+       <property name="layoutMode">
+        <enum>QListView::SinglePass</enum>
+       </property>
+       <property name="viewMode">
+        <enum>QListView::ListMode</enum>
+       </property>
+       <property name="wordWrap">
+        <bool>false</bool>
+       </property>
+       <property name="currentRow">
+        <number>-1</number>
+       </property>
+       <property name="sortingEnabled">
+        <bool>false</bool>
+       </property>
+       <property name="+selectCommand" stdset="0">
+        <string>boneListSelectedCmd</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>ウェイトレシーバ</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QPushButton" name="lodAdd_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>272</x>
+         <y>20</y>
+         <width>31</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;選択したボーンを左のリストに追加します。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>lodAddButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="lodRemove_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>20</y>
+         <width>31</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;選択したボーンを左のリストから除きます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>lodRemoveButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="lodSave_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>272</x>
+         <y>130</y>
+         <width>81</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ボーンリストを&amp;quot;*.lbl&amp;quot;ファイルとしてセーブします。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>リストをセーブ</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>lodSaveButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="lodLoad_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>272</x>
+         <y>160</y>
+         <width>81</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&amp;quot;*.lbl&amp;quot;ファイルをボーンリストとしてロードします。既存項目はクリアされます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>リストをロード</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>lodLoadButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="lodClear_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>271</x>
+         <y>100</y>
+         <width>81</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ボーンリストをクリアします。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>クリア</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>lodClearButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="lodRefresh_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>271</x>
+         <y>50</y>
+         <width>81</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;必要に応じて、まず取り除きたいボーンを加えてから、ウェイトを受けるボーンを調整します。&lt;/p&gt;&lt;p&gt;ボーンを加えるアクションはレシーブボーンのセッティングをリセットします。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>レシーバ
+アップデート</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>lodRefreshButtonCmd</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="lodMake_Button">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>277</y>
+        <width>141</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;祝手气好&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>実行</string>
+      </property>
+      <property name="+command" stdset="0">
+       <string>lodMakeButtonCmd</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="lodDeleteShader_checkBox">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>290</y>
+        <width>101</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>勾选后，会在处理完成时清理场景中无用的材质球，因为低模通常材质会较少</string>
+      </property>
+      <property name="text">
+       <string>シェーダーをクリア</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="lodDeleteBase_checkBox">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>272</y>
+        <width>151</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>勾选后会在处理完成时删除高模</string>
+      </property>
+      <property name="text">
+       <string>ソースメッシュを削除</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="lodDeleteBone_checkBox">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>290</y>
+        <width>91</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove listed bone after processed skin weight transfer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>ボーン削除</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="lodBatch_checkBox">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>272</y>
+        <width>61</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;By click on, process all selected mesh, ignore &amp;quot;Source&amp;quot; setting&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>Batch</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="misc_tab">
+     <attribute name="icon">
+      <iconset>
+       <normaloff>icons/MiscTools.png</normaloff>icons/MiscTools.png</iconset>
+     </attribute>
+     <attribute name="title">
+      <string>その他</string>
+     </attribute>
+     <widget class="QPushButton" name="misc_runButton">
+      <property name="geometry">
+       <rect>
+        <x>238</x>
+        <y>76</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;
+シーンから未知のノードを取り除きます。エラーが出る場合には、*.maファイルにセーブしてから適用してください。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>未知のノード</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/cMuscle_misc_help.png</normaloff>icons/cMuscle_misc_help.png</iconset>
+      </property>
+      <property name="+command" stdset="0">
+       <string>removeUnknowNodeButtonCmd</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="misc_runButton_3">
+      <property name="geometry">
+       <rect>
+        <x>24</x>
+        <y>76</y>
+        <width>91</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;Clean up select mesh:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;トランスフォームのリセット、デフォームヒストリ以外の削除、UVセットナンバーおよびソフトエッジのチェック等、スキン作業の前にメッシュに対し適用します。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>メッシュ</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/hsClearView.png</normaloff>icons/hsClearView.png</iconset>
+      </property>
+      <property name="+command" stdset="0">
+       <string>meshCleanUpButtonCmd</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="misc_runButton_4">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>20</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:600;&quot;&gt;1 bone + 1 unskined mesh:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;bind mesh to whole hierarchy of the bone chain, remove small weights and do normalize&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:600;&quot;&gt;1 bone + 1 unskined mesh + 1 skined mesh:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;スキニングされていないメッシュをすでにスキン化されたメッシュに影響しているボーンにバインドする、ソースとなるスキンドメッシからターゲットとなるスキンドメッシュにスキンウェイトをコピーする、微小なウェイトを削除する、スキンから使用されていないボーンを削除する、ノーマライズを実行する。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>バインドスキン+</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/moveSkinnedJoint.png</normaloff>icons/moveSkinnedJoint.png</iconset>
+      </property>
+      <property name="+command" stdset="0">
+       <string>bindSkinPlusButtonCmd</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="deformer_groupBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>430</y>
+        <width>341</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="title">
+       <string>デフォーマをベイク</string>
+      </property>
+      <widget class="QLineEdit" name="deformerStart_lineEdit">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>22</y>
+         <width>41</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="deformerEnd_lineEdit">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>22</y>
+         <width>41</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string>30</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_14">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>24</y>
+         <width>31</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>終点</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="deformerWeb_button">
+       <property name="geometry">
+        <rect>
+         <x>121</x>
+         <y>-4</y>
+         <width>21</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>原作者信息</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icons/info.png</normaloff>icons/info.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>16</width>
+         <height>16</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>deformerWebCmd</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="deformerActive_radioButton">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>23</y>
+         <width>91</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>アクティブ</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup_5</string>
+       </attribute>
+      </widget>
+      <widget class="QRadioButton" name="deformerFrom_radioButton">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>23</y>
+         <width>51</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>始点</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup_5</string>
+       </attribute>
+      </widget>
+      <widget class="QPushButton" name="deformerOK_button">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>20</y>
+         <width>61</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;デフォーマをメッシュにベイクします。&lt;/p&gt;&lt;p&gt;
+頂点アニメーションを使用します。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>ベイク</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>deformerOKCmd</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="pushButton_5">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>11</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="toolTip">
+       <string>在当前书签栏创建快捷启动图标</string>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/Shelf.png</normaloff>icons/Shelf.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>41</width>
+        <height>41</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+      <property name="+command" stdset="0">
+       <string>goShelfCmd</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="misc_runButton_6">
+      <property name="geometry">
+       <rect>
+        <x>116</x>
+        <y>76</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;選択されたオブジェクトからすべてのカスタムアトリビュートを取り除きます。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>カスタムAttrs</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/cleanAttr.png</normaloff>icons/cleanAttr.png</iconset>
+      </property>
+      <property name="+command" stdset="0">
+       <string>cleanAttrButtonCmd</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="scale_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="title">
+       <string>ジョイントをスケール</string>
+      </property>
+      <widget class="QPushButton" name="scaleButton">
+       <property name="geometry">
+        <rect>
+         <x>54</x>
+         <y>14</y>
+         <width>71</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;選択されたジョイントをスケール値を保ったまま、トランスフォーム値を変えることでスケールします。新規メッシュ変更に合わせてスケルトンを再度マッチングするのに使います。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>スケール</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>scaleJointButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="scale_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>7</x>
+         <y>15</y>
+         <width>41</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>1.0</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>55</y>
+        <width>341</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="title">
+       <string> クリーンナップ</string>
+      </property>
+      <widget class="QPushButton" name="misc_runButton_5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>60</y>
+         <width>131</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;選択されたスキンメッシュからウェイトのないボーンを消去します。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>ウェイトなしのボーン</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icons/removeInf.png</normaloff>icons/removeInf.png</iconset>
+       </property>
+       <property name="+command" stdset="0">
+        <string>meshCleanWeightlessBoneCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="misc_runButton_7">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>60</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Clear out NO weight bone in selected skin mesh&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Del Non-Skin</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icons/delNonSkinHistory.png</normaloff>icons/delNonSkinHistory.png</iconset>
+       </property>
+       <property name="+command" stdset="0">
+        <string>meshDelNonSkinHistoryCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="misc_runButton_8">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>60</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;Create weight map to show each skined bone weight area on select mesh&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Weight Map</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icons/color.png</normaloff>icons/color.png</iconset>
+       </property>
+       <property name="+command" stdset="0">
+        <string>buildWeightMapCmd</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="bsTrans_group">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>205</y>
+        <width>341</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Transfer blendshape deformer from source to target through wraper deformer&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="title">
+       <string>Morph Wraper</string>
+      </property>
+      <widget class="QPushButton" name="bsTransLoadSrc_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>71</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Load source mesh which has blendshape node&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Load Source</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>bsTransLoadSrcButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="bsTransLoadTgt_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>71</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;load target mesh that blendshape will transfer to&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Load Target</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>bsTransLoadTgtButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="bsTransDo_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>70</y>
+         <width>71</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;Scale selected joints with changing transform value, keep scale value. Use for re-match skeleton size for new mesh changing.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Apply</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>bsTransDoButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>45</y>
+         <width>71</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;blendshape node list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Blend Shape:</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="bsTransSrcBs_List">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>45</y>
+         <width>141</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QComboBox::AdjustToMinimumContentsLength</enum>
+       </property>
+       <property name="frame">
+        <bool>false</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>None</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLineEdit" name="bsTransSrcMesh_lineEdit">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>20</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The mesh will be use as Higher LoD mesh&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>None</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="bsTransTgtMesh_lineEdit">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>70</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The mesh will be use as Higher LoD mesh&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>None</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="bsTransCopySkin_checkBox">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>-30</y>
+         <width>71</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Copy skin weight as well after transfered blend shape&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Copy Skin</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="bsTransSkinWeight_groupBox">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>10</y>
+         <width>91</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Apply Skin</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <widget class="QRadioButton" name="bsTransTargetSkin_radioButton">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>30</y>
+          <width>82</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Target</string>
+        </property>
+       </widget>
+       <widget class="QRadioButton" name="bsTransSourceSkin_radioButton">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>14</y>
+          <width>82</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Source</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="boneLabel_group">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>150</y>
+        <width>341</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;add bone label to all selected bones, for better mirror skin weight result&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="title">
+       <string>Bone Label</string>
+      </property>
+      <widget class="QLineEdit" name="boneLabelPrefixCount_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>20</y>
+         <width>21</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="inputMask">
+        <string>0; </string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="maxLength">
+        <number>1</number>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Normal</enum>
+       </property>
+       <property name="cursorPosition">
+        <number>1</number>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="boneLabelPrefixCount_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>22</y>
+         <width>61</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;define how many prefix word in bone name if split with &amp;quot;_&amp;quot;&lt;/p&gt;&lt;p&gt;i.e.&lt;/p&gt;&lt;p&gt;b_LeftArm = 1&lt;/p&gt;&lt;p&gt;b_human_LeftArm = 2&lt;/p&gt;&lt;p&gt;LeftArm = 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Prefix No.</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="boneLabelLeftKey_label">
+       <property name="geometry">
+        <rect>
+         <x>104</x>
+         <y>22</y>
+         <width>31</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;keyword of left side&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>L-Key</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="boneLabelLeftKey_lineEdit">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>20</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="text">
+        <string>Left</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="boneLabelRightKey_lineEdit">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>20</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="text">
+        <string>Right</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="boneLabelRightKey_label">
+       <property name="geometry">
+        <rect>
+         <x>194</x>
+         <y>22</y>
+         <width>31</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;keyword of right side&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>R-Key</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="boneLabelDo_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>20</y>
+         <width>51</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;Scale selected joints with changing transform value, keep scale value. Use for re-match skeleton size for new mesh changing.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>ADD</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>boneLabelDoButtonCmd</string>
+       </property>
+      </widget>
+     </widget>
+     <zorder>groupBox_3</zorder>
+     <zorder>misc_runButton</zorder>
+     <zorder>misc_runButton_3</zorder>
+     <zorder>misc_runButton_4</zorder>
+     <zorder>deformer_groupBox</zorder>
+     <zorder>pushButton_5</zorder>
+     <zorder>misc_runButton_6</zorder>
+     <zorder>scale_groupBox</zorder>
+     <zorder>bsTrans_group</zorder>
+     <zorder>boneLabel_group</zorder>
+    </widget>
+   </widget>
+   <widget class="QTextEdit" name="main_textEdit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>410</y>
+      <width>345</width>
+      <height>200</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>200</horstretch>
+      <verstretch>200</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>345</width>
+      <height>40</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>345</width>
+      <height>200</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt;&quot;&gt;Created by Bai Yanbin&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="main_progressBar">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>375</y>
+      <width>361</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Consolas</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="textVisible">
+     <bool>true</bool>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+    <property name="invertedAppearance">
+     <bool>false</bool>
+    </property>
+    <property name="textDirection">
+     <enum>QProgressBar::TopToBottom</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="main_processLable">
+    <property name="geometry">
+     <rect>
+      <x>13</x>
+      <y>353</y>
+      <width>231</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string notr="true"/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="link_pushButton">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>342</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <underline>false</underline>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="toolTip">
+     <string>作者紹介</string>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/linkedin.png</normaloff>icons/linkedin.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+    <property name="+command" stdset="0">
+     <string>linkinCmd</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="miscUpdate_pushButton">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>342</y>
+      <width>31</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="toolTip">
+     <string>新バージョンが利用できます!</string>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/update.png</normaloff>icons/update.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeat">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+    <property name="+command" stdset="0">
+     <string>updatePageCmd</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="vimeo_pushButton">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>342</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <underline>false</underline>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="toolTip">
+     <string>チュートリアル@YouTube</string>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/youtube.png</normaloff>icons/youtube.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+    <property name="+command" stdset="0">
+     <string>youtubeCmd</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bilibili_pushButton">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>342</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <underline>false</underline>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="toolTip">
+     <string>チュートリアル@bilibili</string>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/bilibili.png</normaloff>icons/bilibili.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+    <property name="+command" stdset="0">
+     <string>bilibiliCmd</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="language_button">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>342</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <underline>false</underline>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="toolTip">
+     <string>言語設定</string>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/language.png</normaloff>icons/language.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+    <property name="+command" stdset="0">
+     <string>languageCmd</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="main_lang_id">
+    <property name="geometry">
+     <rect>
+      <x>-90</x>
+      <y>350</y>
+      <width>21</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string notr="true">jpn</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="language_list">
+    <property name="geometry">
+     <rect>
+      <x>307</x>
+      <y>235</y>
+      <width>36</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <kerning>false</kerning>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <property name="lineWidth">
+     <number>0</number>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="flow">
+     <enum>QListView::LeftToRight</enum>
+    </property>
+    <property name="gridSize">
+     <size>
+      <width>36</width>
+      <height>36</height>
+     </size>
+    </property>
+    <property name="viewMode">
+     <enum>QListView::IconMode</enum>
+    </property>
+    <property name="+selectCommand" stdset="0">
+     <string>languageSelectedCmd</string>
+    </property>
+    <item>
+     <property name="text">
+      <string notr="true"/>
+     </property>
+     <property name="toolTip">
+      <string>简体中文</string>
+     </property>
+     <property name="textAlignment">
+      <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>icons/China Flag.png</normaloff>icons/China Flag.png</iconset>
+     </property>
+     <property name="flags">
+      <set>ItemIsSelectable|ItemIsEnabled</set>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string notr="true"/>
+     </property>
+     <property name="toolTip">
+      <string>English</string>
+     </property>
+     <property name="textAlignment">
+      <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>icons/english.png</normaloff>icons/english.png</iconset>
+     </property>
+     <property name="flags">
+      <set>ItemIsSelectable|ItemIsEnabled</set>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string notr="true"/>
+     </property>
+     <property name="textAlignment">
+      <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>icons/japanese.png</normaloff>icons/japanese.png</iconset>
+     </property>
+     <property name="flags">
+      <set>ItemIsSelectable|ItemIsEnabled</set>
+     </property>
+    </item>
+   </widget>
+   <zorder>main_processLable</zorder>
+   <zorder>link_pushButton</zorder>
+   <zorder>main_tab</zorder>
+   <zorder>main_textEdit</zorder>
+   <zorder>main_progressBar</zorder>
+   <zorder>miscUpdate_pushButton</zorder>
+   <zorder>vimeo_pushButton</zorder>
+   <zorder>bilibili_pushButton</zorder>
+   <zorder>language_button</zorder>
+   <zorder>main_lang_id</zorder>
+   <zorder>language_list</zorder>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <action name="main_actionReset">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Reset</string>
+   </property>
+   <property name="+menuItemCommand" stdset="0">
+    <string>testCmd</string>
+   </property>
+  </action>
+  <action name="main_actionAbout">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>About...</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::AboutRole</enum>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>main_tab</tabstop>
+  <tabstop>main_textEdit</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>renameTemplate_groupBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>renameAdd_groupBox</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>39</x>
+     <y>209</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>40</x>
+     <y>144</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>renameTemplate_groupBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>renameReplace_groupBox</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>19</x>
+     <y>249</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>72</x>
+     <y>62</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>renameLetter_checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>renameOrderNumber_groupBox</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>300</x>
+     <y>252</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>211</x>
+     <y>254</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>renameStart_radioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>renameStart_lineEdit</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>185</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>302</x>
+     <y>177</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>renameLetter_checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>renameOrderLetter_lineEdit</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>325</x>
+     <y>252</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>122</x>
+     <y>253</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>renameLetter_checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>renameUpcase_checkBox</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>342</x>
+     <y>252</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>237</x>
+     <y>252</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>renameTemplate_groupBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>renameTemplate_checkBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>247</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-70</x>
+     <y>331</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>renameTemplate_groupBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>renameAll_radioButton</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>347</x>
+     <y>235</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>101</x>
+     <y>471</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>renameTemplate_groupBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>renameHierarchy_radioButton</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>332</x>
+     <y>223</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>61</x>
+     <y>321</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>deformerActive_radioButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>deformerStart_lineEdit</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>198</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>172</x>
+     <y>197</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>deformerActive_radioButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>deformerEnd_lineEdit</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>70</x>
+     <y>198</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>242</x>
+     <y>197</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>deformerFrom_radioButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>deformerStart_lineEdit</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>122</x>
+     <y>198</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>175</x>
+     <y>197</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>deformerFrom_radioButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>deformerEnd_lineEdit</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>125</x>
+     <y>198</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>242</x>
+     <y>197</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>swapMerge_checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>swap_button</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>310</x>
+     <y>349</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>322</x>
+     <y>307</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>swapMerge_checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>swapMerge_button</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>294</x>
+     <y>349</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>308</x>
+     <y>307</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <buttongroups>
+  <buttongroup name="buttonGroup_3"/>
+  <buttongroup name="buttonGroup_5"/>
+  <buttongroup name="buttonGroup"/>
+ </buttongroups>
+</ui>

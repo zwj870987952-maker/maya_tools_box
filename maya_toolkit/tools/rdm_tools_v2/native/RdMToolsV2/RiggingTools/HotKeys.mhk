@@ -1,0 +1,68 @@
+//Maya Preference 2018 (Release 1)
+//
+//
+
+//
+// The runtime commands referenced by the hotkeys
+//
+runTimeCommand
+	-annotation ""
+	-category "Custom Scripts"
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("from RdMToolsV2.ShowUI import RdMV2UI\nRdMV2_ui = RdMV2UI()\nRdMV2_ui.show()")
+	RDM2;
+
+runTimeCommand
+	-annotation ""
+	-category "Custom Scripts"
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("\"\"\"\n--------------------------------------------------------------------------------------------------------------------\nresetControllers.py - Python Script\n--------------------------------------------------------------------------------------------------------------------\nCopyright 2012 Carlos Chacon L. All rights reserved.\n\nDESCRIPTION:\nResets the selected controllers to their default value.\n\nUSAGE:\n*Select the controllers to be reset.\n*Run the script.\n\nAUTHOR:\nCarlos Chacon L. (caedo.00 at gmail dot com)\n--------------------------------------------------------------------------------------------------------------------\n\"\"\"\n\nimport maya.cmds as cmds\n\ndef isSingleAttribute(attr, obj):\n\t\"\"\"\n    \tChecks if the attr is single or multiple value.\n    \t\"\"\"\n    \treturn True if (cmds.attributeQuery(attr, node=obj, nc=True) is None) else False\n\ndef resetController(controller):\n\t\"\"\"\n\tResets to zero all the non-locked attributes from a controller\n\t\"\"\"\n\tcontroller_attrs = cmds.listAttr(controller, k=True)\n\tfor attr in controller_attrs:\n\t\tif(isSingleAttribute(attr, controller)):\n\t\t\tdefault_value = cmds.attributeQuery(attr, ld=True, node=controller)[0]\n\t\t\ttry:\n\t\t\t\tcmds.setAttr(controller+\".\"+attr, default_value)\n\t\t\texcept:\n\t\t\t\tpass\n\ndef resetControllers(controllers):\n\t\"\"\"\n\tResets multiple controllers.\n\t\"\"\"\n\tif(len(controllers) > 0):\n\t\tfor controller in controllers:\n\t\t\tresetController(controller)\n\t\tprint \"Controllers reset successfully\"\n\telse:\n\t\tprint \"No Controllers selected\"\n\nresetControllers(cmds.ls(sl=True))\n\n")
+	Rest;
+
+//
+// The name commands referenced by the hotkeys
+//
+nameCommand
+	-annotation "RdM2NameCommand"
+	-sourceType "mel"
+	-command ("RDM2")
+	RdM2NameCommand;
+
+nameCommand
+	-annotation "RestNameCommand"
+	-sourceType "mel"
+	-command ("Rest")
+	RestNameCommand;
+
+//
+// The user hotkeys
+//
+//
+// The hotkey set
+//
+hotkeySet -source "Maya_Default" -current Maya_Default_Duplicate;
+//
+// The hotkey contexts and hotkeys
+//
+hotkey -keyShortcut "m" -releaseName ("");
+hotkey -keyShortcut "m" -name ("RdM2NameCommand");
+hotkey -keyShortcut "t" -name ("RestNameCommand");
+hotkeyCtx -type "Editor" -addClient "hyperShadePanel";
+hotkeyCtx -type "Editor" -addClient "graphEditor";
+hotkeyCtx -type "Editor" -addClient "outlinerPanel";
+hotkeyCtx -type "Editor" -addClient "posePanel";
+hotkeyCtx -type "Editor" -addClient "polyTexturePlacementPanel";
+hotkeyCtx -type "Editor" -addClient "profilerPanel";
+hotkeyCtx -type "Editor" -addClient "hyperGraphPanel";
+hotkeyCtx -type "Editor" -addClient "nodeEditorPanel";
+hotkeyCtx -type "Editor" -addClient "shapePanel";
+hotkeyCtx -type "Editor" -addClient "timeEditorPanel";
+hotkeyCtx -type "Tool" -addClient "polyCutUV";
+hotkeyCtx -type "Tool" -addClient "Unfold3DBrush";
+hotkeyCtx -type "Tool" -addClient "sculptMeshCache";
+hotkeyCtx -type "Tool" -addClient "texSculptCacheContext";
+hotkeyCtx -type "Tool" -addClient "xgmIGBrush";
+hotkeyCtx -type "Tool" -addClient "texCutContext";
+hotkeyCtx -type "Tool" -addClient "SymmetrizeUVBrush";

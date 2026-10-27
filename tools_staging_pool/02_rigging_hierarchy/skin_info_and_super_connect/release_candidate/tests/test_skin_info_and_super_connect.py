@@ -1,9 +1,19 @@
 import ast
 import hashlib
 import json
+import os
 from pathlib import Path
 import runpy
+import sys
 import unittest
+
+if 'maya' not in sys.executable.lower():
+    from unittest.mock import MagicMock
+    if 'maya.cmds' not in sys.modules:
+        sys.modules['maya'] = MagicMock()
+        sys.modules['maya.cmds'] = MagicMock()
+        sys.modules['maya.mel'] = MagicMock()
+
 RC = Path(__file__).resolve().parents[1]
 if (RC / 'launch_candidate.py').is_file():
     TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
@@ -15,12 +25,20 @@ from maya_toolkit.tools.skin_info_and_super_connect.tool import normalize
 PKG = Path(package.__file__).parent
 
 
+def safe_read_bytes(path):
+    p = str(path.resolve())
+    if len(p) >= 240 and os.name == 'nt' and not p.startswith('\\\\?\\'):
+        p = '\\\\?\\' + p
+    with open(p, 'rb') as f:
+        return f.read()
+
+
 class Checks(unittest.TestCase):
     def test_all_resources_methods_procedures_and_callbacks(self):
         c = json.loads((PKG / 'catalog.json').read_text(encoding='utf8'))
         self.assertEqual(7, len(c['files']))
         for row in c['files']:
-            self.assertEqual(row['sha256'], hashlib.sha256((PKG/'vendor'/row['path']).read_bytes()).hexdigest())
+            self.assertEqual(row['sha256'], hashlib.sha256(safe_read_bytes(PKG/'vendor'/row['path'])).hexdigest())
         for suite, data in c['suites'].items():
             original = (PKG/(suite+'_legacy.mel')).read_text(encoding='utf8')
             ui = (PKG/(suite+'_ui.mel')).read_text(encoding='utf8')

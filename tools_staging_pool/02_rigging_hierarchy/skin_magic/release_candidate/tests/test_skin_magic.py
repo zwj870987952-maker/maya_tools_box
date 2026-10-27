@@ -1,11 +1,21 @@
 import ast
 import hashlib
 import json
+import os
 from pathlib import Path
 import runpy
+import sys
 import tempfile
 import unittest
 import xml.etree.ElementTree as ET
+
+if 'maya' not in sys.executable.lower():
+    import sys
+    from unittest.mock import MagicMock
+    if 'maya.cmds' not in sys.modules:
+        sys.modules['maya'] = MagicMock()
+        sys.modules['maya.cmds'] = MagicMock()
+        sys.modules['maya.mel'] = MagicMock()
 
 RC=Path(__file__).resolve().parents[1]
 if (RC/'launch_candidate.py').is_file():

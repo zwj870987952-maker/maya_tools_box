@@ -63,6 +63,22 @@ from .tb_anim_tools import TBAnimToolsTool
 from .timeline_enhanced import TimelineEnhancedTool
 from .velocity_calculator import VelocityCalculatorTool
 from .w_retarget_tool import WRetargetTool
+from .base_overrig_v9_0 import BaseOverRigTool
+from .batch_skin_bind import BatchSkinBindTool
+from .bb_tools import BBToolsTool
+from .constraint_manager_v6 import ConstraintManagerTool
+from .hierarchy_analyzer import HierarchyAnalyzerTool
+from .joint_optimal_pro_v4_1 import JointOptimalProTool
+from .rdm_tools_v2 import RdmToolsTool
+from .relationship_tools_v19 import RelationshipToolsTool
+from .reparent_pro_v1_5_1 import ReParentProTool
+from .segment_scale_fix import SegmentScaleFixTool
+from .skeleton_generator import SkeletonGeneratorTool
+from .skin_info_and_super_connect import SkinInfoSuperConnectTool
+from .skin_magic import SkinMagicTool
+from .skin_weight_transfer import SkinWeightTransferTool
+from .camera_f_fix import CameraFFixTool
+from .cvwrap_weightdriver import CvWrapWeightDriverTool
 
 # 统一自动注册内置工具
 ALL_TOOL_CLASSES = [
@@ -123,6 +139,22 @@ ALL_TOOL_CLASSES = [
     TimelineEnhancedTool,
     VelocityCalculatorTool,
     WRetargetTool,
+    BaseOverRigTool,
+    BatchSkinBindTool,
+    BBToolsTool,
+    ConstraintManagerTool,
+    HierarchyAnalyzerTool,
+    JointOptimalProTool,
+    RdmToolsTool,
+    RelationshipToolsTool,
+    ReParentProTool,
+    SegmentScaleFixTool,
+    SkeletonGeneratorTool,
+    SkinInfoSuperConnectTool,
+    SkinMagicTool,
+    SkinWeightTransferTool,
+    CameraFFixTool,
+    CvWrapWeightDriverTool,
 ]
 
 
@@ -196,5 +228,21 @@ __all__ = [
     "TimelineEnhancedTool",
     "VelocityCalculatorTool",
     "WRetargetTool",
+    "BaseOverRigTool",
+    "BatchSkinBindTool",
+    "BBToolsTool",
+    "ConstraintManagerTool",
+    "HierarchyAnalyzerTool",
+    "JointOptimalProTool",
+    "RdmToolsTool",
+    "RelationshipToolsTool",
+    "ReParentProTool",
+    "SegmentScaleFixTool",
+    "SkeletonGeneratorTool",
+    "SkinInfoSuperConnectTool",
+    "SkinMagicTool",
+    "SkinWeightTransferTool",
+    "CameraFFixTool",
+    "CvWrapWeightDriverTool",
     "register_all_builtin_tools",
 ]

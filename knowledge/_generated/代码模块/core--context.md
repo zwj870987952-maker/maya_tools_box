@@ -14,5 +14,7 @@ module: "context"
 
 - [[knowledge/_generated/正式工具/advanced_skeleton_animation|ADV 动画工具]]
 - [[knowledge/_generated/正式工具/anim_filters|动画曲线过滤器]]
+- [[knowledge/_generated/正式工具/bb_tools|BB Tools 完整套件]]
 - [[knowledge/_generated/正式工具/copy_overlapping_weights|重叠位置顶点蒙皮权重复制工具]]
 - [[knowledge/_generated/正式工具/fix_rotation_winding|欧拉旋转360度跳变修正工具]]
+- [[knowledge/_generated/正式工具/skin_magic|SkinMagic 4.0]]

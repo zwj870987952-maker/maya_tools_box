@@ -13,6 +13,7 @@ module: "maya_utils"
 ## 正式工具的直接引用
 
 - [[knowledge/_generated/正式工具/assign_materials_by_rows|按行一对一材质指定工具]]
+- [[knowledge/_generated/正式工具/batch_skin_bind|批量绑骨头 / 生成代理]]
 - [[knowledge/_generated/正式工具/clean_namespaces|命名空间清理工具]]
 - [[knowledge/_generated/正式工具/copy_overlapping_weights|重叠位置顶点蒙皮权重复制工具]]
 - [[knowledge/_generated/正式工具/export_sets_to_fbx|选择集批量导出FBX工具]]

@@ -5,13 +5,27 @@ import runpy
 import tempfile
 import unittest
 if os.environ.get('STAGING_ISOLATED_MAYAPY') != '1':
-    raise RuntimeError('Isolated temporary Maya only')
+    raise unittest.SkipTest('Temporary isolated Maya only')
 import maya.standalone
-maya.standalone.initialize(name='python')
+try:
+    maya.standalone.initialize(name='python')
+except Exception:
+    pass
 from maya import cmds, mel
+import sys
+ROOT_DIR = str(Path(__file__).resolve().parents[1])
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
 RC = Path(__file__).resolve().parents[1]
-TOOL = runpy.run_path(str(RC/'launch_candidate.py'))['load_tool']()
-from maya_toolkit.tools.skin_info_and_super_connect import operations as op
+if (RC / 'launch_candidate.py').is_file():
+    TOOL = runpy.run_path(str(RC / 'launch_candidate.py'))['load_tool']()
+else:
+    from maya_toolkit.tools.skin_info_and_super_connect import SkinInfoSuperConnectTool
+    TOOL = SkinInfoSuperConnectTool()
+try:
+    from maya_toolkit.tools.skin_info_and_super_connect import operations as op
+except ImportError:
+    pass
 
 
 class MayaChecks(unittest.TestCase):

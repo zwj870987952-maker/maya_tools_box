@@ -1,0 +1,65 @@
+circle -c 0 0 0 -nr 0 1 0 -sw 360 -r 1 -d 3 -ut 0 -tol 0.01 -s 8 -ch 1; objectMoveCommand;
+scale -r 4.631377 4.631377 4.631377 ;
+select -addFirst makeNurbCircle1 ;
+setAttr "makeNurbCircle1.sections" 14;
+select -r nurbsCircle1 ;
+select -r nurbsCircle1.cv[11] ;
+move -r -os -wd -2.027726 0 0 ;
+select -r nurbsCircle1.cv[12] ;
+move -r -os -wd -2.266436 0 0 ;
+select -r nurbsCircle1.cv[13] ;
+move -r -os -wd -1.879728 0 0 ;
+select -r nurbsCircle1.cv[0] ;
+move -r -os -wd -0.841554 0 0 ;
+move -r -os -wd 0.0800355 0 0 ;
+select -r nurbsCircle1.cv[1] ;
+move -r -os -wd 0 0 -0.438432 ;
+select -r nurbsCircle1.cv[2] ;
+move -r -os -wd 1.015807 0 0 ;
+select -r nurbsCircle1.cv[3] ;
+move -r -os -wd 2.49871 0 0 ;
+select -r nurbsCircle1.cv[2] ;
+move -r -0.304618 -0.0129738 -0.217333 ;
+move -r -os -wd -0.1708 0 0 ;
+move -r -os -wd 0 0 -0.23726 ;
+move -r -os -wd -0.210309 0 0 ;
+select -r nurbsCircle1.cv[4] ;
+move -r -os -wd 4.262986 0 0 ;
+select -r nurbsCircle1.cv[5] ;
+move -r -os -wd 3.750333 0 0 ;
+select -r nurbsCircle1.cv[6] ;
+move -r -os -wd 2.472245 0 0 ;
+select -r nurbsCircle1.cv[7] ;
+move -r -os -wd 1.511214 0 0 ;
+select -r nurbsCircle1.cv[8] ;
+move -r -os -wd 0.711384 0 0 ;
+select -cl  ;
+select -r nurbsCircle1.cv[10] ;
+move -r -os -wd -1.313815 0 0 ;
+select -r nurbsCircle1.cv[9] ;
+move -r -os -wd 0 0 -0.36376 ;
+move -r -os -wd -0.126522 0 0 ;
+select -r nurbsCircle1.cv[8] ;
+select -r nurbsCircle1.cv[6] ;
+move -r -os -wd -0.275783 0 0 ;
+select -r nurbsCircle1.cv[5] ;
+move -r -os -wd -0.381684 0 0 ;
+select -r nurbsCircle1.cv[4] ;
+move -r -os -wd 0.500915 0 0 ;
+select -r nurbsCircle1.cv[3] ;
+move -r -os -wd 0 0 0.440031 ;
+move -r -os -wd -0.185944 0 0 ;
+select -r nurbsCircle1.cv[2] ;
+move -r -os -wd 0 0 0.19925 ;
+move -r -os -wd 0.239804 0 0 ;
+select -r nurbsCircle1 ;
+
+move -rpr -0.0319391 -0.0021623 -4.966222 nurbsCircle1.scalePivot nurbsCircle1.rotatePivot ;
+move -rpr 0 0 0 ;
+
+rename "nurbsCircle1" "FootControl";
+setAttr "FootControlShape.overrideEnabled" 1;
+setAttr "FootControlShape.overrideColor" 16;
+
+
+

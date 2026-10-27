@@ -1,8 +1,17 @@
 import hashlib
 import json
+import os
 from pathlib import Path
 import runpy
+import sys
 import unittest
+
+if 'maya' not in sys.executable.lower():
+    from unittest.mock import MagicMock
+    if 'maya.cmds' not in sys.modules:
+        sys.modules['maya'] = MagicMock()
+        sys.modules['maya.cmds'] = MagicMock()
+        sys.modules['maya.mel'] = MagicMock()
 
 HERE = Path(__file__).resolve()
 RC = HERE.parents[1]

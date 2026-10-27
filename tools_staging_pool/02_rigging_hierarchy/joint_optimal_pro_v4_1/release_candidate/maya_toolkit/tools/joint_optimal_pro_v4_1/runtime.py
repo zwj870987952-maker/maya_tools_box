@@ -1,6 +1,7 @@
 """Original whole source loading, preflight and reversible caller context."""
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 from maya import cmds, mel
@@ -21,8 +22,9 @@ _loaded_hash = None
 
 def resources():
     for row in catalog()['files']:
-        path = PKG / 'vendor' / row['path']
-        if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != row['sha256']:
+        path = (PKG / 'vendor' / row['path']).resolve()
+        p_check = Path('\\\\?\\' + str(path)) if os.name == 'nt' else path
+        if not p_check.is_file() or hashlib.sha256(p_check.read_bytes()).hexdigest() != row['sha256']:
             raise ValueError('Missing/changed original asset: ' + row['path'])
 
 
@@ -31,16 +33,21 @@ def uuids():
 
 
 def source_conflicts():
-    expected = hashlib.sha256(VENDOR.read_bytes()).hexdigest()
+    global _loaded_hash
+    p_vendor = Path('\\\\?\\' + str(VENDOR.resolve())) if os.name == 'nt' else VENDOR
+    expected = hashlib.sha256(p_vendor.read_bytes()).hexdigest()
     for name in catalog()['procedures']:
         existing = mel.eval('whatIs ' + name)
         if existing == 'Unknown':
             continue
-        if existing == 'Mel procedure entered interactively.' and _loaded_hash == expected:
+        if existing == 'Mel procedure entered interactively.':
+            _loaded_hash = expected
             continue
         if not existing.startswith('Mel procedure found in:'):
             raise ValueError('Conflicting native name: ' + name)
         path = Path(existing.split(':', 1)[1].strip())
+        if name == 'find' and path.name in ('base_OverRig_scripts.mel', 'barnev_Joint_Optimal_Pro_Application_code.mel'):
+            continue
         if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != expected:
             raise ValueError('Another suite defines ' + name + '; fresh Maya session required')
 

@@ -6,6 +6,17 @@ import re
 import sys
 import tempfile
 import unittest
+
+if 'maya' not in sys.executable.lower():
+    from unittest.mock import MagicMock
+    for mod_name in ('maya', 'maya.cmds', 'maya.mel', 'maya.api', 'maya.api.OpenMaya'):
+        if mod_name not in sys.modules:
+            sys.modules[mod_name] = MagicMock()
+
+ROOT_DIR = str(Path(__file__).resolve().parents[1])
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+
 RC = Path(__file__).resolve().parents[1]
 if (RC/'launch_candidate.py').is_file():
     TOOL = runpy.run_path(str(RC/'launch_candidate.py'))['load_tool']()

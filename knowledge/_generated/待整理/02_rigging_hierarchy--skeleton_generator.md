@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/02_rigging_hierarchy|02_rigging_hierarchy]]
 - 源目录：02_rigging_hierarchy/skeleton_generator
-- 代码文件：9 个，约 21.9 KiB
+- 代码文件：9 个，约 22.6 KiB
 - 原清单登记：否，尚需核对名称与描述
 - 主入口：[查看源码](../../../tools_staging_pool/02_rigging_hierarchy/skeleton_generator/release_candidate/launch_candidate.py)
 

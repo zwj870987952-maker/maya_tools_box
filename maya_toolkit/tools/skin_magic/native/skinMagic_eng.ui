@@ -1,0 +1,5677 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SkinMaigc_mainWindow</class>
+ <widget class="QMainWindow" name="SkinMaigc_mainWindow">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>380</width>
+    <height>425</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>380</width>
+    <height>425</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>380</width>
+    <height>655</height>
+   </size>
+  </property>
+  <property name="cursor">
+   <cursorShape>ArrowCursor</cursorShape>
+  </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::NoFocus</enum>
+  </property>
+  <property name="windowTitle">
+   <string notr="true">Skin Magic 4.0            Yanbin Bai</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/yanbin.bai.TORNBANNER/.designer/backup/icons/Title.png</normaloff>C:/Users/yanbin.bai.TORNBANNER/.designer/backup/icons/Title.png</iconset>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>24</width>
+    <height>24</height>
+   </size>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonIconOnly</enum>
+  </property>
+  <property name="animated">
+   <bool>true</bool>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
+  <property name="dockNestingEnabled">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="main_tab">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>381</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="statusTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="accessibleName">
+     <string/>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="tabPosition">
+     <enum>QTabWidget::North</enum>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Rounded</enum>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <property name="elideMode">
+     <enum>Qt::ElideNone</enum>
+    </property>
+    <property name="usesScrollButtons">
+     <bool>true</bool>
+    </property>
+    <property name="documentMode">
+     <bool>false</bool>
+    </property>
+    <property name="tabsClosable">
+     <bool>false</bool>
+    </property>
+    <property name="movable">
+     <bool>false</bool>
+    </property>
+    <property name="tabBarAutoHide" stdset="0">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="donate_tab">
+     <attribute name="icon">
+      <iconset>
+       <normaloff>icons/donut.png</normaloff>icons/donut.png</iconset>
+     </attribute>
+     <attribute name="title">
+      <string>Donate</string>
+     </attribute>
+     <widget class="QGroupBox" name="eng_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>351</width>
+        <height>291</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="title">
+       <string>Need Your Supports! </string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>420</y>
+         <width>91</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;BitCoin Wallet Address&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>C:/Users/yanbin.bai.TORNBANNER/.designer/backup/icons/bitcoin.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="donateBitcoin_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>106</x>
+         <y>420</y>
+         <width>235</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="donatePayPal_button">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>170</y>
+         <width>51</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;PayPal Link&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icons/paypal.png</normaloff>icons/paypal.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>donatePayPal_buttonCmd</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>130</y>
+         <width>121</width>
+         <height>121</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;AliPay QR Code&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>icons/ali_pay.png</pixmap>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_21">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>130</y>
+         <width>121</width>
+         <height>121</height>
+        </rect>
+       </property>
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;WeChat Pay QR Code&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>icons/wechat_pay.png</pixmap>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_22">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>321</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:8pt; font-weight:600; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:400;&quot;&gt;Skin Magic is free for everyone, you can use &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;Full Function&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:400;&quot;&gt;as free! However if it make your life easier...&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt;&quot;&gt;How about bought me cup of coffee?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="weight_tab">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="font">
+      <font>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <attribute name="icon">
+      <iconset>
+       <normaloff>icons/weight.png</normaloff>icons/weight.png</iconset>
+     </attribute>
+     <attribute name="title">
+      <string>Weight</string>
+     </attribute>
+     <attribute name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set vertexs weight&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </attribute>
+     <widget class="QGroupBox" name="weight_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>-20</x>
+        <y>-1</y>
+        <width>401</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <widget class="QPushButton" name="w1_button">
+       <property name="geometry">
+        <rect>
+         <x>237</x>
+         <y>56</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>setWeight1Cmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="copyWeight_button">
+       <property name="geometry">
+        <rect>
+         <x>35</x>
+         <y>136</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Copy</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>copyWeightCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="plusWeight_button">
+       <property name="geometry">
+        <rect>
+         <x>195</x>
+         <y>96</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>plusWeightCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="setWeight_button">
+       <property name="geometry">
+        <rect>
+         <x>35</x>
+         <y>96</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Set Weight</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>setWeightFromValueCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="w025_button">
+       <property name="geometry">
+        <rect>
+         <x>101</x>
+         <y>56</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>.25</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>setWeight025Cmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="shrink_button">
+       <property name="geometry">
+        <rect>
+         <x>32</x>
+         <y>16</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Shrink</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>shrinkSelectionCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="grow_button">
+       <property name="geometry">
+        <rect>
+         <x>77</x>
+         <y>16</y>
+         <width>45</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Grow</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>growSelectionCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pasteWeight_button">
+       <property name="geometry">
+        <rect>
+         <x>125</x>
+         <y>136</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Paste</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>pasteWeightCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="w01_button">
+       <property name="geometry">
+        <rect>
+         <x>67</x>
+         <y>56</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>.1</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>setWeight01Cmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="w05_button">
+       <property name="geometry">
+        <rect>
+         <x>135</x>
+         <y>56</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>.5</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>setWeight05Cmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="ring_button">
+       <property name="geometry">
+        <rect>
+         <x>125</x>
+         <y>16</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Ring</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>ringSelectionCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="minusWeight_button">
+       <property name="geometry">
+        <rect>
+         <x>235</x>
+         <y>96</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>minusWeightCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="w09_button">
+       <property name="geometry">
+        <rect>
+         <x>203</x>
+         <y>56</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>.9</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>setWeight09Cmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="w075_button">
+       <property name="geometry">
+        <rect>
+         <x>169</x>
+         <y>56</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>.75</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>setWeight075Cmd</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="setWeight_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>135</x>
+         <y>102</y>
+         <width>41</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>4</number>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="w0_button">
+       <property name="geometry">
+        <rect>
+         <x>33</x>
+         <y>56</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>setWeight0Cmd</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="vertsText_label">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>171</y>
+         <width>31</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string> Verts</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::PlainText</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="vertsNum_label">
+       <property name="geometry">
+        <rect>
+         <x>42</x>
+         <y>171</y>
+         <width>25</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="removeBone_button">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>410</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>- Bone</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>removeBoneCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="addBone_button">
+       <property name="geometry">
+        <rect>
+         <x>223</x>
+         <y>190</y>
+         <width>51</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>+ Bone</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>addBoneCmd</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="paintVertex_checkBox">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>225</x>
+         <y>410</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Paint weighted vertexs&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;显示骨骼权重的顶点色&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>C:/Users/yanbin.bai.TORNBANNER/.designer/backup/icons/color.png</normaloff>C:/Users/yanbin.bai.TORNBANNER/.designer/backup/icons/color.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+       <property name="autoRepeat">
+        <bool>false</bool>
+       </property>
+       <property name="tristate">
+        <bool>false</bool>
+       </property>
+       <property name="+onCommand" stdset="0">
+        <string>paintVertexOnCmd</string>
+       </property>
+       <property name="+offCommand" stdset="0">
+        <string>paintVertexOffCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="element_button">
+       <property name="geometry">
+        <rect>
+         <x>215</x>
+         <y>16</y>
+         <width>51</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Element</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>elementSelectionCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="wave_button">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>16</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Wave</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>waveSelectionCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="relax_button">
+       <property name="geometry">
+        <rect>
+         <x>215</x>
+         <y>136</y>
+         <width>51</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Do smooth weight on selected vertexs&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Relax</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>relaxWeightCmd</string>
+       </property>
+      </widget>
+      <widget class="QScrollArea" name="weight_scrollArea">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>275</x>
+         <y>10</y>
+         <width>122</width>
+         <height>291</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <property name="lineWidth">
+        <number>2</number>
+       </property>
+       <property name="midLineWidth">
+        <number>2</number>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOn</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="widgetResizable">
+        <bool>false</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <widget class="QWidget" name="weight_scrollAreaWidgetContents">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>-509</y>
+          <width>104</width>
+          <height>800</height>
+         </rect>
+        </property>
+        <widget class="QGroupBox" name="reSkin_groupBox">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>340</y>
+           <width>111</width>
+           <height>81</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string>Re-Skin</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <widget class="QPushButton" name="reSkinLoadBone_button">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>61</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;pick bone use for re-skin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Load Bone</string>
+          </property>
+          <property name="autoDefault">
+           <bool>false</bool>
+          </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+          <property name="+command" stdset="0">
+           <string>reSkinPickBoneCmd</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="reSkin_label">
+          <property name="geometry">
+           <rect>
+            <x>80</x>
+            <y>20</y>
+            <width>16</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>0</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="reSkinApply_button">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>50</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Re-map skin weight of select vertexs to loaded bones&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Apply</string>
+          </property>
+          <property name="autoDefault">
+           <bool>false</bool>
+          </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+          <property name="+command" stdset="0">
+           <string>reSkinCmd</string>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="reSkinHoldBone_checkBox">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>-40</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Keep previous bones been assigned after &amp;quot;Apply&amp;quot;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Hold Bone</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="data_group">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>740</y>
+           <width>111</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Export and Import vertex weight inform base one vertex ID&lt;/p&gt;&lt;p&gt;Can work on either selected few vertexs or selected mesh&lt;/p&gt;&lt;p&gt;Will do nothing if bone missing during importing&lt;/p&gt;&lt;p&gt;Will skip vertex if cannot find vertex ID on new mesh&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="title">
+          <string>Weight Data</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <widget class="QPushButton" name="export_button">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>20</y>
+            <width>44</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;select mesh, export whole mesh weight data as XML in a fast way&lt;/p&gt;&lt;p&gt;select vtx, export selected vtx weight data only, better control&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Export</string>
+          </property>
+          <property name="+command" stdset="0">
+           <string>exportVtxWeightCmd</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="import_button">
+          <property name="geometry">
+           <rect>
+            <x>54</x>
+            <y>20</y>
+            <width>44</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;select mesh, import whole mesh weight data from XML in a fast way&lt;/p&gt;&lt;p&gt;select vtx, import selected vtx weight data, slower but better control&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Import</string>
+          </property>
+          <property name="+command" stdset="0">
+           <string>importVtxWeightCmd</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="size_groupBox">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>90</y>
+           <width>111</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string>Vertex display size</string>
+         </property>
+         <property name="title">
+          <string>Vertex Size</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <widget class="QSlider" name="weightVertexSize_Slider">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>91</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>10</number>
+          </property>
+          <property name="singleStep">
+           <number>5</number>
+          </property>
+          <property name="value">
+           <number>3</number>
+          </property>
+          <property name="sliderPosition">
+           <number>3</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="tickPosition">
+           <enum>QSlider::NoTicks</enum>
+          </property>
+          <property name="tickInterval">
+           <number>0</number>
+          </property>
+          <property name="+changeCommand" stdset="0">
+           <string>setVertexSizeCmd</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QPushButton" name="Normalize_button">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>10</y>
+           <width>41</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string>Normalize Weight</string>
+         </property>
+         <property name="text">
+          <string>Normal</string>
+         </property>
+         <property name="+command" stdset="0">
+          <string>normalizeWeightCmd</string>
+         </property>
+        </widget>
+        <widget class="QGroupBox" name="mirror_groupBox">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>140</y>
+           <width>111</width>
+           <height>81</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="title">
+          <string>Mirror Weight</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <widget class="QRadioButton" name="mirrorX_radioButton">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>31</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>X</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+          <property name="+onCommand" stdset="0">
+           <string>mirrorXSelectedCmd</string>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">buttonGroup_2</string>
+          </attribute>
+         </widget>
+         <widget class="QRadioButton" name="mirrorY_radioButton">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>20</y>
+            <width>31</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Y</string>
+          </property>
+          <property name="+onCommand" stdset="0">
+           <string>mirrorYSelectedCmd</string>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">buttonGroup_2</string>
+          </attribute>
+         </widget>
+         <widget class="QRadioButton" name="mirrorZ_radioButton">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>20</y>
+            <width>31</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Z</string>
+          </property>
+          <property name="+onCommand" stdset="0">
+           <string>mirrorZSelectedCmd</string>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">buttonGroup_2</string>
+          </attribute>
+         </widget>
+         <widget class="QCheckBox" name="mirror_checkBox">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>40</y>
+            <width>81</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>+  to  -</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="mirrorWeight_button">
+          <property name="geometry">
+           <rect>
+            <x>56</x>
+            <y>60</y>
+            <width>41</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Mirror</string>
+          </property>
+          <property name="autoDefault">
+           <bool>false</bool>
+          </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+          <property name="+command" stdset="0">
+           <string>mirrorWeightCmd</string>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="mirrorPart_checkBox">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>60</y>
+            <width>41</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;By click on, will apply mirror weight to selected vertexs only.&lt;/p&gt;&lt;p&gt;Otherwise will do mirror to whole mesh.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Part</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="swap_group">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>230</y>
+           <width>111</width>
+           <height>110</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Exchange skin weight value between picked bones.&lt;/p&gt;&lt;p&gt;Usually working for fixing wrong result of mirror weight.&lt;/p&gt;&lt;p&gt;Apply on selected vertexs only.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="title">
+          <string>Swap Weight</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <widget class="QPushButton" name="swap_button">
+          <property name="geometry">
+           <rect>
+            <x>26</x>
+            <y>40</y>
+            <width>51</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Swap</string>
+          </property>
+          <property name="+command" stdset="0">
+           <string>swapWeightCmd</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="swapLoadBoneA_pushButton">
+          <property name="geometry">
+           <rect>
+            <x>2</x>
+            <y>39</y>
+            <width>20</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>Pick bone from scene or bone list at left</string>
+          </property>
+          <property name="text">
+           <string>↑</string>
+          </property>
+          <property name="+command" stdset="0">
+           <string>swapLoadBoneACmd</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="swapBoneA_lineEdit">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>20</y>
+            <width>101</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Pick Bone</string>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="swapBoneB_lineEdit">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>60</y>
+            <width>101</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Pick Bone</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="swapLoadBoneB_pushButton">
+          <property name="geometry">
+           <rect>
+            <x>80</x>
+            <y>40</y>
+            <width>20</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>Pick bone from scene or bone list at left</string>
+          </property>
+          <property name="text">
+           <string>↓</string>
+          </property>
+          <property name="+command" stdset="0">
+           <string>swapLoadBoneBCmd</string>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="swapMerge_checkBox">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>82</y>
+            <width>91</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Take weight value from upper bone to lower bone, affect selected verts only&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Merge Down</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="swapMerge_button">
+          <property name="geometry">
+           <rect>
+            <x>26</x>
+            <y>40</y>
+            <width>51</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Merge</string>
+          </property>
+          <property name="+command" stdset="0">
+           <string>swapMergeWeightCmd</string>
+          </property>
+         </widget>
+         <zorder>swapLoadBoneB_pushButton</zorder>
+         <zorder>swapLoadBoneA_pushButton</zorder>
+         <zorder>swap_button</zorder>
+         <zorder>swapBoneA_lineEdit</zorder>
+         <zorder>swapBoneB_lineEdit</zorder>
+         <zorder>swapMerge_checkBox</zorder>
+         <zorder>swapMerge_button</zorder>
+        </widget>
+        <widget class="QGroupBox" name="pruneWeight_groupBox">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>40</y>
+           <width>111</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="title">
+          <string>Prune Weight</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <widget class="QLineEdit" name="pruneWeight_lineEdit">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>31</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="inputMask">
+           <string>0.00; </string>
+          </property>
+          <property name="text">
+           <string>0.</string>
+          </property>
+          <property name="maxLength">
+           <number>4</number>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Normal</enum>
+          </property>
+          <property name="cursorPosition">
+           <number>4</number>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pruneWeight_button">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>20</y>
+            <width>41</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>Prune Weight</string>
+          </property>
+          <property name="text">
+           <string>Prune</string>
+          </property>
+          <property name="autoDefault">
+           <bool>false</bool>
+          </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+          <property name="+command" stdset="0">
+           <string>pruneWeightCmd</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="warp_groupBox">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>420</y>
+           <width>101</width>
+           <height>101</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string>Warp</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <widget class="QPushButton" name="source_Vtx_button">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>61</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Assign source vertexs that copy from&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Load Vtxs</string>
+          </property>
+          <property name="+command" stdset="0">
+           <string>loadSourceVtxCmd</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="sVertexCount_label">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>20</y>
+            <width>31</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>0</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="warp_button">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>70</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Do warp&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Warp</string>
+          </property>
+          <property name="+command" stdset="0">
+           <string>copyClosestVtxCmd</string>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="warp_HoldVtxs_checkBox">
+          <property name="geometry">
+           <rect>
+            <x>170</x>
+            <y>40</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Keep previous vertexs been assigned after &amp;quot;Apply&amp;quot;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Hold Vtxs</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="warp_FineCopy_checkBox">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>11</x>
+            <y>43</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Slower procession, but can get more accurate result&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Fine Copy</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="checkInflunce_groupBox">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>530</y>
+           <width>111</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="title">
+          <string>Check Influnce</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <widget class="QLineEdit" name="checkInflunce_lineEdit">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>21</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="inputMask">
+           <string>0; </string>
+          </property>
+          <property name="text">
+           <string>4</string>
+          </property>
+          <property name="maxLength">
+           <number>1</number>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Normal</enum>
+          </property>
+          <property name="cursorPosition">
+           <number>0</number>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="checkInflunce_button">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>20</y>
+            <width>51</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Do check on selected vertexs of if over influenced&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Check</string>
+          </property>
+          <property name="autoDefault">
+           <bool>false</bool>
+          </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+          <property name="+command" stdset="0">
+           <string>checkInfluenceCmd</string>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="checkInflunce_cutMinor_checkBox">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>42</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Cut minor value to fitting the influnce number&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Cut Minor</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="weightBone_groupBox">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>680</y>
+           <width>101</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string>Weighted Bone</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <widget class="QPushButton" name="weightBone_button">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'SimSun'; font-size:9pt;&quot;&gt;Select weight bone of picked skined mesh&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Get Bone</string>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="+command" stdset="0">
+           <string>selectWeightedBoneCmd</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="InfVerts_groupBox">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>600</y>
+           <width>101</width>
+           <height>71</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string>Inf. Verts</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <widget class="QPushButton" name="InfVerts_button">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'SimSun'; font-size:9pt;&quot;&gt;Get weight Verts of picked Bones&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Get Verts</string>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="+command" stdset="0">
+           <string>selectWeightedVertsCmd</string>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="InfVerts_makeSet_checkBox">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>42</y>
+            <width>81</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save result into a set&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Make Set</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QLabel" name="Normalize_label">
+         <property name="geometry">
+          <rect>
+           <x>60</x>
+           <y>11</y>
+           <width>31</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>OFF</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <zorder>weightBone_groupBox</zorder>
+        <zorder>reSkin_groupBox</zorder>
+        <zorder>data_group</zorder>
+        <zorder>size_groupBox</zorder>
+        <zorder>Normalize_button</zorder>
+        <zorder>mirror_groupBox</zorder>
+        <zorder>swap_group</zorder>
+        <zorder>pruneWeight_groupBox</zorder>
+        <zorder>warp_groupBox</zorder>
+        <zorder>checkInflunce_groupBox</zorder>
+        <zorder>InfVerts_groupBox</zorder>
+        <zorder>Normalize_label</zorder>
+       </widget>
+      </widget>
+      <widget class="QListWidget" name="bone_listBox">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>190</y>
+         <width>151</width>
+         <height>111</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="textElideMode">
+        <enum>Qt::ElideNone</enum>
+       </property>
+       <property name="+selectCommand" stdset="0">
+        <string>boneListSelectedCmd</string>
+       </property>
+      </widget>
+      <widget class="QListWidget" name="value_listBox">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>190</y>
+         <width>31</width>
+         <height>111</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="textElideMode">
+        <enum>Qt::ElideNone</enum>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="syncBone_checkBox">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>224</x>
+         <y>290</y>
+         <width>45</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;Sync up bone selection in viewport&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;Note: will block undo&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>Sync</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+       <property name="autoRepeat">
+        <bool>false</bool>
+       </property>
+       <property name="tristate">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="weightRange_groupBox">
+       <property name="geometry">
+        <rect>
+         <x>222</x>
+         <y>226</y>
+         <width>51</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;scale bone influence on select vertexs by rate&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="title">
+        <string>Scale</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+       <widget class="QLabel" name="rangeStep_label">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>100</y>
+          <width>31</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Step of shrink or extend&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Step</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="rangeStep_lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>100</y>
+          <width>21</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
+        <property name="inputMask">
+         <string>0; </string>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+        <property name="maxLength">
+         <number>1</number>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Normal</enum>
+        </property>
+        <property name="cursorPosition">
+         <number>1</number>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="rangeShr_button">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>38</y>
+          <width>31</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>V</string>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
+        <property name="default">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+        <property name="+command" stdset="0">
+         <string>rangeShrCmd</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="rangeExt_button">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>16</y>
+          <width>31</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Λ</string>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
+        <property name="default">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+        <property name="+command" stdset="0">
+         <string>rangeExtCmd</string>
+        </property>
+       </widget>
+      </widget>
+      <zorder>weightRange_groupBox</zorder>
+      <zorder>w1_button</zorder>
+      <zorder>copyWeight_button</zorder>
+      <zorder>plusWeight_button</zorder>
+      <zorder>setWeight_button</zorder>
+      <zorder>w025_button</zorder>
+      <zorder>shrink_button</zorder>
+      <zorder>grow_button</zorder>
+      <zorder>pasteWeight_button</zorder>
+      <zorder>w01_button</zorder>
+      <zorder>w05_button</zorder>
+      <zorder>ring_button</zorder>
+      <zorder>minusWeight_button</zorder>
+      <zorder>w09_button</zorder>
+      <zorder>w075_button</zorder>
+      <zorder>setWeight_lineEdit</zorder>
+      <zorder>w0_button</zorder>
+      <zorder>vertsText_label</zorder>
+      <zorder>vertsNum_label</zorder>
+      <zorder>removeBone_button</zorder>
+      <zorder>addBone_button</zorder>
+      <zorder>paintVertex_checkBox</zorder>
+      <zorder>element_button</zorder>
+      <zorder>wave_button</zorder>
+      <zorder>relax_button</zorder>
+      <zorder>weight_scrollArea</zorder>
+      <zorder>bone_listBox</zorder>
+      <zorder>value_listBox</zorder>
+      <zorder>syncBone_checkBox</zorder>
+     </widget>
+     <widget class="QCheckBox" name="weightOn_checkBox">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>10</y>
+        <width>81</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>On/Off</string>
+      </property>
+      <property name="+onCommand" stdset="0">
+       <string>weightToolOnCmd</string>
+      </property>
+      <property name="+offCommand" stdset="0">
+       <string>weightToolOffCmd</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="vertexSize_button">
+      <property name="geometry">
+       <rect>
+        <x>-400</x>
+        <y>40</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Vertex Size</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+      <property name="+command" stdset="0">
+       <string>vertexSizeCmd</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="transferWeight_button">
+      <property name="geometry">
+       <rect>
+        <x>-400</x>
+        <y>260</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Transfer Wright</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+      <property name="+command" stdset="0">
+       <string>transferWeightCmd</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="rename_tab">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <attribute name="icon">
+      <iconset>
+       <normaloff>icons/rename.png</normaloff>icons/rename.png</iconset>
+     </attribute>
+     <attribute name="title">
+      <string>Rename</string>
+     </attribute>
+     <widget class="QPushButton" name="renameMake_Button">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>277</y>
+        <width>141</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Good Luck!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>Rename</string>
+      </property>
+      <property name="+command" stdset="0">
+       <string>renameMakeCmd</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="renameReplace_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>-10</y>
+        <width>341</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>32</y>
+         <width>61</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Search for:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="renameSearch_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>32</y>
+         <width>271</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="renameReplace_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>58</y>
+         <width>261</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>60</y>
+         <width>71</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string>Replace with:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="renameCase_checkBox">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>80</y>
+         <width>91</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Case sensitive</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="renameAdd_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>94</y>
+        <width>361</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+      <widget class="QLineEdit" name="renamePerfix_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>10</y>
+         <width>261</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="frame">
+        <bool>true</bool>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>10</y>
+         <width>31</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Add:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>308</x>
+         <y>40</y>
+         <width>31</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>letter</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="renamePrefix_radioButton">
+       <property name="geometry">
+        <rect>
+         <x>52</x>
+         <y>40</y>
+         <width>51</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Prefix</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup_3</string>
+       </attribute>
+      </widget>
+      <widget class="QRadioButton" name="renameSuffix_radioButton">
+       <property name="geometry">
+        <rect>
+         <x>112</x>
+         <y>40</y>
+         <width>51</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Suffix</string>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup_3</string>
+       </attribute>
+      </widget>
+      <widget class="QRadioButton" name="renameStart_radioButton">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>40</y>
+         <width>111</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Starting from the</string>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup_3</string>
+       </attribute>
+      </widget>
+      <widget class="QLineEdit" name="renameStart_lineEdit">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>277</x>
+         <y>39</y>
+         <width>21</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string>99; </string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameStartChangeCmd</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="renameStart_label">
+       <property name="geometry">
+        <rect>
+         <x>288</x>
+         <y>40</y>
+         <width>20</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>st</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QRadioButton" name="renameHierarchy_radioButton">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>280</y>
+        <width>82</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Hierarchy</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+      <property name="+changeCommand" stdset="0">
+       <string>renameUpdatePreviewCmd</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="renameSelected_radioButton">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>280</y>
+        <width>82</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Selected</string>
+      </property>
+      <property name="+changeCommand" stdset="0">
+       <string>renameUpdatePreviewCmd</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="renameAll_radioButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>430</y>
+        <width>111</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>All Scene Objects</string>
+      </property>
+      <property name="+changeCommand" stdset="0">
+       <string>renameUpdatePreviewCmd</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup</string>
+      </attribute>
+     </widget>
+     <widget class="QGroupBox" name="renameTemplate_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>160</y>
+        <width>361</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Use Template</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <widget class="QLineEdit" name="renameTemplate_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>20</y>
+         <width>261</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Bone_#</string>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>51</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Template:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_13">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>49</y>
+         <width>61</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Order(#):</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="renameLetter_checkBox">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>51</y>
+         <width>71</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Use Letter</string>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="renameOrderNumber_groupBox">
+       <property name="geometry">
+        <rect>
+         <x>82</x>
+         <y>6</y>
+         <width>171</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="title">
+        <string/>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+       <widget class="QLabel" name="label_10">
+        <property name="geometry">
+         <rect>
+          <x>97</x>
+          <y>44</y>
+          <width>31</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Step</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="renameOrderStart_lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>56</x>
+          <y>43</y>
+          <width>21</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="inputMask">
+         <string>00; </string>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+        <property name="+changeCommand" stdset="0">
+         <string>renameUpdatePreviewCmd</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="renameOrderStep_lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>136</x>
+          <y>43</y>
+          <width>21</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="inputMask">
+         <string>0; </string>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+        <property name="+changeCommand" stdset="0">
+         <string>renameUpdatePreviewCmd</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QLineEdit" name="renameOrderLetter_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>138</x>
+         <y>49</y>
+         <width>21</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string>A; </string>
+       </property>
+       <property name="text">
+        <string>A</string>
+       </property>
+       <property name="maxLength">
+        <number>1</number>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="renameUpcase_checkBox">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>51</y>
+         <width>81</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Uppercase</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <property name="tristate">
+        <bool>false</bool>
+       </property>
+       <property name="+changeCommand" stdset="0">
+        <string>renameUpdatePreviewCmd</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>50</y>
+         <width>41</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Start as</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <zorder>renameOrderNumber_groupBox</zorder>
+      <zorder>renameTemplate_lineEdit</zorder>
+      <zorder>label_12</zorder>
+      <zorder>label_13</zorder>
+      <zorder>renameLetter_checkBox</zorder>
+      <zorder>renameOrderLetter_lineEdit</zorder>
+      <zorder>renameUpcase_checkBox</zorder>
+      <zorder>label_9</zorder>
+     </widget>
+     <widget class="QGroupBox" name="renamePreview_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>230</y>
+        <width>341</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Preview last picked</string>
+      </property>
+      <widget class="QLineEdit" name="renamePreview_lineEdit">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>15</y>
+         <width>321</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QCheckBox" name="renameTemplate_checkBox">
+      <property name="geometry">
+       <rect>
+        <x>-90</x>
+        <y>290</y>
+        <width>70</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>CheckBox</string>
+      </property>
+      <property name="+changeCommand" stdset="0">
+       <string>renameUpdatePreview</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Lod_tab">
+     <attribute name="icon">
+      <iconset>
+       <normaloff>icons/reduce.png</normaloff>icons/reduce.png</iconset>
+     </attribute>
+     <attribute name="title">
+      <string>LoDs</string>
+     </attribute>
+     <attribute name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Copy skin weights and remove specific bone(s) from higher deatailed mesh to lower deatailed mesh.&lt;/p&gt;&lt;p&gt;Can also do self bone reducing.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </attribute>
+     <widget class="QGroupBox" name="lodMesh_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>6</y>
+        <width>351</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Pick Mesh</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>24</y>
+         <width>41</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Source:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lodSource_lineEdit">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>22</y>
+         <width>261</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The mesh will be use as Higher LoD mesh&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Pick Skined High Poly Mesh</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="lodSource_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>20</y>
+         <width>31</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>Pick</string>
+       </property>
+       <property name="text">
+        <string>&lt;-</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>lodSourceMeshButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="lodTarget_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>50</y>
+         <width>31</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>Pick</string>
+       </property>
+       <property name="text">
+        <string>&lt;-</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>lodTargetMeshButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lodTarget_lineEdit">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>51</x>
+         <y>52</y>
+         <width>261</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The mesh will be use as Lower LoD mesh&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If no mesh picked, will do bone reducing and skin weight merging for source mesh&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Pick Low Poly Mesh ( Optional, can be no skined )</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>54</y>
+         <width>41</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Target:</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="lodBone_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>85</y>
+        <width>351</width>
+        <height>191</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Reduce Bone</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+      <widget class="QListWidget" name="lodSourceBone_listBox">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>141</width>
+         <height>161</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The bones list here will be removed&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Sunken</enum>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAsNeeded</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="autoScroll">
+        <bool>true</bool>
+       </property>
+       <property name="showDropIndicator" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="selectionMode">
+        <enum>QAbstractItemView::ExtendedSelection</enum>
+       </property>
+       <property name="textElideMode">
+        <enum>Qt::ElideNone</enum>
+       </property>
+       <property name="movement">
+        <enum>QListView::Static</enum>
+       </property>
+       <property name="flow">
+        <enum>QListView::TopToBottom</enum>
+       </property>
+       <property name="layoutMode">
+        <enum>QListView::SinglePass</enum>
+       </property>
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="viewMode">
+        <enum>QListView::ListMode</enum>
+       </property>
+       <property name="wordWrap">
+        <bool>false</bool>
+       </property>
+       <property name="currentRow">
+        <number>-1</number>
+       </property>
+       <property name="sortingEnabled">
+        <bool>false</bool>
+       </property>
+       <property name="+selectCommand" stdset="0">
+        <string>lodBoneListSelectedCmd</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Pick Bone(s) and Add</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QListWidget" name="lodTargetBone_listBox">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>20</y>
+         <width>121</width>
+         <height>161</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The bone list here will receive the skin weight after the bone in left raw be reduced&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="autoScroll">
+        <bool>true</bool>
+       </property>
+       <property name="showDropIndicator" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="selectionMode">
+        <enum>QAbstractItemView::ExtendedSelection</enum>
+       </property>
+       <property name="textElideMode">
+        <enum>Qt::ElideNone</enum>
+       </property>
+       <property name="movement">
+        <enum>QListView::Static</enum>
+       </property>
+       <property name="flow">
+        <enum>QListView::TopToBottom</enum>
+       </property>
+       <property name="layoutMode">
+        <enum>QListView::SinglePass</enum>
+       </property>
+       <property name="viewMode">
+        <enum>QListView::ListMode</enum>
+       </property>
+       <property name="wordWrap">
+        <bool>false</bool>
+       </property>
+       <property name="currentRow">
+        <number>-1</number>
+       </property>
+       <property name="sortingEnabled">
+        <bool>false</bool>
+       </property>
+       <property name="+selectCommand" stdset="0">
+        <string>boneListSelectedCmd</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Weight Receiver</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QPushButton" name="lodAdd_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>20</y>
+         <width>31</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add picked bones in scene into left list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>lodAddButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="lodRemove_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>20</y>
+         <width>31</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove selected bones from left list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>lodRemoveButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="lodSave_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>120</y>
+         <width>71</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save out bone list as a &amp;quot;*.lbl&amp;quot; file&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Save List</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>lodSaveButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="lodLoad_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>150</y>
+         <width>71</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;load &amp;quot;*.lbl&amp;quot; file as bone list, will clear the exist items&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Load List</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>lodLoadButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="lodClear_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>90</y>
+         <width>71</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Clear bone list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Clear</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>lodClearButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="lodRefresh_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>50</y>
+         <width>71</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add all bone you want to remove first and then adjust receiver weight bone if you need to&lt;/p&gt;&lt;p&gt;Add bone action will reset receive bone's setting&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Update
+Receiver</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>lodRefreshButtonCmd</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="lodMake_Button">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>277</y>
+        <width>141</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Good Luck!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>Make It!</string>
+      </property>
+      <property name="+command" stdset="0">
+       <string>lodMakeButtonCmd</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="lodDeleteShader_checkBox">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>290</y>
+        <width>101</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>By click on, will clear unused shader in scene after process</string>
+      </property>
+      <property name="text">
+       <string>Clear Shader</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="lodDeleteBase_checkBox">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>272</y>
+        <width>111</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>By click on, will delete source mesh after process</string>
+      </property>
+      <property name="text">
+       <string>Delete Source</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="lodDeleteBone_checkBox">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>290</y>
+        <width>91</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove listed bone after processed skin weight transfer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>Remove Bone</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="lodBatch_checkBox">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>272</y>
+        <width>61</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;By click on, process all selected mesh, ignore &amp;quot;Source&amp;quot; setting&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>Batch</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="misc_tab">
+     <attribute name="icon">
+      <iconset>
+       <normaloff>icons/MiscTools.png</normaloff>icons/MiscTools.png</iconset>
+     </attribute>
+     <attribute name="title">
+      <string>Misc </string>
+     </attribute>
+     <widget class="QPushButton" name="misc_runButton">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>76</y>
+        <width>111</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;remove unknow nodes in sence, usually work for when you get error to save file as *.ma&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>Unknow Nodes</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/cMuscle_misc_help.png</normaloff>icons/cMuscle_misc_help.png</iconset>
+      </property>
+      <property name="+command" stdset="0">
+       <string>removeUnknowNodeButtonCmd</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="misc_runButton_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>76</y>
+        <width>71</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;Clean up select mesh:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;reset transform, remove no deform histroy, check UV set number and soft edge recommand do this for mesh before skin work&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>Mesh</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/hsClearView.png</normaloff>icons/hsClearView.png</iconset>
+      </property>
+      <property name="+command" stdset="0">
+       <string>meshCleanUpButtonCmd</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="misc_runButton_4">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>20</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:600;&quot;&gt;1 bone + 1 unskined mesh:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;bind mesh to whole hierarchy of the bone chain, remove small weights and do normalize&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-weight:600;&quot;&gt;1 bone + 1 unskined mesh + 1 skined mesh:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;bind unskined mesh to the bone which influnced on skined mesh, copy skin weights from source skined mesh to target skined mesh, remove small weights, remove unused bones from skin and do normalize&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>Bind Skin+</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/moveSkinnedJoint.png</normaloff>icons/moveSkinnedJoint.png</iconset>
+      </property>
+      <property name="+command" stdset="0">
+       <string>bindSkinPlusButtonCmd</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="deformer_groupBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>420</y>
+        <width>341</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Bake Deformer</string>
+      </property>
+      <widget class="QLineEdit" name="deformerStart_lineEdit">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>22</y>
+         <width>41</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="deformerEnd_lineEdit">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>22</y>
+         <width>41</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string>30</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_14">
+       <property name="geometry">
+        <rect>
+         <x>183</x>
+         <y>24</y>
+         <width>21</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>To</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="deformerWeb_button">
+       <property name="geometry">
+        <rect>
+         <x>84</x>
+         <y>-4</y>
+         <width>21</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Author</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icons/info.png</normaloff>icons/info.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>16</width>
+         <height>16</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+       <property name="+command" stdset="0">
+        <string>deformerWebCmd</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="deformerActive_radioButton">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>23</y>
+         <width>61</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Active</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup_5</string>
+       </attribute>
+      </widget>
+      <widget class="QRadioButton" name="deformerFrom_radioButton">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>23</y>
+         <width>51</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>From</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup_5</string>
+       </attribute>
+      </widget>
+      <widget class="QPushButton" name="deformerOK_button">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>20</y>
+         <width>71</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bake deformer as mesh&lt;/p&gt;&lt;p&gt;Use for vertex animation&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Bake</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>deformerOKCmd</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="pushButton_5">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>11</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="toolTip">
+       <string>Creat Shelf Button</string>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/Shelf.png</normaloff>icons/Shelf.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>41</width>
+        <height>41</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+      <property name="+command" stdset="0">
+       <string>goShelfCmd</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="scale_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>101</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string> Scale Joint </string>
+      </property>
+      <widget class="QPushButton" name="scaleButton">
+       <property name="geometry">
+        <rect>
+         <x>54</x>
+         <y>14</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;Scale selected joints with changing transform value, keep scale value. Use for re-match skeleton size for new mesh changing.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Scale</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>scaleJointButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="scale_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>7</x>
+         <y>15</y>
+         <width>41</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>1.0</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>55</y>
+        <width>341</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string> Clean Up </string>
+      </property>
+      <widget class="QPushButton" name="misc_runButton_5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>60</y>
+         <width>111</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Clear out NO weight bone in selected skin mesh&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>No Weight Bone</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icons/removeInf.png</normaloff>icons/removeInf.png</iconset>
+       </property>
+       <property name="+command" stdset="0">
+        <string>meshCleanWeightlessBoneCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="misc_runButton_6">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>21</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Remove all custom attributes of selected objects&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Custom Attrs</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icons/cleanAttr.png</normaloff>icons/cleanAttr.png</iconset>
+       </property>
+       <property name="+command" stdset="0">
+        <string>cleanAttrButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="misc_runButton_7">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>60</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Clear out NO weight bone in selected skin mesh&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Del Non-Skin</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icons/delNonSkinHistory.png</normaloff>icons/delNonSkinHistory.png</iconset>
+       </property>
+       <property name="+command" stdset="0">
+        <string>meshDelNonSkinHistoryCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="misc_runButton_8">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>60</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;Create weight map to show each skined bone weight area on select mesh&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Weight Map</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icons/color.png</normaloff>icons/color.png</iconset>
+       </property>
+       <property name="+command" stdset="0">
+        <string>buildWeightMapCmd</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="bsTrans_group">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>205</y>
+        <width>341</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Transfer blendshape deformer from source to target through wraper deformer&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="title">
+       <string>Morph Wraper</string>
+      </property>
+      <widget class="QPushButton" name="bsTransLoadSrc_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>71</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Load source mesh which has blendshape node&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Load Source</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>bsTransLoadSrcButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="bsTransLoadTgt_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>71</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;load target mesh that blendshape will transfer to&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Load Target</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>bsTransLoadTgtButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="bsTransDo_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>70</y>
+         <width>71</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;Scale selected joints with changing transform value, keep scale value. Use for re-match skeleton size for new mesh changing.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Apply</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>bsTransDoButtonCmd</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>45</y>
+         <width>71</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;blendshape node list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Blend Shape:</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="bsTransSrcBs_List">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>45</y>
+         <width>141</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QComboBox::AdjustToMinimumContentsLength</enum>
+       </property>
+       <property name="frame">
+        <bool>false</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>None</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLineEdit" name="bsTransSrcMesh_lineEdit">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>20</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The mesh will be use as Higher LoD mesh&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>None</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="bsTransTgtMesh_lineEdit">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>70</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The mesh will be use as Higher LoD mesh&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>None</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="bsTransCopySkin_checkBox">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>-70</y>
+         <width>71</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Copy skin weight as well after transfered blend shape&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Copy Skin</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="bsTransSkinWeight_groupBox">
+       <property name="geometry">
+        <rect>
+         <x>239</x>
+         <y>10</y>
+         <width>91</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Apply Skin</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <widget class="QRadioButton" name="bsTransTargetSkin_radioButton">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>30</y>
+          <width>82</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Target</string>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">buttonGroup_4</string>
+        </attribute>
+       </widget>
+       <widget class="QRadioButton" name="bsTransSourceSkin_radioButton">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>14</y>
+          <width>82</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Source</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">buttonGroup_4</string>
+        </attribute>
+       </widget>
+      </widget>
+      <zorder>bsTransSkinWeight_groupBox</zorder>
+      <zorder>bsTransLoadSrc_pushButton</zorder>
+      <zorder>bsTransLoadTgt_pushButton</zorder>
+      <zorder>bsTransDo_pushButton</zorder>
+      <zorder>label_8</zorder>
+      <zorder>bsTransSrcBs_List</zorder>
+      <zorder>bsTransSrcMesh_lineEdit</zorder>
+      <zorder>bsTransTgtMesh_lineEdit</zorder>
+      <zorder>bsTransCopySkin_checkBox</zorder>
+     </widget>
+     <widget class="QGroupBox" name="boneLabel_group">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>150</y>
+        <width>341</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;add bone label to all selected bones, for better mirror skin weight result&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="title">
+       <string>Bone Label</string>
+      </property>
+      <widget class="QLineEdit" name="boneLabelPrefixCount_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>20</y>
+         <width>21</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="inputMask">
+        <string>0; </string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="maxLength">
+        <number>1</number>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Normal</enum>
+       </property>
+       <property name="cursorPosition">
+        <number>1</number>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="boneLabelPrefixCount_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>22</y>
+         <width>61</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;define how many prefix word in bone name if split with &amp;quot;_&amp;quot;&lt;/p&gt;&lt;p&gt;i.e.&lt;/p&gt;&lt;p&gt;b_LeftArm = 1&lt;/p&gt;&lt;p&gt;b_human_LeftArm = 2&lt;/p&gt;&lt;p&gt;LeftArm = 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Prefix No.</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="boneLabelLeftKey_label">
+       <property name="geometry">
+        <rect>
+         <x>104</x>
+         <y>22</y>
+         <width>31</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;keyword of left side&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>L-Key</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="boneLabelLeftKey_lineEdit">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>20</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="text">
+        <string>Left</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="boneLabelRightKey_lineEdit">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>20</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="text">
+        <string>Right</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="boneLabelRightKey_label">
+       <property name="geometry">
+        <rect>
+         <x>194</x>
+         <y>22</y>
+         <width>31</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;keyword of right side&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>R-Key</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="boneLabelDo_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>20</y>
+         <width>51</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;Scale selected joints with changing transform value, keep scale value. Use for re-match skeleton size for new mesh changing.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>ADD</string>
+       </property>
+       <property name="+command" stdset="0">
+        <string>boneLabelDoButtonCmd</string>
+       </property>
+      </widget>
+     </widget>
+     <zorder>groupBox_3</zorder>
+     <zorder>misc_runButton</zorder>
+     <zorder>misc_runButton_3</zorder>
+     <zorder>misc_runButton_4</zorder>
+     <zorder>deformer_groupBox</zorder>
+     <zorder>pushButton_5</zorder>
+     <zorder>scale_groupBox</zorder>
+     <zorder>bsTrans_group</zorder>
+     <zorder>boneLabel_group</zorder>
+    </widget>
+   </widget>
+   <widget class="QTextEdit" name="main_textEdit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>410</y>
+      <width>345</width>
+      <height>200</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>200</horstretch>
+      <verstretch>200</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>345</width>
+      <height>40</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>345</width>
+      <height>200</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt;&quot;&gt;Created by Bai Yanbin&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="main_progressBar">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>375</y>
+      <width>361</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Consolas</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="textVisible">
+     <bool>true</bool>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+    <property name="invertedAppearance">
+     <bool>false</bool>
+    </property>
+    <property name="textDirection">
+     <enum>QProgressBar::TopToBottom</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="main_processLable">
+    <property name="geometry">
+     <rect>
+      <x>13</x>
+      <y>353</y>
+      <width>231</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string notr="true"/>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::PlainText</enum>
+    </property>
+    <property name="textInteractionFlags">
+     <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="link_pushButton">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>342</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <underline>false</underline>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="toolTip">
+     <string>Author Profile</string>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/linkedin.png</normaloff>icons/linkedin.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+    <property name="+command" stdset="0">
+     <string>linkinCmd</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="miscUpdate_pushButton">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>342</y>
+      <width>31</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="toolTip">
+     <string>New Version Available!</string>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>C:/Users/yanbin.bai.TORNBANNER/.designer/backup/icons/update.png</normaloff>C:/Users/yanbin.bai.TORNBANNER/.designer/backup/icons/update.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeat">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+    <property name="+command" stdset="0">
+     <string>updatePageCmd</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="vimeo_pushButton">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>342</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <underline>false</underline>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="toolTip">
+     <string>Tutorials on YouTube</string>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/youtube.png</normaloff>icons/youtube.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+    <property name="+command" stdset="0">
+     <string>youtubeCmd</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bilibili_pushButton">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>340</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <underline>false</underline>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="toolTip">
+     <string>Tutorials on bilibili</string>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/bilibili.png</normaloff>icons/bilibili.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+    <property name="+command" stdset="0">
+     <string>bilibiliCmd</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="language_button">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>342</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <underline>false</underline>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="toolTip">
+     <string>Set Language</string>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/language.png</normaloff>icons/language.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+    <property name="+command" stdset="0">
+     <string>languageCmd</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="main_lang_id">
+    <property name="geometry">
+     <rect>
+      <x>-100</x>
+      <y>340</y>
+      <width>21</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string notr="true">eng</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="language_list">
+    <property name="geometry">
+     <rect>
+      <x>307</x>
+      <y>235</y>
+      <width>36</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <kerning>false</kerning>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <property name="lineWidth">
+     <number>0</number>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="flow">
+     <enum>QListView::LeftToRight</enum>
+    </property>
+    <property name="gridSize">
+     <size>
+      <width>36</width>
+      <height>36</height>
+     </size>
+    </property>
+    <property name="viewMode">
+     <enum>QListView::IconMode</enum>
+    </property>
+    <property name="+selectCommand" stdset="0">
+     <string>languageSelectedCmd</string>
+    </property>
+    <item>
+     <property name="text">
+      <string notr="true"/>
+     </property>
+     <property name="toolTip">
+      <string>简体中文</string>
+     </property>
+     <property name="textAlignment">
+      <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>icons/China Flag.png</normaloff>icons/China Flag.png</iconset>
+     </property>
+     <property name="flags">
+      <set>ItemIsSelectable|ItemIsEnabled</set>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string notr="true"/>
+     </property>
+     <property name="toolTip">
+      <string>English</string>
+     </property>
+     <property name="textAlignment">
+      <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>icons/english.png</normaloff>icons/english.png</iconset>
+     </property>
+     <property name="flags">
+      <set>ItemIsSelectable|ItemIsEnabled</set>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string notr="true"/>
+     </property>
+     <property name="textAlignment">
+      <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>icons/japanese.png</normaloff>icons/japanese.png</iconset>
+     </property>
+     <property name="flags">
+      <set>ItemIsSelectable|ItemIsEnabled</set>
+     </property>
+    </item>
+   </widget>
+   <zorder>main_processLable</zorder>
+   <zorder>link_pushButton</zorder>
+   <zorder>main_tab</zorder>
+   <zorder>main_textEdit</zorder>
+   <zorder>main_progressBar</zorder>
+   <zorder>miscUpdate_pushButton</zorder>
+   <zorder>vimeo_pushButton</zorder>
+   <zorder>bilibili_pushButton</zorder>
+   <zorder>language_button</zorder>
+   <zorder>main_lang_id</zorder>
+   <zorder>language_list</zorder>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <action name="main_actionReset">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Reset</string>
+   </property>
+   <property name="+menuItemCommand" stdset="0">
+    <string>testCmd</string>
+   </property>
+  </action>
+  <action name="main_actionAbout">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>About...</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::AboutRole</enum>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>main_tab</tabstop>
+  <tabstop>main_textEdit</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>renameTemplate_groupBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>renameAdd_groupBox</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>39</x>
+     <y>209</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>40</x>
+     <y>144</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>renameTemplate_groupBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>renameReplace_groupBox</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>19</x>
+     <y>249</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>72</x>
+     <y>62</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>renameLetter_checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>renameOrderNumber_groupBox</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>300</x>
+     <y>252</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>211</x>
+     <y>254</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>renameStart_radioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>renameStart_lineEdit</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>185</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>291</x>
+     <y>177</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>renameLetter_checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>renameOrderLetter_lineEdit</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>325</x>
+     <y>252</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>155</x>
+     <y>253</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>renameLetter_checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>renameUpcase_checkBox</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>342</x>
+     <y>252</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>237</x>
+     <y>252</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>renameTemplate_groupBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>renameTemplate_checkBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>247</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-70</x>
+     <y>331</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>renameTemplate_groupBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>renameAll_radioButton</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>347</x>
+     <y>235</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>101</x>
+     <y>471</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>renameTemplate_groupBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>renameHierarchy_radioButton</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>332</x>
+     <y>223</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>61</x>
+     <y>321</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>deformerActive_radioButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>deformerStart_lineEdit</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>82</x>
+     <y>209</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>175</x>
+     <y>211</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>deformerActive_radioButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>deformerEnd_lineEdit</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>72</x>
+     <y>209</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>248</x>
+     <y>211</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>deformerFrom_radioButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>deformerStart_lineEdit</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>130</x>
+     <y>209</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>187</x>
+     <y>211</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>deformerFrom_radioButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>deformerEnd_lineEdit</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>137</x>
+     <y>209</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>248</x>
+     <y>211</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>swapMerge_checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>swap_button</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>290</x>
+     <y>346</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>310</x>
+     <y>304</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>swapMerge_checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>swapMerge_button</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>284</x>
+     <y>346</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>304</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>bsTransSkinWeight_groupBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>bsTransSourceSkin_radioButton</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>280</x>
+     <y>243</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>278</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>bsTransSkinWeight_groupBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>bsTransTargetSkin_radioButton</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>266</x>
+     <y>247</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>344</x>
+     <y>277</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <buttongroups>
+  <buttongroup name="buttonGroup_2"/>
+  <buttongroup name="buttonGroup_3"/>
+  <buttongroup name="buttonGroup_4"/>
+  <buttongroup name="buttonGroup_5"/>
+  <buttongroup name="buttonGroup"/>
+ </buttongroups>
+</ui>

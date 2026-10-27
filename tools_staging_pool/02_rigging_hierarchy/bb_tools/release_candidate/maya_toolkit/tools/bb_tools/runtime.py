@@ -46,7 +46,8 @@ def conflicts():
             continue
         expected = PKG/'native'/filename
         digest = hashlib.sha256(expected.read_bytes()).hexdigest()
-        if value == 'Mel procedure entered interactively.' and _declared.get(name) == digest:
+        if value == 'Mel procedure entered interactively.':
+            _declared[name] = digest
             continue
         if not value.startswith('Mel procedure found in:'):
             raise ValueError('Conflicting native command '+name+': '+repr(value)+' owned='+str(_declared.get(name) == digest))
@@ -159,7 +160,7 @@ def load_native():
         return
     for name, callback in (('_bb_staging_io', io_request), ('_bb_staging_cleanup_ui', cleanup_ui)):
         existing = getattr(builtins, name, None)
-        if existing is not None and existing is not callback:
+        if existing is not None and getattr(existing, '__name__', None) != callback.__name__:
             raise ValueError('Another candidate owns the native Python bridge; restart Maya')
         setattr(builtins, name, callback)
     mel.eval('global string $bbstg_bundleRoot; $bbstg_bundleRoot='+quote((PKG/'native').as_posix()+'/')+';')

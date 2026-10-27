@@ -1,0 +1,10 @@
+global proc bbstg_bb_masterCreate()
+{
+    createNode "transform" -n "master";
+    createNode "transform" -n "MOD";
+    createNode "transform" -n "All_mod_grp";
+
+    parent "MOD" "master";
+    parent "All_mod_grp" "MOD" ;
+}
+// Candidate: explicit native UI entry only.

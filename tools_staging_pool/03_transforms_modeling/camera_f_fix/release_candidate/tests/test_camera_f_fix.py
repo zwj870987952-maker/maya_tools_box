@@ -1,8 +1,16 @@
 import hashlib
 import json
+import os
 from pathlib import Path
 import runpy
+import sys
 import unittest
+from unittest.mock import MagicMock
+
+if 'maya' not in sys.executable.lower():
+    for mod in ['maya', 'maya.cmds', 'maya.mel', 'maya.api', 'maya.api.OpenMaya']:
+        sys.modules.setdefault(mod, MagicMock())
+
 RC=Path(__file__).resolve().parents[1]
 if (RC/'launch_candidate.py').is_file():
     TOOL=runpy.run_path(str(RC/'launch_candidate.py'))['load_tool']()

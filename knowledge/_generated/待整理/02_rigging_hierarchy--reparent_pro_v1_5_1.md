@@ -13,7 +13,7 @@ api_ready: false
 
 - 分类：[[knowledge/_generated/待整理分类/02_rigging_hierarchy|02_rigging_hierarchy]]
 - 源目录：02_rigging_hierarchy/reparent_pro_v1_5_1
-- 代码文件：11 个，约 185.6 KiB
+- 代码文件：11 个，约 186.2 KiB
 - 原清单登记：否，尚需核对名称与描述
 - 主入口：[查看源码](../../../tools_staging_pool/02_rigging_hierarchy/reparent_pro_v1_5_1/release_candidate/launch_candidate.py)
 
